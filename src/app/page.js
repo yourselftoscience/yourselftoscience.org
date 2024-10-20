@@ -6,8 +6,10 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ResourceTable from '../components/ResourceTable';
 
+// Move words outside the component
+const words = ['self', 'Data', 'Genome', 'Body', 'Tissues'];
+
 export default function Home() {
-  const words = ['self', 'Data', 'Genome', 'Body', 'Tissues'];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [hasMounted, setHasMounted] = useState(false);
 
@@ -22,7 +24,7 @@ export default function Home() {
     }, 4000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, []); // Empty dependency array
 
   const currentWord = words[currentWordIndex];
   const isSelf = currentWord === 'self';
