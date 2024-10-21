@@ -5,6 +5,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ResourceTable from '../components/ResourceTable';
+import Footer from '../components/Footer'; // Import Footer
 
 // Move words outside the component
 const words = ['self', 'Data', 'Genome', 'Body', 'Tissues'];
@@ -30,7 +31,7 @@ export default function Home() {
   const isSelf = currentWord === 'self';
 
   return (
-    <div className="bg-black min-h-screen text-white">
+    <div className="bg-black min-h-screen text-white flex flex-col">
       {/* Header Section */}
       <div className="container mx-auto text-center pt-10">
         <h1 className="text-4xl font-extrabold">
@@ -61,9 +62,12 @@ export default function Home() {
       </div>
 
       {/* Resource Table Section */}
-      <div className="container mx-auto mt-10">
+      <div className="container mx-auto mt-10 flex-grow">
         <ResourceTable />
       </div>
+
+      {/* Footer Section */}
+      <Footer /> {/* Add Footer here */}
     </div>
   );
 }
