@@ -75,6 +75,72 @@ export const resources = [
     dataTypes: ['Eggs', 'Embryos', 'Sperm'],
     countries: ['United Kingdom'],
     countryCodes: ['GB'],
+  },
+  {
+    title: 'ClinicalTrials.org',
+    link: 'https://clinicaltrials.gov/',
+    dataTypes: ['Clinical trials'],
+  },
+  {
+    title: 'International Clinical Trials Registry Platform (ICTRP)',
+    link: 'https://trialsearch.who.int/',
+    dataTypes: ['Clinical trials'],
+  },
+  {
+    title: 'ClinicalTrials.eu',
+    link: 'https://clinicaltrials.eu/',
+    dataTypes: ['Clinical trials'],
+    countries: ['European Union'],
+    countryCodes: ['EU']
+  },
+  {
+    title: 'Essais Cliniques',
+    link: 'https://essaiscliniques.fr/',
+    dataTypes: ['Clinical trials'],
+    countries: ['France'],
+    countryCodes: ['FR']
+  },
+  {
+    title: 'Studi Clinici',
+    link: 'https://studi.clinici.it/',
+    dataTypes: ['Clinical trials'],
+    countries: ['Italy'],
+    countryCodes: ['IT']
+  },
+  {
+    title: 'Klinische Studien',
+    link: 'https://klinischestudien.de/',
+    dataTypes: ['Clinical trials'],
+    countries: ['Germany'],
+    countryCodes: ['DE']
+  },
+  {
+    title: 'Ensayos Clinicos',
+    link: 'https://ensayosclinicos.es/',
+    dataTypes: ['Clinical trials'],
+    countries: ['Spain'],
+    countryCodes: ['ES']
+  },
+  {
+    title: 'Klinische Studien',
+    link: 'https://klinischestudien.at/',
+    dataTypes: ['Clinical trials'],
+    countries: ['Austria'],
+    countryCodes: ['AT']
+  },
+  {
+    title: 'Badania Kliniczne',
+    link: 'https://badaniakliniczne.pl/',
+    dataTypes: ['Clinical trials'],
+    countries: ['Poland'],
+    countryCodes: ['PL']
+  },
+  {
+    title: 'Studii Clinice',
+    link: 'https://studii.clinice.ro/',
+    dataTypes: ['Clinical trials'],
+    countries: ['Romania'],
+    countryCodes: ['RO']
   }
   // Add more resources as needed
 ];
