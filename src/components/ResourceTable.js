@@ -2,7 +2,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactCountryFlag from 'react-country-flag';
 import { resources } from '../data/resources';
 import Select, { components } from 'react-select';
@@ -26,7 +26,10 @@ export default function ResourceTable() {
   // Dynamic data type options
   const dataTypeOptions = Array.from(
     new Set(resources.flatMap((resource) => resource.dataTypes))
-  ).map((dataType) => ({ label: dataType, value: dataType }));
+  )
+    .sort((a, b) => a.localeCompare(b))
+    .map((dataType) => ({ label: dataType, value: dataType }));
+
 
   // Dynamic country options
   const countryOptions = [];
@@ -387,34 +390,34 @@ export default function ResourceTable() {
 
                   {/* Data Type Column */}
                   <td className="py-2 px-4 border-b border-r border-gray-300 text-black align-top">
-                    {resource.dataTypes.join(', ')}
+                    {[...resource.dataTypes].sort((a, b) => a.localeCompare(b)).join(', ')}
                   </td>
+
 
                   {/* Only Available In Column */}
                   <td className="py-2 px-4 border-b border-r border-gray-300 text-black align-top">
                     {resource.countries ? (
-                      <div className="flex flex-wrap items-center justify-center space-x-4">
+                      <div className="grid grid-cols-2 gap-x-2">
                         {resource.countries.map((country, idx) => (
-                          <div key={idx} className="flex items-center">
-                            <span>{country}</span>
-                            {resource.countryCodes &&
-                              resource.countryCodes[idx] && (
+                          <React.Fragment key={idx}>
+                            <div>{country}</div>
+                            <div>
+                              {resource.countryCodes && resource.countryCodes[idx] && (
                                 <ReactCountryFlag
                                   countryCode={resource.countryCodes[idx]}
                                   svg
                                   style={{
                                     width: '1.5em',
                                     height: '1em',
-                                    marginLeft: '0.5em',
                                   }}
                                   title={country}
                                 />
                               )}
-                          </div>
+                            </div>
+                          </React.Fragment>
                         ))}
                       </div>
                     ) : (
-                      // Add a non-breaking space to maintain cell height
                       <span>&nbsp;</span>
                     )}
                   </td>
