@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   width="227"
+   width="232"
    height="232"
-   viewBox="0 0 227 232"
+   viewBox="0 0 232 232"
    fill="none"
    version="1.1"
    id="svg15"
@@ -14,11 +14,13 @@
   <title
      id="title15">'Yourself To Science' Logo</title>
   <g
-     id="Logo">
+     id="Logo"
+     transform="translate(2.9100055)">
     <path
        id="Circle"
-       d="m 226.064,116 c 0,64.065 -50.586,116 -112.987,116 C 50.6759,232 0.0899963,180.065 0.0899963,116 0.0899963,51.935 50.6759,0 113.077,0 175.478,0 226.064,51.935 226.064,116 Z"
-       fill="#ffffff" />
+       d="m 229.09,116 c 0,64.065 -51.93497,116 -116,116 C 49.024861,232 -2.9100055,180.065 -2.9100055,116 -2.9100055,51.935 49.024861,0 113.09,0 c 64.06503,0 116,51.935 116,116 z"
+       fill="#ffffff"
+       style="stroke-width:1.01325" />
     <g
        id="Inside">
       <g
@@ -250,6 +252,13 @@
   <metadata
      id="metadata15">
     <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
+        <dc:title>'Yourself To Science' Logo</dc:title>
+        <dc:relation>https://yourselftoscience.org/</dc:relation>
+      </cc:Work>
       <cc:License
          rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
         <cc:permits
@@ -265,13 +274,6 @@
         <cc:requires
            rdf:resource="http://creativecommons.org/ns#ShareAlike" />
       </cc:License>
-      <cc:Work
-         rdf:about="">
-        <cc:license
-           rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
-        <dc:title>'Yourself To Science' Logo</dc:title>
-        <dc:relation>https://yourselftoscience.org/</dc:relation>
-      </cc:Work>
     </rdf:RDF>
   </metadata>
 </svg>
