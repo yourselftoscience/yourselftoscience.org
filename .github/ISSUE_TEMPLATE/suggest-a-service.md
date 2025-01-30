@@ -1,9 +1,18 @@
 ---
+name: Suggest a service
+about: Suggest a new service to be added to the list
+title: 'Suggestion: New Service - [Service Title]'
+labels: suggest a service
+assignees: ''
+
+---
+
+---
 name: Suggest a Service
 about: Suggest a new service to be added to the list
 title: Suggestion: New Service - [Service Title]
-labels: [suggestion, service-suggestion] # Add labels as needed, you can create 'suggestion' and 'service-suggestion' labels in your repo if they don't exist
-assignees: your-github-username # Replace 'your-github-username' with your actual GitHub username, or leave empty to not assign automatically
+labels: suggest a service, service-suggestion, suggestion # Added 'suggest a service' as requested and kept 'service-suggestion' and 'suggestion' for better categorization
+assignees: # Leave empty if you don't want to assign automatically
 
 ---
 
