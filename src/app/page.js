@@ -31,10 +31,16 @@ export default function Home() {
   const isSelf = currentWord === 'self';
 
   return (
-    <div className="bg-black min-h-screen text-white flex flex-col">
-      {/* Header Section */}
-      <div className="container mx-auto text-center pt-10">
-        <h1 className="text-4xl font-extrabold">
+    <>
+      <div className="relative min-h-screen bg-black text-white">
+        <div className="absolute top-2 left-2 md:top-4 md:left-4">
+          <img
+            src="/Logo.svg"
+            alt="Yourself To Science Logo"
+            className="h-12 w-auto md:h-24"
+          />
+        </div>
+        <h1 className="text-4xl font-extrabold text-center">
           <span
             className="inline-flex items-center"
             style={{
@@ -59,15 +65,15 @@ export default function Home() {
           </span>{' '}
           To Science
         </h1>
-      </div>
 
-      {/* Resource Table Section */}
-      <div className="container mx-auto mt-10 flex-grow">
-        <ResourceTable />
-      </div>
+        {/* Resource Table Section */}
+        <div className="container mx-auto mt-10 flex-grow">
+          <ResourceTable />
+        </div>
 
-      {/* Footer Section */}
-      <Footer /> {/* Add Footer here */}
-    </div>
+        {/* Footer Section */}
+        <Footer /> {/* Add Footer here */}
+      </div>
+    </>
   );
 }
