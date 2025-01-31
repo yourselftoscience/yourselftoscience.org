@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Head from 'next/head';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -16,43 +15,40 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Yourself To Science",
-  description: "List of Services for Contribuiting to Science with Your Data, Genome, Body, and More",
+  description: "List of Services for Contributing to Science with Your Data, Genome, Body, and More",
   icons: {
     icon: '/Logo.svg', // SVG favicon
-    // Optional: Add PNG favicon for better compatibility
-    // icon: [
-    //   { url: '/favicon.ico', type: 'image/x-icon' },
-    //   { url: '/Logo.svg', type: 'image/svg+xml' },
-    // ],
+  },
+  openGraph: {
+    title: "Yourself To Science",
+    description: "List of Services for Contributing to Science with Your Data, Genome, Body, and More",
+    url: "https://yourselftoscience.org",
+    type: "website",
+    images: [
+      {
+        url: "https://yourselftoscience.org/preview.png",
+        width: 1200,
+        height: 1200,
+        alt: "Yourself To Science Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Yourself To Science",
+    description: "List of Services for Contributing to Science with Your Data, Genome, Body, and More",
+    images: ["https://yourselftoscience.org/preview.png"],
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <Head>
-        <meta property="og:title" content="Yourself To Science" />
-        <meta property="og:description" content="Yourself To Science" />
-        <meta property="og:image" content="https://yourselftoscience.org/preview.png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="1200" />
-        <meta property="og:image:alt" content="Yourself To Science Logo" />
-        <meta property="og:url" content="https://yourwebsite.com" />
-        <meta property="og:type" content="website" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Yourself To Science" />
-        <meta name="twitter:description" content="Yourself To Science" />
-        <meta name="twitter:image" content="https://yourselftoscience.org/preview.png" />
-        <meta name="twitter:image:alt" content="Yourself To Science Logo" />
-      </Head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
       </body>
     </html>
