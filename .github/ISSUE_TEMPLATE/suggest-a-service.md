@@ -1,13 +1,13 @@
 ---
-name: Suggest a Service
+name: Suggest a service
 about: Suggest a new service to be added to the list
-title: Suggestion: New Service - [Service Title]
-labels: [suggestion, service-suggestion] # Add labels as needed, you can create 'suggestion' and 'service-suggestion' labels in your repo if they don't exist
-assignees: your-github-username # Replace 'your-github-username' with your actual GitHub username, or leave empty to not assign automatically
+title: 'Suggestion: New Service - [Service Title]'
+labels: suggest service
+assignees: ''
 
 ---
 
-Thank you for suggesting a new service to Yourself To Science!
+<!-- Thank you for suggesting a new service to Yourself To Science! -->
 
 Please fill out the following information as completely as possible to help us evaluate your suggestion.
 
