@@ -77,12 +77,12 @@ export default function Home() {
 
   return (
     <>
-      <div className="relative min-h-screen bg-black text-white">
+      <div className="relative min-h-screen bg-black text-white pt-16 md:pt-1">
         <div className="absolute top-2 left-2 md:top-4 md:left-4">
           <img
             src="/Logo.svg"
             alt="Yourself To Science Logo"
-            className="h-12 w-auto md:h-24"
+            className="w-auto max-h-12 md:max-h-24"
           />
         </div>
         <h1 className="text-4xl font-extrabold text-center">
