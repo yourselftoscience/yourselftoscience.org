@@ -7,15 +7,6 @@ assignees: ''
 
 ---
 
----
-name: Suggest a Service
-about: Suggest a new service to be added to the list
-title: Suggestion: New Service - [Service Title]
-labels: suggest a service, service-suggestion, suggestion # Added 'suggest a service' as requested and kept 'service-suggestion' and 'suggestion' for better categorization
-assignees: # Leave empty if you don't want to assign automatically
-
----
-
 Thank you for suggesting a new service to Yourself To Science!
 
 Please fill out the following information as completely as possible to help us evaluate your suggestion.
