@@ -37,17 +37,17 @@ export default function RootLayout({
       <Head>
         <meta property="og:title" content="Yourself To Science" />
         <meta property="og:description" content="Yourself To Science" />
-        <meta property="og:image" content="/preview.png" />
+        <meta property="og:image" content="https://yourselftoscience.org/preview.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="1200" />
         <meta property="og:image:alt" content="Yourself To Science Logo" />
         <meta property="og:url" content="https://yourwebsite.com" />
-        <meta property="og:type" content="image/png" />
+        <meta property="og:type" content="website" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Yourself To Science" />
         <meta name="twitter:description" content="Yourself To Science" />
-        <meta name="twitter:image" content="/preview.png" />
+        <meta name="twitter:image" content="https://yourselftoscience.org/preview.png" />
         <meta name="twitter:image:alt" content="Yourself To Science Logo" />
       </Head>
       <body
