@@ -35,8 +35,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
+        <meta property="og:title" content="Yourself To Science" />
+        <meta property="og:description" content="Yourself To Science" />
         <meta property="og:image" content="/preview.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="1200" />
+        <meta property="og:image:alt" content="Yourself To Science Logo" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Yourself To Science" />
+        <meta name="twitter:description" content="Yourself To Science" />
         <meta name="twitter:image" content="/preview.png" />
+        <meta name="twitter:image:alt" content="Yourself To Science Logo" />
       </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
