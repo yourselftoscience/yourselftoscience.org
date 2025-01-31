@@ -2,7 +2,7 @@
 name: Suggest a service
 about: Suggest a new service to be added to the list
 title: 'Suggestion: New Service - [Service Title]'
-labels: suggest a service
+labels: suggest service
 assignees: ''
 
 ---
