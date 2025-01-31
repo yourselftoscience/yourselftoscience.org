@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-Thank you for suggesting a new service to Yourself To Science!
+<!-- Thank you for suggesting a new service to Yourself To Science! -->
 
 Please fill out the following information as completely as possible to help us evaluate your suggestion.
 
