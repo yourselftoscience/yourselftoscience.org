@@ -120,6 +120,17 @@ export default function Home() {
           <ResourceTable /> {/* [src/components/ResourceTable.js](src/components/ResourceTable.js) */}
 
           <div className="mt-6 flex justify-end">
+            <button
+              onClick={() => {
+                window.open(
+                  'https://github.com/yourselftoscience/yourselftoscience.org/issues/new?template=suggest-a-service.md',
+                  '_blank'
+                );
+              }}
+              className="px-4 py-2 rounded bg-blue-400 text-black font-semibold hover:bg-blue-300"
+            >
+              Suggest a Service
+            </button>
             <button onClick={handleDownloadCSV} className="px-4 py-2 rounded bg-yellow-400 text-black font-semibold hover:bg-yellow-300 ml-4">
               Download Dataset
             </button>
