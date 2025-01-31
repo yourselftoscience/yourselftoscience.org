@@ -42,7 +42,7 @@ export default function RootLayout({
         <meta property="og:image:height" content="1200" />
         <meta property="og:image:alt" content="Yourself To Science Logo" />
         <meta property="og:url" content="https://yourwebsite.com" />
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="image/png" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Yourself To Science" />
