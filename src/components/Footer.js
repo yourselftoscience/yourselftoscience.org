@@ -12,7 +12,7 @@ export default function Footer() {
         <p className="mb-4">
           The content of this project is under the{' '}
           <a
-            href="https://github.com/yourselftoscience/yourselftoscience.org/blob/test/LICENSE-CONTENT"
+            href="https://github.com/yourselftoscience/yourselftoscience.org/blob/main/LICENSE-CONTENT"
             target="_blank"
             rel="noopener noreferrer"
             className="text-yellow-400 hover:underline inline-flex items-center"
@@ -24,7 +24,7 @@ export default function Footer() {
           </a>
           , and the underlying source code used to format and display that content is under the{' '}
           <a
-            href="https://github.com/yourselftoscience/yourselftoscience.org/blob/test/LICENSE-CODE"
+            href="https://github.com/yourselftoscience/yourselftoscience.org/blob/main/LICENSE-CODE"
             target="_blank"
             rel="noopener noreferrer"
             className="text-yellow-400 hover:underline inline-flex items-center"
