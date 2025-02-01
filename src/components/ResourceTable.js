@@ -15,6 +15,32 @@ import {
   FaSortAlphaUp,
 } from 'react-icons/fa';
 
+const EU_COUNTRIES = [
+  'Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic',
+  'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary',
+  'Ireland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta',
+  'Netherlands', 'Poland', 'Portugal', 'Romania', 'Slovakia', 'Slovenia',
+  'Spain', 'Sweden'
+];
+
+function expandCountries(chosen) {
+  const set = new Set(chosen);
+  const hasEU = set.has('European Union');
+  const hasAnyEUCountry = EU_COUNTRIES.some((c) => set.has(c));
+
+  // If “European Union” is chosen, add all EU countries
+  if (hasEU) {
+    EU_COUNTRIES.forEach((c) => set.add(c));
+  }
+
+  // If any EU country is chosen, also add “European Union”
+  if (hasAnyEUCountry) {
+    set.add('European Union');
+  }
+
+  return Array.from(set);
+}
+
 export default function ResourceTable() {
   // State for filters
   const [filters, setFilters] = useState({ dataTypes: [], countries: [] });
@@ -67,72 +93,49 @@ export default function ResourceTable() {
   };
 
   // Sorting and filtering logic
-  const filteredResources = resources
-    .filter((resource) => {
-      // Data Type Filtering
-      const matchesDataType =
-        filters.dataTypes.length > 0
-          ? resource.dataTypes.some((type) =>
-              filters.dataTypes.some((option) => option.value === type)
-            )
-          : true;
+  const filteredResources = filterResources(resources).sort((a, b) => {
+    // Sorting logic based on sortColumn and sortOrder
+    let valueA, valueB;
 
-      // Country Exclusion Filtering
-      const isExcludedCountry =
-        filters.countries.length > 0 && resource.countries
-          ? resource.countries.some((country) =>
-              filters.countries.some((option) => option.value === country)
-            )
-          : false;
+    switch (sortColumn) {
+      case 'title':
+        valueA = a.title.toLowerCase();
+        valueB = b.title.toLowerCase();
+        break;
+      case 'access':
+        // For access, prioritize link over instructions
+        valueA = a.link
+          ? '0' + a.link.toLowerCase()
+          : a.instructions
+          ? '1' + a.instructions.join(' ').toLowerCase()
+          : '2';
+        valueB = b.link
+          ? '0' + b.link.toLowerCase()
+          : b.instructions
+          ? '1' + b.instructions.join(' ').toLowerCase()
+          : '2';
+        break;
+      case 'dataType':
+        valueA = a.dataTypes.join(', ').toLowerCase();
+        valueB = b.dataTypes.join(', ').toLowerCase();
+        break;
+      case 'country':
+        valueA = a.countries ? a.countries.join(', ').toLowerCase() : '';
+        valueB = b.countries ? b.countries.join(', ').toLowerCase() : '';
+        break;
+      default:
+        valueA = '';
+        valueB = '';
+    }
 
-      // Include resources without country limitations
-      const includeResource = resource.countries ? !isExcludedCountry : true;
-
-      return matchesDataType && includeResource;
-    })
-    .sort((a, b) => {
-      // Sorting logic based on sortColumn and sortOrder
-      let valueA, valueB;
-
-      switch (sortColumn) {
-        case 'title':
-          valueA = a.title.toLowerCase();
-          valueB = b.title.toLowerCase();
-          break;
-        case 'access':
-          // For access, prioritize link over instructions
-          valueA = a.link
-            ? '0' + a.link.toLowerCase()
-            : a.instructions
-            ? '1' + a.instructions.join(' ').toLowerCase()
-            : '2';
-          valueB = b.link
-            ? '0' + b.link.toLowerCase()
-            : b.instructions
-            ? '1' + b.instructions.join(' ').toLowerCase()
-            : '2';
-          break;
-        case 'dataType':
-          valueA = a.dataTypes.join(', ').toLowerCase();
-          valueB = b.dataTypes.join(', ').toLowerCase();
-          break;
-        case 'country':
-          valueA = a.countries ? a.countries.join(', ').toLowerCase() : '';
-          valueB = b.countries ? b.countries.join(', ').toLowerCase() : '';
-          break;
-        default:
-          valueA = '';
-          valueB = '';
-      }
-
-      if (valueA < valueB) {
-        return sortOrder === 'asc' ? -1 : 1;
-      }
-      if (valueA > valueB) {
-        return sortOrder === 'asc' ? 1 : -1;
-      }
-      return 0;
-    });
+    if (valueA < valueB) {
+      return sortOrder === 'asc' ? -1 : 1;
+    }
+    if (valueA > valueB) {
+      return sortOrder === 'asc' ? 1 : -1;
+    }
+    return 0;
+  });
 
   // Custom styles for react-select
   const customStyles = {
@@ -269,6 +272,78 @@ export default function ResourceTable() {
     }
   };
 
+  // Helper function to toggle data type filter
+  function handleToggleDataType(dataType) {
+    setFilters((prev) => {
+      const currentSelected = prev.dataTypes.map((dt) => dt.value);
+      if (currentSelected.includes(dataType)) {
+        // Remove if already selected
+        return {
+          ...prev,
+          dataTypes: prev.dataTypes.filter((dt) => dt.value !== dataType),
+        };
+      } else {
+        // Add if not selected
+        return {
+          ...prev,
+          dataTypes: [
+            ...prev.dataTypes,
+            { label: dataType, value: dataType },
+          ],
+        };
+      }
+    });
+  }
+
+  // Helper function to toggle country filter
+  function handleToggleCountry(country, code) {
+    setFilters((prev) => {
+      const current = prev.countries.map((c) => c.value);
+      if (current.includes(country)) {
+        // Remove if already selected
+        return {
+          ...prev,
+          countries: prev.countries.filter((c) => c.value !== country),
+        };
+      } else {
+        // Add if not selected
+        return {
+          ...prev,
+          countries: [
+            ...prev.countries,
+            { label: country, value: country, code },
+          ],
+        };
+      }
+    });
+  }
+
+  function filterResources(data) {
+    // Example of other filters...
+    if (filters.dataTypes.length) {
+      const chosenTypes = filters.dataTypes.map((t) => t.value);
+      data = data.filter((resource) =>
+        resource.dataTypes?.some((dt) => chosenTypes.includes(dt))
+      );
+    }
+
+    // COUNTRY FILTER:
+    let chosenCountries = filters.countries.map((c) => c.value);
+    chosenCountries = expandCountries(chosenCountries);
+
+    if (chosenCountries.length) {
+      data = data.filter((resource) => {
+        // Include if no countries or if any overlaps
+        if (!resource.countries || resource.countries.length === 0) {
+          return true;
+        }
+        return resource.countries.some((c) => chosenCountries.includes(c));
+      });
+    }
+
+    return data;
+  }
+
   return (
     <div className="mt-10">
       {/* Filter Controls */}
@@ -299,7 +374,7 @@ export default function ResourceTable() {
             MultiValueLabel: MultiValueLabelComponent,
             SingleValue: SingleValueComponent,
           }}
-          placeholder="Exclude services only available in:"
+          placeholder="Exclude services not available in:"
         />
       </div>
 
@@ -390,36 +465,55 @@ export default function ResourceTable() {
 
                   {/* Data Type Column */}
                   <td className="py-2 px-4 border-b border-r border-gray-300 text-black align-top">
-                    {[...resource.dataTypes].sort((a, b) => a.localeCompare(b)).join(', ')}
-                  </td>
+                    {resource.dataTypes
+                      .sort((a, b) => a.localeCompare(b))
+                      .map((dataType, idx) => {
+                        // Check whether this dataType is currently selected
+                        const isActive = filters.dataTypes.some(
+                          (option) => option.value === dataType
+                        );
 
+                        return (
+                          <button
+                            key={idx}
+                            className={
+                              isActive
+                                ? 'bg-blue-500 text-white px-2 py-1 rounded mr-2 mb-2'
+                                : 'bg-gray-200 text-black px-2 py-1 rounded mr-2 mb-2 hover:bg-gray-300'
+                            }
+                            onClick={() => handleToggleDataType(dataType)}
+                          >
+                            {dataType}
+                          </button>
+                        );
+                      })}
+                  </td>
 
                   {/* Only Available In Column */}
                   <td className="py-2 px-4 border-b border-r border-gray-300 text-black align-top">
-                    {resource.countries ? (
-                      <div className="grid grid-cols-2 gap-x-2">
-                        {resource.countries.map((country, idx) => (
-                          <React.Fragment key={idx}>
-                            <div>{country}</div>
-                            <div>
-                              {resource.countryCodes && resource.countryCodes[idx] && (
-                                <ReactCountryFlag
-                                  countryCode={resource.countryCodes[idx]}
-                                  svg
-                                  style={{
-                                    width: '1.5em',
-                                    height: '1em',
-                                  }}
-                                  title={country}
-                                />
-                              )}
-                            </div>
-                          </React.Fragment>
-                        ))}
-                      </div>
-                    ) : (
-                      <span>&nbsp;</span>
-                    )}
+                    {resource.countries?.map((country, idx) => {
+                      const isActive = filters.countries.some((c) => c.value === country);
+                      return (
+                        <button
+                          key={idx}
+                          onClick={() => handleToggleCountry(country, resource.countryCodes?.[idx])}
+                          className={
+                            isActive
+                              ? "bg-blue-500 text-white px-2 py-1 rounded mr-2 mb-2"
+                              : "bg-gray-200 text-black px-2 py-1 rounded mr-2 mb-2 hover:bg-gray-300"
+                          }
+                        >
+                          {country}
+                          {resource.countryCodes?.[idx] && (
+                            <ReactCountryFlag
+                              countryCode={resource.countryCodes[idx]}
+                              svg
+                              style={{ width: "1.5em", height: "1em", marginLeft: "0.5em" }}
+                            />
+                          )}
+                        </button>
+                      );
+                    })}
                   </td>
                 </tr>
               ))
