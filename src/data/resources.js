@@ -155,6 +155,13 @@ export const resources = [
     dataTypes: ['Clinical trials'],
     countries: ['United Kingdom'],
     countryCodes: ['GB']
+  },
+  {
+    title: 'HealthStreet - University of Florida Health',
+    link: 'https://healthstreet.program.ufl.edu/uf-researchers/participate-in-research/',
+    dataTypes: ['Clinical trials'],
+    countries: ['United States'],
+    countryCodes: ['US']
   }
   // Add more resources as needed
 ];
