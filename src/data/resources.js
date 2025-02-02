@@ -148,6 +148,13 @@ export const resources = [
     dataTypes: ['Clinical trials'],
     countries: ['United States'],
     countryCodes: ['US']
+  },
+  {
+    title: 'FluCamp',
+    link: 'https://flucamp.com/',
+    dataTypes: ['Clinical trials'],
+    countries: ['United Kingdom'],
+    countryCodes: ['GB']
   }
   // Add more resources as needed
 ];
