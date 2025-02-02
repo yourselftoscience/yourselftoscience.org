@@ -141,6 +141,13 @@ export const resources = [
     dataTypes: ['Clinical trials'],
     countries: ['Romania'],
     countryCodes: ['RO']
+  },
+  {
+    title: 'ResearchMatch',
+    link: 'https://www.researchmatch.org/',
+    dataTypes: ['Clinical trials'],
+    countries: ['United States'],
+    countryCodes: ['US']
   }
   // Add more resources as needed
 ];
