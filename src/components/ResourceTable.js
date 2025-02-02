@@ -139,71 +139,20 @@ export default function ResourceTable() {
 
   // Custom styles for react-select
   const customStyles = {
-    control: (provided, state) => ({
+    control: (provided) => ({
       ...provided,
       backgroundColor: 'white',
       borderColor: '#D1D5DB',
-      boxShadow: state.isFocused ? '0 0 0 1px #D1D5DB' : 'none',
-      '&:hover': { borderColor: '#B0B0B0' },
-    }),
-    // Options: Remove left/right borders and show only a bottom border.
-    option: (provided, state) => ({
-      ...provided,
-      border: 'none',
-      borderBottom: '1px solid #D1D5DB',
-      margin: 0,
-      padding: '8px',
-      cursor: 'pointer',
-      backgroundColor: state.isSelected
-        ? '#E5E7EB'
-        : state.isFocused
-        ? '#E5E7EB'
-        : 'white',
       color: 'black',
-      ':hover': {
-        backgroundColor: '#E5E7EB',
-      },
-    }),
-    multiValue: (provided) => ({
-      ...provided,
-      display: 'flex',
-      alignItems: 'center',
-      backgroundColor: '#E5E7EB',
-    }),
-    multiValueLabel: (provided) => ({
-      ...provided,
-      display: 'flex',
-      alignItems: 'center',
-    }),
-    singleValue: (provided) => ({
-      ...provided,
-      display: 'flex',
-      alignItems: 'center',
-      color: 'black',
-    }),
-  };
-
-  // Update the exclusionCustomStyles to remove vertical borders (use only a bottom border)
-  const exclusionCustomStyles = {
-    control: (provided, state) => ({
-      ...provided,
-      backgroundColor: 'white',
-      borderColor: '#D1D5DB',
-      boxShadow: state.isFocused ? '0 0 0 1px #D1D5DB' : 'none',
-      '&:hover': { borderColor: '#B0B0B0' },
     }),
     option: (provided, state) => ({
       ...provided,
-      border: 'none',
-      borderBottom: '1px solid #D1D5DB',
-      margin: 0,
-      padding: '8px',
-      cursor: 'pointer',
-      backgroundColor: state.isSelected || state.isFocused ? '#E5E7EB' : 'white',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
       color: 'black',
-      ':hover': {
-        backgroundColor: '#E5E7EB',
-      },
+      backgroundColor: state.isFocused ? '#E5E7EB' : 'white',
+      cursor: 'pointer',
     }),
     multiValue: (provided) => ({
       ...provided,
@@ -226,20 +175,11 @@ export default function ResourceTable() {
 
   // Custom Option component to include flags
   const OptionComponent = (props) => {
-    const { data, innerRef, innerProps, isFocused, isSelected } = props;
+    const { data, innerRef, innerProps } = props;
     return (
       <div
         ref={innerRef}
         {...innerProps}
-        style={{
-          border: 'none',
-          borderBottom: '1px solid #D1D5DB',
-          margin: 0,
-          padding: '8px',
-          cursor: 'pointer',
-          backgroundColor: isSelected || isFocused ? '#E5E7EB' : 'white',
-          color: 'black',
-        }}
         className="flex items-center justify-between"
       >
         <span className="text-black">{data.label}</span>
@@ -247,7 +187,10 @@ export default function ResourceTable() {
           <ReactCountryFlag
             countryCode={data.code}
             svg
-            style={{ width: '1.5em', height: '1em' }}
+            style={{
+              width: '1.5em',
+              height: '1em',
+            }}
             title={data.label}
           />
         )}
@@ -425,7 +368,7 @@ export default function ResourceTable() {
             setFilters({ ...filters, countries: selectedOptions || [] })
           }
           isMulti
-          styles={exclusionCustomStyles}
+          styles={customStyles}
           components={{
             Option: OptionComponent,
             MultiValueLabel: MultiValueLabelComponent,
@@ -477,10 +420,10 @@ export default function ResourceTable() {
             {filteredResources.length > 0 ? (
               filteredResources.map((resource, index) => (
                 <tr
-                  key={resource.id}
-                  className={`
-                    ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} hover:bg-gray-100
-                  `}
+                  key={index}
+                  className={`${
+                    index % 2 === 0 ? 'bg-gray-50' : 'bg-white'
+                  } hover:bg-gray-100`}
                 >
                   {/* Title Column */}
                   <td className="py-2 px-4 border-b border-r border-gray-300 text-black align-top">
@@ -489,9 +432,9 @@ export default function ResourceTable() {
 
                   {/* Access Column */}
                   <td className="py-2 px-4 border-b border-r border-gray-300 align-top">
-                    {resource.websiteURL ? (
+                    {resource.link ? (
                       <a
-                        href={resource.websiteURL}
+                        href={resource.link}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 hover:underline"
@@ -525,7 +468,11 @@ export default function ResourceTable() {
                     {resource.dataTypes
                       .sort((a, b) => a.localeCompare(b))
                       .map((dataType, idx) => {
-                        const isActive = filters.dataTypes.some((option) => option.value === dataType);
+                        // Check whether this dataType is currently selected
+                        const isActive = filters.dataTypes.some(
+                          (option) => option.value === dataType
+                        );
+
                         return (
                           <button
                             key={idx}
@@ -544,26 +491,29 @@ export default function ResourceTable() {
 
                   {/* Only Available In Column */}
                   <td className="py-2 px-4 border-b border-r border-gray-300 text-black align-top">
-                    {resource.countries && resource.countries.length > 0 ? (
-                      resource.countries.map((country, idx) => (
+                    {resource.countries?.map((country, idx) => {
+                      const isActive = filters.countries.some((c) => c.value === country);
+                      return (
                         <button
                           key={idx}
-                          className="border rounded px-2 py-1 mx-1"
+                          onClick={() => handleToggleCountry(country, resource.countryCodes?.[idx])}
+                          className={
+                            isActive
+                              ? "bg-blue-500 text-white px-2 py-1 rounded mr-2 mb-2"
+                              : "bg-gray-200 text-black px-2 py-1 rounded mr-2 mb-2 hover:bg-gray-300"
+                          }
                         >
                           {country}
                           {resource.countryCodes?.[idx] && (
                             <ReactCountryFlag
                               countryCode={resource.countryCodes[idx]}
                               svg
-                              style={{ width: '1.5em', height: '1em', marginLeft: '0.5em' }}
-                              title={country}
+                              style={{ width: "1.5em", height: "1em", marginLeft: "0.5em" }}
                             />
                           )}
                         </button>
-                      ))
-                    ) : (
-                      <span>No countries</span>
-                    )}
+                      );
+                    })}
                   </td>
                 </tr>
               ))
