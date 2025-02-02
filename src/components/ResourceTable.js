@@ -139,20 +139,31 @@ export default function ResourceTable() {
 
   // Custom styles for react-select
   const customStyles = {
-    control: (provided) => ({
+    control: (provided, state) => ({
       ...provided,
       backgroundColor: 'white',
       borderColor: '#D1D5DB',
-      color: 'black',
+      boxShadow: state.isFocused ? '0 0 0 1px #D1D5DB' : 'none',
+      '&:hover': { borderColor: '#B0B0B0' },
     }),
+    // Only keep a horizontal border: remove left/right borders entirely
     option: (provided, state) => ({
       ...provided,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      color: 'black',
-      backgroundColor: state.isFocused ? '#E5E7EB' : 'white',
+      border: 'none',
+      borderRadius: 0,
+      borderBottom: '1px solid #D1D5DB', // Horizontal line separating each option
+      margin: 0,
+      padding: '8px',
       cursor: 'pointer',
+      backgroundColor: state.isSelected
+        ? '#E5E7EB'
+        : state.isFocused
+        ? '#E5E7EB'
+        : 'white',
+      color: 'black',
+      ':hover': {
+        backgroundColor: '#E5E7EB',
+      },
     }),
     multiValue: (provided) => ({
       ...provided,
@@ -175,11 +186,18 @@ export default function ResourceTable() {
 
   // Custom Option component to include flags
   const OptionComponent = (props) => {
-    const { data, innerRef, innerProps } = props;
+    const { data, innerRef, innerProps, isFocused, isSelected } = props;
     return (
       <div
         ref={innerRef}
         {...innerProps}
+        style={{
+          border: 'none',
+          borderBottom: '1px solid #D1D5DB', // Only horizontal border
+          padding: '8px',
+          cursor: 'pointer',
+          backgroundColor: isSelected || isFocused ? '#E5E7EB' : 'white',
+        }}
         className="flex items-center justify-between"
       >
         <span className="text-black">{data.label}</span>
@@ -187,10 +205,7 @@ export default function ResourceTable() {
           <ReactCountryFlag
             countryCode={data.code}
             svg
-            style={{
-              width: '1.5em',
-              height: '1em',
-            }}
+            style={{ width: '1.5em', height: '1em' }}
             title={data.label}
           />
         )}
@@ -368,7 +383,7 @@ export default function ResourceTable() {
             setFilters({ ...filters, countries: selectedOptions || [] })
           }
           isMulti
-          styles={customStyles}
+          styles={customStyles} // Reuse the same customStyles as All Data Types
           components={{
             Option: OptionComponent,
             MultiValueLabel: MultiValueLabelComponent,
