@@ -162,6 +162,13 @@ export const resources = [
     dataTypes: ['Clinical trials'],
     countries: ['United States'],
     countryCodes: ['US']
+  },
+  {
+    title: 'GoodNature Program',
+    link: 'https://goodnatureprogram.com/apply/',
+    dataTypes: ['Stool'],
+    countries: ['United States'],
+    countryCodes: ['US']
   }
   // Add more resources as needed
 ];
