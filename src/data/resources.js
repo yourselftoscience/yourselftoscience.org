@@ -183,6 +183,13 @@ export const resources = [
     dataTypes: ['Stool'],
     countries: ['Australia'],
     countryCodes: ['AU']
+  },
+  {
+    title: 'Placenta Donation - Wesley Research Institute',
+    link: 'https://www.wesleyresearch.org.au/biobank-project/placenta-donation/',
+    dataTypes: ['Placenta'],
+    countries: ['Australia'],
+    countryCodes: ['AU']
   }
   // Add more resources as needed
 ];
