@@ -176,6 +176,13 @@ export const resources = [
     dataTypes: ['Stool'],
     countries: ['Australia'],
     countryCodes: ['AU']
+  },
+  {
+    title: 'Stool Donation - Wesley Research Institute',
+    link: 'https://www.wesleyresearch.org.au/biobank-project/stool-donation/',
+    dataTypes: ['Stool'],
+    countries: ['Australia'],
+    countryCodes: ['AU']
   }
   // Add more resources as needed
 ];
