@@ -169,6 +169,13 @@ export const resources = [
     dataTypes: ['Stool'],
     countries: ['United States'],
     countryCodes: ['US']
+  },
+  {
+    title: 'Microbiome - Australian Red Cross Lifeblood',
+    link: 'https://www.lifeblood.com.au/microbiome',
+    dataTypes: ['Stool'],
+    countries: ['Australia'],
+    countryCodes: ['AU']
   }
   // Add more resources as needed
 ];
