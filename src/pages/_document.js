@@ -10,7 +10,6 @@ class MyDocument extends Document {
           <meta name="citation_author" content="Your Organization" />
           <meta name="citation_publication_date" content="2023/10/20" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <title>Yourself To Science</title>
           {/* Inline script with proper semicolon termination */}
           <script
             dangerouslySetInnerHTML={{
