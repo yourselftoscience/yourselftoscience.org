@@ -4,54 +4,69 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import ResourceTable from '../components/ResourceTable';
-import Footer from '../components/Footer'; // Import Footer
-import { resources } from '../data/resources'; // Import your array
+import ResourceTable from '@/components/ResourceTable';
+import Footer from '@/components/Footer';
+import { resources } from '@/data/resources';
 
-// Move words outside the component
 const words = ['self', 'Data', 'Genome', 'Body', 'Tissues'];
 
-export default function Home() {
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+function AnimatedWord({ word }) {
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
-    // Set hasMounted to true after the component mounts
     setHasMounted(true);
+  }, []);
 
+  return (
+    <AnimatePresence mode="wait">
+      <motion.span
+        key={word}
+        // On the first render, initial opacity is 1 so server/client output match.
+        // After mounting (hasMounted true) subsequent changes animate from opacity 0.
+        initial={{ opacity: hasMounted ? 0 : 1 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-yellow-400"
+      >
+        {word}
+      </motion.span>
+    </AnimatePresence>
+  );
+}
+
+export default function Home() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentWordIndex((prevIndex) =>
-        prevIndex + 1 >= words.length ? 0 : prevIndex + 1
-      );
+      setIndex((prev) => (prev + 1) % words.length);
     }, 4000);
-
     return () => clearInterval(interval);
-  }, []); // Empty dependency array
+  }, []);
 
-  const currentWord = words[currentWordIndex];
+  // On both SSR and initial client render, currentWord is words[0]
+  const currentWord = words[index];
   const isSelf = currentWord === 'self';
 
-  // Add a download click handler
-  const handleDownload = () => {
-    const dataStr = `data:text/json;charset=utf-8,${encodeURIComponent(
-      JSON.stringify(resources, null, 2)
-    )}`;
-    const anchor = document.createElement('a');
-    anchor.setAttribute('href', dataStr);
-    anchor.setAttribute('download', 'resources.json');
-    document.body.appendChild(anchor);
-    anchor.click();
-    document.body.removeChild(anchor);
-  };
+  // Deduplicate citations
+  const citationMap = {};
+  const uniqueCitations = [];
+  resources.forEach((resource) => {
+    if (resource.citations) {
+      resource.citations.forEach((citation) => {
+        const key = citation.link ? citation.link.trim() : citation.title.trim();
+        if (!citationMap[key]) {
+          citationMap[key] = uniqueCitations.length + 1;
+          uniqueCitations.push(citation);
+        }
+      });
+    }
+  });
 
   function handleDownloadCSV() {
-    // Define CSV columns
-    const headers = ['Title','Link','Data Types','Countries','Country Codes','Instructions'];
-    
-    // Start CSV string
+    const headers = ['Title', 'Link', 'Data Types', 'Countries', 'Country Codes', 'Instructions'];
     let csvContent = 'data:text/csv;charset=utf-8,' + headers.join(',') + '\n';
-    
-    // Build CSV rows
     resources.forEach((resource) => {
       const row = [
         resource.title ?? '',
@@ -60,12 +75,9 @@ export default function Home() {
         resource.countries?.join('|') ?? '',
         resource.countryCodes?.join('|') ?? '',
         resource.instructions?.join('|') ?? ''
-      ].map(value => `"${value.replace(/"/g, '""')}"`); // Escape quotes
-  
+      ].map((value) => `"${value.replace(/"/g, '""')}"`);
       csvContent += row.join(',') + '\n';
     });
-  
-    // Trigger download
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement('a');
     link.setAttribute('href', encodedUri);
@@ -93,31 +105,17 @@ export default function Home() {
             }}
           >
             <span>Your</span>
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={currentWord}
-                initial={{ opacity: hasMounted ? 0 : 1 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{
-                  duration: 0.5,
-                }}
-                className="text-yellow-400"
-              >
-                {currentWord}
-              </motion.span>
-            </AnimatePresence>
+            <AnimatedWord word={currentWord} />
           </span>{' '}
           To Science
         </h1>
 
-        {/* **Added Description Below the Title** */}
         <p className="text-center text-lg text-gray-300 mt-4">
           A Comprehensive List of Services for Contributing to Science with Your Data, Genome, Body, and More
         </p>
 
         <main className="container mx-auto px-4">
-          <ResourceTable /> {/* [src/components/ResourceTable.js](src/components/ResourceTable.js) */}
+          <ResourceTable filteredResources={resources} />
 
           <div className="mt-6 flex justify-end">
             <button
@@ -131,13 +129,36 @@ export default function Home() {
             >
               Suggest a Service
             </button>
-            <button onClick={handleDownloadCSV} className="px-4 py-2 rounded bg-yellow-400 text-black font-semibold hover:bg-yellow-300 ml-4">
+            <button
+              onClick={handleDownloadCSV}
+              className="px-4 py-2 rounded bg-yellow-400 text-black font-semibold hover:bg-yellow-300 ml-4"
+            >
               Download Dataset
             </button>
           </div>
+
+          {uniqueCitations.length > 0 && (
+            <div className="mt-4">
+              <h2 className="text-lg font-bold">References</h2>
+              <ol className="list-decimal pl-6">
+                {uniqueCitations.map((citation, idx) => (
+                  <li key={idx} id={`ref-${idx + 1}`}>
+                    <a
+                      href={citation.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline break-words whitespace-normal"
+                    >
+                      {citation.title}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          )}
         </main>
 
-        <Footer /> {/* [src/components/Footer.js](src/components/Footer.js) */}
+        <Footer />
       </div>
     </>
   );

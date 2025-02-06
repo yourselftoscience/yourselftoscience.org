@@ -1,10 +1,9 @@
-// src/components/ResourceTable.js
-
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import ReactCountryFlag from 'react-country-flag';
-import { resources } from '../data/resources';
+import { resources } from '@/data/resources.js';
 import Select, { components } from 'react-select';
 import {
   FaArrowRight,
@@ -41,21 +40,79 @@ function expandCountries(chosen) {
   return Array.from(set);
 }
 
-export default function ResourceTable() {
-  // State for filters
+const customStyles = {
+  control: (base) => ({
+    ...base,
+    backgroundColor: 'white',
+    borderColor: '#D1D5DB',
+    // remove any invalid key like "label"
+  }),
+  option: (provided, state) => ({
+    ...provided,
+    border: 'none',
+    borderRadius: 0,
+    borderBottom: '1px solid #D1D5DB',
+    margin: 0,
+    padding: '8px',
+    cursor: 'pointer',
+    backgroundColor:
+      state.isSelected || state.isFocused ? '#E5E7EB' : 'white',
+    color: 'black',
+    ':hover': {
+      backgroundColor: '#E5E7EB',
+    },
+  }),
+  multiValue: (provided) => ({
+    ...provided,
+    display: 'flex',
+    alignItems: 'center',
+    backgroundColor: '#E5E7EB',
+  }),
+  multiValueLabel: (provided) => ({
+    ...provided,
+    display: 'flex',
+    alignItems: 'center',
+  }),
+  singleValue: (provided) => ({
+    ...provided,
+    display: 'flex',
+    alignItems: 'center',
+    color: 'black',
+  }),
+};
+
+export default function ResourceTable({ filteredResources: initialResources }) {
+  // State for filters, sorting, and tooltip
   const [filters, setFilters] = useState({ dataTypes: [], countries: [] });
+  const [sortColumn, setSortColumn] = useState('title');
+  const [sortOrder, setSortOrder] = useState('asc');
+  const [forceTooltip, setForceTooltip] = useState(false);
+  const [hoverTooltip, setHoverTooltip] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+  const [tooltipPos, setTooltipPos] = useState({ top: 0, left: 0 });
+  const tooltipRef = useRef(null);
 
-  // State for sorting
-  const [sortColumn, setSortColumn] = useState('title'); // Default sort by Title
-  const [sortOrder, setSortOrder] = useState('asc'); // 'asc' or 'desc'
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
-  // Dynamic data type options
+  // Update tooltip position once the header cell renders
+  useEffect(() => {
+    if ((hoverTooltip || forceTooltip) && tooltipRef.current) {
+      const rect = tooltipRef.current.getBoundingClientRect();
+      setTooltipPos({
+        top: rect.bottom + window.scrollY,
+        left: rect.left + rect.width / 2 + window.scrollX,
+      });
+    }
+  }, [hoverTooltip, forceTooltip]);
+
+  // Dynamic data type options using full resources (assumed imported globally)
   const dataTypeOptions = Array.from(
-    new Set(resources.flatMap((resource) => resource.dataTypes))
+    new Set(resources.flatMap((resource) => resource.dataTypes || []))
   )
     .sort((a, b) => a.localeCompare(b))
     .map((dataType) => ({ label: dataType, value: dataType }));
-
 
   // Dynamic country options
   const countryOptions = [];
@@ -92,42 +149,10 @@ export default function ResourceTable() {
     }
   };
 
-  // Sorting and filtering logic
-  const filteredResources = filterResources(resources).sort((a, b) => {
-    // Sorting logic based on sortColumn and sortOrder
-    let valueA, valueB;
-
-    switch (sortColumn) {
-      case 'title':
-        valueA = a.title.toLowerCase();
-        valueB = b.title.toLowerCase();
-        break;
-      case 'access':
-        // For access, prioritize link over instructions
-        valueA = a.link
-          ? '0' + a.link.toLowerCase()
-          : a.instructions
-          ? '1' + a.instructions.join(' ').toLowerCase()
-          : '2';
-        valueB = b.link
-          ? '0' + b.link.toLowerCase()
-          : b.instructions
-          ? '1' + b.instructions.join(' ').toLowerCase()
-          : '2';
-        break;
-      case 'dataType':
-        valueA = a.dataTypes.join(', ').toLowerCase();
-        valueB = b.dataTypes.join(', ').toLowerCase();
-        break;
-      case 'country':
-        valueA = a.countries ? a.countries.join(', ').toLowerCase() : '';
-        valueB = b.countries ? b.countries.join(', ').toLowerCase() : '';
-        break;
-      default:
-        valueA = '';
-        valueB = '';
-    }
-
+  // Sorting and filtering logic using the initial resources passed as prop
+  const processedResources = filterResources(initialResources).sort((a, b) => {
+    let valueA = a[sortColumn] || '';
+    let valueB = b[sortColumn] || '';
     if (valueA < valueB) {
       return sortOrder === 'asc' ? -1 : 1;
     }
@@ -137,14 +162,28 @@ export default function ResourceTable() {
     return 0;
   });
 
+  // Deduplicate citations from processedResources using citation.link or title as key.
+  const citationMap = {};
+  const uniqueCitations = [];
+  processedResources.forEach((resource) => {
+    if (resource.citations) {
+      resource.citations.forEach((citation) => {
+        const key = citation.link ? citation.link.trim() : citation.title.trim();
+        if (!citationMap[key]) {
+          uniqueCitations.push(citation);
+          citationMap[key] = uniqueCitations.length;
+        }
+      });
+    }
+  });
+
   // Custom styles for react-select
   const customStyles = {
-    control: (provided, state) => ({
-      ...provided,
+    control: (base) => ({
+      ...base,
       backgroundColor: 'white',
       borderColor: '#D1D5DB',
-      boxShadow: state.isFocused ? '0 0 0 1px #D1D5DB' : 'none',
-      '&:hover': { borderColor: '#B0B0B0' },
+      // remove any invalid key like "label"
     }),
     // Only keep a horizontal border: remove left/right borders entirely
     option: (provided, state) => ({
@@ -359,6 +398,9 @@ export default function ResourceTable() {
     return data;
   }
 
+  // Collect all citations from filtered resources
+  const allCitations = processedResources.flatMap((resource) => resource.citations || []);
+
   return (
     <div className="mt-10">
       {/* Filter Controls */}
@@ -394,7 +436,7 @@ export default function ResourceTable() {
       </div>
 
       {/* Resource Table */}
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto overflow-y-visible">
         <table className="min-w-full bg-white border border-gray-300">
           <thead>
             <tr>
@@ -429,13 +471,27 @@ export default function ResourceTable() {
               >
                 Only available in {getSortIcon('country')}
               </th>
+
+              {/* Tooltip header cell */}
+              <th
+                ref={tooltipRef}
+                className="relative py-2 px-4 border-b border-r border-gray-300 text-black cursor-pointer select-none overflow-visible"
+                onClick={() => setForceTooltip((prev) => !prev)}
+                onMouseEnter={() => setHoverTooltip(true)}
+                onMouseLeave={() => {
+                  setHoverTooltip(false);
+                  setForceTooltip(false);
+                }}
+              >
+                <span className="underline">Refs.</span>
+              </th>
             </tr>
           </thead>
           <tbody>
-            {filteredResources.length > 0 ? (
-              filteredResources.map((resource, index) => (
+            {processedResources.length > 0 ? (
+              processedResources.map((resource, index) => (
                 <tr
-                  key={index}
+                  key={resource.id}
                   className={`${
                     index % 2 === 0 ? 'bg-gray-50' : 'bg-white'
                   } hover:bg-gray-100`}
@@ -530,12 +586,35 @@ export default function ResourceTable() {
                       );
                     })}
                   </td>
+
+                  {/* Refs Column */}
+                  <td className="py-2 px-4 border-b border-r border-gray-300 text-black align-top">
+                    {resource.citations && resource.citations.length > 0 ? (
+                      resource.citations.map((citation, idx) => {
+                        const key = citation.link ? citation.link.trim() : citation.title.trim();
+                        const citationNumber = citationMap[key];
+                        return (
+                          <React.Fragment key={idx}>
+                            <a
+                              href={`#ref-${citationNumber}`}
+                              className="text-blue-600 hover:underline"
+                            >
+                              [{citationNumber}]
+                            </a>
+                            {idx < resource.citations.length - 1 && ' - '}
+                          </React.Fragment>
+                        );
+                      })
+                    ) : (
+                      '' /* leave blank when no citation is specified */
+                    )}
+                  </td>
                 </tr>
               ))
             ) : (
               <tr>
                 <td
-                  colSpan="4"
+                  colSpan="100%"
                   className="py-4 px-4 text-center text-gray-500"
                 >
                   No resources found for the selected criteria.
@@ -545,6 +624,31 @@ export default function ResourceTable() {
           </tbody>
         </table>
       </div>
+
+      {/* Render the tooltip via portal */}
+      {isMounted &&
+        (hoverTooltip || forceTooltip) &&
+        createPortal(
+          <div
+            style={{
+              position: 'absolute',
+              top: tooltipPos.top,
+              left: tooltipPos.left,
+              transform: 'translate(-50%, 0)',
+              backgroundColor: '#f3f4f6',
+              color: '#374151',
+              fontSize: '0.75rem',
+              borderRadius: '0.25rem',
+              border: '1px solid #D1D5DB',
+              padding: '0.25rem 0.5rem',
+              whiteSpace: 'nowrap',
+              zIndex: 1000,
+            }}
+          >
+            Scientific publication citing the service.
+          </div>,
+          document.body
+        )}
     </div>
   );
 }

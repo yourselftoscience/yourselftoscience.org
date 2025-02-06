@@ -1,16 +1,21 @@
 // src/data/resources.js
-
-export const resources = [
+const rawResources = [
   {
     title: 'Open Humans',
     link: 'https://www.openhumans.org/add-data/',
     dataTypes: ['Genome', 'Health data', 'Fitbit data'],
-    // No countries field since it's available worldwide
+    citations: [
+      {
+        title:
+          'Greshake Tzovaras, B., Angrist, M., Arvai, K., Dulaney, M., Estrada-Galiñanes, V., Gunderson, B., ... & Price Ball, M. (2019). Open Humans: A platform for participant-centered research and personal data exploration. GigaScience, 8(6), giz076.',
+        link: 'https://academic.oup.com/gigascience/article-abstract/8/6/giz076/5523201'
+      },
+    ],
   },
   {
     title: 'MyPHD',
     link: 'https://myphd.stanford.edu/studies/',
-    dataTypes: ['Health data','Fitbit data'],
+    dataTypes: ['Health data', 'Fitbit data'],
   },
   {
     title: 'Google Health Studies',
@@ -154,7 +159,14 @@ export const resources = [
     link: 'https://flucamp.com/',
     dataTypes: ['Clinical trials'],
     countries: ['United Kingdom'],
-    countryCodes: ['GB']
+    countryCodes: ['GB'],
+    citations: [
+      {
+        title:
+          'Kelly, G., Laxton, C., Garelnabi, M., Alton, B., Addan, F., Catchpole, A., ... & Murray, E. J. (2015). Use of qualitative integrative cycler PCR (qicPCR) to identify optimal therapeutic dosing time-points in a Respiratory Syncytial Virus Human Viral Challenge Model (hVCM). Journal of virological methods, 224, 83-90.',
+        link: 'https://www.sciencedirect.com/science/article/pii/S0166093415002992'
+      },
+    ],
   },
   {
     title: 'HealthStreet - University of Florida Health',
@@ -193,3 +205,8 @@ export const resources = [
   }
   // Add more resources as needed
 ];
+
+export const resources = rawResources.map((r, i) => ({
+  id: r.id || String(i + 1), // Auto-assign id if missing
+  ...r,
+}));

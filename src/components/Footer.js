@@ -7,8 +7,8 @@ import { FaCreativeCommons, FaCreativeCommonsBy, FaCreativeCommonsSa, FaGithub }
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-200 py-6 mt-10">
-      <div className="container mx-auto px-4 text-center">
+    <footer className="relative p-4 bg-gray-800 text-white text-center">
+      <div>
         <p className="mb-4">
           The content of this project is under the{' '}
           <a
@@ -45,6 +45,16 @@ export default function Footer() {
           </a>
         </p>
       </div>
+      {/* HTML Version link positioned in bottom-right and displayed in smaller text */}
+      <p className="absolute bottom-2 right-2 text-xs">
+        <a 
+          href="/yourselftoscience.html" 
+          className="underline text-blue-400" 
+          target="_blank" 
+          rel="noopener noreferrer">
+          HTML Version
+        </a>
+      </p>
     </footer>
   );
 }
