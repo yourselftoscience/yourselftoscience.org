@@ -1,39 +1,15 @@
-// src/app/page.js
-
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useMemo } from 'react';
+import dynamic from 'next/dynamic';
 import ResourceTable from '@/components/ResourceTable';
 import Footer from '@/components/Footer';
 import { resources } from '@/data/resources';
 
+// Disable SSR for AnimatedWord so the server renders static content
+const AnimatedWord = dynamic(() => import('@/components/AnimatedWord'), { ssr: false });
+
 const words = ['self', 'Data', 'Genome', 'Body', 'Tissues'];
-
-function AnimatedWord({ word }) {
-  const [hasMounted, setHasMounted] = useState(false);
-
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
-
-  return (
-    <AnimatePresence mode="wait">
-      <motion.span
-        key={word}
-        // On the first render, initial opacity is 1 so server/client output match.
-        // After mounting (hasMounted true) subsequent changes animate from opacity 0.
-        initial={{ opacity: hasMounted ? 0 : 1 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-yellow-400"
-      >
-        {word}
-      </motion.span>
-    </AnimatePresence>
-  );
-}
 
 export default function Home() {
   const [index, setIndex] = useState(0);
@@ -49,20 +25,24 @@ export default function Home() {
   const currentWord = words[index];
   const isSelf = currentWord === 'self';
 
-  // Deduplicate citations
-  const citationMap = {};
-  const uniqueCitations = [];
-  resources.forEach((resource) => {
-    if (resource.citations) {
-      resource.citations.forEach((citation) => {
-        const key = citation.link ? citation.link.trim() : citation.title.trim();
-        if (!citationMap[key]) {
-          citationMap[key] = uniqueCitations.length + 1;
-          uniqueCitations.push(citation);
-        }
-      });
-    }
-  });
+  const uniqueCitations = useMemo(() => {
+    // Deduplicate and sort citations for stable order.
+    const citationMap = {};
+    const citations = [];
+    resources.forEach((resource) => {
+      if (resource.citations) {
+        resource.citations.forEach((citation) => {
+          const key = citation.link ? citation.link.trim() : citation.title.trim();
+          if (!citationMap[key]) {
+            citationMap[key] = true;
+            citations.push(citation);
+          }
+        });
+      }
+    });
+    citations.sort((a, b) => a.title.localeCompare(b.title));
+    return citations;
+  }, []);
 
   function handleDownloadCSV() {
     const headers = ['Title', 'Link', 'Data Types', 'Countries', 'Country Codes', 'Instructions'];

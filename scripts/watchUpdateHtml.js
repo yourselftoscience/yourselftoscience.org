@@ -1,7 +1,7 @@
 const { exec } = require('child_process');
 const chokidar = require('chokidar');
 
-// Watch all files in the src folder, adjust the glob as needed
+// Watch for changes in src folder (adjust glob as needed)
 const watcher = chokidar.watch('./src/**/*', { ignoreInitial: true });
 
 watcher.on('all', (event, pathChanged) => {

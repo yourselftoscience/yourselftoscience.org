@@ -14,9 +14,41 @@ export default function ResourcePage({ params }) {
     <>
       <Head>
         <title>{resource.title}</title>
+        {/* Required meta tags: title, at least one author, and publication date */}
         <meta name="citation_title" content={resource.title} />
-        <meta name="citation_author" content={resource.author || 'Unknown'} />
-        <meta name="citation_publication_date" content={resource.publicationDate || '2020/01/01'} />
+        {resource.authors ? (
+          resource.authors.map((author, index) => (
+            <meta key={index} name="citation_author" content={author} />
+          ))
+        ) : (
+          <meta name="citation_author" content="Unknown" />
+        )}
+        <meta
+          name="citation_publication_date"
+          content={resource.publicationDate || '2020/01/01'}
+        />
+        {/* Optional additional bibliographic meta tags */}
+        {resource.journalTitle && (
+          <meta name="citation_journal_title" content={resource.journalTitle} />
+        )}
+        {resource.issn && (
+          <meta name="citation_issn" content={resource.issn} />
+        )}
+        {resource.volume && (
+          <meta name="citation_volume" content={resource.volume} />
+        )}
+        {resource.issue && (
+          <meta name="citation_issue" content={resource.issue} />
+        )}
+        {resource.firstPage && (
+          <meta name="citation_firstpage" content={resource.firstPage} />
+        )}
+        {resource.lastPage && (
+          <meta name="citation_lastpage" content={resource.lastPage} />
+        )}
+        {resource.pdfUrl && (
+          <meta name="citation_pdf_url" content={resource.pdfUrl} />
+        )}
       </Head>
       <main className="container mx-auto p-4">
         <h1 className="text-3xl font-bold mb-4">{resource.title}</h1>
