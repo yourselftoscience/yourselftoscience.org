@@ -5,9 +5,8 @@
   "scripts": {
     "dev:next": "next dev",
     "dev:watch": "node scripts/watchUpdateHtml.js",
-    "dev": "npm-run-all -p dev:next dev:watch",
+    "dev": "concurrently \"npm run dev:next\" \"npm run dev:watch\"",
     "build": "next build",
-    "postbuild": "if [ \"$CLOUDFLARE\" != \"true\" ]; then node scripts/updateHtmlPage.js; fi",
     "deploy": "next-on-pages",
     "start": "next start",
     "test": "node --test",
