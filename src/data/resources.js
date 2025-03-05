@@ -8,7 +8,7 @@ const rawResources = [
       {
         title:
           'Greshake Tzovaras, B., Angrist, M., Arvai, K., Dulaney, M., Estrada-Galiñanes, V., Gunderson, B., ... & Price Ball, M. (2019). Open Humans: A platform for participant-centered research and personal data exploration. GigaScience, 8(6), giz076.',
-        link: 'https://academic.oup.com/gigascience/article-abstract/8/6/giz076/5523201'
+        link: 'https://doi.org/10.1093/gigascience/giz076'
       },
     ],
   },
@@ -164,7 +164,7 @@ const rawResources = [
       {
         title:
           'Kelly, G., Laxton, C., Garelnabi, M., Alton, B., Addan, F., Catchpole, A., ... & Murray, E. J. (2015). Use of qualitative integrative cycler PCR (qicPCR) to identify optimal therapeutic dosing time-points in a Respiratory Syncytial Virus Human Viral Challenge Model (hVCM). Journal of virological methods, 224, 83-90.',
-        link: 'https://www.sciencedirect.com/science/article/pii/S0166093415002992'
+        link: 'https://doi.org/10.1016/j.jviromet.2015.08.019'
       },
     ],
   },
