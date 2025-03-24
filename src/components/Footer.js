@@ -48,13 +48,13 @@ export default function Footer() {
       {/* HTML Version link positioned in bottom-right and displayed in smaller text */}
       <p className="absolute bottom-2 right-2 text-xs">
         <a 
-          href="/yourselftoscience.html" 
+          href="/yourselftoscience.pdf" 
           className="underline text-blue-400" 
           target="_blank" 
           rel="noopener noreferrer">
-          HTML Version
+          PDF Version
         </a>
       </p>
-    </footer>
+          </footer>
   );
 }

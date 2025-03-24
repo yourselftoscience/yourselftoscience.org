@@ -4,14 +4,14 @@
   "private": true,
   "scripts": {
     "dev:next": "next dev",
-    "dev:watch": "node scripts/watchUpdateHtml.js",
+    "dev:watch": "node scripts/watchUpdatePdf.js",
     "dev": "concurrently \"npm run dev:next\" \"npm run dev:watch\"",
     "build": "next build",
     "deploy": "next-on-pages",
     "start": "next start",
     "test": "node --test",
     "lint": "next lint",
-    "watch-html": "node scripts/watchUpdateHtml.js"
+    "watch-pdf": "node scripts/watchUpdatePdf.js"
   },
   "dependencies": {
     "@eslint/config-array": "^0.18.0",
