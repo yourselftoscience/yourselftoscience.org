@@ -1,6 +1,8 @@
 import { resources } from '@/data/resources';
-// Add this import for icons
 import { FaMobileAlt, FaCog, FaUserShield, FaArrowRight } from 'react-icons/fa';
+
+// Add this line to make Cloudflare Pages happy
+export const runtime = 'edge';
 
 // Generate metadata for Google Scholar
 export async function generateMetadata({ params }) {
