@@ -74,13 +74,22 @@ jobs:
           
       - name: Get DOI from Zenodo
         id: get_doi
-        if: steps.create_release.outputs.release_created == 'true'
+        if: steps.release_status.outputs.release_created == 'true'
         run: |
-          # Get DOI from Zenodo API (replace with your Zenodo ID)
-          ZENODO_RECORD=$(curl -s "https://zenodo.org/api/records?q=conceptrecid:[YOUR_CONCEPT_ID]&sort=mostrecent&size=1")
-          DOI=$(echo $ZENODO_RECORD | jq -r '.hits.hits[0].metadata.doi')
-          echo "doi=$DOI" >> $GITHUB_OUTPUT
-          echo "Retrieved DOI: $DOI"
+          # Wait for Zenodo processing
+          echo "Waiting for Zenodo to process the new release..."
+          sleep 120
+          
+          # Use concept ID
+          ZENODO_RECORD=$(curl -s "https://zenodo.org/api/records?q=conceptrecid:15109360&sort=mostrecent&size=1")
+          VERSION_DOI=$(echo $ZENODO_RECORD | jq -r '.hits.hits[0].metadata.doi // "10.5281/zenodo.placeholder"')
+          CONCEPT_DOI=$(echo $ZENODO_RECORD | jq -r '.hits.hits[0].metadata.conceptdoi // "10.5281/zenodo.placeholder"')
+          
+          # We want to use the VERSION DOI (specific to this release)
+          echo "doi=$VERSION_DOI" >> $GITHUB_OUTPUT
+          echo "concept_doi=$CONCEPT_DOI" >> $GITHUB_OUTPUT
+          echo "Retrieved Version DOI: $VERSION_DOI"
+          echo "Retrieved Concept DOI: $CONCEPT_DOI"
           
   update-doi:
     needs: check-and-release
