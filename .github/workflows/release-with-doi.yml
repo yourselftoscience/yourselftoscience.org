@@ -15,7 +15,7 @@ jobs:
     steps:
       - run: echo "Proceeding with workflow"
     outputs:
-      should_continue: "!contains(github.event.head_commit.message, '[skip ci]')"
+      should_continue: "true"
 
   check-and-release:
     needs: check-if-skip
@@ -30,29 +30,12 @@ jobs:
         with:
           fetch-depth: 0
           
-      - name: Get latest version
-        id: get_version
-        run: |
-          echo "version=$(date +'%Y.%m.%d')" >> $GITHUB_OUTPUT
-          echo "Previous commits since last release: $(git rev-list --count HEAD)"
-          
-      - name: Check if release should be created
-        id: check_release
-        run: |
-          COMMITS_SINCE_LAST_TAG=$(git rev-list --count HEAD)
-          if [[ $COMMITS_SINCE_LAST_TAG -gt 5 ]]; then
-            echo "should_release=true" >> $GITHUB_OUTPUT
-          else
-            echo "should_release=false" >> $GITHUB_OUTPUT
-          fi
-          
       - name: Get date for release
         id: date
         run: echo "date=$(date +'%Y.%m.%d')" >> $GITHUB_OUTPUT
           
       - name: Create GitHub Release
         id: create_release
-        if: steps.check_release.outputs.should_release == 'true'
         uses: softprops/action-gh-release@v1
         with:
           name: Yourself To Science - ${{ steps.date.outputs.date }}
@@ -71,25 +54,22 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set release created flag
-        if: steps.check_release.outputs.should_release == 'true'
         run: echo "release_created=true" >> $GITHUB_OUTPUT
         id: release_status
           
       - name: Wait for Zenodo to process
-        if: steps.release_status.outputs.release_created == 'true'
-        run: sleep 60
+        run: |
+          echo "Waiting for Zenodo to process the new release..."
+          sleep 180
           
       - name: Get DOI from Zenodo
         id: get_doi
-        if: steps.release_status.outputs.release_created == 'true'
         run: |
-          echo "Waiting for Zenodo to process the new release..."
-          sleep 120
-          
           ZENODO_RECORD=$(curl -s "https://zenodo.org/api/records?q=conceptrecid:15109360&sort=mostrecent&size=1")
           VERSION_DOI=$(echo $ZENODO_RECORD | jq -r '.hits.hits[0].metadata.doi // "10.5281/zenodo.placeholder"')
           CONCEPT_DOI=$(echo $ZENODO_RECORD | jq -r '.hits.hits[0].metadata.conceptdoi // "10.5281/zenodo.placeholder"')
           
+          # Store both DOIs
           echo "doi=$VERSION_DOI" >> $GITHUB_OUTPUT
           echo "concept_doi=$CONCEPT_DOI" >> $GITHUB_OUTPUT
           echo "Retrieved Version DOI: $VERSION_DOI"
@@ -106,14 +86,27 @@ jobs:
       - name: Update layout.tsx with new DOI
         run: |
           DOI="${{ needs.check-and-release.outputs.new_doi }}"
-          sed -i 's|citation_doi": ".*"|citation_doi": "'$DOI'"|g' src/app/layout.tsx
+          # Only update if we have a real DOI
+          if [[ "$DOI" != "10.5281/zenodo.placeholder" && "$DOI" != "" ]]; then
+            sed -i 's|citation_doi": ".*"|citation_doi": "'$DOI'"|g' src/app/layout.tsx
+            echo "Updated layout.tsx with DOI: $DOI"
+          else
+            echo "No valid DOI received, skipping update"
+          fi
           
       - name: Update PDF generator with DOI
         run: |
           DOI="${{ needs.check-and-release.outputs.new_doi }}"
-          sed -i 's|doiDiv.textContent = `.*`;|doiDiv.textContent = `'$DOI'`;|g' scripts/updatePdfPage.js
+          # Only update if we have a real DOI
+          if [[ "$DOI" != "10.5281/zenodo.placeholder" && "$DOI" != "" ]]; then
+            sed -i 's|doiDiv.textContent = `.*`;|doiDiv.textContent = `'$DOI'`;|g' scripts/updatePdfPage.js
+            echo "Updated updatePdfPage.js with DOI: $DOI"
+          else
+            echo "No valid DOI received, skipping update"
+          fi
           
       - name: Commit DOI updates
+        if: ${{ needs.check-and-release.outputs.new_doi != '10.5281/zenodo.placeholder' && needs.check-and-release.outputs.new_doi != '' }}
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "[skip ci] Update DOI to ${{ needs.check-and-release.outputs.new_doi }}"
