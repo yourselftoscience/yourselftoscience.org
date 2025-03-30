@@ -62,7 +62,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Additional citation_* meta tags that might not be covered by metadata API */}
-        <meta name="citation_publisher" content="Yourself To Science Organization" />
         <meta name="citation_online_date" content={currentDate} />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
