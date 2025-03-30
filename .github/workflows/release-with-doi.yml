@@ -70,9 +70,37 @@ jobs:
       - name: Get DOI from Zenodo
         id: get_doi
         run: |
-          ZENODO_RECORD=$(curl -s "https://zenodo.org/api/records?q=conceptrecid:15109360&sort=mostrecent&size=1")
-          VERSION_DOI=$(echo $ZENODO_RECORD | jq -r '.hits.hits[0].metadata.doi // "10.5281/zenodo.placeholder"')
-          CONCEPT_DOI=$(echo $ZENODO_RECORD | jq -r '.hits.hits[0].metadata.conceptdoi // "10.5281/zenodo.placeholder"')
+          # Try the new API endpoint format first
+          ZENODO_RECORD=$(curl -s "https://zenodo.org/api/communities/github/records?q=github.repository:yourselftoscience/yourselftoscience.org&sort=mostrecent&size=1")
+          
+          # Check if we got results
+          HITS_COUNT=$(echo $ZENODO_RECORD | jq -r '.hits.total')
+          
+          if [[ "$HITS_COUNT" == "0" || -z "$HITS_COUNT" ]]; then
+            # Try direct DOI query with your known DOI
+            echo "Trying direct DOI query..."
+            ZENODO_RECORD=$(curl -s "https://zenodo.org/api/records/15109360")
+            
+            # Extract DOIs from direct response
+            VERSION_DOI=$(echo $ZENODO_RECORD | jq -r '.doi // "10.5281/zenodo.placeholder"')
+            CONCEPT_DOI="10.5281/zenodo.15109359"  # Hardcoded from your Zenodo dashboard
+          else
+            # Extract DOIs from search results
+            VERSION_DOI=$(echo $ZENODO_RECORD | jq -r '.hits.hits[0].doi // "10.5281/zenodo.placeholder"')
+            CONCEPT_DOI=$(echo $ZENODO_RECORD | jq -r '.hits.hits[0].conceptdoi // "10.5281/zenodo.placeholder"')
+          fi
+          
+          # Ensure DOIs have the proper prefix if needed
+          if [[ "$VERSION_DOI" != "10.5281/zenodo.placeholder" && "$VERSION_DOI" != "" && ! "$VERSION_DOI" =~ ^10\. ]]; then
+            VERSION_DOI="10.5281/zenodo.$VERSION_DOI"
+          fi
+          
+          # Use hardcoded values as ultimate fallback
+          if [[ "$VERSION_DOI" == "10.5281/zenodo.placeholder" || "$VERSION_DOI" == "" ]]; then
+            VERSION_DOI="10.5281/zenodo.15109360"
+            CONCEPT_DOI="10.5281/zenodo.15109359"
+            echo "Using hardcoded DOIs as fallback"
+          fi
           
           # Store both DOIs
           echo "doi=$VERSION_DOI" >> $GITHUB_OUTPUT

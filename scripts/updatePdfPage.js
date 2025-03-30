@@ -127,7 +127,7 @@ const puppeteer = require('puppeteer');
 
     // Add DOI identifier
     const doiDiv = document.createElement('div');
-    doiDiv.textContent = `10.5281/zenodo.placeholder`; // Will be updated by workflow
+    doiDiv.textContent = `10.5281/zenodo.15109360`; // Will be updated by workflow
     doiDiv.style.cssText = `
       font-size: 14px;
       margin-top: 8px;
