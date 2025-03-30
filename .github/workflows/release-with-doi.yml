@@ -70,7 +70,7 @@ jobs:
       - name: Get DOI from Zenodo
         id: get_doi
         run: |
-          # Try the new API endpoint format first
+          # Try the new API endpoint first
           ZENODO_RECORD=$(curl -s "https://zenodo.org/api/communities/github/records?q=github.repository:yourselftoscience/yourselftoscience.org&sort=mostrecent&size=1")
           
           # Check if we got results
@@ -108,39 +108,33 @@ jobs:
           echo "Retrieved Version DOI: $VERSION_DOI"
           echo "Retrieved Concept DOI: $CONCEPT_DOI"
           
-  update-doi:
-    needs: check-and-release
-    if: needs.check-and-release.outputs.release_created == 'true'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        
-      - name: Update layout.tsx with new DOI
+      - name: Wait and check for Zenodo processing
+        id: zenodo_check
         run: |
-          DOI="${{ needs.check-and-release.outputs.new_doi }}"
-          # Only update if we have a real DOI
-          if [[ "$DOI" != "10.5281/zenodo.placeholder" && "$DOI" != "" ]]; then
-            sed -i 's|citation_doi": ".*"|citation_doi": "'$DOI'"|g' src/app/layout.tsx
-            echo "Updated layout.tsx with DOI: $DOI"
-          else
-            echo "No valid DOI received, skipping update"
-          fi
+          echo "Checking for Zenodo record..."
           
-      - name: Update PDF generator with DOI
-        run: |
-          DOI="${{ needs.check-and-release.outputs.new_doi }}"
-          # Only update if we have a real DOI
-          if [[ "$DOI" != "10.5281/zenodo.placeholder" && "$DOI" != "" ]]; then
-            sed -i 's|doiDiv.textContent = `.*`;|doiDiv.textContent = `'$DOI'`;|g' scripts/updatePdfPage.js
-            echo "Updated updatePdfPage.js with DOI: $DOI"
-          else
-            echo "No valid DOI received, skipping update"
-          fi
-          
-      - name: Commit DOI updates
-        if: ${{ needs.check-and-release.outputs.new_doi != '10.5281/zenodo.placeholder' && needs.check-and-release.outputs.new_doi != '' }}
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "[skip ci] Update DOI to ${{ needs.check-and-release.outputs.new_doi }}"
-          file_pattern: src/app/layout.tsx scripts/updatePdfPage.js
+          # Try up to 5 times with 20-second intervals (total max wait: 100 seconds)
+          for attempt in {1..5}; do
+            echo "Attempt $attempt of 5..."
+            
+            # Try the community API endpoint
+            ZENODO_RECORD=$(curl -s "https://zenodo.org/api/communities/github/records?q=github.repository:yourselftoscience/yourselftoscience.org&sort=mostrecent&size=1")
+            HITS_COUNT=$(echo $ZENODO_RECORD | jq -r '.hits.total')
+            
+            if [[ "$HITS_COUNT" != "0" && ! -z "$HITS_COUNT" ]]; then
+              echo "Found record in Zenodo GitHub community!"
+              echo "found=true" >> $GITHUB_OUTPUT
+              break
+            fi
+            
+            # Try direct DOI query
+            ZENODO_RECORD=$(curl -s "https://zenodo.org/api/records/15109360")
+            VERSION_DOI=$(echo $ZENODO_RECORD | jq -r '.doi // ""')
+            
+            if [[ -n "$VERSION_DOI" ]]; then
+              echo "Found record via direct DOI query!"
+              echo "found=true" >> $GITHUB_OUTPUT
+              break
+            fi
+            
+            echo "No record found yet. Waiting 20 seconds before next attempt
