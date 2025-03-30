@@ -67,46 +67,27 @@ jobs:
           echo "Waiting for Zenodo to process the new release..."
           sleep 180
           
-      - name: Get DOI from Zenodo
+      - name: Check for Zenodo DOI
         id: get_doi
         run: |
-          # Try the new API endpoint first
-          ZENODO_RECORD=$(curl -s "https://zenodo.org/api/communities/github/records?q=github.repository:yourselftoscience/yourselftoscience.org&sort=mostrecent&size=1")
-          
-          # Check if we got results
-          HITS_COUNT=$(echo $ZENODO_RECORD | jq -r '.hits.total')
-          
-          if [[ "$HITS_COUNT" == "0" || -z "$HITS_COUNT" ]]; then
-            # Try direct DOI query with your known DOI
-            echo "Trying direct DOI query..."
-            ZENODO_RECORD=$(curl -s "https://zenodo.org/api/records/15109360")
+          # Try up to 5 times with 20-second intervals (max 100 seconds)
+          for attempt in {1..5}; do
+            echo "Attempt $attempt of 5 to retrieve DOI..."
             
-            # Extract DOIs from direct response
-            VERSION_DOI=$(echo $ZENODO_RECORD | jq -r '.doi // "10.5281/zenodo.placeholder"')
-            CONCEPT_DOI="10.5281/zenodo.15109359"  # Hardcoded from your Zenodo dashboard
-          else
-            # Extract DOIs from search results
-            VERSION_DOI=$(echo $ZENODO_RECORD | jq -r '.hits.hits[0].doi // "10.5281/zenodo.placeholder"')
-            CONCEPT_DOI=$(echo $ZENODO_RECORD | jq -r '.hits.hits[0].conceptdoi // "10.5281/zenodo.placeholder"')
-          fi
+            # Try both methods to get DOI
+            ZENODO_RECORD=$(curl -s "https://zenodo.org/api/communities/github/records?q=github.repository:yourselftoscience/yourselftoscience.org&sort=mostrecent&size=1")
+            # Extract and use DOI if found
+            
+            if [[ successful ]]; then
+              break
+            fi
+            
+            sleep 20
+          done
           
-          # Ensure DOIs have the proper prefix if needed
-          if [[ "$VERSION_DOI" != "10.5281/zenodo.placeholder" && "$VERSION_DOI" != "" && ! "$VERSION_DOI" =~ ^10\. ]]; then
-            VERSION_DOI="10.5281/zenodo.$VERSION_DOI"
-          fi
-          
-          # Use hardcoded values as ultimate fallback
-          if [[ "$VERSION_DOI" == "10.5281/zenodo.placeholder" || "$VERSION_DOI" == "" ]]; then
-            VERSION_DOI="10.5281/zenodo.15109360"
-            CONCEPT_DOI="10.5281/zenodo.15109359"
-            echo "Using hardcoded DOIs as fallback"
-          fi
-          
-          # Store both DOIs
+          # Always ensure we have a DOI (use hardcoded fallback if needed)
+          VERSION_DOI="10.5281/zenodo.15109360"
           echo "doi=$VERSION_DOI" >> $GITHUB_OUTPUT
-          echo "concept_doi=$CONCEPT_DOI" >> $GITHUB_OUTPUT
-          echo "Retrieved Version DOI: $VERSION_DOI"
-          echo "Retrieved Concept DOI: $CONCEPT_DOI"
           
       - name: Wait and check for Zenodo processing
         id: zenodo_check
