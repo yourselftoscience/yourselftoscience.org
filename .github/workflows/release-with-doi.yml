@@ -1,0 +1,107 @@
+name: Create Release and Update DOI
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'src/app/layout.tsx'  # Prevent release loop when DOI is updated
+      - 'scripts/updatePdfPage.js'
+      - '**/*[skip ci]*'
+
+jobs:
+  check-and-release:
+    runs-on: ubuntu-latest
+    outputs:
+      new_doi: ${{ steps.get_doi.outputs.doi }}
+      release_created: ${{ steps.create_release.outputs.release_created }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Get latest version
+        id: get_version
+        run: |
+          echo "version=$(date +'%Y.%m.%d')" >> $GITHUB_OUTPUT
+          echo "Previous commits since last release: $(git rev-list --count HEAD)"
+          
+      - name: Check if release should be created
+        id: check_release
+        run: |
+          # Only create release if there are significant changes
+          COMMITS_SINCE_LAST_TAG=$(git rev-list --count HEAD)
+          if [[ $COMMITS_SINCE_LAST_TAG -gt 5 ]]; then
+            echo "should_release=true" >> $GITHUB_OUTPUT
+          else
+            echo "should_release=false" >> $GITHUB_OUTPUT
+          fi
+          
+      - name: Get date for release
+        id: date
+        run: echo "date=$(date +'%Y.%m.%d')" >> $GITHUB_OUTPUT
+          
+      - name: Create GitHub Release
+        id: create_release
+        if: steps.check_release.outputs.should_release == 'true'
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Yourself To Science - ${{ steps.date.outputs.date }}
+          tag_name: v${{ steps.date.outputs.date }}
+          draft: false
+          prerelease: false
+          files: |
+            public/yourselftoscience.pdf
+            public/sitemap.xml
+          body: |
+            This release includes:
+            - Updated resources list
+            - Enhanced citation information
+            - Latest content as of ${{ steps.date.outputs.date }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: false
+
+      - name: Set release created flag
+        if: steps.check_release.outputs.should_release == 'true'
+        run: echo "release_created=true" >> $GITHUB_OUTPUT
+        id: release_status
+          
+      - name: Wait for Zenodo to process
+        if: steps.create_release.outputs.release_created == 'true'
+        run: sleep 60
+          
+      - name: Get DOI from Zenodo
+        id: get_doi
+        if: steps.create_release.outputs.release_created == 'true'
+        run: |
+          # Get DOI from Zenodo API (replace with your Zenodo ID)
+          ZENODO_RECORD=$(curl -s "https://zenodo.org/api/records?q=conceptrecid:[YOUR_CONCEPT_ID]&sort=mostrecent&size=1")
+          DOI=$(echo $ZENODO_RECORD | jq -r '.hits.hits[0].metadata.doi')
+          echo "doi=$DOI" >> $GITHUB_OUTPUT
+          echo "Retrieved DOI: $DOI"
+          
+  update-doi:
+    needs: check-and-release
+    if: needs.check-and-release.outputs.release_created == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Update layout.tsx with new DOI
+        run: |
+          DOI="${{ needs.check-and-release.outputs.new_doi }}"
+          sed -i 's|citation_doi": ".*"|citation_doi": "'$DOI'"|g' src/app/layout.tsx
+          
+      - name: Update PDF generator with DOI
+        run: |
+          DOI="${{ needs.check-and-release.outputs.new_doi }}"
+          sed -i 's|doiDiv.textContent = `.*`;|doiDiv.textContent = `'$DOI'`;|g' scripts/updatePdfPage.js
+          
+      - name: Commit DOI updates
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "[skip ci] Update DOI to ${{ needs.check-and-release.outputs.new_doi }}"
+          file_pattern: src/app/layout.tsx scripts/updatePdfPage.js

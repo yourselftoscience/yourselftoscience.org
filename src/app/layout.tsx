@@ -30,6 +30,7 @@ export const metadata: Metadata = {
     'citation_publication_date': `${currentYear}/${currentDate.split('/')[1]}/${currentDate.split('/')[2]}`,
     'citation_pdf_url': "https://yourselftoscience.org/yourselftoscience.pdf",
     'citation_fulltext_html_url': "https://yourselftoscience.org",
+    'citation_doi': "10.5281/zenodo.placeholder", // Will be automatically updated by workflow
   },
   openGraph: {
     title: "Yourself To Science",

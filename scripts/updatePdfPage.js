@@ -125,11 +125,9 @@ const puppeteer = require('puppeteer');
     `;
     scholarHeader.appendChild(citationDiv);
 
-    // DOI section commented out until we have an official DOI
-    /* 
-    // Add DOI-like identifier
+    // Add DOI identifier
     const doiDiv = document.createElement('div');
-    doiDiv.textContent = `https://doi.org/yourselftoscience/${year}`;
+    doiDiv.textContent = `10.5281/zenodo.placeholder`; // Will be updated by workflow
     doiDiv.style.cssText = `
       font-size: 14px;
       margin-top: 8px;
@@ -137,7 +135,6 @@ const puppeteer = require('puppeteer');
       color: #000000;
     `;
     scholarHeader.appendChild(doiDiv);
-    */
 
     // Add to page - insert at the beginning of the body
     document.body.insertBefore(scholarHeader, document.body.firstChild);
