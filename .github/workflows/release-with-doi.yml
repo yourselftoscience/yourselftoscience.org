@@ -5,16 +5,25 @@ on:
     branches:
       - main
     paths-ignore:
-      - 'src/app/layout.tsx'  # Prevent release loop when DOI is updated
+      - 'src/app/layout.tsx'
       - 'scripts/updatePdfPage.js'
-      - '**/*[skip ci]*'
 
 jobs:
+  check-if-skip:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    steps:
+      - run: echo "Proceeding with workflow"
+    outputs:
+      should_continue: "!contains(github.event.head_commit.message, '[skip ci]')"
+
   check-and-release:
+    needs: check-if-skip
+    if: needs.check-if-skip.outputs.should_continue == 'true'
     runs-on: ubuntu-latest
     outputs:
       new_doi: ${{ steps.get_doi.outputs.doi }}
-      release_created: ${{ steps.create_release.outputs.release_created }}
+      release_created: ${{ steps.release_status.outputs.release_created }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -30,7 +39,6 @@ jobs:
       - name: Check if release should be created
         id: check_release
         run: |
-          # Only create release if there are significant changes
           COMMITS_SINCE_LAST_TAG=$(git rev-list --count HEAD)
           if [[ $COMMITS_SINCE_LAST_TAG -gt 5 ]]; then
             echo "should_release=true" >> $GITHUB_OUTPUT
@@ -61,7 +69,6 @@ jobs:
             - Latest content as of ${{ steps.date.outputs.date }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        continue-on-error: false
 
       - name: Set release created flag
         if: steps.check_release.outputs.should_release == 'true'
@@ -69,23 +76,20 @@ jobs:
         id: release_status
           
       - name: Wait for Zenodo to process
-        if: steps.create_release.outputs.release_created == 'true'
+        if: steps.release_status.outputs.release_created == 'true'
         run: sleep 60
           
       - name: Get DOI from Zenodo
         id: get_doi
         if: steps.release_status.outputs.release_created == 'true'
         run: |
-          # Wait for Zenodo processing
           echo "Waiting for Zenodo to process the new release..."
           sleep 120
           
-          # Use concept ID
           ZENODO_RECORD=$(curl -s "https://zenodo.org/api/records?q=conceptrecid:15109360&sort=mostrecent&size=1")
           VERSION_DOI=$(echo $ZENODO_RECORD | jq -r '.hits.hits[0].metadata.doi // "10.5281/zenodo.placeholder"')
           CONCEPT_DOI=$(echo $ZENODO_RECORD | jq -r '.hits.hits[0].metadata.conceptdoi // "10.5281/zenodo.placeholder"')
           
-          # We want to use the VERSION DOI (specific to this release)
           echo "doi=$VERSION_DOI" >> $GITHUB_OUTPUT
           echo "concept_doi=$CONCEPT_DOI" >> $GITHUB_OUTPUT
           echo "Retrieved Version DOI: $VERSION_DOI"
