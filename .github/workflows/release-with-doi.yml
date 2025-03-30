@@ -8,6 +8,9 @@ on:
       - 'src/app/layout.tsx'
       - 'scripts/updatePdfPage.js'
 
+permissions:
+  contents: write  # Required for creating releases
+
 jobs:
   check-if-skip:
     runs-on: ubuntu-latest
@@ -21,6 +24,8 @@ jobs:
     needs: check-if-skip
     if: needs.check-if-skip.outputs.should_continue == 'true'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Required for creating releases
     outputs:
       new_doi: ${{ steps.get_doi.outputs.doi }}
       release_created: ${{ steps.release_status.outputs.release_created }}
