@@ -2,11 +2,11 @@
 
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ResourceTable from '@/components/ResourceTable';
 import Footer from '@/components/Footer';
-import { resources } from '@/data/resources';
+import { resources, citationMap, uniqueCitations } from '@/data/resources';
 
 const words = ['self', 'Data', 'Genome', 'Body', 'Tissues'];
 
@@ -48,26 +48,6 @@ export default function Home() {
   // On both SSR and initial client render, currentWord is words[0]
   const currentWord = words[index];
   const isSelf = currentWord === 'self';
-
-  const uniqueCitations = useMemo(() => {
-    // Deduplicate and sort citations for a stable order.
-    const citationMap = {};
-    const citations = [];
-    resources.forEach((resource) => {
-      if (resource.citations) {
-        resource.citations.forEach((citation) => {
-          const key = citation.link ? citation.link.trim() : citation.title.trim();
-          if (!citationMap[key]) {
-            citationMap[key] = true;
-            citations.push(citation);
-          }
-        });
-      }
-    });
-    // Sort citations by title (or any other stable attribute)
-    citations.sort((a, b) => a.title.localeCompare(b.title));
-    return citations;
-  }, []);
 
   function handleDownloadCSV() {
     const headers = ['Title', 'Link', 'Data Types', 'Countries', 'Country Codes', 'Instructions'];
@@ -120,7 +100,10 @@ export default function Home() {
         </p>
 
         <main className="container mx-auto px-4">
-          <ResourceTable filteredResources={resources} />
+          <ResourceTable 
+            filteredResources={resources} 
+            citationMap={citationMap} 
+          />
 
           <div className="mt-6 flex justify-end">
             <button

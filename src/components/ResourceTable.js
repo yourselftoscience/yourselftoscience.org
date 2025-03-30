@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import ReactCountryFlag from 'react-country-flag';
-import { resources } from '@/data/resources.js';
+import { resources, citationMap } from '@/data/resources.js';
 import Select, { components } from 'react-select';
 import {
   FaArrowRight,
@@ -81,6 +81,7 @@ const customStyles = {
   }),
 };
 
+// Update the ResourceTable component to not require citationMap as a prop
 export default function ResourceTable({ filteredResources: initialResources }) {
   // State for filters, sorting, and tooltip
   const [filters, setFilters] = useState({ dataTypes: [], countries: [] });
@@ -160,21 +161,6 @@ export default function ResourceTable({ filteredResources: initialResources }) {
       return sortOrder === 'asc' ? 1 : -1;
     }
     return 0;
-  });
-
-  // Deduplicate citations from processedResources using citation.link or title as key.
-  const citationMap = {};
-  const uniqueCitations = [];
-  processedResources.forEach((resource) => {
-    if (resource.citations) {
-      resource.citations.forEach((citation) => {
-        const key = citation.link ? citation.link.trim() : citation.title.trim();
-        if (!citationMap[key]) {
-          uniqueCitations.push(citation);
-          citationMap[key] = uniqueCitations.length;
-        }
-      });
-    }
   });
 
   // Custom styles for react-select
@@ -591,8 +577,12 @@ export default function ResourceTable({ filteredResources: initialResources }) {
                   <td className="py-2 px-4 border-b border-r border-gray-300 text-black align-top">
                     {resource.citations && resource.citations.length > 0 ? (
                       resource.citations.map((citation, idx) => {
+                        // Generate the same key used in page.js
                         const key = citation.link ? citation.link.trim() : citation.title.trim();
                         const citationNumber = citationMap[key];
+                        
+                        console.log(`Resource: ${resource.title}, Citation: ${citation.title.substring(0, 30)}..., Number: ${citationNumber}`);
+                        
                         return (
                           <React.Fragment key={idx}>
                             <a

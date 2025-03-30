@@ -2,69 +2,59 @@ const { execSync } = require('child_process');
 const chokidar = require('chokidar');
 const path = require('path');
 const fs = require('fs');
+const { generateSitemap } = require('./generateSitemap');
 
-console.log('Starting watch for PDF updates...');
+console.log('Starting watch for PDF and sitemap updates...');
 
-// Function to generate PDF - using synchronous execution for simplicity
-function generatePdf() {
-  console.log(`[${new Date().toISOString()}] Running Puppeteer to update PDF...`);
-  
-  const scriptPath = path.join(process.cwd(), 'scripts', 'updatePdfPage.js');
-  
-  if (!fs.existsSync(scriptPath)) {
-    console.error(`Error: Script not found at ${scriptPath}`);
-    return;
-  }
-  
+// Function to generate PDF
+async function generatePdf() {
+  console.log('Generating PDF...');
   try {
-    // Force process to run synchronously to avoid overlapping executions
-    const output = execSync(`node "${scriptPath}"`, { encoding: 'utf8' });
-    console.log(output);
-    console.log('PDF generation completed successfully');
+    // Generate PDF
+    execSync('node scripts/updatePdfPage.js', { stdio: 'inherit' });
+    console.log('PDF generated successfully');
+    
+    // Generate sitemap using the imported function
+    console.log('Updating sitemap...');
+    await generateSitemap();
+    
+    // Touch the deployed files to trigger any watchers
+    const now = new Date();
+    const pdfPath = path.join(__dirname, '../public/yourselftoscience.pdf');
+    const sitemapPath = path.join(__dirname, '../public/sitemap.xml');
+    
+    if (fs.existsSync(pdfPath)) {
+      fs.utimesSync(pdfPath, now, now);
+    }
+    if (fs.existsSync(sitemapPath)) {
+      fs.utimesSync(sitemapPath, now, now);
+    }
+    
+    console.log('All updates completed successfully');
   } catch (error) {
-    console.error(`Error generating PDF: ${error.message}`);
+    console.error('Error in generation process:', error.message);
   }
 }
 
-// Generate the PDF once at startup
-console.log('Generating initial PDF...');
-generatePdf();
-
-// Improved file watcher settings balanced for containerized environments
-const watcher = chokidar.watch(['./src/**/*', './scripts/**/*'], {
-  ignored: ['**/node_modules/**', '**/public/yourselftoscience.pdf', '**/.git/**', '**/.next/**'],
-  ignoreInitial: true,
-  usePolling: true,             // Needed for containerized environments
-  interval: 1000,               // Check every second
-  awaitWriteFinish: {           // Wait for file write to finish before triggering
-    stabilityThreshold: 500,    // Wait for 500ms of stability
-    pollInterval: 100           // Poll every 100ms during this waiting period
-  },
-  persistent: true
+// Watch for changes to key files
+const watcher = chokidar.watch([
+  'src/data/resources.js',
+  'src/app/**/*.js',
+  'src/app/**/*.tsx',
+  'src/components/**/*.js'
+], {
+  persistent: true,
+  ignoreInitial: false, // Generate on start
+  awaitWriteFinish: {
+    stabilityThreshold: 2000,
+    pollInterval: 100
+  }
 });
 
-// Debounce function to prevent multiple rapid rebuilds
-let debounceTimeout;
-const debounceDelay = 1000; // 1 second debounce
+// On change event
+watcher.on('change', (changedPath) => {
+  console.log(`File ${changedPath} changed`);
+  generatePdf();
+});
 
-function debouncedGeneratePdf() {
-  clearTimeout(debounceTimeout);
-  debounceTimeout = setTimeout(() => {
-    generatePdf();
-  }, debounceDelay);
-}
-
-// Enhanced event handling with better logging
-watcher
-  .on('add', path => {
-    console.log(`File added: ${path}`);
-    debouncedGeneratePdf();
-  })
-  .on('change', path => {
-    console.log(`File changed: ${path}`);
-    debouncedGeneratePdf();
-  })
-  .on('unlink', path => console.log(`File removed: ${path}`))
-  .on('error', error => console.error(`Watcher error: ${error}`));
-
-console.log('Watching for source code and script changes to update PDF...');
+console.log('Watcher started - PDF and sitemap will update automatically on file changes');

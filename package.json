@@ -6,12 +6,15 @@
     "dev:next": "next dev",
     "dev:watch": "node scripts/watchUpdatePdf.js",
     "dev": "concurrently \"npm run dev:next\" \"npm run dev:watch\"",
+    "prebuild": "node scripts/generateSitemap.js",
     "build": "next build",
+    "postbuild": "node scripts/updatePdfPage.js",
     "deploy": "next-on-pages",
     "start": "next start",
     "test": "node --test",
     "lint": "next lint",
-    "watch-pdf": "node scripts/watchUpdatePdf.js"
+    "watch-pdf": "node scripts/watchUpdatePdf.js",
+    "update-sitemap": "node scripts/generateSitemap.js"
   },
   "dependencies": {
     "@eslint/config-array": "^0.18.0",

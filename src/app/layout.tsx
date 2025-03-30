@@ -13,11 +13,23 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
+// Get current date in YYYY/MM/DD format for citation
+const currentDate = new Date().toISOString().split('T')[0].replace(/-/g, '/');
+const currentYear = new Date().getFullYear();
+
 export const metadata: Metadata = {
   title: "Yourself To Science",
-  description: "List of Services for Contributing to Science with Your Data, Genome, Body, and More",
+  description: "A Comprehensive List of Services for Contributing to Science with Your Data, Genome, Body, and More",
   icons: {
     icon: '/Logo.svg', // SVG favicon
+  },
+  // Google Scholar metadata
+  other: {
+    'citation_title': "Yourself To Science: A Comprehensive List of Services for Contributing to Science",
+    'citation_author': "Mario Marcolongo", // Updated author name
+    'citation_publication_date': `${currentYear}/${currentDate.split('/')[1]}/${currentDate.split('/')[2]}`,
+    'citation_pdf_url': "https://yourselftoscience.org/yourselftoscience.pdf",
+    'citation_fulltext_html_url': "https://yourselftoscience.org",
   },
   openGraph: {
     title: "Yourself To Science",
@@ -48,6 +60,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* Additional citation_* meta tags that might not be covered by metadata API */}
+        <meta name="citation_publisher" content="Yourself To Science Organization" />
+        <meta name="citation_online_date" content={currentDate} />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
       </body>

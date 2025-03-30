@@ -210,3 +210,34 @@ export const resources = rawResources.map((r, i) => ({
   id: r.id || String(i + 1), // Auto-assign id if missing
   ...r,
 }));
+
+// At the bottom of the file, add this function that processes resources in a consistent way
+export function generateCitationMappings(resourcesData = rawResources) {
+  // Create a deterministic alphabetical sort of resources
+  const alphabeticalResources = [...resourcesData].sort((a, b) => 
+    a.title.toLowerCase().localeCompare(b.title.toLowerCase())
+  );
+  
+  // Process citations in this strict alphabetical order
+  const citationMap = {};
+  const uniqueCitations = [];
+  
+  // First pass: collect all unique citations in alphabetical resource order
+  alphabeticalResources.forEach(resource => {
+    if (resource.citations && Array.isArray(resource.citations)) {
+      resource.citations.forEach(citation => {
+        // Create a consistent key for each citation
+        const key = citation.link ? citation.link.trim() : citation.title.trim();
+        if (!citationMap[key]) {
+          uniqueCitations.push(citation);
+          citationMap[key] = uniqueCitations.length; // 1-based index
+        }
+      });
+    }
+  });
+  
+  return { citationMap, uniqueCitations };
+}
+
+// Pre-calculate the citation mappings for immediate use
+export const { citationMap, uniqueCitations } = generateCitationMappings();
