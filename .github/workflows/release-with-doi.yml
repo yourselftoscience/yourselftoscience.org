@@ -90,8 +90,8 @@ jobs:
               fi
             fi
             
-            # Try direct DOI query
-            ZENODO_RECORD=$(curl -s "https://zenodo.org/api/records/15109360")
+            # Try direct DOI query - updated to use the concept DOI
+            ZENODO_RECORD=$(curl -s "https://zenodo.org/api/records/15109359")
             VERSION_DOI=$(echo $ZENODO_RECORD | jq -r '.doi // ""')
             
             if [[ -n "$VERSION_DOI" ]]; then
@@ -105,7 +105,7 @@ jobs:
             sleep 20
           done
           
-          # Always ensure we have a DOI (use hardcoded fallback if needed)
-          VERSION_DOI="10.5281/zenodo.15109360"
+          # Always ensure we have a DOI (use correct concept DOI as fallback)
+          VERSION_DOI="10.5281/zenodo.15109359"
           echo "doi=$VERSION_DOI" >> $GITHUB_OUTPUT
-          echo "Using hardcoded DOI: $VERSION_DOI"
+          echo "Using concept DOI: $VERSION_DOI"
