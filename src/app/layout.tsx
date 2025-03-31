@@ -31,6 +31,7 @@ export const metadata: Metadata = {
     'citation_pdf_url': "https://yourselftoscience.org/yourselftoscience.pdf",
     'citation_fulltext_html_url': "https://yourselftoscience.org",
     'citation_doi': "10.5281/zenodo.15109360", // Will be automatically updated by workflow
+    'citation_fulltext_world_readable': ' ' // Add this line to indicate open access
   },
   openGraph: {
     title: "Yourself To Science",

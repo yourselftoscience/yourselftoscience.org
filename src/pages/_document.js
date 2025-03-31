@@ -16,6 +16,7 @@ class MyDocument extends Document {
           <meta name="citation_title" content="Yourself To Science" />
           <meta name="citation_author" content="Mario Marcolongo" />
           <meta name="citation_publication_date" content={formattedDate} />
+          <meta name="citation_fulltext_world_readable" content=" " /> {/* Add this line */}
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           {/* Inline script with proper semicolon termination */}
           <script

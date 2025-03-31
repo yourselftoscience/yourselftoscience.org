@@ -9,6 +9,7 @@ export const metadata = {
     'citation_author': 'Mario Marcolongo',
     'citation_publication_date': new Date().toISOString().split('T')[0].replace(/-/g, '/'),
     'citation_pdf_url': 'https://yourselftoscience.org/yourselftoscience.pdf',
+    'citation_fulltext_world_readable': ' ' // Add this line
   }
 };
 

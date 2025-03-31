@@ -25,6 +25,7 @@ export async function generateMetadata({ params }) {
       'citation_author': 'Mario Marcolongo', // Updated author name
       'citation_publication_date': currentDate,
       'citation_pdf_url': 'https://yourselftoscience.org/yourselftoscience.pdf',
+      'citation_fulltext_world_readable': ' ', // Add this line
       ...(resource.citations?.length && {'citation_references': resource.citations.map(c => c.title).join('; ')}),
     },
     openGraph: {
