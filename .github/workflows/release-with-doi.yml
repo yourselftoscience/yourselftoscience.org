@@ -65,7 +65,7 @@ jobs:
       - name: Wait for Zenodo to process
         run: |
           echo "Waiting for Zenodo to process the new release..."
-          sleep 180
+          sleep 60
           
       - name: Wait for and check Zenodo DOI
         id: get_doi
