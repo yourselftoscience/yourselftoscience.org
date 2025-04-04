@@ -398,7 +398,9 @@ export default function ResourceTable({ filteredResources: initialResources }) {
     if (!resourceCitations || resourceCitations.length === 0) return null;
     
     return resourceCitations.map((citation, idx) => {
-      const citationNumber = citationMap[citation.title];
+      // Create the same key format used in generateCitationMappings
+      const key = citation.link ? citation.link.trim() : citation.title.trim();
+      const citationNumber = citationMap[key];
       
       if (!citationNumber) return null;
       

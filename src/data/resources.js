@@ -202,7 +202,24 @@ const rawResources = [
     dataTypes: ['Placenta'],
     countries: ['Australia'],
     countryCodes: ['AU']
-  }
+  },
+  {
+    title: 'The significance of selected biological and environmental factors in the process of human hair decomposition - Department of Human Biology, University of Wrocław',
+    link: 'https://biologia.uwr.edu.pl/2023/10/12/znaczenie-wybranych-czynnikow-biologicznych-i-srodowiskowych-w-procesie-rozkladu-ludzkich-wlosow-nabor-na-badania/',
+    dataTypes: ['Hair'],
+    countries: ['Poland'],
+    countryCodes: ['PL'],
+    citations: [
+      {
+        title: 'Palacz, K., Cholewa, M., Bonar, M., Krzyżanowska, M., & Kadej, M. (2023). The rate and quality of post-mortem hair root changes in relation to melanin content. Forensic Science International, 350, 111784.',
+        link: 'https://doi.org/10.1016/j.forsciint.2023.111784'
+      },
+      {
+        title: 'University of Wrocław. (2023, November 9). Donate your hair for science.',
+        link: 'https://uwr.edu.pl/en/donate-your-hair-for-science/'
+      },
+    ],
+  },
   // Add more resources as needed
 ];
 
