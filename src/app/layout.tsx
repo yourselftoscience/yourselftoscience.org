@@ -2,15 +2,22 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
+// Define fonts at module scope with const
+// Use optional catch binding to handle missing files gracefully
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
+  display: 'swap',
+  fallback: ['Arial', 'sans-serif'],
 });
+
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
+  src: "./fonts/GeistMonoVF.woff", 
   variable: "--font-geist-mono",
   weight: "100 900",
+  display: 'swap',
+  fallback: ['Consolas', 'monospace'],
 });
 
 // Get current date in YYYY/MM/DD format for citation
@@ -26,12 +33,12 @@ export const metadata: Metadata = {
   // Google Scholar metadata
   other: {
     'citation_title': "Yourself To Science: A Comprehensive List of Services for Contributing to Science",
-    'citation_author': "Mario Marcolongo", // Updated author name
+    'citation_author': "Mario Marcolongo",
     'citation_publication_date': `${currentYear}/${currentDate.split('/')[1]}/${currentDate.split('/')[2]}`,
     'citation_pdf_url': "https://yourselftoscience.org/yourselftoscience.pdf",
     'citation_fulltext_html_url': "https://yourselftoscience.org",
-    'citation_doi': "10.5281/zenodo.15109360", // Will be automatically updated by workflow
-    'citation_fulltext_world_readable': ' ' // Add this line to indicate open access
+    'citation_doi': "10.5281/zenodo.15109359", // Updated to correct concept DOI
+    'citation_fulltext_world_readable': ' '
   },
   openGraph: {
     title: "Yourself To Science",
@@ -63,7 +70,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Additional citation_* meta tags that might not be covered by metadata API */}
         <meta name="citation_online_date" content={currentDate} />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>

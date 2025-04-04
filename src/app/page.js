@@ -2,7 +2,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ResourceTable from '@/components/ResourceTable';
 import Footer from '@/components/Footer';
@@ -102,7 +102,6 @@ export default function Home() {
         <main className="container mx-auto px-4">
           <ResourceTable 
             filteredResources={resources} 
-            citationMap={citationMap} 
           />
 
           <div className="mt-6 flex justify-end">
