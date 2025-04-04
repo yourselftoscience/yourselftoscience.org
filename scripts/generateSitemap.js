@@ -110,7 +110,8 @@ async function generateSitemap() {
 }
 
 // Export and direct execution
-if (require.main === module) {
+// Check if this is the main module being executed directly
+if (import.meta.url === `file://${process.argv[1]}`) {
   generateSitemap();
 }
 
