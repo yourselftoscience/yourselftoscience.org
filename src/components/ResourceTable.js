@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useEffect, useRef, createPortal } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import CountryFlag from 'react-country-flag';
@@ -280,6 +281,13 @@ export default function ResourceTable({ filteredResources: initialResources }) {
     );
   };
 
+  // Add this before using components in the component props
+  const components = {
+    Option: OptionComponent,
+    MultiValueLabel: MultiValueLabelComponent,
+    SingleValue: SingleValueComponent,
+  };
+
   // Helper function to get icons for instruction steps
   const getStepIcon = (step) => {
     if (step.toLowerCase().includes('fitbit app')) {
@@ -432,11 +440,7 @@ export default function ResourceTable({ filteredResources: initialResources }) {
           }
           isMulti
           styles={customStyles} // Reuse the same customStyles as All Data Types
-          components={{
-            Option: OptionComponent,
-            MultiValueLabel: MultiValueLabelComponent,
-            SingleValue: SingleValueComponent,
-          }}
+          components={components}
           placeholder="Exclude services not available in:"
         />
       </div>
