@@ -2,11 +2,12 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ResourceTable from '@/components/ResourceTable';
 import Footer from '@/components/Footer';
 import { resources, citationMap, uniqueCitations } from '@/data/resources';
+import Image from 'next/image';
 
 const words = ['self', 'Data', 'Genome', 'Body', 'Tissues'];
 
@@ -76,10 +77,13 @@ export default function Home() {
     <>
       <div className="relative min-h-screen bg-black text-white pt-16 md:pt-1">
         <div className="absolute top-2 left-2 md:top-4 md:left-4">
-          <img
+          <Image
             src="/Logo.svg"
             alt="Yourself To Science Logo"
             className="w-auto max-h-12 md:max-h-24"
+            width={120}
+            height={48}
+            priority
           />
         </div>
         <h1 className="text-4xl font-extrabold text-center">
@@ -102,7 +106,6 @@ export default function Home() {
         <main className="container mx-auto px-4">
           <ResourceTable 
             filteredResources={resources} 
-            citationMap={citationMap} 
           />
 
           <div className="mt-6 flex justify-end">

@@ -14,6 +14,10 @@ const config: Config = {
       },
     },
   },
+  // Add future compatibility flags for Tailwind v3 -> v4 transition
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   plugins: [],
 };
 export default config;

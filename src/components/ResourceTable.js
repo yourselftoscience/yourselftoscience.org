@@ -2,17 +2,16 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import ReactCountryFlag from 'react-country-flag';
-import { resources, citationMap } from '@/data/resources.js';
-import Select, { components } from 'react-select';
-import {
-  FaArrowRight,
-  FaMobileAlt,
-  FaCog,
-  FaUserShield,
-  FaSortAlphaDown,
-  FaSortAlphaUp,
-} from 'react-icons/fa';
+import dynamic from 'next/dynamic';
+import Link from 'next/link';
+import CountryFlag from 'react-country-flag';
+import { FaMobileAlt, FaCog, FaUserShield, FaArrowRight, FaSortAlphaDown, FaSortAlphaUp } from 'react-icons/fa';
+import { resources, citationMap } from '@/data/resources';
+
+// Dynamically import React Select with client-side only rendering
+const Select = dynamic(() => import('react-select'), { 
+  ssr: false // This prevents server-side rendering of this component
+});
 
 const EU_COUNTRIES = [
   'Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic',
@@ -81,7 +80,7 @@ const customStyles = {
   }),
 };
 
-// Update the ResourceTable component to not require citationMap as a prop
+// Update the ResourceTable component to work with Next.js 15
 export default function ResourceTable({ filteredResources: initialResources }) {
   // State for filters, sorting, and tooltip
   const [filters, setFilters] = useState({ dataTypes: [], countries: [] });
@@ -227,7 +226,7 @@ export default function ResourceTable({ filteredResources: initialResources }) {
       >
         <span className="text-black">{data.label}</span>
         {data.code && (
-          <ReactCountryFlag
+          <CountryFlag
             countryCode={data.code}
             svg
             style={{ width: '1.5em', height: '1em' }}
@@ -245,7 +244,7 @@ export default function ResourceTable({ filteredResources: initialResources }) {
       <components.MultiValueLabel {...props}>
         <span>{data.label}</span>
         {data.code && (
-          <ReactCountryFlag
+          <CountryFlag
             countryCode={data.code}
             svg
             style={{
@@ -267,7 +266,7 @@ export default function ResourceTable({ filteredResources: initialResources }) {
       <div className="flex items-center">
         <span className="text-black">{data.label}</span>
         {data.code && (
-          <ReactCountryFlag
+          <CountryFlag
             countryCode={data.code}
             svg
             style={{
@@ -280,6 +279,13 @@ export default function ResourceTable({ filteredResources: initialResources }) {
         )}
       </div>
     );
+  };
+
+  // Add this before using components in the component props
+  const components = {
+    Option: OptionComponent,
+    MultiValueLabel: MultiValueLabelComponent,
+    SingleValue: SingleValueComponent,
   };
 
   // Helper function to get icons for instruction steps
@@ -387,6 +393,28 @@ export default function ResourceTable({ filteredResources: initialResources }) {
   // Collect all citations from filtered resources
   const allCitations = processedResources.flatMap((resource) => resource.citations || []);
 
+  // Fix the citations rendering to use React.Fragment properly
+  const renderCitations = (resourceCitations) => {
+    if (!resourceCitations || resourceCitations.length === 0) return null;
+    
+    return resourceCitations.map((citation, idx) => {
+      const citationNumber = citationMap[citation.title];
+      
+      if (!citationNumber) return null;
+      
+      return (
+        <React.Fragment key={idx}>
+          <a
+            href={`#ref-${citationNumber}`}
+            className="text-blue-600 hover:underline"
+          >
+            [{citationNumber}]
+          </a>{' '}
+        </React.Fragment>
+      );
+    });
+  };
+
   return (
     <div className="mt-10">
       {/* Filter Controls */}
@@ -412,11 +440,7 @@ export default function ResourceTable({ filteredResources: initialResources }) {
           }
           isMulti
           styles={customStyles} // Reuse the same customStyles as All Data Types
-          components={{
-            Option: OptionComponent,
-            MultiValueLabel: MultiValueLabelComponent,
-            SingleValue: SingleValueComponent,
-          }}
+          components={components}
           placeholder="Exclude services not available in:"
         />
       </div>
@@ -562,7 +586,7 @@ export default function ResourceTable({ filteredResources: initialResources }) {
                         >
                           {country}
                           {resource.countryCodes?.[idx] && (
-                            <ReactCountryFlag
+                            <CountryFlag
                               countryCode={resource.countryCodes[idx]}
                               svg
                               style={{ width: "1.5em", height: "1em", marginLeft: "0.5em" }}
@@ -575,29 +599,7 @@ export default function ResourceTable({ filteredResources: initialResources }) {
 
                   {/* Refs Column */}
                   <td className="py-2 px-4 border-b border-r border-gray-300 text-black align-top">
-                    {resource.citations && resource.citations.length > 0 ? (
-                      resource.citations.map((citation, idx) => {
-                        // Generate the same key used in page.js
-                        const key = citation.link ? citation.link.trim() : citation.title.trim();
-                        const citationNumber = citationMap[key];
-                        
-                        console.log(`Resource: ${resource.title}, Citation: ${citation.title.substring(0, 30)}..., Number: ${citationNumber}`);
-                        
-                        return (
-                          <React.Fragment key={idx}>
-                            <a
-                              href={`#ref-${citationNumber}`}
-                              className="text-blue-600 hover:underline"
-                            >
-                              [{citationNumber}]
-                            </a>
-                            {idx < resource.citations.length - 1 && ' - '}
-                          </React.Fragment>
-                        );
-                      })
-                    ) : (
-                      '' /* leave blank when no citation is specified */
-                    )}
+                    {renderCitations(resource.citations)}
                   </td>
                 </tr>
               ))
