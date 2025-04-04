@@ -1,8 +1,12 @@
-const { execSync } = require('child_process');
-const chokidar = require('chokidar');
-const path = require('path');
-const fs = require('fs');
-const { generateSitemap } = require('./generateSitemap');
+import { execSync } from 'child_process';
+import chokidar from 'chokidar';
+import path from 'path';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+import { generateSitemap } from './generateSitemap.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 console.log('Starting watch for PDF and sitemap updates...');
 
