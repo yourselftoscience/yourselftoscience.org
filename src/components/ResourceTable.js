@@ -1,16 +1,16 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import CountryFlag from 'react-country-flag';
 import { FaMobileAlt, FaCog, FaUserShield, FaArrowRight, FaSortAlphaDown, FaSortAlphaUp, FaHeart, FaDollarSign } from 'react-icons/fa';
-import { resources, citationMap } from '@/data/resources';
+import { resources as allResources, citationMap, uniqueCitations } from '@/data/resources';
+import { components as ReactSelectComponents } from 'react-select';
 
-// Dynamically import React Select with client-side only rendering
 const Select = dynamic(() => import('react-select'), { 
-  ssr: false // This prevents server-side rendering of this component
+  ssr: false 
 });
 
 const EU_COUNTRIES = [
@@ -32,12 +32,9 @@ function expandCountries(chosen) {
   const hasEU = set.has('European Union');
   const hasAnyEUCountry = EU_COUNTRIES.some((c) => set.has(c));
 
-  // If “European Union” is chosen, add all EU countries
   if (hasEU) {
     EU_COUNTRIES.forEach((c) => set.add(c));
   }
-
-  // If any EU country is chosen, also add “European Union”
   if (hasAnyEUCountry) {
     set.add('European Union');
   }
@@ -50,39 +47,36 @@ const customStyles = {
     ...base,
     backgroundColor: 'white',
     borderColor: '#D1D5DB',
-    borderRadius: '0.375rem', // You can also round the control itself if desired
+    borderRadius: '0.375rem',
   }),
-  menu: (provided) => ({ // Styles for the dropdown container
+  menu: (provided) => ({
     ...provided,
-    borderRadius: '0.75rem', // Increased roundness (e.g., 12px). Try '1rem' for even more.
-    border: '1px solid #D1D5DB', // Optional: Add a border to the menu itself
-    boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)', // Optional: Add shadow
-    overflow: 'hidden', // Important: Keeps options inside the rounded corners
+    borderRadius: '0.75rem',
+    border: '1px solid #D1D5DB',
+    boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
+    overflow: 'hidden',
   }),
-  option: (provided, state) => ({ // Styles for individual options within the menu
+  option: (provided, state) => ({
     ...provided,
-    border: 'none', // Remove default borders
-    // Remove borderRadius from options if you only want the menu container rounded
-    // borderRadius: 0, 
-    borderBottom: '1px solid #E5E7EB', // Light border between options
+    border: 'none',
+    borderBottom: '1px solid #E5E7EB',
     margin: 0,
-    padding: '10px 12px', // Adjust padding as needed
+    padding: '10px 12px',
     cursor: 'pointer',
     backgroundColor:
-      state.isSelected ? '#DBEAFE' : state.isFocused ? '#F3F4F6' : 'white', // Example colors
+      state.isSelected ? '#DBEAFE' : state.isFocused ? '#F3F4F6' : 'white',
     color: 'black',
     ':hover': {
-      backgroundColor: '#F3F4F6', // Example hover color
+      backgroundColor: '#F3F4F6',
     },
-    // Ensure the last option doesn't have a bottom border
     ':last-child': {
         borderBottom: 'none',
     },
   }),
-  menuList: (provided) => ({ // Styles for the list inside the menu
+  menuList: (provided) => ({
     ...provided,
-    paddingTop: 0, // Remove default padding if needed
-    paddingBottom: 0, // Remove default padding if needed
+    paddingTop: 0,
+    paddingBottom: 0,
   }),
   multiValue: (provided) => ({
     ...provided,
@@ -103,13 +97,11 @@ const customStyles = {
   }),
 };
 
-// Update the ResourceTable component to work with Next.js 15
 export default function ResourceTable({ filteredResources: initialResources }) {
-  // State for filters, sorting, and tooltip
   const [filters, setFilters] = useState({ 
     dataTypes: [], 
     countries: [],
-    paymentTypes: [] // Add compensation to filters
+    paymentTypes: []
   });
   const [sortColumn, setSortColumn] = useState('title');
   const [sortOrder, setSortOrder] = useState('asc');
@@ -123,7 +115,6 @@ export default function ResourceTable({ filteredResources: initialResources }) {
     setIsMounted(true);
   }, []);
 
-  // Update tooltip position once the header cell renders
   useEffect(() => {
     if ((hoverTooltip || forceTooltip) && tooltipRef.current) {
       const rect = tooltipRef.current.getBoundingClientRect();
@@ -134,62 +125,193 @@ export default function ResourceTable({ filteredResources: initialResources }) {
     }
   }, [hoverTooltip, forceTooltip]);
 
-  // Dynamic data type options using full resources (assumed imported globally)
-  const dataTypeOptions = Array.from(
-    new Set(resources.flatMap((resource) => resource.dataTypes || []))
+  const dataTypeOptions = useMemo(() => Array.from(
+    new Set(allResources.flatMap((resource) => resource.dataTypes || []))
   )
     .sort((a, b) => a.localeCompare(b))
-    .map((dataType) => ({ label: dataType, value: dataType }));
+    .map((dataType) => ({ label: dataType, value: dataType })), []);
 
-  // Dynamic country options
-  const countryOptions = [];
-  const countryMap = new Map(); // To avoid duplicates and map country names to codes
+  const countryOptions = useMemo(() => {
+    const options = [];
+    const countryMap = new Map();
+    allResources.forEach((resource) => {
+      if (resource.countries && resource.countryCodes) {
+        resource.countries.forEach((country, index) => {
+          if (!countryMap.has(country)) {
+            countryMap.set(country, resource.countryCodes[index]);
+            options.push({ label: country, value: country, code: resource.countryCodes[index] });
+          }
+        });
+      } else if (resource.countries) {
+        resource.countries.forEach(country => {
+          if (!countryMap.has(country)) {
+            countryMap.set(country, null);
+            options.push({ label: country, value: country, code: null });
+          }
+        });
+      }
+    });
+    if (!countryMap.has('European Union') && allResources.some(r => r.countries?.includes('European Union'))) {
+         options.push({ label: 'European Union', value: 'European Union', code: 'EU' });
+    }
+    options.sort((a, b) => a.label.localeCompare(b.label));
+    return options;
+  }, []);
 
-  resources.forEach((resource) => {
-    if (resource.countries && resource.countryCodes) {
-      resource.countries.forEach((country, idx) => {
-        const code = resource.countryCodes[idx];
-        if (!countryMap.has(country)) {
-          countryMap.set(country, code);
-          countryOptions.push({
-            label: country,
-            value: country,
-            code: code,
-          });
+  const processedResources = useMemo(() => {
+    console.log("START: Recalculating processedResources. Filters:", filters);
+    let filteredData = [...initialResources];
+
+    if (filters.dataTypes.length) {
+      const chosenTypes = filters.dataTypes.map((t) => t.value);
+      filteredData = filteredData.filter((resource) =>
+        resource.dataTypes?.some((dt) => chosenTypes.includes(dt))
+      );
+    }
+
+    const chosenCountryValues = filters.countries.map((c) => c.value);
+    if (chosenCountryValues.length > 0) {
+        console.log("Filtering by countries:", chosenCountryValues);
+        const expandedCountries = expandCountries(chosenCountryValues);
+        console.log("Expanded countries:", expandedCountries);
+        filteredData = filteredData.filter((resource) => {
+            if (!resource.countries || resource.countries.length === 0) {
+            return true;
+            }
+            return resource.countries.some((resourceCountry) => expandedCountries.includes(resourceCountry));
+        });
+    }
+
+    if (filters.paymentTypes.length) {
+      const chosenTypes = filters.paymentTypes.map((t) => t.value);
+      filteredData = filteredData.filter((resource) => {
+        const type = resource.paymentType || 'donation';
+        if (type === 'mixed') {
+          return chosenTypes.includes('mixed') || chosenTypes.includes('donation') || chosenTypes.includes('payment');
         }
+        return chosenTypes.includes(type);
       });
     }
-  });
 
-  // Sort countryOptions alphabetically
-  countryOptions.sort((a, b) => a.label.localeCompare(b.label));
+    console.log("Sorting by:", sortColumn, sortOrder);
+    filteredData.sort((a, b) => {
+      let valueA = a[sortColumn] || '';
+      let valueB = b[sortColumn] || '';
 
-  // Helper function to handle sorting when a header is clicked
+      if (sortColumn === 'country') {
+         valueA = a.countries?.join(', ') || '';
+         valueB = b.countries?.join(', ') || '';
+      }
+      if (sortColumn === 'dataType') {
+         valueA = a.dataTypes?.sort().join(', ') || '';
+         valueB = b.dataTypes?.sort().join(', ') || '';
+      }
+      if (sortColumn === 'access') {
+        valueA = a.link ? 1 : a.instructions ? 2 : 3;
+        valueB = b.link ? 1 : b.instructions ? 2 : 3;
+      }
+
+      if (typeof valueA === 'string' && typeof valueB === 'string') {
+         valueA = valueA.toLowerCase();
+         valueB = valueB.toLowerCase();
+      }
+
+      if (valueA < valueB) {
+        return sortOrder === 'asc' ? -1 : 1;
+      }
+      if (valueA > valueB) {
+        return sortOrder === 'asc' ? 1 : -1;
+      }
+      return 0;
+    });
+
+    console.log("END: Recalculating processedResources. Count:", filteredData.length);
+    return filteredData;
+  }, [initialResources, filters, sortColumn, sortOrder]);
+
   const handleSort = (column) => {
     if (sortColumn === column) {
-      // Toggle sort order if the same column is clicked
       setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
     } else {
-      // Set sort column and default to ascending order
       setSortColumn(column);
       setSortOrder('asc');
     }
   };
 
-  // Sorting and filtering logic using the initial resources passed as prop
-  const processedResources = filterResources(initialResources).sort((a, b) => {
-    let valueA = a[sortColumn] || '';
-    let valueB = b[sortColumn] || '';
-    if (valueA < valueB) {
-      return sortOrder === 'asc' ? -1 : 1;
-    }
-    if (valueA > valueB) {
-      return sortOrder === 'asc' ? 1 : -1;
-    }
-    return 0;
-  });
+  function handleToggleDataType(dataType) {
+    setFilters((prev) => {
+      const currentSelected = prev.dataTypes.map((dt) => dt.value);
+      if (currentSelected.includes(dataType)) {
+        return {
+          ...prev,
+          dataTypes: prev.dataTypes.filter((dt) => dt.value !== dataType),
+        };
+      } else {
+        return {
+          ...prev,
+          dataTypes: [
+            ...prev.dataTypes,
+            { label: dataType, value: dataType },
+          ],
+        };
+      }
+    });
+  }
 
-  // Custom Option component to include flags
+  function handleToggleCountry(country, code) {
+    console.log("Toggling country:", country);
+    setFilters((prev) => {
+      const currentSelectedOptions = prev.countries;
+      const isCurrentlySelected = currentSelectedOptions.some(c => c.value === country);
+      let newCountries;
+
+      if (isCurrentlySelected) {
+        newCountries = currentSelectedOptions.filter((c) => c.value !== country);
+      } else {
+        const countryToAdd = countryOptions.find(opt => opt.value === country);
+        if (countryToAdd) {
+           newCountries = [...currentSelectedOptions, countryToAdd];
+        } else {
+          console.warn(`Country option not found: ${country}`);
+          newCountries = currentSelectedOptions;
+        }
+      }
+
+      newCountries.sort((a, b) => a.label.localeCompare(b.label));
+
+      return {
+        ...prev,
+        countries: newCountries,
+      };
+    });
+  }
+
+  function arraysHaveSameElements(arr1, arr2) {
+    if (arr1.length !== arr2.length) return false;
+    const sortedArr1 = [...arr1].sort();
+    const sortedArr2 = [...arr2].sort();
+    return sortedArr1.every((value, index) => value === sortedArr2[index]);
+  }
+
+  function handleSetPaymentTypes(typesToSet) {
+    setFilters(prev => {
+      const currentSelectedValues = prev.paymentTypes.map(pt => pt.value);
+      
+      if (arraysHaveSameElements(currentSelectedValues, typesToSet)) {
+        return {
+          ...prev,
+          paymentTypes: [] 
+        };
+      } else {
+        const selectedOptions = PAYMENT_TYPES.filter(pt => typesToSet.includes(pt.value));
+        return {
+          ...prev,
+          paymentTypes: selectedOptions
+        };
+      }
+    });
+  }
+
   const OptionComponent = (props) => {
     const { data, innerRef, innerProps, isFocused, isSelected } = props;
     return (
@@ -198,7 +320,7 @@ export default function ResourceTable({ filteredResources: initialResources }) {
         {...innerProps}
         style={{
           border: 'none',
-          borderBottom: '1px solid #D1D5DB', // Only horizontal border
+          borderBottom: '1px solid #D1D5DB',
           padding: '8px',
           cursor: 'pointer',
           backgroundColor: isSelected || isFocused ? '#E5E7EB' : 'white',
@@ -218,11 +340,10 @@ export default function ResourceTable({ filteredResources: initialResources }) {
     );
   };
 
-  // Custom MultiValueLabel component to include flags in selected options
   const MultiValueLabelComponent = (props) => {
     const { data } = props;
     return (
-      <components.MultiValueLabel {...props}>
+      <ReactSelectComponents.MultiValueLabel {...props}>
         <span>{data.label}</span>
         {data.code && (
           <CountryFlag
@@ -236,11 +357,10 @@ export default function ResourceTable({ filteredResources: initialResources }) {
             title={data.label}
           />
         )}
-      </components.MultiValueLabel>
+      </ReactSelectComponents.MultiValueLabel>
     );
   };
 
-  // Custom SingleValue component to include flags on the right
   const SingleValueComponent = (props) => {
     const { data } = props;
     return (
@@ -262,14 +382,12 @@ export default function ResourceTable({ filteredResources: initialResources }) {
     );
   };
 
-  // Add this before using components in the component props
   const components = {
     Option: OptionComponent,
     MultiValueLabel: MultiValueLabelComponent,
     SingleValue: SingleValueComponent,
   };
 
-  // Helper function to get icons for instruction steps
   const getStepIcon = (step) => {
     if (step.toLowerCase().includes('fitbit app')) {
       return <FaMobileAlt className="text-blue-500" />;
@@ -286,7 +404,6 @@ export default function ResourceTable({ filteredResources: initialResources }) {
     return <FaArrowRight className="text-gray-500" />;
   };
 
-  // Helper function to get sorting icons for headers
   const getSortIcon = (column) => {
     if (sortColumn === column) {
       return sortOrder === 'asc' ? (
@@ -299,132 +416,12 @@ export default function ResourceTable({ filteredResources: initialResources }) {
     }
   };
 
-  // Helper function to toggle data type filter
-  function handleToggleDataType(dataType) {
-    setFilters((prev) => {
-      const currentSelected = prev.dataTypes.map((dt) => dt.value);
-      if (currentSelected.includes(dataType)) {
-        // Remove if already selected
-        return {
-          ...prev,
-          dataTypes: prev.dataTypes.filter((dt) => dt.value !== dataType),
-        };
-      } else {
-        // Add if not selected
-        return {
-          ...prev,
-          dataTypes: [
-            ...prev.dataTypes,
-            { label: dataType, value: dataType },
-          ],
-        };
-      }
-    });
-  }
-
-  // Helper function to toggle country filter
-  function handleToggleCountry(country, code) {
-    setFilters((prev) => {
-      const current = prev.countries.map((c) => c.value);
-      if (current.includes(country)) {
-        // Remove if already selected
-        return {
-          ...prev,
-          countries: prev.countries.filter((c) => c.value !== country),
-        };
-      } else {
-        // Add if not selected
-        return {
-          ...prev,
-          countries: [
-            ...prev.countries,
-            { label: country, value: country, code },
-          ],
-        };
-      }
-    });
-  }
-
-  // Helper function to compare two arrays of strings for equality (order doesn't matter)
-  function arraysHaveSameElements(arr1, arr2) {
-    if (arr1.length !== arr2.length) return false;
-    const sortedArr1 = [...arr1].sort();
-    const sortedArr2 = [...arr2].sort();
-    return sortedArr1.every((value, index) => value === sortedArr2[index]);
-  }
-
-  // UPDATED: Helper function to set OR toggle off specific payment type filters
-  function handleSetPaymentTypes(typesToSet) { // typesToSet is an array of strings like ['donation', 'mixed']
-    setFilters(prev => {
-      const currentSelectedValues = prev.paymentTypes.map(pt => pt.value);
-      
-      // Check if the current filter exactly matches the one we would set
-      if (arraysHaveSameElements(currentSelectedValues, typesToSet)) {
-        // If it matches, clear the filter
-        return {
-          ...prev,
-          paymentTypes: [] 
-        };
-      } else {
-        // Otherwise, set the new filter
-        const selectedOptions = PAYMENT_TYPES.filter(pt => typesToSet.includes(pt.value));
-        return {
-          ...prev,
-          paymentTypes: selectedOptions
-        };
-      }
-    });
-  }
-
-  function filterResources(data) {
-    // Example of other filters...
-    if (filters.dataTypes.length) {
-      const chosenTypes = filters.dataTypes.map((t) => t.value);
-      data = data.filter((resource) =>
-        resource.dataTypes?.some((dt) => chosenTypes.includes(dt))
-      );
-    }
-
-    // COUNTRY FILTER:
-    let chosenCountries = filters.countries.map((c) => c.value);
-    chosenCountries = expandCountries(chosenCountries);
-
-    if (chosenCountries.length) {
-      data = data.filter((resource) => {
-        // Include if no countries or if any overlaps
-        if (!resource.countries || resource.countries.length === 0) {
-          return true;
-        }
-        return resource.countries.some((c) => chosenCountries.includes(c));
-      });
-    }
-
-    // Compensation filtering
-    if (filters.paymentTypes.length) {
-      const chosenTypes = filters.paymentTypes.map((t) => t.value);
-      data = data.filter((resource) => {
-        // If resource doesn't have paymentType, assume it's donation
-        const type = resource.paymentType || 'donation';
-        // Include mixed when either payment or donation is selected
-        if (type === 'mixed') {
-          return chosenTypes.includes('donation') || chosenTypes.includes('payment') || chosenTypes.includes('mixed');
-        }
-        return chosenTypes.includes(type);
-      });
-    }
-
-    return data;
-  }
-
-  // Collect all citations from filtered resources
   const allCitations = processedResources.flatMap((resource) => resource.citations || []);
 
-  // Fix the citations rendering to use React.Fragment properly
   const renderCitations = (resourceCitations) => {
     if (!resourceCitations || resourceCitations.length === 0) return null;
     
     return resourceCitations.map((citation, idx) => {
-      // Create the same key format used in generateCitationMappings
       const key = citation.link ? citation.link.trim() : citation.title.trim();
       const citationNumber = citationMap[key];
       
@@ -443,7 +440,6 @@ export default function ResourceTable({ filteredResources: initialResources }) {
     });
   };
 
-  // Modify getPaymentEmoji to handle mixed type clicks separately
   const getPaymentEmoji = (paymentType) => {
     switch(paymentType) {
       case 'donation': 
@@ -464,9 +460,7 @@ export default function ResourceTable({ filteredResources: initialResources }) {
 
   return (
     <div className="mt-10">
-      {/* Filter Controls */}
       <div className="flex flex-col md:flex-row justify-center space-y-2 md:space-y-0 md:space-x-4 mb-4">
-        {/* Data Type Filter */}
         <Select
           options={dataTypeOptions}
           value={filters.dataTypes}
@@ -478,7 +472,6 @@ export default function ResourceTable({ filteredResources: initialResources }) {
           placeholder="All Data Types"
         />
 
-        {/* Country Exclusion Filter */}
         <Select
           options={countryOptions}
           value={filters.countries}
@@ -486,12 +479,11 @@ export default function ResourceTable({ filteredResources: initialResources }) {
             setFilters({ ...filters, countries: selectedOptions || [] })
           }
           isMulti
-          styles={customStyles} // Reuse the same customStyles as All Data Types
+          styles={customStyles}
           components={components}
           placeholder="Exclude services not available in:"
         />
 
-        {/* Compensation Filter */}
         <Select
           options={PAYMENT_TYPES.map(type => ({
             ...type,
@@ -512,10 +504,8 @@ export default function ResourceTable({ filteredResources: initialResources }) {
         />
       </div>
 
-      {/* Resource Table */}
-      <div className="overflow-x-auto overflow-y-visible rounded-lg"> {/* Optional: Add rounding to the container too */}
-        <table className="min-w-full bg-white border border-gray-300 rounded-lg overflow-hidden"><thead><tr>{/* Ensure no space/newline between <thead> and <tr> */}
-              {/* Compensation Header - moved to the far left */}
+      <div className="overflow-x-auto overflow-y-visible rounded-lg">
+        <table className="min-w-full bg-white border border-gray-300 rounded-lg overflow-hidden"><thead><tr>
               <th
                 className="py-2 px-4 border-b border-r border-gray-300 text-black cursor-pointer select-none"
                 onClick={() => handleSort('paymentType')}
@@ -523,7 +513,6 @@ export default function ResourceTable({ filteredResources: initialResources }) {
                 Compensation {getSortIcon('paymentType')}
               </th>
 
-              {/* Title Header */}
               <th
                 className="py-2 px-4 border-b border-r border-gray-300 text-black cursor-pointer select-none"
                 onClick={() => handleSort('title')}
@@ -531,7 +520,6 @@ export default function ResourceTable({ filteredResources: initialResources }) {
                 Title {getSortIcon('title')}
               </th>
 
-              {/* Access Header */}
               <th
                 className="py-2 px-4 border-b border-r border-gray-300 text-black cursor-pointer select-none"
                 onClick={() => handleSort('access')}
@@ -539,7 +527,6 @@ export default function ResourceTable({ filteredResources: initialResources }) {
                 Access {getSortIcon('access')}
               </th>
 
-              {/* Data Type Header */}
               <th
                 className="py-2 px-4 border-b border-r border-gray-300 text-black cursor-pointer select-none"
                 onClick={() => handleSort('dataType')}
@@ -547,7 +534,6 @@ export default function ResourceTable({ filteredResources: initialResources }) {
                 Data Type {getSortIcon('dataType')}
               </th>
 
-              {/* Only Available In Header */}
               <th
                 className="py-2 px-4 border-b border-r border-gray-300 text-black cursor-pointer select-none"
                 onClick={() => handleSort('country')}
@@ -555,7 +541,6 @@ export default function ResourceTable({ filteredResources: initialResources }) {
                 Only available in {getSortIcon('country')}
               </th>
 
-              {/* Tooltip header cell */}
               <th
                 ref={tooltipRef}
                 className="relative py-2 px-4 border-b border-r border-gray-300 text-black cursor-pointer select-none overflow-visible"
@@ -568,7 +553,7 @@ export default function ResourceTable({ filteredResources: initialResources }) {
               >
                 <span className="underline">Refs.</span>
               </th>
-            </tr></thead>{/* Ensure no space/newline between </tr> and </thead> */}<tbody>{/* Ensure no space/newline between </thead> and <tbody> */}
+            </tr></thead><tbody>
             {processedResources.length > 0 ? (
               processedResources.map((resource, index) => (
                 <tr
@@ -577,17 +562,14 @@ export default function ResourceTable({ filteredResources: initialResources }) {
                     index % 2 === 0 ? 'bg-gray-50' : 'bg-white'
                   } hover:bg-gray-100`}
                 >
-                  {/* Compensation Column - moved to the far left */}
                   <td className="py-2 px-4 border-b border-r border-gray-300 text-black align-top text-center">
                     {getPaymentEmoji(resource.paymentType || 'donation')}
                   </td>
 
-                  {/* Title Column */}
                   <td className="py-2 px-4 border-b border-r border-gray-300 text-black align-top">
                     {resource.title}
                   </td>
 
-                  {/* Access Column */}
                   <td className="py-2 px-4 border-b border-r border-gray-300 align-top">
                     {resource.link ? (
                       <a
@@ -603,13 +585,10 @@ export default function ResourceTable({ filteredResources: initialResources }) {
                         <div className="flex flex-col items-start space-y-1">
                           {resource.instructions.map((step, idx) => (
                             <div key={idx} className="flex items-center">
-                              {/* Step Number */}
                               <span className="mr-2 font-semibold text-gray-800">
                                 {idx + 1}.
                               </span>
-                              {/* Step Icon */}
                               {getStepIcon(step)}
-                              {/* Step Text */}
                               <span className="ml-2">{step}</span>
                             </div>
                           ))}
@@ -620,16 +599,13 @@ export default function ResourceTable({ filteredResources: initialResources }) {
                     )}
                   </td>
 
-                  {/* Data Type Column */}
                   <td className="py-2 px-4 border-b border-r border-gray-300 text-black align-top">
                     {resource.dataTypes
-                      .sort((a, b) => a.localeCompare(b))
+                      ?.sort((a, b) => a.localeCompare(b))
                       .map((dataType, idx) => {
-                        // Check whether this dataType is currently selected
                         const isActive = filters.dataTypes.some(
                           (option) => option.value === dataType
                         );
-
                         return (
                           <button
                             key={idx}
@@ -646,26 +622,26 @@ export default function ResourceTable({ filteredResources: initialResources }) {
                       })}
                   </td>
 
-                  {/* Only Available In Column */}
                   <td className="py-2 px-4 border-b border-r border-gray-300 text-black align-top">
                     {resource.countries?.map((country, idx) => {
                       const isActive = filters.countries.some((c) => c.value === country);
+                      const countryCode = resource.countryCodes?.[idx];
                       return (
                         <button
                           key={idx}
-                          onClick={() => handleToggleCountry(country, resource.countryCodes?.[idx])}
+                          onClick={() => handleToggleCountry(country, countryCode)}
                           className={
                             isActive
-                              ? "bg-blue-500 text-white px-2 py-1 rounded mr-2 mb-2"
-                              : "bg-gray-200 text-black px-2 py-1 rounded mr-2 mb-2 hover:bg-gray-300"
+                              ? "bg-blue-500 text-white px-2 py-1 rounded mr-2 mb-2 inline-flex items-center"
+                              : "bg-gray-200 text-black px-2 py-1 rounded mr-2 mb-2 hover:bg-gray-300 inline-flex items-center"
                           }
                         >
-                          {country}
-                          {resource.countryCodes?.[idx] && (
+                          <span>{country}</span>
+                          {countryCode && (
                             <CountryFlag
-                              countryCode={resource.countryCodes[idx]}
+                              countryCode={countryCode}
                               svg
-                              style={{ width: "1.5em", height: "1em", marginLeft: "0.5em" }}
+                              style={{ width: "1.2em", height: "0.9em", marginLeft: "0.4em" }}
                             />
                           )}
                         </button>
@@ -673,7 +649,6 @@ export default function ResourceTable({ filteredResources: initialResources }) {
                     })}
                   </td>
 
-                  {/* Refs Column */}
                   <td className="py-2 px-4 border-b border-r border-gray-300 text-black align-top">
                     {renderCitations(resource.citations)}
                   </td>
@@ -693,7 +668,6 @@ export default function ResourceTable({ filteredResources: initialResources }) {
         </table>
       </div>
 
-      {/* Render the tooltip via portal */}
       {isMounted &&
         (hoverTooltip || forceTooltip) &&
         createPortal(
