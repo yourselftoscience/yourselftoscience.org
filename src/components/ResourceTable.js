@@ -50,22 +50,39 @@ const customStyles = {
     ...base,
     backgroundColor: 'white',
     borderColor: '#D1D5DB',
-    // remove any invalid key like "label"
+    borderRadius: '0.375rem', // You can also round the control itself if desired
   }),
-  option: (provided, state) => ({
+  menu: (provided) => ({ // Styles for the dropdown container
     ...provided,
-    border: 'none',
-    borderRadius: 0,
-    borderBottom: '1px solid #D1D5DB',
+    borderRadius: '0.75rem', // Increased roundness (e.g., 12px). Try '1rem' for even more.
+    border: '1px solid #D1D5DB', // Optional: Add a border to the menu itself
+    boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)', // Optional: Add shadow
+    overflow: 'hidden', // Important: Keeps options inside the rounded corners
+  }),
+  option: (provided, state) => ({ // Styles for individual options within the menu
+    ...provided,
+    border: 'none', // Remove default borders
+    // Remove borderRadius from options if you only want the menu container rounded
+    // borderRadius: 0, 
+    borderBottom: '1px solid #E5E7EB', // Light border between options
     margin: 0,
-    padding: '8px',
+    padding: '10px 12px', // Adjust padding as needed
     cursor: 'pointer',
     backgroundColor:
-      state.isSelected || state.isFocused ? '#E5E7EB' : 'white',
+      state.isSelected ? '#DBEAFE' : state.isFocused ? '#F3F4F6' : 'white', // Example colors
     color: 'black',
     ':hover': {
-      backgroundColor: '#E5E7EB',
+      backgroundColor: '#F3F4F6', // Example hover color
     },
+    // Ensure the last option doesn't have a bottom border
+    ':last-child': {
+        borderBottom: 'none',
+    },
+  }),
+  menuList: (provided) => ({ // Styles for the list inside the menu
+    ...provided,
+    paddingTop: 0, // Remove default padding if needed
+    paddingBottom: 0, // Remove default padding if needed
   }),
   multiValue: (provided) => ({
     ...provided,
@@ -171,52 +188,6 @@ export default function ResourceTable({ filteredResources: initialResources }) {
     }
     return 0;
   });
-
-  // Custom styles for react-select
-  const customStyles = {
-    control: (base) => ({
-      ...base,
-      backgroundColor: 'white',
-      borderColor: '#D1D5DB',
-      // remove any invalid key like "label"
-    }),
-    // Only keep a horizontal border: remove left/right borders entirely
-    option: (provided, state) => ({
-      ...provided,
-      border: 'none',
-      borderRadius: 0,
-      borderBottom: '1px solid #D1D5DB', // Horizontal line separating each option
-      margin: 0,
-      padding: '8px',
-      cursor: 'pointer',
-      backgroundColor: state.isSelected
-        ? '#E5E7EB'
-        : state.isFocused
-        ? '#E5E7EB'
-        : 'white',
-      color: 'black',
-      ':hover': {
-        backgroundColor: '#E5E7EB',
-      },
-    }),
-    multiValue: (provided) => ({
-      ...provided,
-      display: 'flex',
-      alignItems: 'center',
-      backgroundColor: '#E5E7EB',
-    }),
-    multiValueLabel: (provided) => ({
-      ...provided,
-      display: 'flex',
-      alignItems: 'center',
-    }),
-    singleValue: (provided) => ({
-      ...provided,
-      display: 'flex',
-      alignItems: 'center',
-      color: 'black',
-    }),
-  };
 
   // Custom Option component to include flags
   const OptionComponent = (props) => {
@@ -542,10 +513,8 @@ export default function ResourceTable({ filteredResources: initialResources }) {
       </div>
 
       {/* Resource Table */}
-      <div className="overflow-x-auto overflow-y-visible">
-        <table className="min-w-full bg-white border border-gray-300">
-          <thead>
-            <tr>
+      <div className="overflow-x-auto overflow-y-visible rounded-lg"> {/* Optional: Add rounding to the container too */}
+        <table className="min-w-full bg-white border border-gray-300 rounded-lg overflow-hidden"><thead><tr>{/* Ensure no space/newline between <thead> and <tr> */}
               {/* Compensation Header - moved to the far left */}
               <th
                 className="py-2 px-4 border-b border-r border-gray-300 text-black cursor-pointer select-none"
@@ -599,9 +568,7 @@ export default function ResourceTable({ filteredResources: initialResources }) {
               >
                 <span className="underline">Refs.</span>
               </th>
-            </tr>
-          </thead>
-          <tbody>
+            </tr></thead>{/* Ensure no space/newline between </tr> and </thead> */}<tbody>{/* Ensure no space/newline between </thead> and <tbody> */}
             {processedResources.length > 0 ? (
               processedResources.map((resource, index) => (
                 <tr
