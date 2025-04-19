@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import CountryFlag from 'react-country-flag';
-import { FaMobileAlt, FaCog, FaUserShield, FaArrowRight, FaSortAlphaDown, FaSortAlphaUp } from 'react-icons/fa';
+import { FaMobileAlt, FaCog, FaUserShield, FaArrowRight, FaSortAlphaDown, FaSortAlphaUp, FaHeart, FaDollarSign } from 'react-icons/fa';
 import { resources, citationMap } from '@/data/resources';
 
 // Dynamically import React Select with client-side only rendering
@@ -19,6 +19,12 @@ const EU_COUNTRIES = [
   'Ireland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta',
   'Netherlands', 'Poland', 'Portugal', 'Romania', 'Slovakia', 'Slovenia',
   'Spain', 'Sweden'
+];
+
+const PAYMENT_TYPES = [
+  { value: 'donation', label: 'Donation', emoji: '❤️' },
+  { value: 'payment', label: 'Payment', emoji: '💵' },
+  { value: 'mixed', label: 'Mixed', emoji: '❤️💵' }
 ];
 
 function expandCountries(chosen) {
@@ -83,7 +89,11 @@ const customStyles = {
 // Update the ResourceTable component to work with Next.js 15
 export default function ResourceTable({ filteredResources: initialResources }) {
   // State for filters, sorting, and tooltip
-  const [filters, setFilters] = useState({ dataTypes: [], countries: [] });
+  const [filters, setFilters] = useState({ 
+    dataTypes: [], 
+    countries: [],
+    paymentTypes: [] // Add compensation to filters
+  });
   const [sortColumn, setSortColumn] = useState('title');
   const [sortOrder, setSortOrder] = useState('asc');
   const [forceTooltip, setForceTooltip] = useState(false);
@@ -364,6 +374,37 @@ export default function ResourceTable({ filteredResources: initialResources }) {
     });
   }
 
+  // Helper function to compare two arrays of strings for equality (order doesn't matter)
+  function arraysHaveSameElements(arr1, arr2) {
+    if (arr1.length !== arr2.length) return false;
+    const sortedArr1 = [...arr1].sort();
+    const sortedArr2 = [...arr2].sort();
+    return sortedArr1.every((value, index) => value === sortedArr2[index]);
+  }
+
+  // UPDATED: Helper function to set OR toggle off specific payment type filters
+  function handleSetPaymentTypes(typesToSet) { // typesToSet is an array of strings like ['donation', 'mixed']
+    setFilters(prev => {
+      const currentSelectedValues = prev.paymentTypes.map(pt => pt.value);
+      
+      // Check if the current filter exactly matches the one we would set
+      if (arraysHaveSameElements(currentSelectedValues, typesToSet)) {
+        // If it matches, clear the filter
+        return {
+          ...prev,
+          paymentTypes: [] 
+        };
+      } else {
+        // Otherwise, set the new filter
+        const selectedOptions = PAYMENT_TYPES.filter(pt => typesToSet.includes(pt.value));
+        return {
+          ...prev,
+          paymentTypes: selectedOptions
+        };
+      }
+    });
+  }
+
   function filterResources(data) {
     // Example of other filters...
     if (filters.dataTypes.length) {
@@ -384,6 +425,20 @@ export default function ResourceTable({ filteredResources: initialResources }) {
           return true;
         }
         return resource.countries.some((c) => chosenCountries.includes(c));
+      });
+    }
+
+    // Compensation filtering
+    if (filters.paymentTypes.length) {
+      const chosenTypes = filters.paymentTypes.map((t) => t.value);
+      data = data.filter((resource) => {
+        // If resource doesn't have paymentType, assume it's donation
+        const type = resource.paymentType || 'donation';
+        // Include mixed when either payment or donation is selected
+        if (type === 'mixed') {
+          return chosenTypes.includes('donation') || chosenTypes.includes('payment') || chosenTypes.includes('mixed');
+        }
+        return chosenTypes.includes(type);
       });
     }
 
@@ -417,6 +472,25 @@ export default function ResourceTable({ filteredResources: initialResources }) {
     });
   };
 
+  // Modify getPaymentEmoji to handle mixed type clicks separately
+  const getPaymentEmoji = (paymentType) => {
+    switch(paymentType) {
+      case 'donation': 
+        return <span className="text-lg cursor-pointer" onClick={() => handleSetPaymentTypes(['donation'])}>❤️</span>; 
+      case 'payment': 
+        return <span className="text-lg cursor-pointer" onClick={() => handleSetPaymentTypes(['payment'])}>💵</span>;
+      case 'mixed': 
+        return (
+          <span className="text-lg">
+            <span className="cursor-pointer" onClick={() => handleSetPaymentTypes(['donation', 'mixed'])}>❤️</span>
+            <span className="cursor-pointer" onClick={() => handleSetPaymentTypes(['payment', 'mixed'])}>💵</span>
+          </span>
+        );
+      default: 
+        return <span className="text-lg">❤️</span>; 
+    }
+  };
+
   return (
     <div className="mt-10">
       {/* Filter Controls */}
@@ -445,6 +519,26 @@ export default function ResourceTable({ filteredResources: initialResources }) {
           components={components}
           placeholder="Exclude services not available in:"
         />
+
+        {/* Compensation Filter */}
+        <Select
+          options={PAYMENT_TYPES.map(type => ({
+            ...type,
+            label: (
+              <div className="flex items-center">
+                <span>{type.emoji}</span>
+                <span className="ml-2">{type.label}</span>
+              </div>
+            )
+          }))}
+          value={filters.paymentTypes}
+          onChange={(selectedOptions) =>
+            setFilters({ ...filters, paymentTypes: selectedOptions || [] })
+          }
+          isMulti
+          styles={customStyles}
+          placeholder="All Compensation"
+        />
       </div>
 
       {/* Resource Table */}
@@ -452,6 +546,14 @@ export default function ResourceTable({ filteredResources: initialResources }) {
         <table className="min-w-full bg-white border border-gray-300">
           <thead>
             <tr>
+              {/* Compensation Header - moved to the far left */}
+              <th
+                className="py-2 px-4 border-b border-r border-gray-300 text-black cursor-pointer select-none"
+                onClick={() => handleSort('paymentType')}
+              >
+                Compensation {getSortIcon('paymentType')}
+              </th>
+
               {/* Title Header */}
               <th
                 className="py-2 px-4 border-b border-r border-gray-300 text-black cursor-pointer select-none"
@@ -508,6 +610,11 @@ export default function ResourceTable({ filteredResources: initialResources }) {
                     index % 2 === 0 ? 'bg-gray-50' : 'bg-white'
                   } hover:bg-gray-100`}
                 >
+                  {/* Compensation Column - moved to the far left */}
+                  <td className="py-2 px-4 border-b border-r border-gray-300 text-black align-top text-center">
+                    {getPaymentEmoji(resource.paymentType || 'donation')}
+                  </td>
+
                   {/* Title Column */}
                   <td className="py-2 px-4 border-b border-r border-gray-300 text-black align-top">
                     {resource.title}
