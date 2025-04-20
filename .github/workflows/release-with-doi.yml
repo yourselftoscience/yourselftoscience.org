@@ -109,3 +109,38 @@ jobs:
           VERSION_DOI="10.5281/zenodo.15109359"
           echo "doi=$VERSION_DOI" >> $GITHUB_OUTPUT
           echo "Using concept DOI: $VERSION_DOI"
+
+      - name: Write DOI to file
+        if: steps.get_doi.outputs.doi
+        run: |
+          echo "Writing DOI ${{ steps.get_doi.outputs.doi }} to public/latest_doi.txt"
+          mkdir -p public
+          echo "${{ steps.get_doi.outputs.doi }}" > public/latest_doi.txt
+
+      - name: Update DOI in layout.tsx
+        if: steps.get_doi.outputs.doi
+        run: |
+          DOI_VALUE="${{ steps.get_doi.outputs.doi }}"
+          LAYOUT_FILE="src/app/layout.tsx"
+          # Use sed to replace the citation_doi value. This is brittle but avoids complex parsing.
+          # It looks for 'citation_doi': followed by a quoted string and replaces the string content.
+          sed -i "s/\('citation_doi':\s*\)\"[^\"]*\"/\1\"$DOI_VALUE\"/" "$LAYOUT_FILE"
+          echo "Updated DOI in $LAYOUT_FILE"
+
+      - name: Configure Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Commit and push updated files
+        if: steps.get_doi.outputs.doi
+        run: |
+          # Add both files that might have changed
+          git add public/latest_doi.txt src/app/layout.tsx
+          # Check if there are changes to commit
+          if git diff --staged --quiet; then
+            echo "No changes to DOI files to commit."
+          else
+            git commit -m "Update latest DOI [skip ci]"
+            git push
+            echo "Committed and pushed updated DOI files."

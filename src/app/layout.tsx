@@ -1,9 +1,40 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import fs from 'fs'; // Import fs
+import path from 'path'; // Import path
+
+// --- Function to read DOI from file (runs at build time) ---
+function getLatestDoiForBuild() {
+  const doiFilePath = path.join(process.cwd(), 'public', 'latest_doi.txt'); // Use process.cwd() for build context
+  const fallbackDoi = '10.5281/zenodo.15110328'; // Use the latest known version DOI as fallback
+  try {
+    if (fs.existsSync(doiFilePath)) {
+      const doi = fs.readFileSync(doiFilePath, 'utf-8').trim();
+      if (doi && doi.includes('/') && doi.startsWith('10.')) {
+        console.log(`Build using DOI from file: ${doi}`);
+        return doi;
+      } else if (doi) {
+         console.warn(`Build: Invalid DOI format found in file: ${doi}. Using fallback.`);
+      }
+    }
+  } catch (error) {
+    // --- Type check for error ---
+    let errorMessage = 'An unknown error occurred';
+    if (error instanceof Error) {
+      errorMessage = error.message;
+    } else if (typeof error === 'string') {
+      errorMessage = error;
+    }
+    console.warn(`Build: Error reading DOI file: ${errorMessage}`);
+    // --- End type check ---
+  }
+  console.warn(`Build: DOI file not found or empty/invalid. Using fallback DOI: ${fallbackDoi}`);
+  return fallbackDoi;
+}
+// --- End function ---
 
 // Define fonts at module scope with const
-// Use optional catch binding to handle missing files gracefully
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -23,6 +54,7 @@ const geistMono = localFont({
 // Get current date in YYYY/MM/DD format for citation
 const currentDate = new Date().toISOString().split('T')[0].replace(/-/g, '/');
 const currentYear = new Date().getFullYear();
+const latestDoi = getLatestDoiForBuild(); // Read DOI for metadata
 
 export const metadata: Metadata = {
   title: "Yourself To Science",
@@ -37,7 +69,7 @@ export const metadata: Metadata = {
     'citation_publication_date': `${currentYear}/${currentDate.split('/')[1]}/${currentDate.split('/')[2]}`,
     'citation_pdf_url': "https://yourselftoscience.org/yourselftoscience.pdf",
     'citation_fulltext_html_url': "https://yourselftoscience.org",
-    'citation_doi': "10.5281/zenodo.15109359", // Updated to correct concept DOI
+    'citation_doi': latestDoi, // Use the dynamically read DOI
     'citation_fulltext_world_readable': ' '
   },
   openGraph: {

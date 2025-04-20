@@ -17,35 +17,36 @@ async function generatePdf() {
     // Generate PDF
     execSync('node scripts/updatePdfPage.js', { stdio: 'inherit' });
     console.log('PDF generated successfully');
-    
+
     // Generate sitemap using the imported function
     console.log('Updating sitemap...');
     await generateSitemap();
-    
+
     // Touch the deployed files to trigger any watchers
     const now = new Date();
     const pdfPath = path.join(__dirname, '../public/yourselftoscience.pdf');
     const sitemapPath = path.join(__dirname, '../public/sitemap.xml');
-    
+
     if (fs.existsSync(pdfPath)) {
       fs.utimesSync(pdfPath, now, now);
     }
     if (fs.existsSync(sitemapPath)) {
       fs.utimesSync(sitemapPath, now, now);
     }
-    
+
     console.log('All updates completed successfully');
   } catch (error) {
     console.error('Error in generation process:', error.message);
   }
 }
 
-// Watch for changes to key files
+// Watch for changes to key files, including the PDF generation script itself
 const watcher = chokidar.watch([
   'src/data/resources.js',
   'src/app/**/*.js',
   'src/app/**/*.tsx',
-  'src/components/**/*.js'
+  'src/components/**/*.js',
+  'scripts/updatePdfPage.js' // <-- Add this line
 ], {
   persistent: true,
   ignoreInitial: false, // Generate on start
