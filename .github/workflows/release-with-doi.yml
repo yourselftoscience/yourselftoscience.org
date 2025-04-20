@@ -122,9 +122,8 @@ jobs:
         run: |
           DOI_VALUE="${{ steps.get_doi.outputs.doi }}"
           LAYOUT_FILE="src/app/layout.tsx"
-          # Use sed to replace the citation_doi value. This is brittle but avoids complex parsing.
-          # It looks for 'citation_doi': followed by a quoted string and replaces the string content.
-          sed -i "s/\('citation_doi':\s*\)\"[^\"]*\"/\1\"$DOI_VALUE\"/" "$LAYOUT_FILE"
+          # Use sed to replace the hardcoded DOI in the layout file
+          sed -i "s/const latestDoi = '[0-9\.]*\/zenodo\.[0-9]*';/const latestDoi = '$DOI_VALUE';/" "$LAYOUT_FILE"
           echo "Updated DOI in $LAYOUT_FILE"
 
       - name: Configure Git
@@ -135,7 +134,6 @@ jobs:
       - name: Commit and push updated files
         if: steps.get_doi.outputs.doi
         run: |
-          # Add both files that might have changed
           git add public/latest_doi.txt src/app/layout.tsx
           # Check if there are changes to commit
           if git diff --staged --quiet; then
@@ -144,3 +142,4 @@ jobs:
             git commit -m "Update latest DOI [skip ci]"
             git push
             echo "Committed and pushed updated DOI files."
+          fi
