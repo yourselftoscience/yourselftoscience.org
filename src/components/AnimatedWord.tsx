@@ -1,31 +1,28 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 interface AnimatedWordProps {
   word: string;
 }
 
 export default function AnimatedWord({ word }: AnimatedWordProps) {
-  const [hasMounted, setHasMounted] = useState(false);
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
+  // Margin logic needs to know the layout context, but AnimatedWord doesn't have it.
+  // Simplest is to apply margin based on word, assuming 'self' is only shown when inline.
+  // If 'self' can appear when centered, this needs adjustment.
+  // Let's assume the parent logic correctly swaps to static 'self' when sticky (inline).
+  const marginLeftClass = word === 'self' ? 'ml-0' : 'ml-1'; // ml-1 for non-self words (likely centered state)
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.span
-        key={word}
-        // On first render, opacity is 1; after mounting animate from opacity 0.
-        initial={{ opacity: hasMounted ? 0 : 1 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-yellow-400"
-      >
-        {word}
-      </motion.span>
-    </AnimatePresence>
+    <motion.span
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, transition: { duration: 0 } }} // Instant exit
+      transition={{ duration: 0.2, ease: "easeInOut" }}
+      // Add inline-block here too, as it's needed for text-center parent
+      className={`inline-block text-yellow-400 ${marginLeftClass}`}
+    >
+      {word}
+    </motion.span>
   );
 }

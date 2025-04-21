@@ -12,7 +12,7 @@ const geistSans = localFont({
 });
 
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff", 
+  src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
   display: 'swap',
@@ -70,11 +70,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    // Keep suppressHydrationWarning on html for good measure
+    <html lang="en" suppressHydrationWarning={true}>
       <head>
         <meta name="citation_online_date" content={currentDate} />
+        {/* Add other necessary head elements like charset, viewport */}
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      {/* Add suppressHydrationWarning to body as well */}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} suppressHydrationWarning={true}>
         {children}
       </body>
     </html>
