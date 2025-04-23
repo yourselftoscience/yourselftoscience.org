@@ -5,7 +5,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence, useScroll } from 'framer-motion';
 import Footer from '@/components/Footer';
-import { resources as allResources, citationMap, uniqueCitations } from '@/data/resources';
+import { resources as allResources, PAYMENT_TYPES, citationMap, uniqueCitations } from '@/data/resources';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import CountryFlag from 'react-country-flag';
@@ -23,12 +23,6 @@ const EU_COUNTRIES = [
   'Ireland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta',
   'Netherlands', 'Poland', 'Portugal', 'Romania', 'Slovakia', 'Slovenia',
   'Spain', 'Sweden'
-];
-
-const PAYMENT_TYPES = [
-  { value: 'donation', label: 'Donation', emoji: '❤️' },
-  { value: 'payment', label: 'Payment', emoji: '💵' },
-  { value: 'mixed', label: 'Mixed', emoji: '❤️💵' }
 ];
 
 function expandCountries(chosen) {
@@ -455,6 +449,7 @@ export default function Home() {
               onFilterChange={handleCheckboxChange}
               onPaymentFilterChange={handlePaymentCheckboxChange}
               paymentTypesOptions={PAYMENT_TYPES}
+              citationMap={citationMap}
             />
 
             {/* === START: Mobile Buttons Moved Here === */}
@@ -475,25 +470,23 @@ export default function Home() {
             {/* === END: Mobile Buttons Moved Here === */}
 
             {/* References Section */}
-            {uniqueCitations.length > 0 && (
-              <div className="mt-8 pt-6 border-t border-gray-200">
-                <h2 className="text-base font-medium mb-3 text-google-text">References</h2>
-                <ol className="list-decimal pl-5 space-y-1">
+            {uniqueCitations && uniqueCitations.length > 0 && (
+              <section id="references" className="w-full max-w-screen-xl mx-auto px-4 py-8 border-t mt-8">
+                <h2 className="text-xl font-semibold mb-4 text-google-text">References</h2>
+                <ol className="list-decimal pl-5 space-y-2">
                   {uniqueCitations.map((citation, idx) => (
-                    <li key={idx} id={`ref-${idx + 1}`} className="text-sm text-google-text-secondary">
-                      <a
-                        href={citation.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-google-blue hover:underline break-words"
-                        aria-label={`Reference ${idx + 1}: ${citation.title}`}
-                      >
-                        {citation.title}
-                      </a>
+                    <li key={idx} id={`ref-${idx + 1}`} className="text-sm text-google-text-secondary leading-relaxed">
+                      {citation.link ? (
+                        <a href={citation.link} target="_blank" rel="noopener noreferrer" className="text-google-blue hover:underline break-words">
+                          {citation.title}
+                        </a>
+                      ) : (
+                        <span className="break-words">{citation.title}</span>
+                      )}
                     </li>
                   ))}
                 </ol>
-              </div>
+              </section>
             )}
 
           </main>

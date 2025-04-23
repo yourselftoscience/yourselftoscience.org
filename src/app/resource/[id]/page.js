@@ -104,13 +104,17 @@ export default function ResourcePage({ params }) {
       {resource.citations && resource.citations.length > 0 && (
         <section className="mt-6">
           <h2 className="text-2xl font-semibold mb-2">Citations</h2>
-          <ol className="list-decimal pl-6">
+          <ol className="list-decimal pl-6 space-y-1"> {/* Added space-y-1 for better spacing */}
             {resource.citations.map((citation, idx) => (
-              <li key={idx}>
-                <a href={citation.link} target="_blank" rel="noopener noreferrer" 
-                   className="text-blue-600 hover:underline">
-                  {citation.title}
-                </a>
+              <li key={idx} className="text-sm text-google-text-secondary"> {/* Use consistent text style */}
+                {citation.link ? (
+                  <a href={citation.link} target="_blank" rel="noopener noreferrer"
+                     className="text-google-blue hover:underline break-words">
+                    {citation.title}
+                  </a>
+                ) : (
+                  <span className="break-words">{citation.title}</span> // Handle citations without links
+                )}
               </li>
             ))}
           </ol>

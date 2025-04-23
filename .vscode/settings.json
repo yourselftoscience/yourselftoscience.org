@@ -1,6 +1,10 @@
 {
   "files.associations": {
-    "yourselftoscience.html": "html"
+    "yourselftoscience.html": "html",
+    "*.css": "tailwindcss"
   },
-  "html.validate.scripts": false
+  "html.validate.scripts": false,
+  "editor.quickSuggestions": {
+    "strings": "on"
+  }
 }

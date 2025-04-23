@@ -28,6 +28,18 @@ body {
   }
 }
 
+/* Style for targeted reference list items */
+li:target {
+  @apply bg-yellow-100 transition-colors duration-1000 ease-out; /* Apply a temporary background */
+  /* You might need to adjust duration or add a delay if the scroll is too fast */
+  animation: fadeOutHighlight 2s forwards; /* Fade out the highlight */
+}
+
+@keyframes fadeOutHighlight {
+  from { background-color: theme('colors.yellow.100'); }
+  to { background-color: transparent; }
+}
+
 /* Basic Card Styling */
 @layer components {
   .resource-card {
