@@ -543,49 +543,53 @@ export default function Home() {
                 </button>
               </div>
 
-              <div className="p-3 border-b border-gray-200 flex flex-wrap gap-1.5">
-                {/* --- Swapped Order: Countries first --- */}
-                {filters.countries.map(value => {
-                  const countryOption = countryOptions.find(opt => opt.value === value);
-                  // --- START: Added flag rendering ---
-                  const label = countryOption?.label || value;
-                  const code = countryOption?.code;
-                  return (
-                    <span key={`sel-ctry-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
-                      {label}
-                      {code && <CountryFlag countryCode={code} svg style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />} {/* Added flag */}
+              {/* --- START: Conditionally render active filters container --- */}
+              {(filters.countries.length > 0 || filters.dataTypes.length > 0 || filters.paymentTypes.length > 0) && (
+                <div className="p-3 border-b border-gray-200 flex flex-wrap gap-1.5">
+                  {/* --- Swapped Order: Countries first --- */}
+                  {filters.countries.map(value => {
+                    const countryOption = countryOptions.find(opt => opt.value === value);
+                    // --- START: Added flag rendering ---
+                    const label = countryOption?.label || value;
+                    const code = countryOption?.code;
+                    return (
+                      <span key={`sel-ctry-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
+                        {label}
+                        {code && <CountryFlag countryCode={code} svg style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />} {/* Added flag */}
+                        <button
+                          onClick={() => handleCheckboxChange('countries', value, false)}
+                          className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${label}`}> {/* Use label in aria-label */}
+                          <FaTimes size="0.9em" /> {/* Increased size */}
+                        </button>
+                      </span>
+                    );
+                    // --- END: Added flag rendering ---
+                  })}
+                  {/* --- Data Types second --- */}
+                  {filters.dataTypes.map(value => (
+                    <span key={`sel-dt-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
+                      {value}
                       <button
-                        onClick={() => handleCheckboxChange('countries', value, false)}
-                        className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${label}`}> {/* Use label in aria-label */}
+                        onClick={() => handleCheckboxChange('dataTypes', value, false)}
+                        className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${value}`}>
                         <FaTimes size="0.9em" /> {/* Increased size */}
                       </button>
                     </span>
-                  );
-                  // --- END: Added flag rendering ---
-                })}
-                {/* --- Data Types second --- */}
-                {filters.dataTypes.map(value => (
-                  <span key={`sel-dt-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
-                    {value}
-                    <button
-                      onClick={() => handleCheckboxChange('dataTypes', value, false)}
-                      className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${value}`}>
-                      <FaTimes size="0.9em" /> {/* Increased size */}
-                    </button>
-                  </span>
-                ))}
-                {/* --- Payment Types third --- */}
-                {filters.paymentTypes.map(option => (
-                  <span key={`sel-pay-${option.value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
-                    {option.emoji} {option.label}
-                    <button
-                      onClick={() => handlePaymentCheckboxChange(option, false)}
-                      className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${option.label}`}>
-                      <FaTimes size="0.9em" /> {/* Increased size */}
-                    </button>
-                  </span>
-                ))}
-              </div>
+                  ))}
+                  {/* --- Payment Types third --- */}
+                  {filters.paymentTypes.map(option => (
+                    <span key={`sel-pay-${option.value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
+                      {option.emoji} {option.label}
+                      <button
+                        onClick={() => handlePaymentCheckboxChange(option, false)}
+                        className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${option.label}`}>
+                        <FaTimes size="0.9em" /> {/* Increased size */}
+                      </button>
+                    </span>
+                  ))}
+                </div>
+              )}
+              {/* --- END: Conditionally render active filters container --- */}
 
               <div className="flex-grow overflow-y-auto p-3">
                 {renderFilterContent()}
