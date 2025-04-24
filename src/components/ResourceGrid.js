@@ -5,7 +5,8 @@
 import React from 'react';
 import Link from 'next/link';
 import CountryFlag from 'react-country-flag';
-import { FaHeart, FaDollarSign, FaExternalLinkAlt, FaBook } from 'react-icons/fa';
+// Import instruction icons
+import { FaHeart, FaDollarSign, FaExternalLinkAlt, FaBook, FaMobileAlt, FaCog, FaUserShield, FaArrowRight, FaListOl } from 'react-icons/fa';
 import { Popover, Transition } from '@headlessui/react'; // Import Popover
 import { Fragment } from 'react'; // Import Fragment for Transition
 
@@ -30,6 +31,21 @@ function getCitationKey(citation) {
   }
   return null;
 }
+
+// --- Moved Helper function to get icons for instruction steps ---
+const getStepIcon = (step) => {
+  const lowerStep = step.toLowerCase();
+  if (lowerStep.includes('fitbit app') || lowerStep.includes('open the app'))
+    return <FaMobileAlt className="text-blue-500" title="Mobile App Step"/>;
+  if (lowerStep.includes('settings'))
+    return <FaCog className="text-gray-600" title="Settings Step"/>;
+  if (lowerStep.includes('privacy'))
+    return <FaUserShield className="text-green-500" title="Privacy Step"/>;
+  if (lowerStep.includes('tap') || lowerStep.includes('select') || lowerStep.includes('go to'))
+    return <FaArrowRight className="text-yellow-500" title="Action Step"/>;
+  return <FaArrowRight className="text-gray-500" title="Step"/>; // Default icon
+};
+// --- End Moved Helper ---
 
 // New TagButton component for reusability
 function TagButton({ label, filterKey, value, isActive, onClick, children }) {
@@ -77,6 +93,8 @@ export default function ResourceGrid({
           const paymentInfo = getPaymentInfo(resource.paymentType);
           const paymentOption = paymentTypesOptions?.find(p => p.value === paymentInfo.value);
           const hasCitations = resource.citations && resource.citations.length > 0;
+
+          const hasInstructionsOnly = resource.instructions && !resource.link;
 
           return (
             <div key={resource.id} className="resource-card flex flex-col relative">
@@ -141,9 +159,9 @@ export default function ResourceGrid({
 
               {/* Footer container for Action Link and Citation Icon */}
               <div className="flex justify-between items-end mt-3">
-                {/* Action Link */}
+                {/* Action Area: Link, Instructions Popover, or Details Link */}
                 <div>
-                  {resource.link ? (
+                  {resource.link ? ( // Priority 1: External Link
                     <a
                       href={resource.link}
                       target="_blank"
@@ -152,9 +170,46 @@ export default function ResourceGrid({
                     >
                       Learn more <FaExternalLinkAlt className="inline ml-1 h-3 w-3" />
                     </a>
-                  ) : (
+                  ) : hasInstructionsOnly ? ( // Priority 2: Instructions Popover
+                    <Popover className="relative">
+                      {({ open }) => (
+                        <>
+                          <Popover.Button
+                            className={`action-link inline-flex items-center ${open ? 'text-google-blue' : 'text-google-blue'}`} // Keep blue color
+                            title="View Instructions"
+                          >
+                            View Instructions <FaListOl className="inline ml-1 h-3 w-3" />
+                          </Popover.Button>
+                          <Transition
+                            as={Fragment}
+                            enter="transition ease-out duration-200"
+                            enterFrom="opacity-0 translate-y-1"
+                            enterTo="opacity-100 translate-y-0"
+                            leave="transition ease-in duration-150"
+                            leaveFrom="opacity-100 translate-y-0"
+                            leaveTo="opacity-0 translate-y-1"
+                          >
+                            <Popover.Panel className="absolute z-10 bottom-full left-0 mb-2 w-72 max-h-80 overflow-y-auto rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                              <div className="p-3 space-y-2">
+                                <h4 className="text-xs font-medium text-google-text uppercase border-b pb-1 mb-2">Instructions</h4>
+                                <ol className="space-y-2.5"> {/* Use ol for numbered list */}
+                                  {resource.instructions.map((step, idx) => (
+                                    <li key={idx} className="flex items-start text-xs text-google-text-secondary leading-snug">
+                                      <span className="mr-1.5 font-medium text-gray-600">{idx + 1}.</span>
+                                      <span className="mr-1.5 mt-px flex-shrink-0">{getStepIcon(step)}</span>
+                                      <span>{step}</span>
+                                    </li>
+                                  ))}
+                                </ol>
+                              </div>
+                            </Popover.Panel>
+                          </Transition>
+                        </>
+                      )}
+                    </Popover>
+                  ) : ( // Fallback: Link to Details page (if no link and no instructions, though unlikely)
                     <Link href={`/resource/${resource.id}`} className="action-link">
-                      {resource.instructions ? 'View Instructions' : 'Details'}
+                      Details
                     </Link>
                   )}
                 </div>
