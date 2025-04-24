@@ -49,14 +49,17 @@ const getStepIcon = (step) => {
 
 // New TagButton component for reusability
 function TagButton({ label, filterKey, value, isActive, onClick, children }) {
-  const baseClasses = "tag flex items-center cursor-pointer transition-colors duration-150 ease-in-out px-2 py-0.5 rounded-md text-xs mr-1 mb-1";
+  const baseClasses = "tag flex items-center cursor-pointer transition-colors duration-150 ease-in-out px-2.5 py-1 rounded-full text-sm font-medium mr-1 mb-1"; // Updated size and rounding
   const activeClasses = "bg-blue-100 text-blue-700 hover:bg-blue-200";
   const inactiveClasses = "bg-gray-200 text-google-text-secondary hover:bg-gray-300";
 
   const handleClick = () => {
+    // Special handling for payment types as its state is structured differently
     if (filterKey === 'paymentTypes') {
+      // Pass the option object and the new checked state
       onClick(value, !isActive);
     } else {
+      // Standard handling for dataTypes and countries
       onClick(filterKey, value, !isActive);
     }
   };

@@ -233,7 +233,7 @@ export default function Home() {
         {/* Select/Clear All Button - Moved below title, added block and mb-2 */}
         <button
           onClick={() => handleSelectAll(filterKey, options, !allSelected)}
-          className="text-xs text-google-blue hover:underline mb-2 block" // Added block display
+          className="text-sm text-google-blue hover:underline mb-2 block" // Increased from text-xs
           aria-label={allSelected ? `Clear all ${title}` : `Select all ${title}`}
         >
           {allSelected ? 'Clear all' : 'Select all'}
@@ -256,7 +256,7 @@ export default function Home() {
                 onChange={(e) => handleCheckboxChange(filterKey, value, e.target.checked)}
                 className="mr-2 h-4 w-4 text-google-blue border-gray-400 rounded focus:ring-google-blue focus:ring-offset-0 focus:ring-1" // Slightly darker border
               />
-              <label htmlFor={`${filterKey}-${value}-mobile`} className="text-sm text-google-text flex items-center cursor-pointer"> {/* Smaller text, cursor */}
+              <label htmlFor={`${filterKey}-${value}-mobile`} className="text-sm text-google-text flex items-center cursor-pointer"> {/* Kept text-sm, seems appropriate */}
                 {label}
                 {code && (
                   <CountryFlag countryCode={code} svg style={{ width: '1em', height: '0.8em', marginLeft: '0.25em', display: 'inline-block', verticalAlign: 'middle' }} />
@@ -268,7 +268,7 @@ export default function Home() {
 
         {/* More Button */}
         {options.length > 3 && (
-          <button onClick={() => setShowMore(!showMore)} className="text-sm text-google-blue hover:underline mt-1 flex items-center">
+          <button onClick={() => setShowMore(!showMore)} className="text-sm text-google-blue hover:underline mt-1 flex items-center"> {/* Kept text-sm */}
              <svg className={`w-3 h-3 mr-1 transform transition-transform ${showMore ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
             {showMore ? 'Less' : `More (${options.length - 3})`}
           </button>
@@ -290,7 +290,7 @@ export default function Home() {
         {/* Select/Clear All Button - Moved below title, added block and mb-2 */}
         <button
           onClick={() => handleSelectAll('paymentTypes', PAYMENT_TYPES, filters.paymentTypes.length !== PAYMENT_TYPES.length)}
-          className="text-xs text-google-blue hover:underline mb-2 block" // Added block display
+          className="text-sm text-google-blue hover:underline mb-2 block" // Increased from text-xs
           aria-label={filters.paymentTypes.length === PAYMENT_TYPES.length ? `Clear all Compensation` : `Select all Compensation`}
         >
           {filters.paymentTypes.length === PAYMENT_TYPES.length ? 'Clear all' : 'Select all'}
@@ -307,7 +307,7 @@ export default function Home() {
               onChange={(e) => handlePaymentCheckboxChange(option, e.target.checked)}
               className="mr-2 h-4 w-4 text-google-blue border-gray-400 rounded focus:ring-google-blue focus:ring-offset-0 focus:ring-1"
             />
-            <label htmlFor={`payment-${option.value}-mobile`} className="text-sm text-google-text flex items-center cursor-pointer">
+            <label htmlFor={`payment-${option.value}-mobile`} className="text-sm text-google-text flex items-center cursor-pointer"> {/* Kept text-sm */}
               <span className="mr-1">{option.emoji}</span> {option.label}
             </label>
           </div>
@@ -405,14 +405,14 @@ export default function Home() {
             {/* Active Filter Badges */}
             <div className="mb-4 flex flex-wrap gap-2 items-center">
               {filters.dataTypes.map(value => (
-                <span key={`badge-dt-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-xs font-medium px-2.5 py-0.5 rounded-full">
+                <span key={`badge-dt-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2.5 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
                   {value}
                   <button
                     onClick={() => handleCheckboxChange('dataTypes', value, false)}
                     className="ml-1.5 text-blue-500 hover:text-blue-700"
                     aria-label={`Remove ${value} filter`}
                   >
-                    <FaTimes size="0.8em" />
+                    <FaTimes size="1em" /> {/* Increased size */}
                   </button>
                 </span>
               ))}
@@ -421,28 +421,28 @@ export default function Home() {
                 const label = countryOption?.label || value;
                 const code = countryOption?.code;
                 return (
-                  <span key={`badge-ctry-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-xs font-medium px-2.5 py-0.5 rounded-full">
+                  <span key={`badge-ctry-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2.5 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
                     {label}
-                    {code && <CountryFlag countryCode={code} svg style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />}
+                    {code && <CountryFlag countryCode={code} svg style={{ width: '1.1em', height: '0.9em', marginLeft: '5px' }} />} {/* Adjusted flag size slightly */}
                     <button
                       onClick={() => handleCheckboxChange('countries', value, false)}
                       className="ml-1.5 text-blue-500 hover:text-blue-700"
                       aria-label={`Remove ${label} filter`}
                     >
-                      <FaTimes size="0.8em" />
+                      <FaTimes size="1em" /> {/* Increased size */}
                     </button>
                   </span>
                 );
               })}
               {filters.paymentTypes.map(option => (
-                <span key={`badge-pay-${option.value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-xs font-medium px-2.5 py-0.5 rounded-full">
+                <span key={`badge-pay-${option.value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2.5 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
                   {option.emoji} {option.label}
                   <button
                     onClick={() => handlePaymentCheckboxChange(option, false)}
                     className="ml-1.5 text-blue-500 hover:text-blue-700"
                     aria-label={`Remove ${option.label} filter`}
                   >
-                    <FaTimes size="0.8em" />
+                    <FaTimes size="1em" /> {/* Increased size */}
                   </button>
                 </span>
               ))}
@@ -527,41 +527,41 @@ export default function Home() {
 
               <div className="p-3 border-b border-gray-200 flex flex-wrap gap-1.5">
                 {filters.dataTypes.map(value => (
-                  <span key={`sel-dt-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-xs font-medium px-2 py-0.5 rounded-full">
+                  <span key={`sel-dt-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
                     {value}
                     <button
                       onClick={() => handleCheckboxChange('dataTypes', value, false)}
                       className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${value}`}>
-                      <FaTimes size="0.7em" />
+                      <FaTimes size="0.9em" /> {/* Increased size */}
                     </button>
                   </span>
                 ))}
                 {filters.countries.map(value => {
                   const countryOption = countryOptions.find(opt => opt.value === value);
                   return (
-                    <span key={`sel-ctry-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-xs font-medium px-2 py-0.5 rounded-full">
+                    <span key={`sel-ctry-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
                       {countryOption?.label || value}
                       <button
                         onClick={() => handleCheckboxChange('countries', value, false)}
                         className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${countryOption?.label || value}`}>
-                        <FaTimes size="0.7em" />
+                        <FaTimes size="0.9em" /> {/* Increased size */}
                       </button>
                     </span>
                   );
                 })}
                 {filters.paymentTypes.map(option => (
-                  <span key={`sel-pay-${option.value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-xs font-medium px-2 py-0.5 rounded-full">
+                  <span key={`sel-pay-${option.value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
                     {option.emoji} {option.label}
                     <button
                       onClick={() => handlePaymentCheckboxChange(option, false)}
                       className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${option.label}`}>
-                      <FaTimes size="0.7em" />
+                      <FaTimes size="0.9em" /> {/* Increased size */}
                     </button>
                   </span>
                 ))}
                 {(filters.dataTypes.length === 0 && filters.countries.length === 0 && filters.paymentTypes.length === 0) && (
-                  <span className="text-xs text-google-text-secondary italic px-1">No filters selected</span>
-                )}
+                  <span className="text-sm text-google-text-secondary italic px-1">No filters selected</span>
+                ) /* Increased size */}
               </div>
 
               <div className="flex-grow overflow-y-auto p-3">
