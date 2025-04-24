@@ -353,8 +353,8 @@ export default function Home() {
       {/* Main content area including sidebar and grid */}
       <div className="flex-grow w-full max-w-screen-xl mx-auto px-4 pb-8 pt-3">
 
-        <p className="text-base text-google-text-secondary max-w-4xl mb-6">
-          YourselfToScience.org provides a comprehensive open-source list of services allowing individuals to contribute to scientific research.
+        <p className="text-base text-google-text-secondary max-w-5xl mb-6"> {/* Changed max-w-4xl to max-w-5xl */}
+          A comprehensive open-source list of services allowing individuals to contribute to scientific research.
           <br /> {/* Added line break */}
           Browse our curated resources to find ways to share your data, genome, body samples, and more.
         </p>
@@ -398,7 +398,7 @@ export default function Home() {
                   placeholder="Filter results by keyword, country, data type..."
                   value={filters.searchTerm}
                   onChange={handleSearchChange}
-                  className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-md focus:ring-google-blue focus:border-google-blue text-sm placeholder-google-text-secondary" // Added pr-10 for button space
+                  className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-md focus:border-google-blue focus:ring-1 focus:ring-google-blue focus:outline-none text-sm placeholder-google-text-secondary" // Re-added focus:ring-1 and focus:ring-google-blue, added focus:outline-none
                 />
                 {filters.searchTerm && (
                   <button
