@@ -115,7 +115,13 @@ export default function Home() {
           (cit.title && cit.title.toLowerCase().includes(lowerSearchTerm)) ||
           (cit.link && cit.link.toLowerCase().includes(lowerSearchTerm))
         );
-        return titleMatch || descriptionMatch || dataTypeMatch || countryMatch || paymentTypeMatch || citationMatch;
+        // --- Add Link and Instruction Matching ---
+        const linkMatch = resource.link && resource.link.toLowerCase().includes(lowerSearchTerm);
+        const instructionMatch = resource.instructions && resource.instructions.some(step => step.toLowerCase().includes(lowerSearchTerm));
+        // --- End Add ---
+
+        // Combine all matches
+        return titleMatch || descriptionMatch || dataTypeMatch || countryMatch || paymentTypeMatch || citationMatch || linkMatch || instructionMatch;
       });
     }
 
@@ -143,7 +149,7 @@ export default function Home() {
     filteredData.sort((a, b) => a.title.localeCompare(b.title));
 
     return filteredData;
-  }, [filters]);
+  }, [filters]); // Ensure filters is the dependency
 
   const handleCheckboxChange = (filterKey, value, isChecked) => {
     setFilters(prev => {
@@ -444,7 +450,7 @@ export default function Home() {
 
             {/* Resource Grid */}
             <ResourceGrid
-              resources={processedResources}
+              resources={processedResources} // Pass the filtered resources
               filters={filters}
               onFilterChange={handleCheckboxChange}
               onPaymentFilterChange={handlePaymentCheckboxChange}
