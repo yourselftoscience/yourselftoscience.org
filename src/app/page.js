@@ -389,13 +389,26 @@ export default function Home() {
           <main className="py-4">
             {/* Search Input and Filter Button */}
             <div className="mb-4 flex gap-2 items-center">
-              <input
-                type="text"
-                placeholder="Filter results by keyword, country, data type..."
-                value={filters.searchTerm}
-                onChange={handleSearchChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-google-blue focus:border-google-blue text-sm placeholder-google-text-secondary"
-              />
+              {/* --- START: Add relative container and clear button --- */}
+              <div className="relative w-full">
+                <input
+                  type="text"
+                  placeholder="Filter results by keyword, country, data type..."
+                  value={filters.searchTerm}
+                  onChange={handleSearchChange}
+                  className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-md focus:ring-google-blue focus:border-google-blue text-sm placeholder-google-text-secondary" // Added pr-10 for button space
+                />
+                {filters.searchTerm && (
+                  <button
+                    onClick={() => setFilters(prev => ({ ...prev, searchTerm: '' }))}
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-google-text-secondary hover:text-google-text"
+                    aria-label="Clear search"
+                  >
+                    <FaTimes size="1em" />
+                  </button>
+                )}
+              </div>
+              {/* --- END: Add relative container and clear button --- */}
               <button
                 onClick={toggleFilterDrawer}
                 className="lg:hidden px-4 py-2 rounded border border-gray-300 text-google-text text-sm font-medium hover:bg-gray-50 transition-colors flex items-center whitespace-nowrap"
