@@ -426,48 +426,47 @@ export default function Home() {
               {/* --- Swapped Order: Countries first --- */}
               {filters.countries.map(value => {
                 const countryOption = countryOptions.find(opt => opt.value === value);
+                // --- START: Added flag rendering ---
                 const label = countryOption?.label || value;
                 const code = countryOption?.code;
                 return (
-                  <span key={`badge-ctry-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2.5 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
+                  <span key={`sel-ctry-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
                     {label}
-                    {code && <CountryFlag countryCode={code} svg style={{ width: '1.1em', height: '0.9em', marginLeft: '5px' }} />} {/* Adjusted flag size slightly */}
+                    {code && <CountryFlag countryCode={code} svg style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />} {/* Added flag */}
                     <button
                       onClick={() => handleCheckboxChange('countries', value, false)}
-                      className="ml-1.5 text-blue-500 hover:text-blue-700"
-                      aria-label={`Remove ${label} filter`}
-                    >
-                      <FaTimes size="1em" /> {/* Increased size */}
+                      className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${label}`}> {/* Use label in aria-label */}
+                      <FaTimes size="0.9em" /> {/* Increased size */}
                     </button>
                   </span>
                 );
+                // --- END: Added flag rendering ---
               })}
               {/* --- Data Types second --- */}
               {filters.dataTypes.map(value => (
-                <span key={`badge-dt-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2.5 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
+                <span key={`sel-dt-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
                   {value}
                   <button
                     onClick={() => handleCheckboxChange('dataTypes', value, false)}
-                    className="ml-1.5 text-blue-500 hover:text-blue-700"
-                    aria-label={`Remove ${value} filter`}
-                  >
-                    <FaTimes size="1em" /> {/* Increased size */}
+                    className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${value}`}>
+                    <FaTimes size="0.9em" /> {/* Increased size */}
                   </button>
                 </span>
               ))}
               {/* --- Payment Types third --- */}
               {filters.paymentTypes.map(option => (
-                <span key={`badge-pay-${option.value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2.5 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
+                <span key={`sel-pay-${option.value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
                   {option.emoji} {option.label}
                   <button
                     onClick={() => handlePaymentCheckboxChange(option, false)}
-                    className="ml-1.5 text-blue-500 hover:text-blue-700"
-                    aria-label={`Remove ${option.label} filter`}
-                  >
-                    <FaTimes size="1em" /> {/* Increased size */}
+                    className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${option.label}`}>
+                    <FaTimes size="0.9em" /> {/* Increased size */}
                   </button>
                 </span>
               ))}
+              {(filters.dataTypes.length === 0 && filters.countries.length === 0 && filters.paymentTypes.length === 0) && (
+                <span className="text-sm text-google-text-secondary italic px-1">No filters selected</span>
+              ) /* Increased size */}
             </div>
 
             {/* Resource Grid */}
@@ -551,16 +550,21 @@ export default function Home() {
                 {/* --- Swapped Order: Countries first --- */}
                 {filters.countries.map(value => {
                   const countryOption = countryOptions.find(opt => opt.value === value);
+                  // --- START: Added flag rendering ---
+                  const label = countryOption?.label || value;
+                  const code = countryOption?.code;
                   return (
                     <span key={`sel-ctry-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
-                      {countryOption?.label || value}
+                      {label}
+                      {code && <CountryFlag countryCode={code} svg style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />} {/* Added flag */}
                       <button
                         onClick={() => handleCheckboxChange('countries', value, false)}
-                        className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${countryOption?.label || value}`}>
+                        className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${label}`}> {/* Use label in aria-label */}
                         <FaTimes size="0.9em" /> {/* Increased size */}
                       </button>
                     </span>
                   );
+                  // --- END: Added flag rendering ---
                 })}
                 {/* --- Data Types second --- */}
                 {filters.dataTypes.map(value => (
