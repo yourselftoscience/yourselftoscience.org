@@ -464,9 +464,6 @@ export default function Home() {
                   </button>
                 </span>
               ))}
-              {(filters.dataTypes.length === 0 && filters.countries.length === 0 && filters.paymentTypes.length === 0) && (
-                <span className="text-sm text-google-text-secondary italic px-1">No filters selected</span>
-              ) /* Increased size */}
             </div>
 
             {/* Resource Grid */}
@@ -588,9 +585,6 @@ export default function Home() {
                     </button>
                   </span>
                 ))}
-                {(filters.dataTypes.length === 0 && filters.countries.length === 0 && filters.paymentTypes.length === 0) && (
-                  <span className="text-sm text-google-text-secondary italic px-1">No filters selected</span>
-                ) /* Increased size */}
               </div>
 
               <div className="flex-grow overflow-y-auto p-3">
