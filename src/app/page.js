@@ -352,7 +352,7 @@ export default function Home() {
       <div className="flex-grow w-full max-w-screen-xl mx-auto px-4 pb-8 pt-3">
 
         <p className="text-base text-google-text-secondary max-w-4xl mb-6">
-          YourselfToScience.org provides a comprehensive list of services allowing individuals to contribute to scientific research. Browse our curated resources to find ways to share your data, genome, body samples, and more.
+          YourselfToScience.org provides a comprehensive open-source list of services allowing individuals to contribute to scientific research. Browse our curated resources to find ways to share your data, genome, body samples, and more.
         </p>
 
         <div className="grid grid-cols-layout lg:grid-cols-lg-layout gap-6">

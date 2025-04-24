@@ -232,7 +232,7 @@ const rawResources = [
     paymentType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
-    title: 'The significance of selected biological and environmental factors in the process of human hair decomposition - Department of Human Biology, University of Wrocław',
+    title: 'Human Hair Decomposition - Department of Human Biology, University of Wrocław',
     link: 'https://biologia.uwr.edu.pl/2023/10/12/znaczenie-wybranych-czynnikow-biologicznych-i-srodowiskowych-w-procesie-rozkladu-ludzkich-wlosow-nabor-na-badania/',
     dataTypes: ['Hair'],
     countries: ['Poland'],

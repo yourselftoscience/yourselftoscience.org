@@ -153,7 +153,7 @@ function getLatestDoi() {
     
     // Add explicit bibliographic citation
     const citationDiv = document.createElement('div');
-    citationDiv.textContent = `Yourself To Science (${year}). A Comprehensive List of Services for Contributing to Science with Your Data, Genome, Body, and More. PDF Version (${date}).`;
+    citationDiv.textContent = `Yourself To Science (${year}). A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More. PDF Version (${date}).`;
     citationDiv.style.cssText = `
       font-size: 10pt; /* Adjusted size */
       margin-top: 8px;
@@ -226,15 +226,15 @@ function getLatestDoi() {
       const formats = [
          {
           name: 'APA',
-          citation: `Marcolongo, M. (${year}). Yourself To Science: A Comprehensive List of Services for Contributing to Science with Your Data, Genome, Body, and More. PDF Version (${date}). ${siteUrl}. ${doiLinkArg}`
+          citation: `Marcolongo, M. (${year}). Yourself To Science: A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More. PDF Version (${date}). ${siteUrl}. ${doiLinkArg}`
         },
         {
           name: 'MLA',
-          citation: `Marcolongo, Mario. "Yourself To Science: A Comprehensive List of Services for Contributing to Science with Your Data, Genome, Body, and More." Yourself To Science, ${year}, PDF Version (${date}). ${siteUrl}, ${doiLinkArg}.`
+          citation: `Marcolongo, Mario. "Yourself To Science: A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More." Yourself To Science, ${year}, PDF Version (${date}). ${siteUrl}, ${doiLinkArg}.`
         },
         {
           name: 'Chicago',
-          citation: `Marcolongo, Mario. ${year}. "Yourself To Science: A Comprehensive List of Services for Contributing to Science with Your Data, Genome, Body, and More." Yourself To Science. PDF Version (${date}). ${siteUrl}. ${doiLinkArg}.`
+          citation: `Marcolongo, Mario. ${year}. "Yourself To Science: A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More." Yourself To Science. PDF Version (${date}). ${siteUrl}. ${doiLinkArg}.`
         }
       ];
       // --- End update formats ---
@@ -372,7 +372,7 @@ function getLatestDoi() {
     `;
     
     const title = document.createElement('h1');
-    title.textContent = 'Yourself To Science: A Comprehensive List of Services for Contributing to Science';
+    title.textContent = 'Yourself To Science: A Comprehensive Open-Source List of Services for Contributing to Science';
     title.style.fontSize = '24pt';
     title.style.marginBottom = '10px';
     

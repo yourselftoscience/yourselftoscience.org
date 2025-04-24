@@ -117,11 +117,6 @@ export default function ResourceGrid({
                  </div>
               </div>
 
-              {/* Description */}
-              <p className="text-sm text-google-text-secondary mb-3">
-                {resource.description || `Learn more about contributing ${resource.dataTypes?.join(', ') || 'data'} via ${resource.title}.`}
-              </p>
-
               {/* Tags */}
               <div className="tags flex flex-wrap items-center mt-auto pt-2 flex-grow">
                 {resource.dataTypes?.map((type) => (
@@ -157,7 +152,7 @@ export default function ResourceGrid({
                 })}
               </div>
 
-              {/* Footer container for Action Link and Citation Icon */}
+              {/* Footer container */}
               <div className="flex justify-between items-end mt-3">
                 {/* Action Area: Link, Instructions Popover, or Details Link */}
                 <div>
@@ -239,7 +234,11 @@ export default function ResourceGrid({
                         >
                           <Popover.Panel className="absolute z-10 bottom-full right-0 mb-2 w-72 max-h-60 overflow-y-auto rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                             <div className="p-3 space-y-2">
-                              <h4 className="text-xs font-medium text-google-text uppercase border-b pb-1 mb-1">References</h4>
+                              {/* --- Updated Title --- */}
+                              <h4 className="text-xs font-medium text-google-text uppercase border-b pb-1 mb-1">
+                                Service Cited By
+                              </h4>
+                              {/* --- End Updated Title --- */}
                               <ol className="list-decimal list-inside space-y-1.5">
                                 {resource.citations.map((citation, idx) => {
                                   const key = getCitationKey(citation); // Use the helper function for lookup

@@ -28,13 +28,13 @@ const latestDoi = '10.5281/zenodo.15110328';
 
 export const metadata: Metadata = {
   title: "Yourself To Science",
-  description: "A Comprehensive List of Services for Contributing to Science with Your Data, Genome, Body, and More",
+  description: "A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More",
   icons: {
     icon: '/Logo.svg',
   },
   // Google Scholar metadata
   other: {
-    'citation_title': "Yourself To Science: A Comprehensive List of Services for Contributing to Science",
+    'citation_title': "Yourself To Science: A Comprehensive Open-Source List of Services for Contributing to Science",
     'citation_author': "Mario Marcolongo",
     'citation_publication_date': `${currentYear}/${currentDate.split('/')[1]}/${currentDate.split('/')[2]}`,
     'citation_pdf_url': "https://yourselftoscience.org/yourselftoscience.pdf",
