@@ -280,8 +280,10 @@ export default function Home() {
 
   const renderFilterContent = () => (
     <>
-      {isMounted && renderFilterGroup('Data Type', dataTypeOptions, 'dataTypes', showMoreDataTypes, setShowMoreDataTypes)}
+      {/* --- Swapped Order --- */}
       {isMounted && renderFilterGroup('Available In', countryOptions, 'countries', showMoreCountries, setShowMoreCountries)}
+      {isMounted && renderFilterGroup('Data Type', dataTypeOptions, 'dataTypes', showMoreDataTypes, setShowMoreDataTypes)}
+      {/* --- End Swapped Order --- */}
 
       {/* Compensation Filter (Specific rendering with same structure) */}
       <div className="mb-4">
@@ -421,18 +423,7 @@ export default function Home() {
 
             {/* Active Filter Badges */}
             <div className="mb-4 flex flex-wrap gap-2 items-center">
-              {filters.dataTypes.map(value => (
-                <span key={`badge-dt-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2.5 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
-                  {value}
-                  <button
-                    onClick={() => handleCheckboxChange('dataTypes', value, false)}
-                    className="ml-1.5 text-blue-500 hover:text-blue-700"
-                    aria-label={`Remove ${value} filter`}
-                  >
-                    <FaTimes size="1em" /> {/* Increased size */}
-                  </button>
-                </span>
-              ))}
+              {/* --- Swapped Order: Countries first --- */}
               {filters.countries.map(value => {
                 const countryOption = countryOptions.find(opt => opt.value === value);
                 const label = countryOption?.label || value;
@@ -451,6 +442,20 @@ export default function Home() {
                   </span>
                 );
               })}
+              {/* --- Data Types second --- */}
+              {filters.dataTypes.map(value => (
+                <span key={`badge-dt-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2.5 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
+                  {value}
+                  <button
+                    onClick={() => handleCheckboxChange('dataTypes', value, false)}
+                    className="ml-1.5 text-blue-500 hover:text-blue-700"
+                    aria-label={`Remove ${value} filter`}
+                  >
+                    <FaTimes size="1em" /> {/* Increased size */}
+                  </button>
+                </span>
+              ))}
+              {/* --- Payment Types third --- */}
               {filters.paymentTypes.map(option => (
                 <span key={`badge-pay-${option.value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2.5 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
                   {option.emoji} {option.label}
@@ -543,16 +548,7 @@ export default function Home() {
               </div>
 
               <div className="p-3 border-b border-gray-200 flex flex-wrap gap-1.5">
-                {filters.dataTypes.map(value => (
-                  <span key={`sel-dt-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
-                    {value}
-                    <button
-                      onClick={() => handleCheckboxChange('dataTypes', value, false)}
-                      className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${value}`}>
-                      <FaTimes size="0.9em" /> {/* Increased size */}
-                    </button>
-                  </span>
-                ))}
+                {/* --- Swapped Order: Countries first --- */}
                 {filters.countries.map(value => {
                   const countryOption = countryOptions.find(opt => opt.value === value);
                   return (
@@ -566,6 +562,18 @@ export default function Home() {
                     </span>
                   );
                 })}
+                {/* --- Data Types second --- */}
+                {filters.dataTypes.map(value => (
+                  <span key={`sel-dt-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
+                    {value}
+                    <button
+                      onClick={() => handleCheckboxChange('dataTypes', value, false)}
+                      className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${value}`}>
+                      <FaTimes size="0.9em" /> {/* Increased size */}
+                    </button>
+                  </span>
+                ))}
+                {/* --- Payment Types third --- */}
                 {filters.paymentTypes.map(option => (
                   <span key={`sel-pay-${option.value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
                     {option.emoji} {option.label}

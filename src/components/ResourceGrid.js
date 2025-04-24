@@ -122,21 +122,11 @@ export default function ResourceGrid({
 
               {/* Tags */}
               <div className="tags flex flex-wrap items-center gap-1 mt-auto pt-2"> {/* Removed flex-grow */}
-                {resource.dataTypes?.map((type) => (
-                  <TagButton
-                    key={type}
-                    label={type}
-                    filterKey="dataTypes"
-                    value={type}
-                    isActive={filters.dataTypes.includes(type)}
-                    onClick={onFilterChange}
-                  >
-                    {type}
-                  </TagButton>
-                ))}
+                {/* --- Swapped Order: Countries first --- */}
                 {resource.countries?.map((country, idx) => {
                   const code = resource.countryCodes?.[idx];
                   const isEU = country === 'European Union';
+                  // Check if the specific country OR 'European Union' is selected if the resource is EU
                   const isActive = filters.countries.includes(country) || (isEU && filters.countries.some(c => EU_COUNTRIES.includes(c)));
 
                   return (
@@ -153,6 +143,20 @@ export default function ResourceGrid({
                     </TagButton>
                   );
                 })}
+                {/* --- Data Types second --- */}
+                {resource.dataTypes?.map((type) => (
+                  <TagButton
+                    key={type}
+                    label={type}
+                    filterKey="dataTypes"
+                    value={type}
+                    isActive={filters.dataTypes.includes(type)}
+                    onClick={onFilterChange}
+                  >
+                    {type}
+                  </TagButton>
+                ))}
+                {/* --- Payment type is rendered in the header --- */}
               </div>
 
               {/* Footer container */}
