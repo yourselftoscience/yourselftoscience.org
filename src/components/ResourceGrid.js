@@ -49,7 +49,7 @@ const getStepIcon = (step) => {
 
 // New TagButton component for reusability
 function TagButton({ label, filterKey, value, isActive, onClick, children }) {
-  const baseClasses = "tag flex items-center cursor-pointer transition-colors duration-150 ease-in-out px-2.5 py-1 rounded-full text-sm font-medium mr-1 mb-1"; // Updated size and rounding
+  const baseClasses = "tag flex items-center cursor-pointer transition-colors duration-150 ease-in-out px-2.5 py-1 rounded-full text-sm font-medium"; // Removed mr-1 mb-1
   const activeClasses = "bg-blue-100 text-blue-700 hover:bg-blue-200";
   const inactiveClasses = "bg-gray-200 text-google-text-secondary hover:bg-gray-300";
 
@@ -121,7 +121,7 @@ export default function ResourceGrid({
               </div>
 
               {/* Tags */}
-              <div className="tags flex flex-wrap items-center mt-auto pt-2 flex-grow">
+              <div className="tags flex flex-wrap items-center gap-1 mt-auto pt-2"> {/* Removed flex-grow */}
                 {resource.dataTypes?.map((type) => (
                   <TagButton
                     key={type}
