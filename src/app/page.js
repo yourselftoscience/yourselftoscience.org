@@ -227,13 +227,13 @@ export default function Home() {
 
     return (
       <div className="mb-4">
-        {/* Title - Removed flex container */}
-        <h3 className="font-medium text-sm text-google-text mb-1">{title}</h3>
+        {/* Title - Use text-base, font-normal, and primary text color */}
+        <h3 className="font-normal text-base text-google-text mb-1">{title}</h3>
 
-        {/* Select/Clear All Button - Moved below title, added block and mb-2 */}
+        {/* Select/Clear All Button - Keep font-medium and blue color */}
         <button
           onClick={() => handleSelectAll(filterKey, options, !allSelected)}
-          className="text-sm text-google-blue hover:underline mb-2 block" // Increased from text-xs
+          className="text-sm font-medium text-google-blue hover:underline mb-2 block"
           aria-label={allSelected ? `Clear all ${title}` : `Select all ${title}`}
         >
           {allSelected ? 'Clear all' : 'Select all'}
@@ -247,28 +247,29 @@ export default function Home() {
           const isChecked = selectedValues.includes(value);
 
           return (
-            <div key={value} className="flex items-center mb-1.5"> {/* Slightly more space */}
+            <div key={value} className="flex items-center mb-2">
               <input
                 type="checkbox"
-                id={`${filterKey}-${value}-mobile`} // Ensure unique ID for mobile drawer
+                id={`${filterKey}-${value}-mobile`}
                 value={value}
                 checked={isChecked}
                 onChange={(e) => handleCheckboxChange(filterKey, value, e.target.checked)}
-                className="mr-2 h-4 w-4 text-google-blue border-gray-400 rounded focus:ring-google-blue focus:ring-offset-0 focus:ring-1" // Slightly darker border
+                className="mr-2 h-4 w-4 text-google-blue border-gray-400 rounded focus:ring-google-blue focus:ring-offset-0 focus:ring-1"
               />
-              <label htmlFor={`${filterKey}-${value}-mobile`} className="text-sm text-google-text flex items-center cursor-pointer"> {/* Kept text-sm, seems appropriate */}
+              {/* Label - Use text-base, font-normal, and secondary text color */}
+              <label htmlFor={`${filterKey}-${value}-mobile`} className="text-base font-normal text-google-text-secondary flex items-center cursor-pointer">
                 {label}
                 {code && (
-                  <CountryFlag countryCode={code} svg style={{ width: '1em', height: '0.8em', marginLeft: '0.25em', display: 'inline-block', verticalAlign: 'middle' }} />
+                  <CountryFlag countryCode={code} svg style={{ width: '1.1em', height: '0.9em', marginLeft: '0.3em', display: 'inline-block', verticalAlign: 'middle' }} />
                 )}
               </label>
             </div>
           );
         })}
 
-        {/* More Button */}
+        {/* More Button - Keep font-medium and blue color */}
         {options.length > 3 && (
-          <button onClick={() => setShowMore(!showMore)} className="text-sm text-google-blue hover:underline mt-1 flex items-center"> {/* Kept text-sm */}
+          <button onClick={() => setShowMore(!showMore)} className="text-sm font-medium text-google-blue hover:underline mt-1 flex items-center">
              <svg className={`w-3 h-3 mr-1 transform transition-transform ${showMore ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
             {showMore ? 'Less' : `More (${options.length - 3})`}
           </button>
@@ -284,13 +285,13 @@ export default function Home() {
 
       {/* Compensation Filter (Specific rendering with same structure) */}
       <div className="mb-4">
-        {/* Title - Removed flex container */}
-        <h3 className="font-medium text-sm text-google-text mb-1">Compensation</h3>
+        {/* Title - Use text-base, font-normal, and primary text color */}
+        <h3 className="font-normal text-base text-google-text mb-1">Compensation</h3>
 
-        {/* Select/Clear All Button - Moved below title, added block and mb-2 */}
+        {/* Select/Clear All Button - Keep font-medium and blue color */}
         <button
           onClick={() => handleSelectAll('paymentTypes', PAYMENT_TYPES, filters.paymentTypes.length !== PAYMENT_TYPES.length)}
-          className="text-sm text-google-blue hover:underline mb-2 block" // Increased from text-xs
+          className="text-sm font-medium text-google-blue hover:underline mb-2 block"
           aria-label={filters.paymentTypes.length === PAYMENT_TYPES.length ? `Clear all Compensation` : `Select all Compensation`}
         >
           {filters.paymentTypes.length === PAYMENT_TYPES.length ? 'Clear all' : 'Select all'}
@@ -298,7 +299,7 @@ export default function Home() {
 
         {/* Checkboxes */}
         {PAYMENT_TYPES.map(option => (
-          <div key={option.value} className="flex items-center mb-1.5">
+          <div key={option.value} className="flex items-center mb-2">
             <input
               type="checkbox"
               id={`payment-${option.value}-mobile`}
@@ -307,8 +308,9 @@ export default function Home() {
               onChange={(e) => handlePaymentCheckboxChange(option, e.target.checked)}
               className="mr-2 h-4 w-4 text-google-blue border-gray-400 rounded focus:ring-google-blue focus:ring-offset-0 focus:ring-1"
             />
-            <label htmlFor={`payment-${option.value}-mobile`} className="text-sm text-google-text flex items-center cursor-pointer"> {/* Kept text-sm */}
-              <span className="mr-1">{option.emoji}</span> {option.label}
+            {/* Label - Use text-base, font-normal, and secondary text color */}
+            <label htmlFor={`payment-${option.value}-mobile`} className="text-base font-normal text-google-text-secondary flex items-center cursor-pointer">
+              <span className="mr-1.5">{option.emoji}</span> {option.label}
             </label>
           </div>
         ))}
@@ -571,13 +573,13 @@ export default function Home() {
               <div className="p-3 border-t border-gray-200 flex justify-end gap-2 sticky bottom-0 bg-white rounded-br-lg">
                 <button
                   onClick={handleResetFilters}
-                  className="px-3 py-1 rounded border border-gray-300 text-google-text text-xs font-medium hover:bg-gray-50 transition-colors"
+                  className="px-4 py-2 rounded border border-gray-300 text-google-text text-sm font-medium hover:bg-gray-50 transition-colors" // Increased size and weight
                 >
                   Reset
                 </button>
                 <button
                   onClick={toggleFilterDrawer}
-                  className="px-3 py-1 rounded bg-google-blue text-white text-xs font-medium hover:opacity-90 transition-opacity"
+                  className="px-4 py-2 rounded bg-google-blue text-white text-sm font-medium hover:opacity-90 transition-opacity" // Increased size and weight
                 >
                   Done
                 </button>
