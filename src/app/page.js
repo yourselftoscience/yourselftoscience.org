@@ -530,20 +530,20 @@ export default function Home() {
               className="fixed inset-0 bg-black bg-opacity-30 z-40 lg:hidden"
             />
             <motion.div
-              initial={{ x: '-100%' }}
+              initial={{ x: '100%' }} // Changed from -100%
               animate={{ x: 0 }}
-              exit={{ x: '-100%' }}
+              exit={{ x: '100%' }} // Changed from -100%
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed top-0 left-0 bottom-0 w-3/4 max-w-[280px] bg-white z-50 shadow-lg overflow-y-auto flex flex-col lg:hidden rounded-r-lg"
+              className="fixed top-0 right-0 bottom-0 w-3/4 max-w-[280px] bg-white z-50 shadow-lg overflow-y-auto flex flex-col lg:hidden rounded-l-lg" // Changed left-0 to right-0 and rounded-r-lg to rounded-l-lg
             >
-              <div className="flex justify-between items-center p-3 border-b border-gray-200 sticky top-0 bg-white rounded-tr-lg">
+              <div className="flex justify-between items-center p-3 border-b border-gray-200 sticky top-0 bg-white rounded-tl-lg"> {/* Changed rounded-tr-lg to rounded-tl-lg */}
                 <h2 className="text-sm font-medium uppercase text-google-text-secondary">Filter By</h2>
                 <button onClick={toggleFilterDrawer} className="text-google-text-secondary hover:text-google-text p-1">
                   <FaTimes size="1.2em" />
                 </button>
               </div>
 
-              {/* --- START: Conditionally render active filters container --- */}
+              {/* Conditionally render active filters container */}
               {(filters.countries.length > 0 || filters.dataTypes.length > 0 || filters.paymentTypes.length > 0) && (
                 <div className="p-3 border-b border-gray-200 flex flex-wrap gap-1.5">
                   {/* --- Swapped Order: Countries first --- */}
@@ -589,22 +589,21 @@ export default function Home() {
                   ))}
                 </div>
               )}
-              {/* --- END: Conditionally render active filters container --- */}
 
               <div className="flex-grow overflow-y-auto p-3">
                 {renderFilterContent()}
               </div>
 
-              <div className="p-3 border-t border-gray-200 flex justify-end gap-2 sticky bottom-0 bg-white rounded-br-lg">
+              <div className="p-3 border-t border-gray-200 flex justify-end gap-2 sticky bottom-0 bg-white rounded-bl-lg"> {/* Changed rounded-br-lg to rounded-bl-lg */}
                 <button
                   onClick={handleResetFilters}
-                  className="px-4 py-2 rounded border border-gray-300 text-google-text text-sm font-medium hover:bg-gray-50 transition-colors" // Increased size and weight
+                  className="px-4 py-2 rounded border border-gray-300 text-google-text text-sm font-medium hover:bg-gray-50 transition-colors"
                 >
                   Reset
                 </button>
                 <button
                   onClick={toggleFilterDrawer}
-                  className="px-4 py-2 rounded bg-google-blue text-white text-sm font-medium hover:opacity-90 transition-opacity" // Increased size and weight
+                  className="px-4 py-2 rounded bg-google-blue text-white text-sm font-medium hover:opacity-90 transition-opacity"
                 >
                   Done
                 </button>
