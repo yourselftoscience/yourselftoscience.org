@@ -115,7 +115,8 @@ export default function Header({ scrollY }: HeaderProps) {
 
   return (
     <motion.header
-      className={`w-full sticky top-0 z-10 flex items-center border-b bg-white px-4`}
+      // Added z-30 here
+      className={`w-full sticky top-0 z-30 flex items-center border-b bg-white px-4`}
       style={{
         paddingTop: headerPaddingY,
         paddingBottom: headerPaddingY,
