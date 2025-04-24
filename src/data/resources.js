@@ -256,7 +256,7 @@ const rawResources = [
 export const PAYMENT_TYPES = [
   { value: 'donation', label: 'Donation', emoji: '❤️' },
   { value: 'payment', label: 'Payment', emoji: '💵' },
-  { value: 'mixed', label: 'Mixed Compensation', emoji: '❤️💵' },
+  { value: 'mixed', label: 'Mixed', emoji: '❤️💵' },
   // Add other types if necessary
 ];
 

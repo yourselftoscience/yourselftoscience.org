@@ -16,7 +16,7 @@ const getPaymentInfo = (paymentType) => {
   switch(type) {
     case 'donation': return { emoji: '❤️', label: 'Donation', value: 'donation' };
     case 'payment': return { emoji: '💵', label: 'Payment', value: 'payment' };
-    case 'mixed': return { emoji: '❤️💵', label: 'Mixed Compensation', value: 'mixed' };
+    case 'mixed': return { emoji: '❤️💵', label: 'Mixed', value: 'mixed' };
     default: return { emoji: '❤️', label: 'Donation', value: 'donation' };
   }
 };
