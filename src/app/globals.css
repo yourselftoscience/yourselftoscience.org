@@ -3,25 +3,99 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Use Google-like colors */
+  --background: #ffffff; /* White background */
+  --foreground: #202124; /* Dark grey text */
 }
 
-@media (prefers-color-scheme: dark) {
+/* Remove dark mode for simplicity, or update variables */
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', Arial, sans-serif; /* Suggest using Roboto like Google */
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* Style for targeted reference list items */
+li:target {
+  @apply bg-yellow-100 transition-colors duration-1000 ease-out; /* Apply a temporary background */
+  /* You might need to adjust duration or add a delay if the scroll is too fast */
+  animation: fadeOutHighlight 2s forwards; /* Fade out the highlight */
+}
+
+@keyframes fadeOutHighlight {
+  from { background-color: theme('colors.yellow.100'); }
+  to { background-color: transparent; }
+}
+
+/* Basic Card Styling */
+@layer components {
+  .resource-card {
+    @apply bg-google-grey border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col;
+  }
+  .resource-card h3 {
+    @apply text-lg font-medium mb-2 text-google-text;
+  }
+  .resource-card p {
+    @apply text-sm text-google-text-secondary mb-3 flex-grow; /* Description */
+  }
+  .resource-card .tags {
+    @apply flex flex-wrap gap-1 mt-auto; /* Place tags at the bottom */
+  }
+  /* REMOVE or COMMENT OUT this rule for .tag */
+  /* .resource-card .tag {
+    @apply text-xs bg-gray-200 text-google-text-secondary px-2 py-0.5 rounded;
+  } */
+   .resource-card .action-link {
+    @apply text-sm text-google-blue hover:underline mt-3 block; /* Learn more link */
+  }
+}
+
+/* Styles for react-select to better match Google's look */
+.react-select__control {
+  @apply !border-gray-300 !rounded !min-h-[36px];
+}
+.react-select__value-container {
+  @apply !py-0 !px-2;
+}
+.react-select__placeholder {
+  @apply !text-google-text-secondary;
+}
+.react-select__indicator-separator {
+  @apply !bg-gray-300;
+}
+.react-select__menu {
+  @apply !border-gray-300 !rounded !shadow-lg;
+}
+.react-select__option {
+  @apply !text-sm;
+}
+.react-select__option--is-focused {
+  @apply !bg-gray-100;
+}
+.react-select__option--is-selected {
+  @apply !bg-google-blue !text-white;
+}
+
+/* Ensure focus ring is subtle if needed */
+input[type="checkbox"]:focus {
+  /* Tailwind's focus:ring-1 should be sufficient, but you can customize */
+  /* box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.3); */
+}
+
+/* Ensure labels are clickable */
+label {
+  cursor: pointer;
 }

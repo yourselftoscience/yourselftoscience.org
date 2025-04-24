@@ -232,7 +232,7 @@ const rawResources = [
     paymentType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
-    title: 'The significance of selected biological and environmental factors in the process of human hair decomposition - Department of Human Biology, University of Wrocław',
+    title: 'Human Hair Decomposition - Department of Human Biology, University of Wrocław',
     link: 'https://biologia.uwr.edu.pl/2023/10/12/znaczenie-wybranych-czynnikow-biologicznych-i-srodowiskowych-w-procesie-rozkladu-ludzkich-wlosow-nabor-na-badania/',
     dataTypes: ['Hair'],
     countries: ['Poland'],
@@ -252,38 +252,50 @@ const rawResources = [
   // Add more resources as needed
 ];
 
+// Ensure this line exists and uses 'export const'
+export const PAYMENT_TYPES = [
+  { value: 'donation', label: 'Donation', emoji: '❤️' },
+  { value: 'payment', label: 'Payment', emoji: '💵' },
+  { value: 'mixed', label: 'Mixed', emoji: '❤️💵' },
+  // Add other types if necessary
+];
+
 export const resources = rawResources.map((r, i) => ({
   id: r.id || String(i + 1), // Auto-assign id if missing
   ...r,
 }));
 
-// At the bottom of the file, add this function that processes resources in a consistent way
-export function generateCitationMappings(resourcesData = rawResources) {
-  // Create a deterministic alphabetical sort of resources
-  const alphabeticalResources = [...resourcesData].sort((a, b) => 
-    a.title.toLowerCase().localeCompare(b.title.toLowerCase())
-  );
-  
-  // Process citations in this strict alphabetical order
-  const citationMap = {};
-  const uniqueCitations = [];
-  
-  // First pass: collect all unique citations in alphabetical resource order
-  alphabeticalResources.forEach(resource => {
-    if (resource.citations && Array.isArray(resource.citations)) {
-      resource.citations.forEach(citation => {
-        // Create a consistent key for each citation
-        const key = citation.link ? citation.link.trim() : citation.title.trim();
-        if (!citationMap[key]) {
-          uniqueCitations.push(citation);
-          citationMap[key] = uniqueCitations.length; // 1-based index
-        }
-      });
-    }
-  });
-  
-  return { citationMap, uniqueCitations };
+// Helper to generate a consistent key for a citation
+function getCitationKey(citation) {
+  if (citation && citation.link) {
+    return citation.link.trim();
+  }
+  if (citation && citation.title) {
+    // Use a simplified version of the title if no link exists
+    // This is less reliable but a fallback
+    return citation.title.trim().toLowerCase().substring(0, 50);
+  }
+  return null; // Cannot generate key
 }
 
-// Pre-calculate the citation mappings for immediate use
-export const { citationMap, uniqueCitations } = generateCitationMappings();
+// --- Generate unique citations and map ---
+const allCitations = resources.flatMap(r => r.citations || []);
+const uniqueCitationMap = new Map();
+
+allCitations.forEach(citation => {
+  const key = getCitationKey(citation);
+  if (key && !uniqueCitationMap.has(key)) {
+    uniqueCitationMap.set(key, citation);
+  }
+});
+
+export const uniqueCitations = Array.from(uniqueCitationMap.values());
+
+// Generate map from citation key to its index in uniqueCitations
+export const citationMap = uniqueCitations.reduce((map, citation, index) => {
+  const key = getCitationKey(citation);
+  if (key) {
+    map[key] = index; // Store the 0-based index
+  }
+  return map;
+}, {});
