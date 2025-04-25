@@ -346,43 +346,47 @@ function HomePageContent() {
   const renderFilterGroup = (title, options, filterKey, showMore, setShowMore) => {
     const selectedValues = filters[filterKey];
     const visibleOptions = showMore ? options : options.slice(0, 3);
+    // --- START: Modify condition for showing Clear all ---
+    // Show "Clear all" if more than one item is selected
+    const showClearAll = selectedValues.length > 1;
+    // --- END: Modify condition for showing Clear all ---
+    // Note: allSelected and someSelected are no longer directly used for the button logic, but kept for potential future use or clarity
     const allSelected = options.length > 0 && selectedValues.length === options.length;
     const someSelected = selectedValues.length > 0 && !allSelected;
+
 
     return (
       <div className="mb-4">
         <h3 className="font-normal text-base text-google-text mb-1">{title}</h3>
         <button
-          onClick={() => handleSelectAll(filterKey, options, !allSelected)}
+          // --- START: Update onClick and text based on showClearAll ---
+          onClick={() => handleSelectAll(filterKey, options, !showClearAll)} // If showing "Clear all", pass false to selectAll; otherwise pass true
           className="text-sm font-medium text-google-blue hover:underline mb-2 block"
-          aria-label={allSelected ? `Clear all ${title}` : `Select all ${title}`}
+          aria-label={showClearAll ? `Clear all ${title}` : `Select all ${title}`}
         >
-          {allSelected ? 'Clear all' : 'Select all'}
+          {showClearAll ? 'Clear all' : 'Select all'}
+          {/* --- END: Update onClick and text based on showClearAll --- */}
         </button>
 
         {visibleOptions.map(option => {
           const value = typeof option === 'string' ? option : option.value;
           const label = typeof option === 'string' ? option : option.label;
           const code = typeof option === 'object' ? option.code : null;
-          // Check if the current value is included in the selected values for this filter key
-          // For countries, check against the 'value' property
           const isChecked = filterKey === 'countries'
             ? selectedValues.includes(value)
             : (filterKey === 'compensationTypes'
-                ? selectedValues.some(p => p.value === value) // Check against value for compensation
-                : selectedValues.includes(value)); // Default check for dataTypes
+                ? selectedValues.some(p => p.value === value)
+                : selectedValues.includes(value));
 
           return (
             <div key={value} className="flex items-center mb-2">
               <input
                 type="checkbox"
-                id={`${filterKey}-${value}-mobile`} // Ensure unique IDs
+                id={`${filterKey}-${value}-mobile`}
                 value={value}
                 checked={isChecked}
-                // Use the useCallback version of the handler
                 onChange={(e) => {
                   if (filterKey === 'compensationTypes') {
-                    // Find the full option object to pass
                     const paymentOption = PAYMENT_TYPES.find(p => p.value === value);
                     if (paymentOption) {
                       handlePaymentCheckboxChange(paymentOption, e.target.checked);
@@ -421,23 +425,28 @@ function HomePageContent() {
       {/* Compensation Filter */}
       <div className="mb-4">
         <h3 className="font-normal text-base text-google-text mb-1">Compensation</h3>
-        <button
-          onClick={() => handleSelectAll('compensationTypes', PAYMENT_TYPES, filters.compensationTypes.length !== PAYMENT_TYPES.length)}
-          className="text-sm font-medium text-google-blue hover:underline mb-2 block"
-          aria-label={filters.compensationTypes.length === PAYMENT_TYPES.length ? `Clear all Compensation` : `Select all Compensation`}
-        >
-          {filters.compensationTypes.length === PAYMENT_TYPES.length ? 'Clear all' : 'Select all'}
-        </button>
+        {/* --- START: Apply same logic to Compensation button --- */}
+        {(() => {
+          const showClearAllCompensation = filters.compensationTypes.length > 1;
+          return (
+            <button
+              onClick={() => handleSelectAll('compensationTypes', PAYMENT_TYPES, !showClearAllCompensation)}
+              className="text-sm font-medium text-google-blue hover:underline mb-2 block"
+              aria-label={showClearAllCompensation ? `Clear all Compensation` : `Select all Compensation`}
+            >
+              {showClearAllCompensation ? 'Clear all' : 'Select all'}
+            </button>
+          );
+        })()}
+        {/* --- END: Apply same logic to Compensation button --- */}
 
         {PAYMENT_TYPES.map(option => (
           <div key={option.value} className="flex items-center mb-2">
             <input
               type="checkbox"
-              id={`payment-${option.value}-mobile`} // Ensure unique IDs
+              id={`payment-${option.value}-mobile`}
               value={option.value}
-              // Check if the current option's value exists in the compensationTypes array
               checked={filters.compensationTypes.some(p => p.value === option.value)}
-              // Use the useCallback version of the handler
               onChange={(e) => handlePaymentCheckboxChange(option, e.target.checked)}
               className="mr-2 h-4 w-4 text-google-blue border-gray-400 rounded focus:ring-google-blue focus:ring-offset-0 focus:ring-1"
             />
