@@ -2,8 +2,8 @@
 
 'use client';
 
-import React, { useState, useEffect, useMemo, useCallback, Suspense } from 'react'; // Import Suspense and useCallback
-import { motion, AnimatePresence, useScroll } from 'framer-motion';
+import React, { useState, useEffect, useMemo, useCallback, Suspense } from 'react';
+import { motion, AnimatePresence, useScroll, motionValue } from 'framer-motion'; // Import motionValue
 import Footer from '@/components/Footer';
 import { resources as allResources, PAYMENT_TYPES, citationMap, uniqueCitations } from '@/data/resources';
 import Image from 'next/image';
@@ -12,14 +12,12 @@ import CountryFlag from 'react-country-flag';
 import { FaHeart, FaDollarSign, FaTimes, FaFilter } from 'react-icons/fa';
 import Header from '@/components/Header';
 import ResourceGrid from '@/components/ResourceGrid';
-// --- START: Import useRouter, usePathname, useSearchParams ---
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
-// --- END: Import useRouter, usePathname, useSearchParams ---
 
-// Dynamically import react-select
+// Dynamically import react-select (keep as is)
 const Select = dynamic(() => import('react-select'), { ssr: false });
 
-// --- Constants and Helper Functions ---
+// --- Constants and Helper Functions (keep as is) ---
 const EU_COUNTRIES = [
   'Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic',
   'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary',
@@ -28,9 +26,7 @@ const EU_COUNTRIES = [
   'Spain', 'Sweden'
 ];
 
-// --- START: Helper function to parse comma-separated URL parameters ---
 const parseUrlList = (param) => param ? param.split(',') : [];
-// --- END: Helper function to parse comma-separated URL parameters ---
 
 function expandCountries(chosen) {
   const set = new Set(chosen);
@@ -60,24 +56,71 @@ function expandCountries(chosen) {
   return Array.from(set);
 }
 
-// --- Main Page Component ---
-export default function Home() {
-  // Wrap the component that uses useSearchParams in Suspense
+// --- Simple Content Area Skeleton ---
+function ContentAreaSkeleton() {
+  // Basic skeleton mimicking the main content layout
   return (
-    <Suspense fallback={null}>
-      <HomePageContent />
-    </Suspense>
+    <div className="flex-grow w-full max-w-screen-xl mx-auto px-4 pb-8 pt-3 animate-pulse">
+      {/* Skeleton Intro Text */}
+      <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
+      <div className="h-4 bg-gray-200 rounded w-1/2 mb-6"></div>
+      <div className="grid grid-cols-layout lg:grid-cols-lg-layout gap-6">
+        {/* Skeleton Sidebar */}
+        <aside className="hidden lg:block py-4 px-4">
+          <div className="border border-gray-200 rounded-lg mb-4">
+            <div className="h-10 bg-gray-200 rounded-t-lg border-b"></div>
+            <div className="p-4 space-y-4">
+              <div className="h-4 bg-gray-300 rounded w-1/3"></div>
+              <div className="h-4 bg-gray-200 rounded w-full"></div>
+              <div className="h-4 bg-gray-200 rounded w-full"></div>
+              <div className="h-4 bg-gray-200 rounded w-full"></div>
+            </div>
+          </div>
+          <div className="h-10 bg-gray-300 rounded w-full mt-4"></div>
+          <div className="h-10 bg-gray-300 rounded w-full mt-2"></div>
+        </aside>
+        {/* Skeleton Main Content */}
+        <main className="py-4">
+          <div className="h-10 bg-gray-200 rounded w-full mb-4"></div> {/* Search */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"> {/* Grid */}
+            {[...Array(6)].map((_, i) => ( // Show a few skeleton cards
+              <div key={i} className="bg-gray-100 border border-gray-200 rounded-lg p-4 h-40"></div>
+            ))}
+          </div>
+        </main>
+      </div>
+    </div>
   );
 }
 
 
-// Create a new component for the actual page content
+// --- Main Page Component ---
+export default function Home() {
+  // Create a dummy scrollY motion value for the initial render of Header outside Suspense
+  const dummyScrollY = motionValue(0);
+
+  return (
+    <div className="min-h-screen flex flex-col bg-white">
+      {/* Render Header outside Suspense */}
+      <Header scrollY={dummyScrollY} />
+
+      {/* Suspense wraps only the component using searchParams */}
+      <Suspense fallback={<ContentAreaSkeleton />}>
+        <HomePageContent />
+      </Suspense>
+
+      {/* Render Footer outside Suspense */}
+      <Footer />
+    </div>
+  );
+}
+
+
+// --- HomePageContent Component (Handles dynamic content) ---
 function HomePageContent() {
-  // --- START: Use Next.js navigation hooks ---
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
-  // --- END: Use Next.js navigation hooks ---
+  const searchParams = useSearchParams(); // This causes the component to suspend
 
   const [filters, setFilters] = useState({
     dataTypes: [],
@@ -90,11 +133,12 @@ function HomePageContent() {
   const [isMounted, setIsMounted] = useState(false);
   const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState(false);
 
+  // useScroll must be inside the component that renders the scrollable content
   const { scrollY } = useScroll();
 
-  // --- START: Effect to initialize state from URL on mount ---
+  // --- Effects and Memos (keep as is) ---
   useEffect(() => {
-    // This effect runs only once on the client after hydration
+    // Initialize filters from searchParams
     const initialFilters = {
       dataTypes: parseUrlList(searchParams.get('dataTypes')),
       countries: parseUrlList(searchParams.get('countries')),
@@ -223,7 +267,7 @@ function HomePageContent() {
     return filteredData;
   }, [filters]); // Ensure filters is the dependency
 
-  // --- START: Wrap filter handlers in useCallback ---
+  // --- Callbacks (keep as is) ---
   const handleCheckboxChange = useCallback((filterKey, value, isChecked) => {
     setFilters(prev => {
       const currentValues = prev[filterKey];
@@ -296,9 +340,9 @@ function HomePageContent() {
       return { ...prev, [filterKey]: newValues };
     });
   }, []); // Empty dependency array
-  // --- END: Wrap filter handlers in useCallback ---
 
 
+  // --- Render Functions (keep as is) ---
   const renderFilterGroup = (title, options, filterKey, showMore, setShowMore) => {
     const selectedValues = filters[filterKey];
     const visibleOptions = showMore ? options : options.slice(0, 3);
@@ -435,146 +479,143 @@ function HomePageContent() {
     document.body.removeChild(link);
   }
 
-  // --- START: Prevent rendering until mounted to avoid hydration mismatch ---
-  // This check might be less critical now with Suspense, but keep for safety
+  // --- Prevent rendering until mounted (Keep this check) ---
+  // This ensures filters are initialized from URL before rendering dynamic content
   if (!isMounted) {
-    // Render nothing or a basic loading state on the server and during initial client render
-    // Suspense fallback will handle the initial loading state visually
-    return null;
+    // Return the skeleton here to match the Suspense fallback during initial client render phase
+    return <ContentAreaSkeleton />;
   }
-  // --- END: Prevent rendering until mounted ---
 
-  // Return the actual JSX content
+  // --- Return the JSX for the main content area ONLY ---
+  // Remove the outer div, Header, and Footer
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      <Header scrollY={scrollY} />
+    <div className="flex-grow w-full max-w-screen-xl mx-auto px-4 pb-8 pt-3">
 
-      <div className="flex-grow w-full max-w-screen-xl mx-auto px-4 pb-8 pt-3">
+      {/* Intro Text */}
+      <p className="text-base text-google-text-secondary max-w-5xl mb-6">
+        A comprehensive open-source list of services allowing individuals to contribute to scientific research.
+        <br />
+        Browse our curated resources to find ways to share your data, genome, body samples, and more.
+      </p>
 
-        <p className="text-base text-google-text-secondary max-w-5xl mb-6">
-          A comprehensive open-source list of services allowing individuals to contribute to scientific research.
-          <br />
-          Browse our curated resources to find ways to share your data, genome, body samples, and more.
-        </p>
-
-        <div className="grid grid-cols-layout lg:grid-cols-lg-layout gap-6">
-          <aside className="hidden lg:block py-4 px-4 sticky top-[calc(45px+1rem+4px)] h-[calc(100vh-100px)] overflow-y-auto">
-            <div className="border border-gray-200 rounded-lg mb-4">
-              <h2 className="text-xs font-medium uppercase text-google-text-secondary px-4 pt-4 pb-2 border-b border-gray-200">
-                Filter By
-              </h2>
-              <div className="p-4">
-                {/* Render filter content using useCallback handlers */}
-                {renderFilterContent()}
-              </div>
+      {/* Main Layout Grid */}
+      <div className="grid grid-cols-layout lg:grid-cols-lg-layout gap-6">
+        {/* Sidebar */}
+        <aside className="hidden lg:block py-4 px-4 sticky top-[calc(45px+1rem+4px)] h-[calc(100vh-100px)] overflow-y-auto">
+          <div className="border border-gray-200 rounded-lg mb-4">
+            <h2 className="text-xs font-medium uppercase text-google-text-secondary px-4 pt-4 pb-2 border-b border-gray-200">
+              Filter By
+            </h2>
+            <div className="p-4">
+              {/* Render filter content using useCallback handlers */}
+              {renderFilterContent()}
             </div>
-            <div className="mt-4 flex flex-col gap-2">
-              <button
-                onClick={() => window.open('https://github.com/yourselftoscience/yourselftoscience.org/issues/new?template=suggest-a-service.md', '_blank')}
-                className="w-full px-4 py-2 rounded bg-google-blue text-white text-sm font-medium hover:opacity-90 transition-opacity"
-              >
-                Suggest a Service
-              </button>
-              <button
-                onClick={handleDownloadCSV}
-                className="w-full px-4 py-2 rounded border border-gray-300 text-google-text text-sm font-medium hover:bg-gray-50 transition-colors"
-              >
-                Download Dataset
-              </button>
-            </div>
-          </aside>
+          </div>
+          <div className="mt-4 flex flex-col gap-2">
+            <button
+              onClick={() => window.open('https://github.com/yourselftoscience/yourselftoscience.org/issues/new?template=suggest-a-service.md', '_blank')}
+              className="w-full px-4 py-2 rounded bg-google-blue text-white text-sm font-medium hover:opacity-90 transition-opacity"
+            >
+              Suggest a Service
+            </button>
+            <button
+              onClick={handleDownloadCSV}
+              className="w-full px-4 py-2 rounded border border-gray-300 text-google-text text-sm font-medium hover:bg-gray-50 transition-colors"
+            >
+              Download Dataset
+            </button>
+          </div>
+        </aside>
 
-          <main className="py-4">
-            <div className="mb-4 flex gap-2 items-center">
-              <div className="relative w-full">
-                <input
-                  type="text"
-                  placeholder="Filter results by keyword, country, data type..."
-                  value={filters.searchTerm}
-                  // Use the useCallback version of the handler
-                  onChange={handleSearchChange}
-                  className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-md focus:border-google-blue focus:ring-1 focus:ring-google-blue focus:outline-none text-sm placeholder-google-text-secondary"
-                />
-                {filters.searchTerm && (
+        {/* Main Content Area */}
+        <main className="py-4">
+          {/* Search and Mobile Filter Button */}
+          <div className="mb-4 flex gap-2 items-center">
+            <div className="relative w-full">
+              <input
+                type="text"
+                placeholder="Filter results by keyword, country, data type..."
+                value={filters.searchTerm}
+                onChange={handleSearchChange}
+                className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-md focus:border-google-blue focus:ring-1 focus:ring-google-blue focus:outline-none text-sm placeholder-google-text-secondary"
+              />
+              {filters.searchTerm && (
+                <button
+                  onClick={() => setFilters(prev => ({ ...prev, searchTerm: '' }))}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-google-text-secondary hover:text-google-text"
+                  aria-label="Clear search"
+                >
+                  <FaTimes size="1em" />
+                </button>
+              )}
+            </div>
+            <button
+              onClick={toggleFilterDrawer}
+              className="lg:hidden px-4 py-2 rounded border border-gray-300 text-google-text text-sm font-medium hover:bg-gray-50 transition-colors flex items-center whitespace-nowrap"
+            >
+              <FaFilter className="mr-2" /> Filters
+            </button>
+          </div>
+
+          {/* Active Filter Badges */}
+          <div className="mb-4 flex flex-wrap gap-2 items-center">
+            {/* Sort countries alphabetically before mapping */}
+            {[...filters.countries].sort((a, b) => a.localeCompare(b)).map(value => {
+              const countryOption = countryOptions.find(opt => opt.value === value);
+              const label = countryOption?.label || value;
+              const code = countryOption?.code;
+              return (
+                <span key={`sel-ctry-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
+                  {label}
+                  {code && <CountryFlag countryCode={code} svg style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />}
                   <button
-                    // Use the useCallback version of the handler
-                    onClick={() => setFilters(prev => ({ ...prev, searchTerm: '' }))} // Direct state update is fine here
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-google-text-secondary hover:text-google-text"
-                    aria-label="Clear search"
-                  >
-                    <FaTimes size="1em" />
-                  </button>
-                )}
-              </div>
-              <button
-                // Use the useCallback version of the handler
-                onClick={toggleFilterDrawer}
-                className="lg:hidden px-4 py-2 rounded border border-gray-300 text-google-text text-sm font-medium hover:bg-gray-50 transition-colors flex items-center whitespace-nowrap"
-              >
-                <FaFilter className="mr-2" /> Filters
-              </button>
-            </div>
-
-            {/* Active Filter Badges */}
-            <div className="mb-4 flex flex-wrap gap-2 items-center">
-              {/* Sort countries alphabetically before mapping */}
-              {[...filters.countries].sort((a, b) => a.localeCompare(b)).map(value => {
-                const countryOption = countryOptions.find(opt => opt.value === value);
-                const label = countryOption?.label || value;
-                const code = countryOption?.code;
-                return (
-                  <span key={`sel-ctry-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
-                    {label}
-                    {code && <CountryFlag countryCode={code} svg style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />}
-                    <button
-                      // Use the useCallback version of the handler
-                      onClick={() => handleCheckboxChange('countries', value, false)}
-                      className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${label}`}>
-                      <FaTimes size="0.9em" />
-                    </button>
-                  </span>
-                );
-              })}
-              {/* Sort data types alphabetically before mapping */}
-              {[...filters.dataTypes].sort((a, b) => a.localeCompare(b)).map(value => (
-                <span key={`sel-dt-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
-                  {value}
-                  <button
-                    // Use the useCallback version of the handler
-                    onClick={() => handleCheckboxChange('dataTypes', value, false)}
-                    className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${value}`}>
+                    onClick={() => handleCheckboxChange('countries', value, false)}
+                    className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${label}`}>
                     <FaTimes size="0.9em" />
                   </button>
                 </span>
-              ))}
-              {/* Sort compensation types by PAYMENT_TYPES order before mapping */}
-              {[...filters.compensationTypes]
-                .sort((a, b) => PAYMENT_TYPES.map(p => p.value).indexOf(a.value) - PAYMENT_TYPES.map(p => p.value).indexOf(b.value))
-                .map(option => (
-                  <span key={`sel-pay-${option.value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
-                    {option.emoji} {option.label}
-                    <button
-                      // Use the useCallback version of the handler
-                      onClick={() => handlePaymentCheckboxChange(option, false)}
-                      className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${option.label}`}>
-                      <FaTimes size="0.9em" />
-                    </button>
-                  </span>
-              ))}
-            </div>
+              );
+            })}
+            {/* Sort data types alphabetically before mapping */}
+            {[...filters.dataTypes].sort((a, b) => a.localeCompare(b)).map(value => (
+              <span key={`sel-dt-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
+                {value}
+                <button
+                  onClick={() => handleCheckboxChange('dataTypes', value, false)}
+                  className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${value}`}>
+                  <FaTimes size="0.9em" />
+                </button>
+              </span>
+            ))}
+            {/* Sort compensation types by PAYMENT_TYPES order before mapping */}
+            {[...filters.compensationTypes]
+              .sort((a, b) => PAYMENT_TYPES.map(p => p.value).indexOf(a.value) - PAYMENT_TYPES.map(p => p.value).indexOf(b.value))
+              .map(option => (
+                <span key={`sel-pay-${option.value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
+                  {option.emoji} {option.label}
+                  <button
+                    onClick={() => handlePaymentCheckboxChange(option, false)}
+                    className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${option.label}`}>
+                    <FaTimes size="0.9em" />
+                  </button>
+                </span>
+            ))}
+          </div>
 
-            <ResourceGrid
-              resources={processedResources}
-              filters={filters}
-              // Pass useCallback versions of handlers
-              onFilterChange={handleCheckboxChange}
-              onPaymentFilterChange={handlePaymentCheckboxChange}
-              compensationTypesOptions={PAYMENT_TYPES}
-              citationMap={citationMap}
-            />
+          {/* Resource Grid */}
+          <ResourceGrid
+            resources={processedResources}
+            filters={filters}
+            // Pass useCallback versions of handlers
+            onFilterChange={handleCheckboxChange}
+            onPaymentFilterChange={handlePaymentCheckboxChange}
+            compensationTypesOptions={PAYMENT_TYPES}
+            citationMap={citationMap}
+          />
 
-            <div className="mt-8 flex flex-col items-center gap-2 w-full max-w-xs mx-auto lg:hidden">
-              <button
+          {/* Mobile Buttons */}
+          <div className="mt-8 flex flex-col items-center gap-2 w-full max-w-xs mx-auto lg:hidden">
+             <button
                 onClick={() => window.open('https://github.com/yourselftoscience/yourselftoscience.org/issues/new?template=suggest-a-service.md', '_blank')}
                 className="w-full px-4 py-2 rounded bg-google-blue text-white text-sm font-medium hover:opacity-90 transition-opacity"
               >
@@ -586,31 +627,29 @@ function HomePageContent() {
               >
                 Download Dataset
               </button>
-            </div>
+          </div>
 
-            {uniqueCitations && uniqueCitations.length > 0 && (
-              <section id="references" className="w-full max-w-screen-xl mx-auto px-4 py-8 border-t mt-8">
-                <h2 className="text-xl font-semibold mb-4 text-google-text">References</h2>
-                <ol className="list-decimal pl-5 space-y-2">
-                  {uniqueCitations.map((citation, idx) => (
-                    <li key={idx} id={`ref-${idx + 1}`} className="text-sm text-google-text-secondary leading-relaxed">
-                      {citation.link ? (
-                        <a href={citation.link} target="_blank" rel="noopener noreferrer" className="text-google-blue hover:underline break-words">
-                          {citation.title}
-                        </a>
-                      ) : (
-                        <span className="break-words">{citation.title}</span>
-                      )}
-                    </li>
-                  ))}
-                </ol>
-              </section>
-            )}
-
-          </main>
-        </div> {/* End grid */}
-
-      </div> {/* End flex-grow container */}
+          {/* References Section */}
+          {uniqueCitations && uniqueCitations.length > 0 && (
+            <section id="references" className="w-full max-w-screen-xl mx-auto px-4 py-8 border-t mt-8">
+              <h2 className="text-xl font-semibold mb-4 text-google-text">References</h2>
+              <ol className="list-decimal pl-5 space-y-2">
+                {uniqueCitations.map((citation, idx) => (
+                  <li key={idx} id={`ref-${idx + 1}`} className="text-sm text-google-text-secondary leading-relaxed">
+                    {citation.link ? (
+                      <a href={citation.link} target="_blank" rel="noopener noreferrer" className="text-google-blue hover:underline break-words">
+                        {citation.title}
+                      </a>
+                    ) : (
+                      <span className="break-words">{citation.title}</span>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            </section>
+          )}
+        </main>
+      </div> {/* End grid */}
 
       {/* Filter Drawer */}
       <AnimatePresence>
@@ -711,8 +750,6 @@ function HomePageContent() {
           </>
         )}
       </AnimatePresence>
-
-      <Footer />
-    </div>
+    </div> // End flex-grow container
   );
 }
