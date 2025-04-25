@@ -3,7 +3,8 @@
 'use client';
 
 import React, { useState, useEffect, useMemo, useCallback, Suspense } from 'react';
-import { motion, AnimatePresence, useScroll, motionValue } from 'framer-motion'; // Import motionValue
+// Import motionValue ONLY if needed elsewhere, otherwise remove. useScroll is now used here.
+import { motion, AnimatePresence, useScroll } from 'framer-motion';
 import Footer from '@/components/Footer';
 import { resources as allResources, PAYMENT_TYPES, citationMap, uniqueCitations } from '@/data/resources';
 import Image from 'next/image';
@@ -96,20 +97,23 @@ function ContentAreaSkeleton() {
 
 // --- Main Page Component ---
 export default function Home() {
-  // Create a dummy scrollY motion value for the initial render of Header outside Suspense
-  const dummyScrollY = motionValue(0);
+  // --- START: Move useScroll here ---
+  // Get the scrollY value for the window scroll
+  const { scrollY } = useScroll();
+  // --- END: Move useScroll here ---
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      {/* Render Header outside Suspense */}
-      <Header scrollY={dummyScrollY} />
+      {/* Pass the REAL scrollY to Header */}
+      <Header scrollY={scrollY} />
 
       {/* Suspense wraps only the component using searchParams */}
       <Suspense fallback={<ContentAreaSkeleton />}>
-        <HomePageContent />
+        {/* Pass scrollY down to HomePageContent if it needs it (e.g., for other effects) */}
+        {/* If HomePageContent doesn't use scrollY directly, this prop can be removed */}
+        <HomePageContent scrollY={scrollY} />
       </Suspense>
 
-      {/* Render Footer outside Suspense */}
       <Footer />
     </div>
   );
@@ -117,11 +121,13 @@ export default function Home() {
 
 
 // --- HomePageContent Component (Handles dynamic content) ---
-function HomePageContent() {
+// Accept scrollY as a prop
+function HomePageContent({ scrollY }) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams(); // This causes the component to suspend
 
+  // ... state declarations (filters, showMore, isMounted, etc.) ...
   const [filters, setFilters] = useState({
     dataTypes: [],
     countries: [],
@@ -133,8 +139,10 @@ function HomePageContent() {
   const [isMounted, setIsMounted] = useState(false);
   const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState(false);
 
-  // useScroll must be inside the component that renders the scrollable content
-  const { scrollY } = useScroll();
+
+  // --- REMOVE useScroll from here ---
+  // const { scrollY } = useScroll();
+  // --- You can now use the scrollY prop if needed ---
 
   // --- Effects and Memos (keep as is) ---
   useEffect(() => {
@@ -513,7 +521,6 @@ function HomePageContent() {
   }
 
   // --- Return the JSX for the main content area ONLY ---
-  // Remove the outer div, Header, and Footer
   return (
     <div className="flex-grow w-full max-w-screen-xl mx-auto px-4 pb-8 pt-3">
 
@@ -527,7 +534,10 @@ function HomePageContent() {
       {/* Main Layout Grid */}
       <div className="grid grid-cols-layout lg:grid-cols-lg-layout gap-6">
         {/* Sidebar */}
-        <aside className="hidden lg:block py-4 px-4 sticky top-[calc(45px+1rem+4px)] h-[calc(100vh-100px)] overflow-y-auto">
+        {/* --- START: Adjust sticky top value --- */}
+        {/* Final sticky header height is ~51px (35px logo + 8px*2 padding). Add a gap. */}
+        <aside className="hidden lg:block py-4 px-4 sticky top-[55px] h-[calc(100vh-100px)] overflow-y-auto">
+        {/* --- END: Adjust sticky top value --- */}
           <div className="border border-gray-200 rounded-lg mb-4">
             <h2 className="text-xs font-medium uppercase text-google-text-secondary px-4 pt-4 pb-2 border-b border-gray-200">
               Filter By
@@ -632,7 +642,6 @@ function HomePageContent() {
           <ResourceGrid
             resources={processedResources}
             filters={filters}
-            // Pass useCallback versions of handlers
             onFilterChange={handleCheckboxChange}
             onPaymentFilterChange={handlePaymentCheckboxChange}
             compensationTypesOptions={PAYMENT_TYPES}

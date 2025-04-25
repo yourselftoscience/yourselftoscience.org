@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react'; // Removed useMemo import if no longer needed elsewhere
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import AnimatedWord from '@/components/AnimatedWord';
 import {
@@ -11,14 +11,14 @@ import {
 } from 'framer-motion';
 
 interface HeaderProps {
-  scrollY: MotionValue<number>;
+  scrollY: MotionValue<number>; // This now receives the *real* scrollY
 }
 
 const words = ['self', 'Data', 'Genome', 'Body', 'Tissues'];
 
 const TRANSITION_START = 0;
 const TRANSITION_END = 100;
-const MOBILE_BREAKPOINT = 768; // Tailwind 'md' breakpoint
+const MOBILE_BREAKPOINT = 768;
 
 // --- Custom Hook for Window Size (remains the same) ---
 const useWindowSize = () => {
@@ -42,7 +42,6 @@ const useWindowSize = () => {
 
 export default function Header({ scrollY }: HeaderProps) {
   const { width: windowWidth, hasMounted } = useWindowSize();
-  // isMobile is correctly determined after mount
   const isMobile = hasMounted && windowWidth !== undefined && windowWidth < MOBILE_BREAKPOINT;
 
   const [currentWord, setCurrentWord] = useState(words[0]);
@@ -50,23 +49,29 @@ export default function Header({ scrollY }: HeaderProps) {
   const intervalIdRef = useRef<NodeJS.Timeout | null>(null);
   const wasSticky = useRef(isSticky);
 
-  // Effect to set initial sticky state after mount (remains the same)
+  // Effect to set initial sticky state after mount
   useEffect(() => {
     if (hasMounted) {
+      // Use the passed scrollY prop here
       const initialSticky = scrollY.get() >= TRANSITION_END;
       setIsSticky(initialSticky);
       wasSticky.current = initialSticky;
     }
+    // Add scrollY to dependency array
   }, [hasMounted, scrollY]);
 
-  // Effect for scroll events (remains the same)
+  // Effect for scroll events - uses the passed scrollY prop
   useMotionValueEvent(scrollY, "change", (latest) => {
     const currentlySticky = latest >= TRANSITION_END;
     if (isSticky !== currentlySticky) {
       setIsSticky(currentlySticky);
     }
+    // This logic seems fine, ensures 'self' is shown when scrolling back up past the threshold
     if (wasSticky.current && !currentlySticky) {
-      setCurrentWord(words[0]);
+       setCurrentWord(words[0]); // Reset to 'self' when becoming non-sticky
+    } else if (!wasSticky.current && currentlySticky && currentWord !== 'self') {
+       // Optional: Force to 'self' immediately when becoming sticky if it wasn't already 'self'
+       // setCurrentWord(words[0]);
     }
     wasSticky.current = currentlySticky;
   });
@@ -78,13 +83,19 @@ export default function Header({ scrollY }: HeaderProps) {
       if (isSticky && intervalIdRef.current) {
         clearInterval(intervalIdRef.current);
         intervalIdRef.current = null;
+        // Ensure 'self' is displayed when sticky
+        if (currentWord !== 'self') {
+           setCurrentWord(words[0]);
+        }
       } else if (!isSticky && !intervalIdRef.current) {
-        setCurrentWord(words[0]);
+        // Start interval only if not sticky
+        setCurrentWord(words[0]); // Start with 'self'
         intervalIdRef.current = setInterval(() => {
           setCurrentWord(prevWord => {
             const currentIndex = words.indexOf(prevWord);
             const nextIndex = (currentIndex + 1) % words.length;
-            return words[nextIndex];
+            // Skip 'self' in the animation cycle
+            return words[nextIndex === 0 ? 1 : nextIndex];
           });
         }, 3000);
       }
@@ -96,7 +107,8 @@ export default function Header({ scrollY }: HeaderProps) {
         intervalIdRef.current = null;
       }
     };
-  }, [isSticky, hasMounted]);
+    // Add currentWord to dependencies to ensure 'self' is set correctly when becoming sticky
+  }, [isSticky, hasMounted, currentWord]);
 
 
   // --- Define start/end values based on isMobile ---
@@ -104,12 +116,11 @@ export default function Header({ scrollY }: HeaderProps) {
   const endPaddingY = 8;
   const startLogoSize = isMobile ? 40 : 70;
   const endLogoSize = 35;
-  // --- Increase mobile start size ---
   const startTitleSize = isMobile ? 24 : 36;
-  // --- End increase ---
-  const endTitleSize = isMobile ? 10 : 20;
+  const endTitleSize = isMobile ? 18 : 20; // Adjusted mobile end size slightly for better fit
 
-  // --- Call Hooks at the top level ---
+
+  // --- Call Hooks at the top level - use the passed scrollY prop ---
   const headerPaddingY = useTransform(scrollY, [TRANSITION_START, TRANSITION_END], [startPaddingY, endPaddingY], { clamp: true });
   const logoSize = useTransform(scrollY, [TRANSITION_START, TRANSITION_END], [startLogoSize, endLogoSize], { clamp: true });
   const titleSize = useTransform(scrollY, [TRANSITION_START, TRANSITION_END], [startTitleSize, endTitleSize], { clamp: true });
@@ -122,7 +133,7 @@ export default function Header({ scrollY }: HeaderProps) {
   // Determine layout mode for title alignment/wrapping
   const useInlineLayout = !isMobile || isSticky;
 
-  // --- Placeholder Rendering (Crucial for preventing initial render issues) ---
+  // --- Placeholder Rendering (remains the same) ---
   if (!hasMounted) {
      const initialPaddingY = 16;
      const initialLogoSize = 70;
@@ -153,6 +164,7 @@ export default function Header({ scrollY }: HeaderProps) {
         className={`flex-shrink-0 mr-2`}
         style={{ width: logoSize, height: logoSize }}
       >
+         {/* ... Image ... */}
          <Image
            src="/Logo.svg"
            alt="Yourself To Science Logo"
@@ -166,14 +178,17 @@ export default function Header({ scrollY }: HeaderProps) {
         className={`font-medium text-google-text whitespace-nowrap overflow-hidden min-w-0 ${
           useInlineLayout ? 'flex items-baseline' : 'text-center w-full'
         }`}
-        style={{ fontSize: titleSize }} // titleSize should now use the correct range
+        style={{ fontSize: titleSize }}
       >
          <span className={useInlineLayout ? '' : 'inline-block'}>Your</span>
+         {/* Use isSticky state to determine whether to show AnimatedWord or static 'self' */}
          {hasMounted && !isSticky ? (
            <AnimatedWord key={currentWord} word={currentWord} />
          ) : (
+           // Render static 'self' when sticky or not mounted yet (though placeholder handles pre-mount)
            <span
              key="static-self"
+             // Adjust margin based on layout mode
              className={`inline-block text-yellow-400 ${useInlineLayout ? 'ml-0' : 'ml-1'}`}
            >
              self
