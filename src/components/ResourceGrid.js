@@ -102,8 +102,19 @@ export default function ResourceGrid({
           return (
             <div key={resource.id} className="resource-card flex flex-col relative">
               {/* Card Header */}
-              <div className="flex justify-between items-start mb-2">
-                 <h3 className="text-base font-medium text-google-text flex-grow mr-2">{resource.title}</h3>
+              <div className="flex justify-between items-start mb-1">
+                 <div className="flex-grow mr-2">
+                   <h3 className="text-base font-medium text-google-text">
+                     {resource.title}
+                   </h3>
+                   {/* --- START: Update Organization Size --- */}
+                   {resource.organization && (
+                     <p className="text-base font-medium text-gray-600 -mt-0.5"> {/* Changed text-sm to text-base */}
+                       {resource.organization}
+                     </p>
+                   )}
+                   {/* --- END: Update Organization Size --- */}
+                 </div>
                  {/* Payment Icon Container */}
                  <div className="flex items-center flex-shrink-0">
                    {paymentOption && (
@@ -121,7 +132,7 @@ export default function ResourceGrid({
               </div>
 
               {/* Tags */}
-              <div className="tags flex flex-wrap items-center gap-1 mt-auto pt-2"> {/* Removed flex-grow */}
+              <div className="tags flex flex-wrap items-center gap-1 mt-auto pt-2">
                 {/* --- Swapped Order: Countries first --- */}
                 {resource.countries?.map((country, idx) => {
                   const code = resource.countryCodes?.[idx];

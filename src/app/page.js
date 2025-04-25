@@ -321,12 +321,15 @@ export default function Home() {
   );
 
   function handleDownloadCSV() {
-    const headers = ['Title', 'Link', 'Data Types', 'Countries', 'Country Codes', 'Instructions', 'Compensation Type', 'Description', 'Citations'];
+    // --- Add 'Organization' to headers ---
+    const headers = ['Title', 'Organization', 'Link', 'Data Types', 'Countries', 'Country Codes', 'Instructions', 'Compensation Type', 'Description', 'Citations'];
     let csvContent = 'data:text/csv;charset=utf-8,' + headers.map(h => `"${h}"`).join(',') + '\n';
 
     processedResources.forEach((resource) => {
       const data = [
         resource.title || '',
+        // --- Add resource.organization here ---
+        resource.organization || '',
         resource.link || '',
         resource.dataTypes?.join('; ') || '',
         resource.countries?.join('; ') || '',

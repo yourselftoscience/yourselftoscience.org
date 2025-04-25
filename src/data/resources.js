@@ -2,9 +2,10 @@
 const rawResources = [
   {
     title: 'Open Humans',
+    organization: 'Open Humans Foundation', // Added organization
     link: 'https://www.openhumans.org/add-data/',
     dataTypes: ['Genome', 'Health data', 'Fitbit data'],
-    compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'donation',
     citations: [
       {
         title:
@@ -15,34 +16,39 @@ const rawResources = [
   },
   {
     title: 'MyPHD',
+    organization: 'Stanford University', // Added organization
     link: 'https://myphd.stanford.edu/studies/',
     dataTypes: ['Health data', 'Fitbit data'],
-    compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'donation',
   },
   {
     title: 'Google Health Studies',
+    organization: 'Google', // Added organization
     link: 'https://health.google/consumers/health-studies/',
     dataTypes: ['Health data'],
-    compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'donation',
   },
   {
     title: 'Apple Research',
+    organization: 'Apple', // Added organization
     link: 'https://support.apple.com/en-us/108425',
     dataTypes: ['Health data'],
     countries: ['United States'],
     countryCodes: ['US'],
-    compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'donation',
   },
   {
     title: 'All of US',
+    organization: 'National Institutes of Health (NIH)', // Added organization
     link: 'https://allofus.nih.gov/',
     dataTypes: ['Genome', 'Health data'],
     countries: ['United States'],
     countryCodes: ['US'],
-    compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'mixed',
   },
   {
-    title: 'Health research and product development (Fitbit)',
+    title: 'Health research and product development', // Shortened title
+    organization: 'Fitbit', // Added organization
     instructions: [
       'Open the Fitbit app',
       'Go to Fitbit settings',
@@ -50,47 +56,52 @@ const rawResources = [
       'Tap Data shared for research and development',
     ],
     dataTypes: ['Fitbit data'],
-    compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'donation',
   },
   {
     title: 'SPARK for Autism',
+    organization: 'Simons Foundation', // Added organization
     link: 'https://sparkforautism.org/why/',
     dataTypes: ['Genome', 'Health data'],
     countries: ['United States'],
     countryCodes: ['US'],
-    compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'mixed',
   },
   {
-    title: 'Body Donation – Faculty of Medicine at the University of British Columbia',
+    title: 'Body Donation', // Shortened title
+    organization: 'Faculty of Medicine at the University of British Columbia', // Added organization
     link: 'https://cps.med.ubc.ca/the-donation-process/',
     dataTypes: ['Body'],
     countries: ['Canada'],
     countryCodes: ['CA'],
-    compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'donation',
   },
   {
-    title: 'Body Donation – Department of Anatomy at the University Of Cambridge, Tissue Donation – Cambridge Biomedical Research Centre',
+    title: 'Body Donation; Tissue Donation', // Shortened title
+    organization: 'Department of Anatomy at the University Of Cambridge; Cambridge Biomedical Research Centre', // Added organization
     link: 'https://www.cuh.nhs.uk/our-research/get-involved/donate-body-to-medical-science/',
     dataTypes: ['Body', 'Tissue'],
     countries: ['United Kingdom'],
     countryCodes: ['GB'],
-    compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'donation',
   },
   {
-    title: 'Body & Tissues Donation – Ministero della Salute',
+    title: 'Body & Tissues Donation',
+    organization: 'Ministero della Salute', // Added organization
     link: 'https://www.salute.gov.it/portale/disposizionepostmortem/dettaglioContenutiDisposizionepostmortem.jsp?lingua=italiano&id=6004&area=postMortem&menu=vuoto',
     dataTypes: ['Body', 'Tissue'],
     countries: ['Italy'],
     countryCodes: ['IT'],
-    compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'donation',
   },
   {
-    title: 'Eggs, Sperm and Embryos Donation to Research – Human Fertilisation and Embryology Authority',
+    title: 'Eggs, Sperm and Embryos Donation to Research',
+    organization: 'Human Fertilisation and Embryology Authority', // Added organization
     link: 'https://www.hfea.gov.uk/donation/donors/donating-to-research/',
     dataTypes: ['Eggs', 'Embryos', 'Sperm'],
     countries: ['United Kingdom'],
     countryCodes: ['GB'],
-    compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'donation',
   },
   {
     title: 'ClinicalTrials.org',
@@ -170,6 +181,7 @@ const rawResources = [
   },
   {
     title: 'ResearchMatch',
+    organization: 'National Institutes of Health (NIH)', // Added organization
     link: 'https://www.researchmatch.org/',
     dataTypes: ['Clinical trials'],
     countries: ['United States'],
@@ -192,7 +204,8 @@ const rawResources = [
     ],
   },
   {
-    title: 'HealthStreet - University of Florida Health',
+    title: 'HealthStreet',
+    organization: 'University of Florida Health', // Added organization
     link: 'https://healthstreet.program.ufl.edu/uf-researchers/participate-in-research/',
     dataTypes: ['Clinical trials'],
     countries: ['United States'],
@@ -208,7 +221,8 @@ const rawResources = [
     compensationType: 'payment', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
-    title: 'Microbiome - Australian Red Cross Lifeblood',
+    title: 'Microbiome',
+    organization: 'Australian Red Cross Lifeblood', // Added organization
     link: 'https://www.lifeblood.com.au/microbiome',
     dataTypes: ['Stool'],
     countries: ['Australia'],
@@ -216,7 +230,8 @@ const rawResources = [
     compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
-    title: 'Stool Donation - Wesley Research Institute',
+    title: 'Stool Donation',
+    organization: 'Wesley Research Institute', // Added organization
     link: 'https://www.wesleyresearch.org.au/biobank-project/stool-donation/',
     dataTypes: ['Stool'],
     countries: ['Australia'],
@@ -224,7 +239,8 @@ const rawResources = [
     compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
-    title: 'Placenta Donation - Wesley Research Institute',
+    title: 'Placenta Donation',
+    organization: 'Wesley Research Institute', // Added organization
     link: 'https://www.wesleyresearch.org.au/biobank-project/placenta-donation/',
     dataTypes: ['Placenta'],
     countries: ['Australia'],
@@ -232,7 +248,8 @@ const rawResources = [
     compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
-    title: 'Human Hair Decomposition - Department of Human Biology, University of Wrocław',
+    title: 'Human Hair Decompositionw',
+    organization: 'Department of Human Biology, University of Wrocław', // Added organization
     link: 'https://biologia.uwr.edu.pl/2023/10/12/znaczenie-wybranych-czynnikow-biologicznych-i-srodowiskowych-w-procesie-rozkladu-ludzkich-wlosow-nabor-na-badania/',
     dataTypes: ['Hair'],
     countries: ['Poland'],
