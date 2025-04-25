@@ -64,7 +64,7 @@ function expandCountries(chosen) {
 export default function Home() {
   // Wrap the component that uses useSearchParams in Suspense
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={null}>
       <HomePageContent />
     </Suspense>
   );
