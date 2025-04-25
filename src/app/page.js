@@ -59,33 +59,102 @@ function expandCountries(chosen) {
 
 // --- Simple Content Area Skeleton ---
 function ContentAreaSkeleton() {
-  // Basic skeleton mimicking the main content layout
+  // Basic skeleton mimicking the main content layout BELOW the header
   return (
+    // Revert to pt-3. The Header component reserves its initial space,
+    // so the skeleton only needs its own internal padding matching HomePageContent.
     <div className="flex-grow w-full max-w-screen-xl mx-auto px-4 pb-8 pt-3 animate-pulse">
+
       {/* Skeleton Intro Text */}
       <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
       <div className="h-4 bg-gray-200 rounded w-1/2 mb-6"></div>
+
+      {/* Skeleton Layout Grid */}
       <div className="grid grid-cols-layout lg:grid-cols-lg-layout gap-6">
         {/* Skeleton Sidebar */}
         <aside className="hidden lg:block py-4 px-4">
+          {/* Filter Box */}
           <div className="border border-gray-200 rounded-lg mb-4">
-            <div className="h-10 bg-gray-200 rounded-t-lg border-b"></div>
-            <div className="p-4 space-y-4">
-              <div className="h-4 bg-gray-300 rounded w-1/3"></div>
-              <div className="h-4 bg-gray-200 rounded w-full"></div>
-              <div className="h-4 bg-gray-200 rounded w-full"></div>
-              <div className="h-4 bg-gray-200 rounded w-full"></div>
+            <div className="h-10 bg-gray-200 rounded-t-lg border-b px-4 pt-4 pb-2 flex items-center">
+               <div className="h-3 bg-gray-300 rounded w-1/4"></div> {/* "Filter By" title */}
+            </div>
+            <div className="p-4 space-y-4"> {/* Adjusted spacing */}
+              {/* Compensation Group Skeleton */}
+              <div className="mb-4">
+                <div className="h-4 bg-gray-300 rounded w-1/3 mb-1"></div> {/* Compensation Title */}
+                <div className="h-3 bg-blue-200 rounded w-1/4 mb-2"></div> {/* Select/Clear All */}
+                <div className="flex items-center mb-2">
+                  <div className="h-4 w-4 bg-gray-200 rounded mr-2"></div> {/* Checkbox */}
+                  <div className="h-4 bg-gray-200 rounded w-2/5"></div> {/* Label (e.g., ❤️ Donation) */}
+                </div>
+                <div className="flex items-center mb-2">
+                  <div className="h-4 w-4 bg-gray-200 rounded mr-2"></div> {/* Checkbox */}
+                  <div className="h-4 bg-gray-200 rounded w-2/5"></div> {/* Label (e.g., 💵 Payment) */}
+                </div>
+                <div className="flex items-center mb-2">
+                  <div className="h-4 w-4 bg-gray-200 rounded mr-2"></div> {/* Checkbox */}
+                  <div className="h-4 bg-gray-200 rounded w-2/5"></div> {/* Label (e.g., ❤️💵 Mixed) */}
+                </div>
+              </div>
+              {/* Available In Group Skeleton */}
+              <div className="mb-4">
+                <div className="h-4 bg-gray-300 rounded w-1/3 mb-1"></div> {/* Available In Title */}
+                <div className="h-3 bg-blue-200 rounded w-1/4 mb-2"></div> {/* Select All */}
+                <div className="flex items-center mb-2">
+                  <div className="h-4 w-4 bg-gray-200 rounded mr-2"></div> {/* Checkbox */}
+                  <div className="h-4 bg-gray-200 rounded w-3/5"></div> {/* Label (e.g., Australia) */}
+                </div>
+                <div className="flex items-center mb-2">
+                  <div className="h-4 w-4 bg-gray-200 rounded mr-2"></div> {/* Checkbox */}
+                  <div className="h-4 bg-gray-200 rounded w-2/5"></div> {/* Label (e.g., Austria) */}
+                </div>
+                <div className="flex items-center mb-2">
+                  <div className="h-4 w-4 bg-gray-200 rounded mr-2"></div> {/* Checkbox */}
+                  <div className="h-4 bg-gray-200 rounded w-1/2"></div> {/* Label (e.g., Canada) */}
+                </div>
+                <div className="h-3 bg-blue-200 rounded w-1/3 mt-1"></div> {/* More button */}
+              </div>
+               {/* Data Type Group Skeleton */}
+              <div>
+                <div className="h-4 bg-gray-300 rounded w-1/3 mb-1"></div> {/* Data Type Title */}
+                <div className="h-3 bg-blue-200 rounded w-1/4 mb-2"></div> {/* Select All */}
+                 <div className="flex items-center mb-2">
+                  <div className="h-4 w-4 bg-gray-200 rounded mr-2"></div> {/* Checkbox */}
+                  <div className="h-4 bg-gray-200 rounded w-1/3"></div> {/* Label (e.g., Body) */}
+                </div>
+                <div className="flex items-center mb-2">
+                  <div className="h-4 w-4 bg-gray-200 rounded mr-2"></div> {/* Checkbox */}
+                  <div className="h-4 bg-gray-200 rounded w-2/5"></div> {/* Label (e.g., Clinical trials) */}
+                </div>
+                <div className="flex items-center mb-2">
+                  <div className="h-4 w-4 bg-gray-200 rounded mr-2"></div> {/* Checkbox */}
+                  <div className="h-4 bg-gray-200 rounded w-1/4"></div> {/* Label (e.g., Eggs) */}
+                </div>
+                <div className="h-3 bg-blue-200 rounded w-1/3 mt-1"></div> {/* More button */}
+              </div>
             </div>
           </div>
-          <div className="h-10 bg-gray-300 rounded w-full mt-4"></div>
-          <div className="h-10 bg-gray-300 rounded w-full mt-2"></div>
+          {/* Sidebar Buttons */}
+          <div className="h-10 bg-blue-200 rounded w-full mt-4"></div> {/* Suggest Button */}
+          <div className="h-10 bg-gray-200 rounded w-full mt-2"></div> {/* Download Button */}
         </aside>
+
         {/* Skeleton Main Content */}
         <main className="py-4">
-          <div className="h-10 bg-gray-200 rounded w-full mb-4"></div> {/* Search */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"> {/* Grid */}
-            {[...Array(6)].map((_, i) => ( // Show a few skeleton cards
-              <div key={i} className="bg-gray-100 border border-gray-200 rounded-lg p-4 h-40"></div>
+          {/* Search Bar */}
+          <div className="h-10 bg-gray-200 rounded w-full mb-4"></div>
+          {/* Resource Card Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[...Array(9)].map((_, i) => (
+              <div key={i} className="bg-gray-100 border border-gray-200 rounded-lg p-4 h-40 flex flex-col">
+                 <div className="h-5 bg-gray-300 rounded w-3/4 mb-2"></div> {/* Card Title */}
+                 <div className="h-3 bg-gray-200 rounded w-full mb-1 flex-grow"></div> {/* Card Desc line 1 */}
+                 <div className="h-3 bg-gray-200 rounded w-5/6 mb-4"></div> {/* Card Desc line 2 */}
+                 <div className="flex flex-wrap gap-1 mt-auto">
+                    <div className="h-5 w-12 bg-gray-300 rounded-full"></div> {/* Tag */}
+                    <div className="h-5 w-16 bg-gray-300 rounded-full"></div> {/* Tag */}
+                 </div>
+              </div>
             ))}
           </div>
         </main>
@@ -97,20 +166,15 @@ function ContentAreaSkeleton() {
 
 // --- Main Page Component ---
 export default function Home() {
-  // --- START: Move useScroll here ---
-  // Get the scrollY value for the window scroll
   const { scrollY } = useScroll();
-  // --- END: Move useScroll here ---
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      {/* Pass the REAL scrollY to Header */}
+      {/* The Header is rendered here, immediately */}
       <Header scrollY={scrollY} />
 
-      {/* Suspense wraps only the component using searchParams */}
+      {/* Suspense shows ContentAreaSkeleton while HomePageContent loads */}
       <Suspense fallback={<ContentAreaSkeleton />}>
-        {/* Pass scrollY down to HomePageContent if it needs it (e.g., for other effects) */}
-        {/* If HomePageContent doesn't use scrollY directly, this prop can be removed */}
         <HomePageContent scrollY={scrollY} />
       </Suspense>
 
