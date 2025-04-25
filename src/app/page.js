@@ -2,7 +2,7 @@
 
 'use client';
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react'; // Import useCallback
 import { motion, AnimatePresence, useScroll } from 'framer-motion';
 import Footer from '@/components/Footer';
 import { resources as allResources, PAYMENT_TYPES, citationMap, uniqueCitations } from '@/data/resources';
@@ -12,6 +12,9 @@ import CountryFlag from 'react-country-flag';
 import { FaHeart, FaDollarSign, FaTimes, FaFilter } from 'react-icons/fa';
 import Header from '@/components/Header';
 import ResourceGrid from '@/components/ResourceGrid';
+// --- START: Import useRouter, usePathname, useSearchParams ---
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
+// --- END: Import useRouter, usePathname, useSearchParams ---
 
 // Dynamically import react-select
 const Select = dynamic(() => import('react-select'), { ssr: false });
@@ -24,6 +27,10 @@ const EU_COUNTRIES = [
   'Netherlands', 'Poland', 'Portugal', 'Romania', 'Slovakia', 'Slovenia',
   'Spain', 'Sweden'
 ];
+
+// --- START: Helper function to parse comma-separated URL parameters ---
+const parseUrlList = (param) => param ? param.split(',') : [];
+// --- END: Helper function to parse comma-separated URL parameters ---
 
 function expandCountries(chosen) {
   const set = new Set(chosen);
@@ -55,6 +62,12 @@ function expandCountries(chosen) {
 
 // --- Main Page Component ---
 export default function Home() {
+  // --- START: Use Next.js navigation hooks ---
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  // --- END: Use Next.js navigation hooks ---
+
   const [filters, setFilters] = useState({
     dataTypes: [],
     countries: [],
@@ -68,9 +81,60 @@ export default function Home() {
 
   const { scrollY } = useScroll();
 
+  // --- START: Effect to initialize state from URL on mount ---
   useEffect(() => {
-    setIsMounted(true);
-  }, []);
+    // This effect runs only once on the client after hydration
+    const initialFilters = {
+      dataTypes: parseUrlList(searchParams.get('dataTypes')),
+      countries: parseUrlList(searchParams.get('countries')),
+      // Map compensation values back to objects from PAYMENT_TYPES
+      compensationTypes: parseUrlList(searchParams.get('compensationTypes')).map(val =>
+        PAYMENT_TYPES.find(p => p.value === val)
+      ).filter(Boolean), // Filter out any nulls if a value in URL is invalid
+      searchTerm: searchParams.get('searchTerm') || '',
+    };
+    setFilters(initialFilters);
+    setIsMounted(true); // Mark as mounted after initial state is set
+  }, []); // Empty dependency array ensures this runs only once on mount
+  // --- END: Effect to initialize state from URL on mount ---
+
+  // --- START: Effect to update URL when filters change ---
+  useEffect(() => {
+    // Only run this effect if the component is mounted and filters have changed
+    if (!isMounted) {
+      return; // Don't update URL during initial render or before state is initialized
+    }
+
+    const params = new URLSearchParams();
+    // --- START: Sort filter values before adding to URL ---
+    if (filters.countries.length > 0) {
+      // Sort countries alphabetically
+      params.set('countries', [...filters.countries].sort((a, b) => a.localeCompare(b)).join(','));
+    }
+    if (filters.dataTypes.length > 0) {
+      // Sort data types alphabetically
+      params.set('dataTypes', [...filters.dataTypes].sort((a, b) => a.localeCompare(b)).join(','));
+    }
+    if (filters.compensationTypes.length > 0) {
+      // Sort compensation types based on PAYMENT_TYPES order
+      const paymentOrder = PAYMENT_TYPES.map(p => p.value);
+      const sortedCompensationValues = [...filters.compensationTypes]
+        .sort((a, b) => paymentOrder.indexOf(a.value) - paymentOrder.indexOf(b.value))
+        .map(p => p.value);
+      params.set('compensationTypes', sortedCompensationValues.join(','));
+    }
+    // --- END: Sort filter values before adding to URL ---
+    if (filters.searchTerm) {
+      params.set('searchTerm', filters.searchTerm);
+    }
+
+    const queryString = params.toString();
+    // Use replaceState to update the URL without adding to browser history
+    window.history.replaceState(null, '', queryString ? `?${queryString}` : pathname);
+
+  }, [filters, isMounted, pathname]); // Re-run when filters, isMounted, or pathname changes
+  // --- END: Effect to update URL when filters change ---
+
 
   const dataTypeOptions = useMemo(() => Array.from(
     new Set(allResources.flatMap((resource) => resource.dataTypes || []))
@@ -115,12 +179,9 @@ export default function Home() {
           (cit.title && cit.title.toLowerCase().includes(lowerSearchTerm)) ||
           (cit.link && cit.link.toLowerCase().includes(lowerSearchTerm))
         );
-        // --- Add Link and Instruction Matching ---
         const linkMatch = resource.link && resource.link.toLowerCase().includes(lowerSearchTerm);
         const instructionMatch = resource.instructions && resource.instructions.some(step => step.toLowerCase().includes(lowerSearchTerm));
-        // --- End Add ---
 
-        // Combine all matches
         return titleMatch || descriptionMatch || dataTypeMatch || countryMatch || compensationTypeMatch || citationMatch || linkMatch || instructionMatch;
       });
     }
@@ -151,7 +212,8 @@ export default function Home() {
     return filteredData;
   }, [filters]); // Ensure filters is the dependency
 
-  const handleCheckboxChange = (filterKey, value, isChecked) => {
+  // --- START: Wrap filter handlers in useCallback ---
+  const handleCheckboxChange = useCallback((filterKey, value, isChecked) => {
     setFilters(prev => {
       const currentValues = prev[filterKey];
       let newValues;
@@ -162,62 +224,69 @@ export default function Home() {
       }
       return { ...prev, [filterKey]: newValues };
     });
-  };
+  }, []); // Empty dependency array as setFilters is stable
 
-  const handlePaymentCheckboxChange = (option, isChecked) => {
+  const handlePaymentCheckboxChange = useCallback((option, isChecked) => {
     setFilters(prev => {
       const currentPayments = prev.compensationTypes;
       let newPayments;
       if (isChecked) {
+        // Add the option object if it's not already present
         newPayments = currentPayments.some(p => p.value === option.value)
           ? currentPayments
           : [...currentPayments, option];
       } else {
+        // Remove the option object based on its value
         newPayments = currentPayments.filter(p => p.value !== option.value);
       }
       return { ...prev, compensationTypes: newPayments };
     });
-  };
+  }, []); // Empty dependency array
 
-  const handleClearGroup = (filterKey) => {
+  const handleClearGroup = useCallback((filterKey) => {
     setFilters(prev => ({
       ...prev,
       [filterKey]: []
     }));
-  };
+  }, []); // Empty dependency array
 
-  const handleSearchChange = (event) => {
+  const handleSearchChange = useCallback((event) => {
     setFilters(prev => ({ ...prev, searchTerm: event.target.value }));
-  };
+  }, []); // Empty dependency array
 
-  const toggleFilterDrawer = () => {
-    setIsFilterDrawerOpen(!isFilterDrawerOpen);
-  };
+  const toggleFilterDrawer = useCallback(() => {
+    setIsFilterDrawerOpen(prev => !prev);
+  }, []); // Empty dependency array
 
-  const handleResetFilters = () => {
+  const handleResetFilters = useCallback(() => {
     setFilters({
       dataTypes: [],
       countries: [],
       compensationTypes: [],
-      searchTerm: filters.searchTerm, // Keep search term or clear it too? Decide here.
+      searchTerm: '', // Reset search term as well
     });
     // Optionally close drawer after reset
-    // setIsFilterDrawerOpen(false);
-  };
+    setIsFilterDrawerOpen(false);
+  }, []); // Empty dependency array
 
-  const handleSelectAll = (filterKey, options, selectAll) => {
+  const handleSelectAll = useCallback((filterKey, options, selectAll) => {
     setFilters(prev => {
       let newValues;
       if (selectAll) {
-        // Select all values from the provided options list
-        newValues = options.map(option => typeof option === 'string' ? option : option.value);
+        if (filterKey === 'compensationTypes') {
+          newValues = [...options]; // Use the full option objects
+        } else {
+          // Map options to their values (handles both string arrays and object arrays)
+          newValues = options.map(option => typeof option === 'string' ? option : option.value);
+        }
       } else {
-        // Clear all values for this specific filter key
         newValues = [];
       }
       return { ...prev, [filterKey]: newValues };
     });
-  };
+  }, []); // Empty dependency array
+  // --- END: Wrap filter handlers in useCallback ---
+
 
   const renderFilterGroup = (title, options, filterKey, showMore, setShowMore) => {
     const selectedValues = filters[filterKey];
@@ -227,10 +296,7 @@ export default function Home() {
 
     return (
       <div className="mb-4">
-        {/* Title - Use text-base, font-normal, and primary text color */}
         <h3 className="font-normal text-base text-google-text mb-1">{title}</h3>
-
-        {/* Select/Clear All Button - Keep font-medium and blue color */}
         <button
           onClick={() => handleSelectAll(filterKey, options, !allSelected)}
           className="text-sm font-medium text-google-blue hover:underline mb-2 block"
@@ -239,24 +305,24 @@ export default function Home() {
           {allSelected ? 'Clear all' : 'Select all'}
         </button>
 
-        {/* Checkboxes */}
         {visibleOptions.map(option => {
           const value = typeof option === 'string' ? option : option.value;
           const label = typeof option === 'string' ? option : option.label;
           const code = typeof option === 'object' ? option.code : null;
+          // Check if the current value is included in the selected values for this filter key
           const isChecked = selectedValues.includes(value);
 
           return (
             <div key={value} className="flex items-center mb-2">
               <input
                 type="checkbox"
-                id={`${filterKey}-${value}-mobile`}
+                id={`${filterKey}-${value}-mobile`} // Ensure unique IDs
                 value={value}
                 checked={isChecked}
+                // Use the useCallback version of the handler
                 onChange={(e) => handleCheckboxChange(filterKey, value, e.target.checked)}
                 className="mr-2 h-4 w-4 text-google-blue border-gray-400 rounded focus:ring-google-blue focus:ring-offset-0 focus:ring-1"
               />
-              {/* Label - Use text-base, font-normal, and secondary text color */}
               <label htmlFor={`${filterKey}-${value}-mobile`} className="text-base font-normal text-google-text-secondary flex items-center cursor-pointer">
                 {label}
                 {code && (
@@ -267,7 +333,6 @@ export default function Home() {
           );
         })}
 
-        {/* More Button - Keep font-medium and blue color */}
         {options.length > 3 && (
           <button onClick={() => setShowMore(!showMore)} className="text-sm font-medium text-google-blue hover:underline mt-1 flex items-center">
              <svg className={`w-3 h-3 mr-1 transform transition-transform ${showMore ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -280,17 +345,12 @@ export default function Home() {
 
   const renderFilterContent = () => (
     <>
-      {/* --- Swapped Order --- */}
       {isMounted && renderFilterGroup('Available In', countryOptions, 'countries', showMoreCountries, setShowMoreCountries)}
       {isMounted && renderFilterGroup('Data Type', dataTypeOptions, 'dataTypes', showMoreDataTypes, setShowMoreDataTypes)}
-      {/* --- End Swapped Order --- */}
 
-      {/* Compensation Filter (Specific rendering with same structure) */}
+      {/* Compensation Filter */}
       <div className="mb-4">
-        {/* Title - Use text-base, font-normal, and primary text color */}
         <h3 className="font-normal text-base text-google-text mb-1">Compensation</h3>
-
-        {/* Select/Clear All Button - Keep font-medium and blue color */}
         <button
           onClick={() => handleSelectAll('compensationTypes', PAYMENT_TYPES, filters.compensationTypes.length !== PAYMENT_TYPES.length)}
           className="text-sm font-medium text-google-blue hover:underline mb-2 block"
@@ -299,18 +359,18 @@ export default function Home() {
           {filters.compensationTypes.length === PAYMENT_TYPES.length ? 'Clear all' : 'Select all'}
         </button>
 
-        {/* Checkboxes */}
         {PAYMENT_TYPES.map(option => (
           <div key={option.value} className="flex items-center mb-2">
             <input
               type="checkbox"
-              id={`payment-${option.value}-mobile`}
+              id={`payment-${option.value}-mobile`} // Ensure unique IDs
               value={option.value}
+              // Check if the current option's value exists in the compensationTypes array
               checked={filters.compensationTypes.some(p => p.value === option.value)}
+              // Use the useCallback version of the handler
               onChange={(e) => handlePaymentCheckboxChange(option, e.target.checked)}
               className="mr-2 h-4 w-4 text-google-blue border-gray-400 rounded focus:ring-google-blue focus:ring-offset-0 focus:ring-1"
             />
-            {/* Label - Use text-base, font-normal, and secondary text color */}
             <label htmlFor={`payment-${option.value}-mobile`} className="text-base font-normal text-google-text-secondary flex items-center cursor-pointer">
               <span className="mr-1.5">{option.emoji}</span> {option.label}
             </label>
@@ -321,14 +381,12 @@ export default function Home() {
   );
 
   function handleDownloadCSV() {
-    // --- Add 'Organization' to headers ---
     const headers = ['Title', 'Organization', 'Link', 'Data Types', 'Countries', 'Country Codes', 'Instructions', 'Compensation Type', 'Description', 'Citations'];
     let csvContent = 'data:text/csv;charset=utf-8,' + headers.map(h => `"${h}"`).join(',') + '\n';
 
     processedResources.forEach((resource) => {
       const data = [
         resource.title || '',
-        // --- Add resource.organization here ---
         resource.organization || '',
         resource.link || '',
         resource.dataTypes?.join('; ') || '',
@@ -351,31 +409,36 @@ export default function Home() {
     document.body.removeChild(link);
   }
 
+  // --- START: Prevent rendering until mounted to avoid hydration mismatch ---
+  if (!isMounted) {
+    // Render nothing or a basic loading state on the server and during initial client render
+    return null;
+  }
+  // --- END: Prevent rendering until mounted ---
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header scrollY={scrollY} />
 
-      {/* Main content area including sidebar and grid */}
       <div className="flex-grow w-full max-w-screen-xl mx-auto px-4 pb-8 pt-3">
 
-        <p className="text-base text-google-text-secondary max-w-5xl mb-6"> {/* Changed max-w-4xl to max-w-5xl */}
+        <p className="text-base text-google-text-secondary max-w-5xl mb-6">
           A comprehensive open-source list of services allowing individuals to contribute to scientific research.
-          <br /> {/* Added line break */}
+          <br />
           Browse our curated resources to find ways to share your data, genome, body samples, and more.
         </p>
 
         <div className="grid grid-cols-layout lg:grid-cols-lg-layout gap-6">
-          {/* Sidebar - Keep buttons here for desktop */}
           <aside className="hidden lg:block py-4 px-4 sticky top-[calc(45px+1rem+4px)] h-[calc(100vh-100px)] overflow-y-auto">
-            <div className="border border-gray-200 rounded-lg mb-4"> {/* Add margin bottom */}
+            <div className="border border-gray-200 rounded-lg mb-4">
               <h2 className="text-xs font-medium uppercase text-google-text-secondary px-4 pt-4 pb-2 border-b border-gray-200">
                 Filter By
               </h2>
               <div className="p-4">
+                {/* Render filter content using useCallback handlers */}
                 {renderFilterContent()}
               </div>
             </div>
-            {/* Buttons for Desktop */}
             <div className="mt-4 flex flex-col gap-2">
               <button
                 onClick={() => window.open('https://github.com/yourselftoscience/yourselftoscience.org/issues/new?template=suggest-a-service.md', '_blank')}
@@ -392,22 +455,21 @@ export default function Home() {
             </div>
           </aside>
 
-          {/* Main content grid area */}
           <main className="py-4">
-            {/* Search Input and Filter Button */}
             <div className="mb-4 flex gap-2 items-center">
-              {/* --- START: Add relative container and clear button --- */}
               <div className="relative w-full">
                 <input
                   type="text"
                   placeholder="Filter results by keyword, country, data type..."
                   value={filters.searchTerm}
+                  // Use the useCallback version of the handler
                   onChange={handleSearchChange}
-                  className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-md focus:border-google-blue focus:ring-1 focus:ring-google-blue focus:outline-none text-sm placeholder-google-text-secondary" // Re-added focus:ring-1 and focus:ring-google-blue, added focus:outline-none
+                  className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-md focus:border-google-blue focus:ring-1 focus:ring-google-blue focus:outline-none text-sm placeholder-google-text-secondary"
                 />
                 {filters.searchTerm && (
                   <button
-                    onClick={() => setFilters(prev => ({ ...prev, searchTerm: '' }))}
+                    // Use the useCallback version of the handler
+                    onClick={() => setFilters(prev => ({ ...prev, searchTerm: '' }))} // Direct state update is fine here
                     className="absolute right-3 top-1/2 transform -translate-y-1/2 text-google-text-secondary hover:text-google-text"
                     aria-label="Clear search"
                   >
@@ -415,8 +477,8 @@ export default function Home() {
                   </button>
                 )}
               </div>
-              {/* --- END: Add relative container and clear button --- */}
               <button
+                // Use the useCallback version of the handler
                 onClick={toggleFilterDrawer}
                 className="lg:hidden px-4 py-2 rounded border border-gray-300 text-google-text text-sm font-medium hover:bg-gray-50 transition-colors flex items-center whitespace-nowrap"
               >
@@ -426,61 +488,63 @@ export default function Home() {
 
             {/* Active Filter Badges */}
             <div className="mb-4 flex flex-wrap gap-2 items-center">
-              {/* --- Swapped Order: Countries first --- */}
-              {filters.countries.map(value => {
+              {/* Sort countries alphabetically before mapping */}
+              {[...filters.countries].sort((a, b) => a.localeCompare(b)).map(value => {
                 const countryOption = countryOptions.find(opt => opt.value === value);
-                // --- START: Added flag rendering ---
                 const label = countryOption?.label || value;
                 const code = countryOption?.code;
                 return (
-                  <span key={`sel-ctry-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
+                  <span key={`sel-ctry-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
                     {label}
-                    {code && <CountryFlag countryCode={code} svg style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />} {/* Added flag */}
+                    {code && <CountryFlag countryCode={code} svg style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />}
                     <button
+                      // Use the useCallback version of the handler
                       onClick={() => handleCheckboxChange('countries', value, false)}
-                      className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${label}`}> {/* Use label in aria-label */}
-                      <FaTimes size="0.9em" /> {/* Increased size */}
+                      className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${label}`}>
+                      <FaTimes size="0.9em" />
                     </button>
                   </span>
                 );
-                // --- END: Added flag rendering ---
               })}
-              {/* --- Data Types second --- */}
-              {filters.dataTypes.map(value => (
-                <span key={`sel-dt-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
+              {/* Sort data types alphabetically before mapping */}
+              {[...filters.dataTypes].sort((a, b) => a.localeCompare(b)).map(value => (
+                <span key={`sel-dt-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
                   {value}
                   <button
+                    // Use the useCallback version of the handler
                     onClick={() => handleCheckboxChange('dataTypes', value, false)}
                     className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${value}`}>
-                    <FaTimes size="0.9em" /> {/* Increased size */}
+                    <FaTimes size="0.9em" />
                   </button>
                 </span>
               ))}
-              {/* --- Compensation Types third --- */}
-              {filters.compensationTypes.map(option => (
-                <span key={`sel-pay-${option.value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
-                  {option.emoji} {option.label}
-                  <button
-                    onClick={() => handlePaymentCheckboxChange(option, false)}
-                    className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${option.label}`}>
-                    <FaTimes size="0.9em" /> {/* Increased size */}
-                  </button>
-                </span>
+              {/* Sort compensation types by PAYMENT_TYPES order before mapping */}
+              {[...filters.compensationTypes]
+                .sort((a, b) => PAYMENT_TYPES.map(p => p.value).indexOf(a.value) - PAYMENT_TYPES.map(p => p.value).indexOf(b.value))
+                .map(option => (
+                  <span key={`sel-pay-${option.value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
+                    {option.emoji} {option.label}
+                    <button
+                      // Use the useCallback version of the handler
+                      onClick={() => handlePaymentCheckboxChange(option, false)}
+                      className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${option.label}`}>
+                      <FaTimes size="0.9em" />
+                    </button>
+                  </span>
               ))}
             </div>
 
-            {/* Resource Grid */}
             <ResourceGrid
-              resources={processedResources} // Pass the filtered resources
+              resources={processedResources}
               filters={filters}
+              // Pass useCallback versions of handlers
               onFilterChange={handleCheckboxChange}
               onPaymentFilterChange={handlePaymentCheckboxChange}
               compensationTypesOptions={PAYMENT_TYPES}
               citationMap={citationMap}
             />
 
-            {/* === START: Mobile Buttons Moved Here === */}
-            <div className="mt-8 flex flex-col items-center gap-2 w-full max-w-xs mx-auto lg:hidden"> {/* Hide on large screens */}
+            <div className="mt-8 flex flex-col items-center gap-2 w-full max-w-xs mx-auto lg:hidden">
               <button
                 onClick={() => window.open('https://github.com/yourselftoscience/yourselftoscience.org/issues/new?template=suggest-a-service.md', '_blank')}
                 className="w-full px-4 py-2 rounded bg-google-blue text-white text-sm font-medium hover:opacity-90 transition-opacity"
@@ -494,9 +558,7 @@ export default function Home() {
                 Download Dataset
               </button>
             </div>
-            {/* === END: Mobile Buttons Moved Here === */}
 
-            {/* References Section */}
             {uniqueCitations && uniqueCitations.length > 0 && (
               <section id="references" className="w-full max-w-screen-xl mx-auto px-4 py-8 border-t mt-8">
                 <h2 className="text-xl font-semibold mb-4 text-google-text">References</h2>
@@ -529,82 +591,87 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              // Use the useCallback version of the handler
               onClick={toggleFilterDrawer}
               className="fixed inset-0 bg-black bg-opacity-30 z-40 lg:hidden"
             />
             <motion.div
-              initial={{ x: '100%' }} // Changed from -100%
+              initial={{ x: '100%' }}
               animate={{ x: 0 }}
-              exit={{ x: '100%' }} // Changed from -100%
+              exit={{ x: '100%' }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed top-0 right-0 bottom-0 w-3/4 max-w-[280px] bg-white z-50 shadow-lg overflow-y-auto flex flex-col lg:hidden rounded-l-lg" // Changed left-0 to right-0 and rounded-r-lg to rounded-l-lg
+              className="fixed top-0 right-0 bottom-0 w-3/4 max-w-[280px] bg-white z-50 shadow-lg overflow-y-auto flex flex-col lg:hidden rounded-l-lg"
             >
-              <div className="flex justify-between items-center p-3 border-b border-gray-200 sticky top-0 bg-white rounded-tl-lg"> {/* Changed rounded-tr-lg to rounded-tl-lg */}
+              <div className="flex justify-between items-center p-3 border-b border-gray-200 sticky top-0 bg-white rounded-tl-lg">
                 <h2 className="text-sm font-medium uppercase text-google-text-secondary">Filter By</h2>
-                <button onClick={toggleFilterDrawer} className="text-google-text-secondary hover:text-google-text p-1">
+                <button
+                  // Use the useCallback version of the handler
+                  onClick={toggleFilterDrawer} className="text-google-text-secondary hover:text-google-text p-1">
                   <FaTimes size="1.2em" />
                 </button>
               </div>
 
-              {/* Conditionally render active filters container */}
               {(filters.countries.length > 0 || filters.dataTypes.length > 0 || filters.compensationTypes.length > 0) && (
                 <div className="p-3 border-b border-gray-200 flex flex-wrap gap-1.5">
-                  {/* --- Swapped Order: Countries first --- */}
-                  {filters.countries.map(value => {
-                    const countryOption = countryOptions.find(opt => opt.value === value);
-                    // --- START: Added flag rendering ---
-                    const label = countryOption?.label || value;
-                    const code = countryOption?.code;
-                    return (
-                      <span key={`sel-ctry-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
-                        {label}
-                        {code && <CountryFlag countryCode={code} svg style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />} {/* Added flag */}
-                        <button
-                          onClick={() => handleCheckboxChange('countries', value, false)}
-                          className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${label}`}> {/* Use label in aria-label */}
-                          <FaTimes size="0.9em" /> {/* Increased size */}
-                        </button>
-                      </span>
-                    );
-                    // --- END: Added flag rendering ---
+                  {/* Sort countries alphabetically before mapping */}
+                  {[...filters.countries].sort((a, b) => a.localeCompare(b)).map(value => {
+                     const countryOption = countryOptions.find(opt => opt.value === value);
+                     const label = countryOption?.label || value;
+                     const code = countryOption?.code;
+                     return (
+                       <span key={`sel-ctry-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
+                         {label}
+                         {code && <CountryFlag countryCode={code} svg style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />}
+                         <button
+                           onClick={() => handleCheckboxChange('countries', value, false)}
+                           className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${label}`}>
+                           <FaTimes size="0.9em" />
+                         </button>
+                       </span>
+                     );
                   })}
-                  {/* --- Data Types second --- */}
-                  {filters.dataTypes.map(value => (
-                    <span key={`sel-dt-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
+                  {/* Sort data types alphabetically before mapping */}
+                  {[...filters.dataTypes].sort((a, b) => a.localeCompare(b)).map(value => (
+                    <span key={`sel-dt-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
                       {value}
                       <button
                         onClick={() => handleCheckboxChange('dataTypes', value, false)}
                         className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${value}`}>
-                        <FaTimes size="0.9em" /> {/* Increased size */}
+                        <FaTimes size="0.9em" />
                       </button>
                     </span>
                   ))}
-                  {/* --- Compensation Types third --- */}
-                  {filters.compensationTypes.map(option => (
-                    <span key={`sel-pay-${option.value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
-                      {option.emoji} {option.label}
-                      <button
-                        onClick={() => handlePaymentCheckboxChange(option, false)}
-                        className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${option.label}`}>
-                        <FaTimes size="0.9em" /> {/* Increased size */}
-                      </button>
-                    </span>
+                  {/* Sort compensation types by PAYMENT_TYPES order before mapping */}
+                  {[...filters.compensationTypes]
+                    .sort((a, b) => PAYMENT_TYPES.map(p => p.value).indexOf(a.value) - PAYMENT_TYPES.map(p => p.value).indexOf(b.value))
+                    .map(option => (
+                      <span key={`sel-pay-${option.value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
+                        {option.emoji} {option.label}
+                        <button
+                          onClick={() => handlePaymentCheckboxChange(option, false)}
+                          className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${option.label}`}>
+                          <FaTimes size="0.9em" />
+                        </button>
+                      </span>
                   ))}
                 </div>
               )}
 
               <div className="flex-grow overflow-y-auto p-3">
+                {/* Render filter content using useCallback handlers */}
                 {renderFilterContent()}
               </div>
 
-              <div className="p-3 border-t border-gray-200 flex justify-end gap-2 sticky bottom-0 bg-white rounded-bl-lg"> {/* Changed rounded-br-lg to rounded-bl-lg */}
+              <div className="p-3 border-t border-gray-200 flex justify-end gap-2 sticky bottom-0 bg-white rounded-bl-lg">
                 <button
+                  // Use the useCallback version of the handler
                   onClick={handleResetFilters}
                   className="px-4 py-2 rounded border border-gray-300 text-google-text text-sm font-medium hover:bg-gray-50 transition-colors"
                 >
                   Reset
                 </button>
                 <button
+                  // Use the useCallback version of the handler
                   onClick={toggleFilterDrawer}
                   className="px-4 py-2 rounded bg-google-blue text-white text-sm font-medium hover:opacity-90 transition-opacity"
                 >
