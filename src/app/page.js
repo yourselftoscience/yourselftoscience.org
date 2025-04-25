@@ -2,7 +2,7 @@
 
 'use client';
 
-import React, { useState, useEffect, useMemo, useCallback } from 'react'; // Import useCallback
+import React, { useState, useEffect, useMemo, useCallback, Suspense } from 'react'; // Import Suspense and useCallback
 import { motion, AnimatePresence, useScroll } from 'framer-motion';
 import Footer from '@/components/Footer';
 import { resources as allResources, PAYMENT_TYPES, citationMap, uniqueCitations } from '@/data/resources';
@@ -62,6 +62,17 @@ function expandCountries(chosen) {
 
 // --- Main Page Component ---
 export default function Home() {
+  // Wrap the component that uses useSearchParams in Suspense
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <HomePageContent />
+    </Suspense>
+  );
+}
+
+
+// Create a new component for the actual page content
+function HomePageContent() {
   // --- START: Use Next.js navigation hooks ---
   const router = useRouter();
   const pathname = usePathname();
@@ -95,7 +106,7 @@ export default function Home() {
     };
     setFilters(initialFilters);
     setIsMounted(true); // Mark as mounted after initial state is set
-  }, []); // Empty dependency array ensures this runs only once on mount
+  }, [searchParams]); // Add searchParams to dependency array
   // --- END: Effect to initialize state from URL on mount ---
 
   // --- START: Effect to update URL when filters change ---
@@ -310,7 +321,12 @@ export default function Home() {
           const label = typeof option === 'string' ? option : option.label;
           const code = typeof option === 'object' ? option.code : null;
           // Check if the current value is included in the selected values for this filter key
-          const isChecked = selectedValues.includes(value);
+          // For countries, check against the 'value' property
+          const isChecked = filterKey === 'countries'
+            ? selectedValues.includes(value)
+            : (filterKey === 'compensationTypes'
+                ? selectedValues.some(p => p.value === value) // Check against value for compensation
+                : selectedValues.includes(value)); // Default check for dataTypes
 
           return (
             <div key={value} className="flex items-center mb-2">
@@ -320,7 +336,17 @@ export default function Home() {
                 value={value}
                 checked={isChecked}
                 // Use the useCallback version of the handler
-                onChange={(e) => handleCheckboxChange(filterKey, value, e.target.checked)}
+                onChange={(e) => {
+                  if (filterKey === 'compensationTypes') {
+                    // Find the full option object to pass
+                    const paymentOption = PAYMENT_TYPES.find(p => p.value === value);
+                    if (paymentOption) {
+                      handlePaymentCheckboxChange(paymentOption, e.target.checked);
+                    }
+                  } else {
+                    handleCheckboxChange(filterKey, value, e.target.checked);
+                  }
+                }}
                 className="mr-2 h-4 w-4 text-google-blue border-gray-400 rounded focus:ring-google-blue focus:ring-offset-0 focus:ring-1"
               />
               <label htmlFor={`${filterKey}-${value}-mobile`} className="text-base font-normal text-google-text-secondary flex items-center cursor-pointer">
@@ -410,12 +436,15 @@ export default function Home() {
   }
 
   // --- START: Prevent rendering until mounted to avoid hydration mismatch ---
+  // This check might be less critical now with Suspense, but keep for safety
   if (!isMounted) {
     // Render nothing or a basic loading state on the server and during initial client render
+    // Suspense fallback will handle the initial loading state visually
     return null;
   }
   // --- END: Prevent rendering until mounted ---
 
+  // Return the actual JSX content
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header scrollY={scrollY} />
