@@ -4,7 +4,7 @@ const rawResources = [
     title: 'Open Humans',
     link: 'https://www.openhumans.org/add-data/',
     dataTypes: ['Genome', 'Health data', 'Fitbit data'],
-    paymentType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
     citations: [
       {
         title:
@@ -17,13 +17,13 @@ const rawResources = [
     title: 'MyPHD',
     link: 'https://myphd.stanford.edu/studies/',
     dataTypes: ['Health data', 'Fitbit data'],
-    paymentType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
     title: 'Google Health Studies',
     link: 'https://health.google/consumers/health-studies/',
     dataTypes: ['Health data'],
-    paymentType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
     title: 'Apple Research',
@@ -31,7 +31,7 @@ const rawResources = [
     dataTypes: ['Health data'],
     countries: ['United States'],
     countryCodes: ['US'],
-    paymentType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
     title: 'All of US',
@@ -39,7 +39,7 @@ const rawResources = [
     dataTypes: ['Genome', 'Health data'],
     countries: ['United States'],
     countryCodes: ['US'],
-    paymentType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
     title: 'Health research and product development (Fitbit)',
@@ -50,7 +50,7 @@ const rawResources = [
       'Tap Data shared for research and development',
     ],
     dataTypes: ['Fitbit data'],
-    paymentType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
     title: 'SPARK for Autism',
@@ -58,7 +58,7 @@ const rawResources = [
     dataTypes: ['Genome', 'Health data'],
     countries: ['United States'],
     countryCodes: ['US'],
-    paymentType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
     title: 'Body Donation – Faculty of Medicine at the University of British Columbia',
@@ -66,7 +66,7 @@ const rawResources = [
     dataTypes: ['Body'],
     countries: ['Canada'],
     countryCodes: ['CA'],
-    paymentType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
     title: 'Body Donation – Department of Anatomy at the University Of Cambridge, Tissue Donation – Cambridge Biomedical Research Centre',
@@ -74,7 +74,7 @@ const rawResources = [
     dataTypes: ['Body', 'Tissue'],
     countries: ['United Kingdom'],
     countryCodes: ['GB'],
-    paymentType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
     title: 'Body & Tissues Donation – Ministero della Salute',
@@ -82,7 +82,7 @@ const rawResources = [
     dataTypes: ['Body', 'Tissue'],
     countries: ['Italy'],
     countryCodes: ['IT'],
-    paymentType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
     title: 'Eggs, Sperm and Embryos Donation to Research – Human Fertilisation and Embryology Authority',
@@ -90,19 +90,19 @@ const rawResources = [
     dataTypes: ['Eggs', 'Embryos', 'Sperm'],
     countries: ['United Kingdom'],
     countryCodes: ['GB'],
-    paymentType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
     title: 'ClinicalTrials.org',
     link: 'https://clinicaltrials.gov/',
     dataTypes: ['Clinical trials'],
-    paymentType: 'mixed', // Changed from donation to mixed
+    compensationType: 'mixed', // Changed from donation to mixed
   },
   {
     title: 'International Clinical Trials Registry Platform (ICTRP)',
     link: 'https://trialsearch.who.int/',
     dataTypes: ['Clinical trials'],
-    paymentType: 'mixed', // Changed from donation to mixed
+    compensationType: 'mixed', // Changed from donation to mixed
   },
   {
     title: 'ClinicalTrials.eu',
@@ -110,7 +110,7 @@ const rawResources = [
     dataTypes: ['Clinical trials'],
     countries: ['European Union'],
     countryCodes: ['EU'],
-    paymentType: 'mixed', // Changed from donation to mixed
+    compensationType: 'mixed', // Changed from donation to mixed
   },
   {
     title: 'Essais Cliniques',
@@ -118,7 +118,7 @@ const rawResources = [
     dataTypes: ['Clinical trials'],
     countries: ['France'],
     countryCodes: ['FR'],
-    paymentType: 'mixed', // Changed from donation to mixed
+    compensationType: 'mixed', // Changed from donation to mixed
   },
   {
     title: 'Studi Clinici',
@@ -126,7 +126,7 @@ const rawResources = [
     dataTypes: ['Clinical trials'],
     countries: ['Italy'],
     countryCodes: ['IT'],
-    paymentType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
     title: 'Klinische Studien',
@@ -134,7 +134,7 @@ const rawResources = [
     dataTypes: ['Clinical trials'],
     countries: ['Germany'],
     countryCodes: ['DE'],
-    paymentType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
     title: 'Ensayos Clinicos',
@@ -142,7 +142,7 @@ const rawResources = [
     dataTypes: ['Clinical trials'],
     countries: ['Spain'],
     countryCodes: ['ES'],
-    paymentType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
     title: 'Klinische Studien',
@@ -150,7 +150,7 @@ const rawResources = [
     dataTypes: ['Clinical trials'],
     countries: ['Austria'],
     countryCodes: ['AT'],
-    paymentType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
     title: 'Badania Kliniczne',
@@ -158,7 +158,7 @@ const rawResources = [
     dataTypes: ['Clinical trials'],
     countries: ['Poland'],
     countryCodes: ['PL'],
-    paymentType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
     title: 'Studii Clinice',
@@ -166,7 +166,7 @@ const rawResources = [
     dataTypes: ['Clinical trials'],
     countries: ['Romania'],
     countryCodes: ['RO'],
-    paymentType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
     title: 'ResearchMatch',
@@ -174,7 +174,7 @@ const rawResources = [
     dataTypes: ['Clinical trials'],
     countries: ['United States'],
     countryCodes: ['US'],
-    paymentType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
     title: 'FluCamp',
@@ -182,7 +182,7 @@ const rawResources = [
     dataTypes: ['Clinical trials'],
     countries: ['United Kingdom'],
     countryCodes: ['GB'],
-    paymentType: 'payment', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'payment', // Add this line - values can be 'donation', 'payment', or 'mixed'
     citations: [
       {
         title:
@@ -197,7 +197,7 @@ const rawResources = [
     dataTypes: ['Clinical trials'],
     countries: ['United States'],
     countryCodes: ['US'],
-    paymentType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
     title: 'GoodNature Program',
@@ -205,7 +205,7 @@ const rawResources = [
     dataTypes: ['Stool'],
     countries: ['United States'],
     countryCodes: ['US'],
-    paymentType: 'payment', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'payment', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
     title: 'Microbiome - Australian Red Cross Lifeblood',
@@ -213,7 +213,7 @@ const rawResources = [
     dataTypes: ['Stool'],
     countries: ['Australia'],
     countryCodes: ['AU'],
-    paymentType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
     title: 'Stool Donation - Wesley Research Institute',
@@ -221,7 +221,7 @@ const rawResources = [
     dataTypes: ['Stool'],
     countries: ['Australia'],
     countryCodes: ['AU'],
-    paymentType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
     title: 'Placenta Donation - Wesley Research Institute',
@@ -229,7 +229,7 @@ const rawResources = [
     dataTypes: ['Placenta'],
     countries: ['Australia'],
     countryCodes: ['AU'],
-    paymentType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
     title: 'Human Hair Decomposition - Department of Human Biology, University of Wrocław',
@@ -237,7 +237,7 @@ const rawResources = [
     dataTypes: ['Hair'],
     countries: ['Poland'],
     countryCodes: ['PL'],
-    paymentType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
     citations: [
       {
         title: 'Palacz, K., Cholewa, M., Bonar, M., Krzyżanowska, M., & Kadej, M. (2023). The rate and quality of post-mortem hair root changes in relation to melanin content. Forensic Science International, 350, 111784.',

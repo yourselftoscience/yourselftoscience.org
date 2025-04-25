@@ -11,8 +11,8 @@ import { Popover, Transition } from '@headlessui/react'; // Import Popover
 import { Fragment } from 'react'; // Import Fragment for Transition
 
 // Helper to get payment emoji/icon
-const getPaymentInfo = (paymentType) => {
-  const type = paymentType || 'donation';
+const getPaymentInfo = (compensationType) => {
+  const type = compensationType || 'donation';
   switch(type) {
     case 'donation': return { emoji: '❤️', label: 'Donation', value: 'donation' };
     case 'payment': return { emoji: '💵', label: 'Payment', value: 'payment' };
@@ -54,8 +54,8 @@ function TagButton({ label, filterKey, value, isActive, onClick, children }) {
   const inactiveClasses = "bg-gray-200 text-google-text-secondary hover:bg-gray-300";
 
   const handleClick = () => {
-    // Special handling for payment types as its state is structured differently
-    if (filterKey === 'paymentTypes') {
+    // Special handling for Compensation Types as its state is structured differently
+    if (filterKey === 'compensationTypes') {
       // Pass the option object and the new checked state
       onClick(value, !isActive);
     } else {
@@ -81,7 +81,7 @@ export default function ResourceGrid({
   filters,
   onFilterChange,
   onPaymentFilterChange,
-  paymentTypesOptions,
+  compensationTypesOptions,
   citationMap // Accept citationMap again
 }) {
 
@@ -93,8 +93,8 @@ export default function ResourceGrid({
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {resources.length > 0 ? (
         resources.map((resource) => {
-          const paymentInfo = getPaymentInfo(resource.paymentType);
-          const paymentOption = paymentTypesOptions?.find(p => p.value === paymentInfo.value);
+          const paymentInfo = getPaymentInfo(resource.compensationType);
+          const paymentOption = compensationTypesOptions?.find(p => p.value === paymentInfo.value);
           const hasCitations = resource.citations && resource.citations.length > 0;
 
           const hasInstructionsOnly = resource.instructions && !resource.link;
@@ -109,9 +109,9 @@ export default function ResourceGrid({
                    {paymentOption && (
                       <TagButton
                         label={paymentInfo.label}
-                        filterKey="paymentTypes"
+                        filterKey="compensationTypes"
                         value={paymentOption}
-                        isActive={filters.paymentTypes.some(p => p.value === paymentInfo.value)}
+                        isActive={filters.compensationTypes.some(p => p.value === paymentInfo.value)}
                         onClick={onPaymentFilterChange}
                       >
                          <span title={paymentInfo.label} className="text-lg flex-shrink-0">{paymentInfo.emoji}</span>
@@ -156,7 +156,7 @@ export default function ResourceGrid({
                     {type}
                   </TagButton>
                 ))}
-                {/* --- Payment type is rendered in the header --- */}
+                {/* --- Compensation Type is rendered in the header --- */}
               </div>
 
               {/* Footer container */}

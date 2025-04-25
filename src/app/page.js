@@ -58,7 +58,7 @@ export default function Home() {
   const [filters, setFilters] = useState({
     dataTypes: [],
     countries: [],
-    paymentTypes: [],
+    compensationTypes: [],
     searchTerm: '',
   });
   const [showMoreDataTypes, setShowMoreDataTypes] = useState(false);
@@ -110,7 +110,7 @@ export default function Home() {
         const descriptionMatch = resource.description && resource.description.toLowerCase().includes(lowerSearchTerm);
         const dataTypeMatch = resource.dataTypes && resource.dataTypes.some(dt => dt.toLowerCase().includes(lowerSearchTerm));
         const countryMatch = resource.countries && resource.countries.some(c => c.toLowerCase().includes(lowerSearchTerm));
-        const paymentTypeMatch = resource.paymentType && resource.paymentType.toLowerCase().includes(lowerSearchTerm);
+        const compensationTypeMatch = resource.compensationType && resource.compensationType.toLowerCase().includes(lowerSearchTerm);
         const citationMatch = resource.citations && resource.citations.some(cit =>
           (cit.title && cit.title.toLowerCase().includes(lowerSearchTerm)) ||
           (cit.link && cit.link.toLowerCase().includes(lowerSearchTerm))
@@ -121,7 +121,7 @@ export default function Home() {
         // --- End Add ---
 
         // Combine all matches
-        return titleMatch || descriptionMatch || dataTypeMatch || countryMatch || paymentTypeMatch || citationMatch || linkMatch || instructionMatch;
+        return titleMatch || descriptionMatch || dataTypeMatch || countryMatch || compensationTypeMatch || citationMatch || linkMatch || instructionMatch;
       });
     }
 
@@ -139,10 +139,10 @@ export default function Home() {
       );
     }
 
-    const paymentValues = filters.paymentTypes.map(p => p.value);
+    const paymentValues = filters.compensationTypes.map(p => p.value);
     if (paymentValues.length > 0) {
       filteredData = filteredData.filter(resource =>
-        resource.paymentType && paymentValues.includes(resource.paymentType)
+        resource.compensationType && paymentValues.includes(resource.compensationType)
       );
     }
 
@@ -166,7 +166,7 @@ export default function Home() {
 
   const handlePaymentCheckboxChange = (option, isChecked) => {
     setFilters(prev => {
-      const currentPayments = prev.paymentTypes;
+      const currentPayments = prev.compensationTypes;
       let newPayments;
       if (isChecked) {
         newPayments = currentPayments.some(p => p.value === option.value)
@@ -175,7 +175,7 @@ export default function Home() {
       } else {
         newPayments = currentPayments.filter(p => p.value !== option.value);
       }
-      return { ...prev, paymentTypes: newPayments };
+      return { ...prev, compensationTypes: newPayments };
     });
   };
 
@@ -198,7 +198,7 @@ export default function Home() {
     setFilters({
       dataTypes: [],
       countries: [],
-      paymentTypes: [],
+      compensationTypes: [],
       searchTerm: filters.searchTerm, // Keep search term or clear it too? Decide here.
     });
     // Optionally close drawer after reset
@@ -292,11 +292,11 @@ export default function Home() {
 
         {/* Select/Clear All Button - Keep font-medium and blue color */}
         <button
-          onClick={() => handleSelectAll('paymentTypes', PAYMENT_TYPES, filters.paymentTypes.length !== PAYMENT_TYPES.length)}
+          onClick={() => handleSelectAll('compensationTypes', PAYMENT_TYPES, filters.compensationTypes.length !== PAYMENT_TYPES.length)}
           className="text-sm font-medium text-google-blue hover:underline mb-2 block"
-          aria-label={filters.paymentTypes.length === PAYMENT_TYPES.length ? `Clear all Compensation` : `Select all Compensation`}
+          aria-label={filters.compensationTypes.length === PAYMENT_TYPES.length ? `Clear all Compensation` : `Select all Compensation`}
         >
-          {filters.paymentTypes.length === PAYMENT_TYPES.length ? 'Clear all' : 'Select all'}
+          {filters.compensationTypes.length === PAYMENT_TYPES.length ? 'Clear all' : 'Select all'}
         </button>
 
         {/* Checkboxes */}
@@ -306,7 +306,7 @@ export default function Home() {
               type="checkbox"
               id={`payment-${option.value}-mobile`}
               value={option.value}
-              checked={filters.paymentTypes.some(p => p.value === option.value)}
+              checked={filters.compensationTypes.some(p => p.value === option.value)}
               onChange={(e) => handlePaymentCheckboxChange(option, e.target.checked)}
               className="mr-2 h-4 w-4 text-google-blue border-gray-400 rounded focus:ring-google-blue focus:ring-offset-0 focus:ring-1"
             />
@@ -321,7 +321,7 @@ export default function Home() {
   );
 
   function handleDownloadCSV() {
-    const headers = ['Title', 'Link', 'Data Types', 'Countries', 'Country Codes', 'Instructions', 'Payment Type', 'Description', 'Citations'];
+    const headers = ['Title', 'Link', 'Data Types', 'Countries', 'Country Codes', 'Instructions', 'Compensation Type', 'Description', 'Citations'];
     let csvContent = 'data:text/csv;charset=utf-8,' + headers.map(h => `"${h}"`).join(',') + '\n';
 
     processedResources.forEach((resource) => {
@@ -332,7 +332,7 @@ export default function Home() {
         resource.countries?.join('; ') || '',
         resource.countryCodes?.join('; ') || '',
         resource.instructions?.join('; ') || '',
-        resource.paymentType || '',
+        resource.compensationType || '',
         resource.description || '',
         resource.citations?.map(c => `${c.title} (${c.link})`).join('; ') || ''
       ];
@@ -453,8 +453,8 @@ export default function Home() {
                   </button>
                 </span>
               ))}
-              {/* --- Payment Types third --- */}
-              {filters.paymentTypes.map(option => (
+              {/* --- Compensation Types third --- */}
+              {filters.compensationTypes.map(option => (
                 <span key={`sel-pay-${option.value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
                   {option.emoji} {option.label}
                   <button
@@ -472,7 +472,7 @@ export default function Home() {
               filters={filters}
               onFilterChange={handleCheckboxChange}
               onPaymentFilterChange={handlePaymentCheckboxChange}
-              paymentTypesOptions={PAYMENT_TYPES}
+              compensationTypesOptions={PAYMENT_TYPES}
               citationMap={citationMap}
             />
 
@@ -544,7 +544,7 @@ export default function Home() {
               </div>
 
               {/* Conditionally render active filters container */}
-              {(filters.countries.length > 0 || filters.dataTypes.length > 0 || filters.paymentTypes.length > 0) && (
+              {(filters.countries.length > 0 || filters.dataTypes.length > 0 || filters.compensationTypes.length > 0) && (
                 <div className="p-3 border-b border-gray-200 flex flex-wrap gap-1.5">
                   {/* --- Swapped Order: Countries first --- */}
                   {filters.countries.map(value => {
@@ -576,8 +576,8 @@ export default function Home() {
                       </button>
                     </span>
                   ))}
-                  {/* --- Payment Types third --- */}
-                  {filters.paymentTypes.map(option => (
+                  {/* --- Compensation Types third --- */}
+                  {filters.compensationTypes.map(option => (
                     <span key={`sel-pay-${option.value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full"> {/* Increased size: text-sm, py-1 */}
                       {option.emoji} {option.label}
                       <button
