@@ -283,18 +283,35 @@ function HomePageContent() {
 
   const handlePaymentCheckboxChange = useCallback((option, isChecked) => {
     setFilters(prev => {
-      const currentPayments = prev.compensationTypes;
-      let newPayments;
+      const currentPaymentValues = new Set(prev.compensationTypes.map(p => p.value));
+      let newPaymentValues = new Set(currentPaymentValues);
+
       if (isChecked) {
-        // Add the option object if it's not already present
-        newPayments = currentPayments.some(p => p.value === option.value)
-          ? currentPayments
-          : [...currentPayments, option];
+        // Add the primary type clicked
+        newPaymentValues.add(option.value);
+        // If Donation or Payment was added, also add Mixed
+        if (option.value === 'donation' || option.value === 'payment') {
+          newPaymentValues.add('mixed');
+        }
       } else {
-        // Remove the option object based on its value
-        newPayments = currentPayments.filter(p => p.value !== option.value);
+        // Remove the primary type being deselected
+        newPaymentValues.delete(option.value);
+
+        // If Donation was removed, check if Payment is still selected. If not, remove Mixed.
+        if (option.value === 'donation' && !newPaymentValues.has('payment')) {
+          newPaymentValues.delete('mixed');
+        }
+        // If Payment was removed, check if Donation is still selected. If not, remove Mixed.
+        else if (option.value === 'payment' && !newPaymentValues.has('donation')) {
+          newPaymentValues.delete('mixed');
+        }
+        // If Mixed was deselected directly, it's handled by the initial delete.
       }
-      return { ...prev, compensationTypes: newPayments };
+
+      // Convert the final set of values back to the array of objects
+      const newPaymentsArray = PAYMENT_TYPES.filter(p => newPaymentValues.has(p.value));
+
+      return { ...prev, compensationTypes: newPaymentsArray };
     });
   }, []); // Empty dependency array
 

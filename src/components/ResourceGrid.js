@@ -2,7 +2,7 @@
 // This component now ONLY displays the resources passed to it.
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react'; // Import useState
 import Link from 'next/link';
 import CountryFlag from 'react-country-flag';
 // Import instruction icons
@@ -47,23 +47,108 @@ const getStepIcon = (step) => {
 };
 // --- End Moved Helper ---
 
-// New TagButton component for reusability
-function TagButton({ label, filterKey, value, isActive, onClick, children }) {
-  const baseClasses = "tag flex items-center cursor-pointer transition-colors duration-150 ease-in-out px-2.5 py-1 rounded-full text-sm font-medium"; // Removed mr-1 mb-1
+// TagButton now needs access to the main filters state and compensation options
+function TagButton({
+  label,
+  filterKey,
+  value, // For compensation, this is the option object; for others, it's the string value
+  onClick, // This is either onPaymentFilterChange or onFilterChange
+  // Props passed down from ResourceGrid:
+  filters,
+  compensationTypesOptions,
+  children // <-- Add children to props destructuring
+}) {
+  const baseClasses = "tag flex items-center cursor-pointer transition-colors duration-150 ease-in-out px-2.5 py-1 rounded-full text-sm font-medium";
   const activeClasses = "bg-blue-100 text-blue-700 hover:bg-blue-200";
   const inactiveClasses = "bg-gray-200 text-google-text-secondary hover:bg-gray-300";
 
-  const handleClick = () => {
-    // Special handling for Compensation Types as its state is structured differently
+  // --- START: Hover state for mixed button emojis ---
+  // Remove TypeScript type annotation from useState
+  const [hoveringEmoji, setHoveringEmoji] = useState(null);
+  // --- END: Hover state ---
+
+  // Determine isActive based on filterKey
+  let isActive;
+  if (filterKey === 'compensationTypes') {
+    isActive = filters.compensationTypes.some(p => p.value === value.value);
+  } else if (filterKey === 'countries') {
+    const isEU = value === 'European Union';
+    isActive = filters.countries.includes(value) || (isEU && filters.countries.some(c => EU_COUNTRIES.includes(c)));
+  } else { // dataTypes
+    isActive = filters.dataTypes.includes(value);
+  }
+
+  const donationOption = filterKey === 'compensationTypes' ? compensationTypesOptions.find(o => o.value === 'donation') : null;
+  const paymentOption = filterKey === 'compensationTypes' ? compensationTypesOptions.find(o => o.value === 'payment') : null;
+
+  const handleClick = (e, specificOption = null) => {
+    e.stopPropagation();
+    const targetOption = specificOption || value;
+    let shouldBeActive;
     if (filterKey === 'compensationTypes') {
-      // Pass the option object and the new checked state
-      onClick(value, !isActive);
+      let currentPartIsActive;
+      if (specificOption?.value === 'donation') {
+        currentPartIsActive = filters.compensationTypes.some(p => p.value === 'donation');
+      } else if (specificOption?.value === 'payment') {
+        currentPartIsActive = filters.compensationTypes.some(p => p.value === 'payment');
+      } else {
+        currentPartIsActive = filters.compensationTypes.some(p => p.value === targetOption.value);
+      }
+      shouldBeActive = !currentPartIsActive;
+      onClick(targetOption, shouldBeActive);
     } else {
-      // Standard handling for dataTypes and countries
-      onClick(filterKey, value, !isActive);
+      const currentPartIsActive = filters[filterKey].includes(targetOption);
+      shouldBeActive = !currentPartIsActive;
+      onClick(filterKey, targetOption, shouldBeActive);
     }
   };
 
+  // Special rendering for Mixed compensation type
+  if (filterKey === 'compensationTypes' && value.value === 'mixed') {
+    const isDonationActive = filters.compensationTypes.some(p => p.value === 'donation');
+    const isPaymentActive = filters.compensationTypes.some(p => p.value === 'payment');
+    const isMixedItselfActive = filters.compensationTypes.some(p => p.value === 'mixed');
+    const noFiltersActive = !isDonationActive && !isPaymentActive;
+
+    // --- START: Dimming logic based on state and hover ---
+    const shouldDimHeart = (isPaymentActive && !isDonationActive) || (noFiltersActive && hoveringEmoji === 'dollar');
+    const shouldDimDollar = (isDonationActive && !isPaymentActive) || (noFiltersActive && hoveringEmoji === 'heart');
+    // --- END: Dimming logic ---
+
+    return (
+      <div
+        className={`${baseClasses} ${isMixedItselfActive ? activeClasses : inactiveClasses} items-center`}
+        aria-label={`Filter by ${label}`}
+      >
+        <span
+          onClick={(e) => handleClick(e, donationOption)}
+          onMouseEnter={() => setHoveringEmoji('heart')}
+          onMouseLeave={() => setHoveringEmoji(null)}
+          // Apply dimming based on the new logic
+          className={`cursor-pointer text-lg transition-all duration-150 hover:scale-110 ${shouldDimHeart ? 'opacity-50' : 'opacity-100'}`}
+          title={`Filter by Donation ${isDonationActive ? '(active)' : ''}`}
+          role="button"
+          aria-pressed={isDonationActive}
+        >
+          ❤️
+        </span>
+        <span
+          onClick={(e) => handleClick(e, paymentOption)}
+          onMouseEnter={() => setHoveringEmoji('dollar')}
+          onMouseLeave={() => setHoveringEmoji(null)}
+          // Apply dimming based on the new logic
+          className={`cursor-pointer text-lg ml-0.5 transition-all duration-150 hover:scale-110 ${shouldDimDollar ? 'opacity-50' : 'opacity-100'}`}
+          title={`Filter by Payment ${isPaymentActive ? '(active)' : ''}`}
+          role="button"
+          aria-pressed={isPaymentActive}
+        >
+          💵
+        </span>
+      </div>
+    );
+  }
+
+  // Default rendering for other tags or non-mixed compensation
   return (
     <button
       onClick={handleClick}
@@ -71,18 +156,27 @@ function TagButton({ label, filterKey, value, isActive, onClick, children }) {
       aria-pressed={isActive}
       title={`Filter by ${label}`}
     >
-      {children}
+      {/* Render children passed to the component - Ensure single emojis also have text-lg if needed */}
+      {/* Check where the single emoji span is rendered - it's passed as children */}
+      {React.Children.map(children, child => {
+        if (React.isValidElement(child) && child.type === 'span') {
+          // Add text-lg to the span if it's the emoji
+          // This assumes the child structure is consistent
+          return React.cloneElement(child, { className: `${child.props.className || ''} text-lg` });
+        }
+        return child;
+      })}
     </button>
   );
 }
 
 export default function ResourceGrid({
   resources,
-  filters,
+  filters, // Pass filters down
   onFilterChange,
   onPaymentFilterChange,
-  compensationTypesOptions,
-  citationMap // Accept citationMap again
+  compensationTypesOptions, // Pass options down
+  citationMap
 }) {
 
   if (!resources) {
@@ -96,7 +190,6 @@ export default function ResourceGrid({
           const paymentInfo = getPaymentInfo(resource.compensationType);
           const paymentOption = compensationTypesOptions?.find(p => p.value === paymentInfo.value);
           const hasCitations = resource.citations && resource.citations.length > 0;
-
           const hasInstructionsOnly = resource.instructions && !resource.link;
 
           return (
@@ -107,13 +200,11 @@ export default function ResourceGrid({
                    <h3 className="text-base font-medium text-google-text">
                      {resource.title}
                    </h3>
-                   {/* --- START: Update Organization Size --- */}
                    {resource.organization && (
-                     <p className="text-base font-medium text-gray-600 -mt-0.5"> {/* Changed text-sm to text-base */}
+                     <p className="text-base font-medium text-gray-600 -mt-0.5">
                        {resource.organization}
                      </p>
                    )}
-                   {/* --- END: Update Organization Size --- */}
                  </div>
                  {/* Payment Icon Container */}
                  <div className="flex items-center flex-shrink-0">
@@ -122,10 +213,15 @@ export default function ResourceGrid({
                         label={paymentInfo.label}
                         filterKey="compensationTypes"
                         value={paymentOption}
-                        isActive={filters.compensationTypes.some(p => p.value === paymentInfo.value)}
                         onClick={onPaymentFilterChange}
+                        filters={filters}
+                        compensationTypesOptions={compensationTypesOptions}
                       >
-                         <span title={paymentInfo.label} className="text-lg flex-shrink-0">{paymentInfo.emoji}</span>
+                         {/* Pass children ONLY for non-mixed */}
+                         {paymentInfo.value !== 'mixed' && (
+                            // Ensure this span gets text-lg via the logic in TagButton's return
+                            <span title={paymentInfo.label} className="flex-shrink-0">{paymentInfo.emoji}</span>
+                         )}
                       </TagButton>
                    )}
                  </div>
@@ -133,11 +229,10 @@ export default function ResourceGrid({
 
               {/* Tags */}
               <div className="tags flex flex-wrap items-center gap-1 mt-auto pt-2">
-                {/* --- Swapped Order: Countries first --- */}
+                {/* Countries */}
                 {resource.countries?.map((country, idx) => {
                   const code = resource.countryCodes?.[idx];
                   const isEU = country === 'European Union';
-                  // Check if the specific country OR 'European Union' is selected if the resource is EU
                   const isActive = filters.countries.includes(country) || (isEU && filters.countries.some(c => EU_COUNTRIES.includes(c)));
 
                   return (
@@ -145,29 +240,30 @@ export default function ResourceGrid({
                       key={country}
                       label={country}
                       filterKey="countries"
-                      value={country}
-                      isActive={isActive}
+                      value={country} // Pass the string value
                       onClick={onFilterChange}
+                      filters={filters} // Pass filters
+                      compensationTypesOptions={compensationTypesOptions} // Pass for consistency
                     >
                       {country}
                       {code && <CountryFlag countryCode={code} svg style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />}
                     </TagButton>
                   );
                 })}
-                {/* --- Data Types second --- */}
+                {/* Data Types */}
                 {resource.dataTypes?.map((type) => (
                   <TagButton
                     key={type}
                     label={type}
                     filterKey="dataTypes"
-                    value={type}
-                    isActive={filters.dataTypes.includes(type)}
+                    value={type} // Pass the string value
                     onClick={onFilterChange}
+                    filters={filters} // Pass filters
+                    compensationTypesOptions={compensationTypesOptions} // Pass for consistency
                   >
                     {type}
                   </TagButton>
                 ))}
-                {/* --- Compensation Type is rendered in the header --- */}
               </div>
 
               {/* Footer container */}
@@ -188,7 +284,7 @@ export default function ResourceGrid({
                       {({ open }) => (
                         <>
                           <Popover.Button
-                            className={`action-link inline-flex items-center ${open ? 'text-google-blue' : 'text-google-blue'}`} // Keep blue color
+                            className={`action-link inline-flex items-center ${open ? 'text-google-blue' : 'text-google-blue'}`}
                             title="View Instructions"
                           >
                             View Instructions <FaListOl className="inline ml-1 h-3 w-3" />
@@ -205,7 +301,7 @@ export default function ResourceGrid({
                             <Popover.Panel className="absolute z-10 bottom-full left-0 mb-2 w-72 max-h-80 overflow-y-auto rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                               <div className="p-3 space-y-2">
                                 <h4 className="text-xs font-medium text-google-text uppercase border-b pb-1 mb-2">Instructions</h4>
-                                <ol className="space-y-2.5"> {/* Use ol for numbered list */}
+                                <ol className="space-y-2.5">
                                   {resource.instructions.map((step, idx) => (
                                     <li key={idx} className="flex items-start text-xs text-google-text-secondary leading-snug">
                                       <span className="mr-1.5 font-medium text-gray-600">{idx + 1}.</span>
@@ -220,7 +316,7 @@ export default function ResourceGrid({
                         </>
                       )}
                     </Popover>
-                  ) : ( // Fallback: Link to Details page (if no link and no instructions, though unlikely)
+                  ) : ( // Fallback: Link to Details page
                     <Link href={`/resource/${resource.id}`} className="action-link">
                       Details
                     </Link>
@@ -252,16 +348,14 @@ export default function ResourceGrid({
                         >
                           <Popover.Panel className="absolute z-10 bottom-full right-0 mb-2 w-72 max-h-60 overflow-y-auto rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                             <div className="p-3 space-y-2">
-                              {/* --- Updated Title --- */}
                               <h4 className="text-xs font-medium text-google-text uppercase border-b pb-1 mb-1">
                                 Service Cited By
                               </h4>
-                              {/* --- End Updated Title --- */}
                               <ol className="list-decimal list-inside space-y-1.5">
                                 {resource.citations.map((citation, idx) => {
-                                  const key = getCitationKey(citation); // Use the helper function for lookup
-                                  const refIndex = key ? citationMap[key] : undefined; // Get index from map (0-based)
-                                  const refNumber = typeof refIndex === 'number' ? refIndex + 1 : null; // Convert to 1-based
+                                  const key = getCitationKey(citation);
+                                  const refIndex = key ? citationMap[key] : undefined;
+                                  const refNumber = typeof refIndex === 'number' ? refIndex + 1 : null;
 
                                   return (
                                     <li key={idx} className="text-xs text-google-text-secondary leading-snug">
