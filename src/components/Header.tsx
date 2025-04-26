@@ -76,7 +76,7 @@ export default function Header({ scrollY }: HeaderProps) {
     wasSticky.current = currentlySticky;
   });
 
-   // Effect for interval management (remains the same)
+   // Effect for interval management
   useEffect(() => {
     if (!hasMounted) return;
     const manageInterval = () => {
@@ -85,7 +85,7 @@ export default function Header({ scrollY }: HeaderProps) {
         intervalIdRef.current = null;
         // Ensure 'self' is displayed when sticky
         if (currentWord !== 'self') {
-           setCurrentWord(words[0]);
+           setCurrentWord('self'); // Use direct string 'self'
         }
       } else if (!isSticky && !intervalIdRef.current) {
         // Start interval only if not sticky
@@ -107,8 +107,8 @@ export default function Header({ scrollY }: HeaderProps) {
         intervalIdRef.current = null;
       }
     };
-    // Add currentWord to dependencies to ensure 'self' is set correctly when becoming sticky
-  }, [isSticky, hasMounted, currentWord]);
+    // Remove currentWord from dependencies - interval logic depends only on isSticky and mount state
+  }, [isSticky, hasMounted]);
 
 
   // --- Define start/end values based on isMobile ---

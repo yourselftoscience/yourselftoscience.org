@@ -61,8 +61,7 @@ function expandCountries(chosen) {
 function ContentAreaSkeleton() {
   // Basic skeleton mimicking the main content layout BELOW the header
   return (
-    // Revert to pt-3. The Header component reserves its initial space,
-    // so the skeleton only needs its own internal padding matching HomePageContent.
+    // Revert to pt-3. The Header's placeholder reserves the initial space.
     <div className="flex-grow w-full max-w-screen-xl mx-auto px-4 pb-8 pt-3 animate-pulse">
 
       {/* Skeleton Intro Text */}
