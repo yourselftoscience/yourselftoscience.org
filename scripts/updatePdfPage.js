@@ -328,73 +328,42 @@ function getLatestDoi() {
       container.style.display = 'block';
     });
 
-    // --- Replace Payment Emojis with Text for PDF ---
-    const paymentCells = document.querySelectorAll('table tbody tr td:first-child');
-    paymentCells.forEach(cell => {
-      const spans = cell.querySelectorAll('span.text-lg > span');
-      let hasHeart = false;
-      let hasMoney = false;
-
-      spans.forEach(innerSpan => {
-        if (innerSpan.textContent.includes('❤️')) hasHeart = true;
-        if (innerSpan.textContent.includes('💵')) hasMoney = true;
-      });
-
-      cell.innerHTML = ''; // Clear original emoji spans
-
-      if (hasHeart && hasMoney) cell.textContent = 'Mixed';
-      else if (hasHeart) cell.textContent = 'Donation';
-      else if (hasMoney) cell.textContent = 'Payment';
-      else cell.textContent = 'Donation'; // Default
-
-      // Apply styles for PDF rendering (align with other cells)
-      cell.style.textAlign = 'center';
-      cell.style.verticalAlign = 'top';
-      cell.style.fontSize = '9pt'; // Keep this text slightly smaller
-      // Padding is handled by the general cell styling loop
-    });
-    // --- End Emoji Replacement ---
-
   }, currentDate, year, siteUrl, doiLink, latestDoi);
   
-  // Add scholarly metadata to the PDF
-  await page.evaluate(() => {
-    // Add metadata in a format Google Scholar can extract
-    const metaSection = document.createElement('div');
-    metaSection.style.cssText = `
-      font-size: 16px;
-      line-height: 1.6;
-      margin-top: 15px; /* Adjust margin */
-      margin-bottom: 15px; /* Adjust margin */
-      text-align: center;
-      width: 100%;
-      box-sizing: border-box;
-    `;
-    
-    const title = document.createElement('h1');
-    title.textContent = 'Yourself To Science: A Comprehensive Open-Source List of Services for Contributing to Science';
-    title.style.fontSize = '24pt';
-    title.style.marginBottom = '10px';
-    
-    const authors = document.createElement('h2');
-    authors.textContent = 'Mario Marcolongo';
-    authors.style.fontSize = '18pt';
-    authors.style.marginBottom = '10px';
-    
-    const date = document.createElement('div');
-    date.textContent = `Publication Date: ${new Date().toISOString().split('T')[0]}`;
-    date.style.fontSize = '14pt';
-    
-    metaSection.appendChild(title);
-    metaSection.appendChild(authors);
-    metaSection.appendChild(date);
-    
-    // Insert at the top of the document
-    const mainContent = document.querySelector('main');
-    if (mainContent) {
-      mainContent.parentNode.insertBefore(metaSection, mainContent);
-    }
+  // Inject CSS overrides to force‑hide any lingering emoji spans
+  // and make sure our replacement text stays visible.
+  await page.addStyleTag({
+    content: `
+      /* hide the original heart/dollar emoji spans */
+      table tbody tr td:first-child span.text-lg > span {
+        display: none !important;
+      }
+      /* ensure our replacement text is never hidden */
+      table tbody tr td:first-child {
+        visibility: visible !important;
+      }
+    `
   });
+
+  // --- Hide Search and Mobile Filter Button in PDF ---
+  await page.evaluate(() => {
+    // Hide the search input container
+    const searchInputContainer = document.querySelector('main > div:first-child'); // Adjust selector if needed
+    if (searchInputContainer && searchInputContainer.querySelector('input[type="text"]')) {
+      searchInputContainer.style.display = 'none';
+    }
+
+    // Hide the mobile filter button specifically (it might be inside the same container)
+    const mobileFilterButton = document.querySelector('button.lg\\:hidden'); // Selector for the mobile filter button
+     if (mobileFilterButton && mobileFilterButton.textContent.includes('Filters')) {
+       // If the button is not inside the already hidden container, hide it separately
+       if (!searchInputContainer || !searchInputContainer.contains(mobileFilterButton)) {
+          mobileFilterButton.style.display = 'none';
+       }
+     }
+  });
+  // --- END Hide Elements ---
+
 
   // Wait for the content modifications to complete using setTimeout instead of deprecated waitForTimeout
   await new Promise(r => setTimeout(r, 3000)); // Wait after DOM manipulation

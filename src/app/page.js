@@ -538,8 +538,11 @@ function HomePageContent({ scrollY }) {
               onChange={(e) => handlePaymentCheckboxChange(option, e.target.checked)}
               className="mr-2 h-4 w-4 text-google-blue border-gray-400 rounded focus:ring-google-blue focus:ring-offset-0 focus:ring-1"
             />
-            <label htmlFor={`payment-${option.value}-mobile`} className="text-base font-normal text-google-text-secondary flex items-center cursor-pointer">
-              <span className="mr-1.5">{option.emoji}</span> {option.label}
+            <label
+              htmlFor={`payment-${option.value}-mobile`}
+              className="text-base font-normal text-google-text-secondary flex items-center cursor-pointer"
+            >
+             Compensation: {option.label}
             </label>
           </div>
         ))}
@@ -690,11 +693,16 @@ function HomePageContent({ scrollY }) {
             {[...filters.compensationTypes]
               .sort((a, b) => PAYMENT_TYPES.map(p => p.value).indexOf(a.value) - PAYMENT_TYPES.map(p => p.value).indexOf(b.value))
               .map(option => (
-                <span key={`sel-pay-${option.value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
-                  {option.emoji} {option.label}
+                <span
+                  key={`sel-pay-${option.value}`}
+                  className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full"
+                >
+                 Compensation: {option.label}
                   <button
                     onClick={() => handlePaymentCheckboxChange(option, false)}
-                    className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${option.label}`}>
+                    className="ml-1 text-blue-500 hover:text-blue-700"
+                    aria-label={`Remove ${option.label}`}
+                  >
                     <FaTimes size="0.9em" />
                   </button>
                 </span>
@@ -811,11 +819,16 @@ function HomePageContent({ scrollY }) {
                   {[...filters.compensationTypes]
                     .sort((a, b) => PAYMENT_TYPES.map(p => p.value).indexOf(a.value) - PAYMENT_TYPES.map(p => p.value).indexOf(b.value))
                     .map(option => (
-                      <span key={`sel-pay-${option.value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
-                        {option.emoji} {option.label}
+                      <span
+                        key={`sel-pay-${option.value}`}
+                        className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full"
+                      >
+                       Compensation: {option.label}
                         <button
                           onClick={() => handlePaymentCheckboxChange(option, false)}
-                          className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${option.label}`}>
+                          className="ml-1 text-blue-500 hover:text-blue-700"
+                          aria-label={`Remove ${option.label}`}
+                        >
                           <FaTimes size="0.9em" />
                         </button>
                       </span>
