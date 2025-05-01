@@ -357,15 +357,18 @@ function getLatestDoi() {
 
   }, currentDate, year, siteUrl, doiLink, latestDoi);
   
-  // Add scholarly metadata to the PDF
+  // --- REMOVED Redundant Metadata Section ---
+  // The following block was removed as the information is already present
+  // in the header and citation formats for Google Scholar.
+  /*
   await page.evaluate(() => {
     // Add metadata in a format Google Scholar can extract
     const metaSection = document.createElement('div');
     metaSection.style.cssText = `
       font-size: 16px;
       line-height: 1.6;
-      margin-top: 15px; /* Adjust margin */
-      margin-bottom: 15px; /* Adjust margin */
+      margin-top: 15px; // Adjust margin
+      margin-bottom: 15px; // Adjust margin
       text-align: center;
       width: 100%;
       box-sizing: border-box;
@@ -395,6 +398,27 @@ function getLatestDoi() {
       mainContent.parentNode.insertBefore(metaSection, mainContent);
     }
   });
+  */
+  // --- END REMOVED Section ---
+
+  // --- Hide Search and Mobile Filter Button in PDF ---
+  await page.evaluate(() => {
+    // Hide the search input container
+    const searchInputContainer = document.querySelector('main > div:first-child'); // Adjust selector if needed
+    if (searchInputContainer && searchInputContainer.querySelector('input[type="text"]')) {
+      searchInputContainer.style.display = 'none';
+    }
+
+    // Hide the mobile filter button specifically (it might be inside the same container)
+    const mobileFilterButton = document.querySelector('button.lg\\:hidden'); // Selector for the mobile filter button
+     if (mobileFilterButton && mobileFilterButton.textContent.includes('Filters')) {
+       // If the button is not inside the already hidden container, hide it separately
+       if (!searchInputContainer || !searchInputContainer.contains(mobileFilterButton)) {
+          mobileFilterButton.style.display = 'none';
+       }
+     }
+  });
+  // --- END Hide Elements ---
 
   // Wait for the content modifications to complete using setTimeout instead of deprecated waitForTimeout
   await new Promise(r => setTimeout(r, 3000)); // Wait after DOM manipulation
