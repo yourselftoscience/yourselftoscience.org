@@ -26,7 +26,7 @@
     "@vercel/routing-utils": "^3.1.0",
     "chokidar": "^3.5.3",
     "debug": "^4.3.7",
-    "eslint": "^8.57.1",
+    "eslint": "^9.0.0",
     "framer-motion": "^11.11.1",
     "glob": "^11.0.0",
     "next": "^15.2.4",
