@@ -355,6 +355,55 @@ function getLatestDoi() {
     });
     // --- End Emoji Replacement ---
 
+    // --- Replace Compensation Emojis in Grid with Plain Text for PDF ---
+    document.querySelectorAll('span').forEach(span => {
+      const txt = (span.textContent || '').trim();
+      let replacement = null;
+
+      // detect Mixed first (parent span with both emojis)
+      if (txt.includes('❤️') && txt.includes('💵')) {
+        replacement = 'Mixed';
+      }
+      // single cases
+      else if (txt === '❤️') {
+        replacement = 'Donation';
+      }
+      else if (txt === '💵') {
+        replacement = 'Payment';
+      }
+
+      if (replacement) {
+        // find and remove the pill background
+        const pill = span.closest('.tag');
+
+        // build container
+        const container = document.createElement('div');
+        container.style.cssText = `
+          color: #6b7280;
+          font-size: 11pt;
+          margin-bottom: 4px;
+        `;
+
+        // label line (bigger & bolder)
+        const label = document.createElement('div');
+        label.textContent = 'Compensation:';
+        label.style.cssText = `
+          font-weight: 600;
+          font-size: 11pt;
+        `;
+
+        // type line
+        const value = document.createElement('div');
+        value.textContent = replacement;
+
+        container.append(label, value);
+
+        if (pill) pill.replaceWith(container);
+        else span.replaceWith(container);
+      }
+    });
+    // --- End Compensation Replacement ---
+
   }, currentDate, year, siteUrl, doiLink, latestDoi);
   
   // --- REMOVED Redundant Metadata Section ---
