@@ -457,6 +457,158 @@ function getLatestDoi() {
     });
     // --- End Replace citation buttons ---
 
+    // --- Expand instruction buttons into visible instructions for PDF ---
+    // 1) First, open all instruction popovers so their panels are injected into the DOM
+    document.querySelectorAll('button[title="View Instructions"]').forEach(btn => {
+      if (btn.getAttribute('aria-expanded') !== 'true') {
+        btn.click();
+      }
+    });
+
+    // Wait for instruction panels to potentially render after clicks
+    await new Promise(r => setTimeout(r, 1000)); // 1-second delay for popovers to open
+
+    // 2) Now replace each instruction button with expanded instruction content
+    document.querySelectorAll('button[title="View Instructions"]').forEach(btn => {
+      try {
+        const panelId = btn.getAttribute('aria-controls');
+        let panel = panelId ? document.getElementById(panelId) : null;
+        
+        // Try alternative ways to find the instruction panel
+        if (!panel && btn.id) {
+          panel = document.querySelector(`div[aria-labelledby="${btn.id}"]`);
+        }
+        if (!panel) {
+          // Look for nearby popover panels that are open
+          const nearbyPanel = btn.parentElement.querySelector('div[data-headlessui-state="open"]');
+          if (nearbyPanel) panel = nearbyPanel;
+        }
+
+        let instructionSteps = [];
+        
+        if (panel && panel.getAttribute('data-headlessui-state') === 'open') {
+          // Extract instruction steps from the opened panel, but exclude icon text
+          const stepElements = panel.querySelectorAll('ol li, ul li, li, div[class*="step"], p');
+          instructionSteps = Array.from(stepElements).map(element => {
+            // Clone the element to avoid modifying the original
+            const clonedElement = element.cloneNode(true);
+            
+            // Remove all icon elements and their titles from the cloned element
+            const iconElements = clonedElement.querySelectorAll('svg, .fa, [class*="fa-"], [title*="Step"], [title*="Icon"]');
+            iconElements.forEach(icon => icon.remove());
+            
+            // Also remove any spans that might contain icon titles
+            const titleSpans = clonedElement.querySelectorAll('span[class*="text-"], span[title]');
+            titleSpans.forEach(span => {
+              const spanText = span.textContent || '';
+              // Remove spans that look like icon labels
+              if (spanText.includes('Step') || spanText.includes('Icon') || spanText.length < 3) {
+                span.remove();
+              }
+            });
+            
+            let text = clonedElement.textContent || '';
+            
+            // Clean up the text - remove step numbers, extra whitespace, and icon-related text
+            text = text.replace(/^\d+\.\s*/, '').trim();
+            
+            // Remove common icon alt text patterns
+            text = text.replace(/Mobile App Step,?\s*/gi, '');
+            text = text.replace(/Settings Step,?\s*/gi, '');
+            text = text.replace(/Privacy Step,?\s*/gi, '');
+            text = text.replace(/Action Step,?\s*/gi, '');
+            text = text.replace(/Step,?\s*/gi, '');
+            text = text.replace(/Icon,?\s*/gi, '');
+            
+            // Remove any remaining comma artifacts and clean whitespace
+            text = text.replace(/^,\s*/, '').replace(/,\s*$/, '').trim();
+            
+            return text;
+          }).filter(step => {
+            // Filter out very short text, empty strings, and icon-related text
+            return step.length > 10 && 
+                   !step.match(/^(Mobile App|Settings|Privacy|Action)?\s*Step$/i) &&
+                   !step.match(/^(Step|Icon)$/i);
+          });
+        }
+
+        // If we found instruction steps, create a static display
+        if (instructionSteps.length > 0) {
+          // Create the expanded instructions container
+          const instructionsDiv = document.createElement('div');
+          instructionsDiv.style.cssText = `
+            margin-top: 0.75rem;
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            font-size: 0.875rem;
+            color: #374151;
+            line-height: 1.5;
+            page-break-inside: avoid;
+          `;
+          
+          // Add title
+          const title = document.createElement('div');
+          title.textContent = 'Instructions:';
+          title.style.cssText = 'font-weight: 600; margin-bottom: 0.5rem; color: #1f2937;';
+          instructionsDiv.appendChild(title);
+          
+          // Add instruction steps as an ordered list
+          const ol = document.createElement('ol');
+          ol.style.cssText = 'margin: 0; padding-left: 1.25rem; list-style-type: decimal;';
+          
+          instructionSteps.forEach((step, index) => {
+            const li = document.createElement('li');
+            li.textContent = step;
+            li.style.cssText = 'margin-bottom: 0.375rem; line-height: 1.5;';
+            ol.appendChild(li);
+          });
+          
+          instructionsDiv.appendChild(ol);
+          
+          // Insert the instructions after the button's container
+          const buttonContainer = btn.closest('div.flex.justify-between') || btn.closest('div');
+          if (buttonContainer && buttonContainer.parentNode) {
+            buttonContainer.parentNode.insertBefore(instructionsDiv, buttonContainer.nextSibling);
+          }
+        } else {
+          // If no instructions found, create a helpful placeholder
+          const placeholder = document.createElement('div');
+          placeholder.style.cssText = `
+            margin-top: 0.75rem;
+            background-color: #f3f4f6;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-style: italic;
+          `;
+          placeholder.textContent = 'Instructions: Please visit the service website for detailed step-by-step instructions.';
+          
+          const buttonContainer = btn.closest('div.flex.justify-between') || btn.closest('div');
+          if (buttonContainer && buttonContainer.parentNode) {
+            buttonContainer.parentNode.insertBefore(placeholder, buttonContainer.nextSibling);
+          }
+        }
+        
+        // Hide the original button since it's not interactive in PDF
+        btn.style.display = 'none';
+        
+        // Hide any opened instruction panels to clean up the DOM
+        if (panel) {
+          panel.style.display = 'none';
+        }
+        
+      } catch (error) {
+        console.warn('Error processing instruction button:', error);
+        // Just hide the button if we can't process it
+        btn.style.display = 'none';
+      }
+    });
+    // --- End expand instructions for PDF ---
+
   }, currentDate, year, siteUrl, doiLink, latestDoi);
   
   // --- REMOVED Redundant Metadata Section ---
