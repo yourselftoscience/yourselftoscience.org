@@ -62,7 +62,7 @@ function getLatestDoi() {
   const year = citationDate.split('/')[0];
   
   // Inject proper Google Scholar compatible structure and optimize layout
-  await page.evaluate((date, year, siteUrl, doiLinkArg, latestDoiArg) => {
+  await page.evaluate(async (date, year, siteUrl, doiLinkArg, latestDoiArg) => { // Made async
     // First, stop any animations by removing their source intervals
     const stopAllIntervals = () => {
       const interval_id = window.setInterval(function(){}, Number.MAX_SAFE_INTEGER);
@@ -403,6 +403,59 @@ function getLatestDoi() {
       }
     });
     // --- End Compensation Replacement ---
+
+    // --- Replace interactive citation buttons with all footnotes from the panel ---
+    // 1) Open all popovers so their panels are injected into the DOM
+    document.querySelectorAll('button[aria-label*="reference"]').forEach(btn => {
+      if (btn.getAttribute('aria-expanded') !== 'true') {
+        btn.click();
+      }
+    });
+
+    // Wait for panels to potentially render after clicks
+    await new Promise(r => setTimeout(r, 1000)); // 1-second delay, adjust if needed
+
+    // 2) Now replace each button with one or more [ref] links
+    document.querySelectorAll('button[aria-label*="reference"]').forEach(btn => {
+      const panelId = btn.getAttribute('aria-controls');
+      let panel = panelId ? document.getElementById(panelId) : null;
+      if (!panel && btn.id) panel = document.querySelector(`div[aria-labelledby="${btn.id}"]`);
+
+      const refs = [];
+      if (panel && panel.getAttribute('data-headlessui-state') === 'open') {
+        panel.querySelectorAll('a[href^="#ref-"]').forEach(orig => {
+          const match = orig.getAttribute('href').match(/#ref-(\d+)/);
+          if (match) {
+            const num = match[1];
+            const a = document.createElement('a');
+            a.href = `#ref-${num}`;
+            a.textContent = `[${num}]`;
+            a.style.cssText = 'text-decoration:none;color:inherit;font-size:0.8em;vertical-align:super;';
+            refs.push(a);
+          }
+        });
+      }
+
+      if (refs.length > 0) {
+        const container = document.createElement('span');
+        container.style.cssText = 'margin-left:0.25em;vertical-align:super;'; // Keep overall container style
+
+        // Create and style the "Ref(s):" label
+        const refLabel = document.createElement('span');
+        refLabel.textContent = 'Ref(s): ';
+        refLabel.style.cssText = 'font-weight:600;color:#6b7280;font-size:0.8em;margin-right:0.1em;vertical-align:super;'; // Style for label
+        container.appendChild(refLabel); // Add label to container first
+
+        refs.forEach((link,i) => {
+          if (i > 0) link.style.marginLeft = '0.15em'; // Add margin for subsequent links, not the first one after label
+          container.appendChild(link);
+        });
+        if (btn.parentNode) { // Ensure button is still part of the DOM
+            btn.parentNode.replaceChild(container, btn);
+        }
+      }
+    });
+    // --- End Replace citation buttons ---
 
   }, currentDate, year, siteUrl, doiLink, latestDoi);
   
