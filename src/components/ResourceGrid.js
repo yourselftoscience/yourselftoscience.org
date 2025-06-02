@@ -355,19 +355,30 @@ export default function ResourceGrid({
                                 {resource.citations.map((citation, idx) => {
                                   const key = getCitationKey(citation);
                                   const refIndex = key ? citationMap[key] : undefined;
-                                  const refNumber = typeof refIndex === 'number' ? refIndex + 1 : null;
+                                  const refNumber = typeof refIndex === 'number' ? refIndex : null;
 
                                   return (
                                     <li key={idx} className="text-xs text-google-text-secondary leading-snug">
                                       {citation.link ? (
-                                        <a href={citation.link} target="_blank" rel="noopener noreferrer" className="text-google-blue hover:underline break-words">
+                                        <a
+                                          href={citation.link}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          className="text-google-blue hover:underline break-words"
+                                        >
                                           {citation.title}
                                         </a>
                                       ) : (
                                         <span className="break-words">{citation.title}</span>
                                       )}
-                                      {refNumber && ( // Add link to main reference list if index found
-                                        <a href={`#ref-${refNumber}`} title={`Go to main reference ${refNumber}`} className="ml-1 text-google-blue hover:underline font-medium">[Ref&nbsp;{refNumber}]</a>
+                                      {refNumber && (
+                                        <a
+                                          href={`#ref-${refNumber}`}
+                                          title={`Go to main reference ${refNumber}`}
+                                          className="ml-1 text-google-blue hover:underline font-medium"
+                                        >
+                                          [Ref&nbsp;{refNumber}]
+                                        </a>
                                       )}
                                     </li>
                                   );

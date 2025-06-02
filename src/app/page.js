@@ -6,7 +6,7 @@ import React, { useState, useEffect, useMemo, useCallback, Suspense } from 'reac
 // Import motionValue ONLY if needed elsewhere, otherwise remove. useScroll is now used here.
 import { motion, AnimatePresence, useScroll } from 'framer-motion';
 import Footer from '@/components/Footer';
-import { resources as allResources, PAYMENT_TYPES, citationMap, uniqueCitations } from '@/data/resources';
+import { resources as allResources, PAYMENT_TYPES } from '@/data/resources';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import CountryFlag from 'react-country-flag';
@@ -191,12 +191,7 @@ function HomePageContent({ scrollY }) {
   const searchParams = useSearchParams(); // This causes the component to suspend
 
   // ... state declarations (filters, showMore, isMounted, etc.) ...
-  const [filters, setFilters] = useState({
-    dataTypes: [],
-    countries: [],
-    compensationTypes: [],
-    searchTerm: '',
-  });
+  const [filters, setFilters] = useState({ dataTypes: [], countries: [], compensationTypes: [], searchTerm: '' });
   const [showMoreDataTypes, setShowMoreDataTypes] = useState(false);
   const [showMoreCountries, setShowMoreCountries] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -337,6 +332,35 @@ function HomePageContent({ scrollY }) {
 
     return filteredData;
   }, [filters]); // Ensure filters is the dependency
+
+  // Derive citations in page order
+  const citationList = useMemo(() => {
+    const list = [];
+    processedResources.forEach(resource => {
+      (resource.citations || []).forEach(citation => {
+        const key = citation.link
+          ? citation.link.trim()
+          : citation.title.trim().toLowerCase().substring(0, 50);
+        if (!list.some(c => (c.link || '').trim() === (citation.link || '').trim() &&
+                            (c.title || '') === citation.title)) {
+          list.push(citation);
+        }
+      });
+    });
+    return list;
+  }, [processedResources]);
+
+  // Map citation key to its number
+  const citationMap = useMemo(() => {
+    return citationList.reduce((map, citation, idx) => {
+      const key = citation.link
+        ? citation.link.trim()
+        : citation.title.trim().toLowerCase().substring(0, 50);
+      map[key] = idx + 1;
+      return map;
+    }, {});
+  }, [citationList]);
+
 
   // --- Callbacks (keep as is) ---
   const handleCheckboxChange = useCallback((filterKey, value, isChecked) => {
@@ -728,19 +752,24 @@ function HomePageContent({ scrollY }) {
           </div>
 
           {/* References Section */}
-          {uniqueCitations && uniqueCitations.length > 0 && (
+          {citationList.length > 0 && (
             <section id="references" className="w-full max-w-screen-xl mx-auto px-4 py-8 border-t mt-8">
               <h2 className="text-xl font-semibold mb-4 text-google-text">References</h2>
               <ol className="list-decimal pl-5 space-y-2">
-                {uniqueCitations.map((citation, idx) => (
-                  <li key={idx} id={`ref-${idx + 1}`} className="text-sm text-google-text-secondary leading-relaxed">
-                    {citation.link ? (
-                      <a href={citation.link} target="_blank" rel="noopener noreferrer" className="text-google-blue hover:underline break-words">
-                        {citation.title}
-                      </a>
-                    ) : (
-                      <span className="break-words">{citation.title}</span>
-                    )}
+                {citationList.map((citation, idx) => (
+                  <li
+                    key={idx}
+                    id={`ref-${idx + 1}`}
+                    className="text-sm text-google-text-secondary leading-relaxed"
+                  >
+                    <a
+                      href={citation.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-google-blue hover:underline break-words"
+                    >
+                      {citation.title}
+                    </a>
                   </li>
                 ))}
               </ol>

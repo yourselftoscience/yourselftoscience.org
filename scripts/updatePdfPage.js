@@ -415,6 +415,64 @@ function getLatestDoi() {
     // Wait for panels to potentially render after clicks
     await new Promise(r => setTimeout(r, 1000)); // 1-second delay, adjust if needed
 
+    // Build citation list in page order (same logic as main page)
+    const allResourceCards = document.querySelectorAll('.resource-card');
+    const citationList = [];
+    const citationToRefNumber = new Map();
+    
+    allResourceCards.forEach(card => {
+      const citationPanel = card.querySelector('div[data-headlessui-state="open"]');
+      if (citationPanel) {
+        const citationLinks = citationPanel.querySelectorAll('a[href^="#ref-"]');
+        citationLinks.forEach(link => {
+          const href = link.getAttribute('href');
+          const citationText = link.closest('li')?.textContent?.replace(/\[Ref\s*\d+\]/, '').trim();
+          if (href && citationText && !citationToRefNumber.has(href)) {
+            citationList.push({ href, text: citationText });
+            citationToRefNumber.set(href, citationList.length); // 1-based numbering
+          }
+        });
+      }
+    });
+
+    // Rebuild the reference list section in correct order
+    const existingReferences = document.getElementById('references');
+    if (existingReferences && citationList.length > 0) {
+      // Create new reference section
+      const newReferencesSection = document.createElement('section');
+      newReferencesSection.id = 'references';
+      newReferencesSection.className = 'w-full max-w-screen-xl mx-auto px-4 py-8 border-t mt-8';
+      
+      const title = document.createElement('h2');
+      title.className = 'text-xl font-semibold mb-4 text-google-text';
+      title.textContent = 'References';
+      newReferencesSection.appendChild(title);
+      
+      const ol = document.createElement('ol');
+      ol.className = 'list-decimal pl-5 space-y-2';
+      
+      citationList.forEach((citation, idx) => {
+        const li = document.createElement('li');
+        li.id = `ref-${idx + 1}`;
+        li.className = 'text-sm text-google-text-secondary leading-relaxed';
+        
+        const a = document.createElement('a');
+        a.href = citation.href.replace('#ref-', ''); // Use original link if available
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.className = 'text-google-blue hover:underline break-words';
+        a.textContent = citation.text;
+        
+        li.appendChild(a);
+        ol.appendChild(li);
+      });
+      
+      newReferencesSection.appendChild(ol);
+      
+      // Replace the existing reference section
+      existingReferences.parentNode.replaceChild(newReferencesSection, existingReferences);
+    }
+
     // 2) Now replace each button with one or more [ref] links
     document.querySelectorAll('button[aria-label*="reference"]').forEach(btn => {
       const panelId = btn.getAttribute('aria-controls');
@@ -424,15 +482,15 @@ function getLatestDoi() {
       const refs = [];
       if (panel && panel.getAttribute('data-headlessui-state') === 'open') {
         panel.querySelectorAll('a[href^="#ref-"]').forEach(orig => {
-          const match = orig.getAttribute('href').match(/#ref-(\d+)/);
-          if (match) {
-            const num = match[1];
+         const href = orig.getAttribute('href');
+         const refNumber = citationToRefNumber.get(href);
+         if (refNumber) {
             const a = document.createElement('a');
-            a.href = `#ref-${num}`;
-            a.textContent = `[${num}]`;
+           a.href = `#ref-${refNumber}`;
+           a.textContent = `[${refNumber}]`;
             a.style.cssText = 'text-decoration:none;color:inherit;font-size:0.8em;vertical-align:super;';
             refs.push(a);
-          }
+         }
         });
       }
 
