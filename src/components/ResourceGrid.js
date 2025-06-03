@@ -251,7 +251,8 @@ export default function ResourceGrid({
                           key={code}
                           countryCode={code}
                           svg
-                          aria-label={resource.countries[idx]}   // ← human name for each flag
+                          alt=""                 // ← empty alt for decorative
+                          aria-hidden="true"     // ← hide from assistive tech
                           style={{ width: '1em', height: '0.8em', marginLeft: '4px' }}
                         />
                       )}
