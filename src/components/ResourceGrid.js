@@ -246,7 +246,15 @@ export default function ResourceGrid({
                       compensationTypesOptions={compensationTypesOptions} // Pass for consistency
                     >
                       {country}
-                      {code && <CountryFlag countryCode={code} svg style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />}
+                      {code && (
+                        <CountryFlag
+                          key={code}
+                          countryCode={code}
+                          svg
+                          aria-label={resource.countries[idx]}   // ← human name for each flag
+                          style={{ width: '1em', height: '0.8em', marginLeft: '4px' }}
+                        />
+                      )}
                     </TagButton>
                   );
                 })}

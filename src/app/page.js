@@ -512,7 +512,12 @@ function HomePageContent({ scrollY }) {
               <label htmlFor={`${filterKey}-${value}-mobile`} className="text-base font-normal text-google-text-secondary flex items-center cursor-pointer">
                 {label}
                 {code && (
-                  <CountryFlag countryCode={code} svg style={{ width: '1.1em', height: '0.9em', marginLeft: '0.3em', display: 'inline-block', verticalAlign: 'middle' }} />
+                  <CountryFlag
+                    countryCode={code}
+                    svg
+                    aria-label={label}
+                    style={{ width: '1.1em', height: '0.9em', marginLeft: '0.3em', display: 'inline-block', verticalAlign: 'middle' }}
+                  />
                 )}
               </label>
             </div>
