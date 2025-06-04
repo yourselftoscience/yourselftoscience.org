@@ -2,13 +2,19 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import AnimatedWord from '@/components/AnimatedWord';
+import dynamic from 'next/dynamic';
 import {
   motion,
   useTransform,
   MotionValue,
   useMotionValueEvent
 } from 'framer-motion';
+
+// Dynamically import AnimatedWord
+const AnimatedWordDynamic = dynamic(() => import('@/components/AnimatedWord'), {
+  loading: () => <span className="inline-block text-yellow-400 ml-1">self</span>, // Fallback similar to static self
+  ssr: false // It's a client-side animation component
+});
 
 interface HeaderProps {
   scrollY: MotionValue<number>; // This now receives the *real* scrollY
@@ -183,7 +189,7 @@ export default function Header({ scrollY }: HeaderProps) {
          <span className={useInlineLayout ? '' : 'inline-block'}>Your</span>
          {/* Use isSticky state to determine whether to show AnimatedWord or static 'self' */}
          {hasMounted && !isSticky ? (
-           <AnimatedWord key={currentWord} word={currentWord} />
+           <AnimatedWordDynamic key={currentWord} word={currentWord} />
          ) : (
            // Render static 'self' when sticky or not mounted yet (though placeholder handles pre-mount)
            <span

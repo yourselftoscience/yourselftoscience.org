@@ -25,6 +25,12 @@ const MobileFilterDrawer = dynamic(() => import('@/components/MobileFilterDrawer
   ssr: false // Depends on client-side state for filters and open/close
 });
 
+// Dynamically import HomePageContent
+const HomePageContentDynamic = dynamic(() => Promise.resolve(HomePageContent), { // Need to wrap HomePageContent because it's not a default export
+  loading: () => <ContentAreaSkeleton />,
+  ssr: false, // It heavily relies on client-side hooks like useSearchParams
+});
+
 // --- Constants and Helper Functions (keep as is) ---
 const parseUrlList = (param) => param ? param.split(',') : [];
 
@@ -194,9 +200,7 @@ export default function Home() {
       <Header scrollY={scrollY} />
 
       {/* Suspense shows ContentAreaSkeleton while HomePageContent loads */}
-      <Suspense fallback={<ContentAreaSkeleton />}>
-        <HomePageContent scrollY={scrollY} />
-      </Suspense>
+      <HomePageContentDynamic scrollY={scrollY} />
 
       <Footer />
     </div>
