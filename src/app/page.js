@@ -6,27 +6,26 @@ import React, { useState, useEffect, useMemo, useCallback, Suspense } from 'reac
 // Import motionValue ONLY if needed elsewhere, otherwise remove. useScroll is now used here.
 import { motion, AnimatePresence, useScroll } from 'framer-motion';
 import Footer from '@/components/Footer';
-import { resources as allResources, PAYMENT_TYPES } from '@/data/resources';
+import { resources as allResources, PAYMENT_TYPES, EU_COUNTRIES } from '@/data/resources';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import CountryFlag from 'react-country-flag';
 import { FaHeart, FaDollarSign, FaTimes, FaFilter } from 'react-icons/fa';
 import Header from '@/components/Header';
-import ResourceGrid from '@/components/ResourceGrid';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 
-// Dynamically import react-select (keep as is)
-const Select = dynamic(() => import('react-select'), { ssr: false });
+// Dynamically import ResourceGrid
+const ResourceGrid = dynamic(() => import('@/components/ResourceGrid'), {
+  loading: () => <ResourceGridSkeleton />,
+  ssr: false // Since it depends on client-side filters and interactions
+});
+
+// Dynamically import MobileFilterDrawer
+const MobileFilterDrawer = dynamic(() => import('@/components/MobileFilterDrawer'), {
+  ssr: false // Depends on client-side state for filters and open/close
+});
 
 // --- Constants and Helper Functions (keep as is) ---
-const EU_COUNTRIES = [
-  'Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic',
-  'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary',
-  'Ireland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta',
-  'Netherlands', 'Poland', 'Portugal', 'Romania', 'Slovakia', 'Slovenia',
-  'Spain', 'Sweden'
-];
-
 const parseUrlList = (param) => param ? param.split(',') : [];
 
 function expandCountries(chosen) {
@@ -162,6 +161,28 @@ function ContentAreaSkeleton() {
   );
 }
 
+// --- Skeleton for ResourceGrid (add this) ---
+function ResourceGridSkeleton() {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {[...Array(6)].map((_, i) => ( // Show 6 placeholder cards
+        <div key={i} className="bg-gray-100 border border-gray-200 rounded-lg p-4 h-48 flex flex-col animate-pulse">
+          <div className="h-5 bg-gray-300 rounded w-3/4 mb-2"></div> {/* Card Title */}
+          <div className="h-3 bg-gray-200 rounded w-1/2 mb-3"></div> {/* Card Subtitle/Org */}
+          <div className="space-y-1 mb-3">
+            <div className="h-3 bg-gray-200 rounded w-full"></div> {/* Card Desc line 1 */}
+            <div className="h-3 bg-gray-200 rounded w-5/6"></div> {/* Card Desc line 2 */}
+          </div>
+          <div className="flex flex-wrap gap-1.5 mt-auto">
+            <div className="h-6 w-16 bg-gray-300 rounded-full"></div> {/* Tag */}
+            <div className="h-6 w-20 bg-gray-300 rounded-full"></div> {/* Tag */}
+            <div className="h-6 w-12 bg-gray-300 rounded-full"></div> {/* Tag */}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 // --- Main Page Component ---
 export default function Home() {
@@ -783,105 +804,21 @@ function HomePageContent({ scrollY }) {
         </main>
       </div> {/* End grid */}
 
-      {/* Filter Drawer */}
-      <AnimatePresence>
-        {isFilterDrawerOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              // Use the useCallback version of the handler
-              onClick={toggleFilterDrawer}
-              className="fixed inset-0 bg-black bg-opacity-30 z-40 lg:hidden"
-            />
-            <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed top-0 right-0 bottom-0 w-3/4 max-w-[280px] bg-white z-50 shadow-lg overflow-y-auto flex flex-col lg:hidden rounded-l-lg"
-            >
-              <div className="flex justify-between items-center p-3 border-b border-gray-200 sticky top-0 bg-white rounded-tl-lg">
-                <h2 className="text-sm font-medium uppercase text-google-text-secondary">Filter By</h2>
-                <button
-                  // Use the useCallback version of the handler
-                  onClick={toggleFilterDrawer} className="text-google-text-secondary hover:text-google-text p-1">
-                  <FaTimes size="1.2em" />
-                </button>
-              </div>
-
-              {(filters.countries.length > 0 || filters.dataTypes.length > 0 || filters.compensationTypes.length > 0) && (
-                <div className="p-3 border-b border-gray-200 flex flex-wrap gap-1.5">
-                  {/* Sort countries alphabetically before mapping */}
-                  {[...filters.countries].sort((a, b) => a.localeCompare(b)).map(value => {
-                     const countryOption = countryOptions.find(opt => opt.value === value);
-                     const label = countryOption?.label || value;
-                     const code = countryOption?.code;
-                     return (
-                       <span key={`sel-ctry-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
-                         {label}
-                         {code && <CountryFlag countryCode={code} svg style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />}
-                         <button
-                           onClick={() => handleCheckboxChange('countries', value, false)}
-                           className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${label}`}>
-                           <FaTimes size="0.9em" />
-                         </button>
-                       </span>
-                     );
-                  })}
-                  {/* Sort data types alphabetically before mapping */}
-                  {[...filters.dataTypes].sort((a, b) => a.localeCompare(b)).map(value => (
-                    <span key={`sel-dt-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
-                      {value}
-                      <button
-                        onClick={() => handleCheckboxChange('dataTypes', value, false)}
-                        className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${value}`}>
-                        <FaTimes size="0.9em" />
-                      </button>
-                    </span>
-                  ))}
-                  {/* Sort compensation types by PAYMENT_TYPES order before mapping */}
-                  {[...filters.compensationTypes]
-                    .sort((a, b) => PAYMENT_TYPES.map(p => p.value).indexOf(a.value) - PAYMENT_TYPES.map(p => p.value).indexOf(b.value))
-                    .map(option => (
-                      <span key={`sel-pay-${option.value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
-                        {option.emoji} {option.label}
-                        <button
-                          onClick={() => handlePaymentCheckboxChange(option, false)}
-                          className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${option.label}`}>
-                          <FaTimes size="0.9em" />
-                        </button>
-                      </span>
-                  ))}
-                </div>
-              )}
-
-              <div className="flex-grow overflow-y-auto p-3">
-                {/* Render filter content using useCallback handlers */}
-                {renderFilterContent()}
-              </div>
-
-              <div className="p-3 border-t border-gray-200 flex justify-end gap-2 sticky bottom-0 bg-white rounded-bl-lg">
-                <button
-                  // Use the useCallback version of the handler
-                  onClick={handleResetFilters}
-                  className="px-4 py-2 rounded border border-gray-300 text-google-text text-sm font-medium hover:bg-gray-50 transition-colors"
-                >
-                  Reset
-                </button>
-                <button
-                  // Use the useCallback version of the handler
-                  onClick={toggleFilterDrawer}
-                  className="px-4 py-2 rounded bg-google-blue text-white text-sm font-medium hover:opacity-90 transition-opacity"
-                >
-                  Done
-                </button>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+      {/* Filter Drawer - Now uses the dynamically imported MobileFilterDrawer */}
+      {isMounted && (
+        <MobileFilterDrawer
+          isOpen={isFilterDrawerOpen}
+          toggleDrawer={toggleFilterDrawer}
+          filters={filters}
+          countryOptions={countryOptions}
+          dataTypeOptions={dataTypeOptions}
+          paymentTypes={PAYMENT_TYPES}
+          handleCheckboxChange={handleCheckboxChange}
+          handlePaymentCheckboxChange={handlePaymentCheckboxChange}
+          handleResetFilters={handleResetFilters}
+          renderFilterContent={renderFilterContent} // Pass the existing render function
+        />
+      )}
     </div> // End flex-grow container
   );
 }
