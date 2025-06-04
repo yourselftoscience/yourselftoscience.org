@@ -286,7 +286,7 @@ export default function ResourceGrid({
                       rel="noopener noreferrer"
                       className="action-link"
                     >
-                      Learn more <FaExternalLinkAlt className="inline ml-1 h-3 w-3" />
+                      Contribute <FaExternalLinkAlt className="inline ml-1 h-3 w-3" />
                     </a>
                   ) : hasInstructionsOnly ? ( // Priority 2: Instructions Popover
                     <Popover className="relative">
