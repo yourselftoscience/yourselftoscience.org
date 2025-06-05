@@ -18,6 +18,10 @@ const nextConfig = {
             key: 'Cross-Origin-Embedder-Policy',
             value: 'require-corp',
           },
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN',
+          },
         ],
       },
     ];
