@@ -1,7 +1,16 @@
 rules:
   heading-order: true
+exclude:
+  - 'src/app/api/**'
+  - 'src/data/**'
+  - 'scripts/**'
+  - '*.config.js'
+  - '*.config.mjs'
+  - 'LICENSE-CODE'
+  - 'LICENSE-CONTENT'
+  - 'README.md'
+  - '.gitignore'
 # exclude:
-  # - 'tests/**/*.html' # No 'tests' directory found at project root
 # global-components:
   # Add custom component mappings here if needed, e.g.:
   # MyCustomCard: article
