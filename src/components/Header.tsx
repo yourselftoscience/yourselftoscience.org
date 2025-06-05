@@ -13,7 +13,7 @@ import {
 // Dynamically import AnimatedWord
 const AnimatedWordDynamic = dynamic(() => import('./AnimatedWord'), {
   ssr: false,
-  loading: () => <span className="inline-block text-yellow-500 ml-1 text-stroke-yellow-dark">self</span>, // Fallback similar to static self
+  loading: () => <span className="inline-block ml-1 text-stroke-yellow-dark">self</span>, // Fallback: only custom stroke class
 });
 
 interface HeaderProps {
@@ -195,7 +195,7 @@ export default function Header({ scrollY }: HeaderProps) {
            <span
              key="static-self"
              // Adjust margin based on layout mode
-             className={`inline-block text-yellow-500 text-stroke-yellow-dark ${useInlineLayout ? 'ml-0' : 'ml-1'}`}
+             className={`inline-block text-stroke-yellow-dark ${useInlineLayout ? 'ml-0' : 'ml-1'}`}
            >
              self
            </span>

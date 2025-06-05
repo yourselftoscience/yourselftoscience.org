@@ -20,6 +20,8 @@ const config: Config = {
         'google-text': '#202124', // Primary text
         'google-text-secondary': '#5f6368', // Secondary text
         'footer-link-blue': '#8AB8F4', // New color for footer links
+        'title-yellow': '#FFE98A', // Updated yellow for the title text (solid fill)
+        'custom-yellow-link': '#F6BE13', // New custom yellow for specific links
       },
       gridTemplateColumns: {
         // Adjust layout: single column by default, two columns on large screens

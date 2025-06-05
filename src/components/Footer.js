@@ -3,7 +3,7 @@
 'use client';
 
 import React from 'react';
-import { FaCreativeCommons, FaCreativeCommonsBy, FaCreativeCommonsSa, FaGithub, FaLock, FaFileContract } from 'react-icons/fa';
+import { FaCreativeCommons, FaCreativeCommonsBy, FaCreativeCommonsSa, FaGithub, FaLock, FaFileContract, FaExternalLinkAlt } from 'react-icons/fa';
 
 export default function Footer() {
   return (
@@ -15,7 +15,7 @@ export default function Footer() {
             href="https://github.com/yourselftoscience/yourselftoscience.org/blob/main/LICENSE-CONTENT"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-yellow-500 hover:underline inline-flex items-center"
+            className="text-custom-yellow-link hover:underline inline-flex items-center"
           >
             <FaCreativeCommons className="mr-1" />
             <FaCreativeCommonsBy className="mr-1" />
@@ -27,7 +27,7 @@ export default function Footer() {
             href="https://github.com/yourselftoscience/yourselftoscience.org/blob/main/LICENSE-CODE"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-yellow-500 hover:underline inline-flex items-center"
+            className="text-custom-yellow-link hover:underline inline-flex items-center"
           >
             AGPL-3.0 License
           </a>
