@@ -146,8 +146,7 @@ export default function Header({ scrollY }: HeaderProps) {
      const placeholderHeight = (initialPaddingY * 2) + initialLogoSize;
      return (
         <header
-            className="w-full sticky top-0 z-30 flex items-center border-b bg-white px-4"
-            style={{ height: `${placeholderHeight}px`, borderColor: 'rgba(229, 231, 235, 0)' }}
+            className="w-full sticky top-0 z-30 flex items-center border-b bg-white px-4 h-[102px] border-transparent"
         >
             {/* Placeholder content */}
         </header>
@@ -175,7 +174,7 @@ export default function Header({ scrollY }: HeaderProps) {
            src="/Logo.svg"
            alt="Yourself To Science Logo"
            width={70} height={70}
-           style={{ display: 'block', width: '100%', height: '100%' }}
+           className="block w-full h-full"
            priority
          />
       </motion.div>

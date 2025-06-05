@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 const config: Config = {
   content: [
@@ -34,6 +35,22 @@ const config: Config = {
   future: {
     hoverOnlyWhenSupported: true,
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        ".text-stroke-yellow-dark": {
+          "-webkit-text-stroke-width": "0.4px",
+          "-webkit-text-stroke-color": "#ffd92d",
+          "text-stroke-width": "0.4px",
+          "text-stroke-color": "#ffd92d",
+          "background-image": "linear-gradient(to bottom, #ffd92d, #B35F00)",
+          "-webkit-background-clip": "text",
+          "background-clip": "text",
+          color: "transparent",
+          "-webkit-text-fill-color": "transparent",
+        },
+      });
+    }),
+  ],
 };
 export default config;
