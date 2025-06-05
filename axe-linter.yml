@@ -1,0 +1,8 @@
+rules:
+  heading-order: true
+# exclude:
+  # - 'tests/**/*.html' # No 'tests' directory found at project root
+# global-components:
+  # Add custom component mappings here if needed, e.g.:
+  # MyCustomCard: article
+# global-libraries: # No matching pre-configured libraries found in dependencies 
