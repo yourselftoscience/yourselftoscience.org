@@ -11,6 +11,10 @@ const nextConfig = {
             value: 'max-age=63072000; includeSubDomains; preload',
           },
           {
+            key: 'Content-Security-Policy',
+            value: "script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'self';",
+          },
+          {
             key: 'Cross-Origin-Opener-Policy',
             value: 'same-origin',
           },
