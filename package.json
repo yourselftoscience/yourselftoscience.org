@@ -18,14 +18,7 @@
     "update-sitemap": "node scripts/generateSitemap.js"
   },
   "browserslist": [
-    "chrome >0 and last 2.5 years",
-    "edge >0 and last 2.5 years",
-    "safari >0 and last 2.5 years",
-    "firefox >0 and last 2.5 years",
-    "and_chr >0 and last 2.5 years",
-    "and_ff >0 and last 2.5 years",
-    "ios >0 and last 2.5 years",
-    "not dead"
+    "extends browserslist-config-baseline"
   ],
   "dependencies": {
     "@eslint/config-array": "^0.18.0",
@@ -34,6 +27,7 @@
     "@jridgewell/sourcemap-codec": "^1.5.0",
     "@rollup/plugin-inject": "^5.0.5",
     "@vercel/routing-utils": "^3.1.0",
+    "browserslist-config-baseline": "^0.4.0",
     "chokidar": "^3.5.3",
     "debug": "^4.3.7",
     "framer-motion": "^11.11.1",
