@@ -71,7 +71,7 @@ export default function MobileFilterDrawer({
                       {code && <CountryFlag countryCode={code} svg style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />}
                       <button
                         onClick={() => handleCheckboxChange('countries', value, false)}
-                        className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${label} filter`}>
+                        className="ml-1 text-google-blue hover:opacity-75" aria-label={`Remove ${label} filter`}>
                         <FaTimes size="0.9em" />
                       </button>
                     </span>
@@ -83,7 +83,7 @@ export default function MobileFilterDrawer({
                     {value}
                     <button
                       onClick={() => handleCheckboxChange('dataTypes', value, false)}
-                      className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${value} filter`}>
+                      className="ml-1 text-google-blue hover:opacity-75" aria-label={`Remove ${value} filter`}>
                       <FaTimes size="0.9em" />
                     </button>
                   </span>
@@ -96,7 +96,7 @@ export default function MobileFilterDrawer({
                       {option.emoji} {option.label}
                       <button
                         onClick={() => handlePaymentCheckboxChange(option, false)}
-                        className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${option.label} filter`}>
+                        className="ml-1 text-google-blue hover:opacity-75" aria-label={`Remove ${option.label} filter`}>
                         <FaTimes size="0.9em" />
                       </button>
                     </span>

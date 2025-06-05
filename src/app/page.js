@@ -723,7 +723,7 @@ function HomePageContent({ scrollY }) {
                   {code && <CountryFlag countryCode={code} svg style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />}
                   <button
                     onClick={() => handleCheckboxChange('countries', value, false)}
-                    className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${label}`}>
+                    className="ml-1 text-google-blue hover:opacity-75" aria-label={`Remove ${label}`}>
                     <FaTimes size="0.9em" />
                   </button>
                 </span>
@@ -735,7 +735,7 @@ function HomePageContent({ scrollY }) {
                 {value}
                 <button
                   onClick={() => handleCheckboxChange('dataTypes', value, false)}
-                  className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${value}`}>
+                  className="ml-1 text-google-blue hover:opacity-75" aria-label={`Remove ${value}`}>
                   <FaTimes size="0.9em" />
                 </button>
               </span>
@@ -748,7 +748,7 @@ function HomePageContent({ scrollY }) {
                   {option.emoji} {option.label}
                   <button
                     onClick={() => handlePaymentCheckboxChange(option, false)}
-                    className="ml-1 text-blue-500 hover:text-blue-700" aria-label={`Remove ${option.label}`}>
+                    className="ml-1 text-google-blue hover:opacity-75" aria-label={`Remove ${option.label}`}>
                     <FaTimes size="0.9em" />
                   </button>
                 </span>

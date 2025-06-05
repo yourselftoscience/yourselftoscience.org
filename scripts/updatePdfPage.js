@@ -73,12 +73,17 @@ function getLatestDoi() {
     stopAllIntervals();
     
     // Force the title to show "Yourself To Science" with "self" as the yellow word
-    const titleElementSpans = document.querySelectorAll('h1 span.text-yellow-400');
-    if (titleElementSpans.length > 0) {
-      titleElementSpans.forEach(span => {
-        span.textContent = 'self';
-        span.className = 'text-yellow-400';
-      });
+    const titleElement = document.querySelector('h1');
+    if (titleElement && titleElement.textContent.includes("Yourself To Science")) {
+      // Find spans with text-yellow-400 within the h1 and update them if needed for PDF
+      const titleElementSpans = document.querySelectorAll('h1 span.text-yellow-500');
+      if (titleElementSpans.length > 0) {
+        titleElementSpans.forEach(span => {
+          // Example: change class or style directly if Puppeteer has issues with Tailwind in PDF
+          // For now, assuming Tailwind class is picked up or we just ensure it's the correct one
+          span.className = 'text-yellow-500'; 
+        });
+      }
     }
 
     // Force HTML and Body styles for PDF readability

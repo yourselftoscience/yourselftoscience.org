@@ -37,7 +37,7 @@ function getCitationKey(citation) {
 const getStepIcon = (step) => {
   const lowerStep = step.toLowerCase();
   if (lowerStep.includes('fitbit app') || lowerStep.includes('open the app'))
-    return <FaMobileAlt className="text-blue-500" title="Mobile App Step"/>;
+    return <FaMobileAlt className="text-google-blue" title="Mobile App Step"/>;
   if (lowerStep.includes('settings'))
     return <FaCog className="text-gray-600" title="Settings Step"/>;
   if (lowerStep.includes('privacy'))

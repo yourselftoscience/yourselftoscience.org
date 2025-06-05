@@ -3,7 +3,7 @@
 'use client';
 
 import React from 'react';
-import { FaCreativeCommons, FaCreativeCommonsBy, FaCreativeCommonsSa, FaGithub } from 'react-icons/fa';
+import { FaCreativeCommons, FaCreativeCommonsBy, FaCreativeCommonsSa, FaGithub, FaLock, FaFileContract } from 'react-icons/fa';
 
 export default function Footer() {
   return (
@@ -15,7 +15,7 @@ export default function Footer() {
             href="https://github.com/yourselftoscience/yourselftoscience.org/blob/main/LICENSE-CONTENT"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-yellow-400 hover:underline inline-flex items-center"
+            className="text-yellow-500 hover:underline inline-flex items-center"
           >
             <FaCreativeCommons className="mr-1" />
             <FaCreativeCommonsBy className="mr-1" />
@@ -27,7 +27,7 @@ export default function Footer() {
             href="https://github.com/yourselftoscience/yourselftoscience.org/blob/main/LICENSE-CODE"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-yellow-400 hover:underline inline-flex items-center"
+            className="text-yellow-500 hover:underline inline-flex items-center"
           >
             AGPL-3.0 License
           </a>
@@ -38,7 +38,7 @@ export default function Footer() {
             href="https://github.com/yourselftoscience/yourselftoscience.org/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center text-blue-500 hover:underline"
+            className="inline-flex items-center text-google-blue hover:underline"
           >
             <FaGithub className="mr-2" />
             You can find my source code here.
@@ -49,7 +49,7 @@ export default function Footer() {
       <p className="absolute bottom-2 right-2 text-xs">
         <a 
           href="/yourselftoscience.pdf" 
-          className="underline text-blue-400" 
+          className="underline text-google-blue" 
           target="_blank" 
           rel="noopener noreferrer">
           PDF Version

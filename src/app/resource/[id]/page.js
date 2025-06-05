@@ -46,7 +46,7 @@ export default function ResourcePage({ params }) {
   // Helper function to get icons for instruction steps
   const getStepIcon = (step) => {
     if (step.toLowerCase().includes('fitbit app')) 
-      return <FaMobileAlt className="text-blue-500" />;
+      return <FaMobileAlt className="text-google-blue" />;
     if (step.toLowerCase().includes('settings')) 
       return <FaCog className="text-gray-600" />;
     if (step.toLowerCase().includes('privacy')) 

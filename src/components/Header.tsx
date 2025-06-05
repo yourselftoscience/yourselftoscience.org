@@ -11,9 +11,9 @@ import {
 } from 'framer-motion';
 
 // Dynamically import AnimatedWord
-const AnimatedWordDynamic = dynamic(() => import('@/components/AnimatedWord'), {
-  loading: () => <span className="inline-block text-yellow-400 ml-1">self</span>, // Fallback similar to static self
-  ssr: false // It's a client-side animation component
+const AnimatedWordDynamic = dynamic(() => import('./AnimatedWord'), {
+  ssr: false,
+  loading: () => <span className="inline-block text-yellow-500 ml-1">self</span>, // Fallback similar to static self
 });
 
 interface HeaderProps {
@@ -195,7 +195,7 @@ export default function Header({ scrollY }: HeaderProps) {
            <span
              key="static-self"
              // Adjust margin based on layout mode
-             className={`inline-block text-yellow-400 ${useInlineLayout ? 'ml-0' : 'ml-1'}`}
+             className={`inline-block text-yellow-500 ${useInlineLayout ? 'ml-0' : 'ml-1'}`}
            >
              self
            </span>

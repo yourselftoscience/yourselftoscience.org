@@ -12,7 +12,7 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         // Add Google-like colors (optional, adjust as needed)
-        'google-blue': '#4285F4',
+        'google-blue': '#1156B0',
         'google-red': '#DB4437',
         'google-yellow': '#F4B400',
         'google-green': '#0F9D58',
