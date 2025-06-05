@@ -198,9 +198,9 @@ export default function ResourceGrid({
               {/* Card Header */}
               <div className="flex justify-between items-start mb-1">
                  <div className="flex-grow mr-2">
-                   <h3 className="text-base font-medium text-google-text">
+                   <h2 className="text-base font-medium text-google-text">
                      {resource.title}
-                   </h3>
+                   </h2>
                    {resource.organization && (
                      <p className="text-base font-medium text-gray-600 -mt-0.5">
                        {resource.organization}
@@ -310,7 +310,7 @@ export default function ResourceGrid({
                           >
                             <Popover.Panel className="absolute z-10 bottom-full left-0 mb-2 w-72 max-h-80 overflow-y-auto rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                               <div className="p-3 space-y-2">
-                                <h4 className="text-xs font-medium text-google-text uppercase border-b pb-1 mb-2">Instructions</h4>
+                                <h3 className="text-xs font-medium text-google-text uppercase border-b pb-1 mb-2">Instructions</h3>
                                 <ol className="space-y-2.5">
                                   {resource.instructions.map((step, idx) => (
                                     <li key={idx} className="flex items-start text-xs text-google-text-secondary leading-snug">
@@ -358,9 +358,9 @@ export default function ResourceGrid({
                         >
                           <Popover.Panel className="absolute z-10 bottom-full right-0 mb-2 w-72 max-h-60 overflow-y-auto rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                             <div className="p-3 space-y-2">
-                              <h4 className="text-xs font-medium text-google-text uppercase border-b pb-1 mb-1">
+                              <h3 className="text-xs font-medium text-google-text uppercase border-b pb-1 mb-1">
                                 Service Cited By
-                              </h4>
+                              </h3>
                               <ol className="list-decimal list-inside space-y-1.5">
                                 {resource.citations.map((citation, idx) => {
                                   const key = getCitationKey(citation);
