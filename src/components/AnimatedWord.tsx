@@ -20,7 +20,7 @@ export default function AnimatedWord({ word }: AnimatedWordProps) {
       exit={{ opacity: 0, transition: { duration: 0 } }} // Instant exit
       transition={{ duration: 0.2, ease: "easeInOut" }}
       // Add inline-block here too, as it's needed for text-center parent
-      className={`inline-block text-yellow-500 ${marginLeftClass}`}
+      className={`inline-block text-yellow-500 text-stroke-yellow-dark ${marginLeftClass}`}
     >
       {word}
     </motion.span>

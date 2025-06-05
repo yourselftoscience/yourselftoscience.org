@@ -19,6 +19,7 @@ const config: Config = {
         'google-grey': '#f8f9fa', // Light grey background
         'google-text': '#202124', // Primary text
         'google-text-secondary': '#5f6368', // Secondary text
+        'footer-link-blue': '#8AB8F4', // New color for footer links
       },
       gridTemplateColumns: {
         // Adjust layout: single column by default, two columns on large screens

@@ -38,7 +38,7 @@ export default function Footer() {
             href="https://github.com/yourselftoscience/yourselftoscience.org/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center text-google-blue hover:underline"
+            className="inline-flex items-center text-footer-link-blue hover:underline"
           >
             <FaGithub className="mr-2" />
             You can find my source code here.
@@ -49,7 +49,7 @@ export default function Footer() {
       <p className="absolute bottom-2 right-2 text-xs">
         <a 
           href="/yourselftoscience.pdf" 
-          className="underline text-google-blue" 
+          className="underline text-footer-link-blue" 
           target="_blank" 
           rel="noopener noreferrer">
           PDF Version

@@ -26,6 +26,20 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  .text-stroke-yellow-dark {
+    -webkit-text-stroke-width: 0.4px;
+    -webkit-text-stroke-color: #ffd92d; /* Light yellow stroke */
+    text-stroke-width: 0.4px;
+    text-stroke-color: #ffd92d; /* Light yellow stroke */
+
+    /* Gradient fill for spectrum effect */
+    background-image: linear-gradient(to bottom, #ffd92d, #B35F00); /* Gradient from light yellow to dark orange */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; /* Make the text color transparent to show the gradient */
+    -webkit-text-fill-color: transparent; /* For older WebKit browsers */
+    /* paint-order is removed as it's not typically used with background-clip: text */
+  }
 }
 
 /* Style for targeted reference list items */
