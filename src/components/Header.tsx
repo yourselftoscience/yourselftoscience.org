@@ -180,7 +180,7 @@ export default function Header({ scrollY }: HeaderProps) {
          />
       </motion.div>
 
-      <motion.div
+      <motion.h1
         className={`font-medium text-google-text whitespace-nowrap overflow-hidden min-w-0 ${
           useInlineLayout ? 'flex items-baseline' : 'text-center w-full'
         }`}
@@ -201,7 +201,7 @@ export default function Header({ scrollY }: HeaderProps) {
            </span>
          )}
          <span className={useInlineLayout ? '' : 'inline-block'}>&nbsp;to Science</span>
-      </motion.div>
+      </motion.h1>
     </motion.header>
   );
 }
