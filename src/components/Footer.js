@@ -15,7 +15,7 @@ export default function Footer() {
             href="https://github.com/yourselftoscience/yourselftoscience.org/blob/main/LICENSE-CONTENT"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 hover:underline inline-flex items-center"
+            className="text-blue-600 underline inline-flex items-center"
           >
             <FaCreativeCommons className="mr-1" />
             <FaCreativeCommonsBy className="mr-1" />
@@ -27,7 +27,7 @@ export default function Footer() {
             href="https://github.com/yourselftoscience/yourselftoscience.org/blob/main/LICENSE-CODE"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 hover:underline inline-flex items-center"
+            className="text-blue-600 underline inline-flex items-center"
           >
             AGPL-3.0 License
           </a>
