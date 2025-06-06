@@ -318,8 +318,6 @@ const rawResources = [
     organization: 'Penn Medicine',
     link: 'https://cdh.nmsdev.com/donate-your-data',
     dataTypes: ['Health data', 'Wearable data', 'Social media data', 'Search history'],
-    countries: ['United States'],
-    countryCodes: ['US'],
     compensationType: 'payment',
     citations: [
       {
