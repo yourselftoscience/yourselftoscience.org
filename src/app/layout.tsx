@@ -73,6 +73,10 @@ export default function RootLayout({
     // Keep suppressHydrationWarning on html for good measure
     <html lang="en" suppressHydrationWarning={true}>
       <head>
+        <link rel="preconnect" href="https://cloudflareinsights.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://cloudflareinsights.com" />
+        <link rel="preconnect" href="https://static.cloudflareinsights.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://static.cloudflareinsights.com" />
         <meta name="citation_online_date" content={currentDate} />
         {/* Add other necessary head elements like charset, viewport */}
         <meta charSet="utf-8" />
