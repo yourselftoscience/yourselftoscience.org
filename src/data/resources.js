@@ -5,7 +5,7 @@ const rawResources = [
     title: 'Open Humans',
     organization: 'Open Humans Foundation', // Added organization
     link: 'https://www.openhumans.org/add-data/',
-    dataTypes: ['Genome', 'Health data', 'Wearable data'],
+    dataTypes: ['Genome', 'Health data', 'Wearable data', 'Search history', 'Location history'],
     compensationType: 'donation',
     citations: [
       {
