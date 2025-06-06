@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 interface AnimatedWordProps {
   word: string;
@@ -14,7 +14,7 @@ export default function AnimatedWord({ word }: AnimatedWordProps) {
   const marginLeftClass = word === 'self' ? 'ml-0' : 'ml-1'; // ml-1 for non-self words (likely centered state)
 
   return (
-    <motion.span
+    <m.span
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, transition: { duration: 0 } }} // Instant exit
@@ -23,6 +23,6 @@ export default function AnimatedWord({ word }: AnimatedWordProps) {
       className={`inline-block text-yellow-500 text-stroke-yellow-dark ${marginLeftClass}`}
     >
       {word}
-    </motion.span>
+    </m.span>
   );
 }

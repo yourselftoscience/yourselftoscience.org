@@ -20,8 +20,7 @@ async function generateSitemap() {
     
     // Use dynamic import for CommonJS modules
     fs.writeFileSync(tempScriptPath, `
-      import pkg from '../src/data/resources.js';
-      const { resources } = pkg;
+      import { resources } from '../src/data/resources.js';
       console.log(JSON.stringify(resources.map(r => ({
         id: r.id,
         title: r.title,

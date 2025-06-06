@@ -4,7 +4,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import {
-  motion,
+  LazyMotion,
+  domAnimation,
+  m,
   useTransform,
   MotionValue,
   useMotionValueEvent
@@ -46,7 +48,7 @@ const useWindowSize = () => {
 };
 // --- End Custom Hook ---
 
-export default function Header({ scrollY }: HeaderProps) {
+function HeaderComponent({ scrollY }: HeaderProps) {
   const { width: windowWidth, hasMounted } = useWindowSize();
   const isMobile = hasMounted && windowWidth !== undefined && windowWidth < MOBILE_BREAKPOINT;
 
@@ -90,9 +92,7 @@ export default function Header({ scrollY }: HeaderProps) {
         clearInterval(intervalIdRef.current);
         intervalIdRef.current = null;
         // Ensure 'self' is displayed when sticky
-        if (currentWord !== 'self') {
-           setCurrentWord('self'); // Use direct string 'self'
-        }
+        setCurrentWord('self'); // Use direct string 'self'
       } else if (!isSticky && !intervalIdRef.current) {
         // Start interval only if not sticky
         setCurrentWord(words[0]); // Start with 'self'
@@ -156,7 +156,7 @@ export default function Header({ scrollY }: HeaderProps) {
 
   // --- Main Render (only runs after mounting) ---
   return (
-    <motion.header
+    <m.header
        className={`w-full sticky top-0 z-30 flex items-center border-b bg-white px-4`}
        style={{
          paddingTop: headerPaddingY,
@@ -165,7 +165,7 @@ export default function Header({ scrollY }: HeaderProps) {
          boxShadow: boxShadow,
        }}
     >
-      <motion.div
+      <m.div
         className={`flex-shrink-0 mr-2`}
         style={{ width: logoSize, height: logoSize }}
       >
@@ -177,9 +177,9 @@ export default function Header({ scrollY }: HeaderProps) {
            className="block w-full h-full"
            priority
          />
-      </motion.div>
+      </m.div>
 
-      <motion.h1
+      <m.h1
         className={`font-medium text-google-text whitespace-nowrap overflow-hidden min-w-0 ${
           useInlineLayout ? 'flex items-baseline' : 'text-center w-full'
         }`}
@@ -200,7 +200,15 @@ export default function Header({ scrollY }: HeaderProps) {
            </span>
          )}
          <span className={useInlineLayout ? '' : 'inline-block'}>&nbsp;to Science</span>
-      </motion.h1>
-    </motion.header>
+      </m.h1>
+    </m.header>
   );
+}
+
+export default function Header({ scrollY }: HeaderProps) {
+    return (
+        <LazyMotion features={domAnimation}>
+            <HeaderComponent scrollY={scrollY} />
+        </LazyMotion>
+    );
 }

@@ -6,7 +6,7 @@ import React, { useState, useEffect, useMemo, useCallback, Suspense } from 'reac
 // Import motionValue ONLY if needed elsewhere, otherwise remove. useScroll is now used here.
 import { motion, AnimatePresence, useScroll } from 'framer-motion';
 import Footer from '@/components/Footer';
-import { resources as allResources, PAYMENT_TYPES, EU_COUNTRIES } from '@/data/resources';
+import { PAYMENT_TYPES, EU_COUNTRIES } from '@/data/resources';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import CountryFlag from 'react-country-flag';
@@ -215,167 +215,75 @@ function HomePageContent({ scrollY }) {
   const pathname = usePathname();
   const searchParams = useSearchParams(); // This causes the component to suspend
 
-  // ... state declarations (filters, showMore, isMounted, etc.) ...
   const [filters, setFilters] = useState({ dataTypes: [], countries: [], compensationTypes: [], searchTerm: '' });
   const [showMoreDataTypes, setShowMoreDataTypes] = useState(false);
   const [showMoreCountries, setShowMoreCountries] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState(false);
 
+  const [processedResources, setProcessedResources] = useState([]);
+  const [dataTypeOptions, setDataTypeOptions] = useState([]);
+  const [countryOptions, setCountryOptions] = useState([]);
 
-  // --- REMOVE useScroll from here ---
-  // const { scrollY } = useScroll();
-  // --- You can now use the scrollY prop if needed ---
-
-  // --- Effects and Memos (keep as is) ---
   useEffect(() => {
-    // Initialize filters from searchParams
+    // Fetch filter options on mount
+    fetch('/api/filter-options')
+      .then(res => res.json())
+      .then(data => {
+        setDataTypeOptions(data.dataTypeOptions);
+        setCountryOptions(data.countryOptions);
+      });
+  }, []);
+
+  useEffect(() => {
     const initialFilters = {
       dataTypes: parseUrlList(searchParams.get('dataTypes')),
       countries: parseUrlList(searchParams.get('countries')),
-      // Map compensation values back to objects from PAYMENT_TYPES
       compensationTypes: parseUrlList(searchParams.get('compensationTypes')).map(val =>
         PAYMENT_TYPES.find(p => p.value === val)
-      ).filter(Boolean), // Filter out any nulls if a value in URL is invalid
+      ).filter(Boolean),
       searchTerm: searchParams.get('searchTerm') || '',
     };
     setFilters(initialFilters);
-    setIsMounted(true); // Mark as mounted after initial state is set
-  }, [searchParams]); // Add searchParams to dependency array
-  // --- END: Effect to initialize state from URL on mount ---
+    setIsMounted(true);
+  }, [searchParams]);
 
-  // --- START: Effect to update URL when filters change ---
   useEffect(() => {
-    // Only run this effect if the component is mounted and filters have changed
-    if (!isMounted) {
-      return; // Don't update URL during initial render or before state is initialized
-    }
+    if (!isMounted) return;
 
     const params = new URLSearchParams();
-    // --- START: Sort filter values before adding to URL ---
     if (filters.countries.length > 0) {
-      // Sort countries alphabetically
       params.set('countries', [...filters.countries].sort((a, b) => a.localeCompare(b)).join(','));
     }
     if (filters.dataTypes.length > 0) {
-      // Sort data types alphabetically
       params.set('dataTypes', [...filters.dataTypes].sort((a, b) => a.localeCompare(b)).join(','));
     }
     if (filters.compensationTypes.length > 0) {
-      // Sort compensation types based on PAYMENT_TYPES order
       const paymentOrder = PAYMENT_TYPES.map(p => p.value);
       const sortedCompensationValues = [...filters.compensationTypes]
         .sort((a, b) => paymentOrder.indexOf(a.value) - paymentOrder.indexOf(b.value))
         .map(p => p.value);
       params.set('compensationTypes', sortedCompensationValues.join(','));
     }
-    // --- END: Sort filter values before adding to URL ---
     if (filters.searchTerm) {
       params.set('searchTerm', filters.searchTerm);
     }
-
     const queryString = params.toString();
-    // Use replaceState to update the URL without adding to browser history
     window.history.replaceState(null, '', queryString ? `?${queryString}` : pathname);
 
-  }, [filters, isMounted, pathname]); // Re-run when filters, isMounted, or pathname changes
-  // --- END: Effect to update URL when filters change ---
-
-
-  const dataTypeOptions = useMemo(() => {
-    const allTypes = allResources.flatMap(resource => resource.dataTypes || []);
-    const mappedTypes = allTypes.map(type =>
-      type.startsWith('Wearable data') ? 'Wearable data' : type
-    );
-    const uniqueTypes = [...new Set(mappedTypes)];
-    return uniqueTypes.sort((a, b) => a.localeCompare(b));
-  }, []);
-
-  const countryOptions = useMemo(() => {
-    const countries = new Set();
-    const countryCodeMap = new Map();
-    allResources.forEach((resource) => {
-      resource.countries?.forEach((country, index) => {
-        countries.add(country);
-        if (resource.countryCodes?.[index] && !countryCodeMap.has(country)) {
-          countryCodeMap.set(country, resource.countryCodes[index]);
-        }
+    // Fetch resources based on filters
+    fetch(`/api/resources?${queryString}`)
+      .then(res => res.json())
+      .then(data => {
+        setProcessedResources(data);
       });
-    });
-    if (allResources.some(r => r.countries?.includes('European Union'))) {
-      countries.add('European Union');
-      if (!countryCodeMap.has('European Union')) {
-        countryCodeMap.set('European Union', 'EU');
-      }
-    }
-    return Array.from(countries)
-      .sort((a, b) => a.localeCompare(b))
-      .map(country => ({ label: country, value: country, code: countryCodeMap.get(country) }));
-  }, []);
 
-  const processedResources = useMemo(() => {
-    let filteredData = [...allResources];
-    const lowerSearchTerm = filters.searchTerm.toLowerCase().trim();
+  }, [filters, isMounted, pathname]);
 
-    if (lowerSearchTerm) {
-      filteredData = filteredData.filter(resource => {
-        const titleMatch = resource.title && resource.title.toLowerCase().includes(lowerSearchTerm);
-        const descriptionMatch = resource.description && resource.description.toLowerCase().includes(lowerSearchTerm);
-        const dataTypeMatch = resource.dataTypes && resource.dataTypes.some(dt => dt.toLowerCase().includes(lowerSearchTerm));
-        const countryMatch = resource.countries && resource.countries.some(c => c.toLowerCase().includes(lowerSearchTerm));
-        const compensationTypeMatch = resource.compensationType && resource.compensationType.toLowerCase().includes(lowerSearchTerm);
-        const citationMatch = resource.citations && resource.citations.some(cit =>
-          (cit.title && cit.title.toLowerCase().includes(lowerSearchTerm)) ||
-          (cit.link && cit.link.toLowerCase().includes(lowerSearchTerm))
-        );
-        const linkMatch = resource.link && resource.link.toLowerCase().includes(lowerSearchTerm);
-        const instructionMatch = resource.instructions && resource.instructions.some(step => step.toLowerCase().includes(lowerSearchTerm));
-
-        return titleMatch || descriptionMatch || dataTypeMatch || countryMatch || compensationTypeMatch || citationMatch || linkMatch || instructionMatch;
-      });
-    }
-
-    if (filters.dataTypes.length > 0) {
-      filteredData = filteredData.filter(resource =>
-        resource.dataTypes && filters.dataTypes.some(filterType => {
-          // If the filter is 'Wearable data', match any resource that starts with it
-          if (filterType === 'Wearable data') {
-            return resource.dataTypes.some(rdt => rdt.startsWith('Wearable data'));
-          }
-          // Otherwise, require an exact match
-          return resource.dataTypes.includes(filterType);
-        })
-      );
-    }
-
-    const expandedCountries = expandCountries(filters.countries);
-    if (expandedCountries.length > 0) {
-      filteredData = filteredData.filter(resource =>
-        !resource.countries || resource.countries.length === 0 ||
-        (resource.countries && resource.countries.some(rc => expandedCountries.includes(rc)))
-      );
-    }
-
-    const paymentValues = filters.compensationTypes.map(p => p.value);
-    if (paymentValues.length > 0) {
-      filteredData = filteredData.filter(resource =>
-        resource.compensationType && paymentValues.includes(resource.compensationType)
-      );
-    }
-
-    filteredData.sort((a, b) => a.title.localeCompare(b.title));
-
-    return filteredData;
-  }, [filters]); // Ensure filters is the dependency
-
-  // Derive citations in page order
   const citationList = useMemo(() => {
     const list = [];
     processedResources.forEach(resource => {
       (resource.citations || []).forEach(citation => {
-        const key = citation.link
-          ? citation.link.trim()
-          : citation.title.trim().toLowerCase().substring(0, 50);
         if (!list.some(c => (c.link || '').trim() === (citation.link || '').trim() &&
                             (c.title || '') === citation.title)) {
           list.push(citation);
@@ -385,7 +293,6 @@ function HomePageContent({ scrollY }) {
     return list;
   }, [processedResources]);
 
-  // Map citation key to its number
   const citationMap = useMemo(() => {
     return citationList.reduce((map, citation, idx) => {
       const key = citation.link
@@ -396,8 +303,6 @@ function HomePageContent({ scrollY }) {
     }, {});
   }, [citationList]);
 
-
-  // --- Callbacks (keep as is) ---
   const handleCheckboxChange = useCallback((filterKey, value, isChecked) => {
     setFilters(prev => {
       const currentValues = prev[filterKey];
@@ -409,7 +314,7 @@ function HomePageContent({ scrollY }) {
       }
       return { ...prev, [filterKey]: newValues };
     });
-  }, []); // Empty dependency array as setFilters is stable
+  }, []);
 
   const handlePaymentCheckboxChange = useCallback((option, isChecked) => {
     setFilters(prev => {
@@ -417,68 +322,59 @@ function HomePageContent({ scrollY }) {
       let newPaymentValues = new Set(currentPaymentValues);
 
       if (isChecked) {
-        // Add the primary type clicked
         newPaymentValues.add(option.value);
-        // If Donation or Payment was added, also add Mixed
         if (option.value === 'donation' || option.value === 'payment') {
           newPaymentValues.add('mixed');
         }
       } else {
-        // Remove the primary type being deselected
         newPaymentValues.delete(option.value);
 
-        // If Donation was removed, check if Payment is still selected. If not, remove Mixed.
         if (option.value === 'donation' && !newPaymentValues.has('payment')) {
           newPaymentValues.delete('mixed');
         }
-        // If Payment was removed, check if Donation is still selected. If not, remove Mixed.
         else if (option.value === 'payment' && !newPaymentValues.has('donation')) {
           newPaymentValues.delete('mixed');
         }
-        // If Mixed was deselected directly, it's handled by the initial delete.
       }
 
-      // Convert the final set of values back to the array of objects
       const newPaymentsArray = PAYMENT_TYPES.filter(p => newPaymentValues.has(p.value));
 
       return { ...prev, compensationTypes: newPaymentsArray };
     });
-  }, []); // Empty dependency array
+  }, []);
 
   const handleClearGroup = useCallback((filterKey) => {
     setFilters(prev => ({
       ...prev,
       [filterKey]: []
     }));
-  }, []); // Empty dependency array
+  }, []);
 
   const handleSearchChange = useCallback((event) => {
     setFilters(prev => ({ ...prev, searchTerm: event.target.value }));
-  }, []); // Empty dependency array
+  }, []);
 
   const toggleFilterDrawer = useCallback(() => {
     setIsFilterDrawerOpen(prev => !prev);
-  }, []); // Empty dependency array
+  }, []);
 
   const handleResetFilters = useCallback(() => {
     setFilters({
       dataTypes: [],
       countries: [],
       compensationTypes: [],
-      searchTerm: '', // Reset search term as well
+      searchTerm: '',
     });
-    // Optionally close drawer after reset
     setIsFilterDrawerOpen(false);
-  }, []); // Empty dependency array
+  }, []);
 
   const handleSelectAll = useCallback((filterKey, options, selectAll) => {
     setFilters(prev => {
       let newValues;
       if (selectAll) {
         if (filterKey === 'compensationTypes') {
-          newValues = [...options]; // Use the full option objects
+          newValues = [...options];
         } else {
-          // Map options to their values (handles both string arrays and object arrays)
           newValues = options.map(option => typeof option === 'string' ? option : option.value);
         }
       } else {
@@ -486,7 +382,7 @@ function HomePageContent({ scrollY }) {
       }
       return { ...prev, [filterKey]: newValues };
     });
-  }, []); // Empty dependency array
+  }, []);
 
   const handleFilterChange = (filterKey, value) => {
     setFilters(prev => ({
@@ -502,30 +398,22 @@ function HomePageContent({ scrollY }) {
     handleCheckboxChange('dataTypes', 'Wearable data', !isWearableActive);
   };
 
-  // --- Render Functions (keep as is) ---
   const renderFilterGroup = (title, options, filterKey, showMore, setShowMore) => {
     const selectedValues = filters[filterKey];
     const visibleOptions = showMore ? options : options.slice(0, 3);
-    // --- START: Modify condition for showing Clear all ---
-    // Show "Clear all" if more than one item is selected
     const showClearAll = selectedValues.length > 1;
-    // --- END: Modify condition for showing Clear all ---
-    // Note: allSelected and someSelected are no longer directly used for the button logic, but kept for potential future use or clarity
     const allSelected = options.length > 0 && selectedValues.length === options.length;
     const someSelected = selectedValues.length > 0 && !allSelected;
-
 
     return (
       <div className="mb-4">
         <h3 className="font-normal text-base text-google-text mb-1">{title}</h3>
         <button
-          // --- START: Update onClick and text based on showClearAll ---
-          onClick={() => handleSelectAll(filterKey, options, !showClearAll)} // If showing "Clear all", pass false to selectAll; otherwise pass true
+          onClick={() => handleSelectAll(filterKey, options, !showClearAll)}
           className="text-sm font-medium text-google-blue hover:underline mb-2 block"
           aria-label={showClearAll ? `Clear all ${title}` : `Select all ${title}`}
         >
           {showClearAll ? 'Clear all' : 'Select all'}
-          {/* --- END: Update onClick and text based on showClearAll --- */}
         </button>
 
         {visibleOptions.map(option => {
@@ -587,10 +475,8 @@ function HomePageContent({ scrollY }) {
       {isMounted && renderFilterGroup('Available In', countryOptions, 'countries', showMoreCountries, setShowMoreCountries)}
       {isMounted && renderFilterGroup('Data Type', dataTypeOptions, 'dataTypes', showMoreDataTypes, setShowMoreDataTypes)}
 
-      {/* Compensation Filter */}
       <div className="mb-4">
         <h3 className="font-normal text-base text-google-text mb-1">Compensation</h3>
-        {/* --- START: Apply same logic to Compensation button --- */}
         {(() => {
           const showClearAllCompensation = filters.compensationTypes.length > 1;
           return (
@@ -603,7 +489,6 @@ function HomePageContent({ scrollY }) {
             </button>
           );
         })()}
-        {/* --- END: Apply same logic to Compensation button --- */}
 
         {PAYMENT_TYPES.map(option => (
           <div key={option.value} className="flex items-center mb-2">
@@ -653,14 +538,10 @@ function HomePageContent({ scrollY }) {
     document.body.removeChild(link);
   }
 
-  // --- Prevent rendering until mounted (Keep this check) ---
-  // This ensures filters are initialized from URL before rendering dynamic content
   if (!isMounted) {
-    // Return the skeleton here to match the Suspense fallback during initial client render phase
     return <ContentAreaSkeleton />;
   }
-
-  // --- Return the JSX for the main content area ONLY ---
+  
   return (
     <div className="flex-grow w-full max-w-screen-xl mx-auto px-4 pb-8 pt-3">
 
@@ -674,16 +555,12 @@ function HomePageContent({ scrollY }) {
       {/* Main Layout Grid */}
       <div className="grid grid-cols-layout lg:grid-cols-lg-layout gap-6">
         {/* Sidebar */}
-        {/* --- START: Adjust sticky top value --- */}
-        {/* Final sticky header height is ~51px (35px logo + 8px*2 padding). Add a gap. */}
         <aside className="hidden lg:block py-4 px-4 sticky top-[55px] h-[calc(100vh-100px)] overflow-y-auto">
-        {/* --- END: Adjust sticky top value --- */}
           <div className="border border-gray-200 rounded-lg mb-4">
             <h2 className="text-xs font-medium uppercase text-google-text-secondary px-4 pt-4 pb-2 border-b border-gray-200">
               Filter By
             </h2>
             <div className="p-4">
-              {/* Render filter content using useCallback handlers */}
               {renderFilterContent()}
             </div>
           </div>
@@ -705,7 +582,6 @@ function HomePageContent({ scrollY }) {
 
         {/* Main Content Area */}
         <main className="py-4">
-          {/* Search and Mobile Filter Button */}
           <div className="mb-4 flex gap-2 items-center">
             <div className="relative w-full">
               <input
@@ -733,9 +609,7 @@ function HomePageContent({ scrollY }) {
             </button>
           </div>
 
-          {/* Active Filter Badges */}
           <div className="mb-4 flex flex-wrap gap-2 items-center">
-            {/* Sort countries alphabetically before mapping */}
             {[...filters.countries].sort((a, b) => a.localeCompare(b)).map(value => {
               const countryOption = countryOptions.find(opt => opt.value === value);
               const label = countryOption?.label || value;
@@ -752,7 +626,6 @@ function HomePageContent({ scrollY }) {
                 </span>
               );
             })}
-            {/* Sort data types alphabetically before mapping */}
             {[...filters.dataTypes].sort((a, b) => a.localeCompare(b)).map(value => (
               <span key={`sel-dt-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
                 {value}
@@ -763,7 +636,6 @@ function HomePageContent({ scrollY }) {
                 </button>
               </span>
             ))}
-            {/* Sort compensation types by PAYMENT_TYPES order before mapping */}
             {[...filters.compensationTypes]
               .sort((a, b) => PAYMENT_TYPES.map(p => p.value).indexOf(a.value) - PAYMENT_TYPES.map(p => p.value).indexOf(b.value))
               .map(option => (
@@ -778,7 +650,6 @@ function HomePageContent({ scrollY }) {
             ))}
           </div>
 
-          {/* Resource Grid */}
           <div className="lg:col-span-1">
              <ResourceGrid
                 resources={processedResources}
@@ -791,7 +662,6 @@ function HomePageContent({ scrollY }) {
               />
           </div>
 
-          {/* Mobile Buttons */}
           <div className="mt-8 flex flex-col items-center gap-2 w-full max-w-xs mx-auto lg:hidden">
              <button
                 onClick={() => window.open('https://github.com/yourselftoscience/yourselftoscience.org/issues/new?template=suggest-a-service.md', '_blank')}
@@ -807,7 +677,6 @@ function HomePageContent({ scrollY }) {
               </button>
           </div>
 
-          {/* References Section */}
           {citationList.length > 0 && (
             <section id="references" className="w-full max-w-screen-xl mx-auto px-4 py-8 border-t mt-8">
               <h2 className="text-xl font-semibold mb-4 text-google-text">References</h2>
@@ -832,9 +701,8 @@ function HomePageContent({ scrollY }) {
             </section>
           )}
         </main>
-      </div> {/* End grid */}
+      </div>
 
-      {/* Filter Drawer - Now uses the dynamically imported MobileFilterDrawer */}
       {isMounted && (
         <MobileFilterDrawer
           isOpen={isFilterDrawerOpen}
@@ -846,9 +714,9 @@ function HomePageContent({ scrollY }) {
           handleCheckboxChange={handleCheckboxChange}
           handlePaymentCheckboxChange={handlePaymentCheckboxChange}
           handleResetFilters={handleResetFilters}
-          renderFilterContent={renderFilterContent} // Pass the existing render function
+          renderFilterContent={renderFilterContent}
         />
       )}
-    </div> // End flex-grow container
+    </div>
   );
 }
