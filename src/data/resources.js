@@ -20,6 +20,13 @@ const rawResources = [
     link: 'https://myphd.stanford.edu/studies/',
     dataTypes: ['Health data', 'Wearable data'],
     compensationType: 'donation',
+    citations: [
+      {
+        title:
+          'Shandhi, M.M.H., Cho, P.J., Roghanizad, A.R. et al. A method for intelligent allocation of diagnostic testing by leveraging data from commercial wearable devices: a case study on COVID-19. npj Digit. Med. 5, 130 (2022)',
+        link: 'https://doi.org/10.1038/s41746-022-00672-z',
+      },
+    ],
   },
   {
     title: 'Google Health Studies',
