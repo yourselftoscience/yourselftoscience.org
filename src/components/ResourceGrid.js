@@ -177,7 +177,8 @@ export default function ResourceGrid({
   onFilterChange,
   onPaymentFilterChange,
   compensationTypesOptions, // Pass options down
-  citationMap
+  citationMap,
+  onWearableFilterToggle
 }) {
 
   if (!resources) {
@@ -261,19 +262,37 @@ export default function ResourceGrid({
                   );
                 })}
                 {/* Data Types */}
-                {resource.dataTypes?.map((type) => (
-                  <TagButton
-                    key={type}
-                    label={type}
-                    filterKey="dataTypes"
-                    value={type} // Pass the string value
-                    onClick={onFilterChange}
-                    filters={filters} // Pass filters
-                    compensationTypesOptions={compensationTypesOptions} // Pass for consistency
-                  >
-                    {type}
-                  </TagButton>
-                ))}
+                {resource.dataTypes?.map((type) => {
+                  // If the type is a specific wearable type, make it toggle the main 'Wearable data' filter
+                  if (type.startsWith('Wearable data')) {
+                    const isActive = filters.dataTypes.includes('Wearable data');
+                    return (
+                      <button
+                        key={type}
+                        onClick={() => onWearableFilterToggle && onWearableFilterToggle()}
+                        className={`tag flex items-center cursor-pointer transition-colors duration-150 ease-in-out px-2.5 py-1 rounded-full text-sm font-medium ${isActive ? 'bg-blue-100 text-blue-700 hover:bg-blue-200' : 'bg-gray-200 text-google-text-secondary hover:bg-gray-300'}`}
+                        aria-pressed={isActive}
+                        title="Toggle 'Wearable data' filter"
+                      >
+                        {type}
+                      </button>
+                    );
+                  }
+                  // Render all other data types as standard TagButtons
+                  return (
+                    <TagButton
+                      key={type}
+                      label={type}
+                      filterKey="dataTypes"
+                      value={type} // Pass the string value
+                      onClick={onFilterChange}
+                      filters={filters} // Pass filters
+                      compensationTypesOptions={compensationTypesOptions} // Pass for consistency
+                    >
+                      {type}
+                    </TagButton>
+                  );
+                })}
               </div>
 
               {/* Footer container */}

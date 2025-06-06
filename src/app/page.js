@@ -282,11 +282,14 @@ function HomePageContent({ scrollY }) {
   // --- END: Effect to update URL when filters change ---
 
 
-  const dataTypeOptions = useMemo(() => Array.from(
-    new Set(allResources.flatMap((resource) => resource.dataTypes || []))
-  )
-    .sort((a, b) => a.localeCompare(b))
-    , []);
+  const dataTypeOptions = useMemo(() => {
+    const allTypes = allResources.flatMap(resource => resource.dataTypes || []);
+    const mappedTypes = allTypes.map(type =>
+      type.startsWith('Wearable data') ? 'Wearable data' : type
+    );
+    const uniqueTypes = [...new Set(mappedTypes)];
+    return uniqueTypes.sort((a, b) => a.localeCompare(b));
+  }, []);
 
   const countryOptions = useMemo(() => {
     const countries = new Set();
@@ -334,7 +337,14 @@ function HomePageContent({ scrollY }) {
 
     if (filters.dataTypes.length > 0) {
       filteredData = filteredData.filter(resource =>
-        resource.dataTypes && resource.dataTypes.some(rdt => filters.dataTypes.includes(rdt))
+        resource.dataTypes && filters.dataTypes.some(filterType => {
+          // If the filter is 'Wearable data', match any resource that starts with it
+          if (filterType === 'Wearable data') {
+            return resource.dataTypes.some(rdt => rdt.startsWith('Wearable data'));
+          }
+          // Otherwise, require an exact match
+          return resource.dataTypes.includes(filterType);
+        })
       );
     }
 
@@ -478,6 +488,19 @@ function HomePageContent({ scrollY }) {
     });
   }, []); // Empty dependency array
 
+  const handleFilterChange = (filterKey, value) => {
+    setFilters(prev => ({
+      ...prev,
+      [filterKey]: prev[filterKey].includes(value)
+        ? prev[filterKey].filter(item => item !== value)
+        : [...prev[filterKey], value]
+    }));
+  };
+
+  const handleWearableFilterToggle = () => {
+    const isWearableActive = filters.dataTypes.includes('Wearable data');
+    handleCheckboxChange('dataTypes', 'Wearable data', !isWearableActive);
+  };
 
   // --- Render Functions (keep as is) ---
   const renderFilterGroup = (title, options, filterKey, showMore, setShowMore) => {
@@ -756,14 +779,17 @@ function HomePageContent({ scrollY }) {
           </div>
 
           {/* Resource Grid */}
-          <ResourceGrid
-            resources={processedResources}
-            filters={filters}
-            onFilterChange={handleCheckboxChange}
-            onPaymentFilterChange={handlePaymentCheckboxChange}
-            compensationTypesOptions={PAYMENT_TYPES}
-            citationMap={citationMap}
-          />
+          <div className="lg:col-span-1">
+             <ResourceGrid
+                resources={processedResources}
+                filters={filters}
+                onFilterChange={handleCheckboxChange}
+                onPaymentFilterChange={handlePaymentCheckboxChange}
+                compensationTypesOptions={PAYMENT_TYPES}
+                citationMap={citationMap}
+                onWearableFilterToggle={handleWearableFilterToggle}
+              />
+          </div>
 
           {/* Mobile Buttons */}
           <div className="mt-8 flex flex-col items-center gap-2 w-full max-w-xs mx-auto lg:hidden">

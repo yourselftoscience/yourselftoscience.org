@@ -4,7 +4,7 @@ const rawResources = [
     title: 'Open Humans',
     organization: 'Open Humans Foundation', // Added organization
     link: 'https://www.openhumans.org/add-data/',
-    dataTypes: ['Genome', 'Health data', 'Fitbit data'],
+    dataTypes: ['Genome', 'Health data', 'Wearable data'],
     compensationType: 'donation',
     citations: [
       {
@@ -18,7 +18,7 @@ const rawResources = [
     title: 'MyPHD',
     organization: 'Stanford University', // Added organization
     link: 'https://myphd.stanford.edu/studies/',
-    dataTypes: ['Health data', 'Fitbit data'],
+    dataTypes: ['Health data', 'Wearable data'],
     compensationType: 'donation',
   },
   {
@@ -55,7 +55,7 @@ const rawResources = [
       'Select Manage data and privacy',
       'Tap Data shared for research and development',
     ],
-    dataTypes: ['Fitbit data'],
+    dataTypes: ['Wearable data (Fitbit only)'],
     compensationType: 'donation',
   },
   {
@@ -266,6 +266,25 @@ const rawResources = [
       },
     ],
   },
+  {
+    title: 'Donate Your Data for Health',
+    organization: 'Penn Medicine',
+    link: 'https://cdh.nmsdev.com/donate-your-data',
+    dataTypes: ['Health data', 'Wearable data', 'Social media data', 'Search history'],
+    countries: ['United States'],
+    countryCodes: ['US'],
+    compensationType: 'payment',
+    citations: [
+      {
+        title: 'J.C. Eichstaedt, R.J. Smith, R.M. Merchant, L.H. Ungar, P. Crutchley, D. Preoţiuc-Pietro, D.A. Asch, & H.A. Schwartz,   Facebook language predicts depression in medical records, Proc. Natl. Acad. Sci. U.S.A. 115 (44) 11203-11208, (2018).',
+        link: 'https://doi.org/10.1073/pnas.1802331115'
+      },
+      {
+        title: 'Grande D, Mitra N, Marti XL, et al. Consumer Views on Using Digital Data for COVID-19 Control in the United States. JAMA Netw Open. 2021;4(5):e2110918',
+        link: 'https://doi.org/10.1001/jamanetworkopen.2021.10918'
+      }
+    ]
+  }
   // Add more resources as needed
 ];
 
