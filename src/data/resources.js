@@ -112,7 +112,6 @@ const rawResources = [
     compensationType: 'donation',
   },
   {
-    id: 'france-body-donation',
     title: 'Donate the Body to Science',
     organization: 'Service-Public.fr',
     link: 'https://www.service-public.fr/particuliers/vosdroits/F180',
@@ -122,7 +121,6 @@ const rawResources = [
     compensationType: 'donation',
   },
   {
-    id: 'uk-gamete-donation',
     title: 'Eggs, Sperm and Embryos Donation to Research',
     organization: 'Human Fertilisation and Embryology Authority', // Added organization
     link: 'https://www.hfea.gov.uk/donation/donors/donating-to-research/',
