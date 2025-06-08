@@ -1,6 +1,7 @@
 // src/data/resources.js
 const rawResources = [
   {
+    id: 'open-humans',
     title: 'Open Humans',
     organization: 'Open Humans Foundation', // Added organization
     link: 'https://www.openhumans.org/add-data/',
@@ -15,6 +16,7 @@ const rawResources = [
     ],
   },
   {
+    id: 'myphd',
     title: 'MyPHD',
     organization: 'Stanford University', // Added organization
     link: 'https://myphd.stanford.edu/studies/',
@@ -29,6 +31,7 @@ const rawResources = [
     ],
   },
   {
+    id: 'google-health-studies',
     title: 'Google Health Studies',
     organization: 'Google', // Added organization
     link: 'https://health.google/consumers/health-studies/',
@@ -36,6 +39,7 @@ const rawResources = [
     compensationType: 'donation',
   },
   {
+    id: 'apple-research',
     title: 'Apple Research',
     organization: 'Apple', // Added organization
     link: 'https://support.apple.com/en-us/108425',
@@ -45,6 +49,7 @@ const rawResources = [
     compensationType: 'donation',
   },
   {
+    id: 'all-of-us',
     title: 'All of US',
     organization: 'National Institutes of Health (NIH)', // Added organization
     link: 'https://allofus.nih.gov/',
@@ -54,6 +59,7 @@ const rawResources = [
     compensationType: 'mixed',
   },
   {
+    id: 'fitbit-research',
     title: 'Health research and product development', // Shortened title
     organization: 'Fitbit', // Added organization
     instructions: [
@@ -66,6 +72,7 @@ const rawResources = [
     compensationType: 'donation',
   },
   {
+    id: 'spark-for-autism',
     title: 'SPARK for Autism',
     organization: 'Simons Foundation', // Added organization
     link: 'https://sparkforautism.org/why/',
@@ -75,6 +82,7 @@ const rawResources = [
     compensationType: 'mixed',
   },
   {
+    id: 'ubc-body-donation',
     title: 'Body Donation', // Shortened title
     organization: 'Faculty of Medicine at the University of British Columbia', // Added organization
     link: 'https://cps.med.ubc.ca/the-donation-process/',
@@ -84,6 +92,7 @@ const rawResources = [
     compensationType: 'donation',
   },
   {
+    id: 'cambridge-body-tissue-donation',
     title: 'Body Donation; Tissue Donation', // Shortened title
     organization: 'Department of Anatomy at the University Of Cambridge; Cambridge Biomedical Research Centre', // Added organization
     link: 'https://www.cuh.nhs.uk/our-research/get-involved/donate-body-to-medical-science/',
@@ -93,6 +102,7 @@ const rawResources = [
     compensationType: 'donation',
   },
   {
+    id: 'italy-body-tissue-donation',
     title: 'Body & Tissues Donation',
     organization: 'Ministero della Salute', // Added organization
     link: 'https://www.salute.gov.it/portale/disposizionepostmortem/dettaglioContenutiDisposizionepostmortem.jsp?lingua=italiano&id=6004&area=postMortem&menu=vuoto',
@@ -102,6 +112,17 @@ const rawResources = [
     compensationType: 'donation',
   },
   {
+    id: 'france-body-donation',
+    title: 'Donate the Body to Science',
+    organization: 'Service-Public.fr',
+    link: 'https://www.service-public.fr/particuliers/vosdroits/F180',
+    dataTypes: ['Body'],
+    countries: ['France'],
+    countryCodes: ['FR'],
+    compensationType: 'donation',
+  },
+  {
+    id: 'uk-gamete-donation',
     title: 'Eggs, Sperm and Embryos Donation to Research',
     organization: 'Human Fertilisation and Embryology Authority', // Added organization
     link: 'https://www.hfea.gov.uk/donation/donors/donating-to-research/',
@@ -111,18 +132,21 @@ const rawResources = [
     compensationType: 'donation',
   },
   {
-    title: 'ClinicalTrials.org',
+    id: 'clinicaltrials-gov',
+    title: 'ClinicalTrials.gov',
     link: 'https://clinicaltrials.gov/',
     dataTypes: ['Clinical trials'],
     compensationType: 'mixed', // Changed from donation to mixed
   },
   {
+    id: 'who-ictrp',
     title: 'International Clinical Trials Registry Platform (ICTRP)',
     link: 'https://trialsearch.who.int/',
     dataTypes: ['Clinical trials'],
     compensationType: 'mixed', // Changed from donation to mixed
   },
   {
+    id: 'clinicaltrials-eu',
     title: 'ClinicalTrials.eu',
     link: 'https://clinicaltrials.eu/',
     dataTypes: ['Clinical trials'],
@@ -131,6 +155,7 @@ const rawResources = [
     compensationType: 'mixed', // Changed from donation to mixed
   },
   {
+    id: 'essais-cliniques-fr',
     title: 'Essais Cliniques',
     link: 'https://essaiscliniques.fr/',
     dataTypes: ['Clinical trials'],
@@ -139,6 +164,7 @@ const rawResources = [
     compensationType: 'mixed', // Changed from donation to mixed
   },
   {
+    id: 'studi-clinici-it',
     title: 'Studi Clinici',
     link: 'https://studi.clinici.it/',
     dataTypes: ['Clinical trials'],
@@ -147,6 +173,7 @@ const rawResources = [
     compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
+    id: 'klinische-studien-de',
     title: 'Klinische Studien',
     link: 'https://klinischestudien.de/',
     dataTypes: ['Clinical trials'],
@@ -155,6 +182,7 @@ const rawResources = [
     compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
+    id: 'ensayos-clinicos-es',
     title: 'Ensayos Clinicos',
     link: 'https://ensayosclinicos.es/',
     dataTypes: ['Clinical trials'],
@@ -163,6 +191,7 @@ const rawResources = [
     compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
+    id: 'klinische-studien-at',
     title: 'Klinische Studien',
     link: 'https://klinischestudien.at/',
     dataTypes: ['Clinical trials'],
@@ -171,6 +200,7 @@ const rawResources = [
     compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
+    id: 'badania-kliniczne-pl',
     title: 'Badania Kliniczne',
     link: 'https://badaniakliniczne.pl/',
     dataTypes: ['Clinical trials'],
@@ -179,6 +209,7 @@ const rawResources = [
     compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
+    id: 'studii-clinice-ro',
     title: 'Studii Clinice',
     link: 'https://studii.clinice.ro/',
     dataTypes: ['Clinical trials'],
@@ -187,6 +218,7 @@ const rawResources = [
     compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
+    id: 'researchmatch',
     title: 'ResearchMatch',
     organization: 'National Institutes of Health (NIH)', // Added organization
     link: 'https://www.researchmatch.org/',
@@ -196,6 +228,7 @@ const rawResources = [
     compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
+    id: 'flucamp',
     title: 'FluCamp',
     link: 'https://flucamp.com/',
     dataTypes: ['Clinical trials'],
@@ -211,6 +244,7 @@ const rawResources = [
     ],
   },
   {
+    id: 'healthstreet',
     title: 'HealthStreet',
     organization: 'University of Florida Health', // Added organization
     link: 'https://healthstreet.program.ufl.edu/uf-researchers/participate-in-research/',
@@ -220,6 +254,7 @@ const rawResources = [
     compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
+    id: 'goodnature-program',
     title: 'GoodNature Program',
     link: 'https://goodnatureprogram.com/apply/',
     dataTypes: ['Stool'],
@@ -228,6 +263,7 @@ const rawResources = [
     compensationType: 'payment', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
+    id: 'lifeblood-microbiome',
     title: 'Microbiome',
     organization: 'Australian Red Cross Lifeblood', // Added organization
     link: 'https://www.lifeblood.com.au/microbiome',
@@ -237,6 +273,7 @@ const rawResources = [
     compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
+    id: 'wesley-stool-donation',
     title: 'Stool Donation',
     organization: 'Wesley Research Institute', // Added organization
     link: 'https://www.wesleyresearch.org.au/biobank-project/stool-donation/',
@@ -246,6 +283,7 @@ const rawResources = [
     compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
+    id: 'wesley-placenta-donation',
     title: 'Placenta Donation',
     organization: 'Wesley Research Institute', // Added organization
     link: 'https://www.wesleyresearch.org.au/biobank-project/placenta-donation/',
@@ -255,6 +293,7 @@ const rawResources = [
     compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
   {
+    id: 'wroclaw-hair-decomposition',
     title: 'Human Hair Decompositionw',
     organization: 'Department of Human Biology, University of Wrocław', // Added organization
     link: 'https://biologia.uwr.edu.pl/2023/10/12/znaczenie-wybranych-czynnikow-biologicznych-i-srodowiskowych-w-procesie-rozkladu-ludzkich-wlosow-nabor-na-badania/',
@@ -274,6 +313,7 @@ const rawResources = [
     ],
   },
   {
+    id: 'penn-medicine-donate-your-data',
     title: 'Donate Your Data for Health',
     organization: 'Penn Medicine',
     link: 'https://cdh.nmsdev.com/donate-your-data',
@@ -303,8 +343,7 @@ export const PAYMENT_TYPES = [
   // Add other types if necessary
 ];
 
-export const resources = rawResources.map((r, i) => ({
-  id: r.id || String(i + 1), // Auto-assign id if missing
+export const resources = rawResources.map((r) => ({
   ...r,
 }));
 

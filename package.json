@@ -7,7 +7,7 @@
     "dev:next": "next dev",
     "dev:watch": "node scripts/watchUpdatePdf.js",
     "dev": "concurrently \"npm run dev:next\" \"npm run dev:watch\"",
-    "prebuild": "node scripts/generateSitemap.js || echo 'Sitemap generation failed, continuing build'",
+    "prebuild": "npm run update-sitemap && npm run update-csv && npm run update-json || echo 'Prebuild scripts failed, continuing build'",
     "build": "next build",
     "postbuild": "node scripts/updatePdfPage.js || echo 'PDF generation failed, continuing deployment'",
     "deploy": "next-on-pages",
@@ -15,7 +15,9 @@
     "test": "node --test",
     "lint": "next lint",
     "watch-pdf": "node scripts/watchUpdatePdf.js",
-    "update-sitemap": "node scripts/generateSitemap.js"
+    "update-sitemap": "node scripts/generateSitemap.js",
+    "update-csv": "node scripts/generateResourceCSV.js",
+    "update-json": "node scripts/generateResourceJSON.js"
   },
   "browserslist": [
     "extends browserslist-config-baseline"
