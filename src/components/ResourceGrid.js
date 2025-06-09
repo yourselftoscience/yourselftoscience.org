@@ -377,8 +377,8 @@ export default function ResourceGrid({
                         >
                           <Popover.Panel className="absolute z-10 bottom-full right-0 mb-2 w-72 max-h-60 overflow-y-auto rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                             <div className="p-3 space-y-2">
-                              <h3 className="text-xs font-medium text-google-text uppercase border-b pb-1 mb-1">
-                                Service Cited By
+                              <h3 className="text-[9px] font-medium text-google-text normal-case border-b pb-1 mb-2">
+                                Service cited by
                               </h3>
                               <ol className="list-decimal list-inside space-y-1.5">
                                 {resource.citations.map((citation, idx) => {
