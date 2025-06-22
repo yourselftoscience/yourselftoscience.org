@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import {
   motion,
   useTransform,
@@ -165,42 +166,44 @@ export default function Header({ scrollY }: HeaderProps) {
          boxShadow: boxShadow,
        }}
     >
-      <motion.div
-        className={`flex-shrink-0 mr-2`}
-        style={{ width: logoSize, height: logoSize }}
-      >
-         {/* ... Image ... */}
-         <Image
-           src="/Logo.svg"
-           alt="Yourself To Science Logo"
-           width={70} height={70}
-           className="block w-full h-full"
-           priority
-         />
-      </motion.div>
+      <Link href="/" className="flex items-center no-underline text-inherit">
+        <motion.div
+          className={`flex-shrink-0 mr-2`}
+          style={{ width: logoSize, height: logoSize }}
+        >
+           {/* ... Image ... */}
+           <Image
+             src="/Logo.svg"
+             alt="Yourself To Science Logo"
+             width={70} height={70}
+             className="block w-full h-full"
+             priority
+           />
+        </motion.div>
 
-      <motion.h1
-        className={`font-medium text-google-text whitespace-nowrap overflow-hidden min-w-0 ${
-          useInlineLayout ? 'flex items-baseline' : 'text-center w-full'
-        }`}
-        style={{ fontSize: titleSize }}
-      >
-         <span className={useInlineLayout ? '' : 'inline-block'}>Your</span>
-         {/* Use isSticky state to determine whether to show AnimatedWord or static 'self' */}
-         {hasMounted && !isSticky ? (
-           <AnimatedWordDynamic key={currentWord} word={currentWord} />
-         ) : (
-           // Render static 'self' when sticky or not mounted yet (though placeholder handles pre-mount)
-           <span
-             key="static-self"
-             // Adjust margin based on layout mode
-             className={`inline-block text-stroke-yellow-dark ${useInlineLayout ? 'ml-0' : 'ml-1'}`}
-           >
-             self
-           </span>
-         )}
-         <span className={useInlineLayout ? '' : 'inline-block'}>&nbsp;to Science</span>
-      </motion.h1>
+        <motion.h1
+          className={`font-medium text-google-text whitespace-nowrap overflow-hidden min-w-0 ${
+            useInlineLayout ? 'flex items-baseline' : 'text-center w-full'
+          }`}
+          style={{ fontSize: titleSize }}
+        >
+           <span className={useInlineLayout ? '' : 'inline-block'}>Your</span>
+           {/* Use isSticky state to determine whether to show AnimatedWord or static 'self' */}
+           {hasMounted && !isSticky ? (
+             <AnimatedWordDynamic key={currentWord} word={currentWord} />
+           ) : (
+             // Render static 'self' when sticky or not mounted yet (though placeholder handles pre-mount)
+             <span
+               key="static-self"
+               // Adjust margin based on layout mode
+               className={`inline-block text-stroke-yellow-dark ${useInlineLayout ? 'ml-0' : 'ml-1'}`}
+             >
+               self
+             </span>
+           )}
+           <span className={useInlineLayout ? '' : 'inline-block'}>&nbsp;to Science</span>
+        </motion.h1>
+      </Link>
     </motion.header>
   );
 }
