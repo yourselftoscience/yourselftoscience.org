@@ -10,9 +10,10 @@ import { resources as allResources, PAYMENT_TYPES, EU_COUNTRIES } from '@/data/r
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import CountryFlag from 'react-country-flag';
-import { FaHeart, FaDollarSign, FaTimes, FaFilter } from 'react-icons/fa';
+import { FaHeart, FaDollarSign, FaTimes, FaFilter, FaDownload, FaSlidersH, FaUndo, FaPlus, FaExternalLinkAlt } from 'react-icons/fa';
 import Header from '@/components/Header';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 
 // Dynamically import ResourceGrid
 const ResourceGrid = dynamic(() => import('@/components/ResourceGrid'), {
@@ -688,18 +689,23 @@ function HomePageContent({ scrollY }) {
             </div>
           </div>
           <div className="mt-4 flex flex-col gap-2">
-            <button
-              onClick={() => window.open('https://github.com/yourselftoscience/yourselftoscience.org/issues/new?template=suggest-a-service.md', '_blank')}
-              className="w-full px-4 py-2 rounded bg-google-blue text-white text-sm font-medium hover:opacity-90 transition-opacity"
+            <Link
+              href="https://github.com/yourselftoscience/yourselftoscience.org/issues/new?template=suggest-a-service.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-white bg-apple-accent rounded-lg hover:bg-opacity-90 focus:ring-4 focus:outline-none focus:ring-blue-300 transition-colors"
             >
+              <FaPlus />
               Suggest a Service
-            </button>
-            <button
-              onClick={handleDownloadCSV}
-              className="w-full px-4 py-2 rounded border border-gray-300 text-google-text text-sm font-medium hover:bg-gray-50 transition-colors"
+            </Link>
+
+            <Link
+              href="/stats"
+              className="w-full flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-apple-accent border border-apple-accent rounded-lg hover:bg-apple-accent/10 focus:ring-4 focus:outline-none focus:ring-blue-300 transition-colors"
             >
-              Download Dataset
-            </button>
+              <FaDownload />
+              View Dataset & Stats
+            </Link>
           </div>
         </aside>
 
@@ -793,18 +799,22 @@ function HomePageContent({ scrollY }) {
 
           {/* Mobile Buttons */}
           <div className="mt-8 flex flex-col items-center gap-2 w-full max-w-xs mx-auto lg:hidden">
-             <button
-                onClick={() => window.open('https://github.com/yourselftoscience/yourselftoscience.org/issues/new?template=suggest-a-service.md', '_blank')}
-                className="w-full px-4 py-2 rounded bg-google-blue text-white text-sm font-medium hover:opacity-90 transition-opacity"
+             <Link
+                href="https://github.com/yourselftoscience/yourselftoscience.org/issues/new?template=suggest-a-service.md"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full px-4 py-2 rounded bg-apple-accent text-white text-sm font-medium hover:opacity-90 transition-opacity"
               >
+                <FaPlus />
                 Suggest a Service
-              </button>
-              <button
-                onClick={handleDownloadCSV}
-                className="w-full px-4 py-2 rounded border border-gray-300 text-google-text text-sm font-medium hover:bg-gray-50 transition-colors"
+              </Link>
+              <Link
+                href="/stats"
+                className="w-full px-4 py-2 rounded border border-apple-accent text-apple-accent text-sm font-medium hover:bg-apple-accent/10 transition-colors"
               >
-                Download Dataset
-              </button>
+                <FaDownload />
+                View Dataset & Stats
+              </Link>
           </div>
 
           {/* References Section */}

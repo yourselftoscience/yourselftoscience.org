@@ -37,7 +37,7 @@ const config: Config = {
         'apple-card': '#FFFFFF',
         'apple-primary-text': '#1D1D1F',
         'apple-secondary-text': '#6E6E73',
-        'apple-accent': '#007AFF',
+        'apple-accent': '#0056B3',
         'apple-divider': '#E5E5EA',
       },
       gridTemplateColumns: {
