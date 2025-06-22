@@ -313,6 +313,14 @@ const rawResources = [
     ],
   },
   {
+    id: 'ucsf-social-media-archive',
+    title: 'Donating Your Social Media',
+    link: 'https://www.library.ucsf.edu/archives/donate/materials/donating-your-social-media/',
+    organization: 'UCSF Library Archives',
+    dataTypes: ['Social media data'],
+    compensationType: 'donation'
+  },
+  {
     id: 'penn-medicine-donate-your-data',
     title: 'Donate Your Data for Health',
     organization: 'Penn Medicine',
