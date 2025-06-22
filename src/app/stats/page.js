@@ -5,7 +5,7 @@ import { resources, EU_COUNTRIES } from '@/data/resources';
 import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { FaGlobe, FaDatabase, FaMoneyBillWave, FaChartBar, FaChevronDown, FaDownload } from 'react-icons/fa';
+import { FaGlobe, FaDatabase, FaMoneyBillWave, FaChartBar, FaChevronDown, FaDownload, FaCode, FaCopy, FaCheck } from 'react-icons/fa';
 
 const StatCard = ({ title, value, icon, children }) => (
   <motion.div
@@ -50,6 +50,13 @@ const Bar = ({ label, value, maxValue, index }) => {
 const StatsPage = () => {
   const { scrollY } = useScroll();
   const [isEuExpanded, setIsEuExpanded] = useState(false);
+  const [copiedUrl, setCopiedUrl] = useState(null);
+
+  const handleCopy = (url) => {
+    navigator.clipboard.writeText(url);
+    setCopiedUrl(url);
+    setTimeout(() => setCopiedUrl(null), 2500);
+  };
 
   const stats = React.useMemo(() => {
     const totalResources = resources.length;
@@ -256,6 +263,64 @@ const StatsPage = () => {
                     <FaDownload />
                     <span>Download as JSON</span>
                 </a>
+            </motion.div>
+
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="mt-16"
+            >
+                <div className="text-center mb-8">
+                    <div className="flex justify-center items-center gap-3">
+                        <FaCode className="text-apple-secondary-text" />
+                        <h3 className="text-2xl font-bold text-apple-primary-text">Live Data Access</h3>
+                    </div>
+                    <p className="text-apple-secondary-text mt-2 max-w-2xl mx-auto">
+                        Use these persistent URLs for automated access to always get the latest version of the dataset.
+                    </p>
+                </div>
+
+                <div className="max-w-3xl mx-auto space-y-4">
+                    {/* CSV Endpoint */}
+                    <div className="bg-apple-card border border-apple-divider rounded-xl p-4">
+                        <p className="text-sm font-medium text-apple-secondary-text mb-2">CSV ENDPOINT</p>
+                        <div className="flex items-center justify-between bg-white p-3 rounded-lg border border-apple-divider">
+                            <code className="text-apple-primary-text text-sm break-all">https://yourselftoscience.org/resources.csv</code>
+                            <button
+                                onClick={() => handleCopy('https://yourselftoscience.org/resources.csv')}
+                                className="p-2 text-apple-secondary-text hover:text-apple-accent transition-colors duration-200"
+                                aria-label="Copy CSV URL"
+                            >
+                                {copiedUrl === 'https://yourselftoscience.org/resources.csv' ? (
+                                    <FaCheck className="text-green-500" />
+                                ) : (
+                                    <FaCopy />
+                                )}
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* JSON Endpoint */}
+                    <div className="bg-apple-card border border-apple-divider rounded-xl p-4">
+                        <p className="text-sm font-medium text-apple-secondary-text mb-2">JSON ENDPOINT</p>
+                        <div className="flex items-center justify-between bg-white p-3 rounded-lg border border-apple-divider">
+                            <code className="text-apple-primary-text text-sm break-all">https://yourselftoscience.org/resources.json</code>
+                            <button
+                                onClick={() => handleCopy('https://yourselftoscience.org/resources.json')}
+                                className="p-2 text-apple-secondary-text hover:text-apple-accent transition-colors duration-200"
+                                aria-label="Copy JSON URL"
+                            >
+                                {copiedUrl === 'https://yourselftoscience.org/resources.json' ? (
+                                    <FaCheck className="text-green-500" />
+                                ) : (
+                                    <FaCopy />
+                                )}
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </motion.div>
         </main>
         <Footer />
