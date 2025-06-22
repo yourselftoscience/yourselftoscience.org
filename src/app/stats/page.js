@@ -102,17 +102,19 @@ const StatsPage = () => {
   }, []);
   
   const euBreakdownStats = React.useMemo(() => {
-    const euCountriesWithCounts = resources.reduce((acc, resource) => {
+    const euServicesWithCounts = resources.reduce((acc, resource) => {
         if (resource.countries) {
             resource.countries.forEach(country => {
-                if (EU_COUNTRIES.includes(country)) {
+                if (country === 'European Union') {
+                    acc['EU-Wide'] = (acc['EU-Wide'] || 0) + 1;
+                } else if (EU_COUNTRIES.includes(country)) {
                     acc[country] = (acc[country] || 0) + 1;
                 }
             });
         }
         return acc;
     }, {});
-    return Object.entries(euCountriesWithCounts).sort(([, a], [, b]) => b - a);
+    return Object.entries(euServicesWithCounts).sort(([, a], [, b]) => b - a);
   }, []);
 
   const containerVariants = {
