@@ -157,7 +157,7 @@ const StatsPage = () => {
 
                 {/* Row 2: Larger Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <StatCard title="Contribution by Country" icon={<FaGlobe size="1.5em"/>}>
+                    <StatCard title="Service Availability by Country" icon={<FaGlobe size="1.5em"/>}>
                         <div className="mt-6">
                             {stats.topCountries.map(([country, count], index) => {
                                const maxValue = stats.topCountries[0][1];
