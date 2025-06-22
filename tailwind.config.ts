@@ -23,6 +23,22 @@ const config: Config = {
         'footer-link-blue': '#8AB8F4', // New color for footer links
         'title-yellow': '#FFE98A', // Updated yellow for the title text (solid fill)
         'custom-yellow-link': '#F6BE13', // New custom yellow for specific links
+        'stroke-yellow-dark': '#FDBB2D', // A darker yellow for the stroke
+        'm3-primary': '#0061A4',
+        'm3-on-primary': '#FFFFFF',
+        'm3-primary-container': '#D2E4FF',
+        'm3-on-primary-container': '#001D36',
+        'm3-surface': '#F8F9FE',
+        'm3-on-surface': '#1A1C1E',
+        'm3-on-surface-variant': '#42474E',
+        'm3-outline': '#73777F',
+        // New Apple-inspired theme
+        'apple-surface': '#F5F5F7',
+        'apple-card': '#FFFFFF',
+        'apple-primary-text': '#1D1D1F',
+        'apple-secondary-text': '#6E6E73',
+        'apple-accent': '#007AFF',
+        'apple-divider': '#E5E5EA',
       },
       gridTemplateColumns: {
         // Adjust layout: single column by default, two columns on large screens
