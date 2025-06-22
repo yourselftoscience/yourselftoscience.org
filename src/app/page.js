@@ -700,11 +700,11 @@ function HomePageContent({ scrollY }) {
             </Link>
 
             <Link
-              href="/stats"
+              href="/stats#data"
               className="w-full flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-apple-accent border border-apple-accent rounded-lg hover:bg-apple-accent/10 focus:ring-4 focus:outline-none focus:ring-blue-300 transition-colors"
             >
               <FaDownload />
-              View Dataset & Stats
+              Download Dataset
             </Link>
           </div>
         </aside>
@@ -809,11 +809,11 @@ function HomePageContent({ scrollY }) {
                 Suggest a Service
               </Link>
               <Link
-                href="/stats"
+                href="/stats#data"
                 className="w-full px-4 py-2 rounded border border-apple-accent text-apple-accent text-sm font-medium hover:bg-apple-accent/10 transition-colors"
               >
                 <FaDownload />
-                View Dataset & Stats
+                Download Dataset
               </Link>
           </div>
 

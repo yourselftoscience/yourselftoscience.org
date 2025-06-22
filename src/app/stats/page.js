@@ -240,88 +240,90 @@ const StatsPage = () => {
                 </div>
             </motion.div>
 
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="flex flex-wrap justify-center items-center gap-4 mt-16"
-            >
-                <a
-                    href="/resources.csv"
-                    download="yourselftoscience_resources.csv"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-apple-accent rounded-lg hover:bg-opacity-90 focus:ring-4 focus:outline-none focus:ring-blue-300 transition-colors"
+            <section id="data" className="mt-16 scroll-mt-24">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="flex flex-wrap justify-center items-center gap-4"
                 >
-                    <FaDownload />
-                    <span>Download as CSV</span>
-                </a>
-                <a
-                    href="/resources.json"
-                    download="yourselftoscience_resources.json"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-apple-accent rounded-lg hover:bg-opacity-90 focus:ring-4 focus:outline-none focus:ring-blue-300 transition-colors"
-                >
-                    <FaDownload />
-                    <span>Download as JSON</span>
-                </a>
-            </motion.div>
+                    <a
+                        href="/resources.csv"
+                        download="yourselftoscience_resources.csv"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-apple-accent rounded-lg hover:bg-opacity-90 focus:ring-4 focus:outline-none focus:ring-blue-300 transition-colors"
+                    >
+                        <FaDownload />
+                        <span>Download as CSV</span>
+                    </a>
+                    <a
+                        href="/resources.json"
+                        download="yourselftoscience_resources.json"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-apple-accent rounded-lg hover:bg-opacity-90 focus:ring-4 focus:outline-none focus:ring-blue-300 transition-colors"
+                    >
+                        <FaDownload />
+                        <span>Download as JSON</span>
+                    </a>
+                </motion.div>
 
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="mt-16"
-            >
-                <div className="text-center mb-8">
-                    <div className="flex justify-center items-center gap-3">
-                        <FaCode className="text-apple-secondary-text" />
-                        <h3 className="text-2xl font-bold text-apple-primary-text">Live Data Access</h3>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                    className="mt-16"
+                >
+                    <div className="text-center mb-8">
+                        <div className="flex justify-center items-center gap-3">
+                            <FaCode className="text-apple-secondary-text" />
+                            <h3 className="text-2xl font-bold text-apple-primary-text">Live Data Access</h3>
+                        </div>
+                        <p className="text-apple-secondary-text mt-2 max-w-2xl mx-auto">
+                            Use these persistent URLs for automated access to always get the latest version of the dataset.
+                        </p>
                     </div>
-                    <p className="text-apple-secondary-text mt-2 max-w-2xl mx-auto">
-                        Use these persistent URLs for automated access to always get the latest version of the dataset.
-                    </p>
-                </div>
 
-                <div className="max-w-3xl mx-auto space-y-4">
-                    {/* CSV Endpoint */}
-                    <div className="bg-apple-card border border-apple-divider rounded-xl p-4">
-                        <p className="text-sm font-medium text-apple-secondary-text mb-2">CSV ENDPOINT</p>
-                        <div className="flex items-center justify-between bg-white p-3 rounded-lg border border-apple-divider">
-                            <code className="text-apple-primary-text text-sm break-all">https://yourselftoscience.org/resources.csv</code>
-                            <button
-                                onClick={() => handleCopy('https://yourselftoscience.org/resources.csv')}
-                                className="p-2 text-apple-secondary-text hover:text-apple-accent transition-colors duration-200"
-                                aria-label="Copy CSV URL"
-                            >
-                                {copiedUrl === 'https://yourselftoscience.org/resources.csv' ? (
-                                    <FaCheck className="text-green-500" />
-                                ) : (
-                                    <FaCopy />
-                                )}
-                            </button>
+                    <div className="max-w-3xl mx-auto space-y-4">
+                        {/* CSV Endpoint */}
+                        <div className="bg-apple-card border border-apple-divider rounded-xl p-4">
+                            <p className="text-sm font-medium text-apple-secondary-text mb-2">CSV ENDPOINT</p>
+                            <div className="flex items-center justify-between bg-white p-3 rounded-lg border border-apple-divider">
+                                <code className="text-apple-primary-text text-sm break-all">https://yourselftoscience.org/resources.csv</code>
+                                <button
+                                    onClick={() => handleCopy('https://yourselftoscience.org/resources.csv')}
+                                    className="p-2 text-apple-secondary-text hover:text-apple-accent transition-colors duration-200"
+                                    aria-label="Copy CSV URL"
+                                >
+                                    {copiedUrl === 'https://yourselftoscience.org/resources.csv' ? (
+                                        <FaCheck className="text-green-500" />
+                                    ) : (
+                                        <FaCopy />
+                                    )}
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* JSON Endpoint */}
+                        <div className="bg-apple-card border border-apple-divider rounded-xl p-4">
+                            <p className="text-sm font-medium text-apple-secondary-text mb-2">JSON ENDPOINT</p>
+                            <div className="flex items-center justify-between bg-white p-3 rounded-lg border border-apple-divider">
+                                <code className="text-apple-primary-text text-sm break-all">https://yourselftoscience.org/resources.json</code>
+                                <button
+                                    onClick={() => handleCopy('https://yourselftoscience.org/resources.json')}
+                                    className="p-2 text-apple-secondary-text hover:text-apple-accent transition-colors duration-200"
+                                    aria-label="Copy JSON URL"
+                                >
+                                    {copiedUrl === 'https://yourselftoscience.org/resources.json' ? (
+                                        <FaCheck className="text-green-500" />
+                                    ) : (
+                                        <FaCopy />
+                                    )}
+                                </button>
+                            </div>
                         </div>
                     </div>
-
-                    {/* JSON Endpoint */}
-                    <div className="bg-apple-card border border-apple-divider rounded-xl p-4">
-                        <p className="text-sm font-medium text-apple-secondary-text mb-2">JSON ENDPOINT</p>
-                        <div className="flex items-center justify-between bg-white p-3 rounded-lg border border-apple-divider">
-                            <code className="text-apple-primary-text text-sm break-all">https://yourselftoscience.org/resources.json</code>
-                            <button
-                                onClick={() => handleCopy('https://yourselftoscience.org/resources.json')}
-                                className="p-2 text-apple-secondary-text hover:text-apple-accent transition-colors duration-200"
-                                aria-label="Copy JSON URL"
-                            >
-                                {copiedUrl === 'https://yourselftoscience.org/resources.json' ? (
-                                    <FaCheck className="text-green-500" />
-                                ) : (
-                                    <FaCopy />
-                                )}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </motion.div>
+                </motion.div>
+            </section>
         </main>
         <Footer />
     </div>
