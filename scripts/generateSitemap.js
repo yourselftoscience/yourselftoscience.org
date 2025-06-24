@@ -18,13 +18,10 @@ async function generateSitemap() {
     // Create a temporary script to handle CommonJS modules properly
     const tempScriptPath = path.join(__dirname, 'temp-extract.mjs');
     
-    // Use dynamic import for CommonJS modules
     fs.writeFileSync(tempScriptPath, `
-      import pkg from '../src/data/resources.js';
-      const { resources } = pkg;
+      import { resources } from '../src/data/resources.js';
       console.log(JSON.stringify(resources.map(r => ({
         id: r.id,
-        title: r.title,
         lastModified: new Date().toISOString().split('T')[0]
       }))));
     `);
@@ -36,51 +33,46 @@ async function generateSitemap() {
     // Delete the temporary script
     fs.unlinkSync(tempScriptPath);
     
-    // Current date for lastmod
     const today = new Date().toISOString().split('T')[0];
     
-    // Start the XML string
+    const staticPages = [
+      { url: `${SITE_URL}/`, priority: '1.0', changefreq: 'weekly' },
+      { url: `${SITE_URL}/stats`, priority: '0.9', changefreq: 'weekly' },
+      { url: `${SITE_URL}/contribute`, priority: '0.9', changefreq: 'weekly' },
+      { url: `${SITE_URL}/resources`, priority: '0.5', changefreq: 'monthly' }, // SEO-only page
+      { url: `${SITE_URL}/yourselftoscience.pdf`, priority: '0.7', changefreq: 'weekly' }
+    ];
+
     let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
+
+    staticPages.forEach(page => {
+      sitemap += `
   <url>
-    <loc>${SITE_URL}/</loc>
+    <loc>${page.url}</loc>
     <lastmod>${today}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>${SITE_URL}/resources</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>${SITE_URL}/yourselftoscience.pdf</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>
   </url>`;
-    
-    // Add each resource URL
+    });
+
     resourcesData.forEach(resource => {
       sitemap += `
   <url>
     <loc>${SITE_URL}/resource/${resource.id}</loc>
     <lastmod>${resource.lastModified}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.5</priority>
   </url>`;
     });
-    
-    // Close the XML
+
     sitemap += `
 </urlset>`;
     
-    // Write the sitemap file
     const sitemapPath = path.join(__dirname, '../public/sitemap.xml');
     fs.writeFileSync(sitemapPath, sitemap);
     
-    console.log(`Sitemap with ${resourcesData.length} resources written to ${sitemapPath}`);
+    console.log(`Sitemap with ${staticPages.length + resourcesData.length} total URLs written to ${sitemapPath}`);
     return true;
   } catch (error) {
     console.error('Error generating sitemap:', error);

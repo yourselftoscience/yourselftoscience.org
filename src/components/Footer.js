@@ -17,7 +17,7 @@ export default function Footer() {
 
   const navLinks = [
     { name: 'Stats', href: '/stats', external: false },
-    { name: 'Suggest a Service', href: 'https://github.com/yourselftoscience/yourselftoscience.org/issues/new?template=suggest-a-service.md', external: true },
+    { name: 'Suggest a Service', href: '/contribute', external: false },
     { name: 'PDF Version', href: '/yourselftoscience.pdf', external: true },
   ];
 

@@ -8,7 +8,8 @@ import {
   motion,
   useTransform,
   MotionValue,
-  useMotionValueEvent
+  useMotionValueEvent,
+  AnimatePresence
 } from 'framer-motion';
 
 // Dynamically import AnimatedWord
@@ -53,8 +54,13 @@ export default function Header({ scrollY }: HeaderProps) {
 
   const [currentWord, setCurrentWord] = useState(words[0]);
   const [isSticky, setIsSticky] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const intervalIdRef = useRef<NodeJS.Timeout | null>(null);
   const wasSticky = useRef(isSticky);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(prev => !prev);
+  };
 
   // Effect to set initial sticky state after mount
   useEffect(() => {
@@ -90,10 +96,6 @@ export default function Header({ scrollY }: HeaderProps) {
       if (isSticky && intervalIdRef.current) {
         clearInterval(intervalIdRef.current);
         intervalIdRef.current = null;
-        // Ensure 'self' is displayed when sticky
-        if (currentWord !== 'self') {
-           setCurrentWord('self'); // Use direct string 'self'
-        }
       } else if (!isSticky && !intervalIdRef.current) {
         // Start interval only if not sticky
         setCurrentWord(words[0]); // Start with 'self'
@@ -137,6 +139,12 @@ export default function Header({ scrollY }: HeaderProps) {
   // --- End Hook calls ---
 
 
+  // --- START: Refactored SVG Path ---
+  // Extracting the complex ternary logic into a variable for clarity and to avoid linter parsing issues.
+  const mobileMenuIconPath = isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16";
+  // --- END: Refactored SVG Path ---
+
+
   // Determine layout mode for title alignment/wrapping
   const useInlineLayout = !isMobile || isSticky;
 
@@ -158,7 +166,7 @@ export default function Header({ scrollY }: HeaderProps) {
   // --- Main Render (only runs after mounting) ---
   return (
     <motion.header
-       className={`w-full sticky top-0 z-30 flex items-center border-b bg-white px-4`}
+       className={`w-full sticky top-0 z-30 flex items-center justify-between border-b bg-white px-4 md:px-6 lg:px-8`}
        style={{
          paddingTop: headerPaddingY,
          paddingBottom: headerPaddingY,
@@ -204,6 +212,71 @@ export default function Header({ scrollY }: HeaderProps) {
            <span className={useInlineLayout ? '' : 'inline-block'}>&nbsp;to Science</span>
         </motion.h1>
       </Link>
+
+      {/* --- Desktop Navigation --- */}
+      <nav className="hidden md:flex items-center space-x-3 lg:space-x-6">
+        <Link href="/" className="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors px-3 py-2 rounded-md">
+            Resources
+        </Link>
+        <Link href="/stats" className="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors px-3 py-2 rounded-md">
+            Stats
+        </Link>
+        <Link href="/contribute" className="text-base font-medium text-white bg-blue-600 px-4 py-2 rounded-md hover:bg-blue-700 transition-colors shadow-sm hover:shadow-md">
+            Contribute
+        </Link>
+      </nav>
+
+      {/* --- Mobile Menu Button --- */}
+      <div className="md:hidden">
+        <button
+          onClick={toggleMobileMenu}
+          className="p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+          aria-label="Toggle menu"
+        >
+          <svg className="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={mobileMenuIconPath} />
+          </svg>
+        </button>
+      </div>
+
+      {/* --- Mobile Menu Drawer --- */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm md:hidden"
+            onClick={toggleMobileMenu}
+          >
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              className="fixed top-0 right-0 bottom-0 w-full max-w-xs bg-white shadow-lg"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="p-5 pt-20">
+                <nav className="flex flex-col space-y-2">
+                  <Link href="/" className="px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100 rounded-md transition-colors" onClick={toggleMobileMenu}>
+                    Resources
+                  </Link>
+                  <Link href="/stats" className="px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100 rounded-md transition-colors" onClick={toggleMobileMenu}>
+                    Stats
+                  </Link>
+                  <div className="pt-6">
+                    <Link href="/contribute" className="w-full block text-center text-lg font-medium text-white bg-blue-600 px-4 py-3 rounded-md hover:bg-blue-700 transition-colors shadow-sm hover:shadow-md" onClick={toggleMobileMenu}>
+                      Contribute
+                    </Link>
+                  </div>
+                </nav>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }

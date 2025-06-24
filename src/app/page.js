@@ -616,8 +616,9 @@ function HomePageContent({ scrollY }) {
               onChange={(e) => handlePaymentCheckboxChange(option, e.target.checked)}
               className="mr-2 h-4 w-4 text-google-blue border-gray-400 rounded focus:ring-google-blue focus:ring-offset-0 focus:ring-1"
             />
-            <label htmlFor={`payment-${option.value}-mobile`} className="text-base font-normal text-google-text-secondary flex items-center cursor-pointer">
-              <span className="mr-1.5">{option.emoji}</span> {option.label}
+            <label htmlFor={`payment-${option.value}-mobile`} className="text-base font-normal text-google-text-secondary flex items-center gap-2 cursor-pointer">
+              <span>{option.emoji}</span>
+              <span>{option.label}</span>
             </label>
           </div>
         ))}
@@ -690,9 +691,7 @@ function HomePageContent({ scrollY }) {
           </div>
           <div className="mt-4 flex flex-col gap-2">
             <Link
-              href="https://github.com/yourselftoscience/yourselftoscience.org/issues/new?template=suggest-a-service.md"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contribute"
               className="w-full flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-white bg-apple-accent rounded-lg hover:bg-opacity-90 focus:ring-4 focus:outline-none focus:ring-blue-300 transition-colors"
             >
               <FaPlus />
@@ -701,7 +700,7 @@ function HomePageContent({ scrollY }) {
 
             <Link
               href="/stats#data"
-              className="w-full flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-apple-accent border border-apple-accent rounded-lg hover:bg-apple-accent/10 focus:ring-4 focus:outline-none focus:ring-blue-300 transition-colors"
+              className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded border border-apple-accent text-apple-accent text-sm font-medium hover:bg-apple-accent/10 transition-colors"
             >
               <FaDownload />
               Download Dataset
@@ -800,17 +799,15 @@ function HomePageContent({ scrollY }) {
           {/* Mobile Buttons */}
           <div className="mt-8 flex flex-col items-center gap-2 w-full max-w-xs mx-auto lg:hidden">
              <Link
-                href="https://github.com/yourselftoscience/yourselftoscience.org/issues/new?template=suggest-a-service.md"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full px-4 py-2 rounded bg-apple-accent text-white text-sm font-medium hover:opacity-90 transition-opacity"
+                href="/contribute"
+                className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded bg-apple-accent text-white text-sm font-medium hover:opacity-90 transition-opacity"
               >
                 <FaPlus />
                 Suggest a Service
               </Link>
               <Link
                 href="/stats#data"
-                className="w-full px-4 py-2 rounded border border-apple-accent text-apple-accent text-sm font-medium hover:bg-apple-accent/10 transition-colors"
+                className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded border border-apple-accent text-apple-accent text-sm font-medium hover:bg-apple-accent/10 transition-colors"
               >
                 <FaDownload />
                 Download Dataset
