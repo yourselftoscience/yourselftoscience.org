@@ -4,7 +4,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { FaGithub, FaCreativeCommons, FaCreativeCommonsBy, FaCreativeCommonsSa, FaReddit } from 'react-icons/fa';
+import { FaGithub, FaCreativeCommons, FaCreativeCommonsBy, FaCreativeCommonsSa, FaReddit, FaLinkedin } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
 export default function Footer() {
@@ -12,6 +12,7 @@ export default function Footer() {
     { name: 'GitHub', href: 'https://github.com/yourselftoscience/yourselftoscience.org/', icon: FaGithub },
     { name: 'Reddit', href: 'https://www.reddit.com/r/YourselfToScience/', icon: FaReddit },
     { name: 'X', href: 'https://x.com/YouToScience', icon: FaXTwitter },
+    { name: 'LinkedIn', href: 'https://www.linkedin.com/company/yourselftoscience/', icon: FaLinkedin },
   ];
 
   const navLinks = [
