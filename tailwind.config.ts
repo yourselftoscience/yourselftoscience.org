@@ -10,6 +10,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        'reddit-orange': '#D93900',
         background: "var(--background)",
         foreground: "var(--foreground)",
         // Add Google-like colors (optional, adjust as needed)

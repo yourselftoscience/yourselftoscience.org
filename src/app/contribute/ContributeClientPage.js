@@ -31,7 +31,7 @@ export default function ContributeClientPage() {
               <div className="flex-1 p-8 flex flex-col justify-between">
                 <div className="flex-1">
                   <div className="flex items-center space-x-4">
-                    <FaReddit className="h-10 w-10 text-orange-500" />
+                    <FaReddit className="h-10 w-10 text-reddit-orange" />
                     <h2 className="text-2xl font-semibold text-gray-900">Join the Discussion</h2>
                   </div>
                   <p className="mt-4 text-base text-gray-600">
@@ -43,7 +43,7 @@ export default function ContributeClientPage() {
                     href={redditSuggestUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                    className="w-full inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-reddit-orange hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-reddit-orange"
                   >
                     Suggest on Reddit
                   </Link>
