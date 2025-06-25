@@ -141,6 +141,7 @@ const rawResources = [
   {
     id: 'who-ictrp',
     title: 'International Clinical Trials Registry Platform (ICTRP)',
+    organization: 'World Health Organization (WHO)',
     link: 'https://trialsearch.who.int/',
     dataTypes: ['Clinical trials'],
     compensationType: 'mixed', // Changed from donation to mixed

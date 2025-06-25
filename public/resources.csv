@@ -12,7 +12,7 @@ italy-body-tissue-donation,"Body & Tissues Donation","Ministero della Salute",ht
 france-body-donation,"Donate the Body to Science","Service-Public.fr",https://www.service-public.fr/particuliers/vosdroits/F180,"Body",donation,"France","FR","",""
 uk-gamete-donation,"Eggs, Sperm and Embryos Donation to Research","Human Fertilisation and Embryology Authority",https://www.hfea.gov.uk/donation/donors/donating-to-research/,"Eggs, Embryos, Sperm",donation,"United Kingdom","GB","",""
 clinicaltrials-gov,"ClinicalTrials.gov","",https://clinicaltrials.gov/,"Clinical trials",mixed,"","","",""
-who-ictrp,"International Clinical Trials Registry Platform (ICTRP)","",https://trialsearch.who.int/,"Clinical trials",mixed,"","","",""
+who-ictrp,"International Clinical Trials Registry Platform (ICTRP)","World Health Organization (WHO)",https://trialsearch.who.int/,"Clinical trials",mixed,"","","",""
 eu-clinical-trials-register,"EU Clinical Trials Register","European Medicines Agency (EMA)",https://euclinicaltrials.eu/search-for-clinical-trials/,"Clinical trials",mixed,"European Union","EU","",""
 clinicaltrials-eu,"ClinicalTrials.eu","European Clinical Trials Information Network",https://clinicaltrials.eu/,"Clinical trials",mixed,"European Union","EU","",""
 researchmatch,"ResearchMatch","National Institutes of Health (NIH)",https://www.researchmatch.org/,"Clinical trials",mixed,"United States","US","",""
