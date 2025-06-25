@@ -103,8 +103,8 @@ export default function Header({ scrollY }: HeaderProps) {
           setCurrentWord(prevWord => {
             const currentIndex = words.indexOf(prevWord);
             const nextIndex = (currentIndex + 1) % words.length;
-            // Skip 'self' in the animation cycle
-            return words[nextIndex === 0 ? 1 : nextIndex];
+            // The animation now completes a full circle, including "self".
+            return words[nextIndex];
           });
         }, 3000);
       }
