@@ -168,6 +168,22 @@ const rawResources = [
     compensationType: 'mixed',
   },
   {
+    id: 'curewiki',
+    title: 'Curewiki',
+    organization: 'Curewiki',
+    link: 'https://www.curewiki.health/',
+    dataTypes: ['Clinical trials'],
+    countries: ['European Union'],
+    countryCodes: ['EU'],
+    compensationType: 'mixed',
+    citations: [
+      {
+        title: 'van der Laan, P., van Houdt, W. J., van Boven, H., Snaebjornsson, P., Bosch, L. J. W., Monkhorst, K., ... & van der Graaf, W. T. A. (2025). The role of whole-genome sequencing for guiding systemic therapy in patients with soft tissue sarcoma. ESMO open, 10(6), 105287.',
+        link: 'https://doi.org/10.1016/j.esmoop.2025.105287'
+      },
+    ],
+  },
+  {
     id: 'researchmatch',
     title: 'ResearchMatch',
     organization: 'National Institutes of Health (NIH)', // Added organization
