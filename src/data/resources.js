@@ -154,6 +154,7 @@ const rawResources = [
     countryCodes: ['EU'],
     compensationType: 'mixed', // Changed from donation to mixed
   },
+  /*
   {
     id: 'essais-cliniques-fr',
     title: 'Essais Cliniques',
@@ -217,6 +218,7 @@ const rawResources = [
     countryCodes: ['RO'],
     compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
   },
+  */
   {
     id: 'researchmatch',
     title: 'ResearchMatch',
