@@ -232,9 +232,9 @@
     "compensationType": "mixed"
   },
   {
-    "id": "clinicaltrials-eu",
-    "title": "ClinicalTrials.eu",
-    "organization": "European Clinical Trials Information Network",
+    "id": "ectin-poland",
+    "title": "European Clinical Trials Information Network",
+    "organization": "Clinical Trials Information Network (CTIN Poland)",
     "link": "https://clinicaltrials.eu/",
     "dataTypes": [
       "Clinical trials"

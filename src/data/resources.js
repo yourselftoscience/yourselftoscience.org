@@ -158,87 +158,15 @@ const rawResources = [
     compensationType: 'mixed',
   },
   {
-    id: 'clinicaltrials-eu',
-    title: 'ClinicalTrials.eu',
-    organization: 'European Clinical Trials Information Network',
+    id: 'ectin-poland',
+    title: 'European Clinical Trials Information Network',
+    organization: 'Clinical Trials Information Network (CTIN Poland)',
     link: 'https://clinicaltrials.eu/',
     dataTypes: ['Clinical trials'],
     countries: ['European Union'],
     countryCodes: ['EU'],
-    compensationType: 'mixed', // Changed from donation to mixed
+    compensationType: 'mixed',
   },
-  /*
-  {
-    id: 'essais-cliniques-fr',
-    title: 'Essais Cliniques',
-    organization: 'European Clinical Trials Information Network',
-    link: 'https://essaiscliniques.fr/',
-    dataTypes: ['Clinical trials'],
-    countries: ['France'],
-    countryCodes: ['FR'],
-    compensationType: 'mixed', // Changed from donation to mixed
-  },
-  {
-    id: 'studi-clinici-it',
-    title: 'Studi Clinici',
-    organization: 'European Clinical Trials Information Network',
-    link: 'https://studi-clinici.it', 
-    dataTypes: ['Clinical trials'],
-    countries: ['Italy'],
-    countryCodes: ['IT'],
-    compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
-  },
-  {
-    id: 'klinische-studien-de',
-    title: 'Klinische Studien',
-    organization: 'European Clinical Trials Information Network',
-    link: 'https://klinischestudien.de/',
-    dataTypes: ['Clinical trials'],
-    countries: ['Germany'],
-    countryCodes: ['DE'],
-    compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
-  },
-  {
-    id: 'ensayos-clinicos-es',
-    title: 'Ensayos Clinicos',
-    organization: 'European Clinical Trials Information Network',
-    link: 'https://ensayosclinicos.es/',
-    dataTypes: ['Clinical trials'],
-    countries: ['Spain'],
-    countryCodes: ['ES'],
-    compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
-  },
-  {
-    id: 'klinische-studien-at',
-    title: 'Klinische Studien',
-    organization: 'European Clinical Trials Information Network',
-    link: 'https://klinischestudien.at/',
-    dataTypes: ['Clinical trials'],
-    countries: ['Austria'],
-    countryCodes: ['AT'],
-    compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
-  },
-  {
-    id: 'badania-kliniczne-pl',
-    title: 'Badania Kliniczne',
-    organization: 'European Clinical Trials Information Network',
-    link: 'https://badaniakliniczne.pl/',
-    dataTypes: ['Clinical trials'],
-    countries: ['Poland'],
-    countryCodes: ['PL'],
-    compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
-  },
-  {
-    id: 'studii-clinice-ro',
-    title: 'Studii Clinice',
-    organization: 'European Clinical Trials Information Network',
-    link: 'https://studii.clinice.ro/',
-    dataTypes: ['Clinical trials'],
-    countries: ['Romania'],
-    countryCodes: ['RO'],
-    compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
-  },
-  */
   {
     id: 'researchmatch',
     title: 'ResearchMatch',
