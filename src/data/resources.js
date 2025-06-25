@@ -134,6 +134,7 @@ const rawResources = [
   {
     id: 'clinicaltrials-gov',
     title: 'ClinicalTrials.gov',
+    organization: 'United States National Library of Medicine (NLM)',
     link: 'https://clinicaltrials.gov/',
     dataTypes: ['Clinical trials'],
     compensationType: 'mixed', // Changed from donation to mixed
