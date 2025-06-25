@@ -216,6 +216,7 @@
   {
     "id": "clinicaltrials-eu",
     "title": "ClinicalTrials.eu",
+    "organization": "European Clinical Trials Information Network",
     "link": "https://clinicaltrials.eu/",
     "dataTypes": [
       "Clinical trials"

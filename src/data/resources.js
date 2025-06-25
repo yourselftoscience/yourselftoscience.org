@@ -148,6 +148,7 @@ const rawResources = [
   {
     id: 'clinicaltrials-eu',
     title: 'ClinicalTrials.eu',
+    organization: 'European Clinical Trials Information Network',
     link: 'https://clinicaltrials.eu/',
     dataTypes: ['Clinical trials'],
     countries: ['European Union'],
@@ -158,6 +159,7 @@ const rawResources = [
   {
     id: 'essais-cliniques-fr',
     title: 'Essais Cliniques',
+    organization: 'European Clinical Trials Information Network',
     link: 'https://essaiscliniques.fr/',
     dataTypes: ['Clinical trials'],
     countries: ['France'],
@@ -167,6 +169,7 @@ const rawResources = [
   {
     id: 'studi-clinici-it',
     title: 'Studi Clinici',
+    organization: 'European Clinical Trials Information Network',
     link: 'https://studi-clinici.it', 
     dataTypes: ['Clinical trials'],
     countries: ['Italy'],
@@ -176,6 +179,7 @@ const rawResources = [
   {
     id: 'klinische-studien-de',
     title: 'Klinische Studien',
+    organization: 'European Clinical Trials Information Network',
     link: 'https://klinischestudien.de/',
     dataTypes: ['Clinical trials'],
     countries: ['Germany'],
@@ -185,6 +189,7 @@ const rawResources = [
   {
     id: 'ensayos-clinicos-es',
     title: 'Ensayos Clinicos',
+    organization: 'European Clinical Trials Information Network',
     link: 'https://ensayosclinicos.es/',
     dataTypes: ['Clinical trials'],
     countries: ['Spain'],
@@ -194,6 +199,7 @@ const rawResources = [
   {
     id: 'klinische-studien-at',
     title: 'Klinische Studien',
+    organization: 'European Clinical Trials Information Network',
     link: 'https://klinischestudien.at/',
     dataTypes: ['Clinical trials'],
     countries: ['Austria'],
@@ -203,6 +209,7 @@ const rawResources = [
   {
     id: 'badania-kliniczne-pl',
     title: 'Badania Kliniczne',
+    organization: 'European Clinical Trials Information Network',
     link: 'https://badaniakliniczne.pl/',
     dataTypes: ['Clinical trials'],
     countries: ['Poland'],
@@ -212,6 +219,7 @@ const rawResources = [
   {
     id: 'studii-clinice-ro',
     title: 'Studii Clinice',
+    organization: 'European Clinical Trials Information Network',
     link: 'https://studii.clinice.ro/',
     dataTypes: ['Clinical trials'],
     countries: ['Romania'],

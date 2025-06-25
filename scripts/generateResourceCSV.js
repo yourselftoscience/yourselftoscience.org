@@ -14,28 +14,40 @@ function generateCSV() {
     const headers = [
       'ID',
       'Title',
+      'Organization',
       'Link',
-      'Description',
       'Data Types',
-      'Countries',
       'Compensation Type',
-      'Instructions'
+      'Countries',
+      'Country Codes',
+      'Instructions',
+      'Citations'
     ];
 
     const rows = resources.map(resource => {
+      // Helper to format citations into a readable string
+      const formatCitations = (citations) => {
+        if (!citations || citations.length === 0) {
+          return '';
+        }
+        return citations.map(c => `${c.title.replace(/"/g, '""')} (${c.link})`).join('; ');
+      };
+      
       return [
-        resource.id,
-        `"${resource.title.replace(/"/g, '""')}"`,
+        resource.id || '',
+        `"${(resource.title || '').replace(/"/g, '""')}"`,
+        `"${(resource.organization || '').replace(/"/g, '""')}"`,
         resource.link || '',
-        `"${resource.description ? resource.description.replace(/"/g, '""') : ''}"`,
         `"${resource.dataTypes ? resource.dataTypes.join(', ') : ''}"`,
-        `"${resource.countries ? resource.countries.join(', ') : ''}"`,
         resource.compensationType || '',
-        `"${resource.instructions ? resource.instructions.join('; ') : ''}"`
+        `"${resource.countries ? resource.countries.join(', ') : ''}"`,
+        `"${resource.countryCodes ? resource.countryCodes.join(', ') : ''}"`,
+        `"${resource.instructions ? resource.instructions.join('; ') : ''}"`,
+        `"${formatCitations(resource.citations)}"`
       ].join(',');
     });
 
-    const csvContent = [headers.join(','), ...rows].join('\\n');
+    const csvContent = [headers.join(','), ...rows].join('\n');
     fs.writeFileSync(csvPath, csvContent);
 
     console.log(`Successfully generated resources.csv at ${csvPath}`);
