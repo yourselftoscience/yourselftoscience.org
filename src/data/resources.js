@@ -166,7 +166,7 @@ const rawResources = [
   {
     id: 'studi-clinici-it',
     title: 'Studi Clinici',
-    link: 'https://studi.clinici.it/',
+    link: 'https://studi-clinici.it', 
     dataTypes: ['Clinical trials'],
     countries: ['Italy'],
     countryCodes: ['IT'],
