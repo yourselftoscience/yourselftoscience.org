@@ -146,6 +146,16 @@ const rawResources = [
     compensationType: 'mixed', // Changed from donation to mixed
   },
   {
+    id: 'eu-clinical-trials-register',
+    title: 'EU Clinical Trials Register',
+    organization: 'European Medicines Agency (EMA)',
+    link: 'https://euclinicaltrials.eu/search-for-clinical-trials/',
+    dataTypes: ['Clinical trials'],
+    countries: ['European Union'],
+    countryCodes: ['EU'],
+    compensationType: 'mixed',
+  },
+  {
     id: 'clinicaltrials-eu',
     title: 'ClinicalTrials.eu',
     organization: 'European Clinical Trials Information Network',
