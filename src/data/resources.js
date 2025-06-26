@@ -194,6 +194,36 @@ const rawResources = [
     ],
   },
   {
+    id: 'esperity-clinical-trials',
+    title: 'Clinical Trial Discovery',
+    organization: 'Esperity',
+    link: 'https://clinicaltrial.be/',
+    dataTypes: ['Clinical trials'],
+    compensationType: 'mixed',
+    citations: [
+      {
+        title: "De Corte, W., Delrue, H., Vanfleteren, L. J. J., Dutré, P. E. M., Pottel, H., Devriendt, D. K. J. C., ... & Desmet, M. B. (2012). Randomized clinical trial on the influence of anaesthesia protocol on intestinal motility during laparoscopic surgery requiring small bowel anastomosis. Journal of British Surgery, 99(11), 1524-1529.",
+        link: "https://doi.org/10.1002/bjs.8883"
+      },
+      {
+        title: "Desmet, M., Braems, H., Reynvoet, M., Plasschaert, S., Van Cauwelaert, J., Pottel, H., ... & Van de Velde, M. (2013). IV and perineural dexamethasone are equivalent in increasing the analgesic duration of a single-shot interscalene block with ropivacaine for shoulder surgery: a prospective, randomized, placebo-controlled study. British journal of anaesthesia, 111(3), 445-452.",
+        link: "https://doi.org/10.1093/bja/aet109"
+      },
+      {
+        title: "Jacobs, H., Bockaert, M., Bonte, J., D'Haese, M., Degrande, J., Descamps, L., ... & De Bacquer, D. (2020). The impact of a group-based multidisciplinary rehabilitation program on the quality of life in patients with fibromyalgia: results from the QUALIFIBRO study. JCR: Journal of Clinical Rheumatology, 26(8), 313-319.",
+        link: "https://doi.org/10.1097/RHU.0000000000001120"
+      },
+      {
+        title: "Terryn, S., De Medts, J., & Delsupehe, K. (2015). Comparative effectiveness of the different treatment modalities for snoring. Otolaryngology–Head and Neck Surgery, 153(3), 468-475.",
+        link: "https://doi.org/10.1177/0194599815596166"
+      },
+      {
+        title: "Calus, L., Van Bruaene, N., Bosteels, C., Dejonckheere, S., Van Zele, T., Holtappels, G., ... & Gevaert, P. (2019). Twelve‐year follow‐up study after endoscopic sinus surgery in patients with chronic rhinosinusitis with nasal polyposis. Clinical and translational allergy, 9(1), 30.",
+        link: "https://doi.org/10.1186/s13601-019-0269-4"
+      }
+    ]
+  },
+  {
     id: 'researchmatch',
     title: 'ResearchMatch',
     organization: 'National Institutes of Health (NIH)', // Added organization
