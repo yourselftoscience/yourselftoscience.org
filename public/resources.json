@@ -224,10 +224,16 @@
       "Clinical trials"
     ],
     "countries": [
-      "European Union"
+      "European Union",
+      "Iceland",
+      "Liechtenstein",
+      "Norway"
     ],
     "countryCodes": [
-      "EU"
+      "EU",
+      "IS",
+      "LI",
+      "NO"
     ],
     "compensationType": "mixed"
   },
@@ -266,10 +272,16 @@
       "Clinical trials"
     ],
     "countries": [
-      "European Union"
+      "European Union",
+      "Iceland",
+      "Liechtenstein",
+      "Norway"
     ],
     "countryCodes": [
-      "EU"
+      "EU",
+      "IS",
+      "LI",
+      "NO"
     ],
     "compensationType": "mixed",
     "citations": [

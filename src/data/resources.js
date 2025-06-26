@@ -153,8 +153,8 @@ const rawResources = [
     organization: 'European Medicines Agency (EMA)',
     link: 'https://euclinicaltrials.eu/search-for-clinical-trials/',
     dataTypes: ['Clinical trials'],
-    countries: ['European Union'],
-    countryCodes: ['EU'],
+    countries: ['European Union', 'Iceland', 'Liechtenstein', 'Norway'],
+    countryCodes: ['EU', 'IS', 'LI', 'NO'],
     compensationType: 'mixed',
   },
   {
@@ -183,8 +183,8 @@ const rawResources = [
     organization: 'Curewiki',
     link: 'https://www.curewiki.health/',
     dataTypes: ['Clinical trials'],
-    countries: ['European Union'],
-    countryCodes: ['EU'],
+    countries: ['European Union', 'Iceland', 'Liechtenstein', 'Norway'],
+    countryCodes: ['EU', 'IS', 'LI', 'NO'],
     compensationType: 'mixed',
     citations: [
       {
