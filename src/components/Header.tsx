@@ -181,7 +181,7 @@ export default function Header({ scrollY }: HeaderProps) {
         >
            {/* ... Image ... */}
            <Image
-             src="/Logo.svg"
+             src="/icon.svg"
              alt="Yourself To Science Logo"
              width={70} height={70}
              className="block w-full h-full"

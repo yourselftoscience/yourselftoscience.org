@@ -30,9 +30,24 @@ export const metadata: Metadata = {
   title: "Yourself To Science",
   description: "A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More",
   icons: {
-    icon: '/Logo.svg',
+    icon: [
+      {
+        url: "/icon.svg",
+        type: "image/svg+xml",
+      },
+      {
+        url: "/favicon.png",
+        type: "image/png",
+      },
+      {
+        url: "/favicon.ico",
+        sizes: "32x32",
+        type: "image/x-icon",
+      },
+    ],
+    apple: "/apple-icon.png",
   },
-  // Google Scholar metadata
+  manifest: "/site.webmanifest",
   other: {
     'citation_title': "Yourself To Science: A Comprehensive Open-Source List of Services for Contributing to Science",
     'citation_author': "Mario Marcolongo",
