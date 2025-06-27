@@ -119,10 +119,27 @@ async function generateSitemap() {
   }
 }
 
+async function checkIsMain(metaUrl) {
+    if (!metaUrl.startsWith('file://')) {
+        return false;
+    }
+    
+    // In Node.js, process will be defined.
+    // In edge environments, it might not be.
+    if (typeof process === 'undefined' || !process.argv || !process.argv[1]) {
+        return false;
+    }
+
+    const modulePath = await import('url').then(url => url.fileURLToPath(metaUrl));
+    return process.argv[1] === modulePath;
+}
+
 // Export and direct execution
 // Check if this is the main module being executed directly
-if (import.meta.url === `file://${process.argv[1]}`) {
-  generateSitemap();
-}
+checkIsMain(import.meta.url).then(isMain => {
+    if (isMain) {
+        generateSitemap();
+    }
+});
 
 export { generateSitemap };
