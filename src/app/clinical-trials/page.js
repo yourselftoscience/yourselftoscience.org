@@ -53,34 +53,30 @@ export async function generateMetadata({ searchParams }) {
   };
 }
 
-// Helper function to fetch resources.
-// It uses the incoming request headers to build the absolute URL.
-async function getResources() {
+// Helper function to fetch pre-filtered resources from our new API route.
+async function getClinicalTrialsData() {
   const headersList = headers();
   const host = headersList.get('host') || 'yourselftoscience.org';
   const protocol = host.includes('localhost') ? 'http' : 'https';
-  const url = `${protocol}://${host}/resources.json`;
+  // Fetch from the new Node.js API route
+  const url = `${protocol}://${host}/api/clinical-trials-data`;
 
   try {
-    const res = await fetch(url, { cache: 'no-store' }); // Use no-store for dynamic data
+    // Use no-store to ensure we always get fresh data and avoid caching issues.
+    const res = await fetch(url, { cache: 'no-store' });
     if (!res.ok) {
-      console.error(`Failed to fetch resources: ${res.status} ${res.statusText}`);
-      // Return empty array or throw error, depending on desired behavior
-      return [];
+      console.error(`Failed to fetch clinical trials data: ${res.status} ${res.statusText}`);
+      return { clinicalTrialsResources: [], totalResourcesCount: 0 };
     }
     return await res.json();
   } catch (error) {
-    console.error('Error fetching resources:', error);
-    return [];
+    console.error('Error fetching clinical trials data:', error);
+    return { clinicalTrialsResources: [], totalResourcesCount: 0 };
   }
 }
 
 export default async function ClinicalTrialsPage() {
-  const allResources = await getResources();
-  const clinicalTrialsResources = allResources.filter(
-    (resource) => resource.dataTypes && resource.dataTypes.includes('Clinical trials')
-  );
-  const totalResourcesCount = allResources.length;
+  const { resources: clinicalTrialsResources, totalResourcesCount } = await getClinicalTrialsData();
 
   return (
     <Suspense fallback={<ClinicalTrialsSkeleton />}>
