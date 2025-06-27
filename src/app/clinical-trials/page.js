@@ -56,5 +56,6 @@ export default function ClinicalTrialsPage() {
   const clinicalTrialsResources = resources.filter(
     (resource) => resource.dataTypes && resource.dataTypes.includes('Clinical trials')
   );
-  return <ClinicalTrialsLoader resources={clinicalTrialsResources} />;
+  const totalResourcesCount = resources.length;
+  return <ClinicalTrialsLoader resources={clinicalTrialsResources} totalResourcesCount={totalResourcesCount} />;
 } 

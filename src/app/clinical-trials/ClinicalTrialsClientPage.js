@@ -4,7 +4,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import ReactCountryFlag from 'react-country-flag';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
-import { resources as allResources, EU_COUNTRIES } from '@/data/resources';
+import { EU_COUNTRIES } from '@/data/resources';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 
 // Helper function to parse comma-separated strings from URL params
@@ -77,7 +77,7 @@ const ResourceListItem = ({ resource, onCountryTagClick, activeCountries }) => {
     );
 };
 
-export default function ClinicalTrialsClientPage({ resources }) {
+export default function ClinicalTrialsClientPage({ resources, totalResourcesCount }) {
     const searchParams = useSearchParams();
     const router = useRouter();
     const pathname = usePathname();
@@ -231,7 +231,7 @@ export default function ClinicalTrialsClientPage({ resources }) {
                 <p className="text-sm md:text-base">
                     This page lists resources specifically for clinical trials.
                     <Link href="/" className="text-blue-600 hover:underline font-semibold ml-1">
-                        View all {allResources.length} resources for contributing to science.
+                        View all {totalResourcesCount} resources for contributing to science.
                     </Link>
                 </p>
             </div>

@@ -24,13 +24,13 @@ function ClinicalTrialsPageSkeleton() {
   );
 }
 
-export default function ClinicalTrialsLoader({ resources }) {
+export default function ClinicalTrialsLoader({ resources, totalResourcesCount }) {
   const { scrollY } = useScroll();
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header scrollY={scrollY} />
       <main className="flex-grow">
-        <ClinicalTrialsClientPage resources={resources} />
+        <ClinicalTrialsClientPage resources={resources} totalResourcesCount={totalResourcesCount} />
       </main>
       <Footer />
     </div>
