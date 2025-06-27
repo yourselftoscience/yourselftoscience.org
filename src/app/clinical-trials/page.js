@@ -1,7 +1,9 @@
+import { Suspense } from 'react';
 import ClinicalTrialsLoader from './ClinicalTrialsLoader';
 import { resources } from '@/data/resources';
+import ClinicalTrialsSkeleton from './ClinicalTrialsSkeleton.js';
 
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 
 // This is a Server Component, which allows for dynamic metadata generation.
 export async function generateMetadata({ searchParams }) {
@@ -52,10 +54,13 @@ export async function generateMetadata({ searchParams }) {
 }
 
 export default function ClinicalTrialsPage() {
-  // This server component renders the client-side loader which will handle all the dynamic parts.
   const clinicalTrialsResources = resources.filter(
     (resource) => resource.dataTypes && resource.dataTypes.includes('Clinical trials')
   );
   const totalResourcesCount = resources.length;
-  return <ClinicalTrialsLoader resources={clinicalTrialsResources} totalResourcesCount={totalResourcesCount} />;
+  return (
+    <Suspense fallback={<ClinicalTrialsSkeleton />}>
+      <ClinicalTrialsLoader resources={clinicalTrialsResources} totalResourcesCount={totalResourcesCount} />
+    </Suspense>
+  );
 } 
