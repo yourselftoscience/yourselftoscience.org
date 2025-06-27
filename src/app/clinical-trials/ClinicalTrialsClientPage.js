@@ -2,7 +2,6 @@
 
 import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
-import Select, { components } from 'react-select';
 import ReactCountryFlag from 'react-country-flag';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { resources as allResources, EU_COUNTRIES } from '@/data/resources';
@@ -12,46 +11,6 @@ import { FaExternalLinkAlt } from 'react-icons/fa';
 const clinicalTrialResources = allResources
     .filter(resource => resource.dataTypes.includes('Clinical trials'))
     .sort((a, b) => a.title.localeCompare(b.title));
-
-// Component for custom select option display
-const CountryOption = (props) => (
-    <components.Option {...props}>
-        <div className="flex items-center">
-            {props.data.code && props.data.code !== 'EU' && <ReactCountryFlag countryCode={props.data.code} svg className="mr-2" />}
-            {props.data.code === 'EU' && <span className="mr-2">🇪🇺</span>}
-            <div className="flex flex-col">
-                <span>{props.label}</span>
-                {props.data.description && (
-                    <span className="text-xs text-gray-500">{props.data.description}</span>
-                )}
-            </div>
-        </div>
-    </components.Option>
-);
-
-// Component for custom single-select value display
-const CountrySingleValue = ({ children, ...props }) => (
-  <components.SingleValue {...props}>
-    <div className="flex items-center">
-      {props.data.code && props.data.code !== 'EU' && <ReactCountryFlag countryCode={props.data.code} svg className="mr-2" />}
-      {props.data.code === 'EU' && <span className="mr-2">🇪🇺</span>}
-      <span>{children}</span>
-    </div>
-  </components.SingleValue>
-);
-
-// Component for custom multi-select value display
-const MultiValueLabel = (props) => {
-  return (
-    <components.MultiValueLabel {...props}>
-     <div className="flex items-center">
-       {props.data.code && props.data.code !== 'EU' && <ReactCountryFlag countryCode={props.data.code} svg className="mr-2" />}
-       {props.data.code === 'EU' && <span className="mr-2">🇪🇺</span>}
-       <span>{props.data.label}</span>
-     </div>
-    </components.MultiValueLabel>
-  );
-};
 
 // A new component for our guided list layout
 const ResourceListItem = ({ resource, onCountryTagClick, activeCountries }) => {
@@ -98,7 +57,7 @@ const ResourceListItem = ({ resource, onCountryTagClick, activeCountries }) => {
                                     }`}
                                 >
                                     {resource.countryCodes[index] && resource.countryCodes[index] !== 'EU' && (
-                                        <ReactCountryFlag countryCode={resource.countryCodes[index]} svg className="mr-1.5" />
+                                        <ReactCountryFlag countryCode={resource.countryCodes[index]} svg className="mr-1.5" alt={`Flag of ${country}`} />
                                     )}
                                     {resource.countryCodes[index] === 'EU' && <span className="mr-1.5">🇪🇺</span>}
                                     {country}
@@ -181,10 +140,6 @@ export default function ClinicalTrialsClientPage() {
         }
 
     }, [filters, isMounted, pathname, router, searchParams]);
-
-    const handleCountryChange = (selectedOptions) => {
-        setFilters(prev => ({ ...prev, countries: selectedOptions || [] }));
-    };
 
     const handleCountryTagClick = (countryName) => {
         const selectedOption = countryOptions.find(opt => opt.value === countryName);
@@ -286,20 +241,29 @@ export default function ClinicalTrialsClientPage() {
                 Clinical trials are research studies that test how well new medical approaches work in people. Use the resources below to find a study that might be right for you. Contributing to a clinical trial is a powerful way to participate in scientific discovery.
             </p>
 
-            <div className="my-8">
-                <label htmlFor="country-filter" className="block text-sm font-medium text-gray-700 mb-2">
-                    Filter by country to see local results in addition to worldwide resources
-                </label>
-                <Select
-                    id="country-filter"
-                    isMulti
-                    options={countryOptions}
-                    value={filters.countries}
-                    onChange={handleCountryChange}
-                    placeholder={`Filter from ${countryOptions.length} available countries...`}
-                    classNamePrefix="react-select"
-                    components={{ Option: CountryOption, MultiValueLabel }}
-                />
+            <div className="my-8 pt-6 border-t border-gray-200">
+                <h2 className="text-lg font-semibold text-gray-800 mb-2">Filter by Location</h2>
+                <p className="text-sm text-gray-600 mb-4">Select one or more countries to view local resources. Worldwide registries and opportunities are always shown.</p>
+                <div className="flex flex-wrap gap-3 items-center">
+                    {countryOptions.map((option) => {
+                        const isSelected = filters.countries.some(c => c.value === option.value);
+                        return (
+                            <button
+                                key={option.value}
+                                onClick={() => handleCountryTagClick(option.value)}
+                                className={`flex items-center px-4 py-2 rounded-full font-medium text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
+                                    isSelected
+                                    ? 'bg-blue-600 text-white shadow-sm'
+                                    : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-100'
+                                }`}
+                            >
+                                {option.code && option.code !== 'EU' && <ReactCountryFlag countryCode={option.code} svg className="mr-2" alt={`Flag of ${option.label}`} />}
+                                {option.code === 'EU' && <span className="mr-2 text-lg">🇪🇺</span>}
+                                {option.label}
+                            </button>
+                        );
+                    })}
+                </div>
             </div>
             
             {!showRegistries && !showDirectOpportunities ? (
