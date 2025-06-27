@@ -56,6 +56,22 @@ function generateCSV() {
   }
 }
 
-generateCSV();
+// This function will only be defined and used in a Node.js environment.
+async function checkIsMain(metaUrl) {
+    if (typeof process === 'undefined' || !metaUrl.startsWith('file://')) {
+        return false;
+    }
+    const path = await import('path');
+    const { fileURLToPath } = await import('url');
+    const modulePath = fileURLToPath(metaUrl);
+    return process.argv[1] === modulePath;
+}
+
+// Check if this script is being run directly.
+checkIsMain(import.meta.url).then(isMain => {
+    if (isMain) {
+        generateCSV();
+    }
+});
 
 export { generateCSV }; 
