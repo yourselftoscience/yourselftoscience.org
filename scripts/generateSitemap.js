@@ -20,15 +20,21 @@ async function generateSitemap() {
     
     fs.writeFileSync(tempScriptPath, `
       import { resources } from '../src/data/resources.js';
-      console.log(JSON.stringify(resources.map(r => ({
-        id: r.id,
-        lastModified: new Date().toISOString().split('T')[0]
-      }))));
+      const clinicalTrialResources = resources.filter(resource => resource.dataTypes.includes('Clinical trials'));
+      const countryOptions = Array.from(new Set(clinicalTrialResources.flatMap(r => r.countries || []))).sort();
+
+      console.log(JSON.stringify({
+        resources: resources.map(r => ({
+          id: r.id,
+          lastModified: new Date().toISOString().split('T')[0]
+        })),
+        clinicalTrialCountries: countryOptions
+      }));
     `);
     
     // Execute the temporary script to get resource data
     const output = execSync('node --experimental-modules ' + tempScriptPath).toString();
-    const resourcesData = JSON.parse(output);
+    const { resources: resourcesData, clinicalTrialCountries } = JSON.parse(output);
     
     // Delete the temporary script
     fs.unlinkSync(tempScriptPath);
@@ -39,6 +45,7 @@ async function generateSitemap() {
       { url: `${SITE_URL}/`, priority: '1.0', changefreq: 'weekly' },
       { url: `${SITE_URL}/stats`, priority: '0.9', changefreq: 'weekly' },
       { url: `${SITE_URL}/contribute`, priority: '0.9', changefreq: 'weekly' },
+      { url: `${SITE_URL}/clinical-trials`, priority: '0.8', changefreq: 'weekly' },
       { url: `${SITE_URL}/resources`, priority: '0.5', changefreq: 'monthly' }, // SEO-only page
       { url: `${SITE_URL}/yourselftoscience.pdf`, priority: '0.7', changefreq: 'weekly' }
     ];
@@ -53,6 +60,17 @@ async function generateSitemap() {
     <lastmod>${today}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
+  </url>`;
+    });
+
+    // Add clinical trial country pages
+    clinicalTrialCountries.forEach(country => {
+      sitemap += `
+  <url>
+    <loc>${SITE_URL}/clinical-trials?countries=${encodeURIComponent(country)}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>`;
     });
 
@@ -72,7 +90,7 @@ async function generateSitemap() {
     const sitemapPath = path.join(__dirname, '../public/sitemap.xml');
     fs.writeFileSync(sitemapPath, sitemap);
     
-    console.log(`Sitemap with ${staticPages.length + resourcesData.length} total URLs written to ${sitemapPath}`);
+    console.log(`Sitemap with ${staticPages.length + clinicalTrialCountries.length + resourcesData.length} total URLs written to ${sitemapPath}`);
     return true;
   } catch (error) {
     console.error('Error generating sitemap:', error);

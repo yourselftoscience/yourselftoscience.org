@@ -1,4 +1,13 @@
 // src/data/resources.js
+
+// Moved PAYMENT_TYPES definition to the top to fix ReferenceError
+export const PAYMENT_TYPES = [
+  { value: 'donation', label: 'Donation', emoji: '❤️' },
+  { value: 'payment', label: 'Payment', emoji: '💵' },
+  { value: 'mixed', label: 'Mixed', emoji: '❤️💵' },
+  // Add other types if necessary
+];
+
 const rawResources = [
   {
     id: 'open-humans',
@@ -137,7 +146,9 @@ const rawResources = [
     organization: 'United States National Library of Medicine (NLM)',
     link: 'https://clinicaltrials.gov/',
     dataTypes: ['Clinical trials'],
-    compensationType: 'mixed', // Changed from donation to mixed
+    compensationType: 'mixed',
+    resourceType: 'registry',
+    description: 'A comprehensive registry and results database of publicly and privately supported clinical studies conducted around the world. Managed by the U.S. National Library of Medicine.',
   },
   {
     id: 'who-ictrp',
@@ -145,7 +156,8 @@ const rawResources = [
     organization: 'World Health Organization (WHO)',
     link: 'https://trialsearch.who.int/',
     dataTypes: ['Clinical trials'],
-    compensationType: 'mixed', // Changed from donation to mixed
+    compensationType: 'mixed',
+    resourceType: 'registry',
   },
   {
     id: 'eu-clinical-trials-register',
@@ -156,6 +168,8 @@ const rawResources = [
     countries: ['European Union', 'Iceland', 'Liechtenstein', 'Norway'],
     countryCodes: ['EU', 'IS', 'LI', 'NO'],
     compensationType: 'mixed',
+    resourceType: 'registry',
+    description: "The European Union's official database for clinical trials conducted in the EU and EEA."
   },
   {
     id: 'ectin-poland',
@@ -166,6 +180,7 @@ const rawResources = [
     countries: ['European Union'],
     countryCodes: ['EU'],
     compensationType: 'mixed',
+    resourceType: 'registry',
     citations: [
       {
         title: 'Figueira-Gonçalves, J. M., Callejas-González, F. J., Golpe, R., Máiz-Carro, L., Marín-Oto, M., de Miguel-Díez, J., ... & Hurtado-Fuentes, Á. (2025). Current Evidence on the Usefulness of Potential Therapies in the Prevention of COPD Exacerbations: Beyond the Use of Bronchodilator Therapy and Inhaled Corticosteroids. Open Respiratory Archives, 7(2), 100438.',
@@ -186,6 +201,7 @@ const rawResources = [
     countries: ['European Union', 'Iceland', 'Liechtenstein', 'Norway'],
     countryCodes: ['EU', 'IS', 'LI', 'NO'],
     compensationType: 'mixed',
+    resourceType: 'registry',
     citations: [
       {
         title: 'van der Laan, P., van Houdt, W. J., van Boven, H., Snaebjornsson, P., Bosch, L. J. W., Monkhorst, K., ... & van der Graaf, W. T. A. (2025). The role of whole-genome sequencing for guiding systemic therapy in patients with soft tissue sarcoma. ESMO open, 10(6), 105287.',
@@ -200,6 +216,7 @@ const rawResources = [
     link: 'https://clinicaltrial.be/',
     dataTypes: ['Clinical trials'],
     compensationType: 'mixed',
+    resourceType: 'registry',
     citations: [
       {
         title: "De Corte, W., Delrue, H., Vanfleteren, L. J. J., Dutré, P. E. M., Pottel, H., Devriendt, D. K. J. C., ... & Desmet, M. B. (2012). Randomized clinical trial on the influence of anaesthesia protocol on intestinal motility during laparoscopic surgery requiring small bowel anastomosis. Journal of British Surgery, 99(11), 1524-1529.",
@@ -226,12 +243,13 @@ const rawResources = [
   {
     id: 'researchmatch',
     title: 'ResearchMatch',
-    organization: 'National Institutes of Health (NIH)', // Added organization
+    organization: 'National Institutes of Health (NIH)',
     link: 'https://www.researchmatch.org/',
     dataTypes: ['Clinical trials'],
     countries: ['United States'],
     countryCodes: ['US'],
-    compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'mixed',
+    description: 'A nonprofit program funded by the National Institutes of Health (NIH) that connects people interested in research studies with researchers from top medical centers across the U.S.'
   },
   {
     id: 'flucamp',
@@ -240,7 +258,8 @@ const rawResources = [
     dataTypes: ['Clinical trials'],
     countries: ['United Kingdom'],
     countryCodes: ['GB'],
-    compensationType: 'payment', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'payment',
+    description: 'Conducts clinical trials for flu and common cold viruses in London and Manchester, compensating volunteers for their time.',
     citations: [
       {
         title:
@@ -252,12 +271,13 @@ const rawResources = [
   {
     id: 'healthstreet',
     title: 'HealthStreet',
-    organization: 'University of Florida Health', // Added organization
+    organization: 'University of Florida Health',
     link: 'https://healthstreet.program.ufl.edu/uf-researchers/participate-in-research/',
     dataTypes: ['Clinical trials'],
     countries: ['United States'],
     countryCodes: ['US'],
-    compensationType: 'mixed', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'mixed',
+    description: 'Connects community members in Florida with health research opportunities at the University of Florida.'
   },
   {
     id: 'goodnature-program',
@@ -266,7 +286,7 @@ const rawResources = [
     dataTypes: ['Stool'],
     countries: ['United States'],
     countryCodes: ['US'],
-    compensationType: 'payment', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'payment',
   },
   {
     id: 'lifeblood-microbiome',
@@ -276,7 +296,7 @@ const rawResources = [
     dataTypes: ['Stool'],
     countries: ['Australia'],
     countryCodes: ['AU'],
-    compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'donation',
   },
   {
     id: 'wesley-stool-donation',
@@ -286,7 +306,7 @@ const rawResources = [
     dataTypes: ['Stool'],
     countries: ['Australia'],
     countryCodes: ['AU'],
-    compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'donation',
   },
   {
     id: 'wesley-placenta-donation',
@@ -296,7 +316,7 @@ const rawResources = [
     dataTypes: ['Placenta'],
     countries: ['Australia'],
     countryCodes: ['AU'],
-    compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'donation',
   },
   {
     id: 'wroclaw-hair-decomposition',
@@ -306,7 +326,7 @@ const rawResources = [
     dataTypes: ['Hair'],
     countries: ['Poland'],
     countryCodes: ['PL'],
-    compensationType: 'donation', // Add this line - values can be 'donation', 'payment', or 'mixed'
+    compensationType: 'donation',
     citations: [
       {
         title: 'Palacz, K., Cholewa, M., Bonar, M., Krzyżanowska, M., & Kadej, M. (2023). The rate and quality of post-mortem hair root changes in relation to melanin content. Forensic Science International, 350, 111784.',
@@ -342,17 +362,54 @@ const rawResources = [
         title: 'Grande D, Mitra N, Marti XL, et al. Consumer Views on Using Digital Data for COVID-19 Control in the United States. JAMA Netw Open. 2021;4(5):e2110918',
         link: 'https://doi.org/10.1001/jamanetworkopen.2021.10918'
       }
-    ]
+    ],
+  },
+  {
+    id: 'hra-research-summaries',
+    title: 'Research Summaries',
+    organization: 'NHS Health Research Authority',
+    link: 'https://www.hra.nhs.uk/planning-and-improving-research/application-summaries/research-summaries/',
+    dataTypes: ['Health data'],
+    countries: ['United Kingdom'],
+    countryCodes: ['GB'],
+    compensationType: 'donation',
+    description: 'Plain-language summaries of research studies approved by the NHS Health Research Authority.'
+  },
+  {
+    id: 'cochrane-central-register-of-controlled-trials',
+    title: 'Cochrane Central Register of Controlled Trials (CENTRAL)',
+    organization: 'Cochrane Library',
+    link: 'https://www.cochranelibrary.com/central',
+    dataTypes: ['Clinical trials'],
+    compensationType: 'mixed',
+    resourceType: 'database',
+    description: 'A highly concentrated source of reports of randomized and quasi-randomized controlled trials from various databases and other sources. Access requires a subscription to the Cochrane Library.'
+  },
+  {
+    id: 'german-clinical-trials-register',
+    title: 'German Clinical Trials Register (DRKS)',
+    organization: 'DRKS',
+    link: 'https://drks.de/',
+    dataTypes: ['Clinical trials'],
+    countries: ['Germany'],
+    countryCodes: ['DE'],
+    compensationType: 'mixed',
+    resourceType: 'registry',
+    description: 'The primary register for clinical trials conducted in Germany, providing public access to study information.'
+  },
+  {
+    id: 'health-canada-clinical-trials-database',
+    title: 'Health Canada\'s Clinical Trials Database',
+    link: 'https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/health-canada-clinical-trials-database.html',
+    organization: 'Health Canada',
+    dataTypes: ['Clinical trials'],
+    countries: ['Canada'],
+    countryCodes: ['CA'],
+    compensationType: 'mixed',
+    resourceType: 'database',
+    description: 'A listing of specific information relating to phase I, II, and III clinical trials in patients authorized by Health Canada.'
   }
   // Add more resources as needed
-];
-
-// Ensure this line exists and uses 'export const'
-export const PAYMENT_TYPES = [
-  { value: 'donation', label: 'Donation', emoji: '❤️' },
-  { value: 'payment', label: 'Payment', emoji: '💵' },
-  { value: 'mixed', label: 'Mixed', emoji: '❤️💵' },
-  // Add other types if necessary
 ];
 
 export const resources = rawResources.map((r) => ({

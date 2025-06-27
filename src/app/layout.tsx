@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
+// This file is the single source of truth for the latest DOI.
+import { latestDoi } from '@/data/config';
+
 // Define fonts at module scope with const
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,9 +26,8 @@ const geistMono = localFont({
 const currentDate = new Date().toISOString().split('T')[0].replace(/-/g, '/');
 const currentYear = new Date().getFullYear();
 
-// Use a hardcoded DOI that will be updated by the GitHub workflow
-const latestDoi = '10.5281/zenodo.15110328';
-
+// This export is necessary to prevent a build error.
+// See: https://github.com/vercel/next.js/issues/53354
 export const metadata: Metadata = {
   title: "Yourself To Science",
   description: "A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More",
@@ -49,7 +51,7 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   other: {
-    'citation_title': "Yourself To Science: A Comprehensive Open-Source List of Services for Contributing to Science",
+    'citation_title': "Yourself To Science: A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More",
     'citation_author': "Mario Marcolongo",
     'citation_publication_date': `${currentYear}/${currentDate.split('/')[1]}/${currentDate.split('/')[2]}`,
     'citation_pdf_url': "https://yourselftoscience.org/yourselftoscience.pdf",

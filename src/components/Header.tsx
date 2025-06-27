@@ -215,9 +215,6 @@ export default function Header({ scrollY }: HeaderProps) {
 
       {/* --- Desktop Navigation --- */}
       <nav className="hidden md:flex items-center space-x-3 lg:space-x-6">
-        <Link href="/" className="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors px-3 py-2 rounded-md">
-            Resources
-        </Link>
         <Link href="/stats" className="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors px-3 py-2 rounded-md">
             Stats
         </Link>
@@ -260,9 +257,6 @@ export default function Header({ scrollY }: HeaderProps) {
             >
               <div className="p-5 pt-20">
                 <nav className="flex flex-col space-y-2">
-                  <Link href="/" className="px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100 rounded-md transition-colors" onClick={toggleMobileMenu}>
-                    Resources
-                  </Link>
                   <Link href="/stats" className="px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100 rounded-md transition-colors" onClick={toggleMobileMenu}>
                     Stats
                   </Link>
