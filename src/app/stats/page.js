@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { resources, EU_COUNTRIES } from '@/data/resources';
+import { resources } from '@/data/resources';
+import { EU_COUNTRIES } from '@/data/constants';
 import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';

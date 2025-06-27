@@ -1,9 +1,9 @@
 import { Suspense } from 'react';
+import { headers } from 'next/headers';
 import ClinicalTrialsLoader from './ClinicalTrialsLoader';
-import { resources } from '@/data/resources';
 import ClinicalTrialsSkeleton from './ClinicalTrialsSkeleton.js';
 
-export const runtime = 'nodejs';
+export const runtime = 'edge';
 
 // This is a Server Component, which allows for dynamic metadata generation.
 export async function generateMetadata({ searchParams }) {
@@ -53,11 +53,35 @@ export async function generateMetadata({ searchParams }) {
   };
 }
 
-export default function ClinicalTrialsPage() {
-  const clinicalTrialsResources = resources.filter(
+// Helper function to fetch resources.
+// It uses the incoming request headers to build the absolute URL.
+async function getResources() {
+  const headersList = headers();
+  const host = headersList.get('host') || 'yourselftoscience.org';
+  const protocol = host.includes('localhost') ? 'http' : 'https';
+  const url = `${protocol}://${host}/resources.json`;
+
+  try {
+    const res = await fetch(url, { cache: 'no-store' }); // Use no-store for dynamic data
+    if (!res.ok) {
+      console.error(`Failed to fetch resources: ${res.status} ${res.statusText}`);
+      // Return empty array or throw error, depending on desired behavior
+      return [];
+    }
+    return await res.json();
+  } catch (error) {
+    console.error('Error fetching resources:', error);
+    return [];
+  }
+}
+
+export default async function ClinicalTrialsPage() {
+  const allResources = await getResources();
+  const clinicalTrialsResources = allResources.filter(
     (resource) => resource.dataTypes && resource.dataTypes.includes('Clinical trials')
   );
-  const totalResourcesCount = resources.length;
+  const totalResourcesCount = allResources.length;
+
   return (
     <Suspense fallback={<ClinicalTrialsSkeleton />}>
       <ClinicalTrialsLoader resources={clinicalTrialsResources} totalResourcesCount={totalResourcesCount} />

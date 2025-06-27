@@ -4,7 +4,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import ReactCountryFlag from 'react-country-flag';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
-import { EU_COUNTRIES } from '@/data/resources';
+import { EU_COUNTRIES } from '@/data/constants';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 
 // Helper function to parse comma-separated strings from URL params

@@ -9,7 +9,7 @@ import CountryFlag from 'react-country-flag';
 import { FaHeart, FaDollarSign, FaExternalLinkAlt, FaBook, FaMobileAlt, FaCog, FaUserShield, FaArrowRight, FaListOl } from 'react-icons/fa';
 import { Popover, Transition } from '@headlessui/react'; // Import Popover
 import { Fragment } from 'react'; // Import Fragment for Transition
-import { EU_COUNTRIES } from '@/data/resources'; // Import EU_COUNTRIES
+import { EU_COUNTRIES } from '@/data/constants'; // Import EU_COUNTRIES
 
 // Helper to get payment emoji/icon
 const getPaymentInfo = (compensationType) => {

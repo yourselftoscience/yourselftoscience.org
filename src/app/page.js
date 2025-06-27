@@ -6,7 +6,8 @@ import React, { useState, useEffect, useMemo, useCallback, Suspense } from 'reac
 // Import motionValue ONLY if needed elsewhere, otherwise remove. useScroll is now used here.
 import { motion, AnimatePresence, useScroll } from 'framer-motion';
 import Footer from '@/components/Footer';
-import { resources as allResources, PAYMENT_TYPES, EU_COUNTRIES } from '@/data/resources';
+import { resources as allResources } from '@/data/resources';
+import { PAYMENT_TYPES, EU_COUNTRIES } from '@/data/constants';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import CountryFlag from 'react-country-flag';
