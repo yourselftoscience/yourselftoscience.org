@@ -2,7 +2,6 @@
 
 import React, { Suspense } from 'react';
 import ClinicalTrialsClientPage from './ClinicalTrialsClientPage';
-import { resources } from '../../data/resources';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useScroll } from 'framer-motion';
@@ -25,16 +24,13 @@ function ClinicalTrialsPageSkeleton() {
   );
 }
 
-export default function ClinicalTrialsLoader() {
+export default function ClinicalTrialsLoader({ resources }) {
   const { scrollY } = useScroll();
-  const clinicalTrialsResources = resources.filter(
-    (resource) => resource.dataTypes && resource.dataTypes.includes('Clinical trials')
-  );
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header scrollY={scrollY} />
       <main className="flex-grow">
-        <ClinicalTrialsClientPage resources={clinicalTrialsResources} />
+        <ClinicalTrialsClientPage resources={resources} />
       </main>
       <Footer />
     </div>

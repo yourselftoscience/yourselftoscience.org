@@ -10,11 +10,6 @@ import { FaExternalLinkAlt } from 'react-icons/fa';
 // Helper function to parse comma-separated strings from URL params
 const parseUrlList = (param) => (param ? param.split(',') : []);
 
-// Filter resources to only include clinical trials
-const clinicalTrialResources = allResources
-    .filter(resource => resource.dataTypes.includes('Clinical trials'))
-    .sort((a, b) => a.title.localeCompare(b.title));
-
 // A new component for our guided list layout
 const ResourceListItem = ({ resource, onCountryTagClick, activeCountries }) => {
     

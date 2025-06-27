@@ -1,4 +1,5 @@
 import ClinicalTrialsLoader from './ClinicalTrialsLoader';
+import { resources } from '@/data/resources';
 
 export const runtime = 'edge';
 
@@ -52,5 +53,8 @@ export async function generateMetadata({ searchParams }) {
 
 export default function ClinicalTrialsPage() {
   // This server component renders the client-side loader which will handle all the dynamic parts.
-  return <ClinicalTrialsLoader />;
+  const clinicalTrialsResources = resources.filter(
+    (resource) => resource.dataTypes && resource.dataTypes.includes('Clinical trials')
+  );
+  return <ClinicalTrialsLoader resources={clinicalTrialsResources} />;
 } 
