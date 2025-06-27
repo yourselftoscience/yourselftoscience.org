@@ -1,86 +1,22 @@
 import { Suspense } from 'react';
-import { headers } from 'next/headers';
 import ClinicalTrialsLoader from './ClinicalTrialsLoader';
 import ClinicalTrialsSkeleton from './ClinicalTrialsSkeleton.js';
 
 export const runtime = 'edge';
 
-// This is a Server Component, which allows for dynamic metadata generation.
-export async function generateMetadata({ searchParams }) {
-  const countriesStr = searchParams.countries;
-  const countries = countriesStr ? countriesStr.split(',') : [];
+// Set static metadata for the page, as dynamic generation is not feasible
+// with the client-side data loading strategy.
+export const metadata = {
+  title: 'Find Clinical Trials to Participate In | Yourself To Science',
+  description: 'A curated list of international registries and platforms to find and participate in clinical trials. Search for studies by disease, location, or as a healthy volunteer.',
+};
 
-  const baseTitle = 'Find Clinical Trials';
-  const siteTitle = 'Yourself To Science';
-
-  let title;
-  let description;
-  let url = 'https://yourselftoscience.org/clinical-trials';
-
-  if (countries.length === 1) {
-    const country = countries[0];
-    // Simple capitalization, works for single-word countries.
-    // A more robust solution might use a lookup, but this is fine for now.
-    const countryCapitalized = country.charAt(0).toUpperCase() + country.slice(1);
-    title = `Find Clinical Trials in ${countryCapitalized} | ${siteTitle}`;
-    description = `A curated list of international and ${countryCapitalized}-specific platforms to find and participate in clinical trials. Search by disease, location, or as a healthy volunteer.`;
-    url = `https://yourselftoscience.org/clinical-trials?countries=${country}`;
-
-  } else if (countries.length > 1) {
-    const countryNames = countries.map(c => c.charAt(0).toUpperCase() + c.slice(1)).join(', ');
-    title = `Find Clinical Trials in Multiple Countries | ${siteTitle}`;
-    description = `A curated list of international and country-specific platforms to find clinical trials in ${countryNames}.`;
-    url = `https://yourselftoscience.org/clinical-trials?countries=${countriesStr}`;
-
-  } else {
-    title = `${baseTitle} to Participate In | ${siteTitle}`;
-    description = 'A curated list of international registries and platforms to find and participate in clinical trials. Search for studies by disease, location, or as a healthy volunteer.';
-  }
-
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      url,
-    },
-     twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-    },
-  };
-}
-
-// Helper function to fetch pre-filtered resources from our new API route.
-async function getClinicalTrialsData() {
-  const headersList = headers();
-  const host = headersList.get('host') || 'yourselftoscience.org';
-  const protocol = host.includes('localhost') ? 'http' : 'https';
-  // Fetch from the new Node.js API route
-  const url = `${protocol}://${host}/api/clinical-trials-data`;
-
-  try {
-    // Use no-store to ensure we always get fresh data and avoid caching issues.
-    const res = await fetch(url, { cache: 'no-store' });
-    if (!res.ok) {
-      console.error(`Failed to fetch clinical trials data: ${res.status} ${res.statusText}`);
-      return { clinicalTrialsResources: [], totalResourcesCount: 0 };
-    }
-    return await res.json();
-  } catch (error) {
-    console.error('Error fetching clinical trials data:', error);
-    return { clinicalTrialsResources: [], totalResourcesCount: 0 };
-  }
-}
-
-export default async function ClinicalTrialsPage() {
-  const { resources: clinicalTrialsResources, totalResourcesCount } = await getClinicalTrialsData();
-
+export default function ClinicalTrialsPage() {
+  // This component now only serves as the server-side entry point
+  // to configure the route and render the client-side loader.
   return (
     <Suspense fallback={<ClinicalTrialsSkeleton />}>
-      <ClinicalTrialsLoader resources={clinicalTrialsResources} totalResourcesCount={totalResourcesCount} />
+      <ClinicalTrialsLoader />
     </Suspense>
   );
 } 
