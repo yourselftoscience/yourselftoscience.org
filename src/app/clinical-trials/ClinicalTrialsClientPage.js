@@ -7,6 +7,9 @@ import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { resources as allResources, EU_COUNTRIES } from '@/data/resources';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 
+// Helper function to parse comma-separated strings from URL params
+const parseUrlList = (param) => (param ? param.split(',') : []);
+
 // Filter resources to only include clinical trials
 const clinicalTrialResources = allResources
     .filter(resource => resource.dataTypes.includes('Clinical trials'))
@@ -79,7 +82,7 @@ const ResourceListItem = ({ resource, onCountryTagClick, activeCountries }) => {
     );
 };
 
-export default function ClinicalTrialsClientPage() {
+export default function ClinicalTrialsClientPage({ resources }) {
     const searchParams = useSearchParams();
     const router = useRouter();
     const pathname = usePathname();
@@ -87,9 +90,12 @@ export default function ClinicalTrialsClientPage() {
     const [isMounted, setIsMounted] = useState(false);
     const [filters, setFilters] = useState({ countries: [], dataTypes: [], compensationTypes: [] });
 
+    // Derive active countries directly from the filters state for simplicity
+    const activeCountries = useMemo(() => filters.countries.map(c => c.value), [filters.countries]);
+
     const countryOptions = useMemo(() => {
         const countryMap = new Map();
-        clinicalTrialResources.forEach((resource) => {
+        resources.forEach((resource) => {
             if (resource.countries && resource.countryCodes) {
                 resource.countries.forEach((countryName, index) => {
                     const countryCode = resource.countryCodes[index];
@@ -111,10 +117,9 @@ export default function ClinicalTrialsClientPage() {
         countryMap.delete('Worldwide');
 
         return Array.from(countryMap.values()).sort((a, b) => a.label.localeCompare(b.label));
-    }, []);
+    }, [resources]);
 
     useEffect(() => {
-        const parseUrlList = (param) => param ? param.split(',') : [];
         const savedCountries = parseUrlList(searchParams.get('countries'));
         const initialCountries = countryOptions.filter(opt => savedCountries.includes(opt.value));
         setFilters(prev => ({ ...prev, countries: initialCountries }));
@@ -183,8 +188,8 @@ export default function ClinicalTrialsClientPage() {
             displayGroupValues.add('European Union');
         }
 
-        const allRegistries = clinicalTrialResources.filter(r => r.resourceType === 'registry' || r.resourceType === 'database');
-        const allDirectOps = clinicalTrialResources.filter(r => !['registry', 'database'].includes(r.resourceType));
+        const allRegistries = resources.filter(r => r.resourceType === 'registry' || r.resourceType === 'database');
+        const allDirectOps = resources.filter(r => !['registry', 'database'].includes(r.resourceType));
 
         const worldwideRegistries = allRegistries.filter(r => !r.countries || r.countries.length === 0);
         const worldwideDirectOpportunities = allDirectOps.filter(r => !r.countries || r.countries.length === 0);
@@ -220,7 +225,7 @@ export default function ClinicalTrialsClientPage() {
             worldwideDirectOpportunities,
             activeDisplayGroups: displayGroupValues,
         };
-    }, [filters.countries, isMounted, countryOptions]);
+    }, [filters.countries, isMounted, countryOptions, resources]);
 
     const showRegistries = registriesByCountry.size > 0 || worldwideRegistries.length > 0;
     const showDirectOpportunities = directOpsByCountry.size > 0 || worldwideDirectOpportunities.length > 0;
@@ -289,7 +294,7 @@ export default function ClinicalTrialsClientPage() {
                                 </ul>
                             </div>
                             
-                            {Array.from(registriesByCountry.entries()).map(([countryLabel, resources]) => (
+                            {Array.from(registriesByCountry.entries()).map(([countryLabel, countryResources]) => (
                                 <div key={countryLabel} className="mb-8">
                                     <h3 className="text-xl font-semibold text-google-text-secondary mb-1">
                                         {countryLabel}
@@ -300,14 +305,14 @@ export default function ClinicalTrialsClientPage() {
                                             : `These registries list trials specific to ${countryLabel}.`
                                         }
                                     </p>
-                                    {resources.map(resource => <ResourceListItem key={resource.id} resource={resource} onCountryTagClick={handleCountryTagClick} activeCountries={Array.from(activeDisplayGroups)} />)}
+                                    {countryResources.map(resource => <ResourceListItem key={resource.id} resource={resource} onCountryTagClick={handleCountryTagClick} activeCountries={activeCountries} />)}
                                 </div>
                             ))}
 
                             {worldwideRegistries.length > 0 && (
                                 <div>
                                     <h3 className="text-xl font-semibold text-google-text-secondary mb-4">Worldwide</h3>
-                                    {worldwideRegistries.map(resource => <ResourceListItem key={resource.id} resource={resource} onCountryTagClick={handleCountryTagClick} activeCountries={Array.from(activeDisplayGroups)} />)}
+                                    {worldwideRegistries.map(resource => <ResourceListItem key={resource.id} resource={resource} onCountryTagClick={handleCountryTagClick} activeCountries={activeCountries} />)}
                                 </div>
                             )}
                         </div>
@@ -320,7 +325,7 @@ export default function ClinicalTrialsClientPage() {
                                 These organizations recruit volunteers directly for specific research studies. Visit their websites to see if you are eligible to participate.
                             </p>
                             
-                            {Array.from(directOpsByCountry.entries()).map(([countryLabel, resources]) => (
+                            {Array.from(directOpsByCountry.entries()).map(([countryLabel, countryResources]) => (
                                 <div key={countryLabel} className="mb-8">
                                      <h3 className="text-xl font-semibold text-google-text-secondary mb-1">
                                         {countryLabel}
@@ -331,14 +336,14 @@ export default function ClinicalTrialsClientPage() {
                                             : `These opportunities are specific to ${countryLabel}.`
                                         }
                                     </p>
-                                    {resources.map(resource => <ResourceListItem key={resource.id} resource={resource} onCountryTagClick={handleCountryTagClick} activeCountries={Array.from(activeDisplayGroups)} />)}
+                                    {countryResources.map(resource => <ResourceListItem key={resource.id} resource={resource} onCountryTagClick={handleCountryTagClick} activeCountries={activeCountries} />)}
                                 </div>
                             ))}
 
                             {worldwideDirectOpportunities.length > 0 && (
                                 <div>
                                     <h3 className="text-xl font-semibold text-google-text-secondary mb-4">Worldwide</h3>
-                                    {worldwideDirectOpportunities.map(resource => <ResourceListItem key={resource.id} resource={resource} onCountryTagClick={handleCountryTagClick} activeCountries={Array.from(activeDisplayGroups)} />)}
+                                    {worldwideDirectOpportunities.map(resource => <ResourceListItem key={resource.id} resource={resource} onCountryTagClick={handleCountryTagClick} activeCountries={activeCountries} />)}
                                 </div>
                             )}
                         </div>

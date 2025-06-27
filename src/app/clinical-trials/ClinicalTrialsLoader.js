@@ -1,7 +1,8 @@
 'use client';
 
-import React from 'react';
-import dynamic from 'next/dynamic';
+import React, { Suspense } from 'react';
+import ClinicalTrialsClientPage from './ClinicalTrialsClientPage';
+import { resources } from '../../data/resources';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useScroll } from 'framer-motion';
@@ -24,21 +25,16 @@ function ClinicalTrialsPageSkeleton() {
   );
 }
 
-const ClinicalTrialsClientPage = dynamic(
-  () => import('./ClinicalTrialsClientPage'),
-  {
-    ssr: false,
-    loading: () => <ClinicalTrialsPageSkeleton />
-  }
-);
-
 export default function ClinicalTrialsLoader() {
   const { scrollY } = useScroll();
+  const clinicalTrialsResources = resources.filter(
+    (resource) => resource.dataTypes && resource.dataTypes.includes('Clinical trials')
+  );
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header scrollY={scrollY} />
       <main className="flex-grow">
-        <ClinicalTrialsClientPage />
+        <ClinicalTrialsClientPage resources={clinicalTrialsResources} />
       </main>
       <Footer />
     </div>

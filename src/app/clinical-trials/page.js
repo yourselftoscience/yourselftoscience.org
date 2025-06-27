@@ -1,5 +1,7 @@
 import ClinicalTrialsLoader from './ClinicalTrialsLoader';
 
+export const runtime = 'edge';
+
 // This is a Server Component, which allows for dynamic metadata generation.
 export async function generateMetadata({ searchParams }) {
   const countriesStr = searchParams.countries;
