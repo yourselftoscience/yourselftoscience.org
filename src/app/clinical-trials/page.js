@@ -2,8 +2,6 @@ import { Suspense } from 'react';
 import ClinicalTrialsPageClient from './ClinicalTrialsPageClient.js';
 import ClinicalTrialsSkeleton from './ClinicalTrialsSkeleton.js';
 
-export const runtime = 'edge';
-
 // Static metadata remains here in the Server Component.
 export const metadata = {
   title: 'Find Clinical Trials to Participate In | Yourself To Science',
