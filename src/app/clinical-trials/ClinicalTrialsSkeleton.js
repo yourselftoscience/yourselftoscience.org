@@ -1,4 +1,4 @@
-export default function ClinicalTrialsPageSkeleton() {
+export default function ClinicalTrialsSkeleton() {
   return (
     <main className="flex-grow w-full max-w-screen-xl mx-auto px-4 py-8 animate-pulse">
       <div className="bg-gray-200 h-12 rounded-lg mb-8"></div>
