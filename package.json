@@ -67,6 +67,6 @@
     "tar": "^7.4.3",
     "typescript": "^5",
     "vercel": "^37.11.0",
-    "wrangler": "^4.22.0"
+    "wrangler": "^3.28.2"
   }
 }
