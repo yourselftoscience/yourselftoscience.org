@@ -23,7 +23,7 @@
     "extends browserslist-config-baseline"
   ],
   "dependencies": {
-    "@eslint/config-array": "^0.18.0",
+    "@eslint/config-array": "^0.21.0",
     "@eslint/object-schema": "^2.1.4",
     "@headlessui/react": "^2.2.2",
     "@jridgewell/sourcemap-codec": "^1.5.0",
