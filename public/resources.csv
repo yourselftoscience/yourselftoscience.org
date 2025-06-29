@@ -31,3 +31,5 @@ hra-research-summaries,"Research Summaries","NHS Health Research Authority",http
 cochrane-central-register-of-controlled-trials,"Cochrane Central Register of Controlled Trials (CENTRAL)","Cochrane Library",https://www.cochranelibrary.com/central,"Clinical trials",mixed,"","","",""
 german-clinical-trials-register,"German Clinical Trials Register (DRKS)","DRKS",https://drks.de/,"Clinical trials",mixed,"Germany","DE","",""
 health-canada-clinical-trials-database,"Health Canada's Clinical Trials Database","Health Canada",https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/health-canada-clinical-trials-database.html,"Clinical trials",mixed,"Canada","CA","",""
+aatb-accredited-bank-search,"AATB Accredited Bank Search","American Association of Tissue Banks (AATB)",https://www.aatb.org/accredited-bank-search,"Tissue, Body, Organ, Placenta, Eggs, Sperm, Embryos",mixed,"United States","US","",""
+organdonor-gov,"OrganDonor.gov","U.S. Department of Health & Human Services",https://www.organdonor.gov/sign-up,"Organ, Tissue",donation,"United States","US","",""

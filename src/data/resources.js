@@ -8,6 +8,8 @@ const rawResources = [
     link: 'https://www.openhumans.org/add-data/',
     dataTypes: ['Genome', 'Health data', 'Wearable data', 'Search history', 'Location history'],
     compensationType: 'donation',
+    entityCategory: 'Non-Profit',
+    entitySubType: 'Research Foundation',
     citations: [
       {
         title:
@@ -23,6 +25,8 @@ const rawResources = [
     link: 'https://myphd.stanford.edu/studies/',
     dataTypes: ['Health data', 'Wearable data'],
     compensationType: 'donation',
+    entityCategory: 'Academic',
+    entitySubType: 'Academic',
     citations: [
       {
         title:
@@ -38,6 +42,8 @@ const rawResources = [
     link: 'https://health.google/consumers/health-studies/',
     dataTypes: ['Health data'],
     compensationType: 'donation',
+    entityCategory: 'Commercial',
+    entitySubType: 'Commercial',
   },
   {
     id: 'apple-research',
@@ -48,6 +54,8 @@ const rawResources = [
     countries: ['United States'],
     countryCodes: ['US'],
     compensationType: 'donation',
+    entityCategory: 'Commercial',
+    entitySubType: 'Commercial',
   },
   {
     id: 'all-of-us',
@@ -58,6 +66,8 @@ const rawResources = [
     countries: ['United States'],
     countryCodes: ['US'],
     compensationType: 'mixed',
+    entityCategory: 'Government',
+    entitySubType: 'Research Agency',
   },
   {
     id: 'fitbit-research',
@@ -71,6 +81,8 @@ const rawResources = [
     ],
     dataTypes: ['Wearable data (Fitbit only)'],
     compensationType: 'donation',
+    entityCategory: 'Commercial',
+    entitySubType: 'Commercial',
   },
   {
     id: 'spark-for-autism',
@@ -81,6 +93,8 @@ const rawResources = [
     countries: ['United States'],
     countryCodes: ['US'],
     compensationType: 'mixed',
+    entityCategory: 'Non-Profit',
+    entitySubType: 'Research Foundation',
   },
   {
     id: 'ubc-body-donation',
@@ -91,6 +105,8 @@ const rawResources = [
     countries: ['Canada'],
     countryCodes: ['CA'],
     compensationType: 'donation',
+    entityCategory: 'Academic',
+    entitySubType: 'Academic',
   },
   {
     id: 'cambridge-body-tissue-donation',
@@ -101,6 +117,8 @@ const rawResources = [
     countries: ['United Kingdom'],
     countryCodes: ['GB'],
     compensationType: 'donation',
+    entityCategory: 'Academic',
+    entitySubType: 'Academic',
   },
   {
     id: 'italy-body-tissue-donation',
@@ -111,6 +129,8 @@ const rawResources = [
     countries: ['Italy'],
     countryCodes: ['IT'],
     compensationType: 'donation',
+    entityCategory: 'Government',
+    entitySubType: 'Public Health Service',
   },
   {
     id: 'france-body-donation',
@@ -121,6 +141,8 @@ const rawResources = [
     countries: ['France'],
     countryCodes: ['FR'],
     compensationType: 'donation',
+    entityCategory: 'Government',
+    entitySubType: 'Public Health Service',
   },
   {
     id: 'uk-gamete-donation',
@@ -131,6 +153,8 @@ const rawResources = [
     countries: ['United Kingdom'],
     countryCodes: ['GB'],
     compensationType: 'donation',
+    entityCategory: 'Government',
+    entitySubType: 'Regulatory Agency',
   },
   {
     id: 'clinicaltrials-gov',
@@ -140,6 +164,8 @@ const rawResources = [
     dataTypes: ['Clinical trials'],
     compensationType: 'mixed',
     resourceType: 'registry',
+    entityCategory: 'Government',
+    entitySubType: 'Research Agency',
     description: 'A comprehensive registry and results database of publicly and privately supported clinical studies conducted around the world. Managed by the U.S. National Library of Medicine.',
   },
   {
@@ -150,6 +176,8 @@ const rawResources = [
     dataTypes: ['Clinical trials'],
     compensationType: 'mixed',
     resourceType: 'registry',
+    entityCategory: 'Intergovernmental',
+    entitySubType: 'Intergovernmental Organization',
   },
   {
     id: 'eu-clinical-trials-register',
@@ -161,6 +189,8 @@ const rawResources = [
     countryCodes: ['EU', 'IS', 'LI', 'NO'],
     compensationType: 'mixed',
     resourceType: 'registry',
+    entityCategory: 'Government',
+    entitySubType: 'Regulatory Agency',
     description: "The European Union's official database for clinical trials conducted in the EU and EEA."
   },
   {
@@ -173,6 +203,8 @@ const rawResources = [
     countryCodes: ['EU'],
     compensationType: 'mixed',
     resourceType: 'registry',
+    entityCategory: 'Commercial',
+    entitySubType: 'Commercial',
     citations: [
       {
         title: 'Figueira-Gonçalves, J. M., Callejas-González, F. J., Golpe, R., Máiz-Carro, L., Marín-Oto, M., de Miguel-Díez, J., ... & Hurtado-Fuentes, Á. (2025). Current Evidence on the Usefulness of Potential Therapies in the Prevention of COPD Exacerbations: Beyond the Use of Bronchodilator Therapy and Inhaled Corticosteroids. Open Respiratory Archives, 7(2), 100438.',
@@ -194,6 +226,8 @@ const rawResources = [
     countryCodes: ['EU', 'IS', 'LI', 'NO'],
     compensationType: 'mixed',
     resourceType: 'registry',
+    entityCategory: 'Commercial',
+    entitySubType: 'Commercial',
     citations: [
       {
         title: 'van der Laan, P., van Houdt, W. J., van Boven, H., Snaebjornsson, P., Bosch, L. J. W., Monkhorst, K., ... & van der Graaf, W. T. A. (2025). The role of whole-genome sequencing for guiding systemic therapy in patients with soft tissue sarcoma. ESMO open, 10(6), 105287.',
@@ -209,6 +243,8 @@ const rawResources = [
     dataTypes: ['Clinical trials'],
     compensationType: 'mixed',
     resourceType: 'registry',
+    entityCategory: 'Commercial',
+    entitySubType: 'Commercial',
     citations: [
       {
         title: "De Corte, W., Delrue, H., Vanfleteren, L. J. J., Dutré, P. E. M., Pottel, H., Devriendt, D. K. J. C., ... & Desmet, M. B. (2012). Randomized clinical trial on the influence of anaesthesia protocol on intestinal motility during laparoscopic surgery requiring small bowel anastomosis. Journal of British Surgery, 99(11), 1524-1529.",
@@ -241,6 +277,8 @@ const rawResources = [
     countries: ['United States'],
     countryCodes: ['US'],
     compensationType: 'mixed',
+    entityCategory: 'Government',
+    entitySubType: 'Research Agency',
     description: 'A nonprofit program funded by the National Institutes of Health (NIH) that connects people interested in research studies with researchers from top medical centers across the U.S.'
   },
   {
@@ -251,6 +289,8 @@ const rawResources = [
     countries: ['United Kingdom'],
     countryCodes: ['GB'],
     compensationType: 'payment',
+    entityCategory: 'Commercial',
+    entitySubType: 'Commercial',
     description: 'Conducts clinical trials for flu and common cold viruses in London and Manchester, compensating volunteers for their time.',
     citations: [
       {
@@ -269,6 +309,8 @@ const rawResources = [
     countries: ['United States'],
     countryCodes: ['US'],
     compensationType: 'mixed',
+    entityCategory: 'Academic',
+    entitySubType: 'Academic',
     description: 'Connects community members in Florida with health research opportunities at the University of Florida.'
   },
   {
@@ -279,6 +321,8 @@ const rawResources = [
     countries: ['United States'],
     countryCodes: ['US'],
     compensationType: 'payment',
+    entityCategory: 'Commercial',
+    entitySubType: 'Commercial',
   },
   {
     id: 'lifeblood-microbiome',
@@ -289,6 +333,8 @@ const rawResources = [
     countries: ['Australia'],
     countryCodes: ['AU'],
     compensationType: 'donation',
+    entityCategory: 'Non-Profit',
+    entitySubType: 'Non-Profit Organization',
   },
   {
     id: 'wesley-stool-donation',
@@ -299,6 +345,8 @@ const rawResources = [
     countries: ['Australia'],
     countryCodes: ['AU'],
     compensationType: 'donation',
+    entityCategory: 'Non-Profit',
+    entitySubType: 'Non-Profit Organization',
   },
   {
     id: 'wesley-placenta-donation',
@@ -309,6 +357,8 @@ const rawResources = [
     countries: ['Australia'],
     countryCodes: ['AU'],
     compensationType: 'donation',
+    entityCategory: 'Non-Profit',
+    entitySubType: 'Non-Profit Organization',
   },
   {
     id: 'wroclaw-hair-decomposition',
@@ -319,6 +369,8 @@ const rawResources = [
     countries: ['Poland'],
     countryCodes: ['PL'],
     compensationType: 'donation',
+    entityCategory: 'Academic',
+    entitySubType: 'Academic',
     citations: [
       {
         title: 'Palacz, K., Cholewa, M., Bonar, M., Krzyżanowska, M., & Kadej, M. (2023). The rate and quality of post-mortem hair root changes in relation to melanin content. Forensic Science International, 350, 111784.',
@@ -336,7 +388,9 @@ const rawResources = [
     link: 'https://www.library.ucsf.edu/archives/donate/materials/donating-your-social-media/',
     organization: 'UCSF Library Archives',
     dataTypes: ['Social media data'],
-    compensationType: 'donation'
+    compensationType: 'donation',
+    entityCategory: 'Academic',
+    entitySubType: 'Academic',
   },
   {
     id: 'penn-medicine-donate-your-data',
@@ -345,6 +399,8 @@ const rawResources = [
     link: 'https://cdh.nmsdev.com/donate-your-data',
     dataTypes: ['Health data', 'Wearable data', 'Social media data', 'Search history'],
     compensationType: 'payment',
+    entityCategory: 'Academic',
+    entitySubType: 'Academic',
     citations: [
       {
         title: 'J.C. Eichstaedt, R.J. Smith, R.M. Merchant, L.H. Ungar, P. Crutchley, D. Preoţiuc-Pietro, D.A. Asch, & H.A. Schwartz,   Facebook language predicts depression in medical records, Proc. Natl. Acad. Sci. U.S.A. 115 (44) 11203-11208, (2018).',
@@ -365,6 +421,8 @@ const rawResources = [
     countries: ['United Kingdom'],
     countryCodes: ['GB'],
     compensationType: 'donation',
+    entityCategory: 'Government',
+    entitySubType: 'Regulatory Agency',
     description: 'Plain-language summaries of research studies approved by the NHS Health Research Authority.'
   },
   {
@@ -375,6 +433,8 @@ const rawResources = [
     dataTypes: ['Clinical trials'],
     compensationType: 'mixed',
     resourceType: 'database',
+    entityCategory: 'Non-Profit',
+    entitySubType: 'Research Collaborative',
     description: 'A highly concentrated source of reports of randomized and quasi-randomized controlled trials from various databases and other sources. Access requires a subscription to the Cochrane Library.'
   },
   {
@@ -387,6 +447,8 @@ const rawResources = [
     countryCodes: ['DE'],
     compensationType: 'mixed',
     resourceType: 'registry',
+    entityCategory: 'Academic',
+    entitySubType: 'Academic',
     description: 'The primary register for clinical trials conducted in Germany, providing public access to study information.'
   },
   {
@@ -399,7 +461,37 @@ const rawResources = [
     countryCodes: ['CA'],
     compensationType: 'mixed',
     resourceType: 'database',
+    entityCategory: 'Government',
+    entitySubType: 'Regulatory Agency',
     description: 'A listing of specific information relating to phase I, II, and III clinical trials in patients authorized by Health Canada.'
+  },
+  {
+    id: 'aatb-accredited-bank-search',
+    title: 'AATB Accredited Bank Search',
+    organization: 'American Association of Tissue Banks (AATB)',
+    link: 'https://www.aatb.org/accredited-bank-search',
+    dataTypes: ['Tissue', 'Body', 'Organ', 'Placenta', 'Eggs', 'Sperm', 'Embryos'],
+    countries: ['United States'],
+    countryCodes: ['US'],
+    compensationType: 'mixed',
+    resourceType: 'Directory',
+    entityCategory: 'Non-Profit',
+    entitySubType: 'Professional Association',
+    description: 'A search tool to find AATB-accredited tissue banks in the United States, covering various types of tissue, organ, and birth tissue donation.'
+  },
+  {
+    id: 'organdonor-gov',
+    title: 'OrganDonor.gov',
+    organization: 'U.S. Department of Health & Human Services',
+    link: 'https://www.organdonor.gov/sign-up',
+    dataTypes: ['Organ', 'Tissue'],
+    countries: ['United States'],
+    countryCodes: ['US'],
+    compensationType: 'donation',
+    resourceType: 'Donation Portal',
+    entityCategory: 'Government',
+    entitySubType: 'Public Health Service',
+    description: 'The official U.S. government website for organ, eye, and tissue donation. Provides information and links to state registries to sign up as a donor.'
   }
   // Add more resources as needed
 ];

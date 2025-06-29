@@ -21,20 +21,24 @@ async function generateSitemap() {
     fs.writeFileSync(tempScriptPath, `
       import { resources } from '../src/data/resources.js';
       const clinicalTrialResources = resources.filter(resource => resource.dataTypes.includes('Clinical trials'));
-      const countryOptions = Array.from(new Set(clinicalTrialResources.flatMap(r => r.countries || []))).sort();
+      const bodyDonationResources = resources.filter(resource => resource.dataTypes.includes('Organ') || resource.dataTypes.includes('Body') || resource.dataTypes.includes('Tissue'));
+      
+      const clinicalTrialCountries = Array.from(new Set(clinicalTrialResources.flatMap(r => r.countries || []))).sort();
+      const bodyDonationCountries = Array.from(new Set(bodyDonationResources.flatMap(r => r.countries || []))).sort();
 
       console.log(JSON.stringify({
         resources: resources.map(r => ({
           id: r.id,
           lastModified: new Date().toISOString().split('T')[0]
         })),
-        clinicalTrialCountries: countryOptions
+        clinicalTrialCountries: clinicalTrialCountries,
+        bodyDonationCountries: bodyDonationCountries
       }));
     `);
     
     // Execute the temporary script to get resource data
     const output = execSync('node --experimental-modules ' + tempScriptPath).toString();
-    const { resources: resourcesData, clinicalTrialCountries } = JSON.parse(output);
+    const { resources: resourcesData, clinicalTrialCountries, bodyDonationCountries } = JSON.parse(output);
     
     // Delete the temporary script
     fs.unlinkSync(tempScriptPath);
@@ -46,7 +50,10 @@ async function generateSitemap() {
       { url: `${SITE_URL}/stats`, priority: '0.9', changefreq: 'weekly' },
       { url: `${SITE_URL}/contribute`, priority: '0.9', changefreq: 'weekly' },
       { url: `${SITE_URL}/clinical-trials`, priority: '0.8', changefreq: 'weekly' },
+      { url: `${SITE_URL}/organ-body-tissue-donation`, priority: '0.8', changefreq: 'weekly' },
       { url: `${SITE_URL}/resources`, priority: '0.5', changefreq: 'monthly' }, // SEO-only page
+      { url: `${SITE_URL}/license/content`, priority: '0.3', changefreq: 'yearly' },
+      { url: `${SITE_URL}/license/code`, priority: '0.3', changefreq: 'yearly' },
       { url: `${SITE_URL}/yourselftoscience.pdf`, priority: '0.7', changefreq: 'weekly' }
     ];
 
@@ -74,6 +81,17 @@ async function generateSitemap() {
   </url>`;
     });
 
+    // Add body donation country pages
+    bodyDonationCountries.forEach(country => {
+      sitemap += `
+  <url>
+    <loc>${SITE_URL}/organ-body-tissue-donation?countries=${encodeURIComponent(country)}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>`;
+    });
+
     resourcesData.forEach(resource => {
       sitemap += `
   <url>
@@ -90,7 +108,7 @@ async function generateSitemap() {
     const sitemapPath = path.join(__dirname, '../public/sitemap.xml');
     fs.writeFileSync(sitemapPath, sitemap);
     
-    console.log(`Sitemap with ${staticPages.length + clinicalTrialCountries.length + resourcesData.length} total URLs written to ${sitemapPath}`);
+    console.log(`Sitemap with ${staticPages.length + clinicalTrialCountries.length + bodyDonationCountries.length + resourcesData.length} total URLs written to ${sitemapPath}`);
     return true;
   } catch (error) {
     console.error('Error generating sitemap:', error);

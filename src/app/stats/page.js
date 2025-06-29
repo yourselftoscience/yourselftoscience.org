@@ -6,7 +6,7 @@ import { EU_COUNTRIES } from '@/data/constants';
 import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { FaGlobe, FaDatabase, FaMoneyBillWave, FaChartBar, FaChevronDown, FaDownload, FaCode, FaCopy, FaCheck } from 'react-icons/fa';
+import { FaGlobe, FaDatabase, FaMoneyBillWave, FaChartBar, FaChevronDown, FaDownload, FaCode, FaCopy, FaCheck, FaBuilding } from 'react-icons/fa';
 
 const StatCard = ({ title, value, icon, children }) => (
   <motion.div
@@ -51,12 +51,25 @@ const Bar = ({ label, value, maxValue, index }) => {
 const StatsPage = () => {
   const { scrollY } = useScroll();
   const [isEuExpanded, setIsEuExpanded] = useState(false);
+  const [expandedEntityTypes, setExpandedEntityTypes] = useState(new Set());
   const [copiedUrl, setCopiedUrl] = useState(null);
 
   const handleCopy = (url) => {
     navigator.clipboard.writeText(url);
     setCopiedUrl(url);
     setTimeout(() => setCopiedUrl(null), 2500);
+  };
+
+  const handleEntityTypeToggle = (entityName) => {
+    setExpandedEntityTypes(prev => {
+        const newSet = new Set(prev);
+        if (newSet.has(entityName)) {
+            newSet.delete(entityName);
+        } else {
+            newSet.add(entityName);
+        }
+        return newSet;
+    });
   };
 
   const stats = React.useMemo(() => {
@@ -90,6 +103,18 @@ const StatsPage = () => {
         return acc;
     }, {});
 
+    const resourcesByEntityType = resources.reduce((acc, resource) => {
+        const category = resource.entityCategory || 'Other';
+        const subType = resource.entitySubType || 'Not Specified';
+
+        if (!acc[category]) {
+            acc[category] = { count: 0, subTypes: {} };
+        }
+        acc[category].count++;
+        acc[category].subTypes[subType] = (acc[category].subTypes[subType] || 0) + 1;
+        return acc;
+    }, {});
+
     const topCountries = Object.entries(resourcesByCountry)
         .sort(([, a], [, b]) => b - a)
         .slice(0, 10);
@@ -100,12 +125,21 @@ const StatsPage = () => {
     const compensationDistribution = Object.entries(resourcesByCompensation)
         .sort(([, a], [, b]) => b - a);
 
+    const entityTypeDistribution = Object.entries(resourcesByEntityType)
+        .map(([name, data]) => ({
+            name,
+            count: data.count,
+            subTypes: Object.entries(data.subTypes).sort(([, a], [, b]) => b - a),
+        }))
+        .sort((a, b) => b.count - a.count);
+
 
     return {
       totalResources,
       topCountries,
       dataTypesDistribution,
       compensationDistribution,
+      entityTypeDistribution,
     };
   }, []);
   
@@ -236,6 +270,70 @@ const StatsPage = () => {
                             {stats.dataTypesDistribution.map(([type, count], index) => (
                                 <Bar key={type} label={type} value={count} maxValue={stats.dataTypesDistribution[0][1]} index={index} />
                             ))}
+                        </div>
+                    </StatCard>
+                    <StatCard title="Entity Type Distribution" icon={<FaBuilding size="1.5em"/>}>
+                        <div className="mt-6">
+                            {stats.entityTypeDistribution.map((entity, index) => {
+                                const isExpanded = expandedEntityTypes.has(entity.name);
+                                const maxValue = stats.entityTypeDistribution[0].count;
+                                const barWidth = Math.max((entity.count / maxValue) * 100, 1);
+                                
+                                return (
+                                    <div key={entity.name}>
+                                        <div 
+                                            className="mb-3 cursor-pointer" 
+                                            title={`${entity.name}: ${entity.count} (click to expand)`}
+                                            onClick={() => handleEntityTypeToggle(entity.name)}
+                                        >
+                                            <div className="flex justify-between items-center text-sm mb-1">
+                                                <div className="flex items-center text-apple-primary-text truncate">
+                                                    {entity.name}
+                                                    {entity.subTypes.length > 1 && (
+                                                      <motion.div animate={{ rotate: isExpanded ? 180 : 0 }} className="ml-2 text-apple-accent">
+                                                          <FaChevronDown size="0.8em" />
+                                                      </motion.div>
+                                                    )}
+                                                </div>
+                                                <p className="text-apple-secondary-text font-medium">{entity.count}</p>
+                                            </div>
+                                            <div className="w-full bg-apple-divider rounded-full h-1.5">
+                                                <motion.div
+                                                    className="bg-apple-accent h-full rounded-full"
+                                                    style={{ originX: 0 }}
+                                                    initial={{ width: '0%' }}
+                                                    whileInView={{ width: `${barWidth}%` }}
+                                                    viewport={{ once: true }}
+                                                    transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1], delay: index * 0.07 }}
+                                                />
+                                            </div>
+                                        </div>
+                                        
+                                        <AnimatePresence>
+                                            {isExpanded && entity.subTypes.length > 1 && (
+                                                <motion.div
+                                                    key={`${entity.name}-details`}
+                                                    initial="collapsed"
+                                                    animate="open"
+                                                    exit="collapsed"
+                                                    variants={{
+                                                        open: { opacity: 1, height: 'auto' },
+                                                        collapsed: { opacity: 0, height: 0 }
+                                                    }}
+                                                    transition={{ duration: 0.4, ease: 'easeInOut' }}
+                                                    className="overflow-hidden"
+                                                >
+                                                    <div className="pl-4 ml-4 border-l border-apple-divider my-2">
+                                                        {entity.subTypes.map(([subType, subCount], subIndex) => (
+                                                            <Bar key={subType} label={subType} value={subCount} maxValue={maxValue} index={subIndex} />
+                                                        ))}
+                                                    </div>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </div>
+                                );
+                            })}
                         </div>
                     </StatCard>
                 </div>

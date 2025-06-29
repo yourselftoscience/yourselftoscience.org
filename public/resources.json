@@ -12,6 +12,8 @@
       "Location history"
     ],
     "compensationType": "donation",
+    "entityCategory": "Non-Profit",
+    "entitySubType": "Research Foundation",
     "citations": [
       {
         "title": "Greshake Tzovaras, B., Angrist, M., Arvai, K., Dulaney, M., Estrada-Galiñanes, V., Gunderson, B., ... & Price Ball, M. (2019). Open Humans: A platform for participant-centered research and personal data exploration. GigaScience, 8(6), giz076.",
@@ -29,6 +31,8 @@
       "Wearable data"
     ],
     "compensationType": "donation",
+    "entityCategory": "Academic",
+    "entitySubType": "Academic",
     "citations": [
       {
         "title": "Shandhi, M.M.H., Cho, P.J., Roghanizad, A.R. et al. A method for intelligent allocation of diagnostic testing by leveraging data from commercial wearable devices: a case study on COVID-19. npj Digit. Med. 5, 130 (2022)",
@@ -44,7 +48,9 @@
     "dataTypes": [
       "Health data"
     ],
-    "compensationType": "donation"
+    "compensationType": "donation",
+    "entityCategory": "Commercial",
+    "entitySubType": "Commercial"
   },
   {
     "id": "apple-research",
@@ -60,7 +66,9 @@
     "countryCodes": [
       "US"
     ],
-    "compensationType": "donation"
+    "compensationType": "donation",
+    "entityCategory": "Commercial",
+    "entitySubType": "Commercial"
   },
   {
     "id": "all-of-us",
@@ -77,7 +85,9 @@
     "countryCodes": [
       "US"
     ],
-    "compensationType": "mixed"
+    "compensationType": "mixed",
+    "entityCategory": "Government",
+    "entitySubType": "Research Agency"
   },
   {
     "id": "fitbit-research",
@@ -92,7 +102,9 @@
     "dataTypes": [
       "Wearable data (Fitbit only)"
     ],
-    "compensationType": "donation"
+    "compensationType": "donation",
+    "entityCategory": "Commercial",
+    "entitySubType": "Commercial"
   },
   {
     "id": "spark-for-autism",
@@ -109,7 +121,9 @@
     "countryCodes": [
       "US"
     ],
-    "compensationType": "mixed"
+    "compensationType": "mixed",
+    "entityCategory": "Non-Profit",
+    "entitySubType": "Research Foundation"
   },
   {
     "id": "ubc-body-donation",
@@ -125,7 +139,9 @@
     "countryCodes": [
       "CA"
     ],
-    "compensationType": "donation"
+    "compensationType": "donation",
+    "entityCategory": "Academic",
+    "entitySubType": "Academic"
   },
   {
     "id": "cambridge-body-tissue-donation",
@@ -142,7 +158,9 @@
     "countryCodes": [
       "GB"
     ],
-    "compensationType": "donation"
+    "compensationType": "donation",
+    "entityCategory": "Academic",
+    "entitySubType": "Academic"
   },
   {
     "id": "italy-body-tissue-donation",
@@ -159,7 +177,9 @@
     "countryCodes": [
       "IT"
     ],
-    "compensationType": "donation"
+    "compensationType": "donation",
+    "entityCategory": "Government",
+    "entitySubType": "Public Health Service"
   },
   {
     "id": "france-body-donation",
@@ -175,7 +195,9 @@
     "countryCodes": [
       "FR"
     ],
-    "compensationType": "donation"
+    "compensationType": "donation",
+    "entityCategory": "Government",
+    "entitySubType": "Public Health Service"
   },
   {
     "id": "uk-gamete-donation",
@@ -193,7 +215,9 @@
     "countryCodes": [
       "GB"
     ],
-    "compensationType": "donation"
+    "compensationType": "donation",
+    "entityCategory": "Government",
+    "entitySubType": "Regulatory Agency"
   },
   {
     "id": "clinicaltrials-gov",
@@ -205,6 +229,8 @@
     ],
     "compensationType": "mixed",
     "resourceType": "registry",
+    "entityCategory": "Government",
+    "entitySubType": "Research Agency",
     "description": "A comprehensive registry and results database of publicly and privately supported clinical studies conducted around the world. Managed by the U.S. National Library of Medicine."
   },
   {
@@ -216,7 +242,9 @@
       "Clinical trials"
     ],
     "compensationType": "mixed",
-    "resourceType": "registry"
+    "resourceType": "registry",
+    "entityCategory": "Intergovernmental",
+    "entitySubType": "Intergovernmental Organization"
   },
   {
     "id": "eu-clinical-trials-register",
@@ -240,6 +268,8 @@
     ],
     "compensationType": "mixed",
     "resourceType": "registry",
+    "entityCategory": "Government",
+    "entitySubType": "Regulatory Agency",
     "description": "The European Union's official database for clinical trials conducted in the EU and EEA."
   },
   {
@@ -258,6 +288,8 @@
     ],
     "compensationType": "mixed",
     "resourceType": "registry",
+    "entityCategory": "Commercial",
+    "entitySubType": "Commercial",
     "citations": [
       {
         "title": "Figueira-Gonçalves, J. M., Callejas-González, F. J., Golpe, R., Máiz-Carro, L., Marín-Oto, M., de Miguel-Díez, J., ... & Hurtado-Fuentes, Á. (2025). Current Evidence on the Usefulness of Potential Therapies in the Prevention of COPD Exacerbations: Beyond the Use of Bronchodilator Therapy and Inhaled Corticosteroids. Open Respiratory Archives, 7(2), 100438.",
@@ -291,6 +323,8 @@
     ],
     "compensationType": "mixed",
     "resourceType": "registry",
+    "entityCategory": "Commercial",
+    "entitySubType": "Commercial",
     "citations": [
       {
         "title": "van der Laan, P., van Houdt, W. J., van Boven, H., Snaebjornsson, P., Bosch, L. J. W., Monkhorst, K., ... & van der Graaf, W. T. A. (2025). The role of whole-genome sequencing for guiding systemic therapy in patients with soft tissue sarcoma. ESMO open, 10(6), 105287.",
@@ -308,6 +342,8 @@
     ],
     "compensationType": "mixed",
     "resourceType": "registry",
+    "entityCategory": "Commercial",
+    "entitySubType": "Commercial",
     "citations": [
       {
         "title": "De Corte, W., Delrue, H., Vanfleteren, L. J. J., Dutré, P. E. M., Pottel, H., Devriendt, D. K. J. C., ... & Desmet, M. B. (2012). Randomized clinical trial on the influence of anaesthesia protocol on intestinal motility during laparoscopic surgery requiring small bowel anastomosis. Journal of British Surgery, 99(11), 1524-1529.",
@@ -346,6 +382,8 @@
       "US"
     ],
     "compensationType": "mixed",
+    "entityCategory": "Government",
+    "entitySubType": "Research Agency",
     "description": "A nonprofit program funded by the National Institutes of Health (NIH) that connects people interested in research studies with researchers from top medical centers across the U.S."
   },
   {
@@ -362,6 +400,8 @@
       "GB"
     ],
     "compensationType": "payment",
+    "entityCategory": "Commercial",
+    "entitySubType": "Commercial",
     "description": "Conducts clinical trials for flu and common cold viruses in London and Manchester, compensating volunteers for their time.",
     "citations": [
       {
@@ -385,6 +425,8 @@
       "US"
     ],
     "compensationType": "mixed",
+    "entityCategory": "Academic",
+    "entitySubType": "Academic",
     "description": "Connects community members in Florida with health research opportunities at the University of Florida."
   },
   {
@@ -400,7 +442,9 @@
     "countryCodes": [
       "US"
     ],
-    "compensationType": "payment"
+    "compensationType": "payment",
+    "entityCategory": "Commercial",
+    "entitySubType": "Commercial"
   },
   {
     "id": "lifeblood-microbiome",
@@ -416,7 +460,9 @@
     "countryCodes": [
       "AU"
     ],
-    "compensationType": "donation"
+    "compensationType": "donation",
+    "entityCategory": "Non-Profit",
+    "entitySubType": "Non-Profit Organization"
   },
   {
     "id": "wesley-stool-donation",
@@ -432,7 +478,9 @@
     "countryCodes": [
       "AU"
     ],
-    "compensationType": "donation"
+    "compensationType": "donation",
+    "entityCategory": "Non-Profit",
+    "entitySubType": "Non-Profit Organization"
   },
   {
     "id": "wesley-placenta-donation",
@@ -448,7 +496,9 @@
     "countryCodes": [
       "AU"
     ],
-    "compensationType": "donation"
+    "compensationType": "donation",
+    "entityCategory": "Non-Profit",
+    "entitySubType": "Non-Profit Organization"
   },
   {
     "id": "wroclaw-hair-decomposition",
@@ -465,6 +515,8 @@
       "PL"
     ],
     "compensationType": "donation",
+    "entityCategory": "Academic",
+    "entitySubType": "Academic",
     "citations": [
       {
         "title": "Palacz, K., Cholewa, M., Bonar, M., Krzyżanowska, M., & Kadej, M. (2023). The rate and quality of post-mortem hair root changes in relation to melanin content. Forensic Science International, 350, 111784.",
@@ -484,7 +536,9 @@
     "dataTypes": [
       "Social media data"
     ],
-    "compensationType": "donation"
+    "compensationType": "donation",
+    "entityCategory": "Academic",
+    "entitySubType": "Academic"
   },
   {
     "id": "penn-medicine-donate-your-data",
@@ -498,6 +552,8 @@
       "Search history"
     ],
     "compensationType": "payment",
+    "entityCategory": "Academic",
+    "entitySubType": "Academic",
     "citations": [
       {
         "title": "J.C. Eichstaedt, R.J. Smith, R.M. Merchant, L.H. Ungar, P. Crutchley, D. Preoţiuc-Pietro, D.A. Asch, & H.A. Schwartz,   Facebook language predicts depression in medical records, Proc. Natl. Acad. Sci. U.S.A. 115 (44) 11203-11208, (2018).",
@@ -524,6 +580,8 @@
       "GB"
     ],
     "compensationType": "donation",
+    "entityCategory": "Government",
+    "entitySubType": "Regulatory Agency",
     "description": "Plain-language summaries of research studies approved by the NHS Health Research Authority."
   },
   {
@@ -536,6 +594,8 @@
     ],
     "compensationType": "mixed",
     "resourceType": "database",
+    "entityCategory": "Non-Profit",
+    "entitySubType": "Research Collaborative",
     "description": "A highly concentrated source of reports of randomized and quasi-randomized controlled trials from various databases and other sources. Access requires a subscription to the Cochrane Library."
   },
   {
@@ -554,6 +614,8 @@
     ],
     "compensationType": "mixed",
     "resourceType": "registry",
+    "entityCategory": "Academic",
+    "entitySubType": "Academic",
     "description": "The primary register for clinical trials conducted in Germany, providing public access to study information."
   },
   {
@@ -572,6 +634,55 @@
     ],
     "compensationType": "mixed",
     "resourceType": "database",
+    "entityCategory": "Government",
+    "entitySubType": "Regulatory Agency",
     "description": "A listing of specific information relating to phase I, II, and III clinical trials in patients authorized by Health Canada."
+  },
+  {
+    "id": "aatb-accredited-bank-search",
+    "title": "AATB Accredited Bank Search",
+    "organization": "American Association of Tissue Banks (AATB)",
+    "link": "https://www.aatb.org/accredited-bank-search",
+    "dataTypes": [
+      "Tissue",
+      "Body",
+      "Organ",
+      "Placenta",
+      "Eggs",
+      "Sperm",
+      "Embryos"
+    ],
+    "countries": [
+      "United States"
+    ],
+    "countryCodes": [
+      "US"
+    ],
+    "compensationType": "mixed",
+    "resourceType": "Directory",
+    "entityCategory": "Non-Profit",
+    "entitySubType": "Professional Association",
+    "description": "A search tool to find AATB-accredited tissue banks in the United States, covering various types of tissue, organ, and birth tissue donation."
+  },
+  {
+    "id": "organdonor-gov",
+    "title": "OrganDonor.gov",
+    "organization": "U.S. Department of Health & Human Services",
+    "link": "https://www.organdonor.gov/sign-up",
+    "dataTypes": [
+      "Organ",
+      "Tissue"
+    ],
+    "countries": [
+      "United States"
+    ],
+    "countryCodes": [
+      "US"
+    ],
+    "compensationType": "donation",
+    "resourceType": "Donation Portal",
+    "entityCategory": "Government",
+    "entitySubType": "Public Health Service",
+    "description": "The official U.S. government website for organ, eye, and tissue donation. Provides information and links to state registries to sign up as a donor."
   }
 ]
