@@ -57,10 +57,28 @@ async function generateSitemap() {
       { url: `${SITE_URL}/yourselftoscience.pdf`, priority: '0.7', changefreq: 'weekly' }
     ];
 
+    const markdownPages = [
+      { url: `${SITE_URL}/index.html.md`, priority: '0.8', changefreq: 'weekly' },
+      { url: `${SITE_URL}/stats.md`, priority: '0.7', changefreq: 'weekly' },
+      { url: `${SITE_URL}/contribute.md`, priority: '0.7', changefreq: 'weekly' },
+      { url: `${SITE_URL}/clinical-trials.md`, priority: '0.6', changefreq: 'weekly' },
+      { url: `${SITE_URL}/organ-body-tissue-donation.md`, priority: '0.6', changefreq: 'weekly' },
+    ]
+
     let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
 
     staticPages.forEach(page => {
+      sitemap += `
+  <url>
+    <loc>${page.url}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>
+  </url>`;
+    });
+
+    markdownPages.forEach(page => {
       sitemap += `
   <url>
     <loc>${page.url}</loc>
@@ -108,7 +126,7 @@ async function generateSitemap() {
     const sitemapPath = path.join(__dirname, '../public/sitemap.xml');
     fs.writeFileSync(sitemapPath, sitemap);
     
-    console.log(`Sitemap with ${staticPages.length + clinicalTrialCountries.length + bodyDonationCountries.length + resourcesData.length} total URLs written to ${sitemapPath}`);
+    console.log(`Sitemap with ${staticPages.length + markdownPages.length + clinicalTrialCountries.length + bodyDonationCountries.length + resourcesData.length} total URLs written to ${sitemapPath}`);
     return true;
   } catch (error) {
     console.error('Error generating sitemap:', error);

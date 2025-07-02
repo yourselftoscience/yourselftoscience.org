@@ -1,0 +1,29 @@
+# Yourself To Science
+
+> YourselfToScience.org is an open-source website providing a comprehensive list of services that allow individuals to contribute to scientific research with their data, genome, body, and more.
+
+This project is open source. The content is licensed under CC BY-SA 4.0 and the code is licensed under AGPL-3.0. The full list of resources is available in JSON and CSV formats.
+
+## Key Pages
+- [All Resources](https://yourselftoscience.org/): The main page with a filterable list of all resources.
+- [Stats](https://yourselftoscience.org/stats): Statistics about the resources listed.
+- [Clinical Trials](https://yourselftoscience.org/clinical-trials): A dedicated page for clinical trial resources.
+- [Organ, Body & Tissue Donation](https://yourselftoscience.org/organ-body-tissue-donation): A dedicated page for organ, body, and tissue donation resources.
+- [Contribution Guide](https://yourselftoscience.org/contribute): Information on how to contribute to the project.
+
+## Markdown Versions
+- [Homepage (Markdown)](https://yourselftoscience.org/index.html.md)
+- [Stats (Markdown)](https://yourselftoscience.org/stats.md)
+- [Clinical Trials (Markdown)](https://yourselftoscience.org/clinical-trials.md)
+- [Organ, Body & Tissue Donation (Markdown)](https://yourselftoscience.org/organ-body-tissue-donation.md)
+- [Contribute (Markdown)](https://yourselftoscience.org/contribute.md)
+
+## Data Files
+- [resources.json](https://yourselftoscience.org/resources.json): All resource data in JSON format.
+- [resources.csv](https://yourselftoscience.org/resources.csv): All resource data in CSV format.
+- [sitemap.xml](https://yourselftoscience.org/sitemap.xml): The sitemap for the website.
+
+## Optional
+- [Content License](https://yourselftoscience.org/license/content): The CC BY-SA 4.0 license for the content.
+- [Code License](https://yourselftoscience.org/license/code): The AGPL-3.0 license for the source code.
+- [PDF Version](https://yourselftoscience.org/yourselftoscience.pdf): A PDF version of the resource list. 

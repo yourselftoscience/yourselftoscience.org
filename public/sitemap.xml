@@ -55,6 +55,36 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://yourselftoscience.org/index.html.md</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yourselftoscience.org/stats.md</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yourselftoscience.org/contribute.md</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yourselftoscience.org/clinical-trials.md</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yourselftoscience.org/organ-body-tissue-donation.md</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://yourselftoscience.org/clinical-trials?countries=Canada</loc>
     <lastmod>2025-07-02</lastmod>
     <changefreq>weekly</changefreq>
