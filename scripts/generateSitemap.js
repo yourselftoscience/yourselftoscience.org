@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { execSync } from 'child_process';
+import { execFileSync } from 'child_process';
 
 // Get current directory in ESM
 const __filename = fileURLToPath(import.meta.url);
@@ -37,7 +37,7 @@ async function generateSitemap() {
     `);
     
     // Execute the temporary script to get resource data
-    const output = execSync('node --experimental-modules ' + tempScriptPath).toString();
+    const output = execFileSync('node', ['--experimental-modules', tempScriptPath]).toString();
     const { resources: resourcesData, clinicalTrialCountries, bodyDonationCountries } = JSON.parse(output);
     
     // Delete the temporary script
