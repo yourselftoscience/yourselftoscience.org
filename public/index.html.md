@@ -346,6 +346,18 @@ This page provides a filterable list of all resources. You can also download the
 
 ---
 
+### [Clinical Trials Database](https://yourselftoscience.org/resource/belgian-clinical-trials-database)
+
+*Description:* A database of clinical trials approved by the Belgian Federal Agency for Medicines and Health Products (FAMHP).
+
+*Data Types:* Clinical trials
+
+*Countries:* Belgium
+
+*Compensation:* Mixed
+
+---
+
 ### [German Clinical Trials Register (DRKS)](https://yourselftoscience.org/resource/german-clinical-trials-register)
 
 *Description:* The primary register for clinical trials conducted in Germany, providing public access to study information.

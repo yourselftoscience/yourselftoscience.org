@@ -85,6 +85,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://yourselftoscience.org/clinical-trials?countries=Belgium</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://yourselftoscience.org/clinical-trials?countries=Canada</loc>
     <lastmod>2025-07-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -338,6 +344,12 @@
   </url>
   <url>
     <loc>https://yourselftoscience.org/resource/cochrane-central-register-of-controlled-trials</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://yourselftoscience.org/resource/belgian-clinical-trials-database</loc>
     <lastmod>2025-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

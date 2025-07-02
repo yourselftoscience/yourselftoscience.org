@@ -438,6 +438,26 @@ const rawResources = [
     description: 'A highly concentrated source of reports of randomized and quasi-randomized controlled trials from various databases and other sources. Access requires a subscription to the Cochrane Library.'
   },
   {
+    id: 'belgian-clinical-trials-database',
+    title: 'Clinical Trials Database',
+    organization: 'Federal Agency for Medicines and Health Products (FAMHP)',
+    link: 'https://clinicaltrialsdatabase.be/',
+    dataTypes: ['Clinical trials'],
+    countries: ['Belgium'],
+    countryCodes: ['BE'],
+    compensationType: 'mixed',
+    resourceType: 'registry',
+    entityCategory: 'Government',
+    entitySubType: 'Regulatory Agency',
+    description: 'A database of clinical trials approved by the Belgian Federal Agency for Medicines and Health Products (FAMHP).',
+    citations: [
+      {
+        title: 'Krumb, E., Lambert, C., & Hermans, C. (2021). Patient selection for hemophilia gene therapy: Real-life data from a single center. Research and practice in thrombosis and haemostasis, 5(3), 390-394.',
+        link: 'https://doi.org/10.1002/rth2.12494'
+      },
+    ]
+  },
+  {
     id: 'german-clinical-trials-register',
     title: 'German Clinical Trials Register (DRKS)',
     organization: 'DRKS',
