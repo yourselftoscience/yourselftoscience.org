@@ -512,6 +512,25 @@ const rawResources = [
     entityCategory: 'Government',
     entitySubType: 'Public Health Service',
     description: 'The official U.S. government website for organ, eye, and tissue donation. Provides information and links to state registries to sign up as a donor.'
+  },
+  {
+    id: 'bloodworks-research',
+    title: 'Research Donations',
+    organization: 'Bloodworks Northwest',
+    link: 'https://bloodworksnw.org/donate/research',
+    dataTypes: ['Blood', 'Plasma', 'Stem cells'],
+    countries: ['United States'],
+    countryCodes: ['US'],
+    compensationType: 'donation',
+    entityCategory: 'Non-Profit',
+    entitySubType: 'Non-Profit Organization',
+    description: 'Bloodworks Northwest’s research program accepts blood donations to support a variety of studies, from developing new treatments to understanding blood-related diseases. This service is available in the Pacific Northwest.',
+    citations: [
+      {
+        title: 'Miller, M. J., Skrzekut, A., Kracalik, I., Jones, J. M., Lofy, K. H., Konkle, B. A., ... & Paranjape, S. (2021). How do I… facilitate a rapid response to a public health emergency requiring plasma collection with a public–private partnership?. Transfusion, 61(10), 2814-2824.',
+        link: 'https://doi.org/10.1111/trf.16630'
+      }
+    ]
   }
   // Add more resources as needed
 ];
