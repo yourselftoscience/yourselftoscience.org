@@ -16,7 +16,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 - [Stats (Markdown)](https://yourselftoscience.org/stats.md)
 - [Clinical Trials (Markdown)](https://yourselftoscience.org/clinical-trials.md)
 - [Organ, Body & Tissue Donation (Markdown)](https://yourselftoscience.org/organ-body-tissue-donation.md)
-- [Contribute (Markdown)](https://yourselftoscience.org/contribute.md)
+- [Get Involved (Markdown)](https://yourselftoscience.org/get-involved.md)
 
 ## Data Files
 - [resources.json](https://yourselftoscience.org/resources.json): All resource data in JSON format.

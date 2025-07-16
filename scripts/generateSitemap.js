@@ -48,7 +48,7 @@ async function generateSitemap() {
     const staticPages = [
       { url: `${SITE_URL}/`, priority: '1.0', changefreq: 'weekly' },
       { url: `${SITE_URL}/stats`, priority: '0.9', changefreq: 'weekly' },
-      { url: `${SITE_URL}/contribute`, priority: '0.9', changefreq: 'weekly' },
+      { url: `${SITE_URL}/get-involved`, priority: '0.9', changefreq: 'weekly' },
       { url: `${SITE_URL}/clinical-trials`, priority: '0.8', changefreq: 'weekly' },
       { url: `${SITE_URL}/organ-body-tissue-donation`, priority: '0.8', changefreq: 'weekly' },
       { url: `${SITE_URL}/resources`, priority: '0.5', changefreq: 'monthly' }, // SEO-only page
@@ -60,7 +60,7 @@ async function generateSitemap() {
     const markdownPages = [
       { url: `${SITE_URL}/index.html.md`, priority: '0.8', changefreq: 'weekly' },
       { url: `${SITE_URL}/stats.md`, priority: '0.7', changefreq: 'weekly' },
-      { url: `${SITE_URL}/contribute.md`, priority: '0.7', changefreq: 'weekly' },
+      { url: `${SITE_URL}/get-involved.md`, priority: '0.7', changefreq: 'weekly' },
       { url: `${SITE_URL}/clinical-trials.md`, priority: '0.6', changefreq: 'weekly' },
       { url: `${SITE_URL}/organ-body-tissue-donation.md`, priority: '0.6', changefreq: 'weekly' },
     ]

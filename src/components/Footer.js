@@ -71,11 +71,12 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Center Column: Contribution */}
+            {/* Center Column: Get Involved */}
             <div className="text-center">
-              <h3 className="font-semibold text-apple-primary-text">Contribute</h3>
+              <h3 className="font-semibold text-apple-primary-text">Get Involved</h3>
                <ul className="mt-4 space-y-3">
-                <FooterLink href="/contribute">Contribution Guide</FooterLink>
+                <FooterLink href="/get-involved">Contribute</FooterLink>
+                <FooterLink href="/get-involved#contact-us">Contact Us</FooterLink>
               </ul>
             </div>
             

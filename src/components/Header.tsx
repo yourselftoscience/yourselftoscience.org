@@ -218,8 +218,8 @@ export default function Header({ scrollY }: HeaderProps) {
         <Link href="/stats" className="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors px-3 py-2 rounded-md">
             Stats
         </Link>
-        <Link href="/contribute" className="text-base font-medium text-white bg-blue-600 px-4 py-2 rounded-md hover:bg-blue-700 transition-colors shadow-sm hover:shadow-md">
-            Contribute
+        <Link href="/get-involved" className="text-base font-medium text-white bg-blue-600 px-4 py-2 rounded-md hover:bg-blue-700 transition-colors shadow-sm hover:shadow-md">
+            Get Involved
         </Link>
       </nav>
 
@@ -261,8 +261,8 @@ export default function Header({ scrollY }: HeaderProps) {
                     Stats
                   </Link>
                   <div className="pt-6">
-                    <Link href="/contribute" className="w-full block text-center text-lg font-medium text-white bg-blue-600 px-4 py-3 rounded-md hover:bg-blue-700 transition-colors shadow-sm hover:shadow-md" onClick={toggleMobileMenu}>
-                      Contribute
+                    <Link href="/get-involved" className="w-full block text-center text-lg font-medium text-white bg-blue-600 px-4 py-3 rounded-md hover:bg-blue-700 transition-colors shadow-sm hover:shadow-md" onClick={toggleMobileMenu}>
+                      Get Involved
                     </Link>
                   </div>
                 </nav>

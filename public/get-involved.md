@@ -1,6 +1,6 @@
-# Your Contribution Matters
+# Get Involved
 
-Our mission is to provide a transparent, accessible, and comprehensive list of services for citizen science. This project is built by the community, for the community, and every contribution is incredibly valuable.
+Our mission is to provide a transparent, accessible, and comprehensive list of services to advance scientific research. This project is built by the community, for the community, and every contribution is incredibly valuable.
 
 ## Join the Discussion
 
@@ -13,5 +13,9 @@ The best place to start. Suggest new services, share ideas, and get feedback fro
 For developers and those comfortable with GitHub. Use our template to add your suggestion directly to our project tracker.
 
 [Suggest on GitHub](https://github.com/yourselftoscience/yourselftoscience.org/issues/new?template=suggest-a-service.md&title=Suggestion:%20New%20Service%20-%20[Service%20Title])
+
+## Contact Us
+
+Have a question, suggestion, or collaboration idea? We’d love to hear from you. Email us at [hello@yourselftoscience.org](mailto:hello@yourselftoscience.org).
 
 Want to help in other ways? Explore our [project repository](https://github.com/yourselftoscience/yourselftoscience.org) for documentation, code, and more.

@@ -226,14 +226,14 @@ function generateOrganBodyTissueDonationMarkdown() {
     console.log(`Successfully generated ${outputPath}`);
 }
 
-function generateContributeMarkdown() {
-  console.log('Generating contribute.md...');
+function generateGetInvolvedMarkdown() {
+  console.log('Generating get-involved.md...');
 
   const redditSuggestUrl = `https://www.reddit.com/r/YourselfToScience/submit?title=Suggestion%3A%20New%20Service%20-%20[Service%20Title]&text=Please%20fill%20out%20the%20following%20information%20as%20completely%20as%20possible.%0A%0A**Service%20Title%3A**%0A%0A**Service%20Link%3A**%0A%0A**Data%20Types%3A**%20(e.g.%2C%20Genome%2C%20Health%20data%2C%20Fitbit%20data%2C%20etc.)%0A%0A**Countries%20Available%3A**%20(e.g.%2C%20Worldwide%2C%20United%20States%2C%20etc.)%0A%0A**Why%20it's%20a%20good%20fit%20for%20the%20list%3A**`;
   const githubSuggestUrl = `https://github.com/yourselftoscience/yourselftoscience.org/issues/new?template=suggest-a-service.md&title=Suggestion:%20New%20Service%20-%20[Service%20Title]`;
 
-  let mdContent = `# Your Contribution Matters\n\n`;
-  mdContent += `Our mission is to provide a transparent, accessible, and comprehensive list of services for citizen science. This project is built by the community, for the community, and every contribution is incredibly valuable.\n\n`;
+  let mdContent = `# Get Involved\n\n`;
+  mdContent += `Our mission is to provide a transparent, accessible, and comprehensive list of services to advance scientific research. This project is built by the community, for the community, and every contribution is incredibly valuable.\n\n`;
   
   mdContent += `## Join the Discussion\n\n`;
   mdContent += `The best place to start. Suggest new services, share ideas, and get feedback from the community. Perfect for all users.\n\n`;
@@ -242,10 +242,13 @@ function generateContributeMarkdown() {
   mdContent += `## Go Direct\n\n`;
   mdContent += `For developers and those comfortable with GitHub. Use our template to add your suggestion directly to our project tracker.\n\n`;
   mdContent += `[Suggest on GitHub](${githubSuggestUrl})\n\n`;
+
+  mdContent += `## Contact Us\n\n`;
+  mdContent += `Have a question, suggestion, or collaboration idea? We’d love to hear from you. Email us at [hello@yourselftoscience.org](mailto:hello@yourselftoscience.org).\n\n`
   
   mdContent += `Want to help in other ways? Explore our [project repository](https://github.com/yourselftoscience/yourselftoscience.org) for documentation, code, and more.\n`;
 
-  const outputPath = path.join(__dirname, '../public/contribute.md');
+  const outputPath = path.join(__dirname, '../public/get-involved.md');
   fs.writeFileSync(outputPath, mdContent);
   console.log(`Successfully generated ${outputPath}`);
 }
@@ -256,7 +259,7 @@ function generateAllMarkdown() {
     generateHomepageMarkdown();
     generateClinicalTrialsMarkdown();
     generateOrganBodyTissueDonationMarkdown();
-    generateContributeMarkdown();
+    generateGetInvolvedMarkdown();
 }
 
 generateAllMarkdown();
