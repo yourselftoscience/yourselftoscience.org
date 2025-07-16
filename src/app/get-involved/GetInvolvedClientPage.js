@@ -5,48 +5,11 @@ import { FaReddit, FaGithub, FaEnvelope } from 'react-icons/fa';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useScroll } from 'framer-motion';
-import { useState } from 'react';
 
-export default function ContributeClientPage() {
+export default function GetInvolvedClientPage() {
   const { scrollY } = useScroll();
   const redditSuggestUrl = `https://www.reddit.com/r/YourselfToScience/submit?title=Suggestion%3A%20New%20Service%20-%20[Service%20Title]&text=Please%20fill%20out%20the%20following%20information%20as%20completely%20as%20possible.%0A%0A**Service%20Title%3A**%0A%0A**Service%20Link%3A**%0A%0A**Data%20Types%3A**%20(e.g.%2C%20Genome%2C%20Health%20data%2C%20Fitbit%20data%2C%20etc.)%0A%0A**Countries%20Available%3A**%20(e.g.%2C%20Worldwide%2C%20United%20States%2C%20etc.)%0A%0A**Why%20it's%20a%20good%20fit%20for%20the%20list%3A**`;
   const githubSuggestUrl = `https://github.com/yourselftoscience/yourselftoscience.org/issues/new?template=suggest-a-service.md&title=Suggestion:%20New%20Service%20-%20[Service%20Title]`;
-
-  const [formState, setFormState] = useState({ status: 'idle', message: '' });
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setFormState({ status: 'submitting', message: '' });
-
-    const formData = new FormData(event.target);
-    const honeypot = formData.get('honeypot');
-
-    // Basic honeypot check
-    if (honeypot) {
-      console.log('Bot detected');
-      return;
-    }
-
-    try {
-      const response = await fetch(event.target.action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-
-      if (response.ok) {
-        setFormState({ status: 'success', message: 'Thank you! Your message has been sent.' });
-        event.target.reset();
-      } else {
-        const data = await response.json();
-        setFormState({ status: 'error', message: data.message || 'Something went wrong. Please try again.' });
-      }
-    } catch (error) {
-      setFormState({ status: 'error', message: 'Something went wrong. Please try again.' });
-    }
-  };
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -123,10 +86,9 @@ export default function ContributeClientPage() {
               </p>
             </div>
             <div className="mt-12 max-w-lg mx-auto">
-              <form 
+              <form
                 name="contact"
                 data-static-form-name="contact"
-                onSubmit={handleSubmit}
                 className="grid grid-cols-1 gap-y-6"
               >
                 {/* Honeypot field for spam prevention */}
@@ -162,19 +124,12 @@ export default function ContributeClientPage() {
                 <div>
                   <button
                     type="submit"
-                    disabled={formState.status === 'submitting'}
                     className="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:bg-gray-400"
                   >
-                    {formState.status === 'submitting' ? 'Sending...' : 'Send Message'}
+                    Send Message
                   </button>
                 </div>
               </form>
-              {formState.status === 'success' && (
-                <p className="mt-4 text-center text-green-600">{formState.message}</p>
-              )}
-              {formState.status === 'error' && (
-                <p className="mt-4 text-center text-red-600">{formState.message}</p>
-              )}
             </div>
           </div>
           
