@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import GetInvolvedClientPage from './GetInvolvedClientPage';
 
 export const metadata = {
@@ -6,5 +7,9 @@ export const metadata = {
 };
 
 export default function GetInvolvedPage() {
-  return <GetInvolvedClientPage />;
+  return (
+    <Suspense>
+      <GetInvolvedClientPage />
+    </Suspense>
+  );
 } 
