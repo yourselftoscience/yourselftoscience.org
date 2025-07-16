@@ -112,7 +112,8 @@ export default function GetInvolvedClientPage() {
               )}
               <form
                 name="contact"
-                data-static-form-name="contact"
+                action="/api/contact"
+                method="POST"
                 className="grid grid-cols-1 gap-y-6"
               >
                 {/* Honeypot field for spam prevention */}
