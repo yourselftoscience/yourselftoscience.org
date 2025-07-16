@@ -2,7 +2,7 @@ import staticFormsPlugin from "@cloudflare/pages-plugin-static-forms";
 import { Resend } from "resend";
 
 // This is a Pages Function that will intercept all form submissions
-export const onRequest: PagesFunction = staticFormsPlugin({
+export const onRequest = staticFormsPlugin({
   // The respondWith function is called when a form is submitted
   respondWith: async ({ formData, name }) => {
     // Get the form data
