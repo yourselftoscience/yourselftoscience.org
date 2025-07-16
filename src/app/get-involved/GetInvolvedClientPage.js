@@ -5,11 +5,24 @@ import { FaReddit, FaGithub, FaEnvelope } from 'react-icons/fa';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useScroll } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 export default function GetInvolvedClientPage() {
   const { scrollY } = useScroll();
-  const redditSuggestUrl = `https://www.reddit.com/r/YourselfToScience/submit?title=Suggestion%3A%20New%20Service%20-%20[Service%20Title]&text=Please%20fill%20out%20the%20following%20information%20as%20completely%20as%20possible.%0A%0A**Service%20Title%3A**%0A%0A**Service%20Link%3A**%0A%0A**Data%20Types%3A**%20(e.g.%2C%20Genome%2C%20Health%20data%2C%20Fitbit%20data%2C%20etc.)%0A%0A**Countries%20Available%3A**%20(e.g.%2C%20Worldwide%2C%20United%20States%2C%20etc.)%0A%0A**Why%20it's%20a%20good%20fit%20for%20the%20list%3A**`;
+  const redditSuggestUrl = `https://www.reddit.com/r/YourselfToScience/submit?title=Suggestion%3A%20New%20Service%20-%20[Service%20Title]&text=Please%20fill%20out%20the%20following%20information%20as%20completely%20as%20possible.%0A%0A**Service%20Title%3A**%20[Service%20Link%3A**%0A%0A**Data%20Types%3A**%20(e.g.%2C%20Genome%2C%20Health%20data%2C%20Fitbit%20data%2C%20etc.)%0A%0A**Countries%20Available%3A**%20(e.g.%2C%20Worldwide%2C%20United%20States%2C%20etc.)%0A%0A**Why%20it's%20a%20good%20fit%20for%20the%20list%3A**`;
   const githubSuggestUrl = `https://github.com/yourselftoscience/yourselftoscience.org/issues/new?template=suggest-a-service.md&title=Suggestion:%20New%20Service%20-%20[Service%20Title]`;
+
+  const searchParams = useSearchParams();
+  const [formStatus, setFormStatus] = useState({ submitted: false, error: false });
+
+  useEffect(() => {
+    const submitted = searchParams.get('submitted') === 'true';
+    const error = searchParams.get('error') === 'true';
+    if (submitted || error) {
+      setFormStatus({ submitted, error });
+    }
+  }, [searchParams]);
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -86,6 +99,17 @@ export default function GetInvolvedClientPage() {
               </p>
             </div>
             <div className="mt-12 max-w-lg mx-auto">
+              {formStatus.submitted && (
+                <div className="mb-6 p-4 text-center text-green-800 bg-green-100 border border-green-200 rounded-md shadow-sm">
+                  <p className="font-semibold">Thank you! Your message has been sent successfully.</p>
+                  <p className="text-sm">We'll get back to you as soon as possible.</p>
+                </div>
+              )}
+              {formStatus.error && (
+                  <div className="mb-6 p-4 text-center text-red-800 bg-red-100 border border-red-200 rounded-md shadow-sm">
+                      <p className="font-semibold">Something went wrong. Please try again.</p>
+                  </div>
+              )}
               <form
                 name="contact"
                 data-static-form-name="contact"
