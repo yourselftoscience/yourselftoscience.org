@@ -102,7 +102,7 @@ export default function GetInvolvedClientPage() {
               {formStatus.submitted && (
                 <div className="mb-6 p-4 text-center text-green-800 bg-green-100 border border-green-200 rounded-md shadow-sm">
                   <p className="font-semibold">Thank you! Your message has been sent successfully.</p>
-                  <p className="text-sm">We'll get back to you as soon as possible.</p>
+                  <p className="text-sm">We&apos;ll get back to you as soon as possible.</p>
                 </div>
               )}
               {formStatus.error && (
