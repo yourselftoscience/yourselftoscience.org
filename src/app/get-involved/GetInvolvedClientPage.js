@@ -5,7 +5,7 @@ import { FaReddit, FaGithub, FaEnvelope } from 'react-icons/fa';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useScroll } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
 
 export default function GetInvolvedClientPage() {
@@ -15,12 +15,18 @@ export default function GetInvolvedClientPage() {
 
   const searchParams = useSearchParams();
   const [formStatus, setFormStatus] = useState({ submitted: false, error: false });
+  const contactFormRef = useRef(null);
 
   useEffect(() => {
     const submitted = searchParams.get('submitted') === 'true';
     const error = searchParams.get('error') === 'true';
     if (submitted || error) {
       setFormStatus({ submitted, error });
+      // Scroll to the contact form section after a short delay
+      // to ensure the DOM is updated before the success/error message appears.
+      setTimeout(() => {
+        contactFormRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
     }
   }, [searchParams]);
 
@@ -91,7 +97,7 @@ export default function GetInvolvedClientPage() {
           </div>
 
           {/* Contact Form Section */}
-          <div id="contact-us" className="mt-16 pt-12 border-t border-gray-200 scroll-mt-24">
+          <div id="contact-us" ref={contactFormRef} className="mt-16 pt-12 border-t border-gray-200 scroll-mt-24">
             <div className="text-center">
               <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">Contact Us</h2>
               <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
