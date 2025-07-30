@@ -33,7 +33,7 @@
     "browserslist-config-baseline": "^0.4.0",
     "chokidar": "^3.5.3",
     "debug": "^4.3.7",
-    "framer-motion": "^11.11.1",
+    "framer-motion": "^12.0.0",
     "glob": "^11.0.0",
     "next": "^15.2.4",
     "node-fetch": "^2.6.7",
