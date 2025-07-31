@@ -1,0 +1,7 @@
+name = "id-redirect-worker"
+main = "src/index.js"
+compatibility_date = "2024-07-25"
+
+# This section adds the trigger for your domain
+[triggers]
+routes = ["id.yourselftoscience.org/*"]
