@@ -56,9 +56,10 @@ An overview of the resources available on Yourself To Science, providing insight
 ## Entity Type Distribution
 
 - **Government:** 11
-    - **Regulatory Agency:** 5
+    - **Regulatory Agency:** 4
     - **Research Agency:** 3
     - **Public Health Service:** 3
+    - **Statutory Authority:** 1
 - **Non-Profit:** 8
     - **Non-Profit Organization:** 4
     - **Research Foundation:** 2

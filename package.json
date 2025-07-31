@@ -7,7 +7,7 @@
     "dev:next": "next dev",
     "dev:watch": "node scripts/watchUpdatePdf.js",
     "dev": "concurrently \"npm run dev:next\" \"npm run dev:watch\"",
-    "prebuild": "npm run update-sitemap && npm run update-csv && npm run update-json && npm run update-markdown || echo 'Prebuild scripts failed, continuing build'",
+    "prebuild": "npm run update-sitemap && npm run update-csv && npm run update-json && npm run update-markdown && npm run update-rdf || echo 'Prebuild scripts failed, continuing build'",
     "build": "next build",
     "postbuild": "node scripts/updatePdfPage.js || echo 'PDF generation failed, continuing deployment'",
     "deploy": "next-on-pages",
@@ -18,7 +18,8 @@
     "update-sitemap": "node scripts/generateSitemap.js",
     "update-csv": "node scripts/generateResourceCSV.js",
     "update-json": "node scripts/generateResourceJSON.js",
-    "update-markdown": "node scripts/generateMarkdown.js"
+    "update-markdown": "node scripts/generateMarkdown.js",
+    "update-rdf": "node scripts/generateRDF.js"
   },
   "browserslist": [
     "extends browserslist-config-baseline"
@@ -29,6 +30,7 @@
     "@headlessui/react": "^2.2.2",
     "@jridgewell/sourcemap-codec": "^1.5.0",
     "@rollup/plugin-inject": "^5.0.5",
+    "@vercel/analytics": "^1.5.0",
     "@vercel/routing-utils": "^3.1.0",
     "browserslist-config-baseline": "^0.4.0",
     "chokidar": "^3.5.3",

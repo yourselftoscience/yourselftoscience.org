@@ -1,12 +1,12 @@
+// src/app/stats/page.js
 'use client';
 
 import React, { useState } from 'react';
 import { resources } from '@/data/resources';
 import { EU_COUNTRIES } from '@/data/constants';
 import { motion, useScroll, AnimatePresence } from 'framer-motion';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { FaGlobe, FaDatabase, FaMoneyBillWave, FaChartBar, FaChevronDown, FaDownload, FaCode, FaCopy, FaCheck, FaBuilding } from 'react-icons/fa';
+import { FaGlobe, FaDatabase, FaMoneyBillWave, FaChartBar, FaChevronDown, FaBuilding } from 'react-icons/fa';
+import Link from 'next/link';
 
 const StatCard = ({ title, value, icon, children }) => (
   <motion.div
@@ -52,25 +52,6 @@ const StatsPage = () => {
   const { scrollY } = useScroll();
   const [isEuExpanded, setIsEuExpanded] = useState(false);
   const [expandedEntityTypes, setExpandedEntityTypes] = useState(new Set());
-  const [copiedUrl, setCopiedUrl] = useState(null);
-
-  const handleCopy = (url) => {
-    navigator.clipboard.writeText(url);
-    setCopiedUrl(url);
-    setTimeout(() => setCopiedUrl(null), 2500);
-  };
-
-  const handleEntityTypeToggle = (entityName) => {
-    setExpandedEntityTypes(prev => {
-        const newSet = new Set(prev);
-        if (newSet.has(entityName)) {
-            newSet.delete(entityName);
-        } else {
-            newSet.add(entityName);
-        }
-        return newSet;
-    });
-  };
 
   const stats = React.useMemo(() => {
     const totalResources = resources.length;
@@ -78,12 +59,10 @@ const StatsPage = () => {
     const resourcesByCountry = resources.reduce((acc, resource) => {
       if (resource.countries && resource.countries.length > 0) {
         resource.countries.forEach(country => {
-          // Group EU countries under "European Union" for a cleaner chart
           const countryName = country === 'European Union' || EU_COUNTRIES.includes(country) ? 'European Union' : country;
           acc[countryName] = (acc[countryName] || 0) + 1;
         });
       } else {
-        // Assume worldwide if no country is specified
         acc['Worldwide'] = (acc['Worldwide'] || 0) + 1;
       }
       return acc;
@@ -158,6 +137,19 @@ const StatsPage = () => {
     }, {});
     return Object.entries(euServicesWithCounts).sort(([, a], [, b]) => b - a);
   }, []);
+  
+  const handleEntityTypeToggle = (entityName) => {
+    setExpandedEntityTypes(prev => {
+        const newSet = new Set(prev);
+        if (newSet.has(entityName)) {
+            newSet.delete(entityName);
+        } else {
+            newSet.add(entityName);
+        }
+        return newSet;
+    });
+  };
+
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -168,8 +160,6 @@ const StatsPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-apple-surface">
-        <Header scrollY={scrollY} />
         <main className="flex-grow w-full max-w-screen-xl mx-auto px-4 py-12 md:py-16">
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
@@ -178,7 +168,15 @@ const StatsPage = () => {
                 className="mb-12 text-center"
             >
                 <h1 className="text-4xl md:text-6xl font-bold text-apple-primary-text mb-3">Project Statistics</h1>
-                <p className="text-lg text-apple-secondary-text max-w-3xl mx-auto">An overview of the resources available on Yourself To Science, providing insights into the landscape of citizen science contribution.</p>
+                <p className="text-lg text-apple-secondary-text max-w-3xl mx-auto">
+                    An overview of the resources available on Yourself To Science.
+                </p>
+                <div className="mt-6 text-center">
+                    <Link href="/data" className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-apple-accent rounded-lg hover:bg-opacity-90 focus:ring-4 focus:outline-none focus:ring-blue-300 transition-colors">
+                            <FaDatabase />
+                            <span>View Dataset & API Info</span>
+                        </Link>
+                </div>
             </motion.div>
 
             <motion.div
@@ -338,95 +336,8 @@ const StatsPage = () => {
                     </StatCard>
                 </div>
             </motion.div>
-
-            <section id="data" className="mt-16 scroll-mt-24">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    className="flex flex-wrap justify-center items-center gap-4"
-                >
-                    <a
-                        href="/resources.csv"
-                        download="yourselftoscience_resources.csv"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-apple-accent rounded-lg hover:bg-opacity-90 focus:ring-4 focus:outline-none focus:ring-blue-300 transition-colors"
-                    >
-                        <FaDownload />
-                        <span>Download as CSV</span>
-                    </a>
-                    <a
-                        href="/resources.json"
-                        download="yourselftoscience_resources.json"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-apple-accent rounded-lg hover:bg-opacity-90 focus:ring-4 focus:outline-none focus:ring-blue-300 transition-colors"
-                    >
-                        <FaDownload />
-                        <span>Download as JSON</span>
-                    </a>
-                </motion.div>
-
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                    className="mt-16"
-                >
-                    <div className="text-center mb-8">
-                        <div className="flex justify-center items-center gap-3">
-                            <FaCode className="text-apple-secondary-text" />
-                            <h3 className="text-2xl font-bold text-apple-primary-text">Live Data Access</h3>
-                        </div>
-                        <p className="text-apple-secondary-text mt-2 max-w-2xl mx-auto">
-                            Use these persistent URLs for automated access to always get the latest version of the dataset.
-                        </p>
-                    </div>
-
-                    <div className="max-w-3xl mx-auto space-y-4">
-                        {/* CSV Endpoint */}
-                        <div className="bg-apple-card border border-apple-divider rounded-xl p-4">
-                            <p className="text-sm font-medium text-apple-secondary-text mb-2">CSV ENDPOINT</p>
-                            <div className="flex items-center justify-between bg-white p-3 rounded-lg border border-apple-divider">
-                                <code className="text-apple-primary-text text-sm break-all">https://yourselftoscience.org/resources.csv</code>
-                                <button
-                                    onClick={() => handleCopy('https://yourselftoscience.org/resources.csv')}
-                                    className="p-2 text-apple-secondary-text hover:text-apple-accent transition-colors duration-200"
-                                    aria-label="Copy CSV URL"
-                                >
-                                    {copiedUrl === 'https://yourselftoscience.org/resources.csv' ? (
-                                        <FaCheck className="text-green-500" />
-                                    ) : (
-                                        <FaCopy />
-                                    )}
-                                </button>
-                            </div>
-                        </div>
-
-                        {/* JSON Endpoint */}
-                        <div className="bg-apple-card border border-apple-divider rounded-xl p-4">
-                            <p className="text-sm font-medium text-apple-secondary-text mb-2">JSON ENDPOINT</p>
-                            <div className="flex items-center justify-between bg-white p-3 rounded-lg border border-apple-divider">
-                                <code className="text-apple-primary-text text-sm break-all">https://yourselftoscience.org/resources.json</code>
-                                <button
-                                    onClick={() => handleCopy('https://yourselftoscience.org/resources.json')}
-                                    className="p-2 text-apple-secondary-text hover:text-apple-accent transition-colors duration-200"
-                                    aria-label="Copy JSON URL"
-                                >
-                                    {copiedUrl === 'https://yourselftoscience.org/resources.json' ? (
-                                        <FaCheck className="text-green-500" />
-                                    ) : (
-                                        <FaCopy />
-                                    )}
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </motion.div>
-            </section>
         </main>
-        <Footer />
-    </div>
   );
 };
 
-export default StatsPage; 
+export default StatsPage;

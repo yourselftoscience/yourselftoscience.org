@@ -28,7 +28,7 @@ async function generateSitemap() {
 
       console.log(JSON.stringify({
         resources: resources.map(r => ({
-          id: r.id,
+          slug: r.slug,
           lastModified: new Date().toISOString().split('T')[0]
         })),
         clinicalTrialCountries: clinicalTrialCountries,
@@ -113,7 +113,7 @@ async function generateSitemap() {
     resourcesData.forEach(resource => {
       sitemap += `
   <url>
-    <loc>${SITE_URL}/resource/${resource.id}</loc>
+    <loc>${SITE_URL}/resource/${resource.slug}</loc>
     <lastmod>${resource.lastModified}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

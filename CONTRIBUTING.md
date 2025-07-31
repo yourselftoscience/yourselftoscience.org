@@ -53,6 +53,35 @@ This is one of the most important ways you can contribute! If you know of a serv
 4.  **Fill out the form** with as much information as you can. The more details you provide, the faster we can review and add the service.
 5.  **Click "Submit new issue".** That's it! The team will be notified and will review your suggestion.
 
+### Adding a New Resource (for Pull Requests)
+
+If you prefer to contribute directly via a Pull Request, please follow these steps to ensure every resource has a stable, persistent identifier.
+
+**Your Steps:**
+
+1.  **Fork and Clone:** Fork the repository and clone it to your local machine.
+2.  **Add Your Resource:** Open the `src/data/resources.js` file.
+3.  **Copy and Edit:** Copy an existing resource object and paste it at the end of the `resources` array.
+4.  **Fill in Details:** Update the `title`, `slug`, `organization`, `description`, `link`, and other relevant fields for your new resource.
+5.  **Leave the `id` as a Placeholder:** For the `id` field, please use the placeholder string `id: "TBD_MAINTAINER_WILL_REPLACE"`.
+
+**Example New Resource Entry:**
+```javascript
+{
+  id: "TBD_MAINTAINER_WILL_REPLACE",
+  slug: "my-new-awesome-service",
+  title: "My New Awesome Service",
+  organization: "Community Contributors",
+  description: "A fantastic new service for the community.",
+  link: "https://new-service.com",
+  dataTypes: ["new", "awesome"],
+  // ... other fields
+}
+```
+A project maintainer will run a script to generate a unique ID and replace the placeholder before merging your pull request. This ensures there are no ID conflicts.
+
+**Submit a Pull Request:** Commit your changes and open a pull request. A maintainer will review your submission shortly.
+
 ### How to Report a Bug or Suggest an Improvement
 
 If you see something wrong on the site or have an idea to make it better:

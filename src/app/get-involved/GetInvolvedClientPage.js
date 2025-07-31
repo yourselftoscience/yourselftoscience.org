@@ -2,8 +2,6 @@
 
 import Link from 'next/link';
 import { FaReddit, FaGithub, FaEnvelope } from 'react-icons/fa';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import { useScroll } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
@@ -31,8 +29,6 @@ export default function GetInvolvedClientPage() {
   }, [searchParams]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      <Header scrollY={scrollY} />
       <div className="flex-grow bg-gray-50">
         <main className="max-w-4xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
           <div className="text-center">
@@ -190,7 +186,5 @@ export default function GetInvolvedClientPage() {
           </div>
         </main>
       </div>
-      <Footer />
-    </div>
   );
-} 
+}

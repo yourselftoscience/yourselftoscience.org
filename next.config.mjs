@@ -7,6 +7,11 @@ const nextConfig = {
         destination: '/get-involved',
         permanent: true,
       },
+      {
+        source: '/stats#data',
+        destination: '/data',
+        permanent: true,
+      },
     ];
   },
   async headers() {

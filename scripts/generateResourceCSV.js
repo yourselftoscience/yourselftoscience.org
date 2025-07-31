@@ -1,77 +1,52 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import { resources } from '../src/data/resources.js';
+import { writeFile } from 'fs/promises';
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const wikidataResources = require('../public/resources_wikidata.json');
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const outputPath = './public/resources.csv';
 
 function generateCSV() {
-  console.log('Generating resources.csv...');
-
-  try {
-    const csvPath = path.join(__dirname, '../public/resources.csv');
     const headers = [
-      'ID',
-      'Title',
-      'Organization',
-      'Link',
-      'Data Types',
-      'Compensation Type',
-      'Countries',
-      'Country Codes',
-      'Instructions',
-      'Citations'
-    ];
+    'id', 'title', 'organization', 'link', 'dataTypes', 'compensationType', 
+    'entityCategory', 'entitySubType', 'countries', 'countryCodes', 
+    'description', 'instructions', 'citations', 'wikidataId', 'resourceWikidataId', 'dataTypeWikidataIds'
+  ];
 
-    const rows = resources.map(resource => {
-      // Helper to format citations into a readable string
       const formatCitations = (citations) => {
-        if (!citations || citations.length === 0) {
-          return '';
-        }
-        return citations.map(c => `${c.title.replace(/"/g, '""')} (${c.link})`).join('; ');
+    if (!citations || citations.length === 0) return '';
+    return citations.map(c => c.link).join('; ');
       };
       
-      return [
-        resource.id || '',
-        `"${(resource.title || '').replace(/"/g, '""')}"`,
-        `"${(resource.organization || '').replace(/"/g, '""')}"`,
-        resource.link || '',
-        `"${resource.dataTypes ? resource.dataTypes.join(', ') : ''}"`,
-        resource.compensationType || '',
-        `"${resource.countries ? resource.countries.join(', ') : ''}"`,
-        `"${resource.countryCodes ? resource.countryCodes.join(', ') : ''}"`,
-        `"${resource.instructions ? resource.instructions.join('; ') : ''}"`,
-        `"${formatCitations(resource.citations)}"`
-      ].join(',');
-    });
+  let csvContent = headers.join(',') + '\n';
 
-    const csvContent = [headers.join(','), ...rows].join('\n');
-    fs.writeFileSync(csvPath, csvContent);
+  wikidataResources.forEach(resource => {
+    const row = [
+      `"${resource.id || ''}"`,
+      `"${resource.title ? resource.title.replace(/"/g, '""') : ''}"`,
+      `"${resource.organization ? resource.organization.replace(/"/g, '""') : ''}"`,
+      `"${resource.link || ''}"`,
+      `"${resource.dataTypes ? resource.dataTypes.join('; ') : ''}"`,
+      `"${resource.compensationType || ''}"`,
+      `"${resource.entityCategory || ''}"`,
+      `"${resource.entitySubType || ''}"`,
+      `"${resource.countries ? resource.countries.join('; ') : ''}"`,
+      `"${resource.countryCodes ? resource.countryCodes.join('; ') : ''}"`,
+      `"${resource.description ? resource.description.replace(/"/g, '""') : ''}"`,
+      `"${resource.instructions ? resource.instructions.join('; ').replace(/"/g, '""') : ''}"`,
+      `"${formatCitations(resource.citations)}"`,
+      `"${resource.wikidataId || ''}"`,
+      `"${resource.resourceWikidataId || ''}"`,
+      `"${resource.dataTypeMappings ? Object.values(resource.dataTypeMappings).join('; ') : ''}"`
+    ];
+    csvContent += row.join(',') + '\n';
+  });
 
-    console.log(`Successfully generated resources.csv at ${csvPath}`);
+  try {
+    writeFile(outputPath, csvContent, 'utf8');
+    console.log(`Successfully generated CSV file at ${outputPath}`);
   } catch (error) {
-    console.error('Error generating CSV:', error);
+    console.error('Error generating CSV file:', error);
   }
 }
 
-// This function will only be defined and used in a Node.js environment.
-async function checkIsMain(metaUrl) {
-    if (typeof process === 'undefined' || !metaUrl.startsWith('file://')) {
-        return false;
-    }
-    const path = await import('path');
-    const { fileURLToPath } = await import('url');
-    const modulePath = fileURLToPath(metaUrl);
-    return process.argv[1] === modulePath;
-}
-
-// Check if this script is being run directly.
-checkIsMain(import.meta.url).then(isMain => {
-    if (isMain) {
         generateCSV();
-    }
-});
-
-export { generateCSV }; 

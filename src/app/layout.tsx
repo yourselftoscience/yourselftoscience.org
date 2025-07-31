@@ -1,6 +1,8 @@
+// src/app/layout.tsx
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import ClientLayout from '../components/ClientLayout';
 
 // This file is the single source of truth for the latest DOI.
 import { latestDoi } from '@/data/config';
@@ -101,7 +103,7 @@ export default function RootLayout({
       </head>
       {/* Add suppressHydrationWarning to body as well */}
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} suppressHydrationWarning={true}>
-        {children}
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

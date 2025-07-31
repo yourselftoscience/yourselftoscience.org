@@ -199,12 +199,7 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       {/* The Header is rendered here, immediately */}
-      <Header scrollY={scrollY} />
-
-      {/* Suspense shows ContentAreaSkeleton while HomePageContent loads */}
       <HomePageContentDynamic scrollY={scrollY} />
-
-      <Footer />
     </div>
   );
 }
@@ -700,7 +695,7 @@ function HomePageContent({ scrollY }) {
             </Link>
 
             <Link
-              href="/stats#data"
+              href="/data"
               className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded border border-apple-accent text-apple-accent text-sm font-medium hover:bg-apple-accent/10 transition-colors"
             >
               <FaDownload />
@@ -807,7 +802,7 @@ function HomePageContent({ scrollY }) {
                 Suggest a Service
               </Link>
               <Link
-                href="/stats#data"
+                href="/data"
                 className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded border border-apple-accent text-apple-accent text-sm font-medium hover:bg-apple-accent/10 transition-colors"
               >
                 <FaDownload />

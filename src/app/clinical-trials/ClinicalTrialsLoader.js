@@ -2,8 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import ClinicalTrialsClientPage from './ClinicalTrialsClientPage';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+
 import { useScroll } from 'framer-motion';
 import ClinicalTrialsSkeleton from './ClinicalTrialsSkeleton';
 
@@ -46,9 +45,7 @@ export default function ClinicalTrialsLoader() {
   }, []); // The empty dependency array ensures this runs only once on mount.
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      <Header scrollY={scrollY} />
-      <main className="flex-grow">
+    <main className="flex-grow">
         {pageData.isLoading ? (
           <ClinicalTrialsSkeleton />
         ) : (
@@ -58,7 +55,5 @@ export default function ClinicalTrialsLoader() {
           />
         )}
       </main>
-      <Footer />
-    </div>
   );
 } 

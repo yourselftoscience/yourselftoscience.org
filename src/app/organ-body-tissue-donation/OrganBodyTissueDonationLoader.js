@@ -2,8 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import OrganBodyTissueDonationClientPage from './OrganBodyTissueDonationClientPage';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+
 import { useScroll } from 'framer-motion';
 import OrganBodyTissueDonationSkeleton from './OrganBodyTissueDonationSkeleton';
 
@@ -45,9 +44,7 @@ export default function OrganBodyTissueDonationLoader() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      <Header scrollY={scrollY} />
-      <main className="flex-grow">
+    <main className="flex-grow">
         {pageData.isLoading ? (
           <OrganBodyTissueDonationSkeleton />
         ) : (
@@ -57,7 +54,5 @@ export default function OrganBodyTissueDonationLoader() {
           />
         )}
       </main>
-      <Footer />
-    </div>
   );
 } 

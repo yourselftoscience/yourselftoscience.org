@@ -346,7 +346,7 @@ export default function ResourceGrid({
                       )}
                     </Popover>
                   ) : ( // Fallback: Link to Details page
-                    <Link href={`/resource/${resource.id}`} className="action-link">
+                    <Link href={`/resource/${resource.slug}`} className="action-link">
                       Details
                     </Link>
                   )}

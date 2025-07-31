@@ -1,0 +1,32 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix schema: <http://schema.org/> .
+
+<https://yourselftoscience.org/resources.ttl#dataset> a void:Dataset, schema:Dataset ;
+    dcterms:title "Yourself To Science Dataset" ;
+    dcterms:description "A curated list of services that allow individuals to contribute to scientific research with their data, genome, body, and more."@en ;
+    dcterms:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
+    void:dataDump <https://yourselftoscience.org/resources.ttl> ;
+    void:dataDump <https://yourselftoscience.org/resources.json> ;
+    void:dataDump <https://yourselftoscience.org/resources.csv> ;
+    schema:distribution [
+        a schema:DataDownload ;
+        schema:encodingFormat "text/turtle" ;
+        schema:contentUrl <https://yourselftoscience.org/resources.ttl>
+    ], [
+        a schema:DataDownload ;
+        schema:encodingFormat "application/json" ;
+        schema:contentUrl <https://yourselftoscience.org/resources.json>
+    ], [
+        a schema:DataDownload ;
+        schema:encodingFormat "text/csv" ;
+        schema:contentUrl <https://yourselftoscience.org/resources.csv>
+    ] ;
+    void:sparqlEndpoint <https://query.wikidata.org/> ;
+    void:uriSpace <https://yourselftoscience.org/resource/> ;
+    void:linkPredicate schema:sameAs ;
+    void:target <http://www.wikidata.org/entity/Q2013> ;
+    foaf:homepage <https://yourselftoscience.org/> . 
