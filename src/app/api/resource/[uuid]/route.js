@@ -1,5 +1,7 @@
 // File: src/app/api/resource/[uuid]/route.js
 
+export const runtime = 'edge';
+
 // A simple in-memory cache for the resource map
 let resourceMap = null;
 
