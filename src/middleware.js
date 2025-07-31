@@ -1,4 +1,4 @@
-export const runtime = 'edge';
+export const runtime = 'experimental-edge';
 
 // src/middleware.js
 import { NextResponse } from 'next/server';
