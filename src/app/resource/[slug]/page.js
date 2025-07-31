@@ -1,6 +1,6 @@
 // src/app/resource/[slug]/page.js
 import { resources } from '@/data/resources';
-import { redirect, notFound } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { 
   FaExternalLinkAlt, FaHeart, FaDollarSign, FaQuestionCircle, FaUniversity,
@@ -9,54 +9,35 @@ import {
   FaUserFriends, FaCoins, FaListOl, FaUserShield, FaArrowRight 
 } from 'react-icons/fa';
 
-// THIS IS THE KEY FIX:
-// We tell Next.js to generate a page for every slug AND every ID.
-// This ensures that links with UUIDs do not result in a 404 error after deployment.
+// This now correctly tells Next.js to build a static page for every SLUG.
 export async function generateStaticParams() {
-  const paths = [];
-  resources.forEach(resource => {
-    // Add path for the human-readable slug
-    paths.push({ slug: resource.slug });
-    // Add path for the permanent ID
-    if (resource.id) {
-      paths.push({ slug: resource.id });
-    }
-  });
-  return paths;
+  return resources.map((resource) => ({
+    slug: resource.slug,
+  }));
 }
 
+// Generate metadata based solely on the SLUG.
 export async function generateMetadata({ params }) {
-  const resource = resources.find(p => p.slug === params.slug || p.id === params.slug);
+  const resource = resources.find(p => p.slug === params.slug);
   if (!resource) {
-    return {
-      title: 'Resource Not Found',
-    };
+    return { title: 'Resource Not Found' };
   }
   const title = `${resource.title} - Yourself To Science`;
   const description = resource.description || `Learn more about contributing to ${resource.title}.`;
   const canonicalUrl = `https://yourselftoscience.org/resource/${resource.slug}`;
-  
+
   return {
     title,
     description,
-    alternates: {
-      canonical: canonicalUrl,
-    },
+    alternates: { canonical: canonicalUrl },
   };
 }
 
 export default function ResourcePage({ params }) {
-  const resource = resources.find(p => p.slug === params.slug || p.id === params.slug);
-
+  // Find the resource using its SLUG.
+  const resource = resources.find(p => p.slug === params.slug);
   if (!resource) {
-    notFound(); // Correctly show a 404 if no resource is found
-  }
-
-  // THIS IS THE SECOND FIX:
-  // If the page was accessed via its ID, issue a permanent redirect
-  // to the canonical URL that uses the slug.
-  if (params.slug === resource.id && resource.id !== resource.slug) {
-    redirect(`/resource/${resource.slug}`, 'replace');
+    notFound();
   }
 
   // --- All of your UI code below remains untouched ---

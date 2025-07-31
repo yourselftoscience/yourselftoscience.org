@@ -1,0 +1,6 @@
+name = "id-redirect-worker"
+main = "workers/redirect.js"
+compatibility_date = "2024-07-31"
+
+[triggers]
+routes = ["id.yourselftoscience.org/*"]
