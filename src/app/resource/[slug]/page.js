@@ -1,6 +1,6 @@
 // src/app/resource/[slug]/page.js
 import { resources } from '@/data/resources';
-import { notFound } from 'next/navigation';
+import { redirect, notFound } from 'next/navigation';
 import Link from 'next/link';
 import { 
   FaExternalLinkAlt, FaHeart, FaDollarSign, FaQuestionCircle, FaUniversity,
@@ -9,44 +9,57 @@ import {
   FaUserFriends, FaCoins, FaListOl, FaUserShield, FaArrowRight 
 } from 'react-icons/fa';
 
+// THIS IS THE KEY FIX:
+// We tell Next.js to generate a page for every slug AND every ID.
+// This ensures that links with UUIDs do not result in a 404 error after deployment.
 export async function generateStaticParams() {
-  return resources.map((resource) => ({
-    slug: resource.slug,
-  }));
+  const paths = [];
+  resources.forEach(resource => {
+    // Add path for the human-readable slug
+    paths.push({ slug: resource.slug });
+    // Add path for the permanent ID
+    if (resource.id) {
+      paths.push({ slug: resource.id });
+    }
+  });
+  return paths;
 }
 
 export async function generateMetadata({ params }) {
-  const resource = resources.find(p => p.slug === params.slug);
+  const resource = resources.find(p => p.slug === params.slug || p.id === params.slug);
   if (!resource) {
-    return { title: 'Resource Not Found' };
+    return {
+      title: 'Resource Not Found',
+    };
   }
   const title = `${resource.title} - Yourself To Science`;
   const description = resource.description || `Learn more about contributing to ${resource.title}.`;
   const canonicalUrl = `https://yourselftoscience.org/resource/${resource.slug}`;
-  const persistentIdUrl = `https://id.yourselftoscience.org/resource/${resource.id}`;
-
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    'name': resource.title,
-    'url': canonicalUrl,
-    'identifier': persistentIdUrl,
-  };
-
+  
   return {
     title,
     description,
-    alternates: { canonical: canonicalUrl },
-    other: { 'application/ld+json': JSON.stringify(jsonLd) },
+    alternates: {
+      canonical: canonicalUrl,
+    },
   };
 }
 
 export default function ResourcePage({ params }) {
-  const resource = resources.find(p => p.slug === params.slug);
+  const resource = resources.find(p => p.slug === params.slug || p.id === params.slug);
+
   if (!resource) {
-    notFound();
+    notFound(); // Correctly show a 404 if no resource is found
   }
 
+  // THIS IS THE SECOND FIX:
+  // If the page was accessed via its ID, issue a permanent redirect
+  // to the canonical URL that uses the slug.
+  if (params.slug === resource.id && resource.id !== resource.slug) {
+    redirect(`/resource/${resource.slug}`, 'replace');
+  }
+
+  // --- All of your UI code below remains untouched ---
   const getStepIcon = (step) => {
     const lowerStep = step.toLowerCase();
     if (lowerStep.includes('fitbit app') || lowerStep.includes('open the app'))
@@ -82,16 +95,13 @@ export default function ResourcePage({ params }) {
           Back to all resources
         </Link>
       </div>
-
       <div className="bg-white shadow-lg rounded-lg overflow-hidden">
         <div className="p-8">
           <h1 className="text-4xl font-extrabold text-gray-900">{resource.title}</h1>
           <p className="mt-2 text-lg text-gray-600">by {resource.organization}</p>
-          
           {resource.description && (
             <p className="mt-6 text-gray-800 text-lg leading-relaxed">{resource.description}</p>
           )}
-
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -135,7 +145,6 @@ export default function ResourcePage({ params }) {
                   </span>
                 </div>
               </div>
-
               <div className="mt-10 text-center">
                 <a
                   href={resource.link}
@@ -146,7 +155,6 @@ export default function ResourcePage({ params }) {
                   Contribute Now <FaExternalLinkAlt className="ml-3 h-5 w-5" />
                 </a>
               </div>
-
               {resource.instructions && resource.instructions.length > 0 && (
                 <div className="mt-12">
                   <h2 className="text-3xl font-bold text-gray-800 mb-6">How to Contribute</h2>
