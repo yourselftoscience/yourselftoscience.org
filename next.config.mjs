@@ -12,17 +12,13 @@ const nextConfig = {
         destination: '/data',
         permanent: true,
       },
-      {
-        source: '/resource/:id([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})',
-        destination: '/resource/:id',
-        permanent: true,
-      },
+      // The redirect for /resource/:id has been removed.
     ];
   },
   async headers() {
     return [
       {
-        // Apply these headers to all routes in your application.
+        // Apply these headers to all routes.
         source: '/:path*',
         headers: [
           {
@@ -31,7 +27,9 @@ const nextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://cdn.jsdelivr.net; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; require-trusted-types-for 'script';",
+            // This policy preserves your security requirements but removes
+            // require-trusted-types-for 'script' (which conflicted with Next.js client scripts).
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://cdn.jsdelivr.net; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; object-src 'none'; base-uri 'none'; frame-ancestors 'none';",
           },
           {
             key: 'Cross-Origin-Opener-Policy',
@@ -48,7 +46,7 @@ const nextConfig = {
         ],
       },
       {
-        // Cache all static assets for one year
+        // Cache static assets for one year
         source: '/_next/static/(.*)',
         headers: [
           {
@@ -60,7 +58,6 @@ const nextConfig = {
     ];
   },
   transpilePackages: ["framer-motion"],
-  // swcMinify has been removed in Next.js 15
   images: {
     formats: ['image/avif', 'image/webp'],
   },
