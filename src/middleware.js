@@ -2,29 +2,43 @@ export const runtime = 'experimental-edge';
 
 // src/middleware.js
 import { NextResponse } from 'next/server';
+import { resources } from '@/data/resources';
+
+const UUID_REGEX = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
 
 export function middleware(request) {
   const host = request.headers.get('host');
   const pathname = request.nextUrl.pathname;
 
-  // This middleware should only run for the id.yourselftoscience.org subdomain
+  // 1) Handle the id.yourselftoscience.org subdomain
   if (host === 'id.yourselftoscience.org') {
-    // If the request is for our specific API route, let it pass through
+    // Allow the API route to perform UUID->slug redirect lookups
     if (pathname.startsWith('/api/resource/')) {
       return NextResponse.next();
     }
 
-    // For any other path on the id.* subdomain, redirect to the main site's homepage.
-    // This prevents duplicate content for SEO.
-    const destinationURL = 'https://yourselftoscience.org';
-    return Response.redirect(destinationURL, 308);
+    // Redirect all other paths on id.* to the main domain root to avoid mirroring
+    return NextResponse.redirect(new URL('/', 'https://yourselftoscience.org'), 308);
   }
 
-  // For any other host, do nothing.
+  // 2) On the main domain, redirect /resource/<uuid> to /resource/<slug>
+  if (pathname.startsWith('/resource/')) {
+    const parts = pathname.split('/');
+    const idOrSlug = parts[2] || '';
+    if (UUID_REGEX.test(idOrSlug)) {
+      const match = resources.find((r) => r.id === idOrSlug);
+      if (match && match.slug) {
+        // Preserve the current host in case of custom domains/aliases
+        return NextResponse.redirect(new URL(`/resource/${match.slug}`, `https://${host}`), 308);
+      }
+    }
+  }
+
+  // Default: allow request
   return NextResponse.next();
 }
 
-// Define which paths this middleware should apply to.
+// Apply to all paths
 export const config = {
   matcher: '/:path*',
 };
