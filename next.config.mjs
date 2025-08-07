@@ -12,11 +12,6 @@ const nextConfig = {
         destination: '/data',
         permanent: true,
       },
-      {
-        source: '/resource/:id([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})',
-        destination: '/resource/:id',
-        permanent: true,
-      },
     ];
   },
   async headers() {

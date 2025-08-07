@@ -17,6 +17,20 @@ export function middleware(request) {
       return NextResponse.next();
     }
 
+    // If the request is for a specific resource UUID, redirect to canonical slug on main domain
+    if (pathname.startsWith('/resource/')) {
+      const parts = pathname.split('/');
+      const idCandidate = parts[2] || '';
+      if (UUID_REGEX.test(idCandidate)) {
+        const match = resources.find((r) => r.id === idCandidate);
+        if (match && match.slug) {
+          return NextResponse.redirect(new URL(`/resource/${match.slug}`, 'https://yourselftoscience.org'), 308);
+        }
+      }
+      // If it's not a UUID or not found, fall through to main domain root
+      return NextResponse.redirect(new URL('/', 'https://yourselftoscience.org'), 308);
+    }
+
     // Redirect all other paths on id.* to the main domain root to avoid mirroring
     return NextResponse.redirect(new URL('/', 'https://yourselftoscience.org'), 308);
   }
