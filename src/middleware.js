@@ -3,7 +3,8 @@ export const runtime = 'experimental-edge';
 // src/middleware.js
 import { NextResponse } from 'next/server';
 
-const UUID_REGEX = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
+// Accept hyphenated 36-char IDs with letters & digits to support non-hex UUID-style IDs
+const UUID_REGEX = /^[A-Za-z0-9]{8}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{12}$/;
 
 // Simple in-memory cache for id->slug
 let resourceMapCache = null;

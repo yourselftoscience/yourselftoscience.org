@@ -22,7 +22,7 @@ export async function generateMetadata({ params }) {
   const title = `${resource.title} - Yourself To Science`;
   const description = resource.description || `Learn more about contributing to ${resource.title}.`;
   const canonicalUrl = `https://yourselftoscience.org/resource/${resource.slug}`;
-  const persistentIdUrl = `https://id.yourselftoscience.org/resource/${resource.id}`;
+  const persistentIdUrl = `https://yourselftoscience.org/resource/${resource.id}`;
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -68,7 +68,7 @@ export default function ResourcePage({ params }) {
     return <FaArrowRight className="text-gray-500" />;
   };
 
-  const persistentIdUrl = `https://id.yourselftoscience.org/resource/${resource.id}`;
+  const persistentIdUrl = `https://yourselftoscience.org/resource/${resource.id}`;
 
   const getCompensationIcon = (type) => {
     if (type === 'donation') return <span className="text-red-500">❤️</span>;
@@ -171,7 +171,7 @@ export default function ResourcePage({ params }) {
             <h3 className="text-xl font-semibold text-gray-800">Persistent Identifier</h3>
             <p className="mt-2 text-gray-600">This is the permanent, unique ID for this resource. You can use this for stable linking and data integration.</p>
             <div className="mt-3 bg-gray-100 p-4 rounded-lg text-gray-700 font-mono text-sm break-all">
-              https://id.yourselftoscience.org/resource/{resource.id}
+              https://yourselftoscience.org/resource/{resource.id}
             </div>
           </div>
         </div>
