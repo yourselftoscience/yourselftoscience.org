@@ -2,6 +2,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Script from 'next/script';
 import { resources } from '@/data/resources';
 import { EU_COUNTRIES } from '@/data/constants';
 import { motion, useScroll, AnimatePresence } from 'framer-motion';
@@ -161,6 +162,27 @@ const StatsPage = () => {
 
   return (
         <main className="flex-grow w-full max-w-screen-xl mx-auto px-4 py-12 md:py-16">
+            {process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (
+                <>
+                    <Script
+                        src={process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL || 'https://us.umami.is/script.js'}
+                        data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+                        defer
+                    />
+                    {process.env.NEXT_PUBLIC_UMAMI_SHARE_DASHBOARD && (
+                        <div className="mb-6 text-center">
+                            <a
+                                href={process.env.NEXT_PUBLIC_UMAMI_SHARE_DASHBOARD}
+                                className="inline-flex items-center gap-2 px-4 py-2 rounded border text-sm text-blue-700 hover:underline"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                View live traffic dashboard
+                            </a>
+                        </div>
+                    )}
+                </>
+            )}
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
