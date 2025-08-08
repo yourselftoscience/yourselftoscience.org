@@ -336,6 +336,22 @@ const StatsPage = () => {
                     </StatCard>
                 </div>
             </motion.div>
+
+            {/* Live traffic (Umami public dashboard) */}
+            <section className="mt-12">
+                <h2 className="text-2xl font-bold text-apple-primary-text mb-4">Live Website Analytics</h2>
+                <p className="text-apple-secondary-text mb-4">This public dashboard is powered by Umami and updates in near real-time.</p>
+                <div className="rounded-xl overflow-hidden border border-apple-divider bg-white">
+                    <iframe
+                        title="Live Website Analytics (Umami)"
+                        src="https://cloud.umami.is/share/Ojsa1vCvOf0As7LU/yourselftoscience.org"
+                        style={{ border: '0', width: '100%', height: '75vh' }}
+                        loading="lazy"
+                        referrerPolicy="no-referrer"
+                        allowFullScreen
+                    />
+                </div>
+            </section>
         </main>
   );
 };
