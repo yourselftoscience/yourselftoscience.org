@@ -2,45 +2,19 @@ export const runtime = 'experimental-edge';
 
 // src/middleware.js
 import { NextResponse } from 'next/server';
+import { resources } from '@/data/resources';
 
 // Accept hyphenated 36-char IDs with letters & digits to support non-hex UUID-style IDs
 const UUID_REGEX = /^[A-Za-z0-9]{8}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{12}$/;
 
-// Simple in-memory cache for id->slug
-let resourceMapCache = null;
-let resourceMapLastFetchMs = 0;
-const RESOURCE_MAP_TTL_MS = 5 * 60 * 1000; // 5 minutes
-
-async function getResourceMap() {
-  const now = Date.now();
-  if (resourceMapCache && now - resourceMapLastFetchMs < RESOURCE_MAP_TTL_MS) {
-    return resourceMapCache;
+// Build an in-process id -> slug map at edge init time (no network calls)
+const ID_TO_SLUG = (() => {
+  const map = new Map();
+  for (const r of resources) {
+    if (r.id && r.slug) map.set(r.id, r.slug);
   }
-  try {
-    // Prefer lightweight id->slug map if available
-    const mapResp = await fetch('https://yourselftoscience.org/id-to-slug.json', { cache: 'no-store' });
-    let map;
-    if (mapResp.ok) {
-      const obj = await mapResp.json();
-      map = new Map(Object.entries(obj));
-    } else {
-      // Fallback to full resources.json
-      const resp = await fetch('https://yourselftoscience.org/resources.json', { cache: 'no-store' });
-      if (!resp.ok) throw new Error('Failed to fetch resources.json');
-      const list = await resp.json();
-      map = new Map();
-      for (const r of list) {
-        if (r.id && r.slug) map.set(r.id, r.slug);
-      }
-    }
-    resourceMapCache = map;
-    resourceMapLastFetchMs = now;
-    return resourceMapCache;
-  } catch (_e) {
-    // On error, return previous cache if any, otherwise empty map
-    return resourceMapCache || new Map();
-  }
-}
+  return map;
+})();
 
 export async function middleware(request) {
   const host = request.headers.get('host');
@@ -58,8 +32,7 @@ export async function middleware(request) {
       const parts = pathname.split('/');
       const idCandidate = parts[2] || '';
       if (UUID_REGEX.test(idCandidate)) {
-        const map = await getResourceMap();
-        const slug = map.get(idCandidate);
+        const slug = ID_TO_SLUG.get(idCandidate);
         if (slug) {
           return NextResponse.redirect(new URL(`/resource/${slug}`, 'https://yourselftoscience.org'), 308);
         }
@@ -77,8 +50,7 @@ export async function middleware(request) {
     const parts = pathname.split('/');
     const idOrSlug = parts[2] || '';
     if (UUID_REGEX.test(idOrSlug)) {
-      const map = await getResourceMap();
-      const slug = map.get(idOrSlug);
+      const slug = ID_TO_SLUG.get(idOrSlug);
       if (slug) {
         // Preserve the current host in case of custom domains/aliases
         return NextResponse.redirect(new URL(`/resource/${slug}`, `https://${host}`), 308);
