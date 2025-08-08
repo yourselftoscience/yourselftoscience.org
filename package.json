@@ -7,7 +7,7 @@
     "dev:next": "next dev",
     "dev:watch": "node scripts/watchUpdatePdf.js",
     "dev": "concurrently \"npm run dev:next\" \"npm run dev:watch\"",
-    "prebuild": "npm run update-sitemap && npm run update-csv && npm run update-json && npm run update-markdown && npm run update-rdf || echo 'Prebuild scripts failed, continuing build'",
+    "prebuild": "npm run update-sitemap && npm run update-csv && npm run update-json && npm run update-idmap && npm run update-markdown && npm run update-rdf || echo 'Prebuild scripts failed, continuing build'",
     "build": "next build",
     "postbuild": "node scripts/updatePdfPage.js || echo 'PDF generation failed, continuing deployment'",
     "deploy": "next-on-pages",
@@ -18,6 +18,7 @@
     "update-sitemap": "node scripts/generateSitemap.js",
     "update-csv": "node scripts/generateResourceCSV.js",
     "update-json": "node scripts/generateResourceJSON.js",
+    "update-idmap": "node scripts/generateIdToSlug.js",
     "update-markdown": "node scripts/generateMarkdown.js",
     "update-rdf": "node scripts/generateRDF.js"
   },

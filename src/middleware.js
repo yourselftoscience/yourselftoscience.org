@@ -16,12 +16,21 @@ async function getResourceMap() {
     return resourceMapCache;
   }
   try {
-    const resp = await fetch('https://yourselftoscience.org/resources.json', { cache: 'no-store' });
-    if (!resp.ok) throw new Error('Failed to fetch resources.json');
-    const list = await resp.json();
-    const map = new Map();
-    for (const r of list) {
-      if (r.id && r.slug) map.set(r.id, r.slug);
+    // Prefer lightweight id->slug map if available
+    const mapResp = await fetch('https://yourselftoscience.org/id-to-slug.json', { cache: 'no-store' });
+    let map;
+    if (mapResp.ok) {
+      const obj = await mapResp.json();
+      map = new Map(Object.entries(obj));
+    } else {
+      // Fallback to full resources.json
+      const resp = await fetch('https://yourselftoscience.org/resources.json', { cache: 'no-store' });
+      if (!resp.ok) throw new Error('Failed to fetch resources.json');
+      const list = await resp.json();
+      map = new Map();
+      for (const r of list) {
+        if (r.id && r.slug) map.set(r.id, r.slug);
+      }
     }
     resourceMapCache = map;
     resourceMapLastFetchMs = now;
