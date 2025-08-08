@@ -147,7 +147,7 @@ function generateHomepageMarkdown() {
   mdContent += `## All Resources\n\n`;
 
   resources.forEach(resource => {
-    mdContent += `### [${resource.title}](https://yourselftoscience.org/resource/${resource.id})\n\n`;
+    mdContent += `### [${resource.title}](https://yourselftoscience.org/resource/${resource.slug})\n\n`;
     mdContent += `*Description:* ${resource.description}\n\n`;
     if (resource.dataTypes) {
       mdContent += `*Data Types:* ${resource.dataTypes.join(', ')}\n\n`;
@@ -175,7 +175,7 @@ function generateClinicalTrialsMarkdown() {
     mdContent += `## Clinical Trial Resources\n\n`;
 
     clinicalTrialResources.forEach(resource => {
-        mdContent += `### [${resource.title}](https://yourselftoscience.org/resource/${resource.id})\n\n`;
+        mdContent += `### [${resource.title}](https://yourselftoscience.org/resource/${resource.slug})\n\n`;
         mdContent += `*Description:* ${resource.description}\n\n`;
         if (resource.dataTypes) {
             mdContent += `*Data Types:* ${resource.dataTypes.join(', ')}\n\n`;
@@ -207,7 +207,7 @@ function generateOrganBodyTissueDonationMarkdown() {
     mdContent += `## Organ, Body & Tissue Donation Resources\n\n`;
 
     donationResources.forEach(resource => {
-        mdContent += `### [${resource.title}](https://yourselftoscience.org/resource/${resource.id})\n\n`;
+        mdContent += `### [${resource.title}](https://yourselftoscience.org/resource/${resource.slug})\n\n`;
         mdContent += `*Description:* ${resource.description}\n\n`;
         if (resource.dataTypes) {
             mdContent += `*Data Types:* ${resource.dataTypes.join(', ')}\n\n`;

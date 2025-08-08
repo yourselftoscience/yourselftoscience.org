@@ -28,7 +28,7 @@ export default function ResourcesListPage() {
         {sortedResources.map(resource => (
           <li key={resource.id} className="border-b pb-2">
             <Link 
-              href={`/resource/${resource.id}`}
+              href={`/resource/${resource.slug}`}
               className="text-blue-600 hover:underline"
             >
               {resource.title}
