@@ -89,16 +89,9 @@ export default function ResourcePage({ params }) {
 
       <div className="bg-white shadow-lg rounded-lg overflow-hidden">
         <div className="p-8">
-          <h1 className="text-4xl font-extrabold text-gray-900">
-            {resource.title}
-            <span
-              className="ml-3 align-middle text-sm text-gray-500 font-mono"
-              title={resource.id}
-            >
-              ({resource.id.slice(0, 8)}…{resource.id.slice(-4)})
-            </span>
-          </h1>
+          <h1 className="text-4xl font-extrabold text-gray-900">{resource.title}</h1>
           <p className="mt-2 text-lg text-gray-600">by {resource.organization}</p>
+          <p className="mt-1 text-sm text-gray-500 font-mono">ID: {resource.id}</p>
           
           {resource.description && (
             <p className="mt-6 text-gray-800 text-lg leading-relaxed">{resource.description}</p>
