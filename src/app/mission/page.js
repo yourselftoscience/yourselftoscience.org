@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, animate } from 'framer-motion';
+import { motion, animate, useInView } from 'framer-motion';
 import { resources } from '@/data/resources';
 import { FaHeart, FaGlobe, FaHandshake, FaChartLine, FaGithub, FaBolt, FaUsers, FaSearch, FaShieldAlt, FaCheckCircle, FaStethoscope, FaUniversity, FaRocket, FaUniversalAccess, FaRobot } from 'react-icons/fa';
 
@@ -16,16 +16,22 @@ export default function MissionPage() {
 
   // Animated counter for the opportunities stat
   function AnimatedNumber({ value }) {
+    const ref = React.useRef(null);
+    const isInView = useInView(ref, { once: true, amount: 0.5 });
     const [display, setDisplay] = React.useState(0);
+
     React.useEffect(() => {
-      const controls = animate(0, value, {
-        duration: 1.2,
-        ease: 'easeOut',
-        onUpdate: (v) => setDisplay(Math.floor(v)),
-      });
-      return () => controls.stop();
-    }, [value]);
-    return <>{display}</>;
+      if (isInView) {
+        const controls = animate(0, value, {
+          duration: 1.2,
+          ease: 'easeOut',
+          onUpdate: (v) => setDisplay(Math.floor(v)),
+        });
+        return () => controls.stop();
+      }
+    }, [isInView, value]);
+
+    return <span ref={ref}>{display}</span>;
   }
 
   return (
