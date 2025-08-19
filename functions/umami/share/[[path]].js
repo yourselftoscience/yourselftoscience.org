@@ -1,7 +1,7 @@
 export async function onRequestGet({ request }) {
   const url = new URL(request.url);
   const suffix = url.pathname.replace(/^\/umami\/share/, '');
-  const upstreamUrl = `https://cloud.umami.is/share${suffix}${url.search}`;
+  const upstreamUrl = `https://eu.umami.is/share${suffix}${url.search}`;
   
   // If this is a direct request to a country flag asset (we rewrote HTML to /umami/images/country/xx.png),
   // proxy it explicitly, with a graceful fallback if the country code is missing.

@@ -101,7 +101,7 @@ const nextConfig = {
       },
       {
         source: '/umami/share/:path*',
-        destination: 'https://cloud.umami.is/share/:path*',
+        destination: 'https://eu.umami.is/share/:path*',
       },
     ];
     return base;
