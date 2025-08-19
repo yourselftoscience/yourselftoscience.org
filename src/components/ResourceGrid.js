@@ -233,6 +233,7 @@ export default function ResourceGrid({
               <div className="tags flex flex-wrap items-center gap-1 mt-auto pt-2">
                 {/* Countries */}
                 {resource.countries?.map((country, idx) => {
+                  if (typeof country !== 'string' || country.length === 0) return null;
                   const code = resource.countryCodes?.[idx];
                   const isEU = country === 'European Union';
                   const isActive = filters.countries.includes(country) || (isEU && filters.countries.some(c => EU_COUNTRIES.includes(c)));
@@ -263,6 +264,7 @@ export default function ResourceGrid({
                 })}
                 {/* Data Types */}
                 {resource.dataTypes?.map((type) => {
+                  if (typeof type !== 'string' || type.length === 0) return null;
                   // If the type is a specific wearable type, make it toggle the main 'Wearable data' filter
                   if (type.startsWith('Wearable data')) {
                     const isActive = filters.dataTypes.includes('Wearable data');

@@ -281,9 +281,9 @@ function HomePageContent({ scrollY }) {
 
   const dataTypeOptions = useMemo(() => {
     const allTypes = allResources.flatMap(resource => resource.dataTypes || []);
-    const mappedTypes = allTypes.map(type =>
-      type.startsWith('Wearable data') ? 'Wearable data' : type
-    );
+    const mappedTypes = allTypes
+      .filter((type) => typeof type === 'string' && type.length > 0)
+      .map(type => type.startsWith('Wearable data') ? 'Wearable data' : type);
     const uniqueTypes = [...new Set(mappedTypes)];
     return uniqueTypes.sort((a, b) => a.localeCompare(b));
   }, []);
@@ -293,7 +293,9 @@ function HomePageContent({ scrollY }) {
     const countryCodeMap = new Map();
     allResources.forEach((resource) => {
       resource.countries?.forEach((country, index) => {
-        countries.add(country);
+        if (typeof country === 'string' && country.length > 0) {
+          countries.add(country);
+        }
         if (resource.countryCodes?.[index] && !countryCodeMap.has(country)) {
           countryCodeMap.set(country, resource.countryCodes[index]);
         }
@@ -312,7 +314,7 @@ function HomePageContent({ scrollY }) {
 
   const processedResources = useMemo(() => {
     let filteredData = [...allResources];
-    const lowerSearchTerm = filters.searchTerm.toLowerCase().trim();
+    const lowerSearchTerm = (filters.searchTerm || '').toString().toLowerCase().trim();
 
     if (lowerSearchTerm) {
       filteredData = filteredData.filter(resource => {
@@ -345,7 +347,7 @@ function HomePageContent({ scrollY }) {
       );
     }
 
-    const expandedCountries = expandCountries(filters.countries);
+    const expandedCountries = expandCountries(filters.countries || []);
     if (expandedCountries.length > 0) {
       filteredData = filteredData.filter(resource =>
         !resource.countries || resource.countries.length === 0 ||
@@ -353,7 +355,7 @@ function HomePageContent({ scrollY }) {
       );
     }
 
-    const paymentValues = filters.compensationTypes.map(p => p.value);
+    const paymentValues = (filters.compensationTypes || []).map(p => p.value);
     if (paymentValues.length > 0) {
       filteredData = filteredData.filter(resource =>
         resource.compensationType && paymentValues.includes(resource.compensationType)

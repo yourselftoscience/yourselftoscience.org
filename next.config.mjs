@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig = {
+  poweredByHeader: false,
   async redirects() {
     return [
       {
@@ -26,7 +29,35 @@ const nextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.cloudflareinsights.com https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://cdn.jsdelivr.net; font-src 'self'; connect-src 'self' https://cloudflareinsights.com https://cloud.umami.is; frame-src https://cloud.umami.is; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; require-trusted-types-for 'script';",
+            value: [
+              "default-src 'self'",
+              isProd
+                ? "script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com"
+                : "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.cloudflareinsights.com",
+              "style-src 'self' 'unsafe-inline'",
+              "img-src 'self' data: https://cdn.jsdelivr.net",
+              "font-src 'self'",
+              "connect-src 'self' https://cloudflareinsights.com",
+              isProd
+                ? "frame-src 'self'"
+                : "frame-src 'self' https://cloud.umami.is https://eu.umami.is",
+              "object-src 'none'",
+              "base-uri 'none'",
+              "frame-ancestors 'self'",
+            ].join('; ') + ';',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+          {
+            key: 'Permissions-Policy',
+            value:
+              'accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), browsing-topics=()',
           },
           {
             key: 'Cross-Origin-Opener-Policy',
@@ -34,7 +65,7 @@ const nextConfig = {
           },
           {
             key: 'Cross-Origin-Embedder-Policy',
-            value: 'require-corp',
+            value: 'unsafe-none',
           },
           {
             key: 'X-Frame-Options',
@@ -54,10 +85,36 @@ const nextConfig = {
       },
     ];
   },
+  async rewrites() {
+    const base = [
+      {
+        source: '/umami/script',
+        destination: 'https://cloud.umami.is/script.js',
+      },
+      {
+        source: '/umami/api/send',
+        destination: 'https://cloud.umami.is/api/send',
+      },
+      {
+        source: '/umami/images/country/:path*',
+        destination: 'https://cloud.umami.is/images/country/:path*',
+      },
+      {
+        source: '/umami/share/:path*',
+        destination: 'https://cloud.umami.is/share/:path*',
+      },
+    ];
+    return base;
+  },
   transpilePackages: ["framer-motion"],
   // swcMinify has been removed in Next.js 15
   images: {
     formats: ['image/avif', 'image/webp'],
+  },
+  webpack: (config) => {
+    // Trusted Types policy for Next bundler
+    config.output.trustedTypes = { policyName: 'nextjs#bundler' };
+    return config;
   },
   reactStrictMode: true,
 };

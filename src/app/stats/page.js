@@ -26,7 +26,13 @@ const StatCard = ({ title, value, icon, children }) => (
 );
 
 const Bar = ({ label, value, maxValue, index }) => {
-    const barWidth = Math.max((value / maxValue) * 100, 1); // 1% min width
+    const numericValue = Number(value);
+    const numericMax = Number(maxValue);
+    const safeValue = isFinite(numericValue) && numericValue >= 0 ? numericValue : 0;
+    const safeMax = isFinite(numericMax) && numericMax > 0 ? numericMax : 0;
+    const computed = safeMax === 0 ? 0 : (safeValue / safeMax) * 100;
+    const barWidth = Math.max(isFinite(computed) ? computed : 0, 0); // 0% when no data
+    const safeDelay = Number.isFinite(index) && index >= 0 ? index * 0.07 : 0;
     return (
         <div className="mb-3" title={`${label}: ${value}`}>
             <div className="flex justify-between items-center text-sm mb-1">
@@ -40,7 +46,7 @@ const Bar = ({ label, value, maxValue, index }) => {
                     initial={{ width: '0%' }}
                     whileInView={{ width: `${barWidth}%` }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1], delay: index * 0.07 }}
+                    transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1], delay: safeDelay }}
                 />
             </div>
         </div>
@@ -128,7 +134,7 @@ const StatsPage = () => {
             resource.countries.forEach(country => {
                 if (country === 'European Union') {
                     acc['EU-Wide'] = (acc['EU-Wide'] || 0) + 1;
-                } else if (EU_COUNTRIES.includes(country)) {
+                } else if (typeof country === 'string' && EU_COUNTRIES.includes(country)) {
                     acc[country] = (acc[country] || 0) + 1;
                 }
             });
@@ -161,6 +167,20 @@ const StatsPage = () => {
 
   return (
         <main className="flex-grow w-full max-w-screen-xl mx-auto px-4 py-12 md:py-16">
+            {/** Derive iframe src and sandbox based on environment to keep dev clean and prod secure */}
+            {(() => {
+                const isProd = process.env.NODE_ENV === 'production';
+                // eslint-disable-next-line no-unused-vars
+                const __iframeConfig = {
+                    src: isProd
+                        ? '/umami/share/Ojsa1vCvOf0As7LU/yourselftoscience.org'
+                        : 'https://cloud.umami.is/share/Ojsa1vCvOf0As7LU/yourselftoscience.org',
+                    sandbox: isProd
+                        ? 'allow-scripts allow-forms allow-popups allow-presentation allow-same-origin'
+                        : 'allow-scripts allow-forms allow-popups allow-presentation',
+                };
+                return null;
+            })()}
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -191,7 +211,13 @@ const StatsPage = () => {
                     <StatCard title="Compensation Types" icon={<FaMoneyBillWave size="1.5em"/>}>
                         <div className="mt-6">
                             {stats.compensationDistribution.map(([type, count], index) => (
-                                <Bar key={type} label={type.charAt(0).toUpperCase() + type.slice(1)} value={count} maxValue={stats.compensationDistribution[0][1]} index={index} />
+                                <Bar
+                                  key={type}
+                                  label={type.charAt(0).toUpperCase() + type.slice(1)}
+                                  value={count}
+                                  maxValue={(stats.compensationDistribution && stats.compensationDistribution[0] && stats.compensationDistribution[0][1]) || 1}
+                                  index={index}
+                                />
                             ))}
                         </div>
                     </StatCard>
@@ -202,9 +228,13 @@ const StatsPage = () => {
                     <StatCard title="Service Availability by Country" icon={<FaGlobe size="1.5em"/>}>
                         <div className="mt-6">
                             {stats.topCountries.map(([country, count], index) => {
-                               const maxValue = stats.topCountries[0][1];
+                               const maxValue = stats.topCountries[0][1] || 0;
                                if (country === 'European Union') {
-                                const barWidth = Math.max((count / maxValue) * 100, 1);
+                                const numericCount = Number(count);
+                                const safeCount = isFinite(numericCount) && numericCount >= 0 ? numericCount : 0;
+                                const safeMax = isFinite(Number(maxValue)) && Number(maxValue) > 0 ? Number(maxValue) : 0;
+                                const computed = safeMax === 0 ? 0 : (safeCount / safeMax) * 100;
+                                const barWidth = Math.max(isFinite(computed) ? computed : 0, 0);
                                 return (
                                     <div key="eu-expandable">
                                         <div 
@@ -228,7 +258,7 @@ const StatsPage = () => {
                                                     initial={{ width: '0%' }}
                                                     whileInView={{ width: `${barWidth}%` }}
                                                     viewport={{ once: true }}
-                                                    transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1], delay: index * 0.07 }}
+                                                    transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1], delay: (Number.isFinite(index) && index >= 0) ? index * 0.07 : 0 }}
                                                 />
                                             </div>
                                         </div>
@@ -266,7 +296,13 @@ const StatsPage = () => {
                     <StatCard title="Data Type Distribution" icon={<FaDatabase size="1.5em"/>}>
                         <div className="mt-6">
                             {stats.dataTypesDistribution.map(([type, count], index) => (
-                                <Bar key={type} label={type} value={count} maxValue={stats.dataTypesDistribution[0][1]} index={index} />
+                                <Bar
+                                  key={type}
+                                  label={type}
+                                  value={count}
+                                   maxValue={(stats.dataTypesDistribution && stats.dataTypesDistribution[0] && stats.dataTypesDistribution[0][1]) || 0}
+                                  index={index}
+                                />
                             ))}
                         </div>
                     </StatCard>
@@ -274,8 +310,12 @@ const StatsPage = () => {
                         <div className="mt-6">
                             {stats.entityTypeDistribution.map((entity, index) => {
                                 const isExpanded = expandedEntityTypes.has(entity.name);
-                                const maxValue = stats.entityTypeDistribution[0].count;
-                                const barWidth = Math.max((entity.count / maxValue) * 100, 1);
+                                const maxValue = stats.entityTypeDistribution[0]?.count || 0;
+                                const numericEntityCount = Number(entity.count);
+                                const safeEntityCount = isFinite(numericEntityCount) && numericEntityCount >= 0 ? numericEntityCount : 0;
+                                const safeMax2 = isFinite(Number(maxValue)) && Number(maxValue) > 0 ? Number(maxValue) : 0;
+                                const computed2 = safeMax2 === 0 ? 0 : (safeEntityCount / safeMax2) * 100;
+                                const barWidth = Math.max(isFinite(computed2) ? computed2 : 0, 0);
                                 
                                 return (
                                     <div key={entity.name}>
@@ -302,7 +342,7 @@ const StatsPage = () => {
                                                     initial={{ width: '0%' }}
                                                     whileInView={{ width: `${barWidth}%` }}
                                                     viewport={{ once: true }}
-                                                    transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1], delay: index * 0.07 }}
+                                                    transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1], delay: (Number.isFinite(index) && index >= 0) ? index * 0.07 : 0 }}
                                                 />
                                             </div>
                                         </div>
@@ -342,18 +382,30 @@ const StatsPage = () => {
                 <h2 className="text-2xl font-bold text-apple-primary-text mb-4">Live Website Analytics</h2>
                 <p className="text-apple-secondary-text mb-4">This public dashboard is powered by Umami and updates in near real-time.</p>
                 <div className="rounded-xl overflow-hidden border border-apple-divider bg-white">
-                    <iframe
-                        title="Live Website Analytics (Umami)"
-                        src="https://cloud.umami.is/share/Ojsa1vCvOf0As7LU/yourselftoscience.org"
-                        style={{ border: '0', width: '100%', height: '75vh' }}
-                        loading="lazy"
-                        referrerPolicy="no-referrer"
-                        allowFullScreen
-                    />
-                </div>
+                    {(() => {
+                        const isProd = process.env.NODE_ENV === 'production';
+                        const src = isProd
+                          ? '/umami/share/Ojsa1vCvOf0As7LU/yourselftoscience.org'
+                          : 'https://cloud.umami.is/share/Ojsa1vCvOf0As7LU/yourselftoscience.org';
+                        const sandbox = isProd
+                          ? 'allow-scripts allow-forms allow-popups allow-presentation allow-same-origin'
+                          : 'allow-scripts allow-forms allow-popups allow-presentation allow-same-origin';
+                        return (
+                          <iframe
+                            title="Live Website Analytics (Umami)"
+                            src={src}
+                            style={{ border: '0', width: '100%', height: '75vh' }}
+                            loading="lazy"
+                            sandbox={sandbox}
+                            referrerPolicy="no-referrer"
+                            allowFullScreen
+                          />
+                        );
+                    })()}
+                    </div>
             </section>
         </main>
   );
 };
 
-export default StatsPage;
+export default StatsPage; 

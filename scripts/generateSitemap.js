@@ -49,6 +49,7 @@ async function generateSitemap() {
       { url: `${SITE_URL}/`, priority: '1.0', changefreq: 'weekly' },
       { url: `${SITE_URL}/stats`, priority: '0.9', changefreq: 'weekly' },
       { url: `${SITE_URL}/get-involved`, priority: '0.9', changefreq: 'weekly' },
+      { url: `${SITE_URL}/mission`, priority: '0.9', changefreq: 'monthly' },
       { url: `${SITE_URL}/clinical-trials`, priority: '0.8', changefreq: 'weekly' },
       { url: `${SITE_URL}/organ-body-tissue-donation`, priority: '0.8', changefreq: 'weekly' },
       { url: `${SITE_URL}/resources`, priority: '0.5', changefreq: 'monthly' }, // SEO-only page

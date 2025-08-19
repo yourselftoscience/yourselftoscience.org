@@ -101,11 +101,12 @@ export default function RootLayout({
         {/* Add other necessary head elements like charset, viewport */}
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* Umami Analytics */}
-        <Script
-          src="https://cloud.umami.is/script.js"
-          strategy="afterInteractive"
+        {/* Umami Analytics via same-origin proxy */}
+        <script
+          defer
+          src="/umami/script"
           data-website-id="4a93fee5-ce95-4799-a524-fc117493239e"
+          data-host-url="/umami"
         />
       </head>
       {/* Add suppressHydrationWarning to body as well */}

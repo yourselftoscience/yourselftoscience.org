@@ -26,6 +26,17 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  /* Keep long benefit titles on one line on desktop without shrinking too much */
+  .benefit-title {
+    font-weight: 600;
+  }
+  @media (min-width: 768px) {
+    .benefit-title {
+      white-space: nowrap;
+      font-size: clamp(0.95rem, 1.1vw, 1rem);
+      line-height: 1.2;
+    }
+  }
 }
 
 /* Style for targeted reference list items */
@@ -92,4 +103,39 @@ li:target {
 /* Ensure labels are clickable */
 label {
   cursor: pointer;
+}
+
+/* Progressive enhancement: scroll‑driven animations */
+@supports (animation-timeline: auto) {
+  html { timeline-scope: --page-scroll; }
+  main { scroll-timeline: --page-scroll block; }
+
+  @keyframes sd-fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes sd-fade-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes sd-scale {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .sd-fade {
+    animation: sd-fade linear both;
+    animation-timeline: --page-scroll;
+    animation-range: entry 20% cover 30%;
+  }
+  .sd-fade-up {
+    animation: sd-fade-up linear both;
+    animation-timeline: --page-scroll;
+    animation-range: entry 15% cover 30%;
+  }
+  .sd-scale {
+    animation: sd-scale linear both;
+    animation-timeline: --page-scroll;
+    animation-range: entry 20% cover 30%;
+  }
 }

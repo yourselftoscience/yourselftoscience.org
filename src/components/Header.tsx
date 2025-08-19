@@ -218,6 +218,9 @@ export default function Header({ scrollY }: HeaderProps) {
         <Link href="/stats" className="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors px-3 py-2 rounded-md">
             Stats
         </Link>
+        <Link href="/mission" className="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors px-3 py-2 rounded-md">
+            Our Mission
+        </Link>
         <Link href="/get-involved" className="text-base font-medium text-white bg-blue-600 px-4 py-2 rounded-md hover:bg-blue-700 transition-colors shadow-sm hover:shadow-md">
             Get Involved
         </Link>
@@ -259,6 +262,9 @@ export default function Header({ scrollY }: HeaderProps) {
                 <nav className="flex flex-col space-y-2">
                   <Link href="/stats" className="px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100 rounded-md transition-colors" onClick={toggleMobileMenu}>
                     Stats
+                  </Link>
+                  <Link href="/mission" className="px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100 rounded-md transition-colors" onClick={toggleMobileMenu}>
+                    Our Mission
                   </Link>
                   <div className="pt-6">
                     <Link href="/get-involved" className="w-full block text-center text-lg font-medium text-white bg-blue-600 px-4 py-3 rounded-md hover:bg-blue-700 transition-colors shadow-sm hover:shadow-md" onClick={toggleMobileMenu}>
