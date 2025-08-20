@@ -95,6 +95,10 @@ const nextConfig = {
         source: '/umami/api/send',
         destination: 'https://cloud.umami.is/api/send',
       },
+      {
+        source: '/umami/share/:path*',
+        destination: 'https://eu.umami.is/share/:path*',
+      },
     ];
   },
   transpilePackages: ["framer-motion"],
