@@ -174,7 +174,7 @@ const StatsPage = () => {
                 const __iframeConfig = {
                     src: isProd
                         ? '/umami/share/Ojsa1vCvOf0As7LU/yourselftoscience.org?theme=light'
-                        : 'https://cloud.umami.is/share/Ojsa1vCvOf0As7LU/yourselftoscience.org?theme=light',
+                        : 'https://eu.umami.is/share/Ojsa1vCvOf0As7LU/yourselftoscience.org?theme=light',
                     sandbox: isProd
                         ? 'allow-scripts allow-forms allow-popups allow-presentation allow-same-origin'
                         : 'allow-scripts allow-forms allow-popups allow-presentation',
