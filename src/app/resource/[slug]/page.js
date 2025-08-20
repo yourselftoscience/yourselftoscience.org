@@ -10,6 +10,8 @@ export async function generateStaticParams() {
   }));
 }
 
+export const dynamicParams = false;
+
 export async function generateMetadata({ params }) {
   const resource = resources.find(p => p.slug === params.slug || p.id === params.slug);
   
