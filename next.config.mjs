@@ -32,7 +32,7 @@ const nextConfig = {
             value: [
               "default-src 'self'",
               isProd
-                ? "script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com"
+                ? "script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://cloudflareinsights.com"
                 : "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.cloudflareinsights.com",
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: https://cdn.jsdelivr.net",
@@ -84,27 +84,6 @@ const nextConfig = {
         ],
       },
     ];
-  },
-  async rewrites() {
-    const base = [
-      {
-        source: '/umami/script',
-        destination: 'https://cloud.umami.is/script.js',
-      },
-      {
-        source: '/umami/api/send',
-        destination: 'https://cloud.umami.is/api/send',
-      },
-      {
-        source: '/umami/images/country/:path*',
-        destination: 'https://cloud.umami.is/images/country/:path*',
-      },
-      {
-        source: '/umami/share/:path*',
-        destination: 'https://eu.umami.is/share/:path*',
-      },
-    ];
-    return base;
   },
   transpilePackages: ["framer-motion"],
   // swcMinify has been removed in Next.js 15
