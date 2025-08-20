@@ -383,10 +383,7 @@ const StatsPage = () => {
                 <p className="text-apple-secondary-text mb-4">This public dashboard is powered by Umami and updates in near real-time.</p>
                 <div className="rounded-xl overflow-hidden border border-apple-divider bg-white">
                     {(() => {
-                        const isProd = process.env.NODE_ENV === 'production';
-                        const src = isProd
-                          ? '/umami/share/Ojsa1vCvOf0As7LU/yourselftoscience.org?theme=light'
-                          : 'https://eu.umami.is/share/Ojsa1vCvOf0As7LU/yourselftoscience.org?theme=light';
+                        const src = 'https://eu.umami.is/share/Ojsa1vCvOf0As7LU/yourselftoscience.org?theme=light';
                         
                         return (
                           <iframe
@@ -394,7 +391,6 @@ const StatsPage = () => {
                             src={src}
                             style={{ border: '0', width: '100%', height: '75vh' }}
                             loading="lazy"
-                            
                             referrerPolicy="no-referrer"
                             allowFullScreen
                           />
