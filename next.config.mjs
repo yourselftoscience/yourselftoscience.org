@@ -39,7 +39,7 @@ const nextConfig = {
               "font-src 'self'",
               "connect-src 'self' https://cloudflareinsights.com",
               isProd
-                ? "frame-src 'self'"
+                ? "frame-src 'self' https://eu.umami.is"
                 : "frame-src 'self' https://cloud.umami.is https://eu.umami.is",
               "object-src 'none'",
               "base-uri 'none'",

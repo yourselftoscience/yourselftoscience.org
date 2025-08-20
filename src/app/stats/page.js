@@ -387,16 +387,14 @@ const StatsPage = () => {
                         const src = isProd
                           ? '/umami/share/Ojsa1vCvOf0As7LU/yourselftoscience.org?theme=light'
                           : 'https://eu.umami.is/share/Ojsa1vCvOf0As7LU/yourselftoscience.org?theme=light';
-                        const sandbox = isProd
-                          ? 'allow-scripts allow-forms allow-popups allow-presentation allow-same-origin'
-                          : 'allow-scripts allow-forms allow-popups allow-presentation allow-same-origin';
+                        
                         return (
                           <iframe
                             title="Live Website Analytics (Umami)"
                             src={src}
                             style={{ border: '0', width: '100%', height: '75vh' }}
                             loading="lazy"
-                            sandbox={sandbox}
+                            
                             referrerPolicy="no-referrer"
                             allowFullScreen
                           />
