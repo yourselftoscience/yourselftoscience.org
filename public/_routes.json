@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "include": ["/*"],
+  "exclude": ["/_next/static/*", "/favicon.ico", "/apple-icon.png", "/favicon.png", "/preview.png", "/fonts/*"]
+}
