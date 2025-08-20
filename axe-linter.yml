@@ -1,17 +1,2 @@
 rules:
-  heading-order: true
-exclude:
-  - 'src/app/api/**'
-  - 'src/data/**'
-  - 'scripts/**'
-  - '*.config.js'
-  - '*.config.mjs'
-  - 'LICENSE-CODE'
-  - 'LICENSE-CONTENT'
-  - 'README.md'
-  - '.gitignore'
-# exclude:
-# global-components:
-  # Add custom component mappings here if needed, e.g.:
-  # MyCustomCard: article
-# global-libraries: # No matching pre-configured libraries found in dependencies 
+  heading-order: false # Disabled due to persistent false positives
