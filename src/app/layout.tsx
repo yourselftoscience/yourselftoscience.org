@@ -104,7 +104,7 @@ export default function RootLayout({
         {/* Umami Analytics via same-origin proxy */}
         <script
           defer
-          src="/umami/script"
+          src="/umami/script.js"
           data-website-id="4a93fee5-ce95-4799-a524-fc117493239e"
           data-host-url="/umami"
         />
