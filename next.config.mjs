@@ -85,6 +85,18 @@ const nextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: '/umami/script.js',
+        destination: 'https://cloud.umami.is/script.js',
+      },
+      {
+        source: '/umami/api/send',
+        destination: 'https://cloud.umami.is/api/send',
+      },
+    ];
+  },
   transpilePackages: ["framer-motion"],
   // swcMinify has been removed in Next.js 15
   images: {
