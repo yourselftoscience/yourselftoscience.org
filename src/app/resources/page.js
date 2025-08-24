@@ -1,44 +1,80 @@
 import { resources } from '@/data/resources';
 import Link from 'next/link';
+import { FiInfo, FiArrowRight } from 'react-icons/fi';
 
-export const metadata = {
-  title: 'All Resources - Yourself To Science',
-  description: 'Browse all services for contributing to science with your data, genome, body, and more.',
+export const metadata = {  title: 'All Resources - Yourself To Science',
+  description: 'A complete listing of all services for contributing to science.',
+  robots: {
+    index: false,
+    follow: true,
+  },
   other: {
     'citation_title': 'Complete Resource Listing - Yourself To Science',
     'citation_author': 'Mario Marcolongo',
     'citation_publication_date': new Date().toISOString().split('T')[0].replace(/-/g, '/'),
     'citation_pdf_url': 'https://yourselftoscience.org/yourselftoscience.pdf',
-    'citation_fulltext_world_readable': ' ' // Add this line
+    'citation_fulltext_world_readable': ' '
   }
 };
 
 export default function ResourcesListPage() {
-  // Sort resources alphabetically by title for consistent ordering
-  const sortedResources = [...resources].sort((a, b) => 
+  const sortedResources = [...resources].sort((a, b) =>
     a.title.toLowerCase().localeCompare(b.title.toLowerCase())
   );
 
   return (
-    <main className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6">All Resources</h1>
-      <p className="mb-8">A complete listing of all services for contributing to science.</p>
-      
-      <ul className="space-y-2">
-        {sortedResources.map(resource => (
-          <li key={resource.id} className="border-b pb-2">
-            <Link 
-              href={`/resource/${resource.slug}`}
-              className="text-blue-600 hover:underline"
+    <main className="py-12 sm:py-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+
+        <div className="bg-blue-50 border border-blue-200 p-6 rounded-lg mb-12 text-center shadow-sm">
+          <FiInfo className="h-8 w-8 text-blue-500 mx-auto mb-3" aria-hidden="true" />
+          <h2 className="text-lg font-semibold text-blue-800">A Note for Our Visitors</h2>
+          <p className="mt-1 text-sm text-blue-700">
+            You&apos;ve landed on a simplified list designed for machine readability. For the best experience with filters and search, we recommend our main homepage.
+          </p>
+          <div className="mt-4">
+            <Link
+              href="/"
+              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
-              {resource.title}
+              Take Me to the Homepage
+              <FiArrowRight className="ml-2 -mr-1 h-4 w-4" />
             </Link>
-            <span className="ml-2 text-sm text-gray-500">
-              [{resource.dataTypes?.join(', ')}]
-            </span>
-          </li>
-        ))}
-      </ul>
+          </div>
+        </div>
+
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+            All Resources
+          </h1>
+          <p className="mt-4 text-xl text-gray-500">
+            A complete listing of all services for contributing to science.
+          </p>
+        </div>
+        
+        <div className="border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+          <ul className="divide-y divide-gray-200">
+            {sortedResources.map(resource => (
+              <li key={resource.id}>
+                <Link
+                  href={`/resource/${resource.slug}`}
+                  className="flex items-center justify-between w-full px-4 py-5 hover:bg-gray-50 transition-colors group"
+                >
+                  <div className="flex-grow">
+                    <p className="font-semibold text-blue-600 group-hover:underline">
+                      {resource.title}
+                    </p>
+                    <p className="text-sm text-gray-500 mt-1">
+                      {resource.dataTypes?.join(', ')}
+                    </p>
+                  </div>
+                  <FiArrowRight className="h-5 w-5 text-gray-400 flex-shrink-0 ml-4 transition-transform transform group-hover:translate-x-1" />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </main>
   );
 }
