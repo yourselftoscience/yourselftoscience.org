@@ -7,7 +7,7 @@ export async function POST(request) {
     country,
     gender,
     yearOfBirth,
-    healthInterests,
+    researchTopics,
     signupSource,
   } = await request.json();
 
@@ -43,10 +43,10 @@ export async function POST(request) {
   if (firstName) merge_fields.FNAME = firstName;
   // For custom fields like Gender, Year of Birth, and Interests,
   // you must define corresponding Merge Tags in your Mailchimp Audience settings.
-  // e.g., GENDER, YOB, INTERESTS
+  // e.g., GENDER, YOB, TOPICS
   if (gender) merge_fields.GENDER = gender;
   if (yearOfBirth) merge_fields.YOB = yearOfBirth;
-  if (healthInterests) merge_fields.INTERESTS = healthInterests;
+  if (researchTopics) merge_fields.TOPICS = researchTopics;
   if (country && country.length > 0) merge_fields.COUNTRY = country.join(', ');
 
   const data = {

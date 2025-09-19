@@ -70,7 +70,7 @@ export default function NewsletterSignup({ compact = false }) {
     country: [], // Changed to array for multi-select
     gender: '',
     yearOfBirth: '',
-    healthInterests: '',
+    researchTopics: '',
     signupSource: '',
   });
   const emailInputRef = useRef(null);
@@ -137,7 +137,7 @@ export default function NewsletterSignup({ compact = false }) {
           formData.country.length > 0 ||
           formData.gender ||
           formData.yearOfBirth ||
-          formData.healthInterests;
+          formData.researchTopics;
 
         if (isExpanded && !hasAnyData) {
           setIsExpanded(false);
@@ -181,7 +181,22 @@ export default function NewsletterSignup({ compact = false }) {
     if (response.ok) {
       setStatus('success');
       setMessage('Thank you for subscribing!');
-      // Reset form if needed
+      // Clear form data immediately to prevent "unsaved changes" warnings
+      setFormData({
+        email: '',
+        firstName: '',
+        country: [],
+        gender: '',
+        yearOfBirth: '',
+        researchTopics: '',
+        signupSource: pathname, // Keep the signup source
+      });
+
+      setTimeout(() => {
+        setIsExpanded(false);
+        setMessage('');
+        setStatus('idle');
+      }, 3000);
     } else {
       setStatus('error');
       setMessage(result.error || 'Something went wrong. Please try again.');
@@ -380,9 +395,9 @@ export default function NewsletterSignup({ compact = false }) {
                       id="newsletter-interests"
                       label="Topics you're interested in (Optional, comma-separated)"
                       type="text"
-                      name="healthInterests"
+                      name="researchTopics"
                       placeholder="e.g., Cancer research, Longevity, Wearable data, Cystic Fibrosis research"
-                      value={formData.healthInterests}
+                      value={formData.researchTopics}
                       onChange={handleInputChange}
                     />
                   </div>
