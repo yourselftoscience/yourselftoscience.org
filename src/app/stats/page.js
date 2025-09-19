@@ -1,12 +1,14 @@
 // src/app/stats/page.js
 'use client';
 
-import React, { useState } from 'react';
-import { resources } from '@/data/resources';
+import React, { useState, useMemo } from 'react';
+import { resources as allResources } from '@/data/resources';
 import { EU_COUNTRIES } from '@/data/constants';
 import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import { FaGlobe, FaDatabase, FaMoneyBillWave, FaChartBar, FaChevronDown, FaBuilding } from 'react-icons/fa';
 import Link from 'next/link';
+import { useRouter, usePathname } from 'next/navigation';
+import NewsletterSignup from '@/components/NewsletterSignup';
 
 const StatCard = ({ title, value, icon, children }) => (
   <motion.div
@@ -58,8 +60,12 @@ const StatsPage = () => {
   const { scrollY } = useScroll();
   const [isEuExpanded, setIsEuExpanded] = useState(false);
   const [expandedEntityTypes, setExpandedEntityTypes] = useState(new Set());
+  const [visibleEntityTypes, setVisibleEntityTypes] = useState(4);
+  const router = useRouter();
+  const pathname = usePathname();
 
   const stats = React.useMemo(() => {
+    const resources = allResources;
     const totalResources = resources.length;
 
     const resourcesByCountry = resources.reduce((acc, resource) => {
@@ -129,7 +135,7 @@ const StatsPage = () => {
   }, []);
   
   const euBreakdownStats = React.useMemo(() => {
-    const euServicesWithCounts = resources.reduce((acc, resource) => {
+    const euServicesWithCounts = allResources.reduce((acc, resource) => {
         if (resource.countries) {
             resource.countries.forEach(country => {
                 if (country === 'European Union') {
@@ -398,6 +404,16 @@ const StatsPage = () => {
                     })()}
                     </div>
             </section>
+            <div className="mt-16 text-center">
+              <h2 className="text-3xl font-bold mb-4">Stay Involved</h2>
+              <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
+                Our list is always growing. Subscribe to our newsletter to get updates
+                on new resources and opportunities to contribute to science.
+              </p>
+              <div className="flex justify-center">
+                <NewsletterSignup />
+              </div>
+            </div>
         </main>
   );
 };

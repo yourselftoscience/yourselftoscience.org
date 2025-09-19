@@ -15,6 +15,7 @@ import { FaHeart, FaDollarSign, FaTimes, FaFilter, FaDownload, FaSlidersH, FaUnd
 import Header from '@/components/Header';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import NewsletterSignup from '../components/NewsletterSignup';
 
 // Dynamically import ResourceGrid
 const ResourceGrid = dynamic(() => import('@/components/ResourceGrid'), {
@@ -671,6 +672,9 @@ function HomePageContent({ scrollY }) {
         Browse our curated resources to find ways to share your data, genome, body samples, and more.
       </p>
 
+      {/* Newsletter Signup */}
+      <NewsletterSignup />
+
       {/* Main Layout Grid */}
       <div className="grid grid-cols-layout lg:grid-cols-lg-layout gap-6">
         {/* Sidebar */}
@@ -848,8 +852,8 @@ function HomePageContent({ scrollY }) {
           countryOptions={countryOptions}
           dataTypeOptions={dataTypeOptions}
           paymentTypes={PAYMENT_TYPES}
-          handleCheckboxChange={handleCheckboxChange}
-          handlePaymentCheckboxChange={handlePaymentCheckboxChange}
+          handleCheckboxChange={(filterKey, value) => handleFilterChange(filterKey, value)}
+          handlePaymentCheckboxChange={(option) => handleFilterChange('compensationType', option.value)}
           handleResetFilters={handleResetFilters}
           renderFilterContent={renderFilterContent} // Pass the existing render function
         />

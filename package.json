@@ -26,6 +26,7 @@
     "extends browserslist-config-baseline"
   ],
   "dependencies": {
+    "@cloudflare/next-on-pages": "^1.13.5",
     "@eslint/config-array": "^0.18.0",
     "@eslint/object-schema": "^2.1.4",
     "@headlessui/react": "^2.2.2",
@@ -35,6 +36,7 @@
     "@vercel/routing-utils": "^3.1.0",
     "browserslist-config-baseline": "^0.4.0",
     "chokidar": "^3.5.3",
+    "country-list": "^2.4.1",
     "debug": "^4.3.7",
     "framer-motion": "^11.11.1",
     "glob": "^11.0.0",
@@ -48,8 +50,7 @@
     "react-select": "^5.8.1",
     "resend": "^4.6.0",
     "rimraf": "^6.0.1",
-    "uuid": "^11.0.0",
-    "@cloudflare/next-on-pages": "^1.13.5"
+    "uuid": "^11.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -9,6 +9,7 @@ import { FaXTwitter } from 'react-icons/fa6';
 import { usePathname } from 'next/navigation';
 import { latestDoi } from '@/data/config';
 import CitationModal from './CitationModal';
+import NewsletterSignup from './NewsletterSignup';
 
 const FooterLink = ({ href, children, className = '' }) => (
     <li>
