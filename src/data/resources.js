@@ -778,9 +778,43 @@ const rawResources = [
   }
 ];
 
-export const resources = rawResources.map((r) => ({
-  ...r,
-}));
+const dataTypeToMacroCategory = {
+  // Organ, Body & Tissue Donation
+  'Body': 'Organ, Body & Tissue Donation',
+  'Organ': 'Organ, Body & Tissue Donation',
+  'Tissue': 'Organ, Body & Tissue Donation',
+
+  // Biological Samples
+  'Blood': 'Biological Samples',
+  'Plasma': 'Biological Samples',
+  'Stem cells': 'Biological Samples',
+  'Stool': 'Biological Samples',
+  'Hair': 'Biological Samples',
+  'Eggs': 'Biological Samples',
+  'Sperm': 'Biological Samples',
+  'Embryos': 'Biological Samples',
+  'Placenta': 'Biological Samples',
+
+  // Health & Digital Data
+  'Genome': 'Health & Digital Data',
+  'Health data': 'Health & Digital Data',
+  'Wearable data': 'Health & Digital Data',
+  'Wearable data (Fitbit only)': 'Health & Digital Data',
+  'Social media data': 'Health & Digital Data',
+  'Search history': 'Health & Digital Data',
+  'Location history': 'Health & Digital Data',
+
+  // Clinical Trials
+  'Clinical trials': 'Clinical Trials',
+};
+
+export const resources = rawResources.map((r) => {
+  const macroCategories = [...new Set(r.dataTypes.map(dt => dataTypeToMacroCategory[dt]).filter(Boolean))];
+  return {
+    ...r,
+    macroCategories,
+  };
+});
 
 // Helper to generate a consistent key for a citation
 function getCitationKey(citation) {

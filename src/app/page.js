@@ -36,6 +36,9 @@ const HomePageContentDynamic = dynamic(() => Promise.resolve(HomePageContent), {
 
 // --- Constants and Helper Functions (keep as is) ---
 const parseUrlList = (param) => param ? param.split(',') : [];
+// Helper functions for macro categories (which contain commas, so we use pipe delimiter)
+const parseMacroCategories = (param) => param ? param.split('|') : [];
+const stringifyMacroCategories = (categories) => categories.join('|');
 
 function expandCountries(chosen) {
   const set = new Set(chosen);
@@ -214,9 +217,10 @@ function HomePageContent({ scrollY }) {
   const searchParams = useSearchParams(); // This causes the component to suspend
 
   // ... state declarations (filters, showMore, isMounted, etc.) ...
-  const [filters, setFilters] = useState({ dataTypes: [], countries: [], compensationTypes: [], searchTerm: '' });
+  const [filters, setFilters] = useState({ dataTypes: [], countries: [], compensationTypes: [], searchTerm: '', macroCategories: [] });
   const [showMoreDataTypes, setShowMoreDataTypes] = useState(false);
   const [showMoreCountries, setShowMoreCountries] = useState(false);
+  const [showMoreMacroCategories, setShowMoreMacroCategories] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState(false);
 
@@ -228,9 +232,13 @@ function HomePageContent({ scrollY }) {
   // --- Effects and Memos (keep as is) ---
   useEffect(() => {
     // Initialize filters from searchParams
+    const macroCategoriesParam = searchParams.get('macroCategories');
+    const parsedMacroCategories = parseMacroCategories(macroCategoriesParam);
+    
     const initialFilters = {
       dataTypes: parseUrlList(searchParams.get('dataTypes')),
       countries: parseUrlList(searchParams.get('countries')),
+      macroCategories: parsedMacroCategories,
       // Map compensation values back to objects from PAYMENT_TYPES
       compensationTypes: parseUrlList(searchParams.get('compensationTypes')).map(val =>
         PAYMENT_TYPES.find(p => p.value === val)
@@ -258,6 +266,11 @@ function HomePageContent({ scrollY }) {
     if (filters.dataTypes.length > 0) {
       // Sort data types alphabetically
       params.set('dataTypes', [...filters.dataTypes].sort((a, b) => a.localeCompare(b)).join(','));
+    }
+    if (filters.macroCategories.length > 0) {
+      const sortedMacroCategories = [...filters.macroCategories].sort((a, b) => a.localeCompare(b));
+      const stringified = stringifyMacroCategories(sortedMacroCategories);
+      params.set('macroCategories', stringified);
     }
     if (filters.compensationTypes.length > 0) {
       // Sort compensation types based on PAYMENT_TYPES order
@@ -287,6 +300,12 @@ function HomePageContent({ scrollY }) {
       .map(type => type.startsWith('Wearable data') ? 'Wearable data' : type);
     const uniqueTypes = [...new Set(mappedTypes)];
     return uniqueTypes.sort((a, b) => a.localeCompare(b));
+  }, []);
+
+  const macroCategoryOptions = useMemo(() => {
+    const allCategories = allResources.flatMap(resource => resource.macroCategories || []);
+    const uniqueCategories = [...new Set(allCategories)];
+    return uniqueCategories.sort((a, b) => a.localeCompare(b));
   }, []);
 
   const countryOptions = useMemo(() => {
@@ -333,6 +352,12 @@ function HomePageContent({ scrollY }) {
 
         return titleMatch || descriptionMatch || dataTypeMatch || countryMatch || compensationTypeMatch || citationMatch || linkMatch || instructionMatch;
       });
+    }
+
+    if (filters.macroCategories.length > 0) {
+      filteredData = filteredData.filter(resource =>
+        resource.macroCategories && filters.macroCategories.some(filterCat => resource.macroCategories.includes(filterCat))
+      );
     }
 
     if (filters.dataTypes.length > 0) {
@@ -395,6 +420,19 @@ function HomePageContent({ scrollY }) {
       return map;
     }, {});
   }, [citationList]);
+
+  const handleMacroCategoryFilterChange = useCallback((category) => {
+    setFilters(prev => {
+      const currentCats = prev.macroCategories;
+      if (currentCats.length === 1 && currentCats[0] === category) {
+        // If the clicked category is the only one selected, deselect it.
+        return { ...prev, macroCategories: [] };
+      } else {
+        // Otherwise, select only the clicked category.
+        return { ...prev, macroCategories: [category] };
+      }
+    });
+  }, []);
 
 
   // --- Callbacks (keep as is) ---
@@ -466,6 +504,7 @@ function HomePageContent({ scrollY }) {
       countries: [],
       compensationTypes: [],
       searchTerm: '', // Reset search term as well
+      macroCategories: [],
     });
     // Optionally close drawer after reset
     setIsFilterDrawerOpen(false);
@@ -616,7 +655,7 @@ function HomePageContent({ scrollY }) {
               className="mr-2 h-4 w-4 text-google-blue border-gray-400 rounded focus:ring-google-blue focus:ring-offset-0 focus:ring-1"
             />
             <label htmlFor={`payment-${option.value}-mobile`} className="text-base font-normal text-google-text-secondary flex items-center gap-2 cursor-pointer">
-              <span>{option.emoji}</span>
+              <span>{option.value === 'payment' ? '💲' : option.emoji}</span>
               <span>{option.label}</span>
             </label>
           </div>
@@ -742,6 +781,30 @@ function HomePageContent({ scrollY }) {
 
           {/* Active Filter Badges */}
           <div className="mb-4 flex flex-wrap gap-2 items-center">
+            {/* Sort macro categories alphabetically before mapping */}
+            {[...filters.macroCategories].sort((a, b) => a.localeCompare(b)).map(value => {
+              const categoryStyles = {
+                'Organ, Body & Tissue Donation': 'bg-rose-100 text-rose-800',
+                'Biological Samples': 'bg-blue-100 text-blue-800',
+                'Clinical Trials': 'bg-green-100 text-green-800',
+                'Health & Digital Data': 'bg-yellow-100 text-yellow-800',
+              };
+              const style = categoryStyles[value] || 'bg-gray-100 text-gray-800';
+
+              return (
+                <span key={`sel-mc-${value}`} className={`inline-flex items-center text-sm font-medium px-2 py-1 rounded-full ${style}`}>
+                  {value}
+                  <button
+                    onClick={() => handleCheckboxChange('macroCategories', value, false)}
+                    className="ml-1 hover:opacity-75"
+                    aria-label={`Remove ${value}`}
+                    style={{ color: 'inherit' }}
+                  >
+                    <FaTimes size="0.9em" />
+                  </button>
+                </span>
+              );
+            })}
             {/* Sort countries alphabetically before mapping */}
             {[...filters.countries].sort((a, b) => a.localeCompare(b)).map(value => {
               const countryOption = countryOptions.find(opt => opt.value === value);
@@ -775,7 +838,7 @@ function HomePageContent({ scrollY }) {
               .sort((a, b) => PAYMENT_TYPES.map(p => p.value).indexOf(a.value) - PAYMENT_TYPES.map(p => p.value).indexOf(b.value))
               .map(option => (
                 <span key={`sel-pay-${option.value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
-                  {option.emoji} {option.label}
+                  {option.value === 'payment' ? '💲' : option.emoji} {option.label}
                   <button
                     onClick={() => handlePaymentCheckboxChange(option, false)}
                     className="ml-1 text-google-blue hover:opacity-75" aria-label={`Remove ${option.label}`}>
@@ -795,6 +858,7 @@ function HomePageContent({ scrollY }) {
                 compensationTypesOptions={PAYMENT_TYPES}
                 citationMap={citationMap}
                 onWearableFilterToggle={handleWearableFilterToggle}
+                onMacroCategoryFilterChange={handleMacroCategoryFilterChange}
               />
           </div>
 

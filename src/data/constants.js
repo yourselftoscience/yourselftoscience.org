@@ -1,7 +1,8 @@
+// Helper to get payment emoji/icon
 export const PAYMENT_TYPES = [
-  { value: 'donation', label: 'Donation', emoji: '❤️' },
-  { value: 'payment', label: 'Payment', emoji: '💵' },
-  { value: 'mixed', label: 'Mixed', emoji: '❤️💵' },
+  { emoji: '❤️', label: 'Donation', value: 'donation' },
+  { emoji: '💲', label: 'Payment', value: 'payment' },
+  { emoji: '❤️💲', label: 'Mixed', value: 'mixed' },
 ];
 
 export const EU_COUNTRIES = [

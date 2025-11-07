@@ -51,28 +51,39 @@ li:target {
   to { background-color: transparent; }
 }
 
-/* Basic Card Styling */
-@layer components {
-  .resource-card {
-    @apply bg-google-grey border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col;
-  }
-  .resource-card h3 {
-    @apply text-lg font-medium mb-2 text-google-text;
-  }
-  .resource-card p {
-    @apply text-sm text-google-text-secondary mb-3 flex-grow; /* Description */
-  }
-  .resource-card .tags {
-    @apply flex flex-wrap gap-1 mt-auto; /* Place tags at the bottom */
-  }
-  /* REMOVE or COMMENT OUT this rule for .tag */
-  /* .resource-card .tag {
-    @apply text-xs bg-gray-200 text-google-text-secondary px-2 py-0.5 rounded;
-  } */
-   .resource-card .action-link {
-    @apply text-sm text-google-blue hover:underline mt-3 block; /* Learn more link */
-  }
+.resource-card {
+  @apply bg-white border border-gray-200 rounded-xl p-4 shadow-sm hover:shadow-lg transition-all duration-300 ease-in-out flex flex-col no-underline text-current;
+  min-height: 260px; /* Or a value that fits your content */
 }
+
+.resource-card:hover {
+  @apply -translate-y-1;
+}
+
+.resource-card h2 {
+  @apply text-lg font-semibold mb-1 text-google-text;
+}
+
+.resource-card p {
+  @apply text-sm text-google-text-secondary;
+}
+
+.organization-name {
+  @apply text-sm font-semibold text-gray-800 mb-3;
+}
+
+.tag {
+  @apply inline-flex items-center text-xs bg-gray-100 text-gray-700 px-2 py-0.5 rounded-md;
+}
+
+.action-button {
+  @apply inline-block bg-blue-600 text-white font-medium text-sm px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 no-underline;
+}
+
+.action-button-disabled {
+  @apply inline-block bg-gray-200 text-gray-500 font-medium text-sm px-4 py-2 rounded-lg cursor-not-allowed;
+}
+
 
 /* Styles for react-select to better match Google's look */
 .react-select__control {
