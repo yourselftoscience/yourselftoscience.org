@@ -117,7 +117,7 @@ export default function Footer() {
                 AGPL-3.0 License
               </Link>.
             </p>
-            <p>&copy; {copyrightDate} Yourself To Science. Some Rights Reserved.</p>
+            <p>&copy; {copyrightDate} Yourself To Science<sup>™</sup>. Some Rights Reserved.</p>
           </div>
         </div>
       </footer>

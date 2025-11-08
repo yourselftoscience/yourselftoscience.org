@@ -32,7 +32,7 @@ const currentYear = new Date().getFullYear();
 // This export is necessary to prevent a build error.
 // See: https://github.com/vercel/next.js/issues/53354
 export const metadata: Metadata = {
-  title: "Yourself To Science",
+  title: "Yourself To Science™",
   description: "A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More",
   icons: {
     icon: [
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   other: {
-    'citation_title': "Yourself To Science: A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More",
+    'citation_title': "Yourself To Science™: A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More",
     'citation_author': "Mario Marcolongo",
     'citation_publication_date': `${currentYear}/${currentDate.split('/')[1]}/${currentDate.split('/')[2]}`,
     'citation_pdf_url': "https://yourselftoscience.org/yourselftoscience.pdf",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     'citation_fulltext_world_readable': ' '
   },
   openGraph: {
-    title: "Yourself To Science",
+    title: "Yourself To Science™",
     description: "List of Services for Contributing to Science with Your Data, Genome, Body, and More",
     url: "https://yourselftoscience.org",
     type: "website",
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yourself To Science",
+    title: "Yourself To Science™",
     description: "List of Services for Contributing to Science with Your Data, Genome, Body, and More",
     images: ["https://yourselftoscience.org/preview.png"],
   },

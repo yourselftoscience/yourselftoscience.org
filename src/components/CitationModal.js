@@ -8,17 +8,17 @@ import { latestDoi } from '@/data/config';
 // Function to generate citation in different formats
 const getCitations = (doi) => {
   const year = new Date().getFullYear();
-  const title = "Yourself To Science: A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More";
+  const title = "Yourself To Science™: A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More";
   const url = "https://yourselftoscience.org";
   const doiUrl = `https://doi.org/${doi}`;
   const accessDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
   return {
-    apa: `Marcolongo, M. (${year}). *${title}*. Yourself To Science. ${url}. ${doiUrl}`,
-    mla: `Marcolongo, Mario. "${title}." *Yourself To Science*, ${year}, ${url}, ${doiUrl}.`,
-    chicago: `Marcolongo, Mario. ${year}. "${title}." Yourself To Science. Accessed ${accessDate}. ${url}. ${doiUrl}.`,
-    bibtex: `@misc{Marcolongo_${year}_YourselfToScience,\n  author = {Marcolongo, Mario},\n  title = {${title}},\n  year = {${year}},\n  publisher = {Yourself To Science},\n  journal = {yourselftoscience.org},\n  howpublished = {\\url{${url}}},\n  doi = {${doi}}\n}`,
-    ris: `TY  - GEN\nAU  - Marcolongo, Mario\nPY  - ${year}\nTI  - ${title}\nUR  - ${url}\nPB  - Yourself To Science\nDO  - ${doi}\nER  -`
+    apa: `Marcolongo, M. (${year}). *${title}*. Yourself To Science™. ${url}. ${doiUrl}`,
+    mla: `Marcolongo, Mario. "${title}." *Yourself To Science™*, ${year}, ${url}, ${doiUrl}.`,
+    chicago: `Marcolongo, Mario. ${year}. "${title}." Yourself To Science™. Accessed ${accessDate}. ${url}. ${doiUrl}.`,
+    bibtex: `@misc{Marcolongo_${year}_YourselfToScience,\n  author = {Marcolongo, Mario},\n  title = {${title}},\n  year = {${year}},\n  publisher = {Yourself To Science™},\n  journal = {yourselftoscience.org},\n  howpublished = {\\url{${url}}},\n  doi = {${doi}}\n}`,
+    ris: `TY  - GEN\nAU  - Marcolongo, Mario\nPY  - ${year}\nTI  - ${title}\nUR  - ${url}\nPB  - Yourself To Science™\nDO  - ${doi}\nER  -`
   };
 };
 

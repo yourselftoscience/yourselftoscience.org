@@ -1,5 +1,5 @@
 # yourselftoscience.org
-**YourselfToScience.org is an open-source website providing a comprehensive list of services that allow individuals to contribute to scientific research with their data, genome, body, and more.**
+**YourselfToScience.org™ is an open-source website providing a comprehensive list of services that allow individuals to contribute to scientific research with their data, genome, body, and more.**
 
 Welcome to the official repository! Whether you're a developer looking to fix a bug or a community member with a suggestion for a new service, your contribution is welcome. Please see our [**Contribution Guidelines**](CONTRIBUTING.md) to get started.
 

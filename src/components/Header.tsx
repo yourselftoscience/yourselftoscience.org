@@ -182,7 +182,7 @@ export default function Header({ scrollY }: HeaderProps) {
            {/* ... Image ... */}
            <Image
              src="/icon.svg"
-             alt="Yourself To Science Logo"
+             alt="Yourself To Science™ Logo"
              width={70} height={70}
              className="block w-full h-full"
              priority
@@ -210,6 +210,10 @@ export default function Header({ scrollY }: HeaderProps) {
              </span>
            )}
            <span className={useInlineLayout ? '' : 'inline-block'}>&nbsp;to Science</span>
+           {/* Conditionally render TM at the end only when the full brand name is visible */}
+           {(isSticky || (hasMounted && currentWord === 'self')) && (
+             <sup className="font-medium text-google-text">™</sup>
+           )}
         </motion.div>
       </Link>
 
