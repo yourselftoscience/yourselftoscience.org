@@ -212,7 +212,7 @@ export default function Header({ scrollY }: HeaderProps) {
            <span className={useInlineLayout ? '' : 'inline-block'}>&nbsp;to Science</span>
            {/* Conditionally render TM at the end only when the full brand name is visible */}
            {(isSticky || (hasMounted && currentWord === 'self')) && (
-             <sup className="font-medium text-google-text">™</sup>
+             <sup className="font-medium text-google-text" style={{ fontSize: '0.4em', position: 'relative', top: '-0.7em', marginLeft: '0.1em' }}>™</sup>
            )}
         </motion.div>
       </Link>
