@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/icon.svg",
+        url: "/logo-tm.svg",
         type: "image/svg+xml",
       },
       {
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://yourselftoscience.org/preview.png",
+        url: "https://yourselftoscience.org/preview-tm.png",
         width: 1200,
         height: 1200,
         alt: "Yourself To Science Logo",
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Yourself To Science",
     description: "List of Services for Contributing to Science with Your Data, Genome, Body, and More",
-    images: ["https://yourselftoscience.org/preview.png"],
+    images: ["https://yourselftoscience.org/preview-tm.png"],
   },
 };
 

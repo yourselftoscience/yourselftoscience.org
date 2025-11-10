@@ -69,7 +69,7 @@ export default function MissionPage() {
           </div>
           <div className="hidden md:block">
             <div className="relative overflow-hidden rounded-2xl border border-blue-100 bg-white shadow-sm">
-              <Image src="/preview.png" alt="Site preview" width={1200} height={900} className="w-full h-auto" />
+              <Image src="/preview-tm.png" alt="Site preview" width={1200} height={900} className="w-full h-auto" />
             </div>
           </div>
         </div>
