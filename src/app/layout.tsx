@@ -32,7 +32,7 @@ const currentYear = new Date().getFullYear();
 // This export is necessary to prevent a build error.
 // See: https://github.com/vercel/next.js/issues/53354
 export const metadata: Metadata = {
-  title: "Yourself To Science™",
+  title: "Yourself To Science",
   description: "A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More",
   icons: {
     icon: [
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   other: {
-    'citation_title': "Yourself To Science™: A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More",
+    'citation_title': "Yourself To Science: A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More",
     'citation_author': "Mario Marcolongo",
     'citation_publication_date': `${currentYear}/${currentDate.split('/')[1]}/${currentDate.split('/')[2]}`,
     'citation_pdf_url': "https://yourselftoscience.org/yourselftoscience.pdf",
@@ -63,7 +63,8 @@ export const metadata: Metadata = {
     'citation_fulltext_world_readable': ' '
   },
   openGraph: {
-    title: "Yourself To Science™",
+    title: "Yourself To Science",
+    siteName: "Yourself To Science",
     description: "List of Services for Contributing to Science with Your Data, Genome, Body, and More",
     url: "https://yourselftoscience.org",
     type: "website",
@@ -78,7 +79,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yourself To Science™",
+    title: "Yourself To Science",
     description: "List of Services for Contributing to Science with Your Data, Genome, Body, and More",
     images: ["https://yourselftoscience.org/preview.png"],
   },
@@ -93,6 +94,9 @@ export default function RootLayout({
     // Keep suppressHydrationWarning on html for good measure
     <html lang="en" suppressHydrationWarning={true}>
       <head>
+        {/* Prefer explicit canonical and application name to help search engines pick the proper site title */}
+        <link rel="canonical" href="https://yourselftoscience.org" />
+        <meta name="application-name" content="Yourself To Science" />
         <link rel="preconnect" href="https://cloudflareinsights.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://cloudflareinsights.com" />
         <link rel="preconnect" href="https://static.cloudflareinsights.com" crossOrigin="anonymous" />
