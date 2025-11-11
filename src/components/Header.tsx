@@ -121,10 +121,10 @@ export default function Header({ scrollY }: HeaderProps) {
 
 
   // --- Define start/end values based on isMobile ---
-  const startPaddingY = isMobile ? 12 : 16;
-  const endPaddingY = 8;
-  const startLogoSize = isMobile ? 40 : 70;
-  const endLogoSize = 35;
+  const startPaddingY = isMobile ? 9 : 3;
+  const endPaddingY = isMobile ? 1 : 1;
+  const startLogoSize = isMobile ? 65 : 85;
+  const endLogoSize = isMobile ? 55 : 67;
   const startTitleSize = isMobile ? 24 : 36;
   const endTitleSize = isMobile ? 18 : 20; // Adjusted mobile end size slightly for better fit
 
