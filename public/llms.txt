@@ -9,7 +9,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 - [Stats](https://yourselftoscience.org/stats): Statistics about the resources listed.
 - [Clinical Trials](https://yourselftoscience.org/clinical-trials): A dedicated page for clinical trial resources.
 - [Organ, Body & Tissue Donation](https://yourselftoscience.org/organ-body-tissue-donation): A dedicated page for organ, body, and tissue donation resources.
-- [Contribution Guide](https://yourselftoscience.org/contribute): Information on how to contribute to the project.
+- [Get Involved](https://yourselftoscience.org/get-involved): Information on how to contribute to the project.
 
 ## Markdown Versions
 - [Homepage (Markdown)](https://yourselftoscience.org/index.html.md)

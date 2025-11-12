@@ -732,7 +732,7 @@ function HomePageContent({ scrollY }) {
           </div>
           <div className="mt-4 flex flex-col gap-2">
             <Link
-              href="/contribute"
+              href="/get-involved"
               className="w-full flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-white bg-apple-accent rounded-lg hover:bg-opacity-90 focus:ring-4 focus:outline-none focus:ring-blue-300 transition-colors"
             >
               <FaPlus />
@@ -865,7 +865,7 @@ function HomePageContent({ scrollY }) {
           {/* Mobile Buttons */}
           <div className="mt-8 flex flex-col items-center gap-2 w-full max-w-xs mx-auto lg:hidden">
              <Link
-                href="/contribute"
+                href="/get-involved"
                 className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded bg-apple-accent text-white text-sm font-medium hover:opacity-90 transition-opacity"
               >
                 <FaPlus />
