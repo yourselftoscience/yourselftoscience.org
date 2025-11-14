@@ -3,6 +3,8 @@
 
 Welcome to the official repository! Whether you're a developer looking to fix a bug or a community member with a suggestion for a new service, your contribution is welcome. Please see our [**Contribution Guidelines**](CONTRIBUTING.md) to get started.
 
+By participating in this repository and related community spaces, you agree to follow our [Code of Conduct](CODE_OF_CONDUCT.md).
+
 **Our Core Values:**
 
 *   **Transparency:**  The entire project, from the website code to the content, is openly licensed and available on GitHub. We are committed to open development and openly licensed resources.
@@ -26,6 +28,7 @@ For those who are not developers, navigating a code repository can sometimes be 
 *   **`public/llms.txt`**: A file that helps Large Language Models understand the structure and content of the website. See the section above for more details.
 *   **`src/data/resources.js`**: This file contains the raw data for all the services and resources listed on the website. If you are suggesting changes or additions, this is where the data lives.
 *   **`CONTRIBUTING.md`**: The most important file for anyone who wants to help! It contains detailed instructions on how to suggest new services, report issues, or contribute code.
+*   **`CODE_OF_CONDUCT.md`**: The rules for how we expect people to behave in Yourself To Science spaces.
 
 ## LICENSE
 The content of this project itself is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0), and the underlying source code used to format and display that content is licensed under the GNU Affero General Public License (AGPL-3.0).
