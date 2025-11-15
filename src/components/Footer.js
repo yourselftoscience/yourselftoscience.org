@@ -4,7 +4,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { FaGithub, FaCreativeCommons, FaCreativeCommonsBy, FaCreativeCommonsSa, FaReddit, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaCreativeCommons, FaCreativeCommonsBy, FaCreativeCommonsSa, FaCreativeCommonsZero, FaReddit, FaLinkedin } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { usePathname } from 'next/navigation';
 import { latestDoi } from '@/data/config';
@@ -109,13 +109,23 @@ export default function Footer() {
                 <FaCreativeCommonsSa className="mr-1" />
                 CC BY-SA 4.0
               </Link>
-              , and the underlying source code is licensed under the{' '}
+              , the underlying source code is licensed under the{' '}
               <Link
                 href="/license/code"
                 className="underline hover:text-apple-accent transition-colors duration-200"
               >
                 AGPL-3.0 License
-              </Link>.
+              </Link>
+              , and the dataset is dedicated to the public domain under the{' '}
+              <Link
+                href="/LICENSE-DATASET"
+                className="underline hover:text-apple-accent transition-colors duration-200 inline-flex items-center"
+              >
+                <FaCreativeCommons className="mr-1" />
+                <FaCreativeCommonsZero className="mr-1" />
+                CC0 1.0
+              </Link>
+              .
             </p>
             <p>&copy; {copyrightDate} Yourself To Science<sup>™</sup> (also You2Science<sup>™</sup>). Some Rights Reserved.</p>
           </div>

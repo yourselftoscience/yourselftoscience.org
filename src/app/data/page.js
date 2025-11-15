@@ -182,14 +182,12 @@ ORDER BY DESC(?count)`;
                         <p className="text-google-text-secondary mb-4 max-w-2xl mx-auto">
                             Our dataset is dedicated to the public domain under the{' '}
                             <a
-                                href="https://creativecommons.org/publicdomain/zero/1.0/"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                href="/LICENSE-DATASET"
                                 className="text-google-blue hover:underline"
                             >
-                                Creative Commons CC0 1.0 Universal Public Domain Dedication
+                                Creative Commons CC0 1.0 Universal Public Domain Dedication (CC0 1.0)
                             </a>
-                            . You can copy, modify, and distribute the work, even for commercial purposes, without asking permission.
+                            . You can copy, modify, and distribute the data, even for commercial purposes, without asking permission.
                         </p>
                         <p className="text-sm text-gray-600">
                             While not required, we appreciate credit to Yourself To Science when using our data.

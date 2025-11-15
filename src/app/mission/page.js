@@ -165,7 +165,7 @@ export default function MissionPage() {
         <h2 className="text-2xl font-bold text-apple-primary-text mb-4">How we do it</h2>
         <ul className="space-y-4">
           {[
-            { icon: FaGlobe, title: 'Radically Open & Reusable', desc: 'The entire project is open source. The dataset (CC0), content (CC BY-SA 4.0), and code (AGPL-3.0) are openly licensed, creating a transparent and reusable foundation for everyone to build upon.' },
+            { icon: FaGlobe, title: 'Radically Open & Reusable', desc: 'The entire project is open source. The dataset (CC0 1.0), content (CC BY-SA 4.0), and code (AGPL-3.0) are openly licensed, creating a transparent and reusable foundation for everyone to build upon.' },
             { icon: FaUsers, title: 'Community-Driven', desc: 'We are building a collaborative ecosystem and welcome contributions to our code, content, and data from a global community.' },
             { icon: FaUniversalAccess, title: 'Accessible for All', desc: 'We are committed to creating a project that is usable by everyone, including people with disabilities, and continuously test to meet the highest standards—for example, every page maintains a perfect Lighthouse Accessibility score.' },
             { icon: FaRobot, title: 'AI & Machine-Readable', desc: 'We structure our content to be easily processed by AI and automated systems, following standards like llms.txt to maximize the accessibility and reusability of information.' }
