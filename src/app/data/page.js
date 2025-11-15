@@ -182,9 +182,9 @@ ORDER BY DESC(?count)`;
                         <p className="text-google-text-secondary mb-4 max-w-2xl mx-auto">
                             Our dataset is dedicated to the public domain under the{' '}
                             <a
-                                href="/LICENSE-DATASET"
-                                className="text-google-blue hover:underline"
-                            >
+                            href="/license/dataset"
+                            className="text-google-blue hover:underline"
+                        >
                                 Creative Commons CC0 1.0 Universal Public Domain Dedication (CC0 1.0)
                             </a>
                             . You can copy, modify, and distribute the data, even for commercial purposes, without asking permission.

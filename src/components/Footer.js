@@ -118,7 +118,7 @@ export default function Footer() {
               </Link>
               , and the dataset is dedicated to the public domain under the{' '}
               <Link
-                href="/LICENSE-DATASET"
+                href="/license/dataset"
                 className="underline hover:text-apple-accent transition-colors duration-200 inline-flex items-center"
               >
                 <FaCreativeCommons className="mr-1" />
