@@ -81,15 +81,15 @@ export default function Header({ scrollY }: HeaderProps) {
     }
     // This logic seems fine, ensures 'self' is shown when scrolling back up past the threshold
     if (wasSticky.current && !currentlySticky) {
-       setCurrentWord(words[0]); // Reset to 'self' when becoming non-sticky
+      setCurrentWord(words[0]); // Reset to 'self' when becoming non-sticky
     } else if (!wasSticky.current && currentlySticky && currentWord !== 'self') {
-       // Optional: Force to 'self' immediately when becoming sticky if it wasn't already 'self'
-       // setCurrentWord(words[0]);
+      // Optional: Force to 'self' immediately when becoming sticky if it wasn't already 'self'
+      // setCurrentWord(words[0]);
     }
     wasSticky.current = currentlySticky;
   });
 
-   // Effect for interval management
+  // Effect for interval management
   useEffect(() => {
     if (!hasMounted) return;
     const manageInterval = () => {
@@ -150,83 +150,82 @@ export default function Header({ scrollY }: HeaderProps) {
 
   // --- Placeholder Rendering (remains the same) ---
   if (!hasMounted) {
-     const initialPaddingY = 16;
-     const initialLogoSize = 70;
-     const placeholderHeight = (initialPaddingY * 2) + initialLogoSize;
-     return (
-        <header
-            className="w-full sticky top-0 z-30 flex items-center border-b bg-white px-4 h-[102px] border-transparent"
-        >
-            {/* Placeholder content */}
-        </header>
-     );
+    const initialPaddingY = 16;
+    const initialLogoSize = 70;
+    const placeholderHeight = (initialPaddingY * 2) + initialLogoSize;
+    return (
+      <header
+        className="w-full sticky top-0 z-30 flex items-center border-b bg-white px-4 h-[102px] border-transparent"
+      >
+        {/* Placeholder content */}
+      </header>
+    );
   }
   // --- END: Placeholder Rendering ---
 
   // --- Main Render (only runs after mounting) ---
   return (
     <motion.header
-       className={`w-full sticky top-0 z-30 flex items-center justify-between border-b bg-white px-4 md:px-6 lg:px-8`}
-       style={{
-         paddingTop: headerPaddingY,
-         paddingBottom: headerPaddingY,
-         borderColor: borderColor,
-         boxShadow: boxShadow,
-       }}
+      className={`w-full sticky top-0 z-50 flex items-center justify-between border-b bg-white px-4 md:px-6 lg:px-8`}
+      style={{
+        paddingTop: headerPaddingY,
+        paddingBottom: headerPaddingY,
+        borderColor: borderColor,
+        boxShadow: boxShadow,
+      }}
     >
       <Link href="/" className="flex items-center no-underline text-inherit">
         <motion.div
           className={`flex-shrink-0 mr-2`}
           style={{ width: logoSize, height: logoSize }}
         >
-           {/* ... Image ... */}
-           <Image
-         src="/logo-tm.svg"
-             alt="Yourself To Science™ Logo"
-             width={70} height={70}
-             className="block w-full h-full"
-             priority
-           />
+          {/* ... Image ... */}
+          <Image
+            src="/logo-tm.svg"
+            alt="Yourself To Science™ Logo"
+            width={70} height={70}
+            className="block w-full h-full"
+            priority
+          />
         </motion.div>
 
         <motion.div
-          className={`font-medium text-google-text whitespace-nowrap overflow-hidden min-w-0 ${
-            useInlineLayout ? 'flex items-baseline' : 'text-center w-full'
-          }`}
+          className={`font-medium text-google-text whitespace-nowrap overflow-hidden min-w-0 ${useInlineLayout ? 'flex items-baseline' : 'text-center w-full'
+            }`}
           style={{ fontSize: titleSize }}
         >
-           <span className={useInlineLayout ? '' : 'inline-block'}>Your</span>
-           {/* Use isSticky state to determine whether to show AnimatedWord or static 'self' */}
-           {hasMounted && !isSticky ? (
-             <AnimatedWordDynamic key={currentWord} word={currentWord} />
-           ) : (
-             // Render static 'self' when sticky or not mounted yet (though placeholder handles pre-mount)
-             <span
-               key="static-self"
-               // Adjust margin based on layout mode
-               className={`inline-block text-stroke-yellow-dark ${useInlineLayout ? 'ml-0' : 'ml-1'}`}
-             >
-               self
-             </span>
-           )}
-           <span className={useInlineLayout ? '' : 'inline-block'}>&nbsp;to Science</span>
-           {/* Conditionally render TM at the end only when the full brand name is visible */}
-           {(isSticky || (hasMounted && currentWord === 'self')) && (
-             <sup className="font-medium text-google-text" style={{ fontSize: '0.4em', position: 'relative', top: '-0.7em', marginLeft: '0.1em' }}>™</sup>
-           )}
+          <span className={useInlineLayout ? '' : 'inline-block'}>Your</span>
+          {/* Use isSticky state to determine whether to show AnimatedWord or static 'self' */}
+          {hasMounted && !isSticky ? (
+            <AnimatedWordDynamic key={currentWord} word={currentWord} />
+          ) : (
+            // Render static 'self' when sticky or not mounted yet (though placeholder handles pre-mount)
+            <span
+              key="static-self"
+              // Adjust margin based on layout mode
+              className={`inline-block text-stroke-yellow-dark ${useInlineLayout ? 'ml-0' : 'ml-1'}`}
+            >
+              self
+            </span>
+          )}
+          <span className={useInlineLayout ? '' : 'inline-block'}>&nbsp;to Science</span>
+          {/* Conditionally render TM at the end only when the full brand name is visible */}
+          {(isSticky || (hasMounted && currentWord === 'self')) && (
+            <sup className="font-medium text-google-text" style={{ fontSize: '0.4em', position: 'relative', top: '-0.7em', marginLeft: '0.1em' }}>™</sup>
+          )}
         </motion.div>
       </Link>
 
       {/* --- Desktop Navigation --- */}
       <nav className="hidden md:flex items-center space-x-3 lg:space-x-6">
         <Link href="/stats" className="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors px-3 py-2 rounded-md">
-            Stats
+          Stats
         </Link>
         <Link href="/mission" className="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors px-3 py-2 rounded-md">
-            Our Mission
+          Our Mission
         </Link>
         <Link href="/get-involved" className="text-base font-medium text-white bg-blue-600 px-4 py-2 rounded-md hover:bg-blue-700 transition-colors shadow-sm hover:shadow-md">
-            Get Involved
+          Get Involved
         </Link>
       </nav>
 
@@ -251,7 +250,7 @@ export default function Header({ scrollY }: HeaderProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm md:hidden"
+            className="fixed inset-0 z-50 bg-black/20 backdrop-blur-sm md:hidden"
             onClick={toggleMobileMenu}
           >
             <motion.div

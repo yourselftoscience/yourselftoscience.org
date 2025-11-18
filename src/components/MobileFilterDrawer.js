@@ -46,20 +46,35 @@ export default function MobileFilterDrawer({
             aria-modal="true"
             aria-labelledby="filter-drawer-title"
           >
-            <div className="flex justify-between items-center p-3 border-b border-gray-200 sticky top-0 bg-white rounded-tl-lg z-10">
-              <h2 id="filter-drawer-title" className="text-sm font-medium uppercase text-google-text-secondary">Filter By</h2>
-              <button
-                onClick={toggleDrawer}
-                className="text-google-text-secondary hover:text-google-text p-1"
-                aria-label="Close filter drawer"
-              >
-                <FaTimes size="1.2em" />
-              </button>
-            </div>
+            <h2 id="filter-drawer-title" className="sr-only">Filter By</h2>
 
             {/* Active Filters Display Area */}
-            {(filters.countries.length > 0 || filters.dataTypes.length > 0 || filters.compensationTypes.length > 0) && (
+            {(filters.macroCategories.length > 0 || filters.countries.length > 0 || filters.dataTypes.length > 0 || filters.compensationTypes.length > 0) && (
               <div className="p-3 border-b border-gray-200 flex flex-wrap gap-1.5">
+                {/* Macro Categories */}
+                {[...filters.macroCategories].sort((a, b) => a.localeCompare(b)).map(value => {
+                  const categoryStyles = {
+                    'Organ, Body & Tissue Donation': 'bg-rose-100 text-rose-800 border-rose-200',
+                    'Biological Samples': 'bg-blue-100 text-blue-800 border-blue-200',
+                    'Clinical Trials': 'bg-green-100 text-green-800 border-green-200',
+                    'Health & Digital Data': 'bg-yellow-100 text-yellow-800 border-yellow-200',
+                  };
+                  const style = categoryStyles[value] || 'bg-gray-100 text-gray-800';
+
+                  return (
+                    <span key={`sel-mc-drawer-${value}`} className={`inline-flex items-center text-sm font-medium px-2 py-1 rounded-full ${style}`}>
+                      {value}
+                      <button
+                        onClick={() => handleCheckboxChange('macroCategories', value, false)}
+                        className="ml-1 hover:opacity-75"
+                        aria-label={`Remove ${value} filter`}
+                        style={{ color: 'inherit' }}
+                      >
+                        <FaTimes size="0.9em" />
+                      </button>
+                    </span>
+                  );
+                })}
                 {/* Countries */}
                 {[...filters.countries].sort((a, b) => a.localeCompare(b)).map(value => {
                   const countryOption = countryOptions.find(opt => opt.value === value);

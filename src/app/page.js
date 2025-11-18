@@ -2,16 +2,15 @@
 
 'use client';
 
-import React, { useState, useEffect, useMemo, useCallback, Suspense } from 'react';
-// Import motionValue ONLY if needed elsewhere, otherwise remove. useScroll is now used here.
-import { motion, AnimatePresence, useScroll } from 'framer-motion';
+import React, { useState, useEffect, useMemo, useCallback, Suspense, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Footer from '@/components/Footer';
 import { resources as allResources } from '@/data/resources';
 import { PAYMENT_TYPES, EU_COUNTRIES } from '@/data/constants';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import CountryFlag from 'react-country-flag';
-import { FaHeart, FaDollarSign, FaTimes, FaFilter, FaDownload, FaSlidersH, FaUndo, FaPlus, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaHeart, FaDollarSign, FaTimes, FaFilter, FaDownload, FaSlidersH, FaUndo, FaPlus, FaExternalLinkAlt, FaSearch } from 'react-icons/fa';
 import Header from '@/components/Header';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
@@ -72,103 +71,23 @@ function expandCountries(chosen) {
 function ContentAreaSkeleton() {
   // Basic skeleton mimicking the main content layout BELOW the header
   return (
-    // Revert to pt-3. The Header's placeholder reserves the initial space.
     <div className="flex-grow w-full max-w-screen-xl mx-auto px-4 pb-8 pt-3 animate-pulse">
 
       {/* Skeleton Intro Text */}
-      <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
-      <div className="h-4 bg-gray-200 rounded w-1/2 mb-6"></div>
+      <div className="h-5 bg-gray-200 rounded w-3/4 mb-2"></div>
+      <div className="h-5 bg-gray-200 rounded w-1/2 mb-8"></div>
 
-      {/* Skeleton Layout Grid */}
-      <div className="grid grid-cols-layout lg:grid-cols-lg-layout gap-6">
-        {/* Skeleton Sidebar */}
-        <aside className="hidden lg:block py-4 px-4">
-          {/* Filter Box */}
-          <div className="border border-gray-200 rounded-lg mb-4">
-            <div className="h-10 bg-gray-200 rounded-t-lg border-b px-4 pt-4 pb-2 flex items-center">
-               <div className="h-3 bg-gray-300 rounded w-1/4"></div> {/* "Filter By" title */}
-            </div>
-            <div className="p-4 space-y-4"> {/* Adjusted spacing */}
-              {/* Compensation Group Skeleton */}
-              <div className="mb-4">
-                <div className="h-4 bg-gray-300 rounded w-1/3 mb-1"></div> {/* Compensation Title */}
-                <div className="h-3 bg-blue-200 rounded w-1/4 mb-2"></div> {/* Select/Clear All */}
-                <div className="flex items-center mb-2">
-                  <div className="h-4 w-4 bg-gray-200 rounded mr-2"></div> {/* Checkbox */}
-                  <div className="h-4 bg-gray-200 rounded w-2/5"></div> {/* Label (e.g., ❤️ Donation) */}
-                </div>
-                <div className="flex items-center mb-2">
-                  <div className="h-4 w-4 bg-gray-200 rounded mr-2"></div> {/* Checkbox */}
-                  <div className="h-4 bg-gray-200 rounded w-2/5"></div> {/* Label (e.g., 💵 Payment) */}
-                </div>
-                <div className="flex items-center mb-2">
-                  <div className="h-4 w-4 bg-gray-200 rounded mr-2"></div> {/* Checkbox */}
-                  <div className="h-4 bg-gray-200 rounded w-2/5"></div> {/* Label (e.g., ❤️💵 Mixed) */}
-                </div>
-              </div>
-              {/* Available In Group Skeleton */}
-              <div className="mb-4">
-                <div className="h-4 bg-gray-300 rounded w-1/3 mb-1"></div> {/* Available In Title */}
-                <div className="h-3 bg-blue-200 rounded w-1/4 mb-2"></div> {/* Select All */}
-                <div className="flex items-center mb-2">
-                  <div className="h-4 w-4 bg-gray-200 rounded mr-2"></div> {/* Checkbox */}
-                  <div className="h-4 bg-gray-200 rounded w-3/5"></div> {/* Label (e.g., Australia) */}
-                </div>
-                <div className="flex items-center mb-2">
-                  <div className="h-4 w-4 bg-gray-200 rounded mr-2"></div> {/* Checkbox */}
-                  <div className="h-4 bg-gray-200 rounded w-2/5"></div> {/* Label (e.g., Austria) */}
-                </div>
-                <div className="flex items-center mb-2">
-                  <div className="h-4 w-4 bg-gray-200 rounded mr-2"></div> {/* Checkbox */}
-                  <div className="h-4 bg-gray-200 rounded w-1/2"></div> {/* Label (e.g., Canada) */}
-                </div>
-                <div className="h-3 bg-blue-200 rounded w-1/3 mt-1"></div> {/* More button */}
-              </div>
-               {/* Data Type Group Skeleton */}
-              <div>
-                <div className="h-4 bg-gray-300 rounded w-1/3 mb-1"></div> {/* Data Type Title */}
-                <div className="h-3 bg-blue-200 rounded w-1/4 mb-2"></div> {/* Select All */}
-                 <div className="flex items-center mb-2">
-                  <div className="h-4 w-4 bg-gray-200 rounded mr-2"></div> {/* Checkbox */}
-                  <div className="h-4 bg-gray-200 rounded w-1/3"></div> {/* Label (e.g., Body) */}
-                </div>
-                <div className="flex items-center mb-2">
-                  <div className="h-4 w-4 bg-gray-200 rounded mr-2"></div> {/* Checkbox */}
-                  <div className="h-4 bg-gray-200 rounded w-2/5"></div> {/* Label (e.g., Clinical trials) */}
-                </div>
-                <div className="flex items-center mb-2">
-                  <div className="h-4 w-4 bg-gray-200 rounded mr-2"></div> {/* Checkbox */}
-                  <div className="h-4 bg-gray-200 rounded w-1/4"></div> {/* Label (e.g., Eggs) */}
-                </div>
-                <div className="h-3 bg-blue-200 rounded w-1/3 mt-1"></div> {/* More button */}
-              </div>
-            </div>
-          </div>
-          {/* Sidebar Buttons */}
-          <div className="h-10 bg-blue-200 rounded w-full mt-4"></div> {/* Suggest Button */}
-          <div className="h-10 bg-gray-200 rounded w-full mt-2"></div> {/* Download Button */}
-        </aside>
+      {/* Skeleton Newsletter */}
+      <div className="h-14 bg-gray-200 rounded-xl w-full max-w-xl mb-10 mx-auto"></div>
 
-        {/* Skeleton Main Content */}
-        <main className="py-4">
-          {/* Search Bar */}
-          <div className="h-10 bg-gray-200 rounded w-full mb-4"></div>
-          {/* Resource Card Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[...Array(9)].map((_, i) => (
-              <div key={i} className="bg-gray-100 border border-gray-200 rounded-lg p-4 h-40 flex flex-col">
-                 <div className="h-5 bg-gray-300 rounded w-3/4 mb-2"></div> {/* Card Title */}
-                 <div className="h-3 bg-gray-200 rounded w-full mb-1 flex-grow"></div> {/* Card Desc line 1 */}
-                 <div className="h-3 bg-gray-200 rounded w-5/6 mb-4"></div> {/* Card Desc line 2 */}
-                 <div className="flex flex-wrap gap-1 mt-auto">
-                    <div className="h-5 w-12 bg-gray-300 rounded-full"></div> {/* Tag */}
-                    <div className="h-5 w-16 bg-gray-300 rounded-full"></div> {/* Tag */}
-                 </div>
-              </div>
-            ))}
-          </div>
-        </main>
-      </div>
+      {/* Skeleton Top Filter Bar */}
+      <div className="w-full max-w-4xl mx-auto h-[72px] bg-gray-100 rounded-[999px] border border-gray-200 mb-8 hidden lg:block"></div>
+      <div className="w-full h-[60px] bg-gray-100 rounded-xl border border-gray-200 mb-6 lg:hidden"></div>
+
+      {/* Skeleton Main Content */}
+      <main className="py-4">
+        <ResourceGridSkeleton />
+      </main>
     </div>
   );
 }
@@ -176,20 +95,38 @@ function ContentAreaSkeleton() {
 // --- Skeleton for ResourceGrid (add this) ---
 function ResourceGridSkeleton() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {[...Array(6)].map((_, i) => ( // Show 6 placeholder cards
-        <div key={i} className="bg-gray-100 border border-gray-200 rounded-lg p-4 h-48 flex flex-col animate-pulse">
-          <div className="h-5 bg-gray-300 rounded w-3/4 mb-2"></div> {/* Card Title */}
-          <div className="h-3 bg-gray-200 rounded w-1/2 mb-3"></div> {/* Card Subtitle/Org */}
-          <div className="space-y-1 mb-3">
-            <div className="h-3 bg-gray-200 rounded w-full"></div> {/* Card Desc line 1 */}
-            <div className="h-3 bg-gray-200 rounded w-5/6"></div> {/* Card Desc line 2 */}
+        <div key={i} className="bg-white border border-slate-200 rounded-3xl p-6 h-[420px] flex flex-col animate-pulse shadow-sm">
+
+          {/* Top Row: Badges & Icons */}
+          <div className="flex justify-between items-start mb-4">
+            <div className="h-6 w-24 bg-gray-200 rounded-full"></div>
+            <div className="flex gap-2">
+              <div className="h-5 w-5 bg-gray-200 rounded-full"></div>
+              <div className="h-5 w-5 bg-gray-200 rounded-full"></div>
+            </div>
           </div>
-          <div className="flex flex-wrap gap-1.5 mt-auto">
-            <div className="h-6 w-16 bg-gray-300 rounded-full"></div> {/* Tag */}
-            <div className="h-6 w-20 bg-gray-300 rounded-full"></div> {/* Tag */}
-            <div className="h-6 w-12 bg-gray-300 rounded-full"></div> {/* Tag */}
+
+          {/* Title & Org */}
+          <div className="h-7 bg-gray-200 rounded w-3/4 mb-2"></div> {/* Card Title */}
+          <div className="h-4 bg-gray-200 rounded w-1/2 mb-6"></div> {/* Card Subtitle/Org */}
+
+          {/* Description */}
+          <div className="space-y-2 mb-6 flex-grow">
+            <div className="h-3 bg-gray-200 rounded w-full"></div>
+            <div className="h-3 bg-gray-200 rounded w-full"></div>
+            <div className="h-3 bg-gray-200 rounded w-2/3"></div>
           </div>
+
+          {/* Tags */}
+          <div className="flex flex-wrap gap-2 mb-6">
+            <div className="h-6 w-16 bg-gray-200 rounded-full"></div>
+            <div className="h-6 w-20 bg-gray-200 rounded-full"></div>
+          </div>
+
+          {/* Bottom Action Button */}
+          <div className="h-10 w-32 bg-blue-100 rounded-xl mt-auto"></div>
         </div>
       ))}
     </div>
@@ -198,11 +135,23 @@ function ResourceGridSkeleton() {
 
 // --- Main Page Component ---
 export default function Home() {
-  const { scrollY } = useScroll();
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const y = typeof window !== 'undefined'
+        ? window.scrollY || window.pageYOffset || 0
+        : 0;
+      setScrollY(y);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      {/* The Header is rendered here, immediately */}
       <HomePageContentDynamic scrollY={scrollY} />
     </div>
   );
@@ -223,6 +172,20 @@ function HomePageContent({ scrollY }) {
   const [showMoreMacroCategories, setShowMoreMacroCategories] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState(false);
+  const filterContainerRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (filterContainerRef.current && !filterContainerRef.current.contains(event.target)) {
+        setOpenFilterPanel(null);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside, true);
+    return () => {
+      document.removeEventListener('click', handleClickOutside, true);
+    };
+  }, []);
 
 
   // --- REMOVE useScroll from here ---
@@ -234,7 +197,7 @@ function HomePageContent({ scrollY }) {
     // Initialize filters from searchParams
     const macroCategoriesParam = searchParams.get('macroCategories');
     const parsedMacroCategories = parseMacroCategories(macroCategoriesParam);
-    
+
     const initialFilters = {
       dataTypes: parseUrlList(searchParams.get('dataTypes')),
       countries: parseUrlList(searchParams.get('countries')),
@@ -332,6 +295,9 @@ function HomePageContent({ scrollY }) {
       .map(country => ({ label: country, value: country, code: countryCodeMap.get(country) }));
   }, []);
 
+  // Show-more state for desktop compensation filter panel (mirrors other filters)
+  const [showMoreCompensationTypes, setShowMoreCompensationTypes] = useState(false);
+
   const processedResources = useMemo(() => {
     let filteredData = [...allResources];
     const lowerSearchTerm = (filters.searchTerm || '').toString().toLowerCase().trim();
@@ -402,7 +368,7 @@ function HomePageContent({ scrollY }) {
           ? citation.link.trim()
           : citation.title.trim().toLowerCase().substring(0, 50);
         if (!list.some(c => (c.link || '').trim() === (citation.link || '').trim() &&
-                            (c.title || '') === citation.title)) {
+          (c.title || '') === citation.title)) {
           list.push(citation);
         }
       });
@@ -424,12 +390,14 @@ function HomePageContent({ scrollY }) {
   const handleMacroCategoryFilterChange = useCallback((category) => {
     setFilters(prev => {
       const currentCats = prev.macroCategories;
-      if (currentCats.length === 1 && currentCats[0] === category) {
-        // If the clicked category is the only one selected, deselect it.
-        return { ...prev, macroCategories: [] };
+      const isSelected = currentCats.includes(category);
+
+      if (isSelected) {
+        // Remove category if already selected
+        return { ...prev, macroCategories: currentCats.filter(c => c !== category) };
       } else {
-        // Otherwise, select only the clicked category.
-        return { ...prev, macroCategories: [category] };
+        // Add category if not selected
+        return { ...prev, macroCategories: [...currentCats, category] };
       }
     });
   }, []);
@@ -542,9 +510,10 @@ function HomePageContent({ scrollY }) {
   };
 
   // --- Render Functions (keep as is) ---
-  const renderFilterGroup = (title, options, filterKey, showMore, setShowMore) => {
+  const renderFilterGroup = (title, options, filterKey, showMore, setShowMore, config = {}) => {
+    const { alwaysExpanded = false, columns = 1 } = config;
     const selectedValues = filters[filterKey];
-    const visibleOptions = showMore ? options : options.slice(0, 3);
+    const visibleOptions = alwaysExpanded || showMore ? options : options.slice(0, 3);
     // --- START: Modify condition for showing Clear all ---
     // Show "Clear all" if more than one item is selected
     const showClearAll = selectedValues.length > 1;
@@ -554,66 +523,100 @@ function HomePageContent({ scrollY }) {
     const someSelected = selectedValues.length > 0 && !allSelected;
 
 
+    const optionLayoutClass = columns > 1
+      ? 'grid grid-cols-1 sm:grid-cols-2 gap-3'
+      : 'space-y-2';
+
     return (
-      <div className="mb-4">
-        <h3 className="font-normal text-base text-google-text mb-1">{title}</h3>
+      <div className="mb-6">
+        <h3 className="font-semibold text-base text-slate-900 mb-1">{title}</h3>
         <button
-          // --- START: Update onClick and text based on showClearAll ---
+          // --- START: Update onClick and text based on showClear all ---
           onClick={() => handleSelectAll(filterKey, options, !showClearAll)} // If showing "Clear all", pass false to selectAll; otherwise pass true
-          className="text-sm font-medium text-google-blue hover:underline mb-2 block"
+          className="text-xs font-semibold text-google-blue hover:underline mb-3 block"
           aria-label={showClearAll ? `Clear all ${title}` : `Select all ${title}`}
         >
           {showClearAll ? 'Clear all' : 'Select all'}
-          {/* --- END: Update onClick and text based on showClearAll --- */}
+          {/* --- END: Update onClick and text based on showClear all --- */}
         </button>
 
-        {visibleOptions.map(option => {
-          const value = typeof option === 'string' ? option : option.value;
-          const label = typeof option === 'string' ? option : option.label;
-          const code = typeof option === 'object' ? option.code : null;
-          const isChecked = filterKey === 'countries'
-            ? selectedValues.includes(value)
-            : (filterKey === 'compensationTypes'
+        <div className={optionLayoutClass}>
+          {visibleOptions.map(option => {
+            const value = typeof option === 'string' ? option : option.value;
+            const label = typeof option === 'string' ? option : option.label;
+            const code = typeof option === 'object' ? option.code : null;
+            const emoji = typeof option === 'object' ? option.emoji : null;
+            const idSuffix = alwaysExpanded ? 'desktop' : 'mobile';
+            const isChecked = filterKey === 'countries'
+              ? selectedValues.includes(value)
+              : (filterKey === 'compensationTypes'
                 ? selectedValues.some(p => p.value === value)
                 : selectedValues.includes(value));
 
-          return (
-            <div key={value} className="flex items-center mb-2">
-              <input
-                type="checkbox"
-                id={`${filterKey}-${value}-mobile`}
-                value={value}
-                checked={isChecked}
-                onChange={(e) => {
-                  if (filterKey === 'compensationTypes') {
-                    const paymentOption = PAYMENT_TYPES.find(p => p.value === value);
-                    if (paymentOption) {
-                      handlePaymentCheckboxChange(paymentOption, e.target.checked);
-                    }
-                  } else {
-                    handleCheckboxChange(filterKey, value, e.target.checked);
-                  }
-                }}
-                className="mr-2 h-4 w-4 text-google-blue border-gray-400 rounded focus:ring-google-blue focus:ring-offset-0 focus:ring-1"
-              />
-              <label htmlFor={`${filterKey}-${value}-mobile`} className="text-base font-normal text-google-text-secondary flex items-center cursor-pointer">
-                {label}
-                {code && (
-                  <CountryFlag
-                    countryCode={code}
-                    svg
-                    aria-label={label}
-                    style={{ width: '1.1em', height: '0.9em', marginLeft: '0.3em', display: 'inline-block', verticalAlign: 'middle' }}
-                  />
-                )}
-              </label>
-            </div>
-          );
-        })}
+            // Define category styles locally to match ResourceCard
+            const categoryStyles = {
+              'Organ, Body & Tissue Donation': 'bg-rose-100 text-rose-800 border-rose-200',
+              'Biological Samples': 'bg-blue-100 text-blue-800 border-blue-200',
+              'Clinical Trials': 'bg-green-100 text-green-800 border-green-200',
+              'Health & Digital Data': 'bg-yellow-100 text-yellow-800 border-yellow-200',
+            };
 
-        {options.length > 3 && (
+            let itemClass = "flex items-center gap-3 rounded-2xl border px-3 py-2 shadow-[0_5px_20px_rgba(15,23,42,0.06)] transition-colors cursor-pointer ";
+
+            if (filterKey === 'macroCategories' && categoryStyles[value]) {
+              // Apply specific category style if it's a macro category
+              itemClass += categoryStyles[value] + (isChecked ? " ring-2 ring-offset-1 ring-slate-400" : " hover:opacity-80");
+            } else {
+              // Default style for other filters
+              itemClass += "border-white/60 bg-white/70 hover:bg-white/90 hover:border-white/80";
+            }
+
+
+            return (
+              <label
+                key={value}
+                htmlFor={`${filterKey}-${value}-${idSuffix}`}
+                className={itemClass}
+              >
+                <input
+                  type="checkbox"
+                  id={`${filterKey}-${value}-${idSuffix}`}
+                  value={value}
+                  checked={isChecked}
+                  onChange={(e) => {
+                    if (filterKey === 'compensationTypes') {
+                      const paymentOption = PAYMENT_TYPES.find(p => p.value === value);
+                      if (paymentOption) {
+                        handlePaymentCheckboxChange(paymentOption, e.target.checked);
+                      }
+                    } else if (filterKey === 'macroCategories') {
+                      handleMacroCategoryFilterChange(value);
+                    } else {
+                      handleCheckboxChange(filterKey, value, e.target.checked);
+                    }
+                  }}
+                  className="h-4 w-4 text-slate-900 border-slate-300 rounded focus:ring-slate-900 focus:ring-offset-0 focus:ring-1"
+                />
+                <span className={`flex items-center gap-2 text-sm sm:text-base font-medium ${filterKey === 'macroCategories' ? 'text-inherit' : 'text-slate-800'}`}>
+                  {emoji && <span className="text-base sm:text-lg leading-none">{emoji}</span>}
+                  {label}
+                  {code && (
+                    <CountryFlag
+                      countryCode={code}
+                      svg
+                      aria-label={label}
+                      style={{ width: '1.1em', height: '0.9em', display: 'inline-block', verticalAlign: 'middle' }}
+                    />
+                  )}
+                </span>
+              </label>
+            );
+          })}
+        </div>
+
+        {options.length > 3 && !alwaysExpanded && typeof setShowMore === 'function' && (
           <button onClick={() => setShowMore(!showMore)} className="text-sm font-medium text-google-blue hover:underline mt-1 flex items-center">
-             <svg className={`w-3 h-3 mr-1 transform transition-transform ${showMore ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+            <svg className={`w-3 h-3 mr-1 transform transition-transform ${showMore ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
             {showMore ? 'Less' : `More (${options.length - 3})`}
           </button>
         )}
@@ -623,44 +626,10 @@ function HomePageContent({ scrollY }) {
 
   const renderFilterContent = () => (
     <>
+      {isMounted && renderFilterGroup('Category', macroCategoryOptions, 'macroCategories', showMoreMacroCategories, setShowMoreMacroCategories, { alwaysExpanded: true })}
       {isMounted && renderFilterGroup('Available In', countryOptions, 'countries', showMoreCountries, setShowMoreCountries)}
       {isMounted && renderFilterGroup('Data Type', dataTypeOptions, 'dataTypes', showMoreDataTypes, setShowMoreDataTypes)}
-
-      {/* Compensation Filter */}
-      <div className="mb-4">
-        <h3 className="font-normal text-base text-google-text mb-1">Compensation</h3>
-        {/* --- START: Apply same logic to Compensation button --- */}
-        {(() => {
-          const showClearAllCompensation = filters.compensationTypes.length > 1;
-          return (
-            <button
-              onClick={() => handleSelectAll('compensationTypes', PAYMENT_TYPES, !showClearAllCompensation)}
-              className="text-sm font-medium text-google-blue hover:underline mb-2 block"
-              aria-label={showClearAllCompensation ? `Clear all Compensation` : `Select all Compensation`}
-            >
-              {showClearAllCompensation ? 'Clear all' : 'Select all'}
-            </button>
-          );
-        })()}
-        {/* --- END: Apply same logic to Compensation button --- */}
-
-        {PAYMENT_TYPES.map(option => (
-          <div key={option.value} className="flex items-center mb-2">
-            <input
-              type="checkbox"
-              id={`payment-${option.value}-mobile`}
-              value={option.value}
-              checked={filters.compensationTypes.some(p => p.value === option.value)}
-              onChange={(e) => handlePaymentCheckboxChange(option, e.target.checked)}
-              className="mr-2 h-4 w-4 text-google-blue border-gray-400 rounded focus:ring-google-blue focus:ring-offset-0 focus:ring-1"
-            />
-            <label htmlFor={`payment-${option.value}-mobile`} className="text-base font-normal text-google-text-secondary flex items-center gap-2 cursor-pointer">
-              <span>{option.value === 'payment' ? '💲' : option.emoji}</span>
-              <span>{option.label}</span>
-            </label>
-          </div>
-        ))}
-      </div>
+      {isMounted && renderFilterGroup('Compensation', PAYMENT_TYPES, 'compensationTypes', showMoreCompensationTypes, setShowMoreCompensationTypes)}
     </>
   );
 
@@ -693,6 +662,83 @@ function HomePageContent({ scrollY }) {
     document.body.removeChild(link);
   }
 
+  // --- Derived UI state ---
+  const [openFilterPanel, setOpenFilterPanel] = useState(null); // 'macroCategories' | 'countries' | 'dataTypes' | 'compensationTypes' | null
+
+  const stickyThreshold = 140;
+  const safeScrollY = typeof scrollY === 'number' && !Number.isNaN(scrollY) ? scrollY : 0;
+  const isStickyFilterBar = safeScrollY > stickyThreshold;
+
+  const macroCategorySummary = (() => {
+    const values = filters.macroCategories || [];
+    if (!values.length) return 'Any type';
+    if (values.length === 1) return values[0];
+    return `${values[0]} +${values.length - 1}`;
+  })();
+
+  const countrySummary = (() => {
+    const values = filters.countries || [];
+    if (!values.length) return 'Anywhere';
+    if (values.length === 1) {
+      const opt = countryOptions.find(o => o.value === values[0]);
+      return opt?.label || values[0];
+    }
+    const first = countryOptions.find(o => o.value === values[0]);
+    return `${first?.label || values[0]} +${values.length - 1}`;
+  })();
+
+  const dataTypeSummary = (() => {
+    const values = filters.dataTypes || [];
+    if (!values.length) return 'All';
+    if (values.length === 1) return values[0];
+    return `${values[0]} +${values.length - 1}`;
+  })();
+
+  const compensationSummary = (() => {
+    const values = filters.compensationTypes || [];
+    if (!values.length) return 'Any';
+    if (values.length === 1) return values[0].label || values[0].value;
+    const first = values[0];
+    return `${first.label || first.value} +${values.length - 1}`;
+  })();
+
+  const shouldHideDefaultSummary = (summary) => {
+    if (!isStickyFilterBar) return false;
+    if (!summary) return false;
+    const lowered = summary.toLowerCase();
+    return lowered.startsWith('any') || lowered === 'all';
+  };
+
+  const FilterPill = ({ label, summary, isActive, onClick, showSummary = true }) => (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`relative flex-1 flex flex-col justify-center px-6 py-3 text-left transition-colors hover:bg-slate-100/50 rounded-full
+        ${isActive ? 'bg-slate-100/70' : ''}
+      `}
+    >
+      <span className="text-xs font-bold text-slate-900 uppercase tracking-wider">{label}</span>
+      {summary && showSummary && (
+        <span className={`text-sm ${isActive ? 'text-slate-800' : 'text-slate-600'}`}>
+          {summary}
+        </span>
+      )}
+    </button>
+  );
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (filterContainerRef.current && !event.composedPath().includes(filterContainerRef.current)) {
+        setOpenFilterPanel(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside, true);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside, true);
+    };
+  }, []);
+
   // --- Prevent rendering until mounted (Keep this check) ---
   // This ensures filters are initialized from URL before rendering dynamic content
   if (!isMounted) {
@@ -715,69 +761,148 @@ function HomePageContent({ scrollY }) {
       <NewsletterSignup />
 
       {/* Main Layout Grid */}
-      <div className="grid grid-cols-layout lg:grid-cols-lg-layout gap-6">
-        {/* Sidebar */}
-        {/* --- START: Adjust sticky top value --- */}
-        {/* Final sticky header height is ~51px (35px logo + 8px*2 padding). Add a gap. */}
-        <aside className="hidden lg:block py-4 px-4 sticky top-[55px] h-[calc(100vh-100px)] overflow-y-auto">
-        {/* --- END: Adjust sticky top value --- */}
-          <div className="border border-gray-200 rounded-lg mb-4">
-            <h2 className="text-xs font-medium uppercase text-google-text-secondary px-4 pt-4 pb-2 border-b border-gray-200">
-              Filter By
-            </h2>
-            <div className="p-4">
-              {/* Render filter content using useCallback handlers */}
-              {renderFilterContent()}
-            </div>
-          </div>
-          <div className="mt-4 flex flex-col gap-2">
-            <Link
-              href="/get-involved"
-              className="w-full flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-white bg-apple-accent rounded-lg hover:bg-opacity-90 focus:ring-4 focus:outline-none focus:ring-blue-300 transition-colors"
-            >
-              <FaPlus />
-              Suggest a Service
-            </Link>
-
-            <Link
-              href="/data"
-              className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded border border-apple-accent text-apple-accent text-sm font-medium hover:bg-apple-accent/10 transition-colors"
-            >
-              <FaDownload />
-              Download Dataset
-            </Link>
-          </div>
-        </aside>
+      <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)] gap-6">
 
         {/* Main Content Area */}
         <main className="py-4">
-          {/* Search and Mobile Filter Button */}
-          <div className="mb-4 flex gap-2 items-center">
-            <div className="relative w-full">
-              <input
-                type="text"
-                placeholder="Filter results by keyword, country, data type..."
-                value={filters.searchTerm}
-                onChange={handleSearchChange}
-                className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-md focus:border-google-blue focus:ring-1 focus:ring-google-blue focus:outline-none text-sm placeholder-google-text-secondary"
-              />
-              {filters.searchTerm && (
-                <button
-                  onClick={() => setFilters(prev => ({ ...prev, searchTerm: '' }))}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-google-text-secondary hover:text-google-text"
-                  aria-label="Clear search"
-                >
-                  <FaTimes size="1em" />
-                </button>
-              )}
+          {/* Unified desktop search + filter bar */}
+          <motion.div
+            ref={filterContainerRef}
+            layout
+            initial={false}
+            animate={isStickyFilterBar ? 'sticky' : 'default'}
+            variants={{
+              default: {
+                y: 0,
+                scale: 1,
+                boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+                borderRadius: 999,
+              },
+              sticky: {
+                y: 0,
+                scale: 1,
+                boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+                borderRadius: 999,
+              },
+            }}
+            transition={{
+              type: 'tween',
+              duration: 0.2,
+              ease: 'circOut',
+            }}
+            className={`group relative border backdrop-blur-3xl z-40 mb-4
+              ${openFilterPanel ? 'overflow-visible' : 'overflow-hidden'}
+              ${isStickyFilterBar
+                ? 'bg-white/95 border-slate-200/75 sticky top-[80px] md:max-w-4xl w-full mx-auto'
+                : 'bg-white/95 border-slate-200/75 relative md:max-w-4xl w-full mx-auto'}`}
+          >
+            <div className="pointer-events-none absolute inset-0">
+              <div className={`absolute inset-0 bg-gradient-to-br from-white/95 via-white/85 to-white/70 transition-opacity duration-500 ${isStickyFilterBar ? 'opacity-100' : 'opacity-80'}`} />
+              <div className={`absolute -top-10 -right-6 w-40 h-40 rounded-full bg-white/80 blur-3xl transition-all duration-500 ${isStickyFilterBar ? 'opacity-85 translate-y-1' : 'opacity-0'}`} />
+              <div className={`absolute -bottom-14 left-4 w-44 h-44 rounded-full bg-transparent blur-3xl transition-all duration-500 ${isStickyFilterBar ? 'opacity-75 translate-y-2' : 'opacity-0'}`} />
             </div>
-            <button
-              onClick={toggleFilterDrawer}
-              className="lg:hidden px-4 py-2 rounded border border-gray-300 text-google-text text-sm font-medium hover:bg-gray-50 transition-colors flex items-center whitespace-nowrap"
-            >
-              <FaFilter className="mr-2" /> Filters
-            </button>
-          </div>
+
+            <div className={`relative flex items-center transition-all duration-300 ease-in-out`}>
+              {/* Filter pills */}
+              <div
+                className="hidden lg:flex flex-1 items-stretch"
+              >
+                <FilterPill
+                  label="Category"
+                  summary={isStickyFilterBar ? null : macroCategorySummary}
+                  isActive={openFilterPanel === 'macroCategories'}
+                  onClick={() => setOpenFilterPanel(openFilterPanel === 'macroCategories' ? null : 'macroCategories')}
+                />
+                <div className="w-px bg-slate-200 my-3"></div>
+                <FilterPill
+                  label="Available in"
+                  summary={isStickyFilterBar ? null : countrySummary}
+                  isActive={openFilterPanel === 'countries'}
+                  onClick={() => setOpenFilterPanel(openFilterPanel === 'countries' ? null : 'countries')}
+                />
+                <div className="w-px bg-slate-200 my-3"></div>
+                <FilterPill
+                  label="Data type"
+                  summary={isStickyFilterBar ? null : dataTypeSummary}
+                  isActive={openFilterPanel === 'dataTypes'}
+                  onClick={() => setOpenFilterPanel(openFilterPanel === 'dataTypes' ? null : 'dataTypes')}
+                />
+                <div className="w-px bg-slate-200 my-3"></div>
+                <FilterPill
+                  label="Compensation"
+                  summary={isStickyFilterBar ? null : compensationSummary}
+                  isActive={openFilterPanel === 'compensationTypes'}
+                  onClick={() => setOpenFilterPanel(openFilterPanel === 'compensationTypes' ? null : 'compensationTypes')}
+                />
+              </div>
+
+              {/* Desktop search field */}
+              <div className={`flex items-center transition-all duration-300 ease-in-out pl-4 w-full lg:w-auto`}>
+                <div className="relative flex-1 flex items-center">
+                  <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+                  <input
+                    type="text"
+                    placeholder="Search"
+                    value={filters.searchTerm}
+                    onChange={handleSearchChange}
+                    className={`w-full py-3 pl-10 pr-4 text-slate-900 placeholder-slate-500 focus:outline-none text-sm bg-transparent`}
+                  />
+                </div>
+                {/* Mobile Filter Button */}
+                <button
+                  onClick={toggleFilterDrawer}
+                  className="lg:hidden ml-2 p-2.5 bg-slate-100 rounded-full text-slate-600 hover:bg-slate-200 transition-colors flex-shrink-0"
+                  aria-label="Open filters"
+                >
+                  <FaSlidersH className="text-lg" />
+                </button>
+              </div>
+            </div>
+
+            {/* Expanding filter panels on desktop */}
+            <AnimatePresence>
+              {openFilterPanel && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -10, scale: 0.98 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 40 }}
+                  className="hidden lg:block absolute inset-x-0 top-full mt-4 z-50 px-1"
+                >
+                  <div className="mx-auto w-full max-w-5xl relative overflow-hidden rounded-[28px] border border-slate-200/80 bg-white/95 backdrop-blur-2xl shadow-[0_25px_65px_rgba(15,23,42,0.18)] px-4 lg:px-8 pt-5 pb-6">
+                    <div className="pointer-events-none absolute inset-0">
+                      <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/50 to-transparent" />
+                      <div className="absolute -top-10 left-10 w-32 h-32 bg-white/70 blur-3xl rounded-full" />
+                      <div className="absolute -bottom-16 right-12 w-48 h-48 bg-blue-100/40 blur-[90px] rounded-full" />
+                    </div>
+                    <div className="relative border-t border-slate-100 pt-4">
+                      {openFilterPanel === 'macroCategories' && renderFilterGroup('Category', macroCategoryOptions, 'macroCategories', true, null, { alwaysExpanded: true, columns: 2 })}
+                      {openFilterPanel === 'countries' && renderFilterGroup('Available in', countryOptions, 'countries', true, null, { alwaysExpanded: true, columns: 2 })}
+                      {openFilterPanel === 'dataTypes' && renderFilterGroup('Data type', dataTypeOptions, 'dataTypes', true, null, { alwaysExpanded: true, columns: 2 })}
+                      {openFilterPanel === 'compensationTypes' && renderFilterGroup('Compensation', PAYMENT_TYPES, 'compensationTypes', true, null, { alwaysExpanded: true, columns: 2 })}
+
+                      <div className="mt-3 flex justify-between items-center text-xs">
+                        <button
+                          type="button"
+                          onClick={() => openFilterPanel && handleClearGroup(openFilterPanel)}
+                          className="text-google-text-secondary hover:text-google-text"
+                        >
+                          Clear
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setOpenFilterPanel(null)}
+                          className="font-semibold text-google-blue hover:underline"
+                        >
+                          Done
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
 
           {/* Active Filter Badges */}
           <div className="mb-4 flex flex-wrap gap-2 items-center">
@@ -845,39 +970,39 @@ function HomePageContent({ scrollY }) {
                     <FaTimes size="0.9em" />
                   </button>
                 </span>
-            ))}
+              ))}
           </div>
 
           {/* Resource Grid */}
           <div className="lg:col-span-1">
-             <ResourceGrid
-                resources={processedResources}
-                filters={filters}
-                onFilterChange={handleCheckboxChange}
-                onPaymentFilterChange={handlePaymentCheckboxChange}
-                compensationTypesOptions={PAYMENT_TYPES}
-                citationMap={citationMap}
-                onWearableFilterToggle={handleWearableFilterToggle}
-                onMacroCategoryFilterChange={handleMacroCategoryFilterChange}
-              />
+            <ResourceGrid
+              resources={processedResources}
+              filters={filters}
+              onFilterChange={handleCheckboxChange}
+              onPaymentFilterChange={handlePaymentCheckboxChange}
+              compensationTypesOptions={PAYMENT_TYPES}
+              citationMap={citationMap}
+              onWearableFilterToggle={handleWearableFilterToggle}
+              onMacroCategoryFilterChange={handleMacroCategoryFilterChange}
+            />
           </div>
 
-          {/* Mobile Buttons */}
-          <div className="mt-8 flex flex-col items-center gap-2 w-full max-w-xs mx-auto lg:hidden">
-             <Link
-                href="/get-involved"
-                className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded bg-apple-accent text-white text-sm font-medium hover:opacity-90 transition-opacity"
-              >
-                <FaPlus />
-                Suggest a Service
-              </Link>
-              <Link
-                href="/data"
-                className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded border border-apple-accent text-apple-accent text-sm font-medium hover:bg-apple-accent/10 transition-colors"
-              >
-                <FaDownload />
-                Download Dataset
-              </Link>
+          {/* Desktop & Mobile Buttons under cards */}
+          <div className="mt-8 flex flex-col items-center gap-2 w-full max-w-sm mx-auto">
+            <Link
+              href="/get-involved"
+              className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded bg-apple-accent text-white text-sm font-medium hover:opacity-90 transition-opacity"
+            >
+              <FaPlus />
+              Suggest a Service
+            </Link>
+            <Link
+              href="/data"
+              className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded border border-apple-accent text-apple-accent text-sm font-medium hover:bg-apple-accent/10 transition-colors"
+            >
+              <FaDownload />
+              Download Dataset
+            </Link>
           </div>
 
           {/* References Section */}
@@ -905,23 +1030,25 @@ function HomePageContent({ scrollY }) {
             </section>
           )}
         </main>
-      </div> {/* End grid */}
+      </div > {/* End grid */}
 
       {/* Filter Drawer - Now uses the dynamically imported MobileFilterDrawer */}
-      {isMounted && (
-        <MobileFilterDrawer
-          isOpen={isFilterDrawerOpen}
-          toggleDrawer={toggleFilterDrawer}
-          filters={filters}
-          countryOptions={countryOptions}
-          dataTypeOptions={dataTypeOptions}
-          paymentTypes={PAYMENT_TYPES}
-          handleCheckboxChange={(filterKey, value) => handleFilterChange(filterKey, value)}
-          handlePaymentCheckboxChange={(option) => handleFilterChange('compensationType', option.value)}
-          handleResetFilters={handleResetFilters}
-          renderFilterContent={renderFilterContent} // Pass the existing render function
-        />
-      )}
-    </div> // End flex-grow container
+      {
+        isMounted && (
+          <MobileFilterDrawer
+            isOpen={isFilterDrawerOpen}
+            toggleDrawer={toggleFilterDrawer}
+            filters={filters}
+            countryOptions={countryOptions}
+            dataTypeOptions={dataTypeOptions}
+            paymentTypes={PAYMENT_TYPES}
+            handleCheckboxChange={(filterKey, value) => handleFilterChange(filterKey, value)}
+            handlePaymentCheckboxChange={(option) => handleFilterChange('compensationType', option.value)}
+            handleResetFilters={handleResetFilters}
+            renderFilterContent={renderFilterContent} // Pass the existing render function
+          />
+        )
+      }
+    </div > // End flex-grow container
   );
 }
