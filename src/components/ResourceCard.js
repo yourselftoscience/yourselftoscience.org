@@ -298,7 +298,7 @@ function TagButton({ label, isActive, onClick, children }) {
                   >
                     <Popover.Panel onClick={(e) => e.stopPropagation()} className="absolute z-10 bottom-full right-0 mb-2 w-72 max-h-60 overflow-y-auto rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <div className="p-3 space-y-2">
-                        <h3 className="text-[9px] font-medium text-google-text normal-case border-b pb-1 mb-2">
+                        <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-100 pb-2 mb-3">
                           Service cited by
                         </h3>
                         <ol className="list-decimal list-inside space-y-1.5">
@@ -308,7 +308,7 @@ function TagButton({ label, isActive, onClick, children }) {
                             const refNumber = typeof refIndex === 'number' ? refIndex : null;
 
                             return (
-                              <li key={idx} className="text-xs text-google-text-secondary leading-snug">
+                              <li key={idx} className="text-xs text-slate-600 leading-relaxed p-1.5 rounded-md hover:bg-slate-50 transition-colors">
                                 {citation.link ? (
                                   <a
                                     href={citation.link}

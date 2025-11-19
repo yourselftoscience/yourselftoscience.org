@@ -33,6 +33,11 @@ const HomePageContentDynamic = dynamic(() => Promise.resolve(HomePageContent), {
   ssr: false, // It heavily relies on client-side hooks like useSearchParams
 });
 
+// Dynamically import ReferencesSection
+const ReferencesSection = dynamic(() => import('@/components/ReferencesSection'), {
+  ssr: false
+});
+
 // --- Constants and Helper Functions (keep as is) ---
 const parseUrlList = (param) => param ? param.split(',') : [];
 // Helper functions for macro categories (which contain commas, so we use pipe delimiter)
@@ -1006,29 +1011,7 @@ function HomePageContent({ scrollY }) {
           </div>
 
           {/* References Section */}
-          {citationList.length > 0 && (
-            <section id="references" className="w-full max-w-screen-xl mx-auto px-4 py-8 border-t mt-8">
-              <h2 className="text-xl font-semibold mb-4 text-google-text">References</h2>
-              <ol className="list-decimal pl-5 space-y-2">
-                {citationList.map((citation, idx) => (
-                  <li
-                    key={idx}
-                    id={`ref-${idx + 1}`}
-                    className="text-sm text-google-text-secondary leading-relaxed"
-                  >
-                    <a
-                      href={citation.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-google-blue hover:underline break-words"
-                    >
-                      {citation.title}
-                    </a>
-                  </li>
-                ))}
-              </ol>
-            </section>
-          )}
+          <ReferencesSection citations={citationList} />
         </main>
       </div > {/* End grid */}
 

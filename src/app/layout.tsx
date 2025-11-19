@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   other: {
     'citation_title': "Yourself To Science: A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More",
     'citation_author': "Mario Marcolongo",
-    'citation_publication_date': `${currentYear}/${currentDate.split('/')[1]}/${currentDate.split('/')[2]}`,
+    'citation_publication_date': '2025/01/31',
     'citation_pdf_url': "https://yourselftoscience.org/yourselftoscience.pdf",
     'citation_fulltext_html_url': "https://yourselftoscience.org",
     'citation_doi': latestDoi,
