@@ -32,7 +32,10 @@ const currentYear = new Date().getFullYear();
 // This export is necessary to prevent a build error.
 // See: https://github.com/vercel/next.js/issues/53354
 export const metadata: Metadata = {
-  title: "Yourself to Science",
+  title: {
+    default: "Yourself to Science",
+    template: "%s | Yourself to Science",
+  },
   description: "A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More",
   icons: {
     icon: [
@@ -90,6 +93,18 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Yourself to Science",
+    "url": "https://yourselftoscience.org",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://yourselftoscience.org/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  };
+
   return (
     // Keep suppressHydrationWarning on html for good measure
     <html lang="en" suppressHydrationWarning={true}>
@@ -105,6 +120,10 @@ export default function RootLayout({
         {/* Add other necessary head elements like charset, viewport */}
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {/* Umami Analytics via same-origin proxy */}
         <script
           defer
