@@ -2,14 +2,14 @@ import { resources } from '@/data/resources';
 import Link from 'next/link';
 import { FiInfo, FiArrowRight } from 'react-icons/fi';
 
-export const metadata = {  title: 'All Resources - Yourself To Science',
+export const metadata = {  title: 'All Resources - Yourself to Science',
   description: 'A complete listing of all services for contributing to science.',
   robots: {
     index: false,
     follow: true,
   },
   other: {
-    'citation_title': 'Complete Resource Listing - Yourself To Science',
+    'citation_title': 'Complete Resource Listing - Yourself to Science',
     'citation_author': 'Mario Marcolongo',
     'citation_publication_date': new Date().toISOString().split('T')[0].replace(/-/g, '/'),
     'citation_pdf_url': 'https://yourselftoscience.org/yourselftoscience.pdf',

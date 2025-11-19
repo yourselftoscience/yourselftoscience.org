@@ -3,8 +3,8 @@ import path from 'path';
 import ContentLicenseClientPage from './ContentLicenseClientPage';
 
 export const metadata = {
-    title: 'Content License | Yourself To Science',
-    description: 'Content license for Yourself To Science. The content is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0).',
+    title: 'Content License | Yourself to Science',
+    description: 'Content license for Yourself to Science. The content is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0).',
     robots: {
         index: false,
         follow: true,

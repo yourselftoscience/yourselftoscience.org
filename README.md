@@ -1,5 +1,5 @@
-# Yourself To Science
-**Yourself To Science™ is an open-source project providing a comprehensive list of services that allow individuals to contribute to scientific research with their data, genome, body, and more.**
+# Yourself to Science
+**Yourself to Science™ is an open-source project providing a comprehensive list of services that allow individuals to contribute to scientific research with their data, genome, body, and more.**
 
 Welcome to the official repository! Whether you're a developer looking to fix a bug or a community member with a suggestion for a new service, your contribution is welcome. Please see our [**Contribution Guidelines**](CONTRIBUTING.md) to get started.
 
@@ -24,11 +24,11 @@ This approach ensures that our content can be more easily ingested, understood, 
 
 For those who are not developers, navigating a code repository can sometimes be confusing. Here's a quick guide to some of our most important files:
 
-*   **`src/app/icon.svg`**: This is the main logo for the entire Yourself To Science project. Although named `icon.svg`, it functions as our primary logo. We use this specific name and location because it allows the Next.js framework to automatically handle all favicon and icon variations for different devices and platforms, which is a modern best practice.
+*   **`src/app/icon.svg`**: This is the main logo for the entire Yourself to Science project. Although named `icon.svg`, it functions as our primary logo. We use this specific name and location because it allows the Next.js framework to automatically handle all favicon and icon variations for different devices and platforms, which is a modern best practice.
 *   **`public/llms.txt`**: A file that helps Large Language Models understand the structure and content of the website. See the section above for more details.
 *   **`src/data/resources.js`**: This file contains the raw data for all the services and resources listed on the website. If you are suggesting changes or additions, this is where the data lives.
 *   **`CONTRIBUTING.md`**: The most important file for anyone who wants to help! It contains detailed instructions on how to suggest new services, report issues, or contribute code.
-*   **`CODE_OF_CONDUCT.md`**: The rules for how we expect people to behave in Yourself To Science spaces.
+*   **`CODE_OF_CONDUCT.md`**: The rules for how we expect people to behave in Yourself to Science spaces.
 
 ## LICENSE
 The content of this project itself is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0), and the underlying source code used to format and display that content is licensed under the GNU Affero General Public License (AGPL-3.0).

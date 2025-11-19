@@ -1,6 +1,6 @@
-# Yourself To Science
+# Yourself to Science
 
-> Yourself To Science™ is an open-source project providing a comprehensive list of services that allow individuals to contribute to scientific research with their data, genome, body, and more.
+> Yourself to Science™ is an open-source project providing a comprehensive list of services that allow individuals to contribute to scientific research with their data, genome, body, and more.
 
 This project is open source. The content is licensed under CC BY-SA 4.0 and the code is licensed under AGPL-3.0. The full list of resources is available in JSON and CSV formats.
 

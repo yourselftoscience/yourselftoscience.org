@@ -1,6 +1,6 @@
-# How to Contribute to Yourself To Science
+# How to Contribute to Yourself to Science
 
-First off, thank you for considering contributing to Yourself To Science! 🎉 This is a community-driven project, and every contribution, from a simple typo fix to a new feature suggestion, is incredibly valuable.
+First off, thank you for considering contributing to Yourself to Science! 🎉 This is a community-driven project, and every contribution, from a simple typo fix to a new feature suggestion, is incredibly valuable.
 
 This document provides guidelines for contributing. We have sections tailored for different types of contributions, so please read the one that best fits your situation.
 

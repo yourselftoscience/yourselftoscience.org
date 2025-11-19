@@ -12,7 +12,7 @@
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:dc="http://purl.org/dc/elements/1.1/">
   <title
-     id="title15">'Yourself To Science' Logo</title>
+     id="title15">'Yourself to Science' Logo</title>
   <g
      id="Logo"
      transform="translate(2.9100055)">
@@ -265,7 +265,7 @@
          rdf:about="">
         <cc:license
            rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
-        <dc:title>'Yourself To Science' Logo</dc:title>
+        <dc:title>'Yourself to Science' Logo</dc:title>
         <dc:relation>https://yourselftoscience.org/</dc:relation>
       </cc:Work>
       <cc:License

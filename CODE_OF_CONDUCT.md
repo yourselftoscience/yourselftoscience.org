@@ -1,10 +1,10 @@
 # Code of Conduct
 
-This Code of Conduct describes how we expect people to behave in spaces run by Yourself To Science™.
+This Code of Conduct describes how we expect people to behave in spaces run by Yourself to Science™.
 
 Our goal is simple: build the world’s simplest way for anyone, anywhere, to contribute to science. To do that, we need community spaces that stay focused on science, data, and useful discussion — not on personal attacks or unrelated fights.
 
-This Code applies to all interactions in official Yourself To Science spaces, including GitHub issues and pull requests, project discussions, and any other channels listed in the documentation.
+This Code applies to all interactions in official Yourself to Science spaces, including GitHub issues and pull requests, project discussions, and any other channels listed in the documentation.
 
 ## Canon 1 – Integrity
 
@@ -25,15 +25,15 @@ This Code applies to all interactions in official Yourself To Science spaces, in
 - When you disagree, explain why in clear terms and, where possible, point to evidence or alternatives.
 - Maintainers may close or redirect threads that become repetitive, off-topic, or hostile.
 
-## Canon 4 – Use of the Yourself To Science’s Name and Infrastructure
+## Canon 4 – Use of the Yourself to Science’s Name and Infrastructure
 
-- Do not present unofficial work as if it were an official part of Yourself To Science.
+- Do not present unofficial work as if it were an official part of Yourself to Science.
 - Do not use project spaces to run unrelated political campaigns or personal attacks.
 - Do not claim project endorsement for products, services, or organizations without explicit permission from the maintainers.
 
 ## Canon 5 – External Opinions and Politics
 
-- You are free to hold and express any views elsewhere. In project spaces, keep discussion tied to Yourself To Science’s purpose: helping people discover and evaluate ways to contribute to science.
+- You are free to hold and express any views elsewhere. In project spaces, keep discussion tied to Yourself to Science’s purpose: helping people discover and evaluate ways to contribute to science.
 - Avoid importing external political or cultural fights into project channels when they are not directly relevant to the work.
 
 ## Canon 6 – Reporting and Consequences

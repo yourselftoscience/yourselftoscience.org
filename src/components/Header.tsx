@@ -182,7 +182,7 @@ export default function Header({ scrollY }: HeaderProps) {
           {/* ... Image ... */}
           <Image
             src="/logo-tm.svg"
-            alt="Yourself To Science™ Logo"
+            alt="Yourself to Science™ Logo"
             width={70} height={70}
             className="block w-full h-full"
             priority

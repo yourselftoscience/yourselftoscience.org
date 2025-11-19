@@ -3,7 +3,7 @@ import GetInvolvedClientPage from './GetInvolvedClientPage';
 import NewsletterSignup from '../../components/NewsletterSignup';
 
 export const metadata = {
-  title: 'Get Involved | Yourself To Science',
+  title: 'Get Involved | Yourself to Science',
   description: 'Help build the future of citizen science. Suggest a new service, contact us, join the community discussion, or contribute to the code.',
 };
 

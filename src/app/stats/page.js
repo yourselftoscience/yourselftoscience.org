@@ -195,7 +195,7 @@ const StatsPage = () => {
             >
                 <h1 className="text-4xl md:text-6xl font-bold text-apple-primary-text mb-3">Project Statistics</h1>
                 <p className="text-lg text-apple-secondary-text max-w-3xl mx-auto">
-                    An overview of the resources available on Yourself To Science.
+                    An overview of the resources available on Yourself to Science.
                 </p>
                 <div className="mt-6 text-center">
                     <Link href="/data" className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-apple-accent rounded-lg hover:bg-opacity-90 focus:ring-4 focus:outline-none focus:ring-blue-300 transition-colors">

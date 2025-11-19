@@ -6,7 +6,7 @@
 @prefix schema: <http://schema.org/> .
 
 <https://yourselftoscience.org/resources.ttl#dataset> a void:Dataset, schema:Dataset ;
-    dcterms:title "Yourself To Science Dataset" ;
+    dcterms:title "Yourself to Science Dataset" ;
     dcterms:description "A curated list of services that allow individuals to contribute to scientific research with their data, genome, body, and more."@en ;
     dcterms:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
     void:dataDump <https://yourselftoscience.org/resources.ttl> ;

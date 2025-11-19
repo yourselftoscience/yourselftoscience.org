@@ -1,6 +1,6 @@
 # Project Statistics
 
-An overview of the resources available on Yourself To Science, providing insights into the landscape of citizen science contribution.
+An overview of the resources available on Yourself to Science, providing insights into the landscape of citizen science contribution.
 
 ## Overview
 

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Privacy Policy | Yourself To Science',
+  title: 'Privacy Policy | Yourself to Science',
   description:
     'This Privacy Policy describes how yourselftoscience.org collects, uses, and shares your personal information when you use our website.',
 };
@@ -14,7 +14,7 @@ export default function PrivacyPolicyPage() {
         <p className="text-gray-600 mb-4">Last Updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
 
         <p className="text-gray-700 mb-8">
-          Welcome to Yourself To Science (&quot;we&quot;, &quot;our&quot;, &quot;us&quot;). We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, yourselftoscience.org.
+          Welcome to Yourself to Science (&quot;we&quot;, &quot;our&quot;, &quot;us&quot;). We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, yourselftoscience.org.
         </p>
 
         <section className="mb-10">

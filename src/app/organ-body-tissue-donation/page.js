@@ -4,7 +4,7 @@ import OrganBodyTissueDonationSkeleton from './OrganBodyTissueDonationSkeleton.j
 
 // Static metadata remains here in the Server Component.
 export const metadata = {
-  title: 'Find Organ, Body, and Tissue Donation Programs | Yourself To Science',
+  title: 'Find Organ, Body, and Tissue Donation Programs | Yourself to Science',
   description: 'A curated list of programs for organ, body, and tissue donation for scientific research. Find opportunities to contribute by location.',
 };
 

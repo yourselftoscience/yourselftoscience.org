@@ -21,7 +21,7 @@ export async function generateMetadata({ params }) {
     };
   }
   
-  const title = `${resource.title} - Yourself To Science`;
+  const title = `${resource.title} - Yourself to Science`;
   const description = resource.description || `Learn more about contributing to ${resource.title}.`;
   const canonicalUrl = `https://yourselftoscience.org/resource/${resource.slug}`;
   const persistentIdUrl = `https://yourselftoscience.org/resource/${resource.id}`;

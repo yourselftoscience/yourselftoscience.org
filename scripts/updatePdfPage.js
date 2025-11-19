@@ -72,9 +72,9 @@ function getLatestDoi() {
     };
     stopAllIntervals();
     
-    // Force the title to show "Yourself To Science" with "self" as the yellow word
+    // Force the title to show "Yourself to Science" with "self" as the yellow word
     const titleElement = document.querySelector('h1');
-    if (titleElement && titleElement.textContent.includes("Yourself To Science")) {
+    if (titleElement && titleElement.textContent.includes("Yourself to Science")) {
       // Find spans with text-yellow-400 within the h1 and update them if needed for PDF
       const titleElementSpans = document.querySelectorAll('h1 span.text-yellow-500');
       if (titleElementSpans.length > 0) {
@@ -137,7 +137,7 @@ function getLatestDoi() {
     
     // Add title with large font
     const titleDiv = document.createElement('div');
-    titleDiv.textContent = 'Yourself To Science™';
+    titleDiv.textContent = 'Yourself to Science™';
     titleDiv.style.cssText = `
       font-size: 24pt; /* Keep large for Scholar */
       font-weight: bold;
@@ -158,7 +158,7 @@ function getLatestDoi() {
     
     // Add explicit bibliographic citation
     const citationDiv = document.createElement('div');
-    citationDiv.textContent = `Yourself To Science™ (${year}). A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More. PDF Version (${date}).`;
+    citationDiv.textContent = `Yourself to Science™ (${year}). A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More. PDF Version (${date}).`;
     citationDiv.style.cssText = `
       font-size: 10pt; /* Adjusted size */
       margin-top: 8px;
@@ -231,15 +231,15 @@ function getLatestDoi() {
       const formats = [
          {
           name: 'APA',
-          citation: `Marcolongo, M. (${year}). Yourself To Science™: A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More. PDF Version (${date}). ${siteUrl}. ${doiLinkArg}`
+          citation: `Marcolongo, M. (${year}). Yourself to Science™: A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More. PDF Version (${date}). ${siteUrl}. ${doiLinkArg}`
         },
         {
           name: 'MLA',
-          citation: `Marcolongo, Mario. "Yourself To Science™: A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More." Yourself To Science, ${year}, PDF Version (${date}). ${siteUrl}, ${doiLinkArg}.`
+          citation: `Marcolongo, Mario. "Yourself to Science™: A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More." Yourself to Science, ${year}, PDF Version (${date}). ${siteUrl}, ${doiLinkArg}.`
         },
         {
           name: 'Chicago',
-          citation: `Marcolongo, Mario. ${year}. "Yourself To Science™: A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More." Yourself To Science. PDF Version (${date}). ${siteUrl}. ${doiLinkArg}.`
+          citation: `Marcolongo, Mario. ${year}. "Yourself to Science™: A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More." Yourself to Science. PDF Version (${date}). ${siteUrl}. ${doiLinkArg}.`
         }
       ];
       // --- End update formats ---
@@ -692,7 +692,7 @@ function getLatestDoi() {
     `;
     
     const title = document.createElement('h1');
-    title.textContent = 'Yourself To Science: A Comprehensive Open-Source List of Services for Contributing to Science';
+    title.textContent = 'Yourself to Science: A Comprehensive Open-Source List of Services for Contributing to Science';
     title.style.fontSize = '24pt';
     title.style.marginBottom = '10px';
     

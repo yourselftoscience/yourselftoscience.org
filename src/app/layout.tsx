@@ -32,7 +32,7 @@ const currentYear = new Date().getFullYear();
 // This export is necessary to prevent a build error.
 // See: https://github.com/vercel/next.js/issues/53354
 export const metadata: Metadata = {
-  title: "Yourself To Science",
+  title: "Yourself to Science",
   description: "A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More",
   icons: {
     icon: [
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   other: {
-    'citation_title': "Yourself To Science: A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More",
+    'citation_title': "Yourself to Science: A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More",
     'citation_author': "Mario Marcolongo",
     'citation_publication_date': '2025/01/31',
     'citation_pdf_url': "https://yourselftoscience.org/yourselftoscience.pdf",
@@ -63,8 +63,8 @@ export const metadata: Metadata = {
     'citation_fulltext_world_readable': ' '
   },
   openGraph: {
-    title: "Yourself To Science",
-    siteName: "Yourself To Science",
+    title: "Yourself to Science",
+    siteName: "Yourself to Science",
     description: "List of Services for Contributing to Science with Your Data, Genome, Body, and More",
     url: "https://yourselftoscience.org",
     type: "website",
@@ -73,13 +73,13 @@ export const metadata: Metadata = {
         url: "https://yourselftoscience.org/preview-tm.png",
         width: 1200,
         height: 1200,
-        alt: "Yourself To Science Logo",
+        alt: "Yourself to Science Logo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yourself To Science",
+    title: "Yourself to Science",
     description: "List of Services for Contributing to Science with Your Data, Genome, Body, and More",
     images: ["https://yourselftoscience.org/preview-tm.png"],
   },
@@ -96,7 +96,7 @@ export default function RootLayout({
       <head>
         {/* Prefer explicit canonical and application name to help search engines pick the proper site title */}
         <link rel="canonical" href="https://yourselftoscience.org" />
-        <meta name="application-name" content="Yourself To Science" />
+        <meta name="application-name" content="Yourself to Science" />
         <link rel="preconnect" href="https://cloudflareinsights.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://cloudflareinsights.com" />
         <link rel="preconnect" href="https://static.cloudflareinsights.com" crossOrigin="anonymous" />

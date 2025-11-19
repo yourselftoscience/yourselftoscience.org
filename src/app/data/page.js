@@ -190,7 +190,7 @@ ORDER BY DESC(?count)`;
                             . You can copy, modify, and distribute the data, even for commercial purposes, without asking permission.
                         </p>
                         <p className="text-sm text-gray-600">
-                            While not required, we appreciate credit to Yourself To Science when using our data.
+                            While not required, we appreciate credit to Yourself to Science when using our data.
                         </p>
                     </div>
                 </motion.div>

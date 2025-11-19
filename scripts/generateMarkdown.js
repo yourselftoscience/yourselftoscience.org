@@ -88,7 +88,7 @@ function generateStatsMarkdown() {
   // --- Generate Markdown Content ---
 
   let mdContent = `# Project Statistics\n\n`;
-  mdContent += `An overview of the resources available on Yourself To Science, providing insights into the landscape of citizen science contribution.\n\n`;
+  mdContent += `An overview of the resources available on Yourself to Science, providing insights into the landscape of citizen science contribution.\n\n`;
   
   mdContent += `## Overview\n\n`;
   mdContent += `- **Total Resources:** ${totalResources}\n\n`;
@@ -141,7 +141,7 @@ function generateStatsMarkdown() {
 function generateHomepageMarkdown() {
   console.log('Generating index.html.md...');
   
-  let mdContent = `# Yourself To Science: Contribute to Science\n\n`;
+  let mdContent = `# Yourself to Science: Contribute to Science\n\n`;
   mdContent += `YourselfToScience.org is an open-source website providing a comprehensive list of services that allow individuals to contribute to scientific research with their data, genome, body, and more.\n\n`;
   mdContent += `This page provides a filterable list of all resources. You can also download the full dataset as CSV or JSON.\n\n`;
   mdContent += `## All Resources\n\n`;
