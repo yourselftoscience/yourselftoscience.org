@@ -66,10 +66,13 @@ export default function ReferencesSection({ citations }) {
                             return (
                                 <motion.div
                                     key={key}
-                                    initial={{ opacity: 0, y: 10 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: idx * 0.02 }}
+                                    initial={{ opacity: 0.3 }}
+                                    whileInView={{ opacity: 1 }}
+                                    viewport={{ once: true, amount: 0.01, margin: "200px" }}
+                                    transition={{
+                                        duration: 0.15,
+                                        ease: [0.25, 0.1, 0.25, 1]
+                                    }}
                                     id={refId}
                                     className={`group relative flex gap-4 p-4 rounded-2xl border transition-all duration-300 hover:shadow-sm scroll-mt-52 ${isActive
                                         ? 'bg-blue-50/80 border-blue-200 ring-2 ring-google-blue ring-offset-2 ring-offset-white/60'
