@@ -1,17 +1,16 @@
 // src/components/ResourceCard.js
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import CountryFlag from 'react-country-flag';
 import { FaHeart, FaDollarSign, FaExternalLinkAlt, FaBook } from 'react-icons/fa';
 import { Popover, Transition } from '@headlessui/react';
-import { Fragment } from 'react';
 import { EU_COUNTRIES } from '@/data/constants';
 
-const getPaymentInfo = (compensationType) => {
-  const type = compensationType || 'donation';
-  switch (type) {
+const getPaymentInfo = (compensationType = 'donation') => {
+  switch (compensationType) {
     case 'donation': return { icon: <FaHeart className="text-rose-500" title="Donation" />, label: 'Donation', value: 'donation' };
     case 'payment': return { icon: <FaDollarSign className="text-green-500" title="Payment" />, label: 'Payment', value: 'payment' };
     case 'mixed': return { icon: <><FaHeart className="text-rose-500" /><FaDollarSign className="text-green-500 -ml-1" /></>, label: 'Mixed', value: 'mixed' };
@@ -44,7 +43,179 @@ function TagButton({ label, isActive, onClick, children }) {
       {children}
     </button>
   );
-} export default function ResourceCard({
+}
+
+TagButton.propTypes = {
+  label: PropTypes.string.isRequired,
+  isActive: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
+};
+
+function CompensationIcons({ resource, filters, onPaymentFilterChange, compensationTypesOptions, hoveringIcon, setHoveringIcon }) {
+  const compensationType = resource.compensationType || 'donation';
+  const option = compensationTypesOptions.find(p => p.value === compensationType);
+
+  if (!option) {
+    const info = getPaymentInfo(compensationType);
+    return <div title={`Compensation: ${info.label}`}>{info.icon}</div>;
+  }
+
+  const anyCompFilterActive = filters.compensationTypes.length > 0;
+
+  if (compensationType === 'mixed') {
+    const donationOption = compensationTypesOptions.find(p => p.value === 'donation');
+    const paymentOption = compensationTypesOptions.find(p => p.value === 'payment');
+    const isDonationActive = filters.compensationTypes.some(p => p.value === 'donation');
+    const isPaymentActive = filters.compensationTypes.some(p => p.value === 'payment');
+
+    const renderIcon = (type, isFilterActive, option) => {
+      const showAsActive = isFilterActive || (!anyCompFilterActive && hoveringIcon !== (type === 'donation' ? 'payment' : 'donation'));
+      const colorClass = type === 'donation' ? 'text-rose-500' : 'text-green-500';
+      const classes = `${showAsActive ? colorClass : "text-gray-300 hover:" + colorClass} transition-colors`;
+      const Icon = type === 'donation' ? FaHeart : FaDollarSign;
+
+      return (
+        <button
+          onClick={(e) => { e.stopPropagation(); onPaymentFilterChange(option, !isFilterActive); }}
+          title={isFilterActive ? `Deactivate ${type} filter` : `Filter by ${type}`}
+          className="p-1 transition-transform hover:scale-110"
+          onMouseEnter={() => setHoveringIcon(type)}
+          onMouseLeave={() => setHoveringIcon(null)}
+        >
+          <Icon className={classes} />
+        </button>
+      );
+    };
+
+    return (
+      <>
+        {renderIcon('donation', isDonationActive, donationOption)}
+        {renderIcon('payment', isPaymentActive, paymentOption)}
+      </>
+    );
+  }
+
+  const isFilterOn = filters.compensationTypes.some(p => p.value === compensationType);
+  const displayAsActive = !anyCompFilterActive || isFilterOn;
+  const colorClass = compensationType === 'donation' ? 'text-rose-500' : 'text-green-500';
+  const Icon = compensationType === 'donation' ? FaHeart : FaDollarSign;
+
+  return (
+    <button
+      onClick={(e) => { e.stopPropagation(); onPaymentFilterChange(option, !isFilterOn); }}
+      title={isFilterOn ? `Deactivate ${option.label} filter` : `Filter by ${option.label}`}
+      className="p-1 transition-transform hover:scale-110"
+    >
+      <Icon className={`${displayAsActive ? colorClass : "text-gray-300 hover:" + colorClass} transition-colors`} />
+    </button>
+  );
+}
+
+CompensationIcons.propTypes = {
+  resource: PropTypes.shape({
+    compensationType: PropTypes.string,
+  }).isRequired,
+  filters: PropTypes.shape({
+    compensationTypes: PropTypes.arrayOf(PropTypes.shape({
+      value: PropTypes.string,
+    })),
+  }).isRequired,
+  onPaymentFilterChange: PropTypes.func.isRequired,
+  compensationTypesOptions: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.string,
+    label: PropTypes.string,
+  })).isRequired,
+  hoveringIcon: PropTypes.string,
+  setHoveringIcon: PropTypes.func.isRequired,
+};
+
+function CitationsPopover({ resource, citationMap }) {
+  return (
+    <Popover className="relative flex items-center">
+      {({ open }) => (
+        <>
+          <Popover.Button
+            className={`
+              group flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium transition-all duration-200
+              ${open
+                ? 'bg-google-blue/10 text-google-blue ring-1 ring-google-blue/20'
+                : 'bg-slate-50 text-slate-600 hover:bg-slate-100 hover:text-slate-900 ring-1 ring-slate-200'
+              }
+            `}
+            onClick={(e) => e.stopPropagation()}
+            aria-label={`View ${resource.citations.length} ${resource.citations.length === 1 ? 'citation' : 'citations'}`}
+          >
+            <FaBook className={`w-3 h-3 ${open ? 'text-google-blue' : 'text-slate-400 group-hover:text-slate-600'}`} />
+          </Popover.Button>
+
+          <Transition
+            as={Fragment}
+            enter="transition ease-out duration-200"
+            enterFrom="opacity-0 translate-y-1"
+            enterTo="opacity-100 translate-y-0"
+            leave="transition ease-in duration-150"
+            leaveFrom="opacity-100 translate-y-0"
+            leaveTo="opacity-0 translate-y-1"
+          >
+            <Popover.Panel onClick={(e) => e.stopPropagation()} className="absolute z-10 bottom-full right-0 mb-2 w-72 max-h-60 overflow-y-auto rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+              <div className="p-3 space-y-2">
+                <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-100 pb-2 mb-3">
+                  Service cited by
+                </h3>
+                <ol className="list-decimal list-inside space-y-1.5">
+                  {resource.citations.map((citation, idx) => {
+                    const key = getCitationKey(citation) || idx;
+                    const refIndex = key && citationMap ? citationMap[key] : undefined;
+                    const refNumber = typeof refIndex === 'number' ? refIndex : null;
+
+                    return (
+                      <li key={key} className="text-xs text-slate-600 leading-relaxed p-1.5 rounded-md hover:bg-slate-50 transition-colors">
+                        {citation.link ? (
+                          <a
+                            href={citation.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-google-blue hover:underline break-words"
+                          >
+                            {citation.title}
+                          </a>
+                        ) : (
+                          <span className="break-words">{citation.title}</span>
+                        )}
+                        {refNumber && (
+                          <a
+                            href={`#ref-${refNumber}`}
+                            title={`Go to main reference ${refNumber}`}
+                            className="ml-1 text-google-blue hover:underline font-medium"
+                          >
+                            [Ref&nbsp;{refNumber}]
+                          </a>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ol>
+              </div>
+            </Popover.Panel>
+          </Transition>
+        </>
+      )}
+    </Popover>
+  );
+}
+
+CitationsPopover.propTypes = {
+  resource: PropTypes.shape({
+    citations: PropTypes.arrayOf(PropTypes.shape({
+      title: PropTypes.string,
+      link: PropTypes.string,
+    })),
+  }).isRequired,
+  citationMap: PropTypes.object,
+};
+
+export default function ResourceCard({
   resource,
   filters,
   onFilterChange,
@@ -56,7 +227,6 @@ function TagButton({ label, isActive, onClick, children }) {
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [hoveringIcon, setHoveringIcon] = useState(null); // 'donation' | 'payment'
-  const paymentInfo = getPaymentInfo(resource.compensationType);
   const hasCitations = resource.citations && resource.citations.length > 0;
 
   const categoryStyles = {
@@ -68,8 +238,17 @@ function TagButton({ label, isActive, onClick, children }) {
 
   const toggleExpansion = (e) => {
     e.stopPropagation();
-    e.preventDefault();
+    // Prevent default only if it's a click event to avoid interfering with other interactions if needed,
+    // though for a toggle button it's usually fine.
+    // e.preventDefault(); 
     setIsExpanded(!isExpanded);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleExpansion(e);
+    }
   };
 
   const descriptionNeedsClamping = resource.description && resource.description.length > 150;
@@ -99,70 +278,14 @@ function TagButton({ label, isActive, onClick, children }) {
           </div>
 
           <div className="flex-shrink-0 flex items-center gap-1 text-lg">
-            {(() => {
-              const compensationType = resource.compensationType || 'donation';
-              const option = compensationTypesOptions.find(p => p.value === compensationType);
-              if (!option) return <div title={`Compensation: ${getPaymentInfo(compensationType).label}`}>{getPaymentInfo(compensationType).icon}</div>;
-
-              const anyCompFilterActive = filters.compensationTypes.length > 0;
-
-              if (compensationType === 'mixed') {
-                const donationOption = compensationTypesOptions.find(p => p.value === 'donation');
-                const paymentOption = compensationTypesOptions.find(p => p.value === 'payment');
-
-                const isDonationActive = filters.compensationTypes.some(p => p.value === 'donation');
-                const isPaymentActive = filters.compensationTypes.some(p => p.value === 'payment');
-
-                const showHeartAsActive = isDonationActive || (!anyCompFilterActive && hoveringIcon !== 'payment');
-                const heartClasses = `${showHeartAsActive ? "text-rose-500" : "text-gray-300 hover:text-rose-500"} transition-colors`;
-
-                const showDollarAsActive = isPaymentActive || (!anyCompFilterActive && hoveringIcon !== 'donation');
-                const dollarClasses = `${showDollarAsActive ? "text-green-500" : "text-gray-300 hover:text-green-500"} transition-colors`;
-
-                return (
-                  <>
-                    <button
-                      onClick={(e) => { e.stopPropagation(); onPaymentFilterChange(donationOption, !isDonationActive); }}
-                      title={isDonationActive ? "Deactivate Donation filter" : "Filter by Donation"}
-                      className="p-1 transition-transform hover:scale-110"
-                      onMouseEnter={() => setHoveringIcon('donation')}
-                      onMouseLeave={() => setHoveringIcon(null)}
-                    >
-                      <FaHeart className={heartClasses} />
-                    </button>
-                    <button
-                      onClick={(e) => { e.stopPropagation(); onPaymentFilterChange(paymentOption, !isPaymentActive); }}
-                      title={isPaymentActive ? "Deactivate Payment filter" : "Filter by Payment"}
-                      className="p-1 transition-transform hover:scale-110"
-                      onMouseEnter={() => setHoveringIcon('payment')}
-                      onMouseLeave={() => setHoveringIcon(null)}
-                    >
-                      <FaDollarSign className={dollarClasses} />
-                    </button>
-                  </>
-                );
-              }
-
-              const isFilterOn = filters.compensationTypes.some(p => p.value === compensationType);
-              const displayAsActive = !anyCompFilterActive || isFilterOn;
-
-              let iconWithClass;
-              if (compensationType === 'donation') {
-                iconWithClass = <FaHeart className={`${displayAsActive ? "text-rose-500" : "text-gray-300 hover:text-rose-500"} transition-colors`} />;
-              } else { // payment
-                iconWithClass = <FaDollarSign className={`${displayAsActive ? "text-green-500" : "text-gray-300 hover:text-green-500"} transition-colors`} />;
-              }
-
-              return (
-                <button
-                  onClick={(e) => { e.stopPropagation(); onPaymentFilterChange(option, !isFilterOn); }}
-                  title={isFilterOn ? `Deactivate ${option.label} filter` : `Filter by ${option.label}`}
-                  className="p-1 transition-transform hover:scale-110"
-                >
-                  {iconWithClass}
-                </button>
-              );
-            })()}
+            <CompensationIcons
+              resource={resource}
+              filters={filters}
+              onPaymentFilterChange={onPaymentFilterChange}
+              compensationTypesOptions={compensationTypesOptions}
+              hoveringIcon={hoveringIcon}
+              setHoveringIcon={setHoveringIcon}
+            />
           </div>
         </div>
         {resource.organization && (
@@ -171,34 +294,27 @@ function TagButton({ label, isActive, onClick, children }) {
           </p>
         )}
         {resource.description && (
-          <p
-            className={`text-sm text-google-text-secondary ${descriptionNeedsClamping ? 'cursor-pointer' : ''}`}
-            onClick={descriptionNeedsClamping ? toggleExpansion : undefined}
-          >
-            {!isExpanded && descriptionNeedsClamping
-              ? (
-                <>
-                  {`${resource.description.substring(0, 120)}... `}
-                  <button onClick={toggleExpansion} className="text-sm text-blue-600 hover:underline font-medium whitespace-nowrap">
-                    More
-                  </button>
-                </>
-              )
-              : (
-                <>
-                  {resource.description}
-                  {descriptionNeedsClamping && (
-                    <>
-                      {' '}
-                      <button onClick={toggleExpansion} className="text-sm text-blue-600 hover:underline font-medium whitespace-nowrap">
-                        Less
-                      </button>
-                    </>
-                  )}
-                </>
-              )
-            }
-          </p>
+          descriptionNeedsClamping ? (
+            <button
+              className="text-sm text-google-text-secondary cursor-pointer text-left w-full bg-transparent border-none p-0"
+              onClick={toggleExpansion}
+              onKeyDown={handleKeyDown}
+            >
+              {isExpanded
+                ? resource.description
+                : `${resource.description.substring(0, 120)}...`
+              }
+              <span
+                className="mt-2 block text-sm text-google-blue hover:underline font-medium"
+              >
+                {isExpanded ? 'Show less' : 'Show more'}
+              </span>
+            </button>
+          ) : (
+            <div className="text-sm text-google-text-secondary">
+              {resource.description}
+            </div>
+          )
         )}
       </div>
 
@@ -274,75 +390,40 @@ function TagButton({ label, isActive, onClick, children }) {
           )}
 
           {hasCitations && citationMap && (
-            <Popover className="relative">
-              {({ open }) => (
-                <>
-                  <Popover.Button
-                    onClick={(e) => e.stopPropagation()}
-                    className={`
-                              ${open ? 'text-google-blue' : 'text-google-text-secondary'}
-                              hover:text-google-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-opacity-75 p-1 rounded-full`}
-                    title={`View ${resource.citations.length} reference${resource.citations.length !== 1 ? 's' : ''}`}
-                    aria-label={`View ${resource.citations.length} reference${resource.citations.length !== 1 ? 's' : ''}`}
-                  >
-                    <FaBook className="text-sm" />
-                  </Popover.Button>
-                  <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-200"
-                    enterFrom="opacity-0 translate-y-1"
-                    enterTo="opacity-100 translate-y-0"
-                    leave="transition ease-in duration-150"
-                    leaveFrom="opacity-100 translate-y-0"
-                    leaveTo="opacity-0 translate-y-1"
-                  >
-                    <Popover.Panel onClick={(e) => e.stopPropagation()} className="absolute z-10 bottom-full right-0 mb-2 w-72 max-h-60 overflow-y-auto rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <div className="p-3 space-y-2">
-                        <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-100 pb-2 mb-3">
-                          Service cited by
-                        </h3>
-                        <ol className="list-decimal list-inside space-y-1.5">
-                          {resource.citations.map((citation, idx) => {
-                            const key = getCitationKey(citation);
-                            const refIndex = key ? citationMap[key] : undefined;
-                            const refNumber = typeof refIndex === 'number' ? refIndex : null;
-
-                            return (
-                              <li key={idx} className="text-xs text-slate-600 leading-relaxed p-1.5 rounded-md hover:bg-slate-50 transition-colors">
-                                {citation.link ? (
-                                  <a
-                                    href={citation.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-google-blue hover:underline break-words"
-                                  >
-                                    {citation.title}
-                                  </a>
-                                ) : (
-                                  <span className="break-words">{citation.title}</span>
-                                )}
-                                {refNumber && (
-                                  <a
-                                    href={`#ref-${refNumber}`}
-                                    title={`Go to main reference ${refNumber}`}
-                                    className="ml-1 text-google-blue hover:underline font-medium"
-                                  >
-                                    [Ref&nbsp;{refNumber}]
-                                  </a>
-                                )}
-                              </li>
-                            );
-                          })}
-                        </ol>
-                      </div>
-                    </Popover.Panel>
-                  </Transition>
-                </>
-              )}
-            </Popover>
+            <CitationsPopover resource={resource} citationMap={citationMap} />
           )}
         </div>
       </div>
     </div>
   );
 }
+
+ResourceCard.propTypes = {
+  resource: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    link: PropTypes.string,
+    slug: PropTypes.string,
+    organization: PropTypes.string,
+    compensationType: PropTypes.string,
+    macroCategories: PropTypes.arrayOf(PropTypes.string),
+    countries: PropTypes.arrayOf(PropTypes.string),
+    countryCodes: PropTypes.arrayOf(PropTypes.string),
+    dataTypes: PropTypes.arrayOf(PropTypes.string),
+    citations: PropTypes.arrayOf(PropTypes.shape({
+      title: PropTypes.string,
+      link: PropTypes.string,
+    })),
+  }).isRequired,
+  filters: PropTypes.shape({
+    compensationTypes: PropTypes.array,
+    countries: PropTypes.array,
+    dataTypes: PropTypes.array,
+  }).isRequired,
+  onFilterChange: PropTypes.func.isRequired,
+  onPaymentFilterChange: PropTypes.func.isRequired,
+  compensationTypesOptions: PropTypes.array.isRequired,
+  citationMap: PropTypes.object,
+  onWearableFilterToggle: PropTypes.func,
+  onMacroCategoryFilterChange: PropTypes.func,
+};

@@ -2,17 +2,15 @@
 
 'use client';
 
-import React, { useState, useEffect, useMemo, useCallback, Suspense, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useCallback, useRef, Suspense } from 'react';
+import PropTypes from 'prop-types';
 import { motion, AnimatePresence } from 'framer-motion';
-import Footer from '@/components/Footer';
 import { resources as allResources } from '@/data/resources';
 import { PAYMENT_TYPES, EU_COUNTRIES } from '@/data/constants';
-import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import CountryFlag from 'react-country-flag';
-import { FaHeart, FaDollarSign, FaTimes, FaFilter, FaDownload, FaSlidersH, FaUndo, FaPlus, FaExternalLinkAlt, FaSearch } from 'react-icons/fa';
-import Header from '@/components/Header';
-import { useRouter, usePathname, useSearchParams } from 'next/navigation';
+import { FaTimes, FaDownload, FaSlidersH, FaPlus, FaSearch } from 'react-icons/fa';
+import { usePathname, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import NewsletterSignup from '../components/NewsletterSignup';
 
@@ -28,10 +26,10 @@ const MobileFilterDrawer = dynamic(() => import('@/components/MobileFilterDrawer
 });
 
 // Dynamically import HomePageContent
-const HomePageContentDynamic = dynamic(() => Promise.resolve(HomePageContent), { // Need to wrap HomePageContent because it's not a default export
-  loading: () => <ContentAreaSkeleton />,
-  ssr: false, // It heavily relies on client-side hooks like useSearchParams
-});
+// HomePageContent is defined in this file, so we don't need to dynamically import it from itself.
+// If we want to lazy load it, we should move it to a separate file.
+// For now, let's just use it directly to avoid the circular dependency/webpack error.
+const HomePageContentDynamic = HomePageContent;
 
 // Dynamically import ReferencesSection
 const ReferencesSection = dynamic(() => import('@/components/ReferencesSection'), {
@@ -50,24 +48,26 @@ function expandCountries(chosen) {
   const hasAnyEUCountry = chosen.some(c => EU_COUNTRIES.includes(c));
 
   if (hasEU) {
-    EU_COUNTRIES.forEach((c) => set.add(c));
+    for (const c of EU_COUNTRIES) {
+      set.add(c);
+    }
     if (!chosen.includes('European Union')) {
       set.add('European Union');
     }
   } else if (hasAnyEUCountry) {
     set.add('European Union');
-    chosen.forEach(c => {
+    for (const c of chosen) {
       if (EU_COUNTRIES.includes(c)) {
         set.add(c);
       }
-    });
+    }
   }
 
-  chosen.forEach(c => {
+  for (const c of chosen) {
     if (!EU_COUNTRIES.includes(c) && c !== 'European Union') {
       set.add(c);
     }
-  });
+  }
 
   return Array.from(set);
 }
@@ -101,8 +101,8 @@ function ContentAreaSkeleton() {
 function ResourceGridSkeleton() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {[...Array(6)].map((_, i) => ( // Show 6 placeholder cards
-        <div key={i} className="bg-white border border-slate-200 rounded-3xl p-6 h-[420px] flex flex-col animate-pulse shadow-sm">
+      {[1, 2, 3, 4, 5, 6].map((id) => ( // Show 6 placeholder cards
+        <div key={id} className="bg-white border border-slate-200 rounded-3xl p-6 h-[420px] flex flex-col animate-pulse shadow-sm">
 
           {/* Top Row: Badges & Icons */}
           <div className="flex justify-between items-start mb-4">
@@ -143,30 +143,74 @@ export default function Home() {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
+    if (globalThis.window === undefined) return; // Check if window is defined
     const handleScroll = () => {
-      const y = typeof window !== 'undefined'
-        ? window.scrollY || window.pageYOffset || 0
-        : 0;
+      const y = globalThis.window.scrollY || globalThis.window.pageYOffset || 0;
       setScrollY(y);
     };
 
     handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    globalThis.window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => globalThis.window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <HomePageContentDynamic scrollY={scrollY} />
+      <Suspense fallback={<ContentAreaSkeleton />}>
+        <HomePageContentDynamic scrollY={scrollY} />
+      </Suspense>
     </div>
   );
 }
 
 
+// --- FilterPill Component ---
+function FilterPill({ label, summary, isActive, onClick, isStickyFilterBar }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="relative flex-1 flex flex-col justify-center px-6 py-3 text-left transition-colors hover:bg-slate-100/50 rounded-full"
+    >
+      <span className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+        {label}
+      </span>
+      {!isStickyFilterBar && summary && (
+        <span className="text-sm text-slate-600">
+          {summary}
+        </span>
+      )}
+    </button>
+  );
+}
+
+FilterPill.propTypes = {
+  label: PropTypes.string.isRequired,
+  summary: PropTypes.string,
+  isActive: PropTypes.bool,
+  onClick: PropTypes.func.isRequired,
+  isStickyFilterBar: PropTypes.bool,
+};
+
+// Helper function for data type matching to reduce nesting
+const matchesDataType = (resourceDataTypes, filterType) => {
+  if (filterType === 'Wearable data') {
+    return resourceDataTypes.some(rdt => rdt.startsWith('Wearable data'));
+  }
+  return resourceDataTypes.includes(filterType);
+};
+
+// Helper function for filter summaries
+const getFilterSummary = (selectedValues, defaultText, labelFn = (v) => v) => {
+  if (!selectedValues || selectedValues.length === 0) return defaultText;
+  if (selectedValues.length === 1) return labelFn(selectedValues[0]);
+  return `${selectedValues.length} selected`;
+};
+
 // --- HomePageContent Component (Handles dynamic content) ---
 // Accept scrollY as a prop
+// Accept scrollY as a prop
 function HomePageContent({ scrollY }) {
-  const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams(); // This causes the component to suspend
 
@@ -177,6 +221,7 @@ function HomePageContent({ scrollY }) {
   const [showMoreMacroCategories, setShowMoreMacroCategories] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState(false);
+  const [openFilterPanel, setOpenFilterPanel] = useState(null);
   const filterContainerRef = useRef(null);
 
   useEffect(() => {
@@ -199,7 +244,8 @@ function HomePageContent({ scrollY }) {
 
   // --- Effects and Memos (keep as is) ---
   useEffect(() => {
-    // Initialize filters from searchParams
+    // Initialize filters from searchParams ONLY ON MOUNT
+    // Do not re-run when searchParams changes, as that would reset user's filter selections
     const macroCategoriesParam = searchParams.get('macroCategories');
     const parsedMacroCategories = parseMacroCategories(macroCategoriesParam);
 
@@ -215,7 +261,7 @@ function HomePageContent({ scrollY }) {
     };
     setFilters(initialFilters);
     setIsMounted(true); // Mark as mounted after initial state is set
-  }, [searchParams]); // Add searchParams to dependency array
+  }, []); // Empty dependency array - only run on mount
   // --- END: Effect to initialize state from URL on mount ---
 
   // --- START: Effect to update URL when filters change ---
@@ -255,7 +301,7 @@ function HomePageContent({ scrollY }) {
 
     const queryString = params.toString();
     // Use replaceState to update the URL without adding to browser history
-    window.history.replaceState(null, '', queryString ? `?${queryString}` : pathname);
+    globalThis.window.history.replaceState(null, '', queryString ? `?${queryString}` : pathname);
 
   }, [filters, isMounted, pathname]); // Re-run when filters, isMounted, or pathname changes
   // --- END: Effect to update URL when filters change ---
@@ -279,16 +325,17 @@ function HomePageContent({ scrollY }) {
   const countryOptions = useMemo(() => {
     const countries = new Set();
     const countryCodeMap = new Map();
-    allResources.forEach((resource) => {
-      resource.countries?.forEach((country, index) => {
+    for (const resource of allResources) {
+      const resourceCountries = resource.countries || [];
+      for (const [index, country] of resourceCountries.entries()) {
         if (typeof country === 'string' && country.length > 0) {
           countries.add(country);
         }
         if (resource.countryCodes?.[index] && !countryCodeMap.has(country)) {
           countryCodeMap.set(country, resource.countryCodes[index]);
         }
-      });
-    });
+      }
+    }
     if (allResources.some(r => r.countries?.includes('European Union'))) {
       countries.add('European Union');
       if (!countryCodeMap.has('European Union')) {
@@ -333,14 +380,7 @@ function HomePageContent({ scrollY }) {
 
     if (filters.dataTypes.length > 0) {
       filteredData = filteredData.filter(resource =>
-        resource.dataTypes && filters.dataTypes.some(filterType => {
-          // If the filter is 'Wearable data', match any resource that starts with it
-          if (filterType === 'Wearable data') {
-            return resource.dataTypes.some(rdt => rdt.startsWith('Wearable data'));
-          }
-          // Otherwise, require an exact match
-          return resource.dataTypes.includes(filterType);
-        })
+        resource.dataTypes && filters.dataTypes.some(filterType => matchesDataType(resource.dataTypes, filterType))
       );
     }
 
@@ -367,17 +407,15 @@ function HomePageContent({ scrollY }) {
   // Derive citations in page order
   const citationList = useMemo(() => {
     const list = [];
-    processedResources.forEach(resource => {
-      (resource.citations || []).forEach(citation => {
-        const key = citation.link
-          ? citation.link.trim()
-          : citation.title.trim().toLowerCase().substring(0, 50);
+    for (const resource of processedResources) {
+      const citations = resource.citations || [];
+      for (const citation of citations) {
         if (!list.some(c => (c.link || '').trim() === (citation.link || '').trim() &&
           (c.title || '') === citation.title)) {
           list.push(citation);
         }
-      });
-    });
+      }
+    }
     return list;
   }, [processedResources]);
 
@@ -438,12 +476,9 @@ function HomePageContent({ scrollY }) {
         // Remove the primary type being deselected
         newPaymentValues.delete(option.value);
 
-        // If Donation was removed, check if Payment is still selected. If not, remove Mixed.
-        if (option.value === 'donation' && !newPaymentValues.has('payment')) {
-          newPaymentValues.delete('mixed');
-        }
-        // If Payment was removed, check if Donation is still selected. If not, remove Mixed.
-        else if (option.value === 'payment' && !newPaymentValues.has('donation')) {
+        // If Donation or Payment was removed, check if the other is still selected. If not, remove Mixed.
+        if ((option.value === 'donation' && !newPaymentValues.has('payment')) ||
+          (option.value === 'payment' && !newPaymentValues.has('donation'))) {
           newPaymentValues.delete('mixed');
         }
         // If Mixed was deselected directly, it's handled by the initial delete.
@@ -514,6 +549,19 @@ function HomePageContent({ scrollY }) {
     handleCheckboxChange('dataTypes', 'Wearable data', !isWearableActive);
   };
 
+  const handleFilterChangeWrapper = useCallback((filterKey, value, isChecked) => {
+    if (filterKey === 'compensationTypes') {
+      const paymentOption = PAYMENT_TYPES.find(p => p.value === value);
+      if (paymentOption) {
+        handlePaymentCheckboxChange(paymentOption, isChecked);
+      }
+    } else if (filterKey === 'macroCategories') {
+      handleMacroCategoryFilterChange(value);
+    } else {
+      handleCheckboxChange(filterKey, value, isChecked);
+    }
+  }, [handlePaymentCheckboxChange, handleMacroCategoryFilterChange, handleCheckboxChange]);
+
   // --- Render Functions (keep as is) ---
   const renderFilterGroup = (title, options, filterKey, showMore, setShowMore, config = {}) => {
     const { alwaysExpanded = false, columns = 1 } = config;
@@ -523,9 +571,6 @@ function HomePageContent({ scrollY }) {
     // Show "Clear all" if more than one item is selected
     const showClearAll = selectedValues.length > 1;
     // --- END: Modify condition for showing Clear all ---
-    // Note: allSelected and someSelected are no longer directly used for the button logic, but kept for potential future use or clarity
-    const allSelected = options.length > 0 && selectedValues.length === options.length;
-    const someSelected = selectedValues.length > 0 && !allSelected;
 
 
     const optionLayoutClass = columns > 1
@@ -539,7 +584,7 @@ function HomePageContent({ scrollY }) {
           // --- START: Update onClick and text based on showClear all ---
           onClick={() => handleSelectAll(filterKey, options, !showClearAll)} // If showing "Clear all", pass false to selectAll; otherwise pass true
           className="text-xs font-semibold text-google-blue hover:underline mb-3 block"
-          aria-label={showClearAll ? `Clear all ${title}` : `Select all ${title}`}
+          aria-label={showClearAll ? `Clear all ${title} ` : `Select all ${title} `}
         >
           {showClearAll ? 'Clear all' : 'Select all'}
           {/* --- END: Update onClick and text based on showClear all --- */}
@@ -552,11 +597,14 @@ function HomePageContent({ scrollY }) {
             const code = typeof option === 'object' ? option.code : null;
             const emoji = typeof option === 'object' ? option.emoji : null;
             const idSuffix = alwaysExpanded ? 'desktop' : 'mobile';
-            const isChecked = filterKey === 'countries'
-              ? selectedValues.includes(value)
-              : (filterKey === 'compensationTypes'
-                ? selectedValues.some(p => p.value === value)
-                : selectedValues.includes(value));
+            let isChecked = false;
+            if (filterKey === 'countries') {
+              isChecked = selectedValues.includes(value);
+            } else if (filterKey === 'compensationTypes') {
+              isChecked = selectedValues.some(p => p.value === value);
+            } else {
+              isChecked = selectedValues.includes(value);
+            }
 
             // Define category styles locally to match ResourceCard
             const categoryStyles = {
@@ -588,18 +636,7 @@ function HomePageContent({ scrollY }) {
                   id={`${filterKey}-${value}-${idSuffix}`}
                   value={value}
                   checked={isChecked}
-                  onChange={(e) => {
-                    if (filterKey === 'compensationTypes') {
-                      const paymentOption = PAYMENT_TYPES.find(p => p.value === value);
-                      if (paymentOption) {
-                        handlePaymentCheckboxChange(paymentOption, e.target.checked);
-                      }
-                    } else if (filterKey === 'macroCategories') {
-                      handleMacroCategoryFilterChange(value);
-                    } else {
-                      handleCheckboxChange(filterKey, value, e.target.checked);
-                    }
-                  }}
+                  onChange={(e) => handleFilterChangeWrapper(filterKey, value, e.target.checked)}
                   className="h-4 w-4 text-slate-900 border-slate-300 rounded focus:ring-slate-900 focus:ring-offset-0 focus:ring-1"
                 />
                 <span className={`flex items-center gap-2 text-sm sm:text-base font-medium ${filterKey === 'macroCategories' ? 'text-inherit' : 'text-slate-800'}`}>
@@ -638,111 +675,9 @@ function HomePageContent({ scrollY }) {
     </>
   );
 
-  function handleDownloadCSV() {
-    const headers = ['Title', 'Organization', 'Link', 'Data Types', 'Countries', 'Country Codes', 'Instructions', 'Compensation Type', 'Description', 'Citations'];
-    let csvContent = 'data:text/csv;charset=utf-8,' + headers.map(h => `"${h}"`).join(',') + '\n';
 
-    processedResources.forEach((resource) => {
-      const data = [
-        resource.title || '',
-        resource.organization || '',
-        resource.link || '',
-        resource.dataTypes?.join('; ') || '',
-        resource.countries?.join('; ') || '',
-        resource.countryCodes?.join('; ') || '',
-        resource.instructions?.join('; ') || '',
-        resource.compensationType || '',
-        resource.description || '',
-        resource.citations?.map(c => `${c.title} (${c.link})`).join('; ') || ''
-      ];
-      csvContent += data.map(field => `"${String(field).replace(/"/g, '""')}"`).join(',') + '\n';
-    });
 
-    const encodedUri = encodeURI(csvContent);
-    const link = document.createElement('a');
-    link.setAttribute('href', encodedUri);
-    link.setAttribute('download', 'yourselftoscience_resources.csv');
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }
 
-  // --- Derived UI state ---
-  const [openFilterPanel, setOpenFilterPanel] = useState(null); // 'macroCategories' | 'countries' | 'dataTypes' | 'compensationTypes' | null
-
-  const stickyThreshold = 140;
-  const safeScrollY = typeof scrollY === 'number' && !Number.isNaN(scrollY) ? scrollY : 0;
-  const isStickyFilterBar = safeScrollY > stickyThreshold;
-
-  const macroCategorySummary = (() => {
-    const values = filters.macroCategories || [];
-    if (!values.length) return 'Any type';
-    if (values.length === 1) return values[0];
-    return `${values[0]} +${values.length - 1}`;
-  })();
-
-  const countrySummary = (() => {
-    const values = filters.countries || [];
-    if (!values.length) return 'Anywhere';
-    if (values.length === 1) {
-      const opt = countryOptions.find(o => o.value === values[0]);
-      return opt?.label || values[0];
-    }
-    const first = countryOptions.find(o => o.value === values[0]);
-    return `${first?.label || values[0]} +${values.length - 1}`;
-  })();
-
-  const dataTypeSummary = (() => {
-    const values = filters.dataTypes || [];
-    if (!values.length) return 'All';
-    if (values.length === 1) return values[0];
-    return `${values[0]} +${values.length - 1}`;
-  })();
-
-  const compensationSummary = (() => {
-    const values = filters.compensationTypes || [];
-    if (!values.length) return 'Any';
-    if (values.length === 1) return values[0].label || values[0].value;
-    const first = values[0];
-    return `${first.label || first.value} +${values.length - 1}`;
-  })();
-
-  const shouldHideDefaultSummary = (summary) => {
-    if (!isStickyFilterBar) return false;
-    if (!summary) return false;
-    const lowered = summary.toLowerCase();
-    return lowered.startsWith('any') || lowered === 'all';
-  };
-
-  const FilterPill = ({ label, summary, isActive, onClick, showSummary = true }) => (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`relative flex-1 flex flex-col justify-center px-6 py-3 text-left transition-colors hover:bg-slate-100/50 rounded-full
-        ${isActive ? 'bg-slate-100/70' : ''}
-      `}
-    >
-      <span className="text-xs font-bold text-slate-900 uppercase tracking-wider">{label}</span>
-      {summary && showSummary && (
-        <span className={`text-sm ${isActive ? 'text-slate-800' : 'text-slate-600'}`}>
-          {summary}
-        </span>
-      )}
-    </button>
-  );
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (filterContainerRef.current && !event.composedPath().includes(filterContainerRef.current)) {
-        setOpenFilterPanel(null);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside, true);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside, true);
-    };
-  }, []);
 
   // --- Prevent rendering until mounted (Keep this check) ---
   // This ensures filters are initialized from URL before rendering dynamic content
@@ -752,9 +687,16 @@ function HomePageContent({ scrollY }) {
   }
 
   // --- Return the JSX for the main content area ONLY ---
+  // --- Derived State for Filter Summaries ---
+  const macroCategorySummary = getFilterSummary(filters.macroCategories, 'Any type');
+  const countrySummary = getFilterSummary(filters.countries, 'Anywhere');
+  const dataTypeSummary = getFilterSummary(filters.dataTypes, 'All');
+  const compensationSummary = getFilterSummary(filters.compensationTypes, 'Any', (v) => v.label);
+
+  const isStickyFilterBar = scrollY > 50;
+
   return (
     <div className="flex-grow w-full max-w-screen-xl mx-auto px-4 pb-8 pt-3">
-
       {/* Intro Text */}
       <p className="text-base text-google-text-secondary max-w-5xl mb-6">
         A comprehensive open-source list of services allowing individuals to contribute to scientific research.
@@ -799,7 +741,8 @@ function HomePageContent({ scrollY }) {
               ${openFilterPanel ? 'overflow-visible' : 'overflow-hidden'}
               ${isStickyFilterBar
                 ? 'bg-white/95 border-slate-200/75 sticky top-[80px] md:max-w-4xl w-full mx-auto'
-                : 'bg-white/95 border-slate-200/75 relative md:max-w-4xl w-full mx-auto'}`}
+                : 'bg-white/95 border-slate-200/75 relative md:max-w-4xl w-full mx-auto'
+              }`}
           >
             <div className="pointer-events-none absolute inset-0">
               <div className={`absolute inset-0 bg-gradient-to-br from-white/95 via-white/85 to-white/70 transition-opacity duration-500 ${isStickyFilterBar ? 'opacity-100' : 'opacity-80'}`} />
@@ -814,30 +757,34 @@ function HomePageContent({ scrollY }) {
               >
                 <FilterPill
                   label="Category"
-                  summary={isStickyFilterBar ? null : macroCategorySummary}
+                  summary={macroCategorySummary}
                   isActive={openFilterPanel === 'macroCategories'}
                   onClick={() => setOpenFilterPanel(openFilterPanel === 'macroCategories' ? null : 'macroCategories')}
+                  isStickyFilterBar={isStickyFilterBar}
                 />
                 <div className="w-px bg-slate-200 my-3"></div>
                 <FilterPill
                   label="Available in"
-                  summary={isStickyFilterBar ? null : countrySummary}
+                  summary={countrySummary}
                   isActive={openFilterPanel === 'countries'}
                   onClick={() => setOpenFilterPanel(openFilterPanel === 'countries' ? null : 'countries')}
+                  isStickyFilterBar={isStickyFilterBar}
                 />
                 <div className="w-px bg-slate-200 my-3"></div>
                 <FilterPill
                   label="Data type"
-                  summary={isStickyFilterBar ? null : dataTypeSummary}
+                  summary={dataTypeSummary}
                   isActive={openFilterPanel === 'dataTypes'}
                   onClick={() => setOpenFilterPanel(openFilterPanel === 'dataTypes' ? null : 'dataTypes')}
+                  isStickyFilterBar={isStickyFilterBar}
                 />
                 <div className="w-px bg-slate-200 my-3"></div>
                 <FilterPill
                   label="Compensation"
-                  summary={isStickyFilterBar ? null : compensationSummary}
+                  summary={compensationSummary}
                   isActive={openFilterPanel === 'compensationTypes'}
                   onClick={() => setOpenFilterPanel(openFilterPanel === 'compensationTypes' ? null : 'compensationTypes')}
+                  isStickyFilterBar={isStickyFilterBar}
                 />
               </div>
 
@@ -926,9 +873,8 @@ function HomePageContent({ scrollY }) {
                   {value}
                   <button
                     onClick={() => handleCheckboxChange('macroCategories', value, false)}
-                    className="ml-1 hover:opacity-75"
+                    className="ml-1 text-google-blue hover:opacity-75"
                     aria-label={`Remove ${value}`}
-                    style={{ color: 'inherit' }}
                   >
                     <FaTimes size="0.9em" />
                   </button>
@@ -941,12 +887,12 @@ function HomePageContent({ scrollY }) {
               const label = countryOption?.label || value;
               const code = countryOption?.code;
               return (
-                <span key={`sel-ctry-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
+                <span key={`sel - ctry - ${value} `} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
                   {label}
                   {code && <CountryFlag countryCode={code} svg style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />}
                   <button
                     onClick={() => handleCheckboxChange('countries', value, false)}
-                    className="ml-1 text-google-blue hover:opacity-75" aria-label={`Remove ${label}`}>
+                    className="ml-1 text-google-blue hover:opacity-75" aria-label={`Remove ${label} `}>
                     <FaTimes size="0.9em" />
                   </button>
                 </span>
@@ -954,11 +900,11 @@ function HomePageContent({ scrollY }) {
             })}
             {/* Sort data types alphabetically before mapping */}
             {[...filters.dataTypes].sort((a, b) => a.localeCompare(b)).map(value => (
-              <span key={`sel-dt-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
+              <span key={`sel - dt - ${value} `} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
                 {value}
                 <button
                   onClick={() => handleCheckboxChange('dataTypes', value, false)}
-                  className="ml-1 text-google-blue hover:opacity-75" aria-label={`Remove ${value}`}>
+                  className="ml-1 text-google-blue hover:opacity-75" aria-label={`Remove ${value} `}>
                   <FaTimes size="0.9em" />
                 </button>
               </span>
@@ -967,11 +913,11 @@ function HomePageContent({ scrollY }) {
             {[...filters.compensationTypes]
               .sort((a, b) => PAYMENT_TYPES.map(p => p.value).indexOf(a.value) - PAYMENT_TYPES.map(p => p.value).indexOf(b.value))
               .map(option => (
-                <span key={`sel-pay-${option.value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
+                <span key={`sel - pay - ${option.value} `} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
                   {option.value === 'payment' ? '💲' : option.emoji} {option.label}
                   <button
                     onClick={() => handlePaymentCheckboxChange(option, false)}
-                    className="ml-1 text-google-blue hover:opacity-75" aria-label={`Remove ${option.label}`}>
+                    className="ml-1 text-google-blue hover:opacity-75" aria-label={`Remove ${option.label} `}>
                     <FaTimes size="0.9em" />
                   </button>
                 </span>
@@ -1035,3 +981,7 @@ function HomePageContent({ scrollY }) {
     </div > // End flex-grow container
   );
 }
+
+HomePageContent.propTypes = {
+  scrollY: PropTypes.number.isRequired,
+};

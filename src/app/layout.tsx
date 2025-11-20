@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import ClientLayout from '../components/ClientLayout';
-import Script from 'next/script';
+
 
 // This file is the single source of truth for the latest DOI.
 import { latestDoi } from '@/data/config';
@@ -26,7 +26,7 @@ const geistMono = localFont({
 });
 
 // Get current date in YYYY/MM/DD format for citation
-const currentDate = new Date().toISOString().split('T')[0].replace(/-/g, '/');
+const currentDate = new Date().toISOString().split('T')[0].replaceAll('-', '/');
 const currentYear = new Date().getFullYear();
 
 // This export is necessary to prevent a build error.
@@ -90,9 +90,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",

@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import { motion, AnimatePresence } from 'framer-motion';
 import CountryFlag from 'react-country-flag';
 import { FaTimes } from 'react-icons/fa';
@@ -36,6 +37,7 @@ export default function MobileFilterDrawer({
             className="fixed inset-0 bg-black bg-opacity-30 z-40 lg:hidden"
             aria-hidden="true" // Background dimmers are often decorative
           />
+          {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
           <motion.div
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
@@ -145,4 +147,30 @@ export default function MobileFilterDrawer({
       )}
     </AnimatePresence>
   );
-} 
+}
+
+MobileFilterDrawer.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  toggleDrawer: PropTypes.func.isRequired,
+  filters: PropTypes.shape({
+    macroCategories: PropTypes.arrayOf(PropTypes.string).isRequired,
+    countries: PropTypes.arrayOf(PropTypes.string).isRequired,
+    dataTypes: PropTypes.arrayOf(PropTypes.string).isRequired,
+    compensationTypes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  }).isRequired,
+  countryOptions: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    code: PropTypes.string,
+  })).isRequired,
+  dataTypeOptions: PropTypes.arrayOf(PropTypes.string).isRequired,
+  paymentTypes: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    icon: PropTypes.elementType,
+  })).isRequired,
+  handleCheckboxChange: PropTypes.func.isRequired,
+  handlePaymentCheckboxChange: PropTypes.func.isRequired,
+  handleResetFilters: PropTypes.func.isRequired,
+  renderFilterContent: PropTypes.func.isRequired,
+};

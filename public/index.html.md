@@ -417,4 +417,3 @@ This page provides a filterable list of all resources. You can also download the
 *Compensation:* Donation
 
 ---
-

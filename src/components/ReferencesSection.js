@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { FaCopy, FaCheck, FaQuoteRight } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -6,17 +7,20 @@ export default function ReferencesSection({ citations }) {
     const [copiedIndex, setCopiedIndex] = useState(null);
     const [activeId, setActiveId] = useState('');
 
-    React.useEffect(() => {
-        const handleHashChange = () => {
-            setActiveId(window.location.hash.substring(1));
-        };
+    useEffect(() => {
+        // Handle hash changes to highlight active reference
+        if (globalThis.window !== undefined) {
+            const handleHashChange = () => {
+                setActiveId(globalThis.window.location.hash.substring(1));
+            };
 
-        // Initial check
-        handleHashChange();
+            // Initial check
+            handleHashChange();
 
-        // Listen for hash changes
-        window.addEventListener('hashchange', handleHashChange);
-        return () => window.removeEventListener('hashchange', handleHashChange);
+            // Listen for hash changes
+            globalThis.window.addEventListener('hashchange', handleHashChange);
+            return () => globalThis.window.removeEventListener('hashchange', handleHashChange);
+        }
     }, []);
 
     const handleCopy = (text, index) => {
@@ -53,75 +57,90 @@ export default function ReferencesSection({ citations }) {
                     </div>
 
                     <div className="grid grid-cols-1 gap-4">
-                        {citations.map((citation, idx) => (
-                            <motion.div
-                                key={idx}
-                                initial={{ opacity: 0, y: 10 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: idx * 0.05 }}
-                                id={`ref-${idx + 1}`}
-                                className={`group relative flex gap-4 p-4 rounded-2xl border transition-all duration-300 hover:shadow-sm scroll-mt-52 ${activeId === `ref-${idx + 1}`
-                                    ? 'bg-blue-50/80 border-blue-200 ring-2 ring-google-blue ring-offset-2 ring-offset-white/60'
-                                    : 'bg-white/40 border-transparent hover:border-blue-100 hover:bg-white/80'
-                                    }`}
-                            >
-                                <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-white shadow-sm text-slate-500 text-xs font-bold font-mono group-hover:text-google-blue group-hover:scale-110 transition-all duration-300">
-                                    {idx + 1}
-                                </div>
+                        {citations.map((citation, idx) => {
+                            const refId = `ref-${idx + 1}`;
+                            const isActive = activeId === refId;
+                            // Use link or title as key if unique enough, fallback to index if needed but try to avoid
+                            const key = citation.link || citation.title || idx;
 
-                                <div className="flex-grow min-w-0">
-                                    <div className="text-sm text-slate-700 leading-relaxed">
-                                        {citation.link ? (
-                                            <a
-                                                href={citation.link}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="font-medium text-slate-700 hover:text-google-blue hover:underline decoration-google-blue/30 underline-offset-2 transition-colors"
-                                            >
-                                                {citation.title}
-                                            </a>
-                                        ) : (
-                                            <span>{citation.title}</span>
-                                        )}
+                            return (
+                                <motion.div
+                                    key={key}
+                                    initial={{ opacity: 0, y: 10 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: idx * 0.02 }}
+                                    id={refId}
+                                    className={`group relative flex gap-4 p-4 rounded-2xl border transition-all duration-300 hover:shadow-sm scroll-mt-52 ${isActive
+                                        ? 'bg-blue-50/80 border-blue-200 ring-2 ring-google-blue ring-offset-2 ring-offset-white/60'
+                                        : 'bg-white/40 border-transparent hover:border-blue-100 hover:bg-white/80'
+                                        }`}
+                                >
+                                    <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-white shadow-sm text-slate-500 text-xs font-bold font-mono group-hover:text-google-blue group-hover:scale-110 transition-all duration-300">
+                                        {idx + 1}
                                     </div>
-                                </div>
 
-                                <div className="flex-shrink-0 flex items-start pt-0.5">
-                                    <button
-                                        onClick={() => handleCopy(citation.title + (citation.link ? ` ${citation.link}` : ''), idx)}
-                                        className="p-2 rounded-full text-slate-400 hover:text-google-blue hover:bg-blue-50 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
-                                        aria-label="Copy citation"
-                                        title="Copy citation"
-                                    >
-                                        <AnimatePresence mode='wait'>
-                                            {copiedIndex === idx ? (
-                                                <motion.span
-                                                    key="check"
-                                                    initial={{ scale: 0 }}
-                                                    animate={{ scale: 1 }}
-                                                    exit={{ scale: 0 }}
+                                    <div className="flex-grow min-w-0">
+                                        <div className="text-sm text-slate-700 leading-relaxed">
+                                            {citation.link ? (
+                                                <a
+                                                    href={citation.link}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="font-medium text-slate-700 hover:text-google-blue hover:underline decoration-google-blue/30 underline-offset-2 transition-colors"
                                                 >
-                                                    <FaCheck />
-                                                </motion.span>
+                                                    {citation.title}
+                                                </a>
                                             ) : (
-                                                <motion.span
-                                                    key="copy"
-                                                    initial={{ scale: 0 }}
-                                                    animate={{ scale: 1 }}
-                                                    exit={{ scale: 0 }}
-                                                >
-                                                    <FaCopy />
-                                                </motion.span>
+                                                <span>{citation.title}</span>
                                             )}
-                                        </AnimatePresence>
-                                    </button>
-                                </div>
-                            </motion.div>
-                        ))}
+                                        </div>
+                                    </div>
+
+                                    <div className="flex-shrink-0 flex items-start pt-0.5">
+                                        <button
+                                            onClick={() => handleCopy(citation.title + (citation.link ? ` ${citation.link}` : ''), idx)}
+                                            className="p-2 rounded-full text-slate-400 hover:text-google-blue hover:bg-blue-50 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
+                                            aria-label="Copy citation"
+                                            title="Copy citation"
+                                        >
+                                            <AnimatePresence mode='wait'>
+                                                {copiedIndex === idx ? (
+                                                    <motion.span
+                                                        key="check"
+                                                        initial={{ scale: 0 }}
+                                                        animate={{ scale: 1 }}
+                                                        exit={{ scale: 0 }}
+                                                    >
+                                                        <FaCheck />
+                                                    </motion.span>
+                                                ) : (
+                                                    <motion.span
+                                                        key="copy"
+                                                        initial={{ scale: 0 }}
+                                                        animate={{ scale: 1 }}
+                                                        exit={{ scale: 0 }}
+                                                    >
+                                                        <FaCopy />
+                                                    </motion.span>
+                                                )}
+                                            </AnimatePresence>
+                                        </button>
+                                    </div>
+                                </motion.div>
+                            );
+                        })}
                     </div>
                 </div>
             </div>
         </section>
     );
 }
+
+ReferencesSection.propTypes = {
+    citations: PropTypes.arrayOf(PropTypes.shape({
+        title: PropTypes.string,
+        link: PropTypes.string,
+        // Add other citation properties if known, e.g., author, year, etc.
+    })),
+};
