@@ -230,6 +230,9 @@ function HomePageContent({ scrollY }) {
   const [openFilterPanel, setOpenFilterPanel] = useState(null);
   const filterContainerRef = useRef(null);
 
+  // Extract highlighted resource from URL
+  const highlightedResourceSlug = searchParams.get('resource') || null;
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (filterContainerRef.current && !filterContainerRef.current.contains(event.target)) {
@@ -305,11 +308,16 @@ function HomePageContent({ scrollY }) {
       params.set('searchTerm', filters.searchTerm);
     }
 
+    // Preserve the resource parameter if it exists
+    if (highlightedResourceSlug) {
+      params.set('resource', highlightedResourceSlug);
+    }
+
     const queryString = params.toString();
     // Use replaceState to update the URL without adding to browser history
     globalThis.window.history.replaceState(null, '', queryString ? `?${queryString}` : pathname);
 
-  }, [filters, isMounted, pathname]); // Re-run when filters, isMounted, or pathname changes
+  }, [filters, isMounted, pathname, highlightedResourceSlug]); // Re-run when filters, isMounted, pathname, or highlightedResourceSlug changes
   // --- END: Effect to update URL when filters change ---
 
 
@@ -862,6 +870,7 @@ function HomePageContent({ scrollY }) {
               citationMap={citationMap}
               onWearableFilterToggle={handleWearableFilterToggle}
               onMacroCategoryFilterChange={handleMacroCategoryFilterChange}
+              highlightedResourceSlug={highlightedResourceSlug}
             />
           </div>
 

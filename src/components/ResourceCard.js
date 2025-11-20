@@ -5,9 +5,10 @@ import React, { useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import CountryFlag from 'react-country-flag';
-import { FaHeart, FaDollarSign, FaExternalLinkAlt, FaBook } from 'react-icons/fa';
+import { FaHeart, FaDollarSign, FaExternalLinkAlt, FaBook, FaShareAlt, FaCheck } from 'react-icons/fa';
 import { Popover, Transition } from '@headlessui/react';
 import { EU_COUNTRIES } from '@/data/constants';
+import { getResourceShareUrl, copyToClipboard } from '@/utils/shareUtils';
 
 const getPaymentInfo = (compensationType = 'donation') => {
   switch (compensationType) {
@@ -223,11 +224,24 @@ export default function ResourceCard({
   compensationTypesOptions,
   citationMap,
   onWearableFilterToggle,
-  onMacroCategoryFilterChange
+  onMacroCategoryFilterChange,
+  isHighlighted = false,
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [hoveringIcon, setHoveringIcon] = useState(null); // 'donation' | 'payment'
+  const [showCopied, setShowCopied] = useState(false);
   const hasCitations = resource.citations && resource.citations.length > 0;
+
+  const handleShare = async (e) => {
+    e.stopPropagation();
+    const shareUrl = getResourceShareUrl(resource.slug);
+    const success = await copyToClipboard(shareUrl);
+
+    if (success) {
+      setShowCopied(true);
+      setTimeout(() => setShowCopied(false), 2000);
+    }
+  };
 
   const categoryStyles = {
     'Organ, Body & Tissue Donation': 'bg-rose-100 text-rose-800',
@@ -253,8 +267,15 @@ export default function ResourceCard({
 
   const descriptionNeedsClamping = resource.description && resource.description.length > 150;
 
+  const highlightClass = isHighlighted
+    ? 'ring-2 ring-google-blue shadow-xl z-10 bg-blue-50/30'
+    : '';
+
   return (
-    <div className="resource-card flex flex-col relative">
+    <div
+      id={`resource-${resource.slug}`}
+      className={`resource-card flex flex-col relative transition-all duration-500 ease-out ${highlightClass}`}
+    >
       <div className="flex-grow">
         <div className="flex justify-between items-start">
           <div className="flex-grow pr-2">
@@ -389,9 +410,33 @@ export default function ResourceCard({
             </Link>
           )}
 
-          {hasCitations && citationMap && (
-            <CitationsPopover resource={resource} citationMap={citationMap} />
-          )}
+          <div className="flex items-center gap-2">
+            {hasCitations && citationMap && (
+              <CitationsPopover resource={resource} citationMap={citationMap} />
+            )}
+
+            <button
+              onClick={handleShare}
+              className={`
+                relative group flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium transition-all duration-200
+                ${showCopied
+                  ? 'bg-green-100 text-green-700 ring-1 ring-green-200'
+                  : 'bg-slate-50 text-slate-600 hover:bg-slate-100 hover:text-slate-900 ring-1 ring-slate-200'
+                }
+              `}
+              aria-label="Share this resource"
+              title="Copy link to clipboard"
+            >
+              {showCopied ? (
+                <>
+                  <FaCheck className="w-3 h-3 text-green-600" />
+                  <span className="text-xs">Copied!</span>
+                </>
+              ) : (
+                <FaShareAlt className="w-3 h-3 text-slate-400 group-hover:text-slate-600" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -426,4 +471,5 @@ ResourceCard.propTypes = {
   citationMap: PropTypes.object,
   onWearableFilterToggle: PropTypes.func,
   onMacroCategoryFilterChange: PropTypes.func,
+  isHighlighted: PropTypes.bool,
 };

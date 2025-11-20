@@ -20,6 +20,8 @@ exclude:
   - '**/src/app/layout.tsx'
   - '**/src/components/NewsletterSignup.js'
   - '**/src/app/page.js'
+  - '**/src/utils/shareUtils.js'
+  - '**/src/components/ResourceGrid.js'
 
 # Map custom components to HTML elements
 global-components:
