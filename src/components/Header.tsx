@@ -186,23 +186,25 @@ export default function Header({ scrollY }: HeaderProps) {
         <motion.div
           className={`font-medium text-google-text whitespace-nowrap overflow-hidden min-w-0 ${useInlineLayout ? 'flex items-baseline' : 'text-center w-full'
             }`}
-          style={{ fontSize: titleSize }}
+          style={{ fontSize: titleSize, margin: 0 }}
         >
-          <span className={useInlineLayout ? '' : 'inline-block'}>Your</span>
-          {hasMounted && !isSticky ? (
-            <AnimatedWordDynamic key={currentWord} word={currentWord} />
-          ) : (
-            <span
-              key="static-self"
-              className={`inline-block text-stroke-yellow-dark ${useInlineLayout ? 'ml-0' : 'ml-1'}`}
-            >
-              self
-            </span>
-          )}
-          <span className={useInlineLayout ? '' : 'inline-block'}>&nbsp;to Science</span>
-          {(isSticky || (hasMounted && currentWord === 'self')) && (
-            <sup className="font-medium text-google-text" style={{ fontSize: '0.4em', position: 'relative', top: '-0.7em', marginLeft: '0.1em' }}>™</sup>
-          )}
+          <h1 className="m-0 p-0 text-inherit font-inherit inline">
+            <span className={useInlineLayout ? '' : 'inline-block'}>Your</span>
+            {hasMounted && !isSticky ? (
+              <AnimatedWordDynamic key={currentWord} word={currentWord} />
+            ) : (
+              <span
+                key="static-self"
+                className={`inline-block text-stroke-yellow-dark ${useInlineLayout ? 'ml-0' : 'ml-1'}`}
+              >
+                self
+              </span>
+            )}
+            <span className={useInlineLayout ? '' : 'inline-block'}>&nbsp;to Science</span>
+            {(isSticky || (hasMounted && currentWord === 'self')) && (
+              <sup className="font-medium text-google-text" style={{ fontSize: '0.4em', position: 'relative', top: '-0.7em', marginLeft: '0.1em' }}>™</sup>
+            )}
+          </h1>
         </motion.div>
       </Link>
 

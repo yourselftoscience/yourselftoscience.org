@@ -167,7 +167,7 @@ MobileFilterDrawer.propTypes = {
   paymentTypes: PropTypes.arrayOf(PropTypes.shape({
     value: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
-    icon: PropTypes.elementType,
+    emoji: PropTypes.string,
   })).isRequired,
   handleCheckboxChange: PropTypes.func.isRequired,
   handlePaymentCheckboxChange: PropTypes.func.isRequired,

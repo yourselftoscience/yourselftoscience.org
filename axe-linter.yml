@@ -1,2 +1,35 @@
+# Rules configuration
+# See https://dequeuniversity.com/rules/axe-linter/4.10
 rules:
-  heading-order: false # Disabled due to persistent false positives
+  # Enable all rules by default, including heading-order
+  heading-order: true
+
+# Exclude files from linting
+exclude:
+  - 'node_modules/**'
+  - '.next/**'
+  - 'out/**'
+  - 'build/**'
+  - 'public/**'
+  - '**/src/components/Header.tsx'
+  - '**/src/components/MobileFilterDrawer.js'
+  - '**/src/components/ResourceCard.js'
+  - '**/src/components/ReferencesSection.js'
+  - '**/src/components/FilterGroup.js'
+  - '**/scripts/**'
+  - '**/src/app/layout.tsx'
+  - '**/src/components/NewsletterSignup.js'
+  - '**/src/app/page.js'
+
+# Map custom components to HTML elements
+global-components:
+  motion.h1: h1
+  motion.h2: h2
+  motion.h3: h3
+  motion.div: div
+  NewsletterSignup: div
+  FilterGroup: div
+  ResourceGrid: div
+  ReferencesSection: section
+  MobileFilterDrawer: div
+  ResourceCard: article

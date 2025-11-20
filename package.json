@@ -26,14 +26,14 @@
     "extends browserslist-config-baseline"
   ],
   "dependencies": {
-    "@cloudflare/next-on-pages": "^1.13.5",
+    "@cloudflare/next-on-pages": "^1.13.16",
     "@eslint/config-array": "^0.18.0",
     "@eslint/object-schema": "^2.1.4",
     "@headlessui/react": "^2.2.2",
     "@jridgewell/sourcemap-codec": "^1.5.0",
     "@rollup/plugin-inject": "^5.0.5",
     "@vercel/analytics": "^1.5.0",
-    "@vercel/routing-utils": "^3.1.0",
+    "@vercel/routing-utils": "^4.0.0",
     "browserslist-config-baseline": "^0.4.0",
     "chokidar": "^3.5.3",
     "country-list": "^2.4.1",
@@ -75,5 +75,11 @@
     "typescript": "^5",
     "vercel": "^37.11.0",
     "wrangler": "^3.28.2"
+  },
+  "overrides": {
+    "glob": "^11.1.0",
+    "js-yaml": "^4.1.0",
+    "cookie": "^0.7.0",
+    "@babel/runtime": "^7.26.0"
   }
 }

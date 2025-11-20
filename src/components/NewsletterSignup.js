@@ -7,9 +7,9 @@ import React, {
   useMemo,
   forwardRef,
 } from 'react';
+import PropTypes from 'prop-types';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  FiMail,
   FiUser,
   FiGlobe,
   FiCheckCircle,
@@ -41,6 +41,11 @@ const InputField = forwardRef(({ icon, id, label, ...props }, ref) => (
   </div>
 ));
 InputField.displayName = 'InputField';
+InputField.propTypes = {
+  icon: PropTypes.node,
+  id: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+};
 
 const SelectField = ({ icon, id, label, children, ...props }) => (
   <div className="relative flex-grow">
@@ -59,6 +64,13 @@ const SelectField = ({ icon, id, label, children, ...props }) => (
     </select>
   </div>
 );
+
+SelectField.propTypes = {
+  icon: PropTypes.node,
+  id: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+};
 
 export default function NewsletterSignup({ compact = false }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -208,7 +220,7 @@ export default function NewsletterSignup({ compact = false }) {
   if (compact) {
     return (
       <div className="w-full max-w-md">
-        <h3 className="text-lg font-semibold mb-2">Stay Updated</h3>
+        <h2 className="text-lg font-semibold mb-2">Stay Updated</h2>
         <p className="text-gray-400 mb-4 text-sm">
           Get the latest scientific opportunities delivered to your inbox.
         </p>
@@ -245,9 +257,8 @@ export default function NewsletterSignup({ compact = false }) {
         className="relative flex flex-col items-center"
       >
         <div
-          className={`w-full transition-all duration-500 ${
-            isExpanded ? 'max-w-3xl' : 'max-w-lg'
-          }`}
+          className={`w-full transition-all duration-500 ${isExpanded ? 'max-w-3xl' : 'max-w-lg'
+            }`}
         >
           <div className="relative flex items-center w-full">
             <InputField
@@ -261,9 +272,8 @@ export default function NewsletterSignup({ compact = false }) {
               onChange={handleInputChange}
               onFocus={() => setIsExpanded(true)}
               required
-              className={`w-full pl-12 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 placeholder-gray-500 text-gray-900 ${
-                isExpanded ? 'pr-4' : 'pr-32'
-              }`}
+              className={`w-full pl-12 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 placeholder-gray-500 text-gray-900 ${isExpanded ? 'pr-4' : 'pr-32'
+                }`}
             />
             {!isExpanded && (
               <button
@@ -460,3 +470,7 @@ export default function NewsletterSignup({ compact = false }) {
     </div>
   );
 }
+
+NewsletterSignup.propTypes = {
+  compact: PropTypes.bool,
+};
