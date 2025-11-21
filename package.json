@@ -68,6 +68,8 @@
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.5",
     "globstar": "^1.0.0",
+    "hint": "^7.1.13",
+    "lodash": "^4.17.21",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
