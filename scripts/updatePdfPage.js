@@ -416,19 +416,37 @@ try {
         page-break-inside: avoid;
       `;
 
-      const apa = `Yourself to Science. (${year}). <em>Building the world’s simplest way for anyone to contribute to science — starting now</em>. Retrieved from ${siteUrl}`;
-      const mla = `"Yourself to Science." <em>Yourself to Science</em>, ${year}, ${siteUrl}.`;
-      const chicago = `Yourself to Science. "Building the world’s simplest way for anyone to contribute to science — starting now." Accessed ${date}. ${siteUrl}.`;
+      const title = "Yourself to Science™: A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More";
+      const doiUrl = `https://doi.org/${latestDoi}`;
+
+      const apa = `Marcolongo, M. (${year}). <em>${title}</em>. Yourself to Science™. ${siteUrl}. ${doiUrl}`;
+      const mla = `Marcolongo, Mario. "${title}" <em>Yourself to Science™</em>, ${year}, ${siteUrl}, ${doiUrl}.`;
+      const chicago = `Marcolongo, Mario. ${year}. "${title}" Yourself to Science™. Accessed ${date}. ${siteUrl}. ${doiUrl}.`;
+      const bibtex = `@misc{Marcolongo_${year}_YourselfToScience,
+  author = {Marcolongo, Mario},
+  title = {${title}},
+  year = {${year}},
+  publisher = {Yourself to Science™},
+  journal = {yourselftoscience.org},
+  howpublished = {\\url{${siteUrl}}},
+  doi = {${latestDoi}}
+}`;
+      const ris = `TY  - GEN
+AU  - Marcolongo, Mario
+PY  - ${year}
+TI  - ${title}
+UR  - ${siteUrl}
+PB  - Yourself to Science™
+DO  - ${latestDoi}
+ER  -`;
 
       div.innerHTML = `
         <h3 style="font-size: 14pt; font-weight: bold; margin-bottom: 15px;">How to Cite This Page</h3>
-        <div style="margin-bottom: 15px;">
-          <strong>Recommended:</strong><br>
-          Yourself to Science. (${year}). Building the world’s simplest way for anyone to contribute to science — starting now. Retrieved from ${siteUrl}. DOI: ${latestDoi}
-        </div>
         <div style="margin-bottom: 10px;"><strong>APA:</strong><br>${apa}</div>
         <div style="margin-bottom: 10px;"><strong>MLA:</strong><br>${mla}</div>
         <div style="margin-bottom: 10px;"><strong>Chicago:</strong><br>${chicago}</div>
+        <div style="margin-bottom: 10px;"><strong>BibTeX:</strong><br><pre style="margin: 5px 0; font-size: 9pt; white-space: pre-wrap;">${bibtex}</pre></div>
+        <div style="margin-bottom: 10px;"><strong>RIS (for Zotero/EndNote):</strong><br><pre style="margin: 5px 0; font-size: 9pt; white-space: pre-wrap;">${ris}</pre></div>
       `;
       document.body.appendChild(div);
     };
