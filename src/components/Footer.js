@@ -4,48 +4,64 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import { FaGithub, FaCreativeCommons, FaCreativeCommonsBy, FaCreativeCommonsSa, FaCreativeCommonsZero, FaReddit, FaLinkedin } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
-import { usePathname } from 'next/navigation';
-import { latestDoi } from '@/data/config';
 import CitationModal from './CitationModal';
-import NewsletterSignup from './NewsletterSignup';
 
 const FooterLink = ({ href, children, className = '' }) => (
-    <li>
-        <Link href={href} className={`text-apple-secondary-text hover:text-apple-accent transition-colors duration-200 ${className}`}>
-            {children}
-        </Link>
-    </li>
+  <li>
+    <Link href={href} className={`text-apple-secondary-text hover:text-apple-accent transition-colors duration-200 ${className}`}>
+      {children}
+    </Link>
+  </li>
 );
+
+FooterLink.propTypes = {
+  href: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+};
 
 const FooterButton = ({ onClick, children, className = '' }) => (
-    <li>
-        <button onClick={onClick} className={`text-apple-secondary-text hover:text-apple-accent transition-colors duration-200 ${className}`}>
-            {children}
-        </button>
-    </li>
+  <li>
+    <button onClick={onClick} className={`text-apple-secondary-text hover:text-apple-accent transition-colors duration-200 ${className}`}>
+      {children}
+    </button>
+  </li>
 );
 
+FooterButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+};
+
 const SocialLink = ({ href, icon: Icon, name }) => (
-    <a href={href} target="_blank" rel="noopener noreferrer" aria-label={name} className="text-apple-secondary-text hover:text-apple-accent transition-colors duration-200">
-        <Icon className="h-6 w-6" />
-    </a>
-)
+  <a href={href} target="_blank" rel="noopener noreferrer" aria-label={name} className="text-apple-secondary-text hover:text-apple-accent transition-colors duration-200">
+    <Icon className="h-6 w-6" />
+  </a>
+);
+
+SocialLink.propTypes = {
+  href: PropTypes.string.isRequired,
+  icon: PropTypes.elementType.isRequired,
+  name: PropTypes.string.isRequired,
+};
 
 export default function Footer() {
-  const [isCitationModalOpen, setCitationModalOpen] = useState(false);
+  const [isCitationModalOpen, setCitationModalOpen] = useState(false); // NOSONAR - Both state value and setter are used
 
   const startYear = 2024;
   const currentYear = new Date().getFullYear();
   const copyrightDate = startYear === currentYear ? startYear : `${startYear}–${currentYear}`;
-  
+
   const socialLinks = [
-     { name: 'GitHub', href: 'https://github.com/yourselftoscience/yourselftoscience.org/', icon: FaGithub },
-     { name: 'Reddit', href: 'https://www.reddit.com/r/YourselfToScience/', icon: FaReddit },
-     { name: 'X', href: 'https://x.com/YouToScience', icon: FaXTwitter },
-     { name: 'LinkedIn', href: 'https://www.linkedin.com/company/yourselftoscience/', icon: FaLinkedin },
-   ];
+    { name: 'GitHub', href: 'https://github.com/yourselftoscience/yourselftoscience.org/', icon: FaGithub },
+    { name: 'Reddit', href: 'https://www.reddit.com/r/YourselfToScience/', icon: FaReddit },
+    { name: 'X', href: 'https://x.com/YouToScience', icon: FaXTwitter },
+    { name: 'LinkedIn', href: 'https://www.linkedin.com/company/yourselftoscience/', icon: FaLinkedin },
+  ];
 
   return (
     <>
@@ -54,10 +70,10 @@ export default function Footer() {
 
           <div className="flex justify-center mb-8">
             <div className="flex space-x-8">
-                {socialLinks.map(link => <SocialLink key={link.name} {...link} />)}
+              {socialLinks.map(link => <SocialLink key={link.name} {...link} />)}
             </div>
           </div>
-        
+
           <h2 className="sr-only">Footer Navigation</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -75,23 +91,23 @@ export default function Footer() {
             {/* Center Column: Get Involved */}
             <div className="text-center">
               <h3 className="font-semibold text-apple-primary-text">Get Involved</h3>
-               <ul className="mt-4 space-y-3">
+              <ul className="mt-4 space-y-3">
                 <FooterLink href="/get-involved">Contribute</FooterLink>
                 <FooterLink href="/get-involved#contact-us">Contact Us</FooterLink>
               </ul>
             </div>
-            
+
             {/* Right Column: Resources */}
             <div className="text-center md:text-right">
               <h3 className="font-semibold text-apple-primary-text">Tools</h3>
               <ul className="mt-4 space-y-3">
-                 <FooterButton onClick={() => setCitationModalOpen(true)}>Cite this Project</FooterButton>
-                 <FooterLink href="/data">Dataset</FooterLink>
-                 <li>
-                    <a href="/yourselftoscience.pdf" target="_blank" rel="noopener noreferrer" className="text-apple-secondary-text hover:text-apple-accent transition-colors duration-200">
-                        PDF Version
-                    </a>
-                 </li>
+                <FooterButton onClick={() => setCitationModalOpen(true)}>Cite this Project</FooterButton>
+                <FooterLink href="/data">Dataset</FooterLink>
+                <li>
+                  <a href="/yourselftoscience.pdf" target="_blank" rel="noopener noreferrer" className="text-apple-secondary-text hover:text-apple-accent transition-colors duration-200">
+                    PDF Version
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

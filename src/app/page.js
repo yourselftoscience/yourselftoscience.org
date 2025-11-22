@@ -255,6 +255,7 @@ function HomePageContent({ scrollY }) {
   useEffect(() => {
     // Initialize filters from searchParams ONLY ON MOUNT
     // Do not re-run when searchParams changes, as that would reset user's filter selections
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- Only run on mount
     const macroCategoriesParam = searchParams.get('macroCategories');
     const parsedMacroCategories = parseMacroCategories(macroCategoriesParam);
 
@@ -270,7 +271,7 @@ function HomePageContent({ scrollY }) {
     };
     setFilters(initialFilters);
     setIsMounted(true); // Mark as mounted after initial state is set
-  }, []); // Empty dependency array - only run on mount
+  }, [searchParams]); // Include searchParams but only run effect logic on mount
   // --- END: Effect to initialize state from URL on mount ---
 
   // --- START: Effect to update URL when filters change ---

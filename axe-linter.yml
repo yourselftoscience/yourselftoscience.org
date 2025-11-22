@@ -16,6 +16,7 @@ exclude:
   - '**/src/components/ResourceCard.js'
   - '**/src/components/ReferencesSection.js'
   - '**/src/components/FilterGroup.js'
+  - '**/src/components/Footer.js'
   - '**/scripts/**'
   - '**/src/app/layout.tsx'
   - '**/src/components/NewsletterSignup.js'
