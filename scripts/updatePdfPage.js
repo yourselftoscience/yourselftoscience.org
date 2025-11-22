@@ -313,6 +313,19 @@ try {
       if (popover) popover.remove();
     };
 
+    const resolveRealUrl = (href) => {
+      if (href.startsWith('#')) {
+        const refEl = document.querySelector(href);
+        if (refEl) {
+          const externalLink = refEl.querySelector('a[href^="http"]');
+          if (externalLink) {
+            return externalLink.href;
+          }
+        }
+      }
+      return href;
+    };
+
     const processCitations = (citationData) => {
       const citationList = [];
       const citationToRefNumber = new Map();
@@ -321,7 +334,8 @@ try {
       for (const cardData of citationData) {
         for (const cit of cardData.citations) {
           if (!citationToRefNumber.has(cit.href)) {
-            citationList.push(cit);
+            const realUrl = resolveRealUrl(cit.href);
+            citationList.push({ ...cit, realUrl });
             citationToRefNumber.set(cit.href, citationList.length);
           }
         }
@@ -363,7 +377,8 @@ try {
           li.style.cssText = 'font-size: 11pt; color: #000000; font-weight: 500; line-height: 1.5; margin-bottom: 8px;';
 
           const a = document.createElement('a');
-          a.href = item.href.replace('#ref-', '');
+          // Use the resolved real URL (DOI) if available, otherwise fallback to cleaned href
+          a.href = item.realUrl || item.href.replace('#ref-', '');
           a.target = '_blank';
           a.style.cssText = 'color: #000000; text-decoration: none;';
           a.textContent = item.text;
