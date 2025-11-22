@@ -1,778 +1,491 @@
-// Import only what's used
-import path from 'path';
+import path from 'node:path';
 import puppeteer from 'puppeteer';
-import { fileURLToPath } from 'url';
-import fs from 'fs'; // Import fs module
+import { fileURLToPath } from 'node:url';
+import fs from 'node:fs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// --- Function to read DOI from file ---
+// --- Helper: Get DOI ---
 function getLatestDoi() {
   const doiFilePath = path.join(__dirname, '..', 'public', 'latest_doi.txt');
-  const fallbackDoi = '10.5281/zenodo.15110328'; // Use the latest known version DOI as fallback
+  const fallbackDoi = '10.5281/zenodo.15110328';
   try {
     if (fs.existsSync(doiFilePath)) {
       const doi = fs.readFileSync(doiFilePath, 'utf-8').trim();
-      // Basic validation: check if it looks like a DOI prefix/suffix
       if (doi && doi.includes('/') && doi.startsWith('10.')) {
-        console.log(`Using DOI from file: ${doi}`);
         return doi;
-      } else if (doi) {
-         console.warn(`Invalid DOI format found in file: ${doi}. Using fallback.`);
       }
     }
   } catch (error) {
     console.warn(`Error reading DOI file: ${error.message}`);
   }
-  console.warn(`DOI file not found or empty/invalid. Using fallback DOI: ${fallbackDoi}`);
   return fallbackDoi;
 }
-// --- End function ---
 
-(async () => {
-  const siteUrl = 'https://yourselftoscience.org';
-  const latestDoi = getLatestDoi(); // Get the DOI string
-  const doiLink = `https://doi.org/${latestDoi}`; // Construct the full link
+// --- Helper: Get Logo ---
+function getLogoDataUrl() {
+  const logoPath = path.join(__dirname, '..', 'public', 'logo-tm.svg');
+  try {
+    if (fs.existsSync(logoPath)) {
+      const svg = fs.readFileSync(logoPath, 'utf-8');
+      const base64 = Buffer.from(svg).toString('base64');
+      return `data:image/svg+xml;base64,${base64}`;
+    }
+  } catch (error) {
+    console.warn(`Error reading logo file: ${error.message}`);
+  }
+  return null;
+}
 
-  console.log(`Launching headless browser to fetch ${siteUrl}...`);
-  
-  const browser = await puppeteer.launch({
-    headless: 'new'  // Using the new headless mode to avoid deprecation warning
+const siteUrl = 'https://yourselftoscience.org';
+const latestDoi = getLatestDoi();
+const doiLink = `https://doi.org/${latestDoi}`;
+const logoDataUrl = getLogoDataUrl();
+
+console.log(`Launching headless browser to fetch ${siteUrl}...`);
+
+const browser = await puppeteer.launch({
+  headless: 'new',
+  args: ['--no-sandbox', '--disable-setuid-sandbox']
+});
+const page = await browser.newPage();
+
+// Enhanced error logging
+page.on('console', msg => {
+  const type = msg.type();
+  if (type === 'error' || type === 'warning') {
+    console.log(`BROWSER ${type.toUpperCase()}:`, msg.text());
+  }
+});
+
+page.on('pageerror', err => {
+  console.error('PAGE ERROR:', err.toString());
+});
+
+page.on('error', err => {
+  console.error('PAGE CRASH:', err.toString());
+});
+
+await page.setViewport({ width: 1600, height: 1000 });
+await page.goto(siteUrl, { waitUntil: 'networkidle0' });
+
+// Wait for hydration
+await new Promise(r => setTimeout(r, 5000));
+
+const currentDate = new Date().toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+
+const citationDate = new Date().toISOString().split('T')[0].replaceAll('-', '/');
+const year = citationDate.split('/')[0];
+
+try {
+  // STEP 0: Scroll to bottom to trigger any lazy loading
+  await page.evaluate(async () => {
+    console.log('STEP 0: Scrolling page to trigger lazy loading...');
+    await new Promise((resolve) => {
+      let totalHeight = 0;
+      const distance = 100;
+      const timer = setInterval(() => {
+        const scrollHeight = document.body.scrollHeight;
+        window.scrollBy(0, distance);
+        totalHeight += distance;
+
+        if (totalHeight >= scrollHeight) {
+          clearInterval(timer);
+          window.scrollTo(0, 0); // Scroll back to top
+          resolve();
+        }
+      }, 50);
+    });
   });
-  const page = await browser.newPage();
-  
-  // Set wider viewport size for better PDF rendering
-  await page.setViewport({ width: 1600, height: 1000 });
-  
-  // Navigate to the site and wait for content to load
-  await page.goto(siteUrl, { waitUntil: 'networkidle0' });
 
-  // Wait a bit more for hydration and animations
-  await new Promise(r => setTimeout(r, 5000)); // Keep a reasonable wait time
-  
-  const currentDate = new Date().toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  });
-  
-  // Format date in YYYY/MM/DD format for citation purposes
-  const citationDate = new Date().toISOString().split('T')[0].replace(/-/g, '/');
-  const year = citationDate.split('/')[0];
-  
-  // Inject proper Google Scholar compatible structure and optimize layout
-  await page.evaluate(async (date, year, siteUrl, doiLinkArg, latestDoiArg) => { // Made async
-    // First, stop any animations by removing their source intervals
-    const stopAllIntervals = () => {
-      const interval_id = window.setInterval(function(){}, Number.MAX_SAFE_INTEGER);
-      for (let i = 1; i < interval_id; i++) {
-        window.clearInterval(i);
+  // Wait a bit after scrolling
+  await new Promise(r => setTimeout(r, 2000));
+
+  // STEP 1: Collect Citation Data (Iterative Open -> Collect)
+  const citationData = await page.evaluate(async () => {
+    console.log('STEP 1: Iterating through cards to collect citations...');
+    const data = [];
+    const citationButtons = Array.from(document.querySelectorAll('button[aria-label*="citation"]'));
+    console.log(`Found ${citationButtons.length} citation buttons`);
+
+    const processButton = async (btn) => {
+      try {
+        // 1. Scroll into view
+        btn.scrollIntoView({ block: 'center' });
+
+        // 2. Click to open
+        if (btn.getAttribute('aria-expanded') !== 'true') {
+          btn.click();
+          // Wait for popover to appear
+          await new Promise(r => setTimeout(r, 200));
+        }
+
+        // 3. Find the card and the open panel
+        const card = btn.closest('.resource-card');
+        if (!card) return null;
+
+        const cardId = card.id;
+        const citationPanel = card.querySelector('[data-headlessui-state*="open"]');
+
+        if (citationPanel) {
+          const citations = [];
+          const citationLinks = citationPanel.querySelectorAll('a[href^="#ref-"]');
+
+          for (const link of citationLinks) {
+            const href = link.getAttribute('href');
+            const li = link.closest('li');
+            const citationText = li?.textContent?.replace(/\[Ref\s*\d+\]/, '').trim();
+
+            if (href && citationText) {
+              citations.push({ href, text: citationText });
+            }
+          }
+
+          if (citations.length > 0) {
+            return { cardId, citations };
+          }
+        }
+      } catch (e) {
+        console.warn('Error processing citation button:', e);
       }
+      return null;
     };
-    stopAllIntervals();
-    
-    // Force the title to show "Yourself to Science" with "self" as the yellow word
-    const titleElement = document.querySelector('h1');
-    if (titleElement && titleElement.textContent.includes("Yourself to Science")) {
-      // Find spans with text-yellow-400 within the h1 and update them if needed for PDF
-      const titleElementSpans = document.querySelectorAll('h1 span.text-yellow-500');
-      if (titleElementSpans.length > 0) {
-        titleElementSpans.forEach(span => {
-          // Example: change class or style directly if Puppeteer has issues with Tailwind in PDF
-          // For now, assuming Tailwind class is picked up or we just ensure it's the correct one
-          span.className = 'text-yellow-500'; 
-        });
+
+    for (const btn of citationButtons) {
+      const result = await processButton(btn);
+      if (result) {
+        data.push(result);
       }
     }
 
-    // Force HTML and Body styles for PDF readability
-    document.documentElement.style.cssText += `
-      width: 100% !important;
-      max-width: 100% !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      overflow-x: hidden !important;
-      font-family: Arial, sans-serif; /* Set a common base font */
-    `;
-    document.body.style.cssText = `
-      background-color: #ffffff;
-      color: #000000;
-      max-width: 100% !important;
-      width: 100% !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      overflow-x: hidden !important;
-      font-size: 11pt; /* Increase base font size slightly */
-      line-height: 1.4; /* Improve line spacing */
-      font-family: Arial, sans-serif; /* Ensure consistent font */
-    `;
-    
-    // Find and modify any container elements to use full width, remove script padding
-    const containers = document.querySelectorAll('div[class*="container"], main, section, article');
-    containers.forEach(container => {
-      container.style.cssText += `
-        max-width: 100% !important;
+    console.log(`Collected data for ${data.length} cards`);
+    return data;
+  });
+
+  console.log(`Extracted ${citationData.length} cards with citations`);
+
+  // STEP 2: Freeze DOM and Manipulate (Detach React)
+  // Note: We don't need to wait for popovers anymore since we already collected the data.
+  // We can proceed directly to freezing.
+
+  console.log(`Extracted ${citationData.length} cards with citations`);
+
+  // STEP 3: Freeze DOM and Manipulate (Detach React)
+  await page.evaluate((date, year, siteUrl, doiLinkArg, latestDoiArg, citationDataArg, logoDataUrlArg) => {
+    console.log('STEP 3: Freezing DOM and applying transformations...');
+
+    console.log('STEP 3: Freezing DOM and applying transformations...');
+
+    // --- Helpers ---
+
+    const freezeDOM = () => {
+      // 1. Freeze DOM (Kill React listeners/updates)
+      const staticBody = document.body.cloneNode(true);
+      document.body.replaceWith(staticBody);
+      console.log('DOM frozen - React detached');
+
+      // 2. Stop Animations
+      const interval_id = globalThis.setInterval(() => { }, Number.MAX_SAFE_INTEGER);
+      for (let i = 1; i < interval_id; i++) {
+        globalThis.clearInterval(i);
+      }
+
+      // 3. Apply Global Styles
+      const globalCss = `
         width: 100% !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        padding-left: 0 !important; /* Remove script padding */
-        padding-right: 0 !important; /* Remove script padding */
-      `;
-    });
-    
-    // Create a scholarly formatted header section
-    const scholarHeader = document.createElement('div');
-    scholarHeader.style.cssText = `
-      padding: 10px; /* Reduced padding */
-      margin-bottom: 15px; /* Reduced margin */
-      border-bottom: 1px solid #ccc;
-      text-align: center;
-      background-color: #ffffff;
-      color: #000000;
-      width: 100% !important;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif; /* Consistent font */
-    `;
-    
-    // Add title with large font
-    const titleDiv = document.createElement('div');
-    titleDiv.textContent = 'Yourself to Science™';
-    titleDiv.style.cssText = `
-      font-size: 24pt; /* Keep large for Scholar */
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: #000000;
-    `;
-    scholarHeader.appendChild(titleDiv);
-    
-    // Update author div
-    const authorsDiv = document.createElement('div');
-    authorsDiv.textContent = 'Mario Marcolongo';
-    authorsDiv.style.cssText = `
-      font-size: 14pt; /* Adjusted size */
-      margin-bottom: 10px;
-      color: #000000;
-    `;
-    scholarHeader.appendChild(authorsDiv);
-    
-    // Add explicit bibliographic citation
-    const citationDiv = document.createElement('div');
-    citationDiv.textContent = `Yourself to Science™ (${year}). A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More. PDF Version (${date}).`;
-    citationDiv.style.cssText = `
-      font-size: 10pt; /* Adjusted size */
-      margin-top: 8px;
-      color: #000000;
-      line-height: 1.3;
-    `;
-    scholarHeader.appendChild(citationDiv);
-
-    // Add DOI identifier
-    const doiDiv = document.createElement('div');
-    doiDiv.textContent = latestDoiArg; // Use the argument here
-    doiDiv.style.cssText = `
-      font-size: 10pt; /* Adjusted size */
-      margin-top: 6px;
-      color: #000000;
-    `;
-    scholarHeader.appendChild(doiDiv);
-
-    // Add to page
-    document.body.insertBefore(scholarHeader, document.body.firstChild);
-    
-    // Find the footer element
-    const footer = document.querySelector('footer');
-    if (footer) {
-      // --- Remove original footer to prevent blank space ---
-      footer.remove();
-      // --- End remove footer ---
-
-      // Add how to cite this page section (now inserted relative to body end)
-      const citeSection = document.createElement('div');
-      citeSection.style.cssText = `
-        padding: 15px;
-        margin-top: 30px;
-        border-top: 1px solid #ccc;
-        background-color: #f8f9fa;
-        color: #000000;
-        width: 100%;
-        box-sizing: border-box;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden !important;
         font-family: Arial, sans-serif;
-        page-break-before: always;
+      `;
+      document.documentElement.style.cssText += globalCss;
+      document.body.style.cssText = `
+        background-color: #ffffff;
+        color: #000000;
+        ${globalCss}
+      `;
+    };
+
+    const hideElements = () => {
+      const selectors = [
+        'header', 'footer', '.sticky', 'input[type="text"]', '[role="search"]',
+        '#newsletter-signup', 'nav', 'main > div.flex.flex-col.gap-4',
+        'section.bg-google-blue'
+      ];
+      for (const sel of selectors) {
+        const els = document.querySelectorAll(sel);
+        for (const el of els) {
+          el.style.display = 'none';
+        }
+      }
+    };
+
+    const styleCards = () => {
+      const resourceCards = document.querySelectorAll('.resource-card');
+      for (const card of resourceCards) {
+        card.style.breakInside = 'avoid';
+        card.style.border = '1px solid #e5e7eb';
+        card.style.boxShadow = 'none';
+        card.style.marginBottom = '20px';
+        card.style.padding = '15px';
+
+        const allText = card.querySelectorAll('*');
+        for (const el of allText) {
+          if (el.style) el.style.color = '#000000';
+        }
+
+        const blueButtons = card.querySelectorAll('.bg-google-blue, a.bg-google-blue');
+        for (const btn of blueButtons) {
+          btn.style.backgroundColor = '#1a73e8';
+          btn.style.color = '#ffffff';
+        }
+
+        // Replace Compensation Icons
+        const compensationContainer = card.querySelector('.flex-shrink-0.flex.items-center.gap-1');
+        if (compensationContainer) {
+          const hasHeart = !!compensationContainer.querySelector('.text-rose-500');
+          const hasMoney = !!compensationContainer.querySelector('.text-green-500');
+          let typeText = 'Donation';
+          if (hasHeart && hasMoney) typeText = 'Mixed';
+          else if (hasMoney) typeText = 'Payment';
+
+          const textNode = document.createElement('div');
+          textNode.textContent = `Compensation type: ${typeText}`;
+          textNode.style.cssText = 'font-size: 10pt; font-weight: bold; color: #000000; white-space: nowrap;';
+          compensationContainer.innerHTML = '';
+          compensationContainer.appendChild(textNode);
+        }
+      }
+    };
+
+    const createCitationLinks = (citations, citationToRefNumber) => {
+      const refs = [];
+      for (const cit of citations) {
+        const refNum = citationToRefNumber.get(cit.href);
+        if (refNum) {
+          const a = document.createElement('a');
+          a.href = `#ref-${refNum}`;
+          a.textContent = `[${refNum}]`;
+          a.style.cssText = 'color: #000000; text-decoration: underline;';
+          refs.push(a);
+        }
+      }
+      return refs;
+    };
+
+    const createCitationContainer = (refs) => {
+      const container = document.createElement('span');
+      container.style.cssText = 'font-size: 0.9em; color: #000000; margin-left: 5px; font-weight: bold;';
+
+      const label = document.createElement('span');
+      label.textContent = 'Ref(s): ';
+      container.appendChild(label);
+
+      for (let i = 0; i < refs.length; i++) {
+        if (i > 0) container.appendChild(document.createTextNode(' '));
+        container.appendChild(refs[i]);
+      }
+      return container;
+    };
+
+    const updateCardCitations = (cardData, citationToRefNumber) => {
+      const card = document.getElementById(cardData.cardId);
+      if (!card) return;
+
+      const btn = card.querySelector('button[aria-label*="citation"]');
+      if (btn) {
+        const refs = createCitationLinks(cardData.citations, citationToRefNumber);
+
+        if (refs.length > 0) {
+          const container = createCitationContainer(refs);
+          if (btn.parentNode) btn.parentNode.replaceChild(container, btn);
+        } else {
+          btn.remove();
+        }
+      }
+      const popover = card.querySelector('[data-headlessui-state*="open"]');
+      if (popover) popover.remove();
+    };
+
+    const processCitations = (citationData) => {
+      const citationList = [];
+      const citationToRefNumber = new Map();
+
+      // Build unique citation list
+      for (const cardData of citationData) {
+        for (const cit of cardData.citations) {
+          if (!citationToRefNumber.has(cit.href)) {
+            citationList.push(cit);
+            citationToRefNumber.set(cit.href, citationList.length);
+          }
+        }
+      }
+
+      // Update cards with links
+      for (const cardData of citationData) {
+        updateCardCitations(cardData, citationToRefNumber);
+      }
+
+      // Cleanup unused buttons
+      const remainingButtons = document.querySelectorAll('button[aria-label*="citation"]');
+      for (const btn of remainingButtons) {
+        btn.remove();
+      }
+
+      return citationList;
+    };
+
+    const injectReferencesSection = (citationList) => {
+      const existingReferences = document.getElementById('references');
+      if (existingReferences && citationList.length > 0) {
+        const newSection = document.createElement('section');
+        newSection.id = 'references';
+        newSection.className = 'w-full max-w-screen-xl mx-auto px-4 py-8 border-t mt-8';
+
+        const title = document.createElement('h2');
+        title.style.cssText = 'font-size: 16pt; font-weight: bold; margin-bottom: 15px; color: #000000;';
+        title.textContent = 'References';
+        newSection.appendChild(title);
+
+        const ol = document.createElement('ol');
+        ol.style.cssText = 'list-style-type: decimal; padding-left: 20px;';
+
+        for (let i = 0; i < citationList.length; i++) {
+          const item = citationList[i];
+          const li = document.createElement('li');
+          li.id = `ref-${i + 1}`;
+          li.style.cssText = 'font-size: 11pt; color: #000000; font-weight: 500; line-height: 1.5; margin-bottom: 8px;';
+
+          const a = document.createElement('a');
+          a.href = item.href.replace('#ref-', '');
+          a.target = '_blank';
+          a.style.cssText = 'color: #000000; text-decoration: none;';
+          a.textContent = item.text;
+
+          li.appendChild(a);
+          ol.appendChild(li);
+        }
+        newSection.appendChild(ol);
+        existingReferences.parentNode.replaceChild(newSection, existingReferences);
+      }
+    };
+
+    const injectHeader = (logoDataUrl, date, siteUrl, doiLink, latestDoi) => {
+      const headerDiv = document.createElement('div');
+      headerDiv.style.cssText = `
+        text-align: center;
+        margin-bottom: 40px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #000;
+      `;
+
+      const logoHtml = logoDataUrl
+        ? `<img src="${logoDataUrl}" style="height: 120px; margin: 0 auto 15px auto; display: block;" alt="Yourself to Science Logo" />`
+        : '';
+
+      headerDiv.innerHTML = `
+        ${logoHtml}
+        <h1 style="font-size: 24pt; font-weight: bold; margin-bottom: 5px; color: #000;">
+          Your<span style="color: #EAB308;">self</span> to Science
+        </h1>
+        <div style="font-size: 18pt; margin-bottom: 10px; color: #000;">by Mario Marcolongo</div>
+        <div style="font-size: 14pt; margin-bottom: 5px; color: #000;">Building the world’s simplest way for anyone to contribute to science — starting now.</div>
+        <div style="font-size: 11pt; color: #000;">
+          <strong>Date:</strong> ${date} <br>
+          <strong>URL:</strong> <a href="${siteUrl}" style="color: #000; text-decoration: none;">${siteUrl}</a> <br>
+          <strong>DOI:</strong> <a href="${doiLink}" style="color: #000; text-decoration: none;">${latestDoi}</a>
+        </div>
+      `;
+      document.body.insertBefore(headerDiv, document.body.firstChild);
+    };
+
+    const injectFooter = (year, siteUrl, latestDoi, date) => {
+      const div = document.createElement('div');
+      div.style.cssText = `
+        margin-top: 50px;
+        padding-top: 20px;
+        border-top: 2px solid #000;
+        font-size: 11pt;
+        color: #000;
         page-break-inside: avoid;
       `;
 
-      const citeTitle = document.createElement('h2');
-      citeTitle.textContent = 'How to Cite This Page';
-      citeTitle.style.cssText = `
-        font-size: 16pt;
-        margin-bottom: 15px;
-        color: #000000;
-        text-align: center;
+      const apa = `Yourself to Science. (${year}). <em>Building the world’s simplest way for anyone to contribute to science — starting now</em>. Retrieved from ${siteUrl}`;
+      const mla = `"Yourself to Science." <em>Yourself to Science</em>, ${year}, ${siteUrl}.`;
+      const chicago = `Yourself to Science. "Building the world’s simplest way for anyone to contribute to science — starting now." Accessed ${date}. ${siteUrl}.`;
+
+      div.innerHTML = `
+        <h3 style="font-size: 14pt; font-weight: bold; margin-bottom: 15px;">How to Cite This Page</h3>
+        <div style="margin-bottom: 15px;">
+          <strong>Recommended:</strong><br>
+          Yourself to Science. (${year}). Building the world’s simplest way for anyone to contribute to science — starting now. Retrieved from ${siteUrl}. DOI: ${latestDoi}
+        </div>
+        <div style="margin-bottom: 10px;"><strong>APA:</strong><br>${apa}</div>
+        <div style="margin-bottom: 10px;"><strong>MLA:</strong><br>${mla}</div>
+        <div style="margin-bottom: 10px;"><strong>Chicago:</strong><br>${chicago}</div>
       `;
-      citeSection.appendChild(citeTitle);
+      document.body.appendChild(div);
+    };
 
-      const citeFormatsDiv = document.createElement('div');
-      citeFormatsDiv.style.cssText = `
-        font-size: 10pt;
-        line-height: 1.5;
-        color: #000000;
-        width: 100%;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        background-color: #ffffff;
-        padding: 15px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        /* Removed margin-bottom as DOI is now inside */
-      `;
+    // --- Execution ---
+    freezeDOM();
+    hideElements();
+    styleCards();
+    const citationList = processCitations(citationDataArg);
+    injectReferencesSection(citationList);
+    injectHeader(logoDataUrlArg, date, siteUrl, doiLinkArg, latestDoiArg);
+    injectFooter(year, siteUrl, latestDoiArg, date);
 
-      // --- Update formats array to use dynamic doiLinkArg ---
-      const formats = [
-         {
-          name: 'APA',
-          citation: `Marcolongo, M. (${year}). Yourself to Science™: A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More. PDF Version (${date}). ${siteUrl}. ${doiLinkArg}`
-        },
-        {
-          name: 'MLA',
-          citation: `Marcolongo, Mario. "Yourself to Science™: A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More." Yourself to Science, ${year}, PDF Version (${date}). ${siteUrl}, ${doiLinkArg}.`
-        },
-        {
-          name: 'Chicago',
-          citation: `Marcolongo, Mario. ${year}. "Yourself to Science™: A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More." Yourself to Science. PDF Version (${date}). ${siteUrl}. ${doiLinkArg}.`
-        }
-      ];
-      // --- End update formats ---
+    console.log('DOM manipulation complete');
+  }, currentDate, year, siteUrl, doiLink, latestDoi, citationData, logoDataUrl);
 
-      formats.forEach(format => {
-        const formatDiv = document.createElement('div');
-        formatDiv.style.cssText = `
-          margin-bottom: 15px;
-          color: #000000;
-          word-wrap: break-word;
-          overflow-wrap: break-word;
-          width: 100%;
-        `;
-        const formatTitle = document.createElement('strong');
-        formatTitle.textContent = format.name + ': ';
-        formatTitle.style.color = '#000000';
-        formatDiv.appendChild(formatTitle);
+} catch (error) {
+  console.error('Error during page.evaluate:', error);
+  throw error;
+}
 
-        const formatText = document.createElement('span');
-        // --- Make DOI a clickable link within the text ---
-        const citationText = format.citation;
-        const doiIndex = citationText.lastIndexOf(doiLinkArg); // Use dynamic doiLinkArg
-        if (doiIndex !== -1) {
-          formatText.appendChild(document.createTextNode(citationText.substring(0, doiIndex)));
-          const link = document.createElement('a');
-          link.href = doiLinkArg; // Use dynamic doiLinkArg
-          link.textContent = doiLinkArg; // Use dynamic doiLinkArg
-          link.style.color = '#000000'; // Keep link black
-          link.style.textDecoration = 'underline';
-          formatText.appendChild(link);
-        } else {
-          formatText.textContent = citationText; // Fallback if DOI wasn't found
-        }
-        // --- End make DOI clickable ---
-        formatText.style.color = '#000000';
-        formatDiv.appendChild(formatText);
+// Wait for DOM to stabilize
+await new Promise(r => setTimeout(r, 2000));
 
-        citeFormatsDiv.appendChild(formatDiv);
-      });
+// --- Generate PDF ---
+const pdfPath = path.join(__dirname, '..', 'public', 'yourselftoscience.pdf');
+await page.pdf({
+  path: pdfPath,
+  format: 'A4',
+  printBackground: true,
+  margin: {
+    top: '20mm',
+    right: '10mm',
+    bottom: '20mm',
+    left: '10mm'
+  },
+  displayHeaderFooter: true,
+  headerTemplate: `
+    <div style="width: 100%; font-size: 9pt; padding: 0 10mm; text-align: right; color: #666; font-family: Arial, sans-serif; border-bottom: 1px solid #ddd; margin-bottom: 5px;">
+      <span style="float: left; font-weight: bold;">Yourself to Science</span>
+      <span>${siteUrl}</span>
+    </div>
+  `,
+  footerTemplate: `
+    <div style="width: 100%; font-size: 7pt; padding: 0 10mm; text-align: center; color: #666; font-family: Arial, sans-serif;">
+      <div style="margin-bottom: 2px;">
+        © 2024–${year} Yourself to Science™ (also You2Science™). Some Rights Reserved. This work is licensed under a 
+        <span style="display: inline-flex; align-items: center; margin-right: 5px; vertical-align: middle;">
+          <svg viewBox="0 0 640 640" style="height: 10px; width: 10px; margin-right: 2px;"><path fill="#666" d="M317.8 278.9L284.6 296.2C275.2 276.6 259.4 276.3 257.1 276.3C235 276.3 223.9 290.9 223.9 320.1C223.9 343.7 233.1 363.9 257.1 363.9C271.6 363.9 281.7 356.8 287.7 342.6L318.3 358.1C312.1 369.6 292.6 397.1 253.2 397.1C230.6 397.1 179.2 386.8 179.2 320.1C179.2 261.4 222.2 243 251.8 243C282.5 243 304.5 254.9 317.8 278.9zM460.8 278.9L428 296.2C418.5 276.4 402.3 276.3 400.1 276.3C378 276.3 366.9 290.9 366.9 320.1C366.9 343.6 376.1 363.9 400.1 363.9C414.5 363.9 424.7 356.8 430.6 342.6L461.6 358.1C459.5 361.9 440.2 397.1 396.5 397.1C373.8 397.1 322.5 387.2 322.5 320.1C322.5 261.4 365.5 243 395.1 243C425.8 243 447.7 254.9 460.7 278.9zM319.6 72C176.7 72 72 187.1 72 320.1C72 458.5 185.6 568.1 319.6 568.1C449.5 568.1 568 467.2 568 320.1C568 182.2 461.4 72 319.6 72zM320.5 522.8C208 522.8 116.8 429.8 116.8 320C116.8 214.6 202.2 116.7 320.5 116.7C433 116.7 523.3 206.2 523.3 320C523.3 441.7 423.6 522.8 320.5 522.8z"/></svg>
+          <svg viewBox="0 0 640 640" style="height: 10px; width: 10px; margin-right: 2px;"><path fill="#666" d="M386.9 258.4L386.9 359.8L358.6 359.8L358.6 480.3L281.5 480.3L281.5 359.9L253.2 359.9L253.2 258.4C253.2 254 254.8 250.2 257.8 247.1C260.9 244 264.7 242.4 269.1 242.4L371 242.4C375.1 242.4 378.8 244 382.1 247.1C385.2 250.3 386.9 254 386.9 258.4zM354.4 193.9C354.6 213 339.4 228.6 320.3 228.8C301.2 229 285.6 213.8 285.4 194.7C285.2 175.6 300.4 160 319.5 159.8C338.6 159.6 354.2 174.8 354.4 193.9zM319.6 72C461.4 72 568 182.1 568 320C568 467.1 449.5 568 319.6 568C185.6 568 72 458.5 72 320C72 187.1 176.7 72 319.6 72zM320.4 116.7C202.2 116.7 116.7 214.6 116.7 320C116.7 429.8 207.9 522.8 320.4 522.8C423.6 522.8 523.2 441.7 523.2 320C523.3 206.2 433 116.7 320.4 116.7z"/></svg>
+          <svg viewBox="0 0 640 640" style="height: 10px; width: 10px;"><path fill="#666" d="M319.6 72C461.4 72 568 182.1 568 320C568 467.1 449.5 568 319.6 568C185.6 568 72 458.5 72 320C72 187.1 176.7 72 319.6 72zM320.4 116.7C202.2 116.7 116.7 214.6 116.7 320C116.7 429.8 207.9 522.8 320.4 522.8C423.6 522.8 523.2 441.7 523.2 320C523.3 206.2 433 116.7 320.4 116.7zM209.7 285C222.7 201.1 290.2 189.3 318.6 189.3C418.4 189.3 446.1 271.8 446.1 323.5C446.1 387.1 405.1 456.4 317.2 456.4C278.3 456.4 218.1 436.4 207.8 359.4L270.3 359.4C271.8 389.5 289.9 404.6 324.8 404.6C348.1 404.6 382.8 386.4 382.8 321.8C382.8 239.3 333.7 241.2 326.1 241.2C293 241.2 274.4 255.8 270.3 285L288.5 285L239.3 334.2L190.3 285L209.7 285z"/></svg>
+        </span>
+        <a href="https://yourselftoscience.org/license/content" style="color:#666; text-decoration:none;">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+      Page <span class="pageNumber"></span> of <span class="totalPages"></span>
+    </div>
+  `
+});
 
-      citeSection.appendChild(citeFormatsDiv);
-
-      // --- Insert citeSection at the end of the body ---
-      document.body.appendChild(citeSection);
-      // --- End insert section ---
-    }
-
-    // Fix layout issues - Adjust table styles
-    const tables = document.querySelectorAll('table');
-    tables.forEach(table => {
-      table.style.width = '100%';
-      table.style.tableLayout = 'auto';
-      table.style.wordBreak = 'break-word';
-      table.style.fontSize = '10pt';
-      table.style.lineHeight = '1.3';
-      table.style.borderCollapse = 'collapse';
-
-      const rows = table.querySelectorAll('tr');
-      rows.forEach(row => {
-        const cells = row.querySelectorAll('th, td');
-        cells.forEach((cell, index) => {
-          cell.style.padding = '5px 8px';
-          cell.style.border = '1px solid #ccc';
-          cell.style.verticalAlign = 'top';
-
-          // --- Style the last column (Refs.) specifically ---
-          if (index === cells.length - 1) { // Check if it's the last cell in the row
-            cell.style.whiteSpace = 'nowrap'; // Prevent wrapping of [1], [2] etc.
-            cell.style.textAlign = 'center'; // Center the refs
-            cell.style.width = '5%'; // Suggest a small, fixed width if needed (optional)
-          }
-          // --- End Refs column style ---
-
-          // Style headers
-          if (cell.tagName === 'TH') {
-            cell.style.backgroundColor = '#f2f2f2';
-            cell.style.fontWeight = 'bold';
-            cell.style.textAlign = 'left';
-             // Ensure header for Refs is centered if we centered the cells
-            if (index === cells.length - 1) {
-               cell.style.textAlign = 'center';
-            }
-          }
-        });
-      });
-    });
-
-    // Force all flex containers to display as block for better PDF compatibility
-    const flexContainers = document.querySelectorAll('div[style*="display: flex"], div[style*="display:flex"]');
-    flexContainers.forEach(container => {
-      container.style.display = 'block';
-    });
-
-    // --- Replace Payment Emojis with Text for PDF ---
-    const paymentCells = document.querySelectorAll('table tbody tr td:first-child');
-    paymentCells.forEach(cell => {
-      const spans = cell.querySelectorAll('span.text-lg > span');
-      let hasHeart = false;
-      let hasMoney = false;
-
-      spans.forEach(innerSpan => {
-        if (innerSpan.textContent.includes('❤️')) hasHeart = true;
-        if (innerSpan.textContent.includes('💵')) hasMoney = true;
-      });
-
-      cell.innerHTML = ''; // Clear original emoji spans
-
-      if (hasHeart && hasMoney) cell.textContent = 'Mixed';
-      else if (hasHeart) cell.textContent = 'Donation';
-      else if (hasMoney) cell.textContent = 'Payment';
-      else cell.textContent = 'Donation'; // Default
-
-      // Apply styles for PDF rendering (align with other cells)
-      cell.style.textAlign = 'center';
-      cell.style.verticalAlign = 'top';
-      cell.style.fontSize = '9pt'; // Keep this text slightly smaller
-      // Padding is handled by the general cell styling loop
-    });
-    // --- End Emoji Replacement ---
-
-    // --- Replace Compensation Emojis in Grid with Plain Text for PDF ---
-    document.querySelectorAll('span').forEach(span => {
-      const txt = (span.textContent || '').trim();
-      let replacement = null;
-
-      // detect Mixed first (parent span with both emojis)
-      if (txt.includes('❤️') && txt.includes('💵')) {
-        replacement = 'Mixed';
-      }
-      // single cases
-      else if (txt === '❤️') {
-        replacement = 'Donation';
-      }
-      else if (txt === '💵') {
-        replacement = 'Payment';
-      }
-
-      if (replacement) {
-        // find and remove the pill background
-        const pill = span.closest('.tag');
-
-        // build container
-        const container = document.createElement('div');
-        container.style.cssText = `
-          color: #6b7280;
-          font-size: 11pt;
-          margin-bottom: 4px;
-        `;
-
-        // label line (bigger & bolder)
-        const label = document.createElement('div');
-        label.textContent = 'Compensation:';
-        label.style.cssText = `
-          font-weight: 600;
-          font-size: 11pt;
-        `;
-
-        // type line
-        const value = document.createElement('div');
-        value.textContent = replacement;
-
-        container.append(label, value);
-
-        if (pill) pill.replaceWith(container);
-        else span.replaceWith(container);
-      }
-    });
-    // --- End Compensation Replacement ---
-
-    // --- Replace interactive citation buttons with all footnotes from the panel ---
-    // 1) Open all popovers so their panels are injected into the DOM
-    document.querySelectorAll('button[aria-label*="reference"]').forEach(btn => {
-      if (btn.getAttribute('aria-expanded') !== 'true') {
-        btn.click();
-      }
-    });
-
-    // Wait for panels to potentially render after clicks
-    await new Promise(r => setTimeout(r, 1000)); // 1-second delay, adjust if needed
-
-    // Build citation list in page order (same logic as main page)
-    const allResourceCards = document.querySelectorAll('.resource-card');
-    const citationList = [];
-    const citationToRefNumber = new Map();
-    
-    allResourceCards.forEach(card => {
-      const citationPanel = card.querySelector('div[data-headlessui-state="open"]');
-      if (citationPanel) {
-        const citationLinks = citationPanel.querySelectorAll('a[href^="#ref-"]');
-        citationLinks.forEach(link => {
-          const href = link.getAttribute('href');
-          const citationText = link.closest('li')?.textContent?.replace(/\[Ref\s*\d+\]/, '').trim();
-          if (href && citationText && !citationToRefNumber.has(href)) {
-            citationList.push({ href, text: citationText });
-            citationToRefNumber.set(href, citationList.length); // 1-based numbering
-          }
-        });
-      }
-    });
-
-    // Rebuild the reference list section in correct order
-    const existingReferences = document.getElementById('references');
-    if (existingReferences && citationList.length > 0) {
-      // Create new reference section
-      const newReferencesSection = document.createElement('section');
-      newReferencesSection.id = 'references';
-      newReferencesSection.className = 'w-full max-w-screen-xl mx-auto px-4 py-8 border-t mt-8';
-      
-      const title = document.createElement('h2');
-      title.className = 'text-xl font-semibold mb-4 text-google-text';
-      title.textContent = 'References';
-      newReferencesSection.appendChild(title);
-      
-      const ol = document.createElement('ol');
-      ol.className = 'list-decimal pl-5 space-y-2';
-      
-      citationList.forEach((citation, idx) => {
-        const li = document.createElement('li');
-        li.id = `ref-${idx + 1}`;
-        li.className = 'text-sm text-google-text-secondary leading-relaxed';
-        
-        const a = document.createElement('a');
-        a.href = citation.href.replace('#ref-', ''); // Use original link if available
-        a.target = '_blank';
-        a.rel = 'noopener noreferrer';
-        a.className = 'text-google-blue hover:underline break-words';
-        a.textContent = citation.text;
-        
-        li.appendChild(a);
-        ol.appendChild(li);
-      });
-      
-      newReferencesSection.appendChild(ol);
-      
-      // Replace the existing reference section
-      existingReferences.parentNode.replaceChild(newReferencesSection, existingReferences);
-    }
-
-    // 2) Now replace each button with one or more [ref] links
-    document.querySelectorAll('button[aria-label*="reference"]').forEach(btn => {
-      const panelId = btn.getAttribute('aria-controls');
-      let panel = panelId ? document.getElementById(panelId) : null;
-      if (!panel && btn.id) panel = document.querySelector(`div[aria-labelledby="${btn.id}"]`);
-
-      const refs = [];
-      if (panel && panel.getAttribute('data-headlessui-state') === 'open') {
-        panel.querySelectorAll('a[href^="#ref-"]').forEach(orig => {
-         const href = orig.getAttribute('href');
-         const refNumber = citationToRefNumber.get(href);
-         if (refNumber) {
-            const a = document.createElement('a');
-           a.href = `#ref-${refNumber}`;
-           a.textContent = `[${refNumber}]`;
-            a.style.cssText = 'text-decoration:none;color:inherit;font-size:0.8em;vertical-align:super;';
-            refs.push(a);
-         }
-        });
-      }
-
-      if (refs.length > 0) {
-        const container = document.createElement('span');
-        container.style.cssText = 'margin-left:0.25em;vertical-align:super;'; // Keep overall container style
-
-        // Create and style the "Ref(s):" label
-        const refLabel = document.createElement('span');
-        refLabel.textContent = 'Ref(s): ';
-        refLabel.style.cssText = 'font-weight:600;color:#6b7280;font-size:0.8em;margin-right:0.1em;vertical-align:super;'; // Style for label
-        container.appendChild(refLabel); // Add label to container first
-
-        refs.forEach((link,i) => {
-          if (i > 0) link.style.marginLeft = '0.15em'; // Add margin for subsequent links, not the first one after label
-          container.appendChild(link);
-        });
-        if (btn.parentNode) { // Ensure button is still part of the DOM
-            btn.parentNode.replaceChild(container, btn);
-        }
-      }
-    });
-    // --- End Replace citation buttons ---
-
-    // --- Expand instruction buttons into visible instructions for PDF ---
-    // 1) First, open all instruction popovers so their panels are injected into the DOM
-    document.querySelectorAll('button[title="View Instructions"]').forEach(btn => {
-      if (btn.getAttribute('aria-expanded') !== 'true') {
-        btn.click();
-      }
-    });
-
-    // Wait for instruction panels to potentially render after clicks
-    await new Promise(r => setTimeout(r, 1000)); // 1-second delay for popovers to open
-
-    // 2) Now replace each instruction button with expanded instruction content
-    document.querySelectorAll('button[title="View Instructions"]').forEach(btn => {
-      try {
-        const panelId = btn.getAttribute('aria-controls');
-        let panel = panelId ? document.getElementById(panelId) : null;
-        
-        // Try alternative ways to find the instruction panel
-        if (!panel && btn.id) {
-          panel = document.querySelector(`div[aria-labelledby="${btn.id}"]`);
-        }
-        if (!panel) {
-          // Look for nearby popover panels that are open
-          const nearbyPanel = btn.parentElement.querySelector('div[data-headlessui-state="open"]');
-          if (nearbyPanel) panel = nearbyPanel;
-        }
-
-        let instructionSteps = [];
-        
-        if (panel && panel.getAttribute('data-headlessui-state') === 'open') {
-          // Extract instruction steps from the opened panel, but exclude icon text
-          const stepElements = panel.querySelectorAll('ol li, ul li, li, div[class*="step"], p');
-          instructionSteps = Array.from(stepElements).map(element => {
-            // Clone the element to avoid modifying the original
-            const clonedElement = element.cloneNode(true);
-            
-            // Remove all icon elements and their titles from the cloned element
-            const iconElements = clonedElement.querySelectorAll('svg, .fa, [class*="fa-"], [title*="Step"], [title*="Icon"]');
-            iconElements.forEach(icon => icon.remove());
-            
-            // Also remove any spans that might contain icon titles
-            const titleSpans = clonedElement.querySelectorAll('span[class*="text-"], span[title]');
-            titleSpans.forEach(span => {
-              const spanText = span.textContent || '';
-              // Remove spans that look like icon labels
-              if (spanText.includes('Step') || spanText.includes('Icon') || spanText.length < 3) {
-                span.remove();
-              }
-            });
-            
-            let text = clonedElement.textContent || '';
-            
-            // Clean up the text - remove step numbers, extra whitespace, and icon-related text
-            text = text.replace(/^\d+\.\s*/, '').trim();
-            
-            // Remove common icon alt text patterns
-            text = text.replace(/Mobile App Step,?\s*/gi, '');
-            text = text.replace(/Settings Step,?\s*/gi, '');
-            text = text.replace(/Privacy Step,?\s*/gi, '');
-            text = text.replace(/Action Step,?\s*/gi, '');
-            text = text.replace(/Step,?\s*/gi, '');
-            text = text.replace(/Icon,?\s*/gi, '');
-            
-            // Remove any remaining comma artifacts and clean whitespace
-            text = text.replace(/^,\s*/, '').replace(/,\s*$/, '').trim();
-            
-            return text;
-          }).filter(step => {
-            // Filter out very short text, empty strings, and icon-related text
-            return step.length > 10 && 
-                   !step.match(/^(Mobile App|Settings|Privacy|Action)?\s*Step$/i) &&
-                   !step.match(/^(Step|Icon)$/i);
-          });
-        }
-
-        // If we found instruction steps, create a static display
-        if (instructionSteps.length > 0) {
-          // Create the expanded instructions container
-          const instructionsDiv = document.createElement('div');
-          instructionsDiv.style.cssText = `
-            margin-top: 0.75rem;
-            background-color: #f9fafb;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.5rem;
-            padding: 0.75rem;
-            font-size: 0.875rem;
-            color: #374151;
-            line-height: 1.5;
-            page-break-inside: avoid;
-          `;
-          
-          // Add title
-          const title = document.createElement('div');
-          title.textContent = 'Instructions:';
-          title.style.cssText = 'font-weight: 600; margin-bottom: 0.5rem; color: #1f2937;';
-          instructionsDiv.appendChild(title);
-          
-          // Add instruction steps as an ordered list
-          const ol = document.createElement('ol');
-          ol.style.cssText = 'margin: 0; padding-left: 1.25rem; list-style-type: decimal;';
-          
-          instructionSteps.forEach((step, index) => {
-            const li = document.createElement('li');
-            li.textContent = step;
-            li.style.cssText = 'margin-bottom: 0.375rem; line-height: 1.5;';
-            ol.appendChild(li);
-          });
-          
-          instructionsDiv.appendChild(ol);
-          
-          // Insert the instructions after the button's container
-          const buttonContainer = btn.closest('div.flex.justify-between') || btn.closest('div');
-          if (buttonContainer && buttonContainer.parentNode) {
-            buttonContainer.parentNode.insertBefore(instructionsDiv, buttonContainer.nextSibling);
-          }
-        } else {
-          // If no instructions found, create a helpful placeholder
-          const placeholder = document.createElement('div');
-          placeholder.style.cssText = `
-            margin-top: 0.75rem;
-            background-color: #f3f4f6;
-            border: 1px solid #d1d5db;
-            border-radius: 0.5rem;
-            padding: 0.75rem;
-            font-size: 0.875rem;
-            color: #6b7280;
-            font-style: italic;
-          `;
-          placeholder.textContent = 'Instructions: Please visit the service website for detailed step-by-step instructions.';
-          
-          const buttonContainer = btn.closest('div.flex.justify-between') || btn.closest('div');
-          if (buttonContainer && buttonContainer.parentNode) {
-            buttonContainer.parentNode.insertBefore(placeholder, buttonContainer.nextSibling);
-          }
-        }
-        
-        // Hide the original button since it's not interactive in PDF
-        btn.style.display = 'none';
-        
-        // Hide any opened instruction panels to clean up the DOM
-        if (panel) {
-          panel.style.display = 'none';
-        }
-        
-      } catch (error) {
-        console.warn('Error processing instruction button:', error);
-        // Just hide the button if we can't process it
-        btn.style.display = 'none';
-      }
-    });
-    // --- End expand instructions for PDF ---
-
-  }, currentDate, year, siteUrl, doiLink, latestDoi);
-  
-  // --- REMOVED Redundant Metadata Section ---
-  // The following block was removed as the information is already present
-  // in the header and citation formats for Google Scholar.
-  /*
-  await page.evaluate(() => {
-    // Add metadata in a format Google Scholar can extract
-    const metaSection = document.createElement('div');
-    metaSection.style.cssText = `
-      font-size: 16px;
-      line-height: 1.6;
-      margin-top: 15px; // Adjust margin
-      margin-bottom: 15px; // Adjust margin
-      text-align: center;
-      width: 100%;
-      box-sizing: border-box;
-    `;
-    
-    const title = document.createElement('h1');
-    title.textContent = 'Yourself to Science: A Comprehensive Open-Source List of Services for Contributing to Science';
-    title.style.fontSize = '24pt';
-    title.style.marginBottom = '10px';
-    
-    const authors = document.createElement('h2');
-    authors.textContent = 'Mario Marcolongo';
-    authors.style.fontSize = '18pt';
-    authors.style.marginBottom = '10px';
-    
-    const date = document.createElement('div');
-    date.textContent = `Publication Date: ${new Date().toISOString().split('T')[0]}`;
-    date.style.fontSize = '14pt';
-    
-    metaSection.appendChild(title);
-    metaSection.appendChild(authors);
-    metaSection.appendChild(date);
-    
-    // Insert at the top of the document
-    const mainContent = document.querySelector('main');
-    if (mainContent) {
-      mainContent.parentNode.insertBefore(metaSection, mainContent);
-    }
-  });
-  */
-  // --- END REMOVED Section ---
-
-  // --- Hide Search and Mobile Filter Button in PDF ---
-  await page.evaluate(() => {
-    // Hide the search input container
-    const searchInputContainer = document.querySelector('main > div:first-child'); // Adjust selector if needed
-    if (searchInputContainer && searchInputContainer.querySelector('input[type="text"]')) {
-      searchInputContainer.style.display = 'none';
-    }
-
-    // Hide the mobile filter button specifically (it might be inside the same container)
-    const mobileFilterButton = document.querySelector('button.lg\\:hidden'); // Selector for the mobile filter button
-     if (mobileFilterButton && mobileFilterButton.textContent.includes('Filters')) {
-       // If the button is not inside the already hidden container, hide it separately
-       if (!searchInputContainer || !searchInputContainer.contains(mobileFilterButton)) {
-          mobileFilterButton.style.display = 'none';
-       }
-     }
-  });
-  // --- END Hide Elements ---
-
-  // Wait for the content modifications to complete using setTimeout instead of deprecated waitForTimeout
-  await new Promise(r => setTimeout(r, 3000)); // Wait after DOM manipulation
-
-  // Ensure the reference list is visible before generating PDF
-  try {
-      await page.waitForSelector('ol li[id^="ref-"]', { timeout: 15000 }); // Increased timeout
-      console.log("Reference list found.");
-  } catch (e) {
-      console.warn("Reference list selector timed out or not found. PDF might be missing references.");
-  }
-  console.log("Waiting before PDF generation...");
-  await new Promise(r => setTimeout(r, 4000)); // Reduced final wait
-
-  // Fix PDF path and generate PDF
-  const pdfPath = path.join(__dirname, '..', 'public', 'yourselftoscience.pdf');
-  await page.pdf({
-    path: pdfPath,
-    format: 'A4',
-    printBackground: true, // Important for background colors if any
-    margin: {
-      top: '15mm',
-      right: '10mm', // Reduced
-      bottom: '15mm',
-      left: '10mm'  // Reduced
-    },
-    displayHeaderFooter: true,
-    headerTemplate: `
-      <div style="width: 100%; font-size: 8pt; padding: 3px 10px; background-color: #f0f0f0; border-bottom: 1px solid #ddd; text-align: center; box-sizing: border-box; font-family: Arial, sans-serif;">
-        <div style="font-weight: bold;">PDF generated: ${currentDate}</div>
-        <div>Source: ${siteUrl}™</div>
-      </div>
-    `,
-    footerTemplate: '<div style="width: 100%; font-size: 8pt; text-align: center; box-sizing: border-box; font-family: Arial, sans-serif;">Page <span class="pageNumber"></span> of <span class="totalPages"></span></div>'
-  });
-
-  console.log(`PDF output written to ${pdfPath}`);
-  
-  await browser.close();
-})();
+console.log(`PDF output written to ${pdfPath}`);
+await browser.close();
