@@ -23,7 +23,7 @@
     "update-rdf": "node scripts/generateRDF.js"
   },
   "browserslist": [
-    "extends browserslist-config-baseline"
+    "defaults"
   ],
   "dependencies": {
     "@cloudflare/next-on-pages": "1.13.0",
@@ -34,7 +34,6 @@
     "@rollup/plugin-inject": "^5.0.5",
     "@vercel/analytics": "^1.5.0",
     "@vercel/routing-utils": "^4.0.0",
-    "browserslist-config-baseline": "^0.4.0",
     "chokidar": "^3.5.3",
     "country-list": "^2.4.1",
     "debug": "^4.3.7",
