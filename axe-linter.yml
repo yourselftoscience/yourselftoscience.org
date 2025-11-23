@@ -23,6 +23,7 @@ exclude:
   - '**/src/app/page.js'
   - '**/src/utils/shareUtils.js'
   - '**/src/components/ResourceGrid.js'
+  - '**/src/data/resources.js'
 
 # Map custom components to HTML elements
 global-components:

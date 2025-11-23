@@ -775,6 +775,27 @@ const rawResources = [
         "link": "https://doi.org/10.1111/trf.16630"
       }
     ]
+  },
+  {
+    "id": "c6336f71-b1df-49d6-a121-694e756fbe75",
+    "slug": "crc-volontari-ricerca-clinica",
+    "title": "CRC Volontari Ricerca Clinica",
+    "organization": "Centro Ricerche Cliniche di Verona",
+    "link": "https://www.crcvolontariricercaclinica.it/Volontari/Partecipazione#Diventa",
+    "dataTypes": [
+      "Clinical trials"
+    ],
+    "countries": [
+      "Italy"
+    ],
+    "countryCodes": [
+      "IT"
+    ],
+    "compensationType": "mixed",
+    "entityCategory": "Commercial",
+    "entitySubType": "Commercial",
+    "description": "A center in Verona, Italy, conducting clinical trials for healthy volunteers and patients. Volunteers can register to participate in various studies.",
+    "citations": []
   }
 ];
 
@@ -833,12 +854,12 @@ function getCitationKey(citation) {
 const allCitations = rawResources.flatMap(r => r.citations || []);
 const uniqueCitationMap = new Map();
 
-allCitations.forEach(citation => {
+for (const citation of allCitations) {
   const key = getCitationKey(citation);
   if (key && !uniqueCitationMap.has(key)) {
     uniqueCitationMap.set(key, citation);
   }
-});
+}
 
 export const uniqueCitations = Array.from(uniqueCitationMap.values());
 
