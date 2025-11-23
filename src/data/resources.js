@@ -792,9 +792,30 @@ const rawResources = [
       "IT"
     ],
     "compensationType": "mixed",
-    "entityCategory": "Commercial",
-    "entitySubType": "Commercial",
+    "entityCategory": "Academic",
+    "entitySubType": "University Hospital",
     "description": "A center in Verona, Italy, conducting clinical trials for healthy volunteers and patients. Volunteers can register to participate in various studies.",
+    "citations": []
+  },
+  {
+    "id": "770359e1-60e6-4081-9dbb-bba81b035aeb",
+    "slug": "rete-cittadini-per-la-ricerca",
+    "title": "Rete Cittadini per la Ricerca",
+    "organization": "San Camillo IRCCS",
+    "link": "https://hsancamillo.it/rete-cittadini-per-la-ricerca/",
+    "dataTypes": [
+      "Clinical trials"
+    ],
+    "countries": [
+      "Italy"
+    ],
+    "countryCodes": [
+      "IT"
+    ],
+    "compensationType": "mixed",
+    "entityCategory": "Non-Profit",
+    "entitySubType": "Hospital",
+    "description": "A network for citizens to participate in scientific research at San Camillo IRCCS, contributing to medical progress and new therapies.",
     "citations": []
   }
 ];
