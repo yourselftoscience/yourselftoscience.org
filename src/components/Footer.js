@@ -5,7 +5,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import { FaGithub, FaCreativeCommons, FaCreativeCommonsBy, FaCreativeCommonsSa, FaCreativeCommonsZero, FaReddit, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaCreativeCommons, FaCreativeCommonsBy, FaCreativeCommonsSa, FaCreativeCommonsZero, FaReddit, FaLinkedin, FaFacebook } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import CitationModal from './CitationModal';
 
@@ -61,6 +61,7 @@ export default function Footer() {
     { name: 'Reddit', href: 'https://www.reddit.com/r/YourselfToScience/', icon: FaReddit },
     { name: 'X', href: 'https://x.com/YouToScience', icon: FaXTwitter },
     { name: 'LinkedIn', href: 'https://www.linkedin.com/company/yourselftoscience/', icon: FaLinkedin },
+    { name: 'Facebook', href: 'https://www.facebook.com/61584505973946/', icon: FaFacebook },
   ];
 
   return (

@@ -102,7 +102,14 @@ export default function RootLayout({
       "@type": "SearchAction",
       "target": "https://yourselftoscience.org/?q={search_term_string}",
       "query-input": "required name=search_term_string"
-    }
+    },
+    "sameAs": [
+      "https://github.com/yourselftoscience/yourselftoscience.org/",
+      "https://www.reddit.com/r/YourselfToScience/",
+      "https://x.com/YouToScience",
+      "https://www.linkedin.com/company/yourselftoscience/",
+      "https://www.facebook.com/61584505973946/"
+    ]
   };
 
   return (
