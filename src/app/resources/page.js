@@ -2,14 +2,15 @@ import { resources } from '@/data/resources';
 import Link from 'next/link';
 import { FiInfo, FiArrowRight } from 'react-icons/fi';
 
-export const metadata = {  title: 'All Resources - Yourself to Science',
-  description: 'A complete listing of all services for contributing to science.',
+export const metadata = {
+  title: 'All Resources - Yourself to Science',
+  description: 'A complete catalogue of all services for contributing to science.',
   robots: {
     index: false,
     follow: true,
   },
   other: {
-    'citation_title': 'Complete Resource Listing - Yourself to Science',
+    'citation_title': 'Complete Resource Catalogue - Yourself to Science',
     'citation_author': 'Mario Marcolongo',
     'citation_publication_date': new Date().toISOString().split('T')[0].replace(/-/g, '/'),
     'citation_pdf_url': 'https://yourselftoscience.org/yourselftoscience.pdf',
@@ -30,7 +31,7 @@ export default function ResourcesListPage() {
           <FiInfo className="h-8 w-8 text-blue-500 mx-auto mb-3" aria-hidden="true" />
           <h2 className="text-lg font-semibold text-blue-800">A Note for Our Visitors</h2>
           <p className="mt-1 text-sm text-blue-700">
-            You&apos;ve landed on a simplified list designed for machine readability. For the best experience with filters and search, we recommend our main homepage.
+            You&apos;ve landed on a simplified catalogue designed for machine readability. For the best experience with filters and search, we recommend our main homepage.
           </p>
           <div className="mt-4">
             <Link
@@ -48,10 +49,10 @@ export default function ResourcesListPage() {
             All Resources
           </h1>
           <p className="mt-4 text-xl text-gray-500">
-            A complete listing of all services for contributing to science.
+            A complete catalogue of all services for contributing to science.
           </p>
         </div>
-        
+
         <div className="border border-gray-200 rounded-lg shadow-sm overflow-hidden">
           <ul className="divide-y divide-gray-200">
             {sortedResources.map(resource => (

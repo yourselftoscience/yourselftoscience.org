@@ -1,6 +1,6 @@
 # Clinical Trials
 
-This page lists resources related to contributing to clinical trials.
+This page catalogues resources related to contributing to clinical trials.
 
 ## Clinical Trial Resources
 

@@ -1,8 +1,8 @@
 # Yourself to Science: Contribute to Science
 
-Yourself to Science™ is an open-source project providing a comprehensive list of services that allow individuals to contribute to scientific research with their data, genome, body, and more.
+Yourself to Science™ is an open-source project providing a comprehensive catalogue of services that allow individuals to contribute to scientific research with their data, genome, body, and more.
 
-This page provides a filterable list of all resources. You can also download the full dataset as CSV or JSON.
+This page provides a filterable catalogue of all resources. You can also download the full dataset as CSV or JSON.
 
 ## All Resources
 

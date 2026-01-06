@@ -1,6 +1,6 @@
 # Organ, Body & Tissue Donation
 
-This page lists resources related to donating organs, bodies, or tissues for scientific research.
+This page catalogues resources related to donating organs, bodies, or tissues for scientific research.
 
 ## Organ, Body & Tissue Donation Resources
 

@@ -595,7 +595,7 @@ function HomePageContent({ scrollY }) {
 
       {/* Intro Text */}
       <p className="text-base text-google-text-secondary max-w-5xl mb-6">
-        A comprehensive open-source list of services allowing individuals to contribute to scientific research.
+        A comprehensive open-source catalogue of services allowing individuals to contribute to scientific research.
         <br />
         Browse our curated resources to find ways to share your data, genome, body samples, and more.
       </p>

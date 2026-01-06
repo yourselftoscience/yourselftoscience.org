@@ -142,8 +142,8 @@ function generateHomepageMarkdown() {
   console.log('Generating index.html.md...');
 
   let mdContent = `# Yourself to Science: Contribute to Science\n\n`;
-  mdContent += `Yourself to Science™ is an open-source project providing a comprehensive list of services that allow individuals to contribute to scientific research with their data, genome, body, and more.\n\n`;
-  mdContent += `This page provides a filterable list of all resources. You can also download the full dataset as CSV or JSON.\n\n`;
+  mdContent += `Yourself to Science™ is an open-source project providing a comprehensive catalogue of services that allow individuals to contribute to scientific research with their data, genome, body, and more.\n\n`;
+  mdContent += `This page provides a filterable catalogue of all resources. You can also download the full dataset as CSV or JSON.\n\n`;
   mdContent += `## All Resources\n\n`;
 
   for (const [index, resource] of resources.entries()) {
@@ -179,7 +179,7 @@ function generateClinicalTrialsMarkdown() {
   const clinicalTrialResources = resources.filter(r => r.dataTypes.includes('Clinical trials'));
 
   let mdContent = `# Clinical Trials\n\n`;
-  mdContent += `This page lists resources related to contributing to clinical trials.\n\n`;
+  mdContent += `This page catalogues resources related to contributing to clinical trials.\n\n`;
   mdContent += `## Clinical Trial Resources\n\n`;
 
   for (const resource of clinicalTrialResources) {
@@ -211,7 +211,7 @@ function generateOrganBodyTissueDonationMarkdown() {
   );
 
   let mdContent = `# Organ, Body & Tissue Donation\n\n`;
-  mdContent += `This page lists resources related to donating organs, bodies, or tissues for scientific research.\n\n`;
+  mdContent += `This page catalogues resources related to donating organs, bodies, or tissues for scientific research.\n\n`;
   mdContent += `## Organ, Body & Tissue Donation Resources\n\n`;
 
   for (const resource of donationResources) {
@@ -237,11 +237,11 @@ function generateOrganBodyTissueDonationMarkdown() {
 function generateGetInvolvedMarkdown() {
   console.log('Generating get-involved.md...');
 
-  const redditSuggestUrl = `https://www.reddit.com/r/YourselfToScience/submit?title=Suggestion%3A%20New%20Service%20-%20[Service%20Title]&text=Please%20fill%20out%20the%20following%20information%20as%20completely%20as%20possible.%0A%0A**Service%20Title%3A**%0A%0A**Service%20Link%3A**%0A%0A**Data%20Types%3A**%20(e.g.%2C%20Genome%2C%20Health%20data%2C%20Fitbit%20data%2C%20etc.)%0A%0A**Countries%20Available%3A**%20(e.g.%2C%20Worldwide%2C%20United%20States%2C%20etc.)%0A%0A**Why%20it's%20a%20good%20fit%20for%20the%20list%3A**`;
+  const redditSuggestUrl = `https://www.reddit.com/r/YourselfToScience/submit?title=Suggestion%3A%20New%20Service%20-%20[Service%20Title]&text=Please%20fill%20out%20the%20following%20information%20as%20completely%20as%20possible.%0A%0A**Service%20Title%3A**%0A%0A**Service%20Link%3A**%0A%0A**Data%20Types%3A**%20(e.g.%2C%20Genome%2C%20Health%20data%2C%20Fitbit%20data%2C%20etc.)%0A%0A**Countries%20Available%3A**%20(e.g.%2C%20Worldwide%2C%20United%20States%2C%20etc.)%0A%0A**Why%20it's%20a%20good%20fit%20for%20the%20catalogue%3A**`;
   const githubSuggestUrl = `https://github.com/yourselftoscience/yourselftoscience.org/issues/new?template=suggest-a-service.md&title=Suggestion:%20New%20Service%20-%20[Service%20Title]`;
 
   let mdContent = `# Get Involved\n\n`;
-  mdContent += `Our mission is to provide a transparent, accessible, and comprehensive list of services to advance scientific research. This project is built by the community, for the community, and every contribution is incredibly valuable.\n\n`;
+  mdContent += `Our mission is to provide a transparent, accessible, and comprehensive catalogue of services to advance scientific research. This project is built by the community, for the community, and every contribution is incredibly valuable.\n\n`;
 
   mdContent += `## Join the Discussion\n\n`;
   mdContent += `The best place to start. Suggest new services, share ideas, and get feedback from the community. Perfect for all users.\n\n`;
