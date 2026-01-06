@@ -17,6 +17,7 @@ const rawResources = [
     "compensationType": "donation",
     "entityCategory": "Non-Profit",
     "entitySubType": "Research Foundation",
+    "description": "A platform for participant-centered research and personal data exploration.",
     "citations": [
       {
         "title": "Greshake Tzovaras, B., Angrist, M., Arvai, K., Dulaney, M., Estrada-Galiñanes, V., Gunderson, B., ... & Price Ball, M. (2019). Open Humans: A platform for participant-centered research and personal data exploration. GigaScience, 8(6), giz076.",
@@ -37,6 +38,7 @@ const rawResources = [
     "compensationType": "donation",
     "entityCategory": "Academic",
     "entitySubType": "Academic",
+    "description": "A platform for collecting health data from wearables to detect early signs of infectious diseases.",
     "citations": [
       {
         "title": "Shandhi, M.M.H., Cho, P.J., Roghanizad, A.R. et al. A method for intelligent allocation of diagnostic testing by leveraging data from commercial wearable devices: a case study on COVID-19. npj Digit. Med. 5, 130 (2022)",
@@ -55,7 +57,8 @@ const rawResources = [
     ],
     "compensationType": "donation",
     "entityCategory": "Commercial",
-    "entitySubType": "Commercial"
+    "entitySubType": "Commercial",
+    "description": "A platform that lets you contribute to health research using the Google Health Studies app."
   },
   {
     "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
@@ -74,7 +77,8 @@ const rawResources = [
     ],
     "compensationType": "donation",
     "entityCategory": "Commercial",
-    "entitySubType": "Commercial"
+    "entitySubType": "Commercial",
+    "description": "Participate in health studies using your iPhone and Apple Watch."
   },
   {
     "id": "b3c4d5e6-f7g8-9h0i-j1k2-l3m4n5o6p7q8",
@@ -94,7 +98,8 @@ const rawResources = [
     ],
     "compensationType": "mixed",
     "entityCategory": "Government",
-    "entitySubType": "Research Agency"
+    "entitySubType": "Research Agency",
+    "description": "A research program from the NIH to gather health data from one million or more people living in the US."
   },
   {
     "id": "d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9g",
@@ -112,7 +117,8 @@ const rawResources = [
     ],
     "compensationType": "donation",
     "entityCategory": "Commercial",
-    "entitySubType": "Commercial"
+    "entitySubType": "Commercial",
+    "description": "Share your Fitbit data to help improve health research and product development."
   },
   {
     "id": "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d",
@@ -132,7 +138,8 @@ const rawResources = [
     ],
     "compensationType": "mixed",
     "entityCategory": "Non-Profit",
-    "entitySubType": "Research Foundation"
+    "entitySubType": "Research Foundation",
+    "description": "A landmark autism research project connecting autistic individuals and their families to research."
   },
   {
     "id": "e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9g0h",
@@ -151,7 +158,8 @@ const rawResources = [
     ],
     "compensationType": "donation",
     "entityCategory": "Academic",
-    "entitySubType": "Academic"
+    "entitySubType": "Academic",
+    "description": "The UBC Body Donation Program accepts donations for anatomical study and medical research."
   },
   {
     "id": "f6a7b8c9-d0e1-f2a3-b4c5-d6e7f8g9h0i1",
@@ -171,7 +179,8 @@ const rawResources = [
     ],
     "compensationType": "donation",
     "entityCategory": "Academic",
-    "entitySubType": "Academic"
+    "entitySubType": "Academic",
+    "description": "Information on donating your body to medical science at the University of Cambridge."
   },
   {
     "id": "a7b8c9d0-e1f2-a3b4-c5d6-e7f8g9h0i1j2",
@@ -191,7 +200,8 @@ const rawResources = [
     ],
     "compensationType": "donation",
     "entityCategory": "Government",
-    "entitySubType": "Public Health Service"
+    "entitySubType": "Public Health Service",
+    "description": "Official guidelines for donating body and tissues for study, training, and scientific research in Italy."
   },
   {
     "id": "b8c9d0e1-f2a3-b4c5-d6e7-f8g9h0i1j2k3",
@@ -210,7 +220,8 @@ const rawResources = [
     ],
     "compensationType": "donation",
     "entityCategory": "Government",
-    "entitySubType": "Public Health Service"
+    "entitySubType": "Public Health Service",
+    "description": "Official information on body donation for science and medical research in France."
   },
   {
     "id": "c9d0e1f2-a3b4-c5d6-e7f8-g9h0i1j2k3l4",
@@ -231,7 +242,8 @@ const rawResources = [
     ],
     "compensationType": "donation",
     "entityCategory": "Government",
-    "entitySubType": "Statutory Authority"
+    "entitySubType": "Statutory Authority",
+    "description": "Information on donating eggs, sperm, and embryos for research in the UK."
   },
   {
     "id": "d0e1f2a3-b4c5-d6e7-f8g9-h0i1j2k3l4m5",
@@ -260,7 +272,8 @@ const rawResources = [
     "compensationType": "mixed",
     "resourceType": "registry",
     "entityCategory": "Intergovernmental",
-    "entitySubType": "Intergovernmental Organization"
+    "entitySubType": "Intergovernmental Organization",
+    "description": "A central database managed by the WHO to search for clinical trials from registries around the world."
   },
   {
     "id": "f2a3b4c5-d6e7-f8g9-h0i1-j2k3l4m5n6o7",
@@ -308,6 +321,7 @@ const rawResources = [
     "resourceType": "registry",
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
+    "description": "A clinical trials information network providing access to studies in Poland and Europe.",
     "citations": [
       {
         "title": "Figueira-Gonçalves, J. M., Callejas-González, F. J., Golpe, R., Máiz-Carro, L., Marín-Oto, M., de Miguel-Díez, J., ... & Hurtado-Fuentes, Á. (2025). Current Evidence on the Usefulness of Potential Therapies in the Prevention of COPD Exacerbations: Beyond the Use of Bronchodilator Therapy and Inhaled Corticosteroids. Open Respiratory Archives, 7(2), 100438.",
@@ -344,6 +358,7 @@ const rawResources = [
     "resourceType": "registry",
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
+    "description": "A platform connecting patients with clinical trials for various conditions.",
     "citations": [
       {
         "title": "van der Laan, P., van Houdt, W. J., van Boven, H., Snaebjornsson, P., Bosch, L. J. W., Monkhorst, K., ... & van der Graaf, W. T. A. (2025). The role of whole-genome sequencing for guiding systemic therapy in patients with soft tissue sarcoma. ESMO open, 10(6), 105287.",
@@ -364,6 +379,7 @@ const rawResources = [
     "resourceType": "registry",
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
+    "description": "A patient-centric platform for finding and participating in clinical trials.",
     "citations": [
       {
         "title": "De Corte, W., Delrue, H., Vanfleteren, L. J. J., Dutré, P. E. M., Pottel, H., Devriendt, D. K. J. C., ... & Desmet, M. B. (2012). Randomized clinical trial on the influence of anaesthesia protocol on intestinal motility during laparoscopic surgery requiring small bowel anastomosis. Journal of British Surgery, 99(11), 1524-1529.",
@@ -468,7 +484,8 @@ const rawResources = [
     ],
     "compensationType": "payment",
     "entityCategory": "Commercial",
-    "entitySubType": "Commercial"
+    "entitySubType": "Commercial",
+    "description": "A stool donation program supporting research into microbiome-based therapeutics."
   },
   {
     "id": "b0i1j2k3-l4m5-n6o7-p8q9-r0s1t2u3v4w5",
@@ -487,7 +504,8 @@ const rawResources = [
     ],
     "compensationType": "donation",
     "entityCategory": "Non-Profit",
-    "entitySubType": "Non-Profit Organization"
+    "entitySubType": "Non-Profit Organization",
+    "description": "Australian Red Cross Lifeblood's microbiome research program."
   },
   {
     "id": "c1j2k3l4-m5n6-o7p8-q9r0-s1t2u3v4w5x6",
@@ -506,7 +524,8 @@ const rawResources = [
     ],
     "compensationType": "donation",
     "entityCategory": "Non-Profit",
-    "entitySubType": "Non-Profit Organization"
+    "entitySubType": "Non-Profit Organization",
+    "description": "Stool donation program at Wesley Research Institute."
   },
   {
     "id": "d2k3l4m5-n6o7-p8q9-r0s1-t2u3v4w5x6y7",
@@ -525,7 +544,8 @@ const rawResources = [
     ],
     "compensationType": "donation",
     "entityCategory": "Non-Profit",
-    "entitySubType": "Non-Profit Organization"
+    "entitySubType": "Non-Profit Organization",
+    "description": "Placenta donation program at Wesley Research Institute."
   },
   {
     "id": "e3l4m5n6-o7p8-q9r0-s1t2-u3v4w5x6y7z8",
@@ -545,6 +565,7 @@ const rawResources = [
     "compensationType": "donation",
     "entityCategory": "Academic",
     "entitySubType": "Academic",
+    "description": "Research on human hair decomposition at the University of Wrocław.",
     "citations": [
       {
         "title": "Palacz, K., Cholewa, M., Bonar, M., Krzyżanowska, M., & Kadej, M. (2023). The rate and quality of post-mortem hair root changes in relation to melanin content. Forensic Science International, 350, 111784.",
@@ -567,7 +588,8 @@ const rawResources = [
     ],
     "compensationType": "donation",
     "entityCategory": "Academic",
-    "entitySubType": "Academic"
+    "entitySubType": "Academic",
+    "description": "Donate your social media archives to the UCSF Library for research."
   },
   {
     "id": "a5n6o7p8-q9r0-s1t2-u3v4-w5x6y7z8a9b0",
@@ -584,6 +606,7 @@ const rawResources = [
     "compensationType": "payment",
     "entityCategory": "Academic",
     "entitySubType": "Academic",
+    "description": "Share your digital data to help Penn Medicine researchers understand health.",
     "citations": [
       {
         "title": "J.C. Eichstaedt, R.J. Smith, R.M. Merchant, L.H. Ungar, P. Crutchley, D. Preoţiuc-Pietro, D.A. Asch, & H.A. Schwartz,   Facebook language predicts depression in medical records, Proc. Natl. Acad. Sci. U.S.A. 115 (44) 11203-11208, (2018).",
