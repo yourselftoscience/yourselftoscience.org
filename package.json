@@ -44,7 +44,7 @@
     "debug": "^4.3.7",
     "framer-motion": "^11.11.1",
     "glob": "^11.1.0",
-    "next": "^14.2.5",
+    "next": "^14.2.35",
     "node-fetch": "^2.6.7",
     "prop-types": "^15.8.1",
     "puppeteer": "^24.15.0",
