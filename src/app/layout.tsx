@@ -37,6 +37,24 @@ export const metadata: Metadata = {
     template: "%s | Yourself to Science",
   },
   description: "A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More",
+  metadataBase: new URL('https://yourselftoscience.org'),
+  keywords: [
+    "citizen science",
+    "open science",
+    "clinical trials",
+    "organ donation",
+    "tissue donation",
+    "body donation",
+    "research participation",
+    "data donation",
+    "genome sequencing",
+    "biobank",
+    "health data",
+    "medical research"
+  ],
+  alternates: {
+    canonical: './',
+  },
   icons: {
     icon: [
       {
@@ -117,7 +135,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning={true}>
       <head>
         {/* Prefer explicit canonical and application name to help search engines pick the proper site title */}
-        <link rel="canonical" href="https://yourselftoscience.org" />
+        {/* Canonical link is now handled by metadata.alternates */}
         <meta name="application-name" content="Yourself to Science" />
         <link rel="preconnect" href="https://cloudflareinsights.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://cloudflareinsights.com" />
