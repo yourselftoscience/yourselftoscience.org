@@ -11,71 +11,7 @@ import { FaExternalLinkAlt } from 'react-icons/fa';
 const parseUrlList = (param) => (param ? param.split(',') : []);
 
 // A new component for our guided list layout
-const ResourceListItem = ({ resource, onCountryTagClick, activeCountries }) => {
-    
-    const isCountryActive = (countryName) => {
-        // Handle the special case for EU countries
-        const isEuCountry = EU_COUNTRIES.includes(countryName);
-        const isEuFilterActive = activeCountries.includes('European Union');
-        if (isEuCountry && isEuFilterActive) return true;
-
-        return activeCountries.includes(countryName);
-    }
-
-    return (
-        <div className="bg-white border border-gray-200 rounded-lg shadow-sm mb-6 p-6 transition-shadow hover:shadow-md">
-            <h3 className="text-xl font-bold text-google-text">
-                {resource.title}
-            </h3>
-            {resource.organization && (
-                <p className="text-sm text-gray-500 mb-2">{resource.organization}</p>
-            )}
-            {resource.description && (
-                <p className="text-gray-700 text-base mb-4">
-                    {resource.description}
-                </p>
-            )}
-            <div className="flex justify-between items-center flex-wrap gap-y-4">
-                <div className="flex flex-wrap gap-2 items-center">
-                     {(!resource.countries || resource.countries.length === 0) ? (
-                        <span className="inline-flex items-center bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">
-                            🌍 Worldwide
-                        </span>
-                    ) : (
-                        resource.countries.map((country, index) => {
-                            const isActive = isCountryActive(country);
-                            return (
-                                <button
-                                    key={country}
-                                    onClick={() => onCountryTagClick(country)}
-                                    className={`inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                                        isActive 
-                                            ? 'bg-blue-100 text-blue-800 ring-1 ring-inset ring-blue-300' 
-                                            : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
-                                    }`}
-                                >
-                                    {resource.countryCodes[index] && resource.countryCodes[index] !== 'EU' && (
-                                        <ReactCountryFlag countryCode={resource.countryCodes[index]} svg className="mr-1.5" alt={`Flag of ${country}`} />
-                                    )}
-                                    {resource.countryCodes[index] === 'EU' && <span className="mr-1.5">🇪🇺</span>}
-                                    {country}
-                                </button>
-                            );
-                        })
-                    )}
-                </div>
-                <a
-                    href={resource.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
-                >
-                    Visit Website <FaExternalLinkAlt className="ml-2" />
-                </a>
-            </div>
-        </div>
-    );
-};
+import ResourceListItem from '@/components/ResourceListItem';
 
 export default function ClinicalTrialsClientPage({ resources, totalResourcesCount }) {
     const searchParams = useSearchParams();
@@ -120,7 +56,7 @@ export default function ClinicalTrialsClientPage({ resources, totalResourcesCoun
         setFilters(prev => ({ ...prev, countries: initialCountries }));
         setIsMounted(true);
     }, [countryOptions, searchParams]);
-    
+
     useEffect(() => {
         if (!isMounted) return;
 
@@ -131,7 +67,7 @@ export default function ClinicalTrialsClientPage({ resources, totalResourcesCoun
         } else {
             params.delete('countries');
         }
-        
+
         const queryString = params.toString();
         // Prevent unnecessary push, only update if query string changes
         const currentQuery = searchParams.toString();
@@ -149,9 +85,9 @@ export default function ClinicalTrialsClientPage({ resources, totalResourcesCoun
 
         if (isAlreadySelected) {
             // Remove the country from the filter
-            setFilters(prev => ({ 
-                ...prev, 
-                countries: prev.countries.filter(c => c.value !== countryName) 
+            setFilters(prev => ({
+                ...prev,
+                countries: prev.countries.filter(c => c.value !== countryName)
             }));
         } else {
             // Add the country to the filter
@@ -188,17 +124,17 @@ export default function ClinicalTrialsClientPage({ resources, totalResourcesCoun
 
         const worldwideRegistries = allRegistries.filter(r => !r.countries || r.countries.length === 0);
         const worldwideDirectOpportunities = allDirectOps.filter(r => !r.countries || r.countries.length === 0);
-        
+
         const registriesByCountry = new Map();
         const directOpsByCountry = new Map();
 
         displayGroupValues.forEach((groupValue) => {
             const countryOption = countryOptions.find(c => c.value === groupValue);
             if (!countryOption) return; // Skip if the country isn't in our list of options
-            
+
             const countryLabel = countryOption.label;
 
-            const specificRegistries = allRegistries.filter(resource => 
+            const specificRegistries = allRegistries.filter(resource =>
                 resource.countries && resource.countries.includes(groupValue)
             );
             if (specificRegistries.length > 0) {
@@ -206,7 +142,7 @@ export default function ClinicalTrialsClientPage({ resources, totalResourcesCoun
             }
 
             const specificDirectOps = allDirectOps.filter(resource =>
-                 resource.countries && resource.countries.includes(groupValue)
+                resource.countries && resource.countries.includes(groupValue)
             );
             if (specificDirectOps.length > 0) {
                 directOpsByCountry.set(countryLabel, specificDirectOps);
@@ -251,11 +187,10 @@ export default function ClinicalTrialsClientPage({ resources, totalResourcesCoun
                             <button
                                 key={option.value}
                                 onClick={() => handleCountryTagClick(option.value)}
-                                className={`flex items-center px-4 py-2 rounded-full font-medium text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
-                                    isSelected
-                                    ? 'bg-blue-600 text-white shadow-sm'
-                                    : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-100'
-                                }`}
+                                className={`flex items-center px-4 py-2 rounded-full font-medium text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${isSelected
+                                        ? 'bg-blue-600 text-white shadow-sm'
+                                        : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-100'
+                                    }`}
                             >
                                 {option.code && option.code !== 'EU' && <ReactCountryFlag countryCode={option.code} svg className="mr-2" alt={`Flag of ${option.label}`} />}
                                 {option.code === 'EU' && <span className="mr-2 text-lg">🇪🇺</span>}
@@ -265,12 +200,12 @@ export default function ClinicalTrialsClientPage({ resources, totalResourcesCoun
                     })}
                 </div>
             </div>
-            
+
             {!showRegistries && !showDirectOpportunities ? (
-                 <div className="text-center p-10 mt-8 border-2 border-dashed rounded-lg bg-gray-50">
+                <div className="text-center p-10 mt-8 border-2 border-dashed rounded-lg bg-gray-50">
                     <h3 className="text-xl font-semibold text-gray-700">No Matching Resources Found</h3>
                     <p className="mt-2 text-gray-500">There are no country-specific or worldwide resources matching your selection.</p>
-                 </div>
+                </div>
             ) : (
                 <>
                     {showRegistries && (
@@ -288,7 +223,7 @@ export default function ClinicalTrialsClientPage({ resources, totalResourcesCoun
                                     <li>Filtering by your country or city to find local trials.</li>
                                 </ul>
                             </div>
-                            
+
                             {Array.from(registriesByCountry.entries()).map(([countryLabel, countryResources]) => (
                                 <div key={countryLabel} className="mb-8">
                                     <h3 className="text-xl font-semibold text-google-text-secondary mb-1">
@@ -312,17 +247,17 @@ export default function ClinicalTrialsClientPage({ resources, totalResourcesCoun
                             )}
                         </div>
                     )}
-                    
+
                     {showDirectOpportunities && (
                         <div id="direct-opportunities" className="mt-12">
                             <h2 className="text-2xl font-bold text-google-text mb-4">Direct Research Opportunities</h2>
                             <p className="text-base text-google-text-secondary max-w-4xl mb-6">
                                 These organizations recruit volunteers directly for specific research studies. Visit their websites to see if you are eligible to participate.
                             </p>
-                            
+
                             {Array.from(directOpsByCountry.entries()).map(([countryLabel, countryResources]) => (
                                 <div key={countryLabel} className="mb-8">
-                                     <h3 className="text-xl font-semibold text-google-text-secondary mb-1">
+                                    <h3 className="text-xl font-semibold text-google-text-secondary mb-1">
                                         {countryLabel}
                                     </h3>
                                     <p className="text-sm text-gray-500 mb-4">
@@ -345,7 +280,7 @@ export default function ClinicalTrialsClientPage({ resources, totalResourcesCoun
                     )}
                 </>
             )}
-            
+
             <p className="mt-12 text-sm text-center text-gray-500">
                 <b>Disclaimer:</b> This website provides a list of resources and does not offer medical advice or recommend any specific trial. Please consult with a healthcare professional before making any decisions about your health or participation in a clinical trial.
             </p>

@@ -11,69 +11,7 @@ import { FaExternalLinkAlt, FaInfoCircle } from 'react-icons/fa';
 const parseUrlList = (param) => (param ? param.split(',') : []);
 
 // A new component for our guided list layout
-const ResourceListItem = ({ resource, onCountryTagClick, activeCountries }) => {
-    
-    const isCountryActive = (countryName) => {
-        const isEuCountry = EU_COUNTRIES.includes(countryName);
-        const isEuFilterActive = activeCountries.includes('European Union');
-        if (isEuCountry && isEuFilterActive) return true;
-        return activeCountries.includes(countryName);
-    }
-
-    return (
-        <div className="bg-white border border-gray-200 rounded-lg shadow-sm mb-6 p-6 transition-shadow hover:shadow-md">
-            <h3 className="text-xl font-bold text-google-text">
-                {resource.title}
-            </h3>
-            {resource.organization && (
-                <p className="text-sm text-gray-500 mb-2">{resource.organization}</p>
-            )}
-            {resource.description && (
-                <p className="text-gray-700 text-base mb-4">
-                    {resource.description}
-                </p>
-            )}
-            <div className="flex justify-between items-center flex-wrap gap-y-4">
-                <div className="flex flex-wrap gap-2 items-center">
-                     {(!resource.countries || resource.countries.length === 0) ? (
-                        <span className="inline-flex items-center bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">
-                            🌍 Worldwide
-                        </span>
-                    ) : (
-                        resource.countries.map((country, index) => {
-                            const isActive = isCountryActive(country);
-                            return (
-                                <button
-                                    key={country}
-                                    onClick={() => onCountryTagClick(country)}
-                                    className={`inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                                        isActive 
-                                            ? 'bg-blue-100 text-blue-800 ring-1 ring-inset ring-blue-300' 
-                                            : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
-                                    }`}
-                                >
-                                    {resource.countryCodes[index] && resource.countryCodes[index] !== 'EU' && (
-                                        <ReactCountryFlag countryCode={resource.countryCodes[index]} svg className="mr-1.5" alt={`Flag of ${country}`} />
-                                    )}
-                                    {resource.countryCodes[index] === 'EU' && <span className="mr-1.5">🇪🇺</span>}
-                                    {country}
-                                </button>
-                            );
-                        })
-                    )}
-                </div>
-                <a
-                    href={resource.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
-                >
-                    Visit Program <FaExternalLinkAlt className="ml-2" />
-                </a>
-            </div>
-        </div>
-    );
-};
+import ResourceListItem from '@/components/ResourceListItem';
 
 export default function OrganBodyTissueDonationClientPage({ resources, totalResourcesCount }) {
     const searchParams = useSearchParams();
@@ -111,7 +49,7 @@ export default function OrganBodyTissueDonationClientPage({ resources, totalReso
         setFilters({ countries: initialCountries });
         setIsMounted(true);
     }, [countryOptions, searchParams]);
-    
+
     useEffect(() => {
         if (!isMounted) return;
         const params = new URLSearchParams(searchParams.toString());
@@ -121,7 +59,7 @@ export default function OrganBodyTissueDonationClientPage({ resources, totalReso
         } else {
             params.delete('countries');
         }
-        
+
         const queryString = params.toString();
         const currentQuery = searchParams.toString();
         if (queryString !== currentQuery) {
@@ -135,9 +73,9 @@ export default function OrganBodyTissueDonationClientPage({ resources, totalReso
 
         const isAlreadySelected = filters.countries.some(c => c.value === countryName);
 
-        setFilters(prev => ({ 
-            countries: isAlreadySelected 
-                ? prev.countries.filter(c => c.value !== countryName) 
+        setFilters(prev => ({
+            countries: isAlreadySelected
+                ? prev.countries.filter(c => c.value !== countryName)
                 : [...prev.countries, selectedOption]
         }));
     };
@@ -152,14 +90,14 @@ export default function OrganBodyTissueDonationClientPage({ resources, totalReso
         if (isEuRelevant) {
             selectedCountryValues.add('European Union');
         }
-        
+
         const programsByCountry = new Map();
 
         selectedCountryValues.forEach((countryValue) => {
             const countryOption = countryOptions.find(c => c.value === countryValue);
             if (!countryOption) return;
-            
-            const countryPrograms = resources.filter(resource => 
+
+            const countryPrograms = resources.filter(resource =>
                 resource.countries && resource.countries.includes(countryValue)
             );
             if (countryPrograms.length > 0) {
@@ -198,11 +136,10 @@ export default function OrganBodyTissueDonationClientPage({ resources, totalReso
                             <button
                                 key={option.value}
                                 onClick={() => handleCountryTagClick(option.value)}
-                                className={`flex items-center px-4 py-2 rounded-full font-medium text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
-                                    isSelected
-                                    ? 'bg-blue-600 text-white shadow-sm'
-                                    : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-100'
-                                }`}
+                                className={`flex items-center px-4 py-2 rounded-full font-medium text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${isSelected
+                                        ? 'bg-blue-600 text-white shadow-sm'
+                                        : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-100'
+                                    }`}
                             >
                                 {option.code && option.code !== 'EU' && <ReactCountryFlag countryCode={option.code} svg className="mr-2" alt={`Flag of ${option.label}`} />}
                                 {option.code === 'EU' && <span className="mr-2 text-lg">🇪🇺</span>}
@@ -212,7 +149,7 @@ export default function OrganBodyTissueDonationClientPage({ resources, totalReso
                     })}
                 </div>
             </div>
-            
+
             {filters.countries.length === 0 && (
                 <div className="text-center p-10 mt-8 border-2 border-dashed rounded-lg bg-gray-50">
                     <h3 className="text-xl font-semibold text-gray-700">Please Select a Location</h3>
@@ -221,10 +158,10 @@ export default function OrganBodyTissueDonationClientPage({ resources, totalReso
             )}
 
             {filters.countries.length > 0 && !showPrograms ? (
-                 <div className="text-center p-10 mt-8 border-2 border-dashed rounded-lg bg-gray-50">
+                <div className="text-center p-10 mt-8 border-2 border-dashed rounded-lg bg-gray-50">
                     <h3 className="text-xl font-semibold text-gray-700">No Matching Programs Found</h3>
                     <p className="mt-2 text-gray-500">There are no programs listed for the selected country or region.</p>
-                 </div>
+                </div>
             ) : (
                 <div id="donation-programs" className="mt-12">
                     {showPrograms && (
@@ -241,7 +178,7 @@ export default function OrganBodyTissueDonationClientPage({ resources, totalReso
                             </div>
                         </>
                     )}
-                    
+
                     {Array.from(programsByCountry.entries()).map(([countryLabel, countryResources]) => (
                         <div key={countryLabel} className="mb-8">
                             <h3 className="text-xl font-semibold text-google-text-secondary mb-1">
@@ -255,7 +192,7 @@ export default function OrganBodyTissueDonationClientPage({ resources, totalReso
                     ))}
                 </div>
             )}
-            
+
             <p className="mt-12 text-sm text-center text-gray-500">
                 <b>Disclaimer:</b> This website provides a list of resources and does not provide legal or medical advice. Please consult with program coordinators and your family to make informed decisions about body donation.
             </p>

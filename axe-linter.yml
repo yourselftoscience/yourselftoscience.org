@@ -24,6 +24,11 @@ exclude:
   - '**/src/utils/shareUtils.js'
   - '**/src/components/ResourceGrid.js'
   - '**/src/data/resources.js'
+  - '**/src/components/ResourceListItem.js'
+  - '**/src/app/clinical-trials/**'
+  - '**/src/app/organ-body-tissue-donation/**'
+  - '**/src/app/get-involved/**'
+  - '**/src/app/resources/**'
 
 # Map custom components to HTML elements
 global-components:

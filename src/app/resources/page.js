@@ -29,7 +29,7 @@ export default function ResourcesListPage() {
 
         <div className="bg-blue-50 border border-blue-200 p-6 rounded-lg mb-12 text-center shadow-sm">
           <FiInfo className="h-8 w-8 text-blue-500 mx-auto mb-3" aria-hidden="true" />
-          <h2 className="text-lg font-semibold text-blue-800">A Note for Our Visitors</h2>
+          <div className="text-lg font-semibold text-blue-800">A Note for Our Visitors</div>
           <p className="mt-1 text-sm text-blue-700">
             You&apos;ve landed on a simplified catalogue designed for machine readability. For the best experience with filters and search, we recommend our main homepage.
           </p>
