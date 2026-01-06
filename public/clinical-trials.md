@@ -16,7 +16,7 @@ This page lists resources related to contributing to clinical trials.
 
 ### [International Clinical Trials Registry Platform (ICTRP)](https://yourselftoscience.org/resource/who-ictrp)
 
-*Description:* undefined
+*Description:* A central database managed by the WHO to search for clinical trials from registries around the world.
 
 *Data Types:* Clinical trials
 
@@ -38,7 +38,7 @@ This page lists resources related to contributing to clinical trials.
 
 ### [European Clinical Trials Information Network](https://yourselftoscience.org/resource/ectin-poland)
 
-*Description:* undefined
+*Description:* A clinical trials information network providing access to studies in Poland and Europe.
 
 *Data Types:* Clinical trials
 
@@ -50,7 +50,7 @@ This page lists resources related to contributing to clinical trials.
 
 ### [Curewiki](https://yourselftoscience.org/resource/curewiki)
 
-*Description:* undefined
+*Description:* A platform connecting patients with clinical trials for various conditions.
 
 *Data Types:* Clinical trials
 
@@ -62,7 +62,7 @@ This page lists resources related to contributing to clinical trials.
 
 ### [Clinical Trial Discovery](https://yourselftoscience.org/resource/esperity-clinical-trials)
 
-*Description:* undefined
+*Description:* A patient-centric platform for finding and participating in clinical trials.
 
 *Data Types:* Clinical trials
 
@@ -147,6 +147,30 @@ This page lists resources related to contributing to clinical trials.
 *Data Types:* Clinical trials
 
 *Countries:* Canada
+
+*Compensation:* Mixed
+
+---
+
+### [CRC Volontari Ricerca Clinica](https://yourselftoscience.org/resource/crc-volontari-ricerca-clinica)
+
+*Description:* A center in Verona, Italy, conducting clinical trials for healthy volunteers and patients. Volunteers can register to participate in various studies.
+
+*Data Types:* Clinical trials
+
+*Countries:* Italy
+
+*Compensation:* Mixed
+
+---
+
+### [Rete Cittadini per la Ricerca](https://yourselftoscience.org/resource/rete-cittadini-per-la-ricerca)
+
+*Description:* A network for citizens to participate in scientific research at San Camillo IRCCS, contributing to medical progress and new therapies.
+
+*Data Types:* Clinical trials
+
+*Countries:* Italy
 
 *Compensation:* Mixed
 

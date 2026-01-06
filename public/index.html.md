@@ -8,7 +8,7 @@ This page provides a filterable list of all resources. You can also download the
 
 ### [Open Humans](https://yourselftoscience.org/resource/open-humans)
 
-*Description:* undefined
+*Description:* A platform for participant-centered research and personal data exploration.
 
 *Data Types:* Genome, Health data, Wearable data, Search history, Location history
 
@@ -18,7 +18,7 @@ This page provides a filterable list of all resources. You can also download the
 
 ### [MyPHD](https://yourselftoscience.org/resource/myphd)
 
-*Description:* undefined
+*Description:* A platform for collecting health data from wearables to detect early signs of infectious diseases.
 
 *Data Types:* Health data, Wearable data
 
@@ -28,7 +28,7 @@ This page provides a filterable list of all resources. You can also download the
 
 ### [Google Health Studies](https://yourselftoscience.org/resource/google-health-studies)
 
-*Description:* undefined
+*Description:* A platform that lets you contribute to health research using the Google Health Studies app.
 
 *Data Types:* Health data
 
@@ -38,7 +38,7 @@ This page provides a filterable list of all resources. You can also download the
 
 ### [Apple Research](https://yourselftoscience.org/resource/apple-research)
 
-*Description:* undefined
+*Description:* Participate in health studies using your iPhone and Apple Watch.
 
 *Data Types:* Health data
 
@@ -50,7 +50,7 @@ This page provides a filterable list of all resources. You can also download the
 
 ### [All of US](https://yourselftoscience.org/resource/all-of-us)
 
-*Description:* undefined
+*Description:* A research program from the NIH to gather health data from one million or more people living in the US.
 
 *Data Types:* Genome, Health data
 
@@ -62,7 +62,7 @@ This page provides a filterable list of all resources. You can also download the
 
 ### [Health research and product development](https://yourselftoscience.org/resource/fitbit-research)
 
-*Description:* undefined
+*Description:* Share your Fitbit data to help improve health research and product development.
 
 *Data Types:* Wearable data (Fitbit only)
 
@@ -72,7 +72,7 @@ This page provides a filterable list of all resources. You can also download the
 
 ### [SPARK for Autism](https://yourselftoscience.org/resource/spark-for-autism)
 
-*Description:* undefined
+*Description:* A landmark autism research project connecting autistic individuals and their families to research.
 
 *Data Types:* Genome, Health data
 
@@ -84,7 +84,7 @@ This page provides a filterable list of all resources. You can also download the
 
 ### [Body Donation](https://yourselftoscience.org/resource/ubc-body-donation)
 
-*Description:* undefined
+*Description:* The UBC Body Donation Program accepts donations for anatomical study and medical research.
 
 *Data Types:* Body
 
@@ -96,7 +96,7 @@ This page provides a filterable list of all resources. You can also download the
 
 ### [Body Donation; Tissue Donation](https://yourselftoscience.org/resource/cambridge-body-tissue-donation)
 
-*Description:* undefined
+*Description:* Information on donating your body to medical science at the University of Cambridge.
 
 *Data Types:* Body, Tissue
 
@@ -108,7 +108,7 @@ This page provides a filterable list of all resources. You can also download the
 
 ### [Body & Tissues Donation](https://yourselftoscience.org/resource/italy-body-tissue-donation)
 
-*Description:* undefined
+*Description:* Official guidelines for donating body and tissues for study, training, and scientific research in Italy.
 
 *Data Types:* Body, Tissue
 
@@ -120,7 +120,7 @@ This page provides a filterable list of all resources. You can also download the
 
 ### [Donate the Body to Science](https://yourselftoscience.org/resource/france-body-donation)
 
-*Description:* undefined
+*Description:* Official information on body donation for science and medical research in France.
 
 *Data Types:* Body
 
@@ -132,7 +132,7 @@ This page provides a filterable list of all resources. You can also download the
 
 ### [Eggs, Sperm and Embryos Donation to Research](https://yourselftoscience.org/resource/uk-gamete-donation)
 
-*Description:* undefined
+*Description:* Information on donating eggs, sperm, and embryos for research in the UK.
 
 *Data Types:* Eggs, Embryos, Sperm
 
@@ -154,7 +154,7 @@ This page provides a filterable list of all resources. You can also download the
 
 ### [International Clinical Trials Registry Platform (ICTRP)](https://yourselftoscience.org/resource/who-ictrp)
 
-*Description:* undefined
+*Description:* A central database managed by the WHO to search for clinical trials from registries around the world.
 
 *Data Types:* Clinical trials
 
@@ -176,7 +176,7 @@ This page provides a filterable list of all resources. You can also download the
 
 ### [European Clinical Trials Information Network](https://yourselftoscience.org/resource/ectin-poland)
 
-*Description:* undefined
+*Description:* A clinical trials information network providing access to studies in Poland and Europe.
 
 *Data Types:* Clinical trials
 
@@ -188,7 +188,7 @@ This page provides a filterable list of all resources. You can also download the
 
 ### [Curewiki](https://yourselftoscience.org/resource/curewiki)
 
-*Description:* undefined
+*Description:* A platform connecting patients with clinical trials for various conditions.
 
 *Data Types:* Clinical trials
 
@@ -200,7 +200,7 @@ This page provides a filterable list of all resources. You can also download the
 
 ### [Clinical Trial Discovery](https://yourselftoscience.org/resource/esperity-clinical-trials)
 
-*Description:* undefined
+*Description:* A patient-centric platform for finding and participating in clinical trials.
 
 *Data Types:* Clinical trials
 
@@ -246,7 +246,7 @@ This page provides a filterable list of all resources. You can also download the
 
 ### [GoodNature Program](https://yourselftoscience.org/resource/goodnature-program)
 
-*Description:* undefined
+*Description:* A stool donation program supporting research into microbiome-based therapeutics.
 
 *Data Types:* Stool
 
@@ -258,7 +258,7 @@ This page provides a filterable list of all resources. You can also download the
 
 ### [Microbiome](https://yourselftoscience.org/resource/lifeblood-microbiome)
 
-*Description:* undefined
+*Description:* Australian Red Cross Lifeblood's microbiome research program.
 
 *Data Types:* Stool
 
@@ -270,7 +270,7 @@ This page provides a filterable list of all resources. You can also download the
 
 ### [Stool Donation](https://yourselftoscience.org/resource/wesley-stool-donation)
 
-*Description:* undefined
+*Description:* Stool donation program at Wesley Research Institute.
 
 *Data Types:* Stool
 
@@ -282,7 +282,7 @@ This page provides a filterable list of all resources. You can also download the
 
 ### [Placenta Donation](https://yourselftoscience.org/resource/wesley-placenta-donation)
 
-*Description:* undefined
+*Description:* Placenta donation program at Wesley Research Institute.
 
 *Data Types:* Placenta
 
@@ -294,7 +294,7 @@ This page provides a filterable list of all resources. You can also download the
 
 ### [Human Hair Decompositionw](https://yourselftoscience.org/resource/wroclaw-hair-decomposition)
 
-*Description:* undefined
+*Description:* Research on human hair decomposition at the University of Wrocław.
 
 *Data Types:* Hair
 
@@ -306,7 +306,7 @@ This page provides a filterable list of all resources. You can also download the
 
 ### [Donating Your Social Media](https://yourselftoscience.org/resource/ucsf-social-media-archive)
 
-*Description:* undefined
+*Description:* Donate your social media archives to the UCSF Library for research.
 
 *Data Types:* Social media data
 
@@ -316,7 +316,7 @@ This page provides a filterable list of all resources. You can also download the
 
 ### [Donate Your Data for Health](https://yourselftoscience.org/resource/penn-medicine-donate-your-data)
 
-*Description:* undefined
+*Description:* Share your digital data to help Penn Medicine researchers understand health.
 
 *Data Types:* Health data, Wearable data, Social media data, Search history
 
@@ -415,5 +415,29 @@ This page provides a filterable list of all resources. You can also download the
 *Countries:* United States
 
 *Compensation:* Donation
+
+---
+
+### [CRC Volontari Ricerca Clinica](https://yourselftoscience.org/resource/crc-volontari-ricerca-clinica)
+
+*Description:* A center in Verona, Italy, conducting clinical trials for healthy volunteers and patients. Volunteers can register to participate in various studies.
+
+*Data Types:* Clinical trials
+
+*Countries:* Italy
+
+*Compensation:* Mixed
+
+---
+
+### [Rete Cittadini per la Ricerca](https://yourselftoscience.org/resource/rete-cittadini-per-la-ricerca)
+
+*Description:* A network for citizens to participate in scientific research at San Camillo IRCCS, contributing to medical progress and new therapies.
+
+*Data Types:* Clinical trials
+
+*Countries:* Italy
+
+*Compensation:* Mixed
 
 ---

@@ -4,26 +4,26 @@ An overview of the resources available on Yourself to Science, providing insight
 
 ## Overview
 
-- **Total Resources:** 36
+- **Total Resources:** 38
 
 ## Compensation Types
 
 - **Donation:** 18
-- **Mixed:** 15
+- **Mixed:** 17
 - **Payment:** 3
 
 ## Top 10 Service Availability by Country
 
 - **Worldwide:** 10
-- **United States:** 9
-- **European Union:** 8
+- **European Union:** 10
     - **Breakdown:**
+        - **Italy:** 3
         - **EU-Wide:** 3
-        - **Italy:** 1
         - **France:** 1
         - **Poland:** 1
         - **Belgium:** 1
         - **Germany:** 1
+- **United States:** 9
 - **United Kingdom:** 4
 - **Australia:** 3
 - **Canada:** 2
@@ -33,7 +33,7 @@ An overview of the resources available on Yourself to Science, providing insight
 
 ## Data Type Distribution
 
-- **Clinical trials:** 13
+- **Clinical trials:** 15
 - **Health data:** 8
 - **Body:** 5
 - **Wearable data:** 4
@@ -60,12 +60,15 @@ An overview of the resources available on Yourself to Science, providing insight
     - **Research Agency:** 3
     - **Public Health Service:** 3
     - **Statutory Authority:** 1
-- **Non-Profit:** 8
+- **Non-Profit:** 9
     - **Non-Profit Organization:** 4
     - **Research Foundation:** 2
     - **Research Collaborative:** 1
     - **Professional Association:** 1
-- **Academic:** 8
+    - **Hospital:** 1
+- **Academic:** 9
+    - **Academic:** 8
+    - **University Hospital:** 1
 - **Commercial:** 8
 - **Intergovernmental:** 1
 

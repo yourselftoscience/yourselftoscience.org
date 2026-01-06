@@ -6,7 +6,7 @@ This page lists resources related to donating organs, bodies, or tissues for sci
 
 ### [Body Donation](https://yourselftoscience.org/resource/ubc-body-donation)
 
-*Description:* undefined
+*Description:* The UBC Body Donation Program accepts donations for anatomical study and medical research.
 
 *Data Types:* Body
 
@@ -18,7 +18,7 @@ This page lists resources related to donating organs, bodies, or tissues for sci
 
 ### [Body Donation; Tissue Donation](https://yourselftoscience.org/resource/cambridge-body-tissue-donation)
 
-*Description:* undefined
+*Description:* Information on donating your body to medical science at the University of Cambridge.
 
 *Data Types:* Body, Tissue
 
@@ -30,7 +30,7 @@ This page lists resources related to donating organs, bodies, or tissues for sci
 
 ### [Body & Tissues Donation](https://yourselftoscience.org/resource/italy-body-tissue-donation)
 
-*Description:* undefined
+*Description:* Official guidelines for donating body and tissues for study, training, and scientific research in Italy.
 
 *Data Types:* Body, Tissue
 
@@ -42,7 +42,7 @@ This page lists resources related to donating organs, bodies, or tissues for sci
 
 ### [Donate the Body to Science](https://yourselftoscience.org/resource/france-body-donation)
 
-*Description:* undefined
+*Description:* Official information on body donation for science and medical research in France.
 
 *Data Types:* Body
 
