@@ -279,9 +279,9 @@ export default function ResourceCard({
       <div className="flex-grow">
         <div className="flex justify-between items-start">
           <div className="flex-grow pr-2">
-            {resource.macroCategories && resource.macroCategories.length > 0 && (
+            {(resource.macroCategories?.length > 0 || resource.entityCategory) && (
               <div className="mb-2 flex flex-wrap gap-1">
-                {resource.macroCategories.map((category) => (
+                {resource.macroCategories?.map((category) => (
                   <button
                     key={category}
                     onClick={() => onMacroCategoryFilterChange && onMacroCategoryFilterChange(category)}
@@ -290,6 +290,27 @@ export default function ResourceCard({
                     {category}
                   </button>
                 ))}
+                {resource.entityCategory && (() => {
+                  const sector = resource.entityCategory === 'Commercial' ? 'Commercial' : 'Public & Non-Profit';
+                  const isActive = filters.sectors?.includes(sector);
+                  return (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onFilterChange('sectors', sector, !isActive);
+                      }}
+                      className={`
+                        px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider border transition-all
+                        ${isActive
+                          ? 'bg-indigo-50 text-indigo-700 border-indigo-200 shadow-sm'
+                          : 'bg-slate-100/80 text-slate-600 border-slate-200 hover:bg-slate-100 hover:border-slate-300 hover:text-slate-800'}
+                      `}
+                      title={`Filter by ${sector}`}
+                    >
+                      {sector}
+                    </button>
+                  );
+                })()}
               </div>
             )}
 
@@ -309,11 +330,15 @@ export default function ResourceCard({
             />
           </div>
         </div>
-        {resource.organization && (
-          <p className="organization-name">
-            {resource.organization}
-          </p>
-        )}
+        <div className="mb-0.5">
+          {resource.organization && (
+            <p className="organization-name text-sm font-medium text-slate-700 leading-tight">
+              {resource.organization}
+            </p>
+          )}
+        </div>
+
+
         {resource.description && (
           descriptionNeedsClamping ? (
             <button
@@ -341,6 +366,7 @@ export default function ResourceCard({
 
       <div className="mt-4 pt-4 border-t border-gray-100 flex flex-col gap-3">
         <div className="flex flex-col gap-2">
+
           {resource.countries && resource.countries.length > 0 && (
             <div className="flex flex-wrap items-center gap-1.5">
               {resource.countries.map((country, idx) => {
@@ -464,6 +490,7 @@ ResourceCard.propTypes = {
     compensationTypes: PropTypes.array,
     countries: PropTypes.array,
     dataTypes: PropTypes.array,
+    sectors: PropTypes.array,
   }).isRequired,
   onFilterChange: PropTypes.func.isRequired,
   onPaymentFilterChange: PropTypes.func.isRequired,

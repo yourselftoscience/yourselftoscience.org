@@ -9,7 +9,7 @@ import { resources as allResources } from '@/data/resources';
 import { PAYMENT_TYPES, EU_COUNTRIES } from '@/data/constants';
 import dynamic from 'next/dynamic';
 import CountryFlag from 'react-country-flag';
-import { FaTimes, FaDownload, FaSlidersH, FaPlus, FaSearch } from 'react-icons/fa';
+import { FaTimes, FaDownload, FaSlidersH, FaPlus, FaSearch, FaCheck } from 'react-icons/fa';
 import { usePathname, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import NewsletterSignup from '../components/NewsletterSignup';
@@ -223,7 +223,9 @@ function HomePageContent({ scrollY }) {
     macroCategories: [],
     countries: [],
     dataTypes: [],
-    compensationTypes: []
+    dataTypes: [],
+    compensationTypes: [],
+    sectors: []
   });
   const [isMounted, setIsMounted] = useState(false);
   const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState(false);
@@ -261,6 +263,7 @@ function HomePageContent({ scrollY }) {
 
     const initialFilters = {
       dataTypes: parseUrlList(searchParams.get('dataTypes')),
+      sectors: parseUrlList(searchParams.get('sectors')),
       countries: parseUrlList(searchParams.get('countries')),
       macroCategories: parsedMacroCategories,
       // Map compensation values back to objects from PAYMENT_TYPES
@@ -290,6 +293,10 @@ function HomePageContent({ scrollY }) {
     if (filters.dataTypes.length > 0) {
       // Sort data types alphabetically
       params.set('dataTypes', [...filters.dataTypes].sort((a, b) => a.localeCompare(b)).join(','));
+    }
+    if (filters.sectors.length > 0) {
+      // Sort sectors alphabetically
+      params.set('sectors', [...filters.sectors].sort((a, b) => a.localeCompare(b)).join(','));
     }
     if (filters.macroCategories.length > 0) {
       const sortedMacroCategories = [...filters.macroCategories].sort((a, b) => a.localeCompare(b));
@@ -414,6 +421,19 @@ function HomePageContent({ scrollY }) {
       );
     }
 
+    if (filters.sectors.length > 0) {
+      filteredData = filteredData.filter(resource => {
+        const isCommercial = resource.entityCategory === 'Commercial';
+        // If it's not Commercial, it counts as Public & Non-Profit
+        const isPublic = resource.entityCategory !== 'Commercial';
+
+        return filters.sectors.some(sector =>
+          (sector === 'Commercial' && isCommercial) ||
+          (sector === 'Public & Non-Profit' && isPublic)
+        );
+      });
+    }
+
     filteredData.sort((a, b) => a.title.localeCompare(b.title));
 
     return filteredData;
@@ -524,6 +544,7 @@ function HomePageContent({ scrollY }) {
   const handleResetFilters = useCallback(() => {
     setFilters({
       dataTypes: [],
+      sectors: [],
       countries: [],
       compensationTypes: [],
       searchTerm: '', // Reset search term as well
@@ -725,15 +746,50 @@ function HomePageContent({ scrollY }) {
                     </div>
                     <div className="relative border-t border-slate-100 pt-4">
                       {openFilterPanel === 'macroCategories' && (
-                        <FilterGroup
-                          title="Category"
-                          options={macroCategoryOptions}
-                          filterKey="macroCategories"
-                          selectedValues={filters.macroCategories}
-                          onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
-                          onSelectAll={(shouldSelect) => handleSelectAll('macroCategories', macroCategoryOptions, shouldSelect)}
-                          config={{ alwaysExpanded: true, columns: 2, HeadingTag: 'h2' }}
-                        />
+                        <>
+                          <FilterGroup
+                            title="Category"
+                            options={macroCategoryOptions}
+                            filterKey="macroCategories"
+                            selectedValues={filters.macroCategories}
+                            onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
+                            onSelectAll={(shouldSelect) => handleSelectAll('macroCategories', macroCategoryOptions, shouldSelect)}
+                            config={{ alwaysExpanded: true, columns: 2, HeadingTag: 'h2' }}
+                          />
+
+                          <div className="w-full h-px bg-slate-100 my-6"></div>
+
+                          <div className="mb-2">
+                            <h3 className="text-sm font-semibold text-slate-900 mb-3">Sector</h3>
+                            <div className="flex flex-wrap gap-3">
+                              {['Commercial', 'Public & Non-Profit'].map(sector => {
+                                const isSelected = filters.sectors.includes(sector);
+                                return (
+                                  <button
+                                    key={sector}
+                                    onClick={() => handleFilterChange('sectors', sector, !isSelected)}
+                                    className={`
+                                      flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all border
+                                      ${isSelected
+                                        ? 'bg-indigo-50 border-indigo-200 text-indigo-700 shadow-sm'
+                                        : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50'}
+                                    `}
+                                  >
+                                    <div className={`
+                                      w-4 h-4 rounded border flex items-center justify-center
+                                      ${isSelected
+                                        ? 'bg-indigo-600 border-indigo-600 text-white'
+                                        : 'bg-white border-slate-300'}
+                                    `}>
+                                      {isSelected && <FaCheck className="text-[8px]" />}
+                                    </div>
+                                    {sector}
+                                  </button>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        </>
                       )}
                       {openFilterPanel === 'countries' && (
                         <FilterGroup
@@ -792,8 +848,21 @@ function HomePageContent({ scrollY }) {
             </AnimatePresence>
           </motion.div>
 
-          {/* Active Filter Badges */}
+
+
+          {/* Active Sector Badges */}
           <div className="mb-4 flex flex-wrap gap-2 items-center">
+            {filters.sectors.map(sector => (
+              <button
+                key={sector}
+                onClick={() => handleFilterChange('sectors', sector, false)}
+                className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-indigo-100 text-indigo-800 border border-indigo-200 hover:bg-indigo-200 transition-colors"
+              >
+                {sector}
+                <FaTimes className="ml-2 h-3 w-3" />
+              </button>
+            ))}
+
             {/* Sort macro categories alphabetically before mapping */}
             {[...filters.macroCategories].sort((a, b) => a.localeCompare(b)).map(value => {
               const categoryStyles = {
@@ -817,6 +886,7 @@ function HomePageContent({ scrollY }) {
                 </span>
               );
             })}
+
             {/* Sort countries alphabetically before mapping */}
             {[...filters.countries].sort((a, b) => a.localeCompare(b)).map(value => {
               const countryOption = countryOptions.find(opt => opt.value === value);
@@ -858,6 +928,7 @@ function HomePageContent({ scrollY }) {
                   </button>
                 </span>
               ))}
+
           </div>
 
           {/* Resource Grid */}
@@ -895,7 +966,7 @@ function HomePageContent({ scrollY }) {
 
           {/* References Section */}
           <ReferencesSection citations={citationList} />
-        </main>
+        </main >
       </div > {/* End grid */}
 
       {/* Filter Drawer - Now uses the dynamically imported MobileFilterDrawer */}
@@ -951,6 +1022,37 @@ function HomePageContent({ scrollY }) {
                       onSelectAll={(shouldSelect) => handleSelectAll('compensationTypes', PAYMENT_TYPES, shouldSelect)}
                       config={{ HeadingTag: 'h2' }}
                     />
+
+                    <div className="mt-6 border-t border-slate-100 pt-5">
+                      <h2 className="text-lg font-bold mb-3 text-slate-800">Sector</h2>
+                      <div className="flex flex-wrap gap-2">
+                        {['Commercial', 'Public & Non-Profit'].map(sector => {
+                          const isSelected = filters.sectors.includes(sector);
+                          return (
+                            <button
+                              key={sector}
+                              onClick={() => handleFilterChange('sectors', sector, !isSelected)}
+                              className={`
+                                flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-medium transition-all border
+                                ${isSelected
+                                  ? 'bg-indigo-50 border-indigo-200 text-indigo-700 shadow-sm'
+                                  : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50'}
+                              `}
+                            >
+                              <div className={`
+                                w-4 h-4 rounded border flex items-center justify-center
+                                ${isSelected
+                                  ? 'bg-indigo-600 border-indigo-600 text-white'
+                                  : 'bg-white border-slate-300'}
+                              `}>
+                                {isSelected && <FaCheck className="text-[8px]" />}
+                              </div>
+                              {sector}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
                   </>
                 )}
               </>

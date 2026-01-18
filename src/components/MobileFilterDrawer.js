@@ -51,8 +51,22 @@ export default function MobileFilterDrawer({
             <h2 id="filter-drawer-title" className="sr-only">Filter By</h2>
 
             {/* Active Filters Display Area */}
-            {(filters.macroCategories.length > 0 || filters.countries.length > 0 || filters.dataTypes.length > 0 || filters.compensationTypes.length > 0) && (
+            {(filters.macroCategories.length > 0 || filters.countries.length > 0 || filters.dataTypes.length > 0 || filters.compensationTypes.length > 0 || filters.sectors?.length > 0) && (
               <div className="p-3 border-b border-gray-200 flex flex-wrap gap-1.5">
+                {/* Sectors */}
+                {filters.sectors?.map(sector => (
+                  <span key={`sel-sec-drawer-${sector}`} className="inline-flex items-center bg-indigo-100 text-indigo-800 text-sm font-medium px-2 py-1 rounded-full border border-indigo-200">
+                    {sector}
+                    <button
+                      onClick={() => handleCheckboxChange('sectors', sector, false)}
+                      className="ml-1 hover:opacity-75"
+                      aria-label={`Remove ${sector} filter`}
+                      style={{ color: 'inherit' }}
+                    >
+                      <FaTimes size="0.9em" />
+                    </button>
+                  </span>
+                ))}
                 {/* Macro Categories */}
                 {[...filters.macroCategories].sort((a, b) => a.localeCompare(b)).map(value => {
                   const categoryStyles = {
