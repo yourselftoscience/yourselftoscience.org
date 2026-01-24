@@ -29,6 +29,7 @@ exclude:
   - '**/src/app/organ-body-tissue-donation/**'
   - '**/src/app/get-involved/**'
   - '**/src/app/resources/**'
+  - '**/src/components/SponsorshipSection.js'
 
 # Map custom components to HTML elements
 global-components:
@@ -42,3 +43,4 @@ global-components:
   ReferencesSection: section
   MobileFilterDrawer: div
   ResourceCard: article
+  SponsorshipSection: div

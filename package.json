@@ -86,6 +86,7 @@
     "glob": "^11.1.0",
     "js-yaml": "^4.1.0",
     "cookie": "^0.7.0",
-    "@babel/runtime": "^7.26.0"
+    "@babel/runtime": "^7.26.0",
+    "undici": "^6.19.2"
   }
 }
