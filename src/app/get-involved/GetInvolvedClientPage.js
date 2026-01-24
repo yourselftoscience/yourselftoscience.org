@@ -5,6 +5,7 @@ import { FaReddit, FaGithub, FaEnvelope } from 'react-icons/fa';
 import { useScroll } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
+import SponsorshipSection from '@/components/SponsorshipSection';
 
 export default function GetInvolvedClientPage() {
   const { scrollY } = useScroll();
@@ -40,7 +41,23 @@ export default function GetInvolvedClientPage() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-8 md:grid-cols-2 md:gap-12">
+        {/* Sticky Sub-navigation */}
+        <div className="sticky top-[80px] z-40 bg-gray-50/95 backdrop-blur py-4 mb-8 border-b border-gray-200">
+          <div className="flex justify-center space-x-4 sm:space-x-8">
+            <a href="#contribute" className="text-base font-medium text-gray-600 hover:text-blue-600 transition-colors">
+              Contribute
+            </a>
+            <a href="#support" className="text-base font-medium text-gray-600 hover:text-blue-600 transition-colors">
+              Support
+            </a>
+            <a href="#contact-us" className="text-base font-medium text-gray-600 hover:text-blue-600 transition-colors">
+              Contact
+            </a>
+          </div>
+        </div>
+
+        <div id="contribute" className="mt-12 grid gap-8 md:grid-cols-2 md:gap-12 scroll-mt-32">
+
           {/* Option 1: Reddit */}
           <div className="flex flex-col rounded-lg border border-gray-200 bg-white shadow-sm overflow-hidden transition-all duration-300 ease-in-out hover:shadow-lg hover:-translate-y-1">
             <div className="flex-1 p-8 flex flex-col justify-between">
@@ -90,6 +107,12 @@ export default function GetInvolvedClientPage() {
               </div>
             </div>
           </div>
+        </div>
+
+
+        {/* Sponsorship Section */}
+        <div id="support" className="scroll-mt-32">
+          <SponsorshipSection />
         </div>
 
         {/* Contact Form Section */}
