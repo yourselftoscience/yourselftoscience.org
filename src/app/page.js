@@ -223,7 +223,7 @@ function HomePageContent({ scrollY }) {
     macroCategories: [],
     countries: [],
     dataTypes: [],
-    dataTypes: [],
+
     compensationTypes: [],
     sectors: []
   });

@@ -31,6 +31,13 @@ exclude:
   - '**/src/app/resources/**'
   - '**/src/components/SponsorshipSection.js'
   - '**/src/app/api/**'
+  - '**/src/app/license/code/CodeLicenseClientPage.js'
+  - '**/src/app/license/content/ContentLicenseClientPage.js'
+  - '**/src/app/license/dataset/DatasetLicenseClientPage.js'
+  - '**/src/app/mission/page.js'
+  - '**/src/app/privacy-policy/page.js'
+  - '**/src/app/resource/**/page.js'
+  - '**/src/app/stats/page.js'
 
 # Map custom components to HTML elements
 global-components:
