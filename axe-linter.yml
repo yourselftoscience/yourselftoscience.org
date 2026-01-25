@@ -30,6 +30,7 @@ exclude:
   - '**/src/app/get-involved/**'
   - '**/src/app/resources/**'
   - '**/src/components/SponsorshipSection.js'
+  - '**/src/app/api/**'
 
 # Map custom components to HTML elements
 global-components:
