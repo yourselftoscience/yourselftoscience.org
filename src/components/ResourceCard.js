@@ -427,11 +427,17 @@ export default function ResourceCard({
               rel="noopener noreferrer"
               className="action-button"
               onClick={(e) => e.stopPropagation()}
+              aria-label={`Contribute to ${resource.title}`}
             >
               Contribute <FaExternalLinkAlt className="inline ml-1 h-3 w-3" />
             </a>
           ) : (
-            <Link href={`/resource/${resource.slug}`} className="action-button" onClick={(e) => e.stopPropagation()}>
+            <Link
+              href={`/resource/${resource.slug}`}
+              className="action-button"
+              onClick={(e) => e.stopPropagation()}
+              aria-label={`View details for ${resource.title}`}
+            >
               Details
             </Link>
           )}

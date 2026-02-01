@@ -68,7 +68,7 @@ export default function ReferencesSection({ citations }) {
                             <h2 className="text-2xl font-bold text-slate-900 flex items-center gap-3 group-hover:text-google-blue transition-colors">
                                 <FaQuoteRight className="text-google-blue/80 text-xl" />
                                 References
-                                <span className="text-sm font-normal text-slate-400 ml-2 bg-slate-100 px-2 py-0.5 rounded-full">
+                                <span className="text-sm font-normal text-slate-600 ml-2 bg-slate-100 px-2 py-0.5 rounded-full">
                                     {citations.length}
                                 </span>
                             </h2>
