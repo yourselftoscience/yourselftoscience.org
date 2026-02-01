@@ -947,19 +947,19 @@ function HomePageContent({ scrollY }) {
           </div>
 
           {/* Desktop & Mobile Buttons under cards */}
-          <div className="mt-8 flex flex-col items-center gap-2 w-full max-w-sm mx-auto">
+          <div className="mt-10 flex flex-col md:flex-row items-center gap-4 w-full max-w-2xl mx-auto">
             <Link
               href="/get-involved"
-              className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded bg-apple-accent text-white text-sm font-medium hover:opacity-90 transition-opacity"
+              className="group w-full md:flex-1 flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-google-blue text-white text-base font-bold shadow-lg shadow-blue-500/20 hover:shadow-xl hover:-translate-y-0.5 hover:bg-blue-800 transition-all duration-300"
             >
-              <FaPlus />
+              <FaPlus className="text-sm group-hover:scale-110 transition-transform" />
               Suggest a Service
             </Link>
             <Link
               href="/data"
-              className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded border border-apple-accent text-apple-accent text-sm font-medium hover:bg-apple-accent/10 transition-colors"
+              className="group w-full md:flex-1 flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-white border-2 border-slate-200 text-slate-700 text-base font-bold hover:border-slate-300 hover:bg-slate-50 transition-all duration-300"
             >
-              <FaDownload />
+              <FaDownload className="text-sm group-hover:scale-110 transition-transform text-slate-400 group-hover:text-slate-600" />
               Download Dataset
             </Link>
           </div>
