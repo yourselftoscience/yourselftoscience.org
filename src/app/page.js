@@ -970,96 +970,88 @@ function HomePageContent({ scrollY }) {
       </div > {/* End grid */}
 
       {/* Filter Drawer - Now uses the dynamically imported MobileFilterDrawer */}
-      {
-        isMounted && (
-          <MobileFilterDrawer
-            isOpen={isFilterDrawerOpen}
-            toggleDrawer={toggleFilterDrawer}
-            filters={filters}
-            countryOptions={countryOptions}
-            dataTypeOptions={dataTypeOptions}
-            paymentTypes={PAYMENT_TYPES}
-            handleCheckboxChange={handleCheckboxChange}
-            handlePaymentCheckboxChange={handlePaymentCheckboxChange}
-            handleResetFilters={handleResetFilters}
-            renderFilterContent={() => (
-              <>
-                {isMounted && (
-                  <>
-                    <FilterGroup
-                      title="Category"
-                      options={macroCategoryOptions}
-                      filterKey="macroCategories"
-                      selectedValues={filters.macroCategories}
-                      onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
-                      onSelectAll={(shouldSelect) => handleSelectAll('macroCategories', macroCategoryOptions, shouldSelect)}
-                      config={{ alwaysExpanded: true, HeadingTag: 'h2' }}
-                    />
-                    <FilterGroup
-                      title="Available In"
-                      options={countryOptions}
-                      filterKey="countries"
-                      selectedValues={filters.countries}
-                      onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
-                      onSelectAll={(shouldSelect) => handleSelectAll('countries', countryOptions, shouldSelect)}
-                      config={{ HeadingTag: 'h2' }}
-                    />
-                    <FilterGroup
-                      title="Data Type"
-                      options={dataTypeOptions}
-                      filterKey="dataTypes"
-                      selectedValues={filters.dataTypes}
-                      onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
-                      onSelectAll={(shouldSelect) => handleSelectAll('dataTypes', dataTypeOptions, shouldSelect)}
-                      config={{ HeadingTag: 'h2' }}
-                    />
-                    <FilterGroup
-                      title="Compensation"
-                      options={PAYMENT_TYPES}
-                      filterKey="compensationTypes"
-                      selectedValues={filters.compensationTypes}
-                      onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
-                      onSelectAll={(shouldSelect) => handleSelectAll('compensationTypes', PAYMENT_TYPES, shouldSelect)}
-                      config={{ HeadingTag: 'h2' }}
-                    />
+      <MobileFilterDrawer
+        isOpen={isFilterDrawerOpen}
+        toggleDrawer={toggleFilterDrawer}
+        filters={filters}
+        countryOptions={countryOptions}
+        dataTypeOptions={dataTypeOptions}
+        paymentTypes={PAYMENT_TYPES}
+        handleCheckboxChange={handleCheckboxChange}
+        handlePaymentCheckboxChange={handlePaymentCheckboxChange}
+        handleResetFilters={handleResetFilters}
+        renderFilterContent={() => (
+          <>
+            <FilterGroup
+              title="Category"
+              options={macroCategoryOptions}
+              filterKey="macroCategories"
+              selectedValues={filters.macroCategories}
+              onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
+              onSelectAll={(shouldSelect) => handleSelectAll('macroCategories', macroCategoryOptions, shouldSelect)}
+              config={{ alwaysExpanded: true, HeadingTag: 'h2' }}
+            />
+            <FilterGroup
+              title="Available In"
+              options={countryOptions}
+              filterKey="countries"
+              selectedValues={filters.countries}
+              onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
+              onSelectAll={(shouldSelect) => handleSelectAll('countries', countryOptions, shouldSelect)}
+              config={{ HeadingTag: 'h2' }}
+            />
+            <FilterGroup
+              title="Data Type"
+              options={dataTypeOptions}
+              filterKey="dataTypes"
+              selectedValues={filters.dataTypes}
+              onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
+              onSelectAll={(shouldSelect) => handleSelectAll('dataTypes', dataTypeOptions, shouldSelect)}
+              config={{ HeadingTag: 'h2' }}
+            />
+            <FilterGroup
+              title="Compensation"
+              options={PAYMENT_TYPES}
+              filterKey="compensationTypes"
+              selectedValues={filters.compensationTypes}
+              onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
+              onSelectAll={(shouldSelect) => handleSelectAll('compensationTypes', PAYMENT_TYPES, shouldSelect)}
+              config={{ HeadingTag: 'h2' }}
+            />
 
-                    <div className="mt-6 border-t border-slate-100 pt-5">
-                      <h2 className="text-lg font-bold mb-3 text-slate-800">Sector</h2>
-                      <div className="flex flex-wrap gap-2">
-                        {['Commercial', 'Public & Non-Profit'].map(sector => {
-                          const isSelected = filters.sectors.includes(sector);
-                          return (
-                            <button
-                              key={sector}
-                              onClick={() => handleFilterChange('sectors', sector, !isSelected)}
-                              className={`
-                                flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-medium transition-all border
-                                ${isSelected
-                                  ? 'bg-indigo-50 border-indigo-200 text-indigo-700 shadow-sm'
-                                  : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50'}
-                              `}
-                            >
-                              <div className={`
-                                w-4 h-4 rounded border flex items-center justify-center
-                                ${isSelected
-                                  ? 'bg-indigo-600 border-indigo-600 text-white'
-                                  : 'bg-white border-slate-300'}
-                              `}>
-                                {isSelected && <FaCheck className="text-[8px]" />}
-                              </div>
-                              {sector}
-                            </button>
-                          );
-                        })}
+            <div className="mt-6 border-t border-slate-100 pt-5">
+              <h2 className="text-lg font-bold mb-3 text-slate-800">Sector</h2>
+              <div className="flex flex-wrap gap-2">
+                {['Commercial', 'Public & Non-Profit'].map(sector => {
+                  const isSelected = filters.sectors.includes(sector);
+                  return (
+                    <button
+                      key={sector}
+                      onClick={() => handleFilterChange('sectors', sector, !isSelected)}
+                      className={`
+                        flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-medium transition-all border
+                        ${isSelected
+                          ? 'bg-indigo-50 border-indigo-200 text-indigo-700 shadow-sm'
+                          : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50'}
+                      `}
+                    >
+                      <div className={`
+                        w-4 h-4 rounded border flex items-center justify-center
+                        ${isSelected
+                          ? 'bg-indigo-600 border-indigo-600 text-white'
+                          : 'bg-white border-slate-300'}
+                      `}>
+                        {isSelected && <FaCheck className="text-[8px]" />}
                       </div>
-                    </div>
-                  </>
-                )}
-              </>
-            )}
-          />
-        )
-      }
+                      {sector}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </>
+        )}
+      />
     </div > // End flex-grow container
   );
 }

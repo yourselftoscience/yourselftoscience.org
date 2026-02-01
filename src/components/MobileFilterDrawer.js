@@ -21,9 +21,7 @@ export default function MobileFilterDrawer({
   handleResetFilters,
   renderFilterContent // This function is passed from the parent to render the core filter UI
 }) {
-  if (!isOpen) {
-    return null;
-  }
+
 
   return (
     <AnimatePresence>

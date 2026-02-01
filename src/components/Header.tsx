@@ -190,7 +190,7 @@ export default function Header({ scrollY }: HeaderProps) {
         >
           <h1 className="m-0 p-0 text-inherit font-inherit inline">
             <span className={useInlineLayout ? '' : 'inline-block'}>Your</span>
-            {hasMounted && !isSticky ? (
+            {!isSticky ? (
               <AnimatedWordDynamic key={currentWord} word={currentWord} />
             ) : (
               <span
