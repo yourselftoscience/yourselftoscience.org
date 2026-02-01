@@ -1,7 +1,7 @@
-
 import React from 'react';
 import Link from 'next/link';
 import { FaGithub, FaHeart, FaStar } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 // SiPolar seems to be causing build issues with barrel optimization or version mismatch.
 // Using custom SVG for Polar.
@@ -54,6 +54,28 @@ const SUPPORTERS = [
 ];
 
 export default function SponsorshipSection() {
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.5,
+                ease: "easeOut"
+            }
+        }
+    };
+
     return (
         <div className="mt-16 pt-12 border-t border-gray-200">
             <div className="text-center mb-12">
@@ -68,29 +90,38 @@ export default function SponsorshipSection() {
                 </p>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-2 md:gap-12 max-w-4xl mx-auto">
+            <motion.div
+                className="grid gap-8 md:grid-cols-2 md:gap-12 max-w-4xl mx-auto"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+            >
                 {SPONSOR_DATA.map((data) => {
                     const Icon = data.icon;
                     return (
-                        <div
+                        <motion.div
                             key={data.key}
-                            className={`flex flex-col rounded-lg bg-white shadow-sm overflow-hidden transition-all duration-300 ease-in-out hover:shadow-lg hover:-translate-y-1 relative ${data.recommended
+                            variants={itemVariants}
+                            className={`flex flex-col rounded-xl bg-white shadow-sm overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 relative group ${data.recommended
                                 ? 'border-2 border-blue-500 ring-4 ring-blue-50'
                                 : 'border border-gray-200'
                                 }`}
                         >
                             {data.recommended && (
-                                <div className="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+                                <div className="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg shadow-sm">
                                     EASIEST
                                 </div>
                             )}
                             <div className="flex-1 p-8 flex flex-col justify-between">
                                 <div className="flex-1">
                                     <div className="flex items-center space-x-4">
-                                        <Icon className={`h-10 w-10 ${data.colorClass}`} />
-                                        <h3 className="text-2xl font-semibold text-gray-900">{data.title}</h3>
+                                        <div className={`p-3 rounded-full transition-colors ${data.recommended ? 'bg-blue-100 group-hover:bg-blue-200' : 'bg-gray-100 group-hover:bg-gray-200'}`}>
+                                            <Icon className={`h-8 w-8 ${data.colorClass}`} />
+                                        </div>
+                                        <h3 className="text-2xl font-bold text-gray-900">{data.title}</h3>
                                     </div>
-                                    <p className="mt-4 text-base text-gray-600">
+                                    <p className="mt-6 text-base text-gray-600 leading-relaxed">
                                         {data.description}
                                     </p>
                                 </div>
@@ -99,17 +130,17 @@ export default function SponsorshipSection() {
                                         href={data.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className={`w-full inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 ${data.btnClass}`}
+                                        className={`w-full inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white shadow-md transition-all hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-offset-2 ${data.btnClass}`}
                                     >
                                         <FaHeart className="mr-2 h-4 w-4" />
                                         {data.btnText}
                                     </Link>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     );
                 })}
-            </div>
+            </motion.div>
 
             {/* Corporate Invite */}
             <div className="mt-12 text-center">
