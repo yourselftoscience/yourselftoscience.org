@@ -356,38 +356,43 @@ try {
     };
 
     const injectReferencesSection = (citationList) => {
+      if (citationList.length === 0) return;
+
+      const newSection = document.createElement('section');
+      newSection.id = 'references';
+      newSection.className = 'w-full max-w-screen-xl mx-auto px-4 py-8 border-t mt-8';
+
+      const title = document.createElement('h2');
+      title.style.cssText = 'font-size: 16pt; font-weight: bold; margin-bottom: 15px; color: #000000;';
+      title.textContent = 'References';
+      newSection.appendChild(title);
+
+      const ol = document.createElement('ol');
+      ol.style.cssText = 'list-style-type: decimal; padding-left: 20px;';
+
+      for (let i = 0; i < citationList.length; i++) {
+        const item = citationList[i];
+        const li = document.createElement('li');
+        li.id = `ref-${i + 1}`;
+        li.style.cssText = 'font-size: 11pt; color: #000000; font-weight: 500; line-height: 1.5; margin-bottom: 8px;';
+
+        const a = document.createElement('a');
+        // Use the resolved real URL (DOI) if available, otherwise fallback to cleaned href
+        a.href = item.realUrl || item.href.replace('#ref-', '');
+        a.target = '_blank';
+        a.style.cssText = 'color: #000000; text-decoration: none;';
+        a.textContent = item.text;
+
+        li.appendChild(a);
+        ol.appendChild(li);
+      }
+      newSection.appendChild(ol);
+
       const existingReferences = document.getElementById('references');
-      if (existingReferences && citationList.length > 0) {
-        const newSection = document.createElement('section');
-        newSection.id = 'references';
-        newSection.className = 'w-full max-w-screen-xl mx-auto px-4 py-8 border-t mt-8';
-
-        const title = document.createElement('h2');
-        title.style.cssText = 'font-size: 16pt; font-weight: bold; margin-bottom: 15px; color: #000000;';
-        title.textContent = 'References';
-        newSection.appendChild(title);
-
-        const ol = document.createElement('ol');
-        ol.style.cssText = 'list-style-type: decimal; padding-left: 20px;';
-
-        for (let i = 0; i < citationList.length; i++) {
-          const item = citationList[i];
-          const li = document.createElement('li');
-          li.id = `ref-${i + 1}`;
-          li.style.cssText = 'font-size: 11pt; color: #000000; font-weight: 500; line-height: 1.5; margin-bottom: 8px;';
-
-          const a = document.createElement('a');
-          // Use the resolved real URL (DOI) if available, otherwise fallback to cleaned href
-          a.href = item.realUrl || item.href.replace('#ref-', '');
-          a.target = '_blank';
-          a.style.cssText = 'color: #000000; text-decoration: none;';
-          a.textContent = item.text;
-
-          li.appendChild(a);
-          ol.appendChild(li);
-        }
-        newSection.appendChild(ol);
+      if (existingReferences) {
         existingReferences.parentNode.replaceChild(newSection, existingReferences);
+      } else {
+        document.body.appendChild(newSection);
       }
     };
 
