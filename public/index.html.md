@@ -441,3 +441,13 @@ This page provides a filterable catalogue of all resources. You can also downloa
 *Compensation:* Mixed
 
 ---
+
+### [Donate Your Cover Letter to Research](https://yourselftoscience.org/resource/eurac-cover-letter-donation)
+
+*Description:* A data donation campaign focused on collecting cover letters for doctoral research to understand the impact of writing styles in a multilingual professional context.
+
+*Data Types:* Cover letters
+
+*Compensation:* Donation
+
+---

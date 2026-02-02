@@ -4,17 +4,17 @@ An overview of the resources available on Yourself to Science, providing insight
 
 ## Overview
 
-- **Total Resources:** 38
+- **Total Resources:** 39
 
 ## Compensation Types
 
-- **Donation:** 18
+- **Donation:** 19
 - **Mixed:** 17
 - **Payment:** 3
 
 ## Top 10 Service Availability by Country
 
-- **Worldwide:** 10
+- **Worldwide:** 11
 - **European Union:** 10
     - **Breakdown:**
         - **Italy:** 3
@@ -52,6 +52,7 @@ An overview of the resources available on Yourself to Science, providing insight
 - **Blood:** 1
 - **Plasma:** 1
 - **Stem cells:** 1
+- **Cover letters:** 1
 
 ## Entity Type Distribution
 
@@ -60,15 +61,16 @@ An overview of the resources available on Yourself to Science, providing insight
     - **Research Agency:** 3
     - **Public Health Service:** 3
     - **Statutory Authority:** 1
+- **Academic:** 10
+    - **Academic:** 8
+    - **University Hospital:** 1
+    - **Research Center:** 1
 - **Non-Profit:** 9
     - **Non-Profit Organization:** 4
     - **Research Foundation:** 2
     - **Research Collaborative:** 1
     - **Professional Association:** 1
     - **Hospital:** 1
-- **Academic:** 9
-    - **Academic:** 8
-    - **University Hospital:** 1
 - **Commercial:** 8
 - **Intergovernmental:** 1
 

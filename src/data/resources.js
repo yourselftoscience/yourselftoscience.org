@@ -840,8 +840,24 @@ const rawResources = [
     "entitySubType": "Hospital",
     "description": "A network for citizens to participate in scientific research at San Camillo IRCCS, contributing to medical progress and new therapies.",
     "citations": []
+  },
+  {
+    "id": "16098fce-8138-4695-8aa0-08a0eae8709a",
+    "slug": "eurac-cover-letter-donation",
+    "title": "Donate Your Cover Letter to Research",
+    "organization": "Eurac Research",
+    "link": "https://www.eurac.edu/en/blogs/connecting-the-dots/data-donations-why-should-i-donate-my-cover-letter-to-research",
+    "dataTypes": [
+      "Cover letters"
+    ],
+    "compensationType": "donation",
+    "entityCategory": "Academic",
+    "entitySubType": "Research Center",
+    "description": "A data donation campaign focused on collecting cover letters for doctoral research to understand the impact of writing styles in a multilingual professional context.",
+    "citations": []
   }
 ];
+
 
 const dataTypeToMacroCategory = {
   // Organ, Body & Tissue Donation
@@ -868,6 +884,8 @@ const dataTypeToMacroCategory = {
   'Social media data': 'Health & Digital Data',
   'Search history': 'Health & Digital Data',
   'Location history': 'Health & Digital Data',
+  'Cover letters': 'Health & Digital Data',
+
 
   // Clinical Trials
   'Clinical trials': 'Clinical Trials',

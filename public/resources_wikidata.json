@@ -1104,5 +1104,26 @@
     },
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q16917"
+  },
+  {
+    "id": "16098fce-8138-4695-8aa0-08a0eae8709a",
+    "slug": "eurac-cover-letter-donation",
+    "title": "Donate Your Cover Letter to Research",
+    "organization": "Eurac Research",
+    "link": "https://www.eurac.edu/en/blogs/connecting-the-dots/data-donations-why-should-i-donate-my-cover-letter-to-research",
+    "dataTypes": [
+      "Cover letters"
+    ],
+    "compensationType": "donation",
+    "entityCategory": "Academic",
+    "entitySubType": "Research Center",
+    "description": "A data donation campaign focused on collecting cover letters for doctoral research to understand the impact of writing styles in a multilingual professional context.",
+    "citations": [],
+    "wikidataId": "Q1245390",
+    "dataTypeMappings": {
+      "Cover letters": "Q569410"
+    },
+    "entityCategoryWikidataId": "Q3400985",
+    "entitySubTypeWikidataId": "Q42240"
   }
 ]
