@@ -47,11 +47,11 @@ You can see all the open Issues [here](https://github.com/yourselftoscience/your
 
 This is one of the most important ways you can contribute! If you know of a service that allows people to contribute to science, we want to hear about it.
 
-1.  **Go to the "Issues" tab** at the top of our GitHub page.
-2.  **Click the "New issue" button.**
-3.  **Find the "Suggest a service" template and click "Get started".**
-4.  **Fill out the form** with as much information as you can. The more details you provide, the faster we can review and add the service.
-5.  **Click "Submit new issue".** That's it! The team will be notified and will review your suggestion.
+1. **Go to the "Issues" tab** at the top of our GitHub page.
+2. **Click the "New issue" button.**
+3. **Find the "Suggest a service" template and click "Get started".**
+4. **Fill out the form** with as much information as you can. The more details you provide, the faster we can review and add the service.
+5. **Click "Submit new issue".** That's it! The team will be notified and will review your suggestion.
 
 ### Adding a New Resource (for Pull Requests)
 
@@ -59,26 +59,19 @@ If you prefer to contribute directly via a Pull Request, please follow these ste
 
 **Your Steps:**
 
-1.  **Fork and Clone:** Fork the repository and clone it to your local machine.
-2.  **Add Your Resource:** Open the `src/data/resources.js` file.
-3.  **Copy and Edit:** Copy an existing resource object and paste it at the end of the `resources` array.
-4.  **Fill in Details:** Update the `title`, `slug`, `organization`, `description`, `link`, and other relevant fields for your new resource.
-5.  **Leave the `id` as a Placeholder:** For the `id` field, please use the placeholder string `id: "TBD_MAINTAINER_WILL_REPLACE"`.
+1. **Fork and Clone:** Fork the repository and clone it to your local machine.
+2. **Add Your Resource:** Open the `src/data/resources.js` file.
+3. **Copy and Edit:** Copy an existing resource object and paste it at the end of the `resources` array.
+4. **Generate a Unique ID (Mandatory):**
+    To ensure data integrity, **you must** generate a unique, random UUID for your resource. Do not manually type an ID or use a placeholder.
 
-**Example New Resource Entry:**
-```javascript
-{
-  id: "TBD_MAINTAINER_WILL_REPLACE",
-  slug: "my-new-awesome-service",
-  title: "My New Awesome Service",
-  organization: "Community Contributors",
-  description: "A fantastic new service for the community.",
-  link: "https://new-service.com",
-  dataTypes: ["new", "awesome"],
-  // ... other fields
-}
-```
-A project maintainer will run a script to generate a unique ID and replace the placeholder before merging your pull request. This ensures there are no ID conflicts.
+    Run this command in your terminal:
+
+    ```bash
+    node scripts/generate-id.js <your-slug-here>
+    ```
+
+    This will append a template to `src/data/resources.js` with a valid ID. Open the file and fill in the rest of the details.
 
 **Submit a Pull Request:** Commit your changes and open a pull request. A maintainer will review your submission shortly.
 
@@ -86,10 +79,10 @@ A project maintainer will run a script to generate a unique ID and replace the p
 
 If you see something wrong on the site or have an idea to make it better:
 
-1.  **Go to the "Issues" tab.**
-2.  **Click the "New issue" button.**
-3.  Choose either the **"Bug report"** or **"Feature request"** template.
-4.  Fill in the details and submit.
+1. **Go to the "Issues" tab.**
+2. **Click the "New issue" button.**
+3. Choose either the **"Bug report"** or **"Feature request"** template.
+4. Fill in the details and submit.
 
 ---
 
@@ -99,21 +92,27 @@ We welcome contributions from developers! If you're interested in fixing a bug o
 
 ### Local Development Setup
 
-1.  **Fork** the repository to your own GitHub account.
-2.  **Clone** your fork to your local machine: `git clone https://github.com/YOUR_USERNAME/yourselftoscience.org.git`
-3.  **Navigate** into the project directory: `cd yourselftoscience.org`
-4.  **Install dependencies:** `npm install`
-5.  **Run the development server:** `npm run dev`
+1. **Fork** the repository to your own GitHub account.
+2. **Clone** your fork to your local machine: `git clone https://github.com/YOUR_USERNAME/yourselftoscience.org.git`
+3. **Navigate** into the project directory: `cd yourselftoscience.org`
+4. **Install dependencies:** `npm install`
+5. **Run the development server:** `npm run dev`
 
 This will start the website on `http://localhost:3000`. The `dev` command also runs a watcher script that will automatically update the PDF file when you make changes to the resources.
 
 ### Submitting a Pull Request
 
-1.  Create a new branch for your feature or bugfix.
-2.  Make your changes and commit them with a clear, descriptive message.
-3.  Push your branch to your fork on GitHub.
-4.  Open a **Pull Request** from your fork to the `main` branch of the `yourselftoscience/yourselftoscience.org` repository.
-5.  In the Pull Request description, please link to the Issue that your code addresses (e.g., "Closes #123").
-6.  The team will review your code, and once approved, it will be merged.
+1. Create a new branch for your feature or bugfix.
+2. Make your changes and commit them with a clear, descriptive message.
+3. Push your branch to your fork on GitHub.
+4. Open a **Pull Request** from your fork to the `main` branch of the `yourselftoscience/yourselftoscience.org` repository.
+5. In the Pull Request description, please link to the Issue that your code addresses (e.g., "Closes #123").
+6. The team will review your code, and once approved, it will be merged.
 
-Thank you for helping make science more accessible! 
+Thank you for helping make science more accessible!
+
+---
+
+## Data Management
+
+For advanced topics related to managing the project's datasets (JSON, CSV, RDF) and integrating with Wikidata, please refer to the [Data Management Guide](DATA_MANAGEMENT.md).

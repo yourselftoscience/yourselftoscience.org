@@ -1,6 +1,7 @@
 [
   {
-    "id": "open-humans",
+    "id": "1e7d825c-6b1e-4368-936c-2a4ad415b828",
+    "slug": "open-humans",
     "title": "Open Humans",
     "organization": "Open Humans Foundation",
     "link": "https://www.openhumans.org/add-data/",
@@ -14,23 +15,31 @@
     "compensationType": "donation",
     "entityCategory": "Non-Profit",
     "entitySubType": "Research Foundation",
+    "description": "A platform for participant-centered research and personal data exploration.",
     "citations": [
       {
         "title": "Greshake Tzovaras, B., Angrist, M., Arvai, K., Dulaney, M., Estrada-Galiñanes, V., Gunderson, B., ... & Price Ball, M. (2019). Open Humans: A platform for participant-centered research and personal data exploration. GigaScience, 8(6), giz076.",
         "link": "https://doi.org/10.1093/gigascience/giz076"
       }
     ],
-    "resourceWikidataId": "Q59696822",
+    "macroCategories": [
+      "Health & Digital Data"
+    ],
     "dataTypeMappings": {
       "Genome": "Q7020",
       "Health data": "Q18745135",
-      "Search history": "Q60461381"
+      "Wearable data": null,
+      "Search history": "Q60461381",
+      "Location history": null
     },
+    "countryMappings": {},
+    "resourceWikidataId": "Q59696822",
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q119852396"
   },
   {
-    "id": "myphd",
+    "id": "9a1f26a8-2b81-4b1e-9b5a-1c6d7e8f9a0b",
+    "slug": "myphd",
     "title": "MyPHD",
     "organization": "Stanford University",
     "link": "https://myphd.stanford.edu/studies/",
@@ -41,21 +50,28 @@
     "compensationType": "donation",
     "entityCategory": "Academic",
     "entitySubType": "Academic",
+    "description": "A platform for collecting health data from wearables to detect early signs of infectious diseases.",
     "citations": [
       {
         "title": "Shandhi, M.M.H., Cho, P.J., Roghanizad, A.R. et al. A method for intelligent allocation of diagnostic testing by leveraging data from commercial wearable devices: a case study on COVID-19. npj Digit. Med. 5, 130 (2022)",
         "link": "https://doi.org/10.1038/s41746-022-00672-z"
       }
     ],
-    "wikidataId": "Q41506",
+    "macroCategories": [
+      "Health & Digital Data"
+    ],
     "dataTypeMappings": {
-      "Health data": "Q18745135"
+      "Health data": "Q18745135",
+      "Wearable data": null
     },
+    "countryMappings": {},
+    "wikidataId": "Q41506",
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q119852396"
   },
   {
-    "id": "google-health-studies",
+    "id": "c7a8b9d0-1e2f-3a4b-5c6d-7e8f9a0b1c2d",
+    "slug": "google-health-studies",
     "title": "Google Health Studies",
     "organization": "Google",
     "link": "https://health.google/consumers/health-studies/",
@@ -65,15 +81,21 @@
     "compensationType": "donation",
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
-    "wikidataId": "Q95",
+    "description": "A platform that lets you contribute to health research using the Google Health Studies app.",
+    "macroCategories": [
+      "Health & Digital Data"
+    ],
     "dataTypeMappings": {
       "Health data": "Q18745135"
     },
+    "countryMappings": {},
+    "wikidataId": "Q95",
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453"
   },
   {
-    "id": "apple-research",
+    "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+    "slug": "apple-research",
     "title": "Apple Research",
     "organization": "Apple",
     "link": "https://support.apple.com/en-us/108425",
@@ -89,18 +111,23 @@
     "compensationType": "donation",
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
-    "wikidataId": "Q312",
+    "description": "Participate in health studies using your iPhone and Apple Watch.",
+    "macroCategories": [
+      "Health & Digital Data"
+    ],
     "dataTypeMappings": {
       "Health data": "Q18745135"
     },
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": "Q312",
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453"
   },
   {
-    "id": "all-of-us",
+    "id": "b3c4d5e6-f7g8-9h0i-j1k2-l3m4n5o6p7q8",
+    "slug": "all-of-us",
     "title": "All of US",
     "organization": "National Institutes of Health (NIH)",
     "link": "https://allofus.nih.gov/",
@@ -117,8 +144,10 @@
     "compensationType": "mixed",
     "entityCategory": "Government",
     "entitySubType": "Research Agency",
-    "wikidataId": "Q390551",
-    "resourceWikidataId": "Q25004683",
+    "description": "A research program from the NIH to gather health data from one million or more people living in the US.",
+    "macroCategories": [
+      "Health & Digital Data"
+    ],
     "dataTypeMappings": {
       "Genome": "Q7020",
       "Health data": "Q18745135"
@@ -126,11 +155,14 @@
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": "Q390551",
+    "resourceWikidataId": "Q25004683",
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q9142054"
   },
   {
-    "id": "fitbit-research",
+    "id": "d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9g",
+    "slug": "fitbit-research",
     "title": "Health research and product development",
     "organization": "Fitbit",
     "instructions": [
@@ -145,13 +177,21 @@
     "compensationType": "donation",
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
+    "description": "Share your Fitbit data to help improve health research and product development.",
+    "macroCategories": [
+      "Health & Digital Data"
+    ],
+    "dataTypeMappings": {
+      "Wearable data (Fitbit only)": null
+    },
+    "countryMappings": {},
     "wikidataId": "Q5455414",
-    "dataTypeMappings": {},
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453"
   },
   {
-    "id": "spark-for-autism",
+    "id": "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d",
+    "slug": "spark-for-autism",
     "title": "SPARK for Autism",
     "organization": "Simons Foundation",
     "link": "https://sparkforautism.org/why/",
@@ -168,7 +208,10 @@
     "compensationType": "mixed",
     "entityCategory": "Non-Profit",
     "entitySubType": "Research Foundation",
-    "wikidataId": "Q28148561",
+    "description": "A landmark autism research project connecting autistic individuals and their families to research.",
+    "macroCategories": [
+      "Health & Digital Data"
+    ],
     "dataTypeMappings": {
       "Genome": "Q7020",
       "Health data": "Q18745135"
@@ -176,11 +219,13 @@
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": "Q28148561",
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q119852396"
   },
   {
-    "id": "ubc-body-donation",
+    "id": "e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9g0h",
+    "slug": "ubc-body-donation",
     "title": "Body Donation",
     "organization": "Faculty of Medicine at the University of British Columbia",
     "link": "https://cps.med.ubc.ca/the-donation-process/",
@@ -196,19 +241,24 @@
     "compensationType": "donation",
     "entityCategory": "Academic",
     "entitySubType": "Academic",
-    "wikidataId": "Q7863800",
-    "resourceWikidataId": "Q1662770",
+    "description": "The UBC Body Donation Program accepts donations for anatomical study and medical research.",
+    "macroCategories": [
+      "Organ, Body & Tissue Donation"
+    ],
     "dataTypeMappings": {
       "Body": "Q48422"
     },
     "countryMappings": {
       "Canada": "Q16"
     },
+    "wikidataId": "Q7863800",
+    "resourceWikidataId": "Q1662770",
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q3400985"
   },
   {
-    "id": "cambridge-body-tissue-donation",
+    "id": "f6a7b8c9-d0e1-f2a3-b4c5-d6e7f8g9h0i1",
+    "slug": "cambridge-body-tissue-donation",
     "title": "Body Donation; Tissue Donation",
     "organization": "Department of Anatomy at the University Of Cambridge; Cambridge Biomedical Research Centre",
     "link": "https://www.cuh.nhs.uk/our-research/get-involved/donate-body-to-medical-science/",
@@ -225,6 +275,10 @@
     "compensationType": "donation",
     "entityCategory": "Academic",
     "entitySubType": "Academic",
+    "description": "Information on donating your body to medical science at the University of Cambridge.",
+    "macroCategories": [
+      "Organ, Body & Tissue Donation"
+    ],
     "dataTypeMappings": {
       "Body": "Q48422",
       "Tissue": "Q40397"
@@ -236,7 +290,8 @@
     "entitySubTypeWikidataId": "Q3400985"
   },
   {
-    "id": "italy-body-tissue-donation",
+    "id": "a7b8c9d0-e1f2-a3b4-c5d6-e7f8g9h0i1j2",
+    "slug": "italy-body-tissue-donation",
     "title": "Body & Tissues Donation",
     "organization": "Ministero della Salute",
     "link": "https://www.salute.gov.it/portale/disposizionepostmortem/dettaglioContenutiDisposizionepostmortem.jsp?lingua=italiano&id=6004&area=postMortem&menu=vuoto",
@@ -253,7 +308,10 @@
     "compensationType": "donation",
     "entityCategory": "Government",
     "entitySubType": "Public Health Service",
-    "wikidataId": "Q1519799",
+    "description": "Official guidelines for donating body and tissues for study, training, and scientific research in Italy.",
+    "macroCategories": [
+      "Organ, Body & Tissue Donation"
+    ],
     "dataTypeMappings": {
       "Body": "Q48422",
       "Tissue": "Q40397"
@@ -261,11 +319,13 @@
     "countryMappings": {
       "Italy": "Q38"
     },
+    "wikidataId": "Q1519799",
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q9353606"
   },
   {
-    "id": "france-body-donation",
+    "id": "b8c9d0e1-f2a3-b4c5-d6e7-f8g9h0i1j2k3",
+    "slug": "france-body-donation",
     "title": "Donate the Body to Science",
     "organization": "Service-Public.fr",
     "link": "https://www.service-public.fr/particuliers/vosdroits/F180",
@@ -281,18 +341,23 @@
     "compensationType": "donation",
     "entityCategory": "Government",
     "entitySubType": "Public Health Service",
-    "wikidataId": "Q3480047",
+    "description": "Official information on body donation for science and medical research in France.",
+    "macroCategories": [
+      "Organ, Body & Tissue Donation"
+    ],
     "dataTypeMappings": {
       "Body": "Q48422"
     },
     "countryMappings": {
       "France": "Q142"
     },
+    "wikidataId": "Q3480047",
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q9353606"
   },
   {
-    "id": "uk-gamete-donation",
+    "id": "c9d0e1f2-a3b4-c5d6-e7f8-g9h0i1j2k3l4",
+    "slug": "uk-gamete-donation",
     "title": "Eggs, Sperm and Embryos Donation to Research",
     "organization": "Human Fertilisation and Embryology Authority",
     "link": "https://www.hfea.gov.uk/donation/donors/donating-to-research/",
@@ -310,7 +375,10 @@
     "compensationType": "donation",
     "entityCategory": "Government",
     "entitySubType": "Statutory Authority",
-    "wikidataId": "Q1636533",
+    "description": "Information on donating eggs, sperm, and embryos for research in the UK.",
+    "macroCategories": [
+      "Biological Samples"
+    ],
     "dataTypeMappings": {
       "Eggs": "Q1321695",
       "Embryos": "Q33196",
@@ -319,11 +387,13 @@
     "countryMappings": {
       "United Kingdom": "Q145"
     },
+    "wikidataId": "Q1636533",
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q7604698"
   },
   {
-    "id": "clinicaltrials-gov",
+    "id": "d0e1f2a3-b4c5-d6e7-f8g9-h0i1j2k3l4m5",
+    "slug": "clinicaltrials-gov",
     "title": "ClinicalTrials.gov",
     "organization": "United States National Library of Medicine (NLM)",
     "link": "https://clinicaltrials.gov/",
@@ -335,15 +405,20 @@
     "entityCategory": "Government",
     "entitySubType": "Research Agency",
     "description": "A comprehensive registry and results database of publicly and privately supported clinical studies conducted around the world. Managed by the U.S. National Library of Medicine.",
-    "resourceWikidataId": "Q5133746",
+    "macroCategories": [
+      "Clinical Trials"
+    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
+    "countryMappings": {},
+    "resourceWikidataId": "Q5133746",
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q9142054"
   },
   {
-    "id": "who-ictrp",
+    "id": "e1f2a3b4-c5d6-e7f8-g9h0-i1j2k3l4m5n6",
+    "slug": "who-ictrp",
     "title": "International Clinical Trials Registry Platform (ICTRP)",
     "organization": "World Health Organization (WHO)",
     "link": "https://trialsearch.who.int/",
@@ -354,15 +429,21 @@
     "resourceType": "registry",
     "entityCategory": "Intergovernmental",
     "entitySubType": "Intergovernmental Organization",
-    "wikidataId": "Q7817",
+    "description": "A central database managed by the WHO to search for clinical trials from registries around the world.",
+    "macroCategories": [
+      "Clinical Trials"
+    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
+    "countryMappings": {},
+    "wikidataId": "Q7817",
     "entityCategoryWikidataId": "Q245065",
     "entitySubTypeWikidataId": "Q245065"
   },
   {
-    "id": "eu-clinical-trials-register",
+    "id": "f2a3b4c5-d6e7-f8g9-h0i1-j2k3l4m5n6o7",
+    "slug": "eu-clinical-trials-register",
     "title": "EU Clinical Trials Register",
     "organization": "European Medicines Agency (EMA)",
     "link": "https://euclinicaltrials.eu/search-for-clinical-trials/",
@@ -386,7 +467,9 @@
     "entityCategory": "Government",
     "entitySubType": "Regulatory Agency",
     "description": "The European Union's official database for clinical trials conducted in the EU and EEA.",
-    "resourceWikidataId": "Q96183789",
+    "macroCategories": [
+      "Clinical Trials"
+    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
@@ -396,11 +479,13 @@
       "Liechtenstein": "Q347",
       "Norway": "Q20"
     },
+    "resourceWikidataId": "Q96183789",
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q1639780"
   },
   {
-    "id": "ectin-poland",
+    "id": "a3b4c5d6-e7f8-g9h0-i1j2-k3l4m5n6o7p8",
+    "slug": "ectin-poland",
     "title": "European Clinical Trials Information Network",
     "organization": "Clinical Trials Information Network (CTIN Poland)",
     "link": "https://clinicaltrials.eu/",
@@ -417,6 +502,7 @@
     "resourceType": "registry",
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
+    "description": "A clinical trials information network providing access to studies in Poland and Europe.",
     "citations": [
       {
         "title": "Figueira-Gonçalves, J. M., Callejas-González, F. J., Golpe, R., Máiz-Carro, L., Marín-Oto, M., de Miguel-Díez, J., ... & Hurtado-Fuentes, Á. (2025). Current Evidence on the Usefulness of Potential Therapies in the Prevention of COPD Exacerbations: Beyond the Use of Bronchodilator Therapy and Inhaled Corticosteroids. Open Respiratory Archives, 7(2), 100438.",
@@ -426,6 +512,9 @@
         "title": "Pranaitytė, G., Grybaitė, B., Endriulaityte, U., Mickevičius, V., & Petrikaitė, V. (2025). Exploration of 1-(2, 4-difluorophenyl)-5-oxopyrrolidine-3-carboxylic acid derivatives effect on triple-negative breast, prostate cancer and melanoma cell 2D and 3D cultures. Scientific Reports, 15(1), 1-16.",
         "link": "https://doi.org/10.1038/s41598-025-02106-8"
       }
+    ],
+    "macroCategories": [
+      "Clinical Trials"
     ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
@@ -437,7 +526,8 @@
     "entitySubTypeWikidataId": "Q4830453"
   },
   {
-    "id": "curewiki",
+    "id": "b4c5d6e7-f8g9-h0i1-j2k3-l4m5n6o7p8q9",
+    "slug": "curewiki",
     "title": "Curewiki",
     "organization": "Curewiki",
     "link": "https://www.curewiki.health/",
@@ -460,11 +550,15 @@
     "resourceType": "registry",
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
+    "description": "A platform connecting patients with clinical trials for various conditions.",
     "citations": [
       {
         "title": "van der Laan, P., van Houdt, W. J., van Boven, H., Snaebjornsson, P., Bosch, L. J. W., Monkhorst, K., ... & van der Graaf, W. T. A. (2025). The role of whole-genome sequencing for guiding systemic therapy in patients with soft tissue sarcoma. ESMO open, 10(6), 105287.",
         "link": "https://doi.org/10.1016/j.esmoop.2025.105287"
       }
+    ],
+    "macroCategories": [
+      "Clinical Trials"
     ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
@@ -479,7 +573,8 @@
     "entitySubTypeWikidataId": "Q4830453"
   },
   {
-    "id": "esperity-clinical-trials",
+    "id": "c5d6e7f8-g9h0-i1j2-k3l4-m5n6o7p8q9r0",
+    "slug": "esperity-clinical-trials",
     "title": "Clinical Trial Discovery",
     "organization": "Esperity",
     "link": "https://clinicaltrial.be/",
@@ -490,6 +585,7 @@
     "resourceType": "registry",
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
+    "description": "A patient-centric platform for finding and participating in clinical trials.",
     "citations": [
       {
         "title": "De Corte, W., Delrue, H., Vanfleteren, L. J. J., Dutré, P. E. M., Pottel, H., Devriendt, D. K. J. C., ... & Desmet, M. B. (2012). Randomized clinical trial on the influence of anaesthesia protocol on intestinal motility during laparoscopic surgery requiring small bowel anastomosis. Journal of British Surgery, 99(11), 1524-1529.",
@@ -512,14 +608,19 @@
         "link": "https://doi.org/10.1186/s13601-019-0269-4"
       }
     ],
+    "macroCategories": [
+      "Clinical Trials"
+    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
+    "countryMappings": {},
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453"
   },
   {
-    "id": "researchmatch",
+    "id": "d6e7f8g9-h0i1-j2k3-l4m5-n6o7p8q9r0s1",
+    "slug": "researchmatch",
     "title": "ResearchMatch",
     "organization": "National Institutes of Health (NIH)",
     "link": "https://www.researchmatch.org/",
@@ -536,18 +637,22 @@
     "entityCategory": "Government",
     "entitySubType": "Research Agency",
     "description": "A nonprofit program funded by the National Institutes of Health (NIH) that connects people interested in research studies with researchers from top medical centers across the U.S.",
-    "wikidataId": "Q390551",
+    "macroCategories": [
+      "Clinical Trials"
+    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": "Q390551",
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q9142054"
   },
   {
-    "id": "flucamp",
+    "id": "e7f8g9h0-i1j2-k3l4-m5n6-o7p8q9r0s1t2",
+    "slug": "flucamp",
     "title": "FluCamp",
     "link": "https://flucamp.com/",
     "dataTypes": [
@@ -569,6 +674,9 @@
         "link": "https://doi.org/10.1016/j.jviromet.2015.08.019"
       }
     ],
+    "macroCategories": [
+      "Clinical Trials"
+    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
@@ -579,7 +687,8 @@
     "entitySubTypeWikidataId": "Q4830453"
   },
   {
-    "id": "healthstreet",
+    "id": "f8g9h0i1-j2k3-l4m5-n6o7-p8q9r0s1t2u3",
+    "slug": "healthstreet",
     "title": "HealthStreet",
     "organization": "University of Florida Health",
     "link": "https://healthstreet.program.ufl.edu/uf-researchers/participate-in-research/",
@@ -596,18 +705,22 @@
     "entityCategory": "Academic",
     "entitySubType": "Academic",
     "description": "Connects community members in Florida with health research opportunities at the University of Florida.",
-    "wikidataId": "Q7487946",
+    "macroCategories": [
+      "Clinical Trials"
+    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": "Q7487946",
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q3400985"
   },
   {
-    "id": "goodnature-program",
+    "id": "a9h0i1j2-k3l4-m5n6-o7p8-q9r0s1t2u3v4",
+    "slug": "goodnature-program",
     "title": "GoodNature Program",
     "link": "https://goodnatureprogram.com/apply/",
     "dataTypes": [
@@ -622,6 +735,10 @@
     "compensationType": "payment",
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
+    "description": "A stool donation program supporting research into microbiome-based therapeutics.",
+    "macroCategories": [
+      "Biological Samples"
+    ],
     "dataTypeMappings": {
       "Stool": "Q496"
     },
@@ -632,7 +749,8 @@
     "entitySubTypeWikidataId": "Q4830453"
   },
   {
-    "id": "lifeblood-microbiome",
+    "id": "b0i1j2k3-l4m5-n6o7-p8q9-r0s1t2u3v4w5",
+    "slug": "lifeblood-microbiome",
     "title": "Microbiome",
     "organization": "Australian Red Cross Lifeblood",
     "link": "https://www.lifeblood.com.au/microbiome",
@@ -648,18 +766,23 @@
     "compensationType": "donation",
     "entityCategory": "Non-Profit",
     "entitySubType": "Non-Profit Organization",
-    "wikidataId": "Q4824602",
+    "description": "Australian Red Cross Lifeblood's microbiome research program.",
+    "macroCategories": [
+      "Biological Samples"
+    ],
     "dataTypeMappings": {
       "Stool": "Q496"
     },
     "countryMappings": {
       "Australia": "Q408"
     },
+    "wikidataId": "Q4824602",
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q163740"
   },
   {
-    "id": "wesley-stool-donation",
+    "id": "c1j2k3l4-m5n6-o7p8-q9r0-s1t2u3v4w5x6",
+    "slug": "wesley-stool-donation",
     "title": "Stool Donation",
     "organization": "Wesley Research Institute",
     "link": "https://www.wesleyresearch.org.au/biobank-project/stool-donation/",
@@ -675,18 +798,23 @@
     "compensationType": "donation",
     "entityCategory": "Non-Profit",
     "entitySubType": "Non-Profit Organization",
-    "wikidataId": "Q30289631",
+    "description": "Stool donation program at Wesley Research Institute.",
+    "macroCategories": [
+      "Biological Samples"
+    ],
     "dataTypeMappings": {
       "Stool": "Q496"
     },
     "countryMappings": {
       "Australia": "Q408"
     },
+    "wikidataId": "Q30289631",
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q163740"
   },
   {
-    "id": "wesley-placenta-donation",
+    "id": "d2k3l4m5-n6o7-p8q9-r0s1-t2u3v4w5x6y7",
+    "slug": "wesley-placenta-donation",
     "title": "Placenta Donation",
     "organization": "Wesley Research Institute",
     "link": "https://www.wesleyresearch.org.au/biobank-project/placenta-donation/",
@@ -702,18 +830,23 @@
     "compensationType": "donation",
     "entityCategory": "Non-Profit",
     "entitySubType": "Non-Profit Organization",
-    "wikidataId": "Q30289631",
+    "description": "Placenta donation program at Wesley Research Institute.",
+    "macroCategories": [
+      "Biological Samples"
+    ],
     "dataTypeMappings": {
       "Placenta": "Q1212935"
     },
     "countryMappings": {
       "Australia": "Q408"
     },
+    "wikidataId": "Q30289631",
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q163740"
   },
   {
-    "id": "wroclaw-hair-decomposition",
+    "id": "e3l4m5n6-o7p8-q9r0-s1t2-u3v4w5x6y7z8",
+    "slug": "wroclaw-hair-decomposition",
     "title": "Human Hair Decompositionw",
     "organization": "Department of Human Biology, University of Wrocław",
     "link": "https://biologia.uwr.edu.pl/2023/10/12/znaczenie-wybranych-czynnikow-biologicznych-i-srodowiskowych-w-procesie-rozkladu-ludzkich-wlosow-nabor-na-badania/",
@@ -729,6 +862,7 @@
     "compensationType": "donation",
     "entityCategory": "Academic",
     "entitySubType": "Academic",
+    "description": "Research on human hair decomposition at the University of Wrocław.",
     "citations": [
       {
         "title": "Palacz, K., Cholewa, M., Bonar, M., Krzyżanowska, M., & Kadej, M. (2023). The rate and quality of post-mortem hair root changes in relation to melanin content. Forensic Science International, 350, 111784.",
@@ -738,6 +872,9 @@
         "title": "University of Wrocław. (2023, November 9). Donate your hair for science.",
         "link": "https://uwr.edu.pl/en/donate-your-hair-for-science/"
       }
+    ],
+    "macroCategories": [
+      "Biological Samples"
     ],
     "dataTypeMappings": {
       "Hair": "Q28472"
@@ -749,7 +886,8 @@
     "entitySubTypeWikidataId": "Q3400985"
   },
   {
-    "id": "ucsf-social-media-archive",
+    "id": "f4m5n6o7-p8q9-r0s1-t2u3-v4w5x6y7z8a9",
+    "slug": "ucsf-social-media-archive",
     "title": "Donating Your Social Media",
     "link": "https://www.library.ucsf.edu/archives/donate/materials/donating-your-social-media/",
     "organization": "UCSF Library Archives",
@@ -759,14 +897,20 @@
     "compensationType": "donation",
     "entityCategory": "Academic",
     "entitySubType": "Academic",
+    "description": "Donate your social media archives to the UCSF Library for research.",
+    "macroCategories": [
+      "Health & Digital Data"
+    ],
     "dataTypeMappings": {
       "Social media data": "Q131520545"
     },
+    "countryMappings": {},
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q3400985"
   },
   {
-    "id": "penn-medicine-donate-your-data",
+    "id": "a5n6o7p8-q9r0-s1t2-u3v4-w5x6y7z8a9b0",
+    "slug": "penn-medicine-donate-your-data",
     "title": "Donate Your Data for Health",
     "organization": "Penn Medicine",
     "link": "https://cdh.nmsdev.com/donate-your-data",
@@ -779,6 +923,7 @@
     "compensationType": "payment",
     "entityCategory": "Academic",
     "entitySubType": "Academic",
+    "description": "Share your digital data to help Penn Medicine researchers understand health.",
     "citations": [
       {
         "title": "J.C. Eichstaedt, R.J. Smith, R.M. Merchant, L.H. Ungar, P. Crutchley, D. Preoţiuc-Pietro, D.A. Asch, & H.A. Schwartz,   Facebook language predicts depression in medical records, Proc. Natl. Acad. Sci. U.S.A. 115 (44) 11203-11208, (2018).",
@@ -789,23 +934,28 @@
         "link": "https://doi.org/10.1001/jamanetworkopen.2021.10918"
       }
     ],
-    "wikidataId": "Q7896080",
+    "macroCategories": [
+      "Health & Digital Data"
+    ],
     "dataTypeMappings": {
       "Health data": "Q18745135",
+      "Wearable data": null,
       "Social media data": "Q131520545",
       "Search history": "Q60461381"
     },
+    "countryMappings": {},
+    "wikidataId": "Q7896080",
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q3400985"
   },
   {
-    "id": "be-part-of-research",
-    "title": "Be Part of Research",
-    "organization": "National Institute for Health and Care Research (NIHR)",
-    "link": "https://bepartofresearch.nihr.ac.uk/",
+    "id": "b6o7p8q9-r0s1-t2u3-v4w5-x6y7z8a9b0c1",
+    "slug": "hra-research-summaries",
+    "title": "Research Summaries",
+    "organization": "NHS Health Research Authority",
+    "link": "https://www.hra.nhs.uk/planning-and-improving-research/application-summaries/research-summaries/",
     "dataTypes": [
-      "Health data",
-      "Clinical trials"
+      "Health data"
     ],
     "countries": [
       "United Kingdom"
@@ -813,23 +963,23 @@
     "countryCodes": [
       "GB"
     ],
-    "compensationType": "mixed",
-    "resourceType": "registry",
+    "compensationType": "donation",
     "entityCategory": "Government",
-    "entitySubType": "Research Agency",
-    "description": "A service that makes it easy for the public to learn about and search for health and care research taking place across the UK.",
+    "entitySubType": "Regulatory Agency",
+    "description": "Plain-language summaries of research studies approved by the NHS Health Research Authority.",
+    "macroCategories": [
+      "Health & Digital Data"
+    ],
     "dataTypeMappings": {
-      "Health data": "Q18745135",
-      "Clinical trials": "Q30612"
+      "Health data": null
     },
     "countryMappings": {
-      "United Kingdom": "Q145"
-    },
-    "entityCategoryWikidataId": "Q7188",
-    "entitySubTypeWikidataId": "Q9142054"
+      "United Kingdom": null
+    }
   },
   {
-    "id": "cochrane-central-register-of-controlled-trials",
+    "id": "c7p8q9r0-s1t2-u3v4-w5x6-y7z8a9b0c1d2",
+    "slug": "cochrane-central-register-of-controlled-trials",
     "title": "Cochrane Central Register of Controlled Trials (CENTRAL)",
     "organization": "Cochrane Library",
     "link": "https://www.cochranelibrary.com/central",
@@ -841,14 +991,19 @@
     "entityCategory": "Non-Profit",
     "entitySubType": "Research Collaborative",
     "description": "A highly concentrated source of reports of randomized and quasi-randomized controlled trials from various databases and other sources. Access requires a subscription to the Cochrane Library.",
-    "wikidataId": "Q1105187",
+    "macroCategories": [
+      "Clinical Trials"
+    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
+    "countryMappings": {},
+    "wikidataId": "Q1105187",
     "entityCategoryWikidataId": "Q163740"
   },
   {
-    "id": "belgian-clinical-trials-database",
+    "id": "d8q9r0s1-t2u3-v4w5-x6y7-z8a9b0c1d2e3",
+    "slug": "belgian-clinical-trials-database",
     "title": "Clinical Trials Database",
     "organization": "Federal Agency for Medicines and Health Products (FAMHP)",
     "link": "https://clinicaltrialsdatabase.be/",
@@ -872,6 +1027,9 @@
         "link": "https://doi.org/10.1002/rth2.12494"
       }
     ],
+    "macroCategories": [
+      "Clinical Trials"
+    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
@@ -882,7 +1040,8 @@
     "entitySubTypeWikidataId": "Q1639780"
   },
   {
-    "id": "german-clinical-trials-register",
+    "id": "e9r0s1t2-u3v4-w5x6-y7z8-a9b0c1d2e3f4",
+    "slug": "german-clinical-trials-register",
     "title": "German Clinical Trials Register (DRKS)",
     "organization": "DRKS",
     "link": "https://drks.de/",
@@ -900,18 +1059,22 @@
     "entityCategory": "Academic",
     "entitySubType": "Academic",
     "description": "The primary register for clinical trials conducted in Germany, providing public access to study information.",
-    "wikidataId": "Q96199255",
+    "macroCategories": [
+      "Clinical Trials"
+    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
     "countryMappings": {
       "Germany": "Q183"
     },
+    "wikidataId": "Q96199255",
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q3400985"
   },
   {
-    "id": "health-canada-clinical-trials-database",
+    "id": "f0s1t2u3-v4w5-x6y7-z8a9-b0c1d2e3f4g5",
+    "slug": "health-canada-clinical-trials-database",
     "title": "Health Canada's Clinical Trials Database",
     "link": "https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/health-canada-clinical-trials-database.html",
     "organization": "Health Canada",
@@ -929,18 +1092,22 @@
     "entityCategory": "Government",
     "entitySubType": "Regulatory Agency",
     "description": "A listing of specific information relating to phase I, II, and III clinical trials in patients authorized by Health Canada.",
-    "wikidataId": "Q1057591",
+    "macroCategories": [
+      "Clinical Trials"
+    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
     "countryMappings": {
       "Canada": "Q16"
     },
+    "wikidataId": "Q1057591",
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q1639780"
   },
   {
-    "id": "aatb-accredited-bank-search",
+    "id": "a1t2u3v4-w5x6-y7z8-a9b0-c1d2e3f4g5h6",
+    "slug": "aatb-accredited-bank-search",
     "title": "AATB Accredited Bank Search",
     "organization": "American Association of Tissue Banks (AATB)",
     "link": "https://www.aatb.org/accredited-bank-search",
@@ -964,6 +1131,10 @@
     "entityCategory": "Non-Profit",
     "entitySubType": "Professional Association",
     "description": "A search tool to find AATB-accredited tissue banks in the United States, covering various types of tissue, organ, and birth tissue donation.",
+    "macroCategories": [
+      "Organ, Body & Tissue Donation",
+      "Biological Samples"
+    ],
     "dataTypeMappings": {
       "Tissue": "Q40397",
       "Body": "Q48422",
@@ -980,7 +1151,8 @@
     "entitySubTypeWikidataId": "Q829080"
   },
   {
-    "id": "organdonor-gov",
+    "id": "b2u3v4w5-x6y7-z8a9-b0c1-d2e3f4g5h6i7",
+    "slug": "organdonor-gov",
     "title": "OrganDonor.gov",
     "organization": "U.S. Department of Health & Human Services",
     "link": "https://www.organdonor.gov/sign-up",
@@ -999,6 +1171,9 @@
     "entityCategory": "Government",
     "entitySubType": "Public Health Service",
     "description": "The official U.S. government website for organ, eye, and tissue donation. Provides information and links to state registries to sign up as a donor.",
+    "macroCategories": [
+      "Organ, Body & Tissue Donation"
+    ],
     "dataTypeMappings": {
       "Organ": "Q712378",
       "Tissue": "Q40397"
@@ -1010,7 +1185,8 @@
     "entitySubTypeWikidataId": "Q9353606"
   },
   {
-    "id": "bloodworks-research",
+    "id": "c3v4w5x6-y7z8-a9b0-c1d2-e3f4g5h6i7j8",
+    "slug": "bloodworks-research",
     "title": "Research Donations",
     "organization": "Bloodworks Northwest",
     "link": "https://bloodworksnw.org/donate/research",
@@ -1035,7 +1211,9 @@
         "link": "https://doi.org/10.1111/trf.16630"
       }
     ],
-    "wikidataId": "Q21015632",
+    "macroCategories": [
+      "Biological Samples"
+    ],
     "dataTypeMappings": {
       "Blood": "Q7873",
       "Plasma": "Q79749",
@@ -1044,6 +1222,7 @@
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": "Q21015632",
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q163740"
   },
@@ -1067,6 +1246,9 @@
     "entitySubType": "University Hospital",
     "description": "A center in Verona, Italy, conducting clinical trials for healthy volunteers and patients. Volunteers can register to participate in various studies.",
     "citations": [],
+    "macroCategories": [
+      "Clinical Trials"
+    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
@@ -1096,6 +1278,9 @@
     "entitySubType": "Hospital",
     "description": "A network for citizens to participate in scientific research at San Camillo IRCCS, contributing to medical progress and new therapies.",
     "citations": [],
+    "macroCategories": [
+      "Clinical Trials"
+    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
@@ -1119,10 +1304,14 @@
     "entitySubType": "Research Center",
     "description": "A data donation campaign focused on collecting cover letters for doctoral research to understand the impact of writing styles in a multilingual professional context.",
     "citations": [],
-    "wikidataId": "Q1245390",
+    "macroCategories": [
+      "Health & Digital Data"
+    ],
     "dataTypeMappings": {
       "Cover letters": "Q569410"
     },
+    "countryMappings": {},
+    "wikidataId": "Q1245390",
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q42240"
   }
