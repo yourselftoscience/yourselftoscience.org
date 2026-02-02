@@ -1132,8 +1132,8 @@
     "entitySubType": "Professional Association",
     "description": "A search tool to find AATB-accredited tissue banks in the United States, covering various types of tissue, organ, and birth tissue donation.",
     "macroCategories": [
-      "Organ, Body & Tissue Donation",
-      "Biological Samples"
+      "Biological Samples",
+      "Organ, Body & Tissue Donation"
     ],
     "dataTypeMappings": {
       "Tissue": "Q40397",
@@ -1225,6 +1225,31 @@
     "wikidataId": "Q21015632",
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q163740"
+  },
+  {
+    "id": "510a8c9d-3dc0-4086-a94f-f9d7ec0bc3a4",
+    "slug": "conversational-ai-data-donation",
+    "title": "Conversational AI Data Donation",
+    "organization": "Max Planck Institute for Software Systems",
+    "link": "https://social-media-data-donator.mpi-sws.org/",
+    "dataTypes": [
+      "Conversational AI data"
+    ],
+    "countries": [],
+    "countryCodes": [],
+    "compensationType": "donation",
+    "entityCategory": "Academic",
+    "entitySubType": "Research Center",
+    "description": "Donate your chat history from assistants like ChatGPT, Gemini, and Claude to help researchers understand human-AI interaction patterns.",
+    "citations": [],
+    "macroCategories": [
+      "Health & Digital Data"
+    ],
+    "dataTypeMappings": {
+      "Conversational AI data": null
+    },
+    "countryMappings": {},
+    "wikidataId": "Q881238"
   },
   {
     "id": "c6336f71-b1df-49d6-a121-694e756fbe75",

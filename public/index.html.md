@@ -418,6 +418,18 @@ This page provides a filterable catalogue of all resources. You can also downloa
 
 ---
 
+### [Conversational AI Data Donation](https://yourselftoscience.org/resource/conversational-ai-data-donation)
+
+*Description:* Donate your chat history from assistants like ChatGPT, Gemini, and Claude to help researchers understand human-AI interaction patterns.
+
+*Data Types:* Conversational AI data
+
+*Countries:* 
+
+*Compensation:* Donation
+
+---
+
 ### [CRC Volontari Ricerca Clinica](https://yourselftoscience.org/resource/crc-volontari-ricerca-clinica)
 
 *Description:* A center in Verona, Italy, conducting clinical trials for healthy volunteers and patients. Volunteers can register to participate in various studies.

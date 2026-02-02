@@ -800,6 +800,23 @@ const rawResources = [
     ]
   },
   {
+    "id": "510a8c9d-3dc0-4086-a94f-f9d7ec0bc3a4",
+    "slug": "conversational-ai-data-donation",
+    "title": "Conversational AI Data Donation",
+    "organization": "Max Planck Institute for Software Systems",
+    "link": "https://social-media-data-donator.mpi-sws.org/",
+    "dataTypes": [
+      "Conversational AI data"
+    ],
+    "countries": [],
+    "countryCodes": [],
+    "compensationType": "donation",
+    "entityCategory": "Academic",
+    "entitySubType": "Research Center",
+    "description": "Donate your chat history from assistants like ChatGPT, Gemini, and Claude to help researchers understand human-AI interaction patterns.",
+    "citations": []
+  },
+  {
     "id": "c6336f71-b1df-49d6-a121-694e756fbe75",
     "slug": "crc-volontari-ricerca-clinica",
     "title": "CRC Volontari Ricerca Clinica",
@@ -886,13 +903,19 @@ const dataTypeToMacroCategory = {
   'Location history': 'Health & Digital Data',
   'Cover letters': 'Health & Digital Data',
 
+  'Conversational AI data': 'Health & Digital Data',
+
 
   // Clinical Trials
   'Clinical trials': 'Clinical Trials',
 };
 
-export const resources = rawResources.map((r) => {
-  const macroCategories = [...new Set(r.dataTypes.map(dt => dataTypeToMacroCategory[dt]).filter(Boolean))];
+
+export const resources = rawResources.map(r => {
+  const macroCategories = Array.from(new Set(
+    (r.dataTypes || []).map(type => dataTypeToMacroCategory[type]).filter(Boolean)
+  )).sort();
+
   return {
     ...r,
     macroCategories,
