@@ -14,6 +14,7 @@ export default function MobileFilterDrawer({
   toggleDrawer,
   filters,
   countryOptions, // Expecting this to be the full list of { label, value, code }
+  originOptions, // Expecting this to be the full list of { label, value, code }
   dataTypeOptions, // Expecting this to be an array of strings
   paymentTypes, // Expecting this to be PAYMENT_TYPES from data/resources.js
   handleCheckboxChange,
@@ -89,6 +90,26 @@ export default function MobileFilterDrawer({
                     </span>
                   );
                 })}
+                {/* Origins */}
+                {[...filters.origins].sort((a, b) => a.localeCompare(b)).map(value => {
+                  const originOption = originOptions.find(opt => opt.value === value);
+                  const label = originOption?.label || value;
+                  const code = originOption?.code;
+                  return (
+                    <span key={`sel-origin-drawer-${value}`} className="inline-flex items-center text-sm font-medium px-2 py-1 rounded-full bg-blue-100 text-blue-700">
+                      <span className="mr-1 text-[10px] uppercase font-bold tracking-wider text-blue-800">Based in</span>
+                      {label}
+                      {code && <CountryFlag countryCode={code} svg alt="" aria-hidden="true" style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />}
+                      <button
+                        onClick={() => handleCheckboxChange('origins', value, false)}
+                        className="ml-1 text-google-blue hover:opacity-75"
+                        aria-label={`Remove based in ${label} filter`}
+                      >
+                        <FaTimes size="0.9em" />
+                      </button>
+                    </span>
+                  );
+                })}
                 {/* Countries */}
                 {[...filters.countries].sort((a, b) => a.localeCompare(b)).map(value => {
                   const countryOption = countryOptions.find(opt => opt.value === value);
@@ -97,7 +118,7 @@ export default function MobileFilterDrawer({
                   return (
                     <span key={`sel-ctry-drawer-${value}`} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
                       {label}
-                      {code && <CountryFlag countryCode={code} svg style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />}
+                      {code && <CountryFlag countryCode={code} svg alt="" aria-hidden="true" style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />}
                       <button
                         onClick={() => handleCheckboxChange('countries', value, false)}
                         className="ml-1 text-google-blue hover:opacity-75" aria-label={`Remove ${label} filter`}>
@@ -169,12 +190,19 @@ MobileFilterDrawer.propTypes = {
     countries: PropTypes.arrayOf(PropTypes.string).isRequired,
     dataTypes: PropTypes.arrayOf(PropTypes.string).isRequired,
     compensationTypes: PropTypes.arrayOf(PropTypes.object).isRequired,
+    sectors: PropTypes.arrayOf(PropTypes.string),
+    origins: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
   countryOptions: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     code: PropTypes.string,
   })).isRequired,
+  originOptions: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    code: PropTypes.string,
+  })), // Made optional just in case, but passed from page.js
   dataTypeOptions: PropTypes.arrayOf(PropTypes.string).isRequired,
   paymentTypes: PropTypes.arrayOf(PropTypes.shape({
     value: PropTypes.string.isRequired,

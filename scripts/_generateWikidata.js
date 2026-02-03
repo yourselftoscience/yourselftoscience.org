@@ -55,6 +55,7 @@ async function enrichResources() {
       if (existingEntry.resourceWikidataId) enrichedResource.resourceWikidataId = existingEntry.resourceWikidataId;
       if (existingEntry.entityCategoryWikidataId) enrichedResource.entityCategoryWikidataId = existingEntry.entityCategoryWikidataId;
       if (existingEntry.entitySubTypeWikidataId) enrichedResource.entitySubTypeWikidataId = existingEntry.entitySubTypeWikidataId;
+      if (existingEntry.originWikidataId) enrichedResource.originWikidataId = existingEntry.originWikidataId;
       // Also preserve legacy resourceWikidataId if needed (redundant check but safe)
       if (existingEntry.resourceWikidataId) enrichedResource.resourceWikidataId = existingEntry.resourceWikidataId;
 
@@ -96,6 +97,7 @@ async function enrichResources() {
       enrichedResource.resourceWikidataId = null;
       enrichedResource.entityCategoryWikidataId = null;
       enrichedResource.entitySubTypeWikidataId = null;
+      enrichedResource.originWikidataId = null;
 
       // Initialize mappings with keys but null values
       for (const type of resource.dataTypes || []) {

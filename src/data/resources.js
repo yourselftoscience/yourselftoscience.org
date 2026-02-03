@@ -18,6 +18,8 @@ const rawResources = [
     "entityCategory": "Non-Profit",
     "entitySubType": "Research Foundation",
     "description": "A platform for participant-centered research and personal data exploration.",
+    "origin": "United States",
+    "originCode": "US",
     "citations": [
       {
         "title": "Greshake Tzovaras, B., Angrist, M., Arvai, K., Dulaney, M., Estrada-Galiñanes, V., Gunderson, B., ... & Price Ball, M. (2019). Open Humans: A platform for participant-centered research and personal data exploration. GigaScience, 8(6), giz076.",
@@ -39,6 +41,8 @@ const rawResources = [
     "entityCategory": "Academic",
     "entitySubType": "Academic",
     "description": "A platform for collecting health data from wearables to detect early signs of infectious diseases.",
+    "origin": "United States",
+    "originCode": "US",
     "citations": [
       {
         "title": "Shandhi, M.M.H., Cho, P.J., Roghanizad, A.R. et al. A method for intelligent allocation of diagnostic testing by leveraging data from commercial wearable devices: a case study on COVID-19. npj Digit. Med. 5, 130 (2022)",
@@ -58,7 +62,9 @@ const rawResources = [
     "compensationType": "donation",
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
-    "description": "A platform that lets you contribute to health research using the Google Health Studies app."
+    "description": "A platform that lets you contribute to health research using the Google Health Studies app.",
+    "origin": "United States",
+    "originCode": "US"
   },
   {
     "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
@@ -78,7 +84,9 @@ const rawResources = [
     "compensationType": "donation",
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
-    "description": "Participate in health studies using your iPhone and Apple Watch."
+    "description": "Participate in health studies using your iPhone and Apple Watch.",
+    "origin": "United States",
+    "originCode": "US"
   },
   {
     "id": "b3c4d5e6-f7g8-9h0i-j1k2-l3m4n5o6p7q8",
@@ -99,7 +107,9 @@ const rawResources = [
     "compensationType": "mixed",
     "entityCategory": "Government",
     "entitySubType": "Research Agency",
-    "description": "A research program from the NIH to gather health data from one million or more people living in the US."
+    "description": "A research program from the NIH to gather health data from one million or more people living in the US.",
+    "origin": "United States",
+    "originCode": "US"
   },
   {
     "id": "d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9g",
@@ -118,7 +128,9 @@ const rawResources = [
     "compensationType": "donation",
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
-    "description": "Share your Fitbit data to help improve health research and product development."
+    "description": "Share your Fitbit data to help improve health research and product development.",
+    "origin": "United States",
+    "originCode": "US"
   },
   {
     "id": "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d",
@@ -139,7 +151,9 @@ const rawResources = [
     "compensationType": "mixed",
     "entityCategory": "Non-Profit",
     "entitySubType": "Research Foundation",
-    "description": "A landmark autism research project connecting autistic individuals and their families to research."
+    "description": "A landmark autism research project connecting autistic individuals and their families to research.",
+    "origin": "United States",
+    "originCode": "US"
   },
   {
     "id": "e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9g0h",
@@ -159,7 +173,9 @@ const rawResources = [
     "compensationType": "donation",
     "entityCategory": "Academic",
     "entitySubType": "Academic",
-    "description": "The UBC Body Donation Program accepts donations for anatomical study and medical research."
+    "description": "The UBC Body Donation Program accepts donations for anatomical study and medical research.",
+    "origin": "Canada",
+    "originCode": "CA"
   },
   {
     "id": "f6a7b8c9-d0e1-f2a3-b4c5-d6e7f8g9h0i1",
@@ -180,7 +196,9 @@ const rawResources = [
     "compensationType": "donation",
     "entityCategory": "Academic",
     "entitySubType": "Academic",
-    "description": "Information on donating your body to medical science at the University of Cambridge."
+    "description": "Information on donating your body to medical science at the University of Cambridge.",
+    "origin": "United Kingdom",
+    "originCode": "GB"
   },
   {
     "id": "a7b8c9d0-e1f2-a3b4-c5d6-e7f8g9h0i1j2",
@@ -201,7 +219,9 @@ const rawResources = [
     "compensationType": "donation",
     "entityCategory": "Government",
     "entitySubType": "Public Health Service",
-    "description": "Official guidelines for donating body and tissues for study, training, and scientific research in Italy."
+    "description": "Official guidelines for donating body and tissues for study, training, and scientific research in Italy.",
+    "origin": "Italy",
+    "originCode": "IT"
   },
   {
     "id": "b8c9d0e1-f2a3-b4c5-d6e7-f8g9h0i1j2k3",
@@ -221,7 +241,9 @@ const rawResources = [
     "compensationType": "donation",
     "entityCategory": "Government",
     "entitySubType": "Public Health Service",
-    "description": "Official information on body donation for science and medical research in France."
+    "description": "Official information on body donation for science and medical research in France.",
+    "origin": "France",
+    "originCode": "FR"
   },
   {
     "id": "c9d0e1f2-a3b4-c5d6-e7f8-g9h0i1j2k3l4",
@@ -243,7 +265,9 @@ const rawResources = [
     "compensationType": "donation",
     "entityCategory": "Government",
     "entitySubType": "Statutory Authority",
-    "description": "Information on donating eggs, sperm, and embryos for research in the UK."
+    "description": "Information on donating eggs, sperm, and embryos for research in the UK.",
+    "origin": "United Kingdom",
+    "originCode": "GB"
   },
   {
     "id": "d0e1f2a3-b4c5-d6e7-f8g9-h0i1j2k3l4m5",
@@ -258,7 +282,9 @@ const rawResources = [
     "resourceType": "registry",
     "entityCategory": "Government",
     "entitySubType": "Research Agency",
-    "description": "A comprehensive registry and results database of publicly and privately supported clinical studies conducted around the world. Managed by the U.S. National Library of Medicine."
+    "description": "A comprehensive registry and results database of publicly and privately supported clinical studies conducted around the world. Managed by the U.S. National Library of Medicine.",
+    "origin": "United States",
+    "originCode": "US"
   },
   {
     "id": "e1f2a3b4-c5d6-e7f8-g9h0-i1j2k3l4m5n6",
@@ -273,7 +299,9 @@ const rawResources = [
     "resourceType": "registry",
     "entityCategory": "Intergovernmental",
     "entitySubType": "Intergovernmental Organization",
-    "description": "A central database managed by the WHO to search for clinical trials from registries around the world."
+    "description": "A central database managed by the WHO to search for clinical trials from registries around the world.",
+    "origin": "Switzerland",
+    "originCode": "CH"
   },
   {
     "id": "f2a3b4c5-d6e7-f8g9-h0i1-j2k3l4m5n6o7",
@@ -300,7 +328,9 @@ const rawResources = [
     "resourceType": "registry",
     "entityCategory": "Government",
     "entitySubType": "Regulatory Agency",
-    "description": "The European Union's official database for clinical trials conducted in the EU and EEA."
+    "description": "The European Union's official database for clinical trials conducted in the EU and EEA.",
+    "origin": "European Union",
+    "originCode": "EU"
   },
   {
     "id": "a3b4c5d6-e7f8-g9h0-i1j2-k3l4m5n6o7p8",
@@ -322,6 +352,8 @@ const rawResources = [
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
     "description": "A clinical trials information network providing access to studies in Poland and Europe.",
+    "origin": "Poland",
+    "originCode": "PL",
     "citations": [
       {
         "title": "Figueira-Gonçalves, J. M., Callejas-González, F. J., Golpe, R., Máiz-Carro, L., Marín-Oto, M., de Miguel-Díez, J., ... & Hurtado-Fuentes, Á. (2025). Current Evidence on the Usefulness of Potential Therapies in the Prevention of COPD Exacerbations: Beyond the Use of Bronchodilator Therapy and Inhaled Corticosteroids. Open Respiratory Archives, 7(2), 100438.",
@@ -359,6 +391,8 @@ const rawResources = [
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
     "description": "A platform connecting patients with clinical trials for various conditions.",
+    "origin": "Belgium",
+    "originCode": "BE",
     "citations": [
       {
         "title": "van der Laan, P., van Houdt, W. J., van Boven, H., Snaebjornsson, P., Bosch, L. J. W., Monkhorst, K., ... & van der Graaf, W. T. A. (2025). The role of whole-genome sequencing for guiding systemic therapy in patients with soft tissue sarcoma. ESMO open, 10(6), 105287.",
@@ -380,6 +414,8 @@ const rawResources = [
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
     "description": "A patient-centric platform for finding and participating in clinical trials.",
+    "origin": "Belgium",
+    "originCode": "BE",
     "citations": [
       {
         "title": "De Corte, W., Delrue, H., Vanfleteren, L. J. J., Dutré, P. E. M., Pottel, H., Devriendt, D. K. J. C., ... & Desmet, M. B. (2012). Randomized clinical trial on the influence of anaesthesia protocol on intestinal motility during laparoscopic surgery requiring small bowel anastomosis. Journal of British Surgery, 99(11), 1524-1529.",
@@ -421,7 +457,9 @@ const rawResources = [
     "compensationType": "mixed",
     "entityCategory": "Government",
     "entitySubType": "Research Agency",
-    "description": "A nonprofit program funded by the National Institutes of Health (NIH) that connects people interested in research studies with researchers from top medical centers across the U.S."
+    "description": "A nonprofit program funded by the National Institutes of Health (NIH) that connects people interested in research studies with researchers from top medical centers across the U.S.",
+    "origin": "United States",
+    "originCode": "US"
   },
   {
     "id": "e7f8g9h0-i1j2-k3l4-m5n6-o7p8q9r0s1t2",
@@ -441,6 +479,8 @@ const rawResources = [
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
     "description": "Conducts clinical trials for flu and common cold viruses in London and Manchester, compensating volunteers for their time.",
+    "origin": "United Kingdom",
+    "originCode": "GB",
     "citations": [
       {
         "title": "Kelly, G., Laxton, C., Garelnabi, M., Alton, B., Addan, F., Catchpole, A., ... & Murray, E. J. (2015). Use of qualitative integrative cycler PCR (qicPCR) to identify optimal therapeutic dosing time-points in a Respiratory Syncytial Virus Human Viral Challenge Model (hVCM). Journal of virological methods, 224, 83-90.",
@@ -466,7 +506,9 @@ const rawResources = [
     "compensationType": "mixed",
     "entityCategory": "Academic",
     "entitySubType": "Academic",
-    "description": "Connects community members in Florida with health research opportunities at the University of Florida."
+    "description": "Connects community members in Florida with health research opportunities at the University of Florida.",
+    "origin": "United States",
+    "originCode": "US"
   },
   {
     "id": "a9h0i1j2-k3l4-m5n6-o7p8-q9r0s1t2u3v4",
@@ -485,7 +527,9 @@ const rawResources = [
     "compensationType": "payment",
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
-    "description": "A stool donation program supporting research into microbiome-based therapeutics."
+    "description": "A stool donation program supporting research into microbiome-based therapeutics.",
+    "origin": "United States",
+    "originCode": "US"
   },
   {
     "id": "b0i1j2k3-l4m5-n6o7-p8q9-r0s1t2u3v4w5",
@@ -505,7 +549,9 @@ const rawResources = [
     "compensationType": "donation",
     "entityCategory": "Non-Profit",
     "entitySubType": "Non-Profit Organization",
-    "description": "Australian Red Cross Lifeblood's microbiome research program."
+    "description": "Australian Red Cross Lifeblood's microbiome research program.",
+    "origin": "Australia",
+    "originCode": "AU"
   },
   {
     "id": "c1j2k3l4-m5n6-o7p8-q9r0-s1t2u3v4w5x6",
@@ -525,7 +571,9 @@ const rawResources = [
     "compensationType": "donation",
     "entityCategory": "Non-Profit",
     "entitySubType": "Non-Profit Organization",
-    "description": "Stool donation program at Wesley Research Institute."
+    "description": "Stool donation program at Wesley Research Institute.",
+    "origin": "Australia",
+    "originCode": "AU"
   },
   {
     "id": "d2k3l4m5-n6o7-p8q9-r0s1-t2u3v4w5x6y7",
@@ -545,7 +593,9 @@ const rawResources = [
     "compensationType": "donation",
     "entityCategory": "Non-Profit",
     "entitySubType": "Non-Profit Organization",
-    "description": "Placenta donation program at Wesley Research Institute."
+    "description": "Placenta donation program at Wesley Research Institute.",
+    "origin": "Australia",
+    "originCode": "AU"
   },
   {
     "id": "e3l4m5n6-o7p8-q9r0-s1t2-u3v4w5x6y7z8",
@@ -566,6 +616,8 @@ const rawResources = [
     "entityCategory": "Academic",
     "entitySubType": "Academic",
     "description": "Research on human hair decomposition at the University of Wrocław.",
+    "origin": "Poland",
+    "originCode": "PL",
     "citations": [
       {
         "title": "Palacz, K., Cholewa, M., Bonar, M., Krzyżanowska, M., & Kadej, M. (2023). The rate and quality of post-mortem hair root changes in relation to melanin content. Forensic Science International, 350, 111784.",
@@ -589,7 +641,9 @@ const rawResources = [
     "compensationType": "donation",
     "entityCategory": "Academic",
     "entitySubType": "Academic",
-    "description": "Donate your social media archives to the UCSF Library for research."
+    "description": "Donate your social media archives to the UCSF Library for research.",
+    "origin": "United States",
+    "originCode": "US"
   },
   {
     "id": "a5n6o7p8-q9r0-s1t2-u3v4-w5x6y7z8a9b0",
@@ -607,6 +661,8 @@ const rawResources = [
     "entityCategory": "Academic",
     "entitySubType": "Academic",
     "description": "Share your digital data to help Penn Medicine researchers understand health.",
+    "origin": "United States",
+    "originCode": "US",
     "citations": [
       {
         "title": "J.C. Eichstaedt, R.J. Smith, R.M. Merchant, L.H. Ungar, P. Crutchley, D. Preoţiuc-Pietro, D.A. Asch, & H.A. Schwartz,   Facebook language predicts depression in medical records, Proc. Natl. Acad. Sci. U.S.A. 115 (44) 11203-11208, (2018).",
@@ -636,7 +692,9 @@ const rawResources = [
     "compensationType": "donation",
     "entityCategory": "Government",
     "entitySubType": "Regulatory Agency",
-    "description": "Plain-language summaries of research studies approved by the NHS Health Research Authority."
+    "description": "Plain-language summaries of research studies approved by the NHS Health Research Authority.",
+    "origin": "United Kingdom",
+    "originCode": "GB"
   },
   {
     "id": "c7p8q9r0-s1t2-u3v4-w5x6-y7z8a9b0c1d2",
@@ -651,7 +709,9 @@ const rawResources = [
     "resourceType": "database",
     "entityCategory": "Non-Profit",
     "entitySubType": "Research Collaborative",
-    "description": "A highly concentrated source of reports of randomized and quasi-randomized controlled trials from various databases and other sources. Access requires a subscription to the Cochrane Library."
+    "description": "A highly concentrated source of reports of randomized and quasi-randomized controlled trials from various databases and other sources. Access requires a subscription to the Cochrane Library.",
+    "origin": "United Kingdom",
+    "originCode": "GB"
   },
   {
     "id": "d8q9r0s1-t2u3-v4w5-x6y7-z8a9b0c1d2e3",
@@ -673,6 +733,8 @@ const rawResources = [
     "entityCategory": "Government",
     "entitySubType": "Regulatory Agency",
     "description": "A database of clinical trials approved by the Belgian Federal Agency for Medicines and Health Products (FAMHP).",
+    "origin": "Belgium",
+    "originCode": "BE",
     "citations": [
       {
         "title": "Krumb, E., Lambert, C., & Hermans, C. (2021). Patient selection for hemophilia gene therapy: Real-life data from a single center. Research and practice in thrombosis and haemostasis, 5(3), 390-394.",
@@ -699,7 +761,9 @@ const rawResources = [
     "resourceType": "registry",
     "entityCategory": "Academic",
     "entitySubType": "Academic",
-    "description": "The primary register for clinical trials conducted in Germany, providing public access to study information."
+    "description": "The primary register for clinical trials conducted in Germany, providing public access to study information.",
+    "origin": "Germany",
+    "originCode": "DE"
   },
   {
     "id": "f0s1t2u3-v4w5-x6y7-z8a9-b0c1d2e3f4g5",
@@ -720,7 +784,9 @@ const rawResources = [
     "resourceType": "database",
     "entityCategory": "Government",
     "entitySubType": "Regulatory Agency",
-    "description": "A listing of specific information relating to phase I, II, and III clinical trials in patients authorized by Health Canada."
+    "description": "A listing of specific information relating to phase I, II, and III clinical trials in patients authorized by Health Canada.",
+    "origin": "Canada",
+    "originCode": "CA"
   },
   {
     "id": "a1t2u3v4-w5x6-y7z8-a9b0-c1d2e3f4g5h6",
@@ -747,7 +813,9 @@ const rawResources = [
     "resourceType": "Directory",
     "entityCategory": "Non-Profit",
     "entitySubType": "Professional Association",
-    "description": "A search tool to find AATB-accredited tissue banks in the United States, covering various types of tissue, organ, and birth tissue donation."
+    "description": "A search tool to find AATB-accredited tissue banks in the United States, covering various types of tissue, organ, and birth tissue donation.",
+    "origin": "United States",
+    "originCode": "US"
   },
   {
     "id": "b2u3v4w5-x6y7-z8a9-b0c1-d2e3f4g5h6i7",
@@ -769,7 +837,9 @@ const rawResources = [
     "resourceType": "Donation Portal",
     "entityCategory": "Government",
     "entitySubType": "Public Health Service",
-    "description": "The official U.S. government website for organ, eye, and tissue donation. Provides information and links to state registries to sign up as a donor."
+    "description": "The official U.S. government website for organ, eye, and tissue donation. Provides information and links to state registries to sign up as a donor.",
+    "origin": "United States",
+    "originCode": "US"
   },
   {
     "id": "c3v4w5x6-y7z8-a9b0-c1d2-e3f4g5h6i7j8",
@@ -792,6 +862,8 @@ const rawResources = [
     "entityCategory": "Non-Profit",
     "entitySubType": "Non-Profit Organization",
     "description": "Bloodworks Northwest’s research program accepts blood donations to support a variety of studies, from developing new treatments to understanding blood-related diseases. This service is available in the Pacific Northwest.",
+    "origin": "United States",
+    "originCode": "US",
     "citations": [
       {
         "title": "Miller, M. J., Skrzekut, A., Kracalik, I., Jones, J. M., Lofy, K. H., Konkle, B. A., ... & Paranjape, S. (2021). How do I… facilitate a rapid response to a public health emergency requiring plasma collection with a public–private partnership?. Transfusion, 61(10), 2814-2824.",
@@ -814,6 +886,8 @@ const rawResources = [
     "entityCategory": "Academic",
     "entitySubType": "Research Center",
     "description": "Donate your chat history from assistants like ChatGPT, Gemini, and Claude to help researchers understand human-AI interaction patterns.",
+    "origin": "Germany",
+    "originCode": "DE",
     "citations": []
   },
   {
@@ -835,6 +909,8 @@ const rawResources = [
     "entityCategory": "Academic",
     "entitySubType": "University Hospital",
     "description": "A center in Verona, Italy, conducting clinical trials for healthy volunteers and patients. Volunteers can register to participate in various studies.",
+    "origin": "Italy",
+    "originCode": "IT",
     "citations": []
   },
   {
@@ -856,6 +932,8 @@ const rawResources = [
     "entityCategory": "Non-Profit",
     "entitySubType": "Hospital",
     "description": "A network for citizens to participate in scientific research at San Camillo IRCCS, contributing to medical progress and new therapies.",
+    "origin": "Italy",
+    "originCode": "IT",
     "citations": []
   },
   {
@@ -871,6 +949,8 @@ const rawResources = [
     "entityCategory": "Academic",
     "entitySubType": "Research Center",
     "description": "A data donation campaign focused on collecting cover letters for doctoral research to understand the impact of writing styles in a multilingual professional context.",
+    "origin": "Italy",
+    "originCode": "IT",
     "citations": []
   }
 ];

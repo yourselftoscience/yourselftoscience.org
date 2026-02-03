@@ -5,7 +5,7 @@ import React, { useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import CountryFlag from 'react-country-flag';
-import { FaHeart, FaDollarSign, FaExternalLinkAlt, FaBook, FaShareAlt, FaCheck } from 'react-icons/fa';
+import { FaHeart, FaDollarSign, FaExternalLinkAlt, FaBook, FaShareAlt, FaCheck, FaGlobe } from 'react-icons/fa';
 import { Popover, Transition } from '@headlessui/react';
 import { EU_COUNTRIES } from '@/data/constants';
 import { getResourceShareUrl, copyToClipboard } from '@/utils/shareUtils';
@@ -138,7 +138,7 @@ function CitationsPopover({ resource, citationMap }) {
         <>
           <Popover.Button
             className={`
-              group flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium transition-all duration-200
+              group flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium transition-all duration-200 min-h-[24px]
               ${open
                 ? 'bg-google-blue/10 text-google-blue ring-1 ring-google-blue/20'
                 : 'bg-slate-50 text-slate-600 hover:bg-slate-100 hover:text-slate-900 ring-1 ring-slate-200'
@@ -147,7 +147,7 @@ function CitationsPopover({ resource, citationMap }) {
             onClick={(e) => e.stopPropagation()}
             aria-label={`View ${resource.citations.length} ${resource.citations.length === 1 ? 'citation' : 'citations'}`}
           >
-            <FaBook className={`w-3 h-3 ${open ? 'text-google-blue' : 'text-slate-400 group-hover:text-slate-600'}`} />
+            <FaBook className={`w-3 h-3 ${open ? 'text-google-blue' : 'text-slate-500 group-hover:text-slate-600'}`} />
           </Popover.Button>
 
           <Transition
@@ -216,6 +216,7 @@ CitationsPopover.propTypes = {
   citationMap: PropTypes.object,
 };
 
+// ResourceCard component for displaying service details
 export default function ResourceCard({
   resource,
   filters,
@@ -314,6 +315,7 @@ export default function ResourceCard({
               </div>
             )}
 
+
             <h2 className="text-lg font-semibold text-google-text mt-1">
               {resource.title}
             </h2>
@@ -332,9 +334,29 @@ export default function ResourceCard({
         </div>
         <div className="mb-0.5">
           {resource.organization && (
-            <p className="organization-name text-sm font-medium text-slate-700 leading-tight">
-              {resource.organization}
-            </p>
+            <div className="flex flex-col items-start gap-0 mt-0">
+              <p className="organization-name text-sm font-medium text-slate-700 leading-tight">
+                {resource.organization}
+              </p>
+              {resource.originCode && (
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (resource.origin) {
+                      onFilterChange('origins', resource.origin, !filters.origins?.includes(resource.origin));
+                    }
+                  }}
+                  className={`flex items-center gap-1 py-1.5 rounded text-[10px] uppercase font-bold tracking-wider transition-all duration-200 min-h-[24px]
+                    ${filters.origins?.includes(resource.origin)
+                      ? 'text-blue-700 bg-blue-50 px-2 -ml-2'
+                      : 'text-slate-500 hover:text-slate-700 hover:bg-slate-50 px-0'
+                    }`}
+                  title={`Filter by origin: ${resource.origin || resource.originCode}`}
+                >
+                  <span>based in {resource.origin}</span>
+                </button>
+              )}
+            </div>
           )}
         </div>
 
@@ -342,7 +364,7 @@ export default function ResourceCard({
         {resource.description && (
           descriptionNeedsClamping ? (
             <button
-              className="text-sm text-google-text-secondary cursor-pointer text-left w-full bg-transparent border-none p-0"
+              className="text-sm text-google-text-secondary cursor-pointer text-left w-full bg-transparent border-none py-1"
               onClick={toggleExpansion}
               onKeyDown={handleKeyDown}
             >
@@ -351,13 +373,13 @@ export default function ResourceCard({
                 : `${resource.description.substring(0, 120)}...`
               }
               <span
-                className="mt-2 block text-sm text-google-blue hover:underline font-medium"
+                className="mt-2 block text-sm text-google-blue hover:underline font-medium min-h-[24px] flex items-center"
               >
                 {isExpanded ? 'Show less' : 'Show more'}
               </span>
             </button>
           ) : (
-            <div className="text-sm text-google-text-secondary">
+            <div className="text-sm text-google-text-secondary py-1">
               {resource.description}
             </div>
           )
@@ -367,8 +389,9 @@ export default function ResourceCard({
       <div className="mt-4 pt-4 border-t border-gray-100 flex flex-col gap-3">
         <div className="flex flex-col gap-2">
 
-          {resource.countries && resource.countries.length > 0 && (
+          {resource.countries && resource.countries.length > 0 ? (
             <div className="flex flex-wrap items-center gap-1.5">
+              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mr-1">Available in</span>
               {resource.countries.map((country, idx) => {
                 if (typeof country !== 'string' || country.length === 0) return null;
                 const code = resource.countryCodes?.[idx];
@@ -388,6 +411,18 @@ export default function ResourceCard({
                   </TagButton>
                 );
               })}
+            </div>
+          ) : (
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mr-1">Available in</span>
+              <TagButton
+                label="Worldwide"
+                isActive={filters.countries.includes('Worldwide')}
+                onClick={(e) => { e.stopPropagation(); onFilterChange('countries', 'Worldwide', !filters.countries.includes('Worldwide')); }}
+              >
+                <FaGlobe className="w-3 h-3 mr-1.5 text-slate-500" />
+                Worldwide
+              </TagButton>
             </div>
           )}
           {resource.dataTypes && resource.dataTypes.length > 0 && (
@@ -450,7 +485,7 @@ export default function ResourceCard({
             <button
               onClick={handleShare}
               className={`
-                relative group flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium transition-all duration-200
+                relative group flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium transition-all duration-200 min-h-[24px]
                 ${showCopied
                   ? 'bg-green-100 text-green-700 ring-1 ring-green-200'
                   : 'bg-slate-50 text-slate-600 hover:bg-slate-100 hover:text-slate-900 ring-1 ring-slate-200'
@@ -465,7 +500,7 @@ export default function ResourceCard({
                   <span className="text-xs">Copied!</span>
                 </>
               ) : (
-                <FaShareAlt className="w-3 h-3 text-slate-400 group-hover:text-slate-600" />
+                <FaShareAlt className="w-3 h-3 text-slate-500 group-hover:text-slate-600" />
               )}
             </button>
           </div>
@@ -482,6 +517,8 @@ ResourceCard.propTypes = {
     link: PropTypes.string,
     slug: PropTypes.string,
     organization: PropTypes.string,
+    origin: PropTypes.string,
+    originCode: PropTypes.string,
     compensationType: PropTypes.string,
     macroCategories: PropTypes.arrayOf(PropTypes.string),
     countries: PropTypes.arrayOf(PropTypes.string),

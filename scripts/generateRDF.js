@@ -57,6 +57,18 @@ yts:compensationType a rdfs:Property ;
         ttlContent += ` ; schema:additionalType wd:${resource.entitySubTypeWikidataId}`;
       }
 
+      // Add origin/location
+      if (resource.origin) {
+        ttlContent += ` ; schema:location [ a schema:Place; rdfs:label "${escapeRDFString(resource.origin)}"`;
+        if (resource.originCode) {
+          ttlContent += ` ; schema:addressCountry "${resource.originCode}"`;
+        }
+        if (resource.originWikidataId) {
+          ttlContent += ` ; schema:sameAs wd:${resource.originWikidataId}`;
+        }
+        ttlContent += ' ]';
+      }
+
       ttlContent += ' ] ;\n';
     }
 

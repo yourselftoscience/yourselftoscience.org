@@ -85,13 +85,14 @@ export default function FilterGroup({
                                 className="h-4 w-4 text-slate-900 border-slate-300 rounded focus:ring-slate-900 focus:ring-offset-0 focus:ring-1"
                             />
                             <span className={`flex items-center gap-2 text-sm sm:text-base font-medium ${filterKey === 'macroCategories' ? 'text-inherit' : 'text-slate-800'}`}>
-                                {emoji && <span className="text-base sm:text-lg leading-none">{emoji}</span>}
                                 {label}
+                                {emoji && <span className="text-base sm:text-lg leading-none">{emoji}</span>}
                                 {code && (
                                     <CountryFlag
                                         countryCode={code}
                                         svg
-                                        aria-label={label}
+                                        alt=""
+                                        aria-hidden="true"
                                         style={{ width: '1.1em', height: '0.9em', display: 'inline-block', verticalAlign: 'middle' }}
                                     />
                                 )}

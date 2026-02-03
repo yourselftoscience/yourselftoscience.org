@@ -9,7 +9,7 @@ import { resources as allResources } from '@/data/resources';
 import { PAYMENT_TYPES, EU_COUNTRIES } from '@/data/constants';
 import dynamic from 'next/dynamic';
 import CountryFlag from 'react-country-flag';
-import { FaTimes, FaDownload, FaSlidersH, FaPlus, FaSearch, FaCheck } from 'react-icons/fa';
+import { FaTimes, FaDownload, FaSlidersH, FaSearch, FaCheck, FaGlobe, FaPlus } from 'react-icons/fa';
 import { usePathname, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import NewsletterSignup from '../components/NewsletterSignup';
@@ -167,12 +167,12 @@ export default function Home() {
 
 
 // --- FilterPill Component ---
-function FilterPill({ label, summary, isActive, onClick, isStickyFilterBar }) {
+function FilterPill({ label, summary, isActive, onClick, isStickyFilterBar, className }) {
   return (
     <button
       type="button"
       onClick={onClick}
-      className="relative flex-1 flex flex-col justify-center px-6 py-3 text-left transition-colors hover:bg-slate-100/50 rounded-full"
+      className={`relative flex flex-col justify-center py-3 text-left transition-colors hover:bg-slate-100/50 rounded-full ${className || 'flex-1 px-6'}`}
     >
       <span className="text-xs font-bold text-slate-900 uppercase tracking-wider">
         {label}
@@ -222,6 +222,7 @@ function HomePageContent({ scrollY }) {
   const [filters, setFilters] = useState({
     macroCategories: [],
     countries: [],
+    origins: [], // New origin filter state
     dataTypes: [],
 
     compensationTypes: [],
@@ -265,6 +266,7 @@ function HomePageContent({ scrollY }) {
       dataTypes: parseUrlList(searchParams.get('dataTypes')),
       sectors: parseUrlList(searchParams.get('sectors')),
       countries: parseUrlList(searchParams.get('countries')),
+      origins: parseUrlList(searchParams.get('origins')), // Parse origins from URL
       macroCategories: parsedMacroCategories,
       // Map compensation values back to objects from PAYMENT_TYPES
       compensationTypes: parseUrlList(searchParams.get('compensationTypes')).map(val =>
@@ -289,6 +291,10 @@ function HomePageContent({ scrollY }) {
     if (filters.countries.length > 0) {
       // Sort countries alphabetically
       params.set('countries', [...filters.countries].sort((a, b) => a.localeCompare(b)).join(','));
+    }
+    if (filters.origins.length > 0) {
+      // Sort origins alphabetically
+      params.set('origins', [...filters.origins].sort((a, b) => a.localeCompare(b)).join(','));
     }
     if (filters.dataTypes.length > 0) {
       // Sort data types alphabetically
@@ -344,6 +350,23 @@ function HomePageContent({ scrollY }) {
     return uniqueCategories.sort((a, b) => a.localeCompare(b));
   }, []);
 
+  // Compute Origin options
+  const originOptions = useMemo(() => {
+    const origins = new Set();
+    const originCodeMap = new Map();
+    for (const resource of allResources) {
+      if (resource.origin) {
+        origins.add(resource.origin);
+        if (resource.originCode && !originCodeMap.has(resource.origin)) {
+          originCodeMap.set(resource.origin, resource.originCode);
+        }
+      }
+    }
+    return Array.from(origins)
+      .sort((a, b) => a.localeCompare(b))
+      .map(origin => ({ label: origin, value: origin, code: originCodeMap.get(origin) }));
+  }, []);
+
   const countryOptions = useMemo(() => {
     const countries = new Set();
     const countryCodeMap = new Map();
@@ -364,9 +387,15 @@ function HomePageContent({ scrollY }) {
         countryCodeMap.set('European Union', 'EU');
       }
     }
-    return Array.from(countries)
+    const sortedCountries = Array.from(countries)
       .sort((a, b) => a.localeCompare(b))
       .map(country => ({ label: country, value: country, code: countryCodeMap.get(country) }));
+
+    // Add Worldwide option at the beginning
+    return [
+      { label: 'Worldwide', value: 'Worldwide', emoji: '🌍' },
+      ...sortedCountries
+    ];
   }, []);
 
   // Show-more state for desktop compensation filter panel (mirrors other filters)
@@ -408,9 +437,23 @@ function HomePageContent({ scrollY }) {
 
     const expandedCountries = expandCountries(filters.countries || []);
     if (expandedCountries.length > 0) {
+      filteredData = filteredData.filter(resource => {
+        const isWorldwide = !resource.countries || resource.countries.length === 0;
+        // Check if "Worldwide" is explicitly selected and the resource is worldwide
+        if (expandedCountries.includes('Worldwide') && isWorldwide) {
+          return true;
+        }
+        // Check if the resource matches any selected specific country (reverted logic to ONLY check availability)
+        return resource.countries && resource.countries.some(rc => expandedCountries.includes(rc));
+      });
+    }
+
+    // New Origin Filter Logic
+    // New Origin Filter Logic
+    const expandedOrigins = expandCountries(filters.origins || []);
+    if (expandedOrigins.length > 0) {
       filteredData = filteredData.filter(resource =>
-        !resource.countries || resource.countries.length === 0 ||
-        (resource.countries && resource.countries.some(rc => expandedCountries.includes(rc)))
+        resource.origin && expandedOrigins.includes(resource.origin)
       );
     }
 
@@ -606,6 +649,7 @@ function HomePageContent({ scrollY }) {
   // --- Derived State for Filter Summaries ---
   const macroCategorySummary = getFilterSummary(filters.macroCategories, 'Any type');
   const countrySummary = getFilterSummary(filters.countries, 'Anywhere');
+  const originSummary = getFilterSummary(filters.origins, 'Any origin'); // New summary
   const dataTypeSummary = getFilterSummary(filters.dataTypes, 'All');
   const compensationSummary = getFilterSummary(filters.compensationTypes, 'Any', (v) => v.label);
 
@@ -703,6 +747,14 @@ function HomePageContent({ scrollY }) {
                   onClick={() => setOpenFilterPanel(openFilterPanel === 'compensationTypes' ? null : 'compensationTypes')}
                   isStickyFilterBar={isStickyFilterBar}
                 />
+                <div className="w-px bg-slate-200 my-3"></div>
+                <FilterPill
+                  label={<FaPlus className="text-sm" />}
+                  isActive={openFilterPanel === 'more'}
+                  onClick={() => setOpenFilterPanel(openFilterPanel === 'more' ? null : 'more')}
+                  isStickyFilterBar={isStickyFilterBar}
+                  className="flex-none px-0 items-center w-12"
+                />
               </div>
 
               {/* Desktop search field */}
@@ -746,21 +798,32 @@ function HomePageContent({ scrollY }) {
                     </div>
                     <div className="relative border-t border-slate-100 pt-4">
                       {openFilterPanel === 'macroCategories' && (
-                        <>
-                          <FilterGroup
-                            title="Category"
-                            options={macroCategoryOptions}
-                            filterKey="macroCategories"
-                            selectedValues={filters.macroCategories}
-                            onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
-                            onSelectAll={(shouldSelect) => handleSelectAll('macroCategories', macroCategoryOptions, shouldSelect)}
-                            config={{ alwaysExpanded: true, columns: 2, HeadingTag: 'h2' }}
-                          />
-
-                          <div className="w-full h-px bg-slate-100 my-6"></div>
-
-                          <div className="mb-2">
-                            <h3 className="text-sm font-semibold text-slate-900 mb-3">Sector</h3>
+                        <FilterGroup
+                          title="Category"
+                          options={macroCategoryOptions}
+                          filterKey="macroCategories"
+                          selectedValues={filters.macroCategories}
+                          onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
+                          onSelectAll={(shouldSelect) => handleSelectAll('macroCategories', macroCategoryOptions, shouldSelect)}
+                          config={{ alwaysExpanded: true, columns: 2, HeadingTag: 'h2' }}
+                        />
+                      )}
+                      {openFilterPanel === 'countries' && (
+                        <FilterGroup
+                          title="Available in"
+                          options={countryOptions}
+                          filterKey="countries"
+                          selectedValues={filters.countries}
+                          onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
+                          onSelectAll={(shouldSelect) => handleSelectAll('countries', countryOptions, shouldSelect)}
+                          config={{ alwaysExpanded: true, columns: 3, HeadingTag: 'h2' }}
+                        />
+                      )}
+                      {/* More Filters Panel containing Sector and Origin */}
+                      {openFilterPanel === 'more' && (
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                          <div>
+                            <h2 className="font-semibold text-base text-slate-900 mb-3">Type of Organization</h2>
                             <div className="flex flex-wrap gap-3">
                               {['Commercial', 'Public & Non-Profit'].map(sector => {
                                 const isSelected = filters.sectors.includes(sector);
@@ -789,18 +852,18 @@ function HomePageContent({ scrollY }) {
                               })}
                             </div>
                           </div>
-                        </>
-                      )}
-                      {openFilterPanel === 'countries' && (
-                        <FilterGroup
-                          title="Available in"
-                          options={countryOptions}
-                          filterKey="countries"
-                          selectedValues={filters.countries}
-                          onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
-                          onSelectAll={(shouldSelect) => handleSelectAll('countries', countryOptions, shouldSelect)}
-                          config={{ alwaysExpanded: true, columns: 2, HeadingTag: 'h2' }}
-                        />
+                          <div>
+                            <FilterGroup
+                              title="Based in"
+                              options={originOptions}
+                              filterKey="origins"
+                              selectedValues={filters.origins}
+                              onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
+                              onSelectAll={(shouldSelect) => handleSelectAll('origins', originOptions, shouldSelect)}
+                              config={{ alwaysExpanded: true, columns: 1, HeadingTag: 'h2' }}
+                            />
+                          </div>
+                        </div>
                       )}
                       {openFilterPanel === 'dataTypes' && (
                         <FilterGroup
@@ -863,6 +926,27 @@ function HomePageContent({ scrollY }) {
               </button>
             ))}
 
+            {/* Sort origins alphabetically before mapping */}
+            {[...filters.origins].sort((a, b) => a.localeCompare(b)).map(value => {
+              const originOption = originOptions.find(opt => opt.value === value);
+              const label = originOption?.label || value;
+              const code = originOption?.code;
+              return (
+                <span key={`sel-origin-${value}`} className="inline-flex items-center text-sm font-medium px-2 py-1 rounded-full bg-blue-100 text-blue-700">
+                  <span className="mr-1 text-[10px] uppercase font-bold tracking-wider text-blue-800">Based in</span>
+                  {label}
+                  {code && <CountryFlag countryCode={code} svg alt="" aria-hidden="true" style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />}
+                  <button
+                    onClick={() => handleCheckboxChange('origins', value, false)}
+                    className="ml-1 text-google-blue hover:opacity-75"
+                    aria-label={`Remove based in ${label}`}
+                  >
+                    <FaTimes size="0.9em" />
+                  </button>
+                </span>
+              );
+            })}
+
             {/* Sort macro categories alphabetically before mapping */}
             {[...filters.macroCategories].sort((a, b) => a.localeCompare(b)).map(value => {
               const categoryStyles = {
@@ -895,7 +979,7 @@ function HomePageContent({ scrollY }) {
               return (
                 <span key={`sel - ctry - ${value} `} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
                   {label}
-                  {code && <CountryFlag countryCode={code} svg style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />}
+                  {code && <CountryFlag countryCode={code} svg alt="" aria-hidden="true" style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />}
                   <button
                     onClick={() => handleCheckboxChange('countries', value, false)}
                     className="ml-1 text-google-blue hover:opacity-75" aria-label={`Remove ${label} `}>
@@ -975,6 +1059,7 @@ function HomePageContent({ scrollY }) {
         toggleDrawer={toggleFilterDrawer}
         filters={filters}
         countryOptions={countryOptions}
+        originOptions={originOptions}
         dataTypeOptions={dataTypeOptions}
         paymentTypes={PAYMENT_TYPES}
         handleCheckboxChange={handleCheckboxChange}
@@ -1018,7 +1103,6 @@ function HomePageContent({ scrollY }) {
               onSelectAll={(shouldSelect) => handleSelectAll('compensationTypes', PAYMENT_TYPES, shouldSelect)}
               config={{ HeadingTag: 'h2' }}
             />
-
             <div className="mt-6 border-t border-slate-100 pt-5">
               <h2 className="text-lg font-bold mb-3 text-slate-800">Sector</h2>
               <div className="flex flex-wrap gap-2">
@@ -1049,6 +1133,16 @@ function HomePageContent({ scrollY }) {
                 })}
               </div>
             </div>
+
+            <FilterGroup
+              title="Based In"
+              options={originOptions}
+              filterKey="origins"
+              selectedValues={filters.origins}
+              onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
+              onSelectAll={(shouldSelect) => handleSelectAll('origins', originOptions, shouldSelect)}
+              config={{ HeadingTag: 'h2' }}
+            />
           </>
         )}
       />

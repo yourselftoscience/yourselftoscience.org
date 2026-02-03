@@ -6,7 +6,7 @@ This guide details how to manage the underlying data for **Yourself to Science**
 
 The project currently maintains two parallel data sources that must be kept in sync:
 
-1. **`src/data/resources.js`**: The primary source for the **web application**. This drives the UI cards and search functionality.
+1. 1. **`src/data/resources.js`**: The primary source for the **web application**. This drives the UI cards and search functionality. It includes the `origin` field for each resource.
 2. **`public/resources_wikidata.json`**: The source for the **downloadable datasets** (`resources.json`, `resources.csv`, `resources.ttl`). This file contains additional metadata, specifically Wikidata IDs, to support Linked Open Data (LOD).
 
 ## Workflow: Adding or Updating a Resource
