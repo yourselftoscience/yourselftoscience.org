@@ -515,6 +515,7 @@ const rawResources = [
     "id": "a9h0i1j2-k3l4-m5n6-o7p8-q9r0s1t2u3v4",
     "slug": "goodnature-program",
     "title": "GoodNature Program",
+    "organization": "Nestlé Health Science U.S.",
     "link": "https://goodnatureprogram.com/apply/",
     "dataTypes": [
       "Stool"

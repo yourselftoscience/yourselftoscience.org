@@ -226,6 +226,7 @@ yts:compensationType a rdfs:Property ;
 <https://yourselftoscience.org/resource/a9h0i1j2-k3l4-m5n6-o7p8-q9r0s1t2u3v4> a schema:Dataset ;
   rdfs:label "GoodNature Program" ;
   schema:description "A stool donation program supporting research into microbiome-based therapeutics." ;
+  schema:creator [ a schema:Organization; rdfs:label "Nestlé Health Science U.S." ; schema:additionalType wd:Q4830453 ; schema:additionalType wd:Q4830453 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ] ] ;
   schema:url <https://goodnatureprogram.com/apply/> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "United States" ; schema:sameAs wd:Q30 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Stool" ; schema:sameAs wd:Q496 ] ;
