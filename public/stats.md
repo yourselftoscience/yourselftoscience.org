@@ -69,7 +69,7 @@ An overview of the resources available on Yourself to Science, providing insight
 - **Non-Profit:** 9
     - **Non-Profit Organization:** 4
     - **Research Foundation:** 2
-    - **Research Collaborative:** 1
+    - **Non-Governmental Organization:** 1
     - **Professional Association:** 1
     - **Hospital:** 1
 - **Commercial:** 8

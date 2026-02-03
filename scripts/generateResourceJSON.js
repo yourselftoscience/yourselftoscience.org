@@ -1,18 +1,15 @@
-import { writeFile } from 'fs/promises';
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-const wikidataResources = require('../public/resources_wikidata.json');
+import { readFileSync, writeFileSync } from 'fs';
+import { join } from 'path';
 
-const outputPath = './public/resources.json';
+const jsonPath = join(process.cwd(), 'public/resources_wikidata.json');
+const outputPath = join(process.cwd(), 'public/resources.json');
 
-function generateJSON() {
-  try {
-    const jsonContent = JSON.stringify(wikidataResources, null, 2);
-    writeFile(outputPath, jsonContent, 'utf8');
-    console.log(`Successfully generated JSON file at ${outputPath}`);
-  } catch (error) {
-    console.error('Error generating JSON file:', error);
-  }
+try {
+  const wikidataResources = JSON.parse(readFileSync(jsonPath, 'utf8'));
+  const jsonContent = JSON.stringify(wikidataResources, null, 2);
+  writeFileSync(outputPath, jsonContent, 'utf8');
+  console.log(`Successfully generated JSON file at ${outputPath}`);
+} catch (error) {
+  console.error('Error generating JSON file:', error);
+  process.exit(1);
 }
-
-generateJSON();

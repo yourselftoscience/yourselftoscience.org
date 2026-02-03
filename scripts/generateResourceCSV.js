@@ -1,11 +1,12 @@
-import { writeFile } from 'fs/promises';
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-const wikidataResources = require('../public/resources_wikidata.json');
+import { readFileSync, writeFileSync } from 'fs';
+import { join } from 'path';
 
-const outputPath = './public/resources.csv';
+const jsonPath = join(process.cwd(), 'public/resources_wikidata.json');
+const outputPath = join(process.cwd(), 'public/resources.csv');
 
-function generateCSV() {
+try {
+  const wikidataResources = JSON.parse(readFileSync(jsonPath, 'utf8'));
+
   const headers = [
     'id', 'title', 'organization', 'link', 'dataTypes', 'compensationType',
     'entityCategory', 'entitySubType', 'countries', 'countryCodes', 'origin', 'originCode',
@@ -43,12 +44,9 @@ function generateCSV() {
     csvContent += row.join(',') + '\n';
   });
 
-  try {
-    writeFile(outputPath, csvContent, 'utf8');
-    console.log(`Successfully generated CSV file at ${outputPath}`);
-  } catch (error) {
-    console.error('Error generating CSV file:', error);
-  }
+  writeFileSync(outputPath, csvContent, 'utf8');
+  console.log(`Successfully generated CSV file at ${outputPath}`);
+} catch (error) {
+  console.error('Error generating CSV file:', error);
+  process.exit(1);
 }
-
-generateCSV();

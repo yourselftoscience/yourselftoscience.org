@@ -4,7 +4,7 @@
     "slug": "open-humans",
     "title": "Open Humans",
     "organization": "Open Humans Foundation",
-    "organizationWikidataId": "Q124539000",
+    "organizationWikidataId": "Q59696822",
     "link": "https://www.openhumans.org/add-data/",
     "dataTypes": [
       "Genome",
@@ -199,7 +199,7 @@
       "Wearable data (Fitbit only)": null
     },
     "countryMappings": {},
-    "wikidataId": "Q5455414",
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453"
   },
@@ -208,6 +208,7 @@
     "slug": "spark-for-autism",
     "title": "SPARK for Autism",
     "organization": "Simons Foundation",
+    "organizationWikidataId": "Q28148561",
     "link": "https://sparkforautism.org/why/",
     "dataTypes": [
       "Genome",
@@ -235,7 +236,7 @@
     "countryMappings": {
       "United States": "Q30"
     },
-    "wikidataId": "Q28148561",
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q119852396"
   },
@@ -270,7 +271,7 @@
     "countryMappings": {
       "Canada": "Q16"
     },
-    "resourceWikidataId": "Q1662770",
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q3400985"
   },
@@ -279,6 +280,7 @@
     "slug": "cambridge-body-tissue-donation",
     "title": "University of Cambridge Body and Tissue Donation",
     "organization": "Department of Anatomy at the University Of Cambridge; Cambridge Biomedical Research Centre",
+    "organizationWikidataId": "Q33121816",
     "link": "https://www.cuh.nhs.uk/our-research/get-involved/donate-body-to-medical-science/",
     "dataTypes": [
       "Body",
@@ -314,7 +316,7 @@
     "slug": "italy-body-tissue-donation",
     "title": "Body and tissue donation in Italy",
     "organization": "Ministero della Salute",
-    "organizationWikidataId": "Q1519799",
+    "organizationWikidataId": "Q745634",
     "link": "https://www.salute.gov.it/portale/disposizionepostmortem/dettaglioContenutiDisposizionepostmortem.jsp?lingua=italiano&id=6004&area=postMortem&menu=vuoto",
     "dataTypes": [
       "Body",
@@ -422,6 +424,7 @@
     "slug": "clinicaltrials-gov",
     "title": "ClinicalTrials.gov",
     "organization": "United States National Library of Medicine (NLM)",
+    "organizationWikidataId": "Q611833",
     "link": "https://clinicaltrials.gov/",
     "dataTypes": [
       "Clinical trials"
@@ -449,6 +452,7 @@
     "slug": "who-ictrp",
     "title": "International Clinical Trials Registry Platform (ICTRP)",
     "organization": "World Health Organization (WHO)",
+    "organizationWikidataId": "Q7817",
     "link": "https://trialsearch.who.int/",
     "dataTypes": [
       "Clinical trials"
@@ -468,7 +472,7 @@
       "Clinical trials": "Q30612"
     },
     "countryMappings": {},
-    "wikidataId": "Q7817",
+    "wikidataId": "Q29867940",
     "entityCategoryWikidataId": "Q245065",
     "entitySubTypeWikidataId": "Q245065"
   },
@@ -696,6 +700,7 @@
     "slug": "flucamp",
     "title": "FluCamp",
     "organization": "hVIVO",
+    "organizationWikidataId": "Q30268998",
     "link": "https://flucamp.com/",
     "dataTypes": [
       "Clinical trials"
@@ -735,6 +740,7 @@
     "slug": "healthstreet",
     "title": "HealthStreet",
     "organization": "University of Florida Health",
+    "organizationWikidataId": "Q7487946",
     "link": "https://healthstreet.program.ufl.edu/uf-researchers/participate-in-research/",
     "dataTypes": [
       "Clinical trials"
@@ -760,7 +766,7 @@
     "countryMappings": {
       "United States": "Q30"
     },
-    "wikidataId": "Q7487946",
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q3400985"
   },
@@ -769,6 +775,7 @@
     "slug": "goodnature-program",
     "title": "GoodNature Program",
     "organization": "Nestlé Health Science U.S.",
+    "organizationWikidataId": "Q45132270",
     "link": "https://goodnatureprogram.com/apply/",
     "dataTypes": [
       "Stool"
@@ -801,6 +808,7 @@
     "id": "b0i1j2k3-l4m5-n6o7-p8q9-r0s1t2u3v4w5",
     "slug": "lifeblood-microbiome",
     "title": "Microbiome",
+    "wikidataLabel": "Australian Red Cross Lifeblood microbiome donation",
     "organization": "Australian Red Cross Lifeblood",
     "link": "https://www.lifeblood.com.au/microbiome",
     "dataTypes": [
@@ -827,7 +835,7 @@
     "countryMappings": {
       "Australia": "Q408"
     },
-    "wikidataId": "Q4824602",
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q163740"
   },
@@ -835,7 +843,9 @@
     "id": "c1j2k3l4-m5n6-o7p8-q9r0-s1t2u3v4w5x6",
     "slug": "wesley-stool-donation",
     "title": "Stool Donation",
+    "wikidataLabel": "Wesley Research Institute stool donation",
     "organization": "Wesley Research Institute",
+    "organizationWikidataId": "Q30289631",
     "link": "https://www.wesleyresearch.org.au/biobank-project/stool-donation/",
     "dataTypes": [
       "Stool"
@@ -861,7 +871,7 @@
     "countryMappings": {
       "Australia": "Q408"
     },
-    "wikidataId": "Q30289631",
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q163740"
   },
@@ -869,6 +879,7 @@
     "id": "d2k3l4m5-n6o7-p8q9-r0s1-t2u3v4w5x6y7",
     "slug": "wesley-placenta-donation",
     "title": "Placenta Donation",
+    "wikidataLabel": "Wesley Research Institute placenta donation",
     "organization": "Wesley Research Institute",
     "link": "https://www.wesleyresearch.org.au/biobank-project/placenta-donation/",
     "dataTypes": [
@@ -895,7 +906,7 @@
     "countryMappings": {
       "Australia": "Q408"
     },
-    "wikidataId": "Q30289631",
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q163740"
   },
@@ -948,6 +959,7 @@
     "title": "UCSF Social Media Archive",
     "link": "https://www.library.ucsf.edu/archives/donate/materials/donating-your-social-media/",
     "organization": "UCSF Library Archives",
+    "organizationWikidataId": "Q25004607",
     "dataTypes": [
       "Social media data"
     ],
@@ -972,6 +984,7 @@
     "slug": "penn-medicine-donate-your-data",
     "title": "Penn Medicine Donate Your Data",
     "organization": "Penn Medicine",
+    "organizationWikidataId": "Q7896080",
     "link": "https://cdh.nmsdev.com/donate-your-data",
     "dataTypes": [
       "Health data",
@@ -1012,7 +1025,9 @@
     "id": "b6o7p8q9-r0s1-t2u3-v4w5-x6y7z8a9b0c1",
     "slug": "hra-research-summaries",
     "title": "Research Summaries",
+    "wikidataLabel": "NHS Health Research Authority Research Summaries",
     "organization": "NHS Health Research Authority",
+    "organizationWikidataId": "Q16937226",
     "link": "https://www.hra.nhs.uk/planning-and-improving-research/application-summaries/research-summaries/",
     "dataTypes": [
       "Health data"
@@ -1051,7 +1066,7 @@
     "compensationType": "mixed",
     "resourceType": "database",
     "entityCategory": "Non-Profit",
-    "entitySubType": "Research Collaborative",
+    "entitySubType": "Non-Governmental Organization",
     "description": "A highly concentrated source of reports of randomized and quasi-randomized controlled trials from various databases and other sources. Access requires a subscription to the Cochrane Library.",
     "origin": "United Kingdom",
     "originCode": "GB",
@@ -1061,9 +1076,12 @@
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
-    "countryMappings": {},
+    "countryMappings": {
+      "United Kingdom": "Q145"
+    },
     "wikidataId": "Q1105187",
-    "entityCategoryWikidataId": "Q163740"
+    "entityCategoryWikidataId": "Q163740",
+    "entitySubTypeWikidataId": "Q79913"
   },
   {
     "id": "d8q9r0s1-t2u3-v4w5-x6y7-z8a9b0c1d2e3",
@@ -1137,7 +1155,7 @@
     "countryMappings": {
       "Germany": "Q183"
     },
-    "wikidataId": "Q96199255",
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q3400985"
   },
@@ -1228,6 +1246,7 @@
     "slug": "organdonor-gov",
     "title": "OrganDonor.gov",
     "organization": "U.S. Department of Health & Human Services",
+    "organizationWikidataId": "Q942326",
     "link": "https://www.organdonor.gov/sign-up",
     "dataTypes": [
       "Organ",
@@ -1262,7 +1281,8 @@
   {
     "id": "c3v4w5x6-y7z8-a9b0-c1d2-e3f4g5h6i7j8",
     "slug": "bloodworks-research",
-    "title": "Research Donations",
+    "title": "Donate Blood for Research",
+    "wikidataLabel": "Bloodworks Northwest Donate Blood for Research",
     "organization": "Bloodworks Northwest",
     "link": "https://bloodworksnw.org/donate/research",
     "dataTypes": [
@@ -1299,7 +1319,7 @@
     "countryMappings": {
       "United States": "Q30"
     },
-    "wikidataId": "Q21015632",
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q163740"
   },
@@ -1422,7 +1442,7 @@
       "Cover letters": "Q569410"
     },
     "countryMappings": {},
-    "wikidataId": "Q1245390",
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q42240"
   }

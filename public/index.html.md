@@ -406,7 +406,7 @@ This page provides a filterable catalogue of all resources. You can also downloa
 
 ---
 
-### [Research Donations](https://yourselftoscience.org/resource/bloodworks-research)
+### [Donate Blood for Research](https://yourselftoscience.org/resource/bloodworks-research)
 
 *Description:* Bloodworks Northwest’s research program accepts blood donations to support a variety of studies, from developing new treatments to understanding blood-related diseases. This service is available in the Pacific Northwest.
 

@@ -1,9 +1,8 @@
-import { writeFile } from 'fs/promises';
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-const wikidataResources = require('../public/resources_wikidata.json');
+import { readFileSync, writeFileSync } from 'fs';
+import { join } from 'path';
 
-const outputPath = './public/resources.ttl';
+const outputPath = join(process.cwd(), 'public/resources.ttl');
+const jsonPath = join(process.cwd(), 'public/resources_wikidata.json');
 const BASE_URI = 'https://yourselftoscience.org/resource/';
 
 function escapeRDFString(str) {
@@ -11,7 +10,9 @@ function escapeRDFString(str) {
   return str.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, '\\n');
 }
 
-function generateTurtle() {
+try {
+  const wikidataResources = JSON.parse(readFileSync(jsonPath, 'utf8'));
+
   let ttlContent = `@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <http://schema.org/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
@@ -39,7 +40,6 @@ yts:compensationType a rdfs:Property ;
     }
 
     if (resource.organization) {
-      // Use a more specific type if available
       const orgType = resource.entityCategory === 'Government' ? 'schema:GovernmentOrganization' : 'schema:Organization';
 
       ttlContent += `  schema:creator [ a ${orgType}; rdfs:label "${escapeRDFString(resource.organization)}"`;
@@ -47,17 +47,14 @@ yts:compensationType a rdfs:Property ;
         ttlContent += ` ; schema:sameAs wd:${resource.wikidataId}`;
       }
 
-      // Add the entityCategory as an additionalType if its Wikidata ID exists
       if (resource.entityCategoryWikidataId) {
         ttlContent += ` ; schema:additionalType wd:${resource.entityCategoryWikidataId}`;
       }
 
-      // Add the entitySubType as an additionalType if its Wikidata ID exists
       if (resource.entitySubTypeWikidataId) {
         ttlContent += ` ; schema:additionalType wd:${resource.entitySubTypeWikidataId}`;
       }
 
-      // Add origin/location
       if (resource.origin) {
         ttlContent += ` ; schema:location [ a schema:Place; rdfs:label "${escapeRDFString(resource.origin)}"`;
         if (resource.originCode) {
@@ -111,12 +108,10 @@ yts:compensationType a rdfs:Property ;
     }
   });
 
-  try {
-    writeFile(outputPath, ttlContent, 'utf8');
-    console.log(`Successfully generated Turtle (TTL) file at ${outputPath}`);
-  } catch (error) {
-    console.error('Error generating Turtle (TTL) file:', error);
-  }
-}
+  writeFileSync(outputPath, ttlContent, 'utf8');
+  console.log(`Successfully generated Turtle (TTL) file at ${outputPath}`);
 
-generateTurtle(); 
+} catch (err) {
+  console.error('Error generating RDF:', err);
+  process.exit(1);
+}

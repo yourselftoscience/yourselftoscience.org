@@ -6,7 +6,7 @@ const rawResources = [
     "slug": "open-humans",
     "title": "Open Humans",
     "organization": "Open Humans Foundation",
-    "organizationWikidataId": "Q124539000",
+
     "link": "https://www.openhumans.org/add-data/",
     "dataTypes": [
       "Genome",
@@ -33,7 +33,7 @@ const rawResources = [
     "slug": "myphd",
     "title": "MyPHD",
     "organization": "Stanford University",
-    "organizationWikidataId": "Q41506",
+
     "link": "https://myphd.stanford.edu/studies/",
     "dataTypes": [
       "Health data",
@@ -57,7 +57,7 @@ const rawResources = [
     "slug": "google-health-studies",
     "title": "Google Health Studies",
     "organization": "Google",
-    "organizationWikidataId": "Q95",
+
     "link": "https://health.google/consumers/health-studies/",
     "dataTypes": [
       "Health data"
@@ -74,7 +74,7 @@ const rawResources = [
     "slug": "apple-research",
     "title": "Apple Research",
     "organization": "Apple",
-    "organizationWikidataId": "Q312",
+
     "link": "https://support.apple.com/en-us/108425",
     "dataTypes": [
       "Health data"
@@ -97,7 +97,7 @@ const rawResources = [
     "slug": "all-of-us",
     "title": "All of Us",
     "organization": "National Institutes of Health (NIH)",
-    "organizationWikidataId": "Q390551",
+
     "link": "https://allofus.nih.gov/",
     "dataTypes": [
       "Genome",
@@ -122,7 +122,7 @@ const rawResources = [
     "title": "Health research and product development",
     "wikidataLabel": "Fitbit Health Research and Product Development",
     "organization": "Fitbit",
-    "organizationWikidataId": "Q5455414",
+
     "instructions": [
       "Open the Fitbit app",
       "Go to Fitbit settings",
@@ -168,7 +168,7 @@ const rawResources = [
     "title": "Body Donation",
     "wikidataLabel": "UBC Body Donation Program",
     "organization": "Faculty of Medicine at the University of British Columbia",
-    "organizationWikidataId": "Q7863800",
+
     "link": "https://cps.med.ubc.ca/the-donation-process/",
     "dataTypes": [
       "Body"
@@ -216,7 +216,7 @@ const rawResources = [
     "title": "Body & Tissues Donation",
     "wikidataLabel": "Body and tissue donation in Italy",
     "organization": "Ministero della Salute",
-    "organizationWikidataId": "Q1519799",
+
     "link": "https://www.salute.gov.it/portale/disposizionepostmortem/dettaglioContenutiDisposizionepostmortem.jsp?lingua=italiano&id=6004&area=postMortem&menu=vuoto",
     "dataTypes": [
       "Body",
@@ -241,7 +241,7 @@ const rawResources = [
     "title": "Donate the Body to Science",
     "wikidataLabel": "Body donation in France",
     "organization": "Service-Public.fr",
-    "organizationWikidataId": "Q3480047",
+
     "link": "https://www.service-public.fr/particuliers/vosdroits/F180",
     "dataTypes": [
       "Body"
@@ -265,7 +265,7 @@ const rawResources = [
     "title": "Eggs, Sperm and Embryos Donation to Research",
     "wikidataLabel": "Gamete and embryo donation in the United Kingdom",
     "organization": "Human Fertilisation and Embryology Authority",
-    "organizationWikidataId": "Q1636533",
+
     "link": "https://www.hfea.gov.uk/donation/donors/donating-to-research/",
     "dataTypes": [
       "Eggs",
@@ -325,7 +325,7 @@ const rawResources = [
     "slug": "eu-clinical-trials-register",
     "title": "EU Clinical Trials Register",
     "organization": "European Medicines Agency (EMA)",
-    "organizationWikidataId": "Q130146",
+
     "link": "https://euclinicaltrials.eu/search-for-clinical-trials/",
     "dataTypes": [
       "Clinical trials"
@@ -556,6 +556,7 @@ const rawResources = [
     "slug": "lifeblood-microbiome",
     "title": "Microbiome",
     "organization": "Australian Red Cross Lifeblood",
+
     "link": "https://www.lifeblood.com.au/microbiome",
     "dataTypes": [
       "Stool"
@@ -724,6 +725,7 @@ const rawResources = [
     "slug": "cochrane-central-register-of-controlled-trials",
     "title": "Cochrane Central Register of Controlled Trials (CENTRAL)",
     "organization": "Cochrane Library",
+
     "link": "https://www.cochranelibrary.com/central",
     "dataTypes": [
       "Clinical trials"
@@ -731,7 +733,7 @@ const rawResources = [
     "compensationType": "mixed",
     "resourceType": "database",
     "entityCategory": "Non-Profit",
-    "entitySubType": "Research Collaborative",
+    "entitySubType": "Non-Governmental Organization",
     "description": "A highly concentrated source of reports of randomized and quasi-randomized controlled trials from various databases and other sources. Access requires a subscription to the Cochrane Library.",
     "origin": "United Kingdom",
     "originCode": "GB"
@@ -741,7 +743,7 @@ const rawResources = [
     "slug": "belgian-clinical-trials-database",
     "title": "Clinical Trials Database",
     "organization": "Federal Agency for Medicines and Health Products (FAMHP)",
-    "organizationWikidataId": "Q2682107",
+
     "link": "https://clinicaltrialsdatabase.be/",
     "dataTypes": [
       "Clinical trials"
@@ -771,6 +773,7 @@ const rawResources = [
     "slug": "german-clinical-trials-register",
     "title": "German Clinical Trials Register (DRKS)",
     "organization": "DRKS",
+
     "link": "https://drks.de/",
     "dataTypes": [
       "Clinical trials"
@@ -795,7 +798,7 @@ const rawResources = [
     "title": "Health Canada's Clinical Trials Database",
     "link": "https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/health-canada-clinical-trials-database.html",
     "organization": "Health Canada",
-    "organizationWikidataId": "Q1057591",
+
     "dataTypes": [
       "Clinical trials"
     ],
@@ -818,6 +821,7 @@ const rawResources = [
     "slug": "aatb-accredited-bank-search",
     "title": "AATB Accredited Bank Search",
     "organization": "American Association of Tissue Banks (AATB)",
+
     "link": "https://www.aatb.org/accredited-bank-search",
     "dataTypes": [
       "Tissue",
@@ -869,8 +873,9 @@ const rawResources = [
   {
     "id": "c3v4w5x6-y7z8-a9b0-c1d2-e3f4g5h6i7j8",
     "slug": "bloodworks-research",
-    "title": "Research Donations",
+    "title": "Donate Blood for Research",
     "organization": "Bloodworks Northwest",
+
     "link": "https://bloodworksnw.org/donate/research",
     "dataTypes": [
       "Blood",
@@ -901,7 +906,7 @@ const rawResources = [
     "slug": "conversational-ai-data-donation",
     "title": "Conversational AI Data Donation",
     "organization": "Max Planck Institute for Software Systems",
-    "organizationWikidataId": "Q881238",
+
     "link": "https://social-media-data-donator.mpi-sws.org/",
     "dataTypes": [
       "Conversational AI data"
@@ -968,7 +973,7 @@ const rawResources = [
     "title": "Donate Your Cover Letter to Research",
     "wikidataLabel": "Eurac Research Cover Letter Donation",
     "organization": "Eurac Research",
-    "organizationWikidataId": "Q1245390",
+
     "link": "https://www.eurac.edu/en/blogs/connecting-the-dots/data-donations-why-should-i-donate-my-cover-letter-to-research",
     "dataTypes": [
       "Cover letters"
