@@ -42,6 +42,11 @@ async function enrichResources() {
 
     let enrichedResource = { ...resource };
 
+    // Use wikidataLabel as title if available to comply with Wikidata naming guidelines
+    if (enrichedResource.wikidataLabel) {
+      enrichedResource.title = enrichedResource.wikidataLabel;
+    }
+
     // Initialize mappings containers
     enrichedResource.dataTypeMappings = {};
     enrichedResource.countryMappings = {};
@@ -56,6 +61,8 @@ async function enrichResources() {
       if (existingEntry.entityCategoryWikidataId) enrichedResource.entityCategoryWikidataId = existingEntry.entityCategoryWikidataId;
       if (existingEntry.entitySubTypeWikidataId) enrichedResource.entitySubTypeWikidataId = existingEntry.entitySubTypeWikidataId;
       if (existingEntry.originWikidataId) enrichedResource.originWikidataId = existingEntry.originWikidataId;
+      if (existingEntry.organizationWikidataId) enrichedResource.organizationWikidataId = existingEntry.organizationWikidataId; // Preserve manual organization ID
+
       // Also preserve legacy resourceWikidataId if needed (redundant check but safe)
       if (existingEntry.resourceWikidataId) enrichedResource.resourceWikidataId = existingEntry.resourceWikidataId;
 
@@ -92,12 +99,13 @@ async function enrichResources() {
       // --- NEW RESOURCE: INITIALIZE EMPTY FIELDS ---
       console.log(`Adding NEW resource structure: ${resource.title}`);
 
-      // Initialize all Wikidata fields to null
-      enrichedResource.wikidataId = null;
-      enrichedResource.resourceWikidataId = null;
-      enrichedResource.entityCategoryWikidataId = null;
-      enrichedResource.entitySubTypeWikidataId = null;
-      enrichedResource.originWikidataId = null;
+      // Initialize all Wikidata fields to null (unless already in source)
+      enrichedResource.wikidataId = resource.wikidataId || null;
+      enrichedResource.resourceWikidataId = resource.resourceWikidataId || null;
+      enrichedResource.entityCategoryWikidataId = resource.entityCategoryWikidataId || null;
+      enrichedResource.entitySubTypeWikidataId = resource.entitySubTypeWikidataId || null;
+      enrichedResource.originWikidataId = resource.originWikidataId || null;
+      enrichedResource.organizationWikidataId = resource.organizationWikidataId || null;
 
       // Initialize mappings with keys but null values
       for (const type of resource.dataTypes || []) {
@@ -108,14 +116,133 @@ async function enrichResources() {
       }
     }
 
+    // Force title override from wikidataLabel AND remove wikidataLabel from output
+    if (enrichedResource.wikidataLabel) {
+      enrichedResource.title = enrichedResource.wikidataLabel;
+      delete enrichedResource.wikidataLabel; // Remove valid field from output JSON
+    }
+
     enrichedResources.push(enrichedResource);
   }
 
   try {
     await writeFile(OUTPUT_PATH, JSON.stringify(enrichedResources, null, 2), 'utf8');
     console.log(`Successfully synced (Safe Mode) to ${OUTPUT_PATH}`);
+
+    await generateReport(enrichedResources);
+
   } catch (error) {
     console.error('Error writing Wikidata-enriched file:', error);
+  }
+}
+
+// Helper to generate the Markdown report
+async function generateReport(resources) {
+  const REPORT_PATH = './wikidata_report.md';
+  console.log('Generating Wikidata Report...');
+
+  const generateLink = (id) => id ? `[${id}](https://www.wikidata.org/wiki/${id})` : '❌';
+
+  // 1. Resources List
+  const resourcesList = resources.map(r => {
+    const id = r.wikidataId || r.resourceWikidataId;
+    return `- **${r.title}**: ${generateLink(id)}`;
+  }).sort();
+
+  // 2. Organizations
+  const organizationMap = new Map();
+  resources.forEach(r => {
+    if (r.organization) {
+      if (!organizationMap.has(r.organization) || (r.organizationWikidataId && !organizationMap.get(r.organization))) {
+        // Prefer manual ID first (though it should be the same)
+        organizationMap.set(r.organization, r.organizationWikidataId || null);
+      }
+    }
+  });
+  const organizationsList = Array.from(organizationMap.entries()).sort().map(([key, value]) => {
+    return `- **${key}**: ${generateLink(value)}`;
+  });
+
+  // 3. Aggregate Data Types
+  const dataTypeMap = new Map();
+  resources.forEach(r => {
+    if (r.dataTypeMappings) {
+      Object.entries(r.dataTypeMappings).forEach(([key, value]) => {
+        if (!dataTypeMap.has(key) || (value && !dataTypeMap.get(key))) {
+          dataTypeMap.set(key, value);
+        }
+      });
+    }
+  });
+  const dataTypesList = Array.from(dataTypeMap.entries()).sort().map(([key, value]) => {
+    return `- **${key}**: ${generateLink(value)}`;
+  });
+
+  // 4. Aggregate Countries (Mappings + Origin)
+  const countryMap = new Map();
+  resources.forEach(r => {
+    // Check Origin
+    if (r.origin) {
+      if (!countryMap.has(r.origin) || (r.originWikidataId && !countryMap.get(r.origin))) {
+        countryMap.set(r.origin, r.originWikidataId);
+      }
+    }
+    // Check Mappings
+    if (r.countryMappings) {
+      Object.entries(r.countryMappings).forEach(([key, value]) => {
+        if (!countryMap.has(key) || (value && !countryMap.get(key))) {
+          countryMap.set(key, value);
+        }
+      });
+    }
+  });
+  const countriesList = Array.from(countryMap.entries()).sort().map(([key, value]) => {
+    return `- **${key}**: ${generateLink(value)}`;
+  });
+
+  // 5. Entity Categories (Entity Category & SubType)
+  const categoryMap = new Map();
+  resources.forEach(r => {
+    if (r.entityCategory) {
+      if (!categoryMap.has(r.entityCategory) || (r.entityCategoryWikidataId && !categoryMap.get(r.entityCategory))) {
+        categoryMap.set(r.entityCategory, r.entityCategoryWikidataId);
+      }
+    }
+    if (r.entitySubType) {
+      if (!categoryMap.has(r.entitySubType) || (r.entitySubTypeWikidataId && !categoryMap.get(r.entitySubType))) {
+        categoryMap.set(r.entitySubType, r.entitySubTypeWikidataId);
+      }
+    }
+  });
+  const categoriesList = Array.from(categoryMap.entries()).sort().map(([key, value]) => {
+    return `- **${key}**: ${generateLink(value)}`;
+  });
+
+  const reportContent = `# Wikidata Integration Report
+
+**Generated on:** ${new Date().toLocaleString()}
+
+## Resources
+${resourcesList.join('\n')}
+
+## Participating Organizations
+${organizationsList.join('\n')}
+
+## Data Types
+${dataTypesList.join('\n')}
+
+## Countries
+${countriesList.join('\n')}
+
+## Entity Categories
+${categoriesList.join('\n')}
+`;
+
+  try {
+    await writeFile(REPORT_PATH, reportContent, 'utf8');
+    console.log(`Successfully generated report at ${REPORT_PATH}`);
+  } catch (error) {
+    console.error('Error generating report:', error);
   }
 }
 

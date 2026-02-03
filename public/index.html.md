@@ -48,7 +48,7 @@ This page provides a filterable catalogue of all resources. You can also downloa
 
 ---
 
-### [All of US](https://yourselftoscience.org/resource/all-of-us)
+### [All of Us](https://yourselftoscience.org/resource/all-of-us)
 
 *Description:* A research program from the NIH to gather health data from one million or more people living in the US.
 
@@ -292,7 +292,7 @@ This page provides a filterable catalogue of all resources. You can also downloa
 
 ---
 
-### [Human Hair Decompositionw](https://yourselftoscience.org/resource/wroclaw-hair-decomposition)
+### [Human Hair Decomposition](https://yourselftoscience.org/resource/wroclaw-hair-decomposition)
 
 *Description:* Research on human hair decomposition at the University of Wrocław.
 

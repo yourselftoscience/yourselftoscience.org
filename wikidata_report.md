@@ -1,102 +1,144 @@
-# Wikidata Item Association Report
+# Wikidata Integration Report
 
-This report shows the association between items in your dataset and their corresponding Wikidata IDs.
-
-## Countries
-
-| Item | Wikidata ID |
-|------|-------------|
-| United States | [Q30](https://www.wikidata.org/wiki/Q30) |
-| Canada | [Q16](https://www.wikidata.org/wiki/Q16) |
-| United Kingdom | [Q145](https://www.wikidata.org/wiki/Q145) |
-| Italy | [Q38](https://www.wikidata.org/wiki/Q38) |
-| France | [Q142](https://www.wikidata.org/wiki/Q142) |
-| European Union | [Q458](https://www.wikidata.org/wiki/Q458) |
-| Iceland | [Q189](https://www.wikidata.org/wiki/Q189) |
-| Liechtenstein | [Q347](https://www.wikidata.org/wiki/Q347) |
-| Norway | [Q20](https://www.wikidata.org/wiki/Q20) |
-| Australia | [Q408](https://www.wikidata.org/wiki/Q408) |
-| Poland | [Q36](https://www.wikidata.org/wiki/Q36) |
-| Belgium | [Q31](https://www.wikidata.org/wiki/Q31) |
-| Germany | [Q183](https://www.wikidata.org/wiki/Q183) |
-
-## Data Types
-
-| Item | Wikidata ID |
-|------|-------------|
-| Genome | [Q7020](https://www.wikidata.org/wiki/Q7020) |
-| Health data | [Q18745135](https://www.wikidata.org/wiki/Q18745135) |
-| Search history | [Q60461381](https://www.wikidata.org/wiki/Q60461381) |
-| Body | [Q48422](https://www.wikidata.org/wiki/Q48422) |
-| Tissue | [Q40397](https://www.wikidata.org/wiki/Q40397) |
-| Eggs | [Q1321695](https://www.wikidata.org/wiki/Q1321695) |
-| Embryos | [Q33196](https://www.wikidata.org/wiki/Q33196) |
-| Sperm | [Q17145](https://www.wikidata.org/wiki/Q17145) |
-| Clinical trials | [Q30612](https://www.wikidata.org/wiki/Q30612) |
-| Stool | [Q496](https://www.wikidata.org/wiki/Q496) |
-| Hair | [Q28472](https://www.wikidata.org/wiki/Q28472) |
-| Social media data | [Q131520545](https://www.wikidata.org/wiki/Q131520545) |
-| Organ | [Q712378](https://www.wikidata.org/wiki/Q712378) |
-| Blood | [Q7873](https://www.wikidata.org/wiki/Q7873) |
-| Plasma | [Q79749](https://www.wikidata.org/wiki/Q79749) |
-| Stem cells | [Q48196](https://www.wikidata.org/wiki/Q48196) |
-
-## Entity Categories
-
-| Item | Wikidata ID |
-|------|-------------|
-| Non-Profit | [Q163740](https://www.wikidata.org/wiki/Q163740) |
-| Academic | [Q3400985](https://www.wikidata.org/wiki/Q3400985) |
-| Commercial | [Q4830453](https://www.wikidata.org/wiki/Q4830453) |
-| Government | [Q7188](https://www.wikidata.org/wiki/Q7188) |
-| Intergovernmental | [Q245065](https://www.wikidata.org/wiki/Q245065) |
-
-## Entity Sub-Types
-
-| Item | Wikidata ID |
-|------|-------------|
-| Research Foundation | [Q119852396](https://www.wikidata.org/wiki/Q119852396) |
-| Academic | [Q3400985](https://www.wikidata.org/wiki/Q3400985) |
-| Commercial | [Q4830453](https://www.wikidata.org/wiki/Q4830453) |
-| Research Agency | [Q9142054](https://www.wikidata.org/wiki/Q9142054) |
-| Health Service | [Q9353606](https://www.wikidata.org/wiki/Q9353606) |
-| Statutory Authority | [Q7604698](https://www.wikidata.org/wiki/Q7604698) |
-| Regulatory Agency | [Q1639780](https://www.wikidata.org/wiki/Q1639780) |
-| Intergovernmental Organization | [Q245065](https://www.wikidata.org/wiki/Q245065) |
-| Non-Profit Organization | [Q163740](https://www.wikidata.org/wiki/Q163740) |
-| Professional Association | [Q829080](https://www.wikidata.org/wiki/Q829080) |
-
-## Organizations
-
-| Item | Wikidata ID |
-|------|-------------|
-| Open Humans Foundation | [Q6978411](https://www.wikidata.org/wiki/Q6978411) |
-| Stanford University | [Q41506](https://www.wikidata.org/wiki/Q41506) |
-| Google | [Q95](https://www.wikidata.org/wiki/Q95) |
-| Apple | [Q312](https://www.wikidata.org/wiki/Q312) |
-| National Institutes of Health (NIH) | [Q390551](https://www.wikidata.org/wiki/Q390551) |
-| Fitbit | [Q5455414](https://www.wikidata.org/wiki/Q5455414) |
-| Simons Foundation | [Q28148561](https://www.wikidata.org/wiki/Q28148561) |
-| Faculty of Medicine at the University of British Columbia | [Q7863800](https://www.wikidata.org/wiki/Q7863800) |
-| Ministero della Salute | [Q1519799](https://www.wikidata.org/wiki/Q1519799) |
-| Service-Public.fr | [Q3480047](https://www.wikidata.org/wiki/Q3480047) |
-| Human Fertilisation and Embryology Authority | [Q1636533](https://www.wikidata.org/wiki/Q1636533) |
-| World Health Organization (WHO) | [Q7817](https://www.wikidata.org/wiki/Q7817) |
-| University of Florida Health | [Q7487946](https://www.wikidata.org/wiki/Q7487946) |
-| Australian Red Cross Lifeblood | [Q4824602](https://www.wikidata.org/wiki/Q4824602) |
-| Wesley Research Institute | [Q30289631](https://www.wikidata.org/wiki/Q30289631) |
-| Penn Medicine | [Q7896080](https://www.wikidata.org/wiki/Q7896080) |
-| Cochrane Library | [Q1105187](https://www.wikidata.org/wiki/Q1105187) |
-| DRKS | [Q96199255](https://www.wikidata.org/wiki/Q96199255) |
-| Health Canada | [Q1057591](https://www.wikidata.org/wiki/Q1057591) |
-| Bloodworks Northwest | [Q21015632](https://www.wikidata.org/wiki/Q21015632) |
+**Generated on:** 2/3/2026, 7:53:38 PM
 
 ## Resources
+- **AATB Accredited Bank Search**: ❌
+- **All of Us**: [Q25004683](https://www.wikidata.org/wiki/Q25004683)
+- **Apple Research**: ❌
+- **Body and tissue donation in Italy**: ❌
+- **Body donation in France**: ❌
+- **CRC Volontari Ricerca Clinica**: ❌
+- **Clinical Trial Discovery**: ❌
+- **Clinical Trials Database**: ❌
+- **ClinicalTrials.gov**: [Q5133746](https://www.wikidata.org/wiki/Q5133746)
+- **Cochrane Central Register of Controlled Trials (CENTRAL)**: [Q1105187](https://www.wikidata.org/wiki/Q1105187)
+- **Conversational AI Data Donation**: ❌
+- **Curewiki**: ❌
+- **EU Clinical Trials Register**: [Q96183789](https://www.wikidata.org/wiki/Q96183789)
+- **Eurac Research Cover Letter Donation**: [Q1245390](https://www.wikidata.org/wiki/Q1245390)
+- **European Clinical Trials Information Network**: ❌
+- **Fitbit Health Research and Product Development**: [Q5455414](https://www.wikidata.org/wiki/Q5455414)
+- **FluCamp**: ❌
+- **Gamete and embryo donation in the United Kingdom**: ❌
+- **German Clinical Trials Register (DRKS)**: [Q96199255](https://www.wikidata.org/wiki/Q96199255)
+- **GoodNature Program**: ❌
+- **Google Health Studies**: ❌
+- **Health Canada's Clinical Trials Database**: ❌
+- **HealthStreet**: [Q7487946](https://www.wikidata.org/wiki/Q7487946)
+- **International Clinical Trials Registry Platform (ICTRP)**: [Q7817](https://www.wikidata.org/wiki/Q7817)
+- **Microbiome**: [Q4824602](https://www.wikidata.org/wiki/Q4824602)
+- **MyPHD**: ❌
+- **Open Humans**: [Q59696822](https://www.wikidata.org/wiki/Q59696822)
+- **OrganDonor.gov**: ❌
+- **Penn Medicine Donate Your Data**: ❌
+- **Placenta Donation**: [Q30289631](https://www.wikidata.org/wiki/Q30289631)
+- **Research Donations**: [Q21015632](https://www.wikidata.org/wiki/Q21015632)
+- **Research Summaries**: ❌
+- **ResearchMatch**: ❌
+- **Rete Cittadini per la Ricerca**: ❌
+- **SPARK for Autism**: [Q28148561](https://www.wikidata.org/wiki/Q28148561)
+- **Stool Donation**: [Q30289631](https://www.wikidata.org/wiki/Q30289631)
+- **UBC Body Donation Program**: [Q1662770](https://www.wikidata.org/wiki/Q1662770)
+- **UCSF Social Media Archive**: ❌
+- **University of Cambridge Body and Tissue Donation**: ❌
+- **University of Wrocław Human Hair Decomposition Project**: ❌
 
-| Item | Wikidata ID |
-|------|-------------|
-| Open Humans | [Q59696822](https://www.wikidata.org/wiki/Q59696822) |
-| All of US | [Q25004683](https://www.wikidata.org/wiki/Q25004683) |
-| Body Donation | [Q1662770](https://www.wikidata.org/wiki/Q1662770) |
-| ClinicalTrials.gov | [Q5133746](https://www.wikidata.org/wiki/Q5133746) |
-| EU Clinical Trials Register | [Q96183789](https://www.wikidata.org/wiki/Q96183789) | 
+## Participating Organizations
+- **American Association of Tissue Banks (AATB)**: ❌
+- **Apple**: [Q312](https://www.wikidata.org/wiki/Q312)
+- **Australian Red Cross Lifeblood**: ❌
+- **Bloodworks Northwest**: ❌
+- **Centro Ricerche Cliniche di Verona**: ❌
+- **Clinical Trials Information Network (CTIN Poland)**: ❌
+- **Cochrane Library**: ❌
+- **Curewiki**: ❌
+- **DRKS**: ❌
+- **Department of Anatomy at the University Of Cambridge; Cambridge Biomedical Research Centre**: ❌
+- **Department of Human Biology, University of Wrocław**: ❌
+- **Esperity**: ❌
+- **Eurac Research**: [Q1245390](https://www.wikidata.org/wiki/Q1245390)
+- **European Medicines Agency (EMA)**: [Q130146](https://www.wikidata.org/wiki/Q130146)
+- **Faculty of Medicine at the University of British Columbia**: [Q7863800](https://www.wikidata.org/wiki/Q7863800)
+- **Federal Agency for Medicines and Health Products (FAMHP)**: [Q2682107](https://www.wikidata.org/wiki/Q2682107)
+- **Fitbit**: [Q5455414](https://www.wikidata.org/wiki/Q5455414)
+- **Google**: [Q95](https://www.wikidata.org/wiki/Q95)
+- **Health Canada**: [Q1057591](https://www.wikidata.org/wiki/Q1057591)
+- **Human Fertilisation and Embryology Authority**: [Q1636533](https://www.wikidata.org/wiki/Q1636533)
+- **Max Planck Institute for Software Systems**: [Q881238](https://www.wikidata.org/wiki/Q881238)
+- **Ministero della Salute**: [Q1519799](https://www.wikidata.org/wiki/Q1519799)
+- **NHS Health Research Authority**: ❌
+- **National Institutes of Health (NIH)**: [Q390551](https://www.wikidata.org/wiki/Q390551)
+- **Nestlé Health Science U.S.**: ❌
+- **Open Humans Foundation**: [Q124539000](https://www.wikidata.org/wiki/Q124539000)
+- **Penn Medicine**: ❌
+- **San Camillo IRCCS**: ❌
+- **Service-Public.fr**: [Q3480047](https://www.wikidata.org/wiki/Q3480047)
+- **Simons Foundation**: ❌
+- **Stanford University**: [Q41506](https://www.wikidata.org/wiki/Q41506)
+- **U.S. Department of Health & Human Services**: ❌
+- **UCSF Library Archives**: ❌
+- **United States National Library of Medicine (NLM)**: ❌
+- **University of Florida Health**: ❌
+- **Wesley Research Institute**: ❌
+- **World Health Organization (WHO)**: ❌
+- **hVIVO**: ❌
+
+## Data Types
+- **Blood**: [Q7873](https://www.wikidata.org/wiki/Q7873)
+- **Body**: [Q48422](https://www.wikidata.org/wiki/Q48422)
+- **Clinical trials**: [Q30612](https://www.wikidata.org/wiki/Q30612)
+- **Conversational AI data**: ❌
+- **Cover letters**: [Q569410](https://www.wikidata.org/wiki/Q569410)
+- **Eggs**: [Q1321695](https://www.wikidata.org/wiki/Q1321695)
+- **Embryos**: [Q33196](https://www.wikidata.org/wiki/Q33196)
+- **Genome**: [Q7020](https://www.wikidata.org/wiki/Q7020)
+- **Hair**: [Q28472](https://www.wikidata.org/wiki/Q28472)
+- **Health data**: [Q18745135](https://www.wikidata.org/wiki/Q18745135)
+- **Location history**: ❌
+- **Organ**: [Q712378](https://www.wikidata.org/wiki/Q712378)
+- **Placenta**: [Q1212935](https://www.wikidata.org/wiki/Q1212935)
+- **Plasma**: [Q79749](https://www.wikidata.org/wiki/Q79749)
+- **Search history**: [Q60461381](https://www.wikidata.org/wiki/Q60461381)
+- **Social media data**: [Q131520545](https://www.wikidata.org/wiki/Q131520545)
+- **Sperm**: [Q17145](https://www.wikidata.org/wiki/Q17145)
+- **Stem cells**: [Q48196](https://www.wikidata.org/wiki/Q48196)
+- **Stool**: [Q496](https://www.wikidata.org/wiki/Q496)
+- **Tissue**: [Q40397](https://www.wikidata.org/wiki/Q40397)
+- **Wearable data (Fitbit only)**: ❌
+- **Wearable data**: ❌
+
+## Countries
+- **Australia**: [Q408](https://www.wikidata.org/wiki/Q408)
+- **Belgium**: [Q31](https://www.wikidata.org/wiki/Q31)
+- **Canada**: [Q16](https://www.wikidata.org/wiki/Q16)
+- **European Union**: [Q458](https://www.wikidata.org/wiki/Q458)
+- **France**: [Q142](https://www.wikidata.org/wiki/Q142)
+- **Germany**: [Q183](https://www.wikidata.org/wiki/Q183)
+- **Iceland**: [Q189](https://www.wikidata.org/wiki/Q189)
+- **Italy**: [Q38](https://www.wikidata.org/wiki/Q38)
+- **Liechtenstein**: [Q347](https://www.wikidata.org/wiki/Q347)
+- **Norway**: [Q20](https://www.wikidata.org/wiki/Q20)
+- **Poland**: [Q36](https://www.wikidata.org/wiki/Q36)
+- **Switzerland**: [Q39](https://www.wikidata.org/wiki/Q39)
+- **United Kingdom**: [Q145](https://www.wikidata.org/wiki/Q145)
+- **United States**: [Q30](https://www.wikidata.org/wiki/Q30)
+
+## Entity Categories
+- **Academic**: [Q163740](https://www.wikidata.org/wiki/Q163740)
+- **Commercial**: [Q4830453](https://www.wikidata.org/wiki/Q4830453)
+- **Government**: [Q7188](https://www.wikidata.org/wiki/Q7188)
+- **Hospital**: [Q16917](https://www.wikidata.org/wiki/Q16917)
+- **Intergovernmental Organization**: [Q245065](https://www.wikidata.org/wiki/Q245065)
+- **Intergovernmental**: [Q245065](https://www.wikidata.org/wiki/Q245065)
+- **Non-Profit Organization**: [Q163740](https://www.wikidata.org/wiki/Q163740)
+- **Non-Profit**: [Q163740](https://www.wikidata.org/wiki/Q163740)
+- **Professional Association**: [Q829080](https://www.wikidata.org/wiki/Q829080)
+- **Public Health Service**: [Q9353606](https://www.wikidata.org/wiki/Q9353606)
+- **Regulatory Agency**: [Q1639780](https://www.wikidata.org/wiki/Q1639780)
+- **Research Agency**: [Q9142054](https://www.wikidata.org/wiki/Q9142054)
+- **Research Center**: [Q42240](https://www.wikidata.org/wiki/Q42240)
+- **Research Collaborative**: ❌
+- **Research Foundation**: [Q119852396](https://www.wikidata.org/wiki/Q119852396)
+- **Statutory Authority**: [Q7604698](https://www.wikidata.org/wiki/Q7604698)
+- **University Hospital**: [Q1059324](https://www.wikidata.org/wiki/Q1059324)

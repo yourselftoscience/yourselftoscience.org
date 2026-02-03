@@ -6,6 +6,7 @@ const rawResources = [
     "slug": "open-humans",
     "title": "Open Humans",
     "organization": "Open Humans Foundation",
+    "organizationWikidataId": "Q124539000",
     "link": "https://www.openhumans.org/add-data/",
     "dataTypes": [
       "Genome",
@@ -32,6 +33,7 @@ const rawResources = [
     "slug": "myphd",
     "title": "MyPHD",
     "organization": "Stanford University",
+    "organizationWikidataId": "Q41506",
     "link": "https://myphd.stanford.edu/studies/",
     "dataTypes": [
       "Health data",
@@ -55,6 +57,7 @@ const rawResources = [
     "slug": "google-health-studies",
     "title": "Google Health Studies",
     "organization": "Google",
+    "organizationWikidataId": "Q95",
     "link": "https://health.google/consumers/health-studies/",
     "dataTypes": [
       "Health data"
@@ -71,6 +74,7 @@ const rawResources = [
     "slug": "apple-research",
     "title": "Apple Research",
     "organization": "Apple",
+    "organizationWikidataId": "Q312",
     "link": "https://support.apple.com/en-us/108425",
     "dataTypes": [
       "Health data"
@@ -91,8 +95,9 @@ const rawResources = [
   {
     "id": "b3c4d5e6-f7g8-9h0i-j1k2-l3m4n5o6p7q8",
     "slug": "all-of-us",
-    "title": "All of US",
+    "title": "All of Us",
     "organization": "National Institutes of Health (NIH)",
+    "organizationWikidataId": "Q390551",
     "link": "https://allofus.nih.gov/",
     "dataTypes": [
       "Genome",
@@ -115,7 +120,9 @@ const rawResources = [
     "id": "d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9g",
     "slug": "fitbit-research",
     "title": "Health research and product development",
+    "wikidataLabel": "Fitbit Health Research and Product Development",
     "organization": "Fitbit",
+    "organizationWikidataId": "Q5455414",
     "instructions": [
       "Open the Fitbit app",
       "Go to Fitbit settings",
@@ -159,7 +166,9 @@ const rawResources = [
     "id": "e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9g0h",
     "slug": "ubc-body-donation",
     "title": "Body Donation",
+    "wikidataLabel": "UBC Body Donation Program",
     "organization": "Faculty of Medicine at the University of British Columbia",
+    "organizationWikidataId": "Q7863800",
     "link": "https://cps.med.ubc.ca/the-donation-process/",
     "dataTypes": [
       "Body"
@@ -181,6 +190,7 @@ const rawResources = [
     "id": "f6a7b8c9-d0e1-f2a3-b4c5-d6e7f8g9h0i1",
     "slug": "cambridge-body-tissue-donation",
     "title": "Body Donation; Tissue Donation",
+    "wikidataLabel": "University of Cambridge Body and Tissue Donation",
     "organization": "Department of Anatomy at the University Of Cambridge; Cambridge Biomedical Research Centre",
     "link": "https://www.cuh.nhs.uk/our-research/get-involved/donate-body-to-medical-science/",
     "dataTypes": [
@@ -204,7 +214,9 @@ const rawResources = [
     "id": "a7b8c9d0-e1f2-a3b4-c5d6-e7f8g9h0i1j2",
     "slug": "italy-body-tissue-donation",
     "title": "Body & Tissues Donation",
+    "wikidataLabel": "Body and tissue donation in Italy",
     "organization": "Ministero della Salute",
+    "organizationWikidataId": "Q1519799",
     "link": "https://www.salute.gov.it/portale/disposizionepostmortem/dettaglioContenutiDisposizionepostmortem.jsp?lingua=italiano&id=6004&area=postMortem&menu=vuoto",
     "dataTypes": [
       "Body",
@@ -227,7 +239,9 @@ const rawResources = [
     "id": "b8c9d0e1-f2a3-b4c5-d6e7-f8g9h0i1j2k3",
     "slug": "france-body-donation",
     "title": "Donate the Body to Science",
+    "wikidataLabel": "Body donation in France",
     "organization": "Service-Public.fr",
+    "organizationWikidataId": "Q3480047",
     "link": "https://www.service-public.fr/particuliers/vosdroits/F180",
     "dataTypes": [
       "Body"
@@ -249,7 +263,9 @@ const rawResources = [
     "id": "c9d0e1f2-a3b4-c5d6-e7f8-g9h0i1j2k3l4",
     "slug": "uk-gamete-donation",
     "title": "Eggs, Sperm and Embryos Donation to Research",
+    "wikidataLabel": "Gamete and embryo donation in the United Kingdom",
     "organization": "Human Fertilisation and Embryology Authority",
+    "organizationWikidataId": "Q1636533",
     "link": "https://www.hfea.gov.uk/donation/donors/donating-to-research/",
     "dataTypes": [
       "Eggs",
@@ -301,13 +317,15 @@ const rawResources = [
     "entitySubType": "Intergovernmental Organization",
     "description": "A central database managed by the WHO to search for clinical trials from registries around the world.",
     "origin": "Switzerland",
-    "originCode": "CH"
+    "originCode": "CH",
+    "originWikidataId": "Q39"
   },
   {
     "id": "f2a3b4c5-d6e7-f8g9-h0i1-j2k3l4m5n6o7",
     "slug": "eu-clinical-trials-register",
     "title": "EU Clinical Trials Register",
     "organization": "European Medicines Agency (EMA)",
+    "organizationWikidataId": "Q130146",
     "link": "https://euclinicaltrials.eu/search-for-clinical-trials/",
     "dataTypes": [
       "Clinical trials"
@@ -602,7 +620,8 @@ const rawResources = [
   {
     "id": "e3l4m5n6-o7p8-q9r0-s1t2-u3v4w5x6y7z8",
     "slug": "wroclaw-hair-decomposition",
-    "title": "Human Hair Decompositionw",
+    "title": "Human Hair Decomposition",
+    "wikidataLabel": "University of Wrocław Human Hair Decomposition Project",
     "organization": "Department of Human Biology, University of Wrocław",
     "link": "https://biologia.uwr.edu.pl/2023/10/12/znaczenie-wybranych-czynnikow-biologicznych-i-srodowiskowych-w-procesie-rozkladu-ludzkich-wlosow-nabor-na-badania/",
     "dataTypes": [
@@ -635,6 +654,7 @@ const rawResources = [
     "id": "f4m5n6o7-p8q9-r0s1-t2u3-v4w5x6y7z8a9",
     "slug": "ucsf-social-media-archive",
     "title": "Donating Your Social Media",
+    "wikidataLabel": "UCSF Social Media Archive",
     "link": "https://www.library.ucsf.edu/archives/donate/materials/donating-your-social-media/",
     "organization": "UCSF Library Archives",
     "dataTypes": [
@@ -651,6 +671,7 @@ const rawResources = [
     "id": "a5n6o7p8-q9r0-s1t2-u3v4-w5x6y7z8a9b0",
     "slug": "penn-medicine-donate-your-data",
     "title": "Donate Your Data for Health",
+    "wikidataLabel": "Penn Medicine Donate Your Data",
     "organization": "Penn Medicine",
     "link": "https://cdh.nmsdev.com/donate-your-data",
     "dataTypes": [
@@ -720,6 +741,7 @@ const rawResources = [
     "slug": "belgian-clinical-trials-database",
     "title": "Clinical Trials Database",
     "organization": "Federal Agency for Medicines and Health Products (FAMHP)",
+    "organizationWikidataId": "Q2682107",
     "link": "https://clinicaltrialsdatabase.be/",
     "dataTypes": [
       "Clinical trials"
@@ -773,6 +795,7 @@ const rawResources = [
     "title": "Health Canada's Clinical Trials Database",
     "link": "https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/health-canada-clinical-trials-database.html",
     "organization": "Health Canada",
+    "organizationWikidataId": "Q1057591",
     "dataTypes": [
       "Clinical trials"
     ],
@@ -878,6 +901,7 @@ const rawResources = [
     "slug": "conversational-ai-data-donation",
     "title": "Conversational AI Data Donation",
     "organization": "Max Planck Institute for Software Systems",
+    "organizationWikidataId": "Q881238",
     "link": "https://social-media-data-donator.mpi-sws.org/",
     "dataTypes": [
       "Conversational AI data"
@@ -942,7 +966,9 @@ const rawResources = [
     "id": "16098fce-8138-4695-8aa0-08a0eae8709a",
     "slug": "eurac-cover-letter-donation",
     "title": "Donate Your Cover Letter to Research",
+    "wikidataLabel": "Eurac Research Cover Letter Donation",
     "organization": "Eurac Research",
+    "organizationWikidataId": "Q1245390",
     "link": "https://www.eurac.edu/en/blogs/connecting-the-dots/data-donations-why-should-i-donate-my-cover-letter-to-research",
     "dataTypes": [
       "Cover letters"
