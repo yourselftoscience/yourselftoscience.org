@@ -28,18 +28,18 @@
 - **Health Canada's Clinical Trials Database**: ❌
 - **HealthStreet**: ❌
 - **International Clinical Trials Registry Platform (ICTRP)**: [Q29867940](https://www.wikidata.org/wiki/Q29867940)
-- **Microbiome**: ❌
+- **Microbiome donation**: ❌
 - **MyPHD**: ❌
 - **Open Humans**: [Q59696822](https://www.wikidata.org/wiki/Q59696822)
 - **OrganDonor.gov**: ❌
 - **Penn Medicine Donate Your Data**: ❌
-- **Placenta Donation**: ❌
+- **Wesley Research Institute placenta donation**: ❌
 - **Donate Blood for Research**: ❌
 - **Research Summaries**: ❌
 - **ResearchMatch**: ❌
 - **Rete Cittadini per la Ricerca**: ❌
 - **SPARK for Autism**: ❌
-- **Stool Donation**: ❌
+- **Wesley Research Institute stool donation**: ❌
 - **UBC Body Donation Program**: ❌
 - **UCSF Social Media Archive**: ❌
 - **University of Cambridge Body and Tissue Donation**: ❌

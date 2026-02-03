@@ -232,7 +232,7 @@ yts:compensationType a rdfs:Property ;
   yts:compensationType "payment" .
 
 <https://yourselftoscience.org/resource/b0i1j2k3-l4m5-n6o7-p8q9-r0s1t2u3v4w5> a schema:Dataset ;
-  rdfs:label "Microbiome" ;
+  rdfs:label "Microbiome donation" ;
   schema:description "Australian Red Cross Lifeblood's microbiome research program." ;
   schema:creator [ a schema:Organization; rdfs:label "Australian Red Cross Lifeblood" ; schema:additionalType wd:Q163740 ; schema:additionalType wd:Q163740 ; schema:location [ a schema:Place; rdfs:label "Australia" ; schema:addressCountry "AU" ] ] ;
   schema:url <https://www.lifeblood.com.au/microbiome> ;
@@ -320,8 +320,7 @@ yts:compensationType a rdfs:Property ;
 <https://yourselftoscience.org/resource/e9r0s1t2-u3v4-w5x6-y7z8-a9b0c1d2e3f4> a schema:Dataset ;
   rdfs:label "German Clinical Trials Register (DRKS)" ;
   schema:description "The primary register for clinical trials conducted in Germany, providing public access to study information." ;
-  schema:sameAs wd:Q96199255 ;
-  schema:creator [ a schema:Organization; rdfs:label "DRKS" ; schema:additionalType wd:Q3400985 ; schema:additionalType wd:Q3400985 ; schema:location [ a schema:Place; rdfs:label "Germany" ; schema:addressCountry "DE" ] ] ;
+  schema:creator [ a schema:Organization; rdfs:label "DRKS" ; schema:sameAs wd:Q96199255 ; schema:additionalType wd:Q3400985 ; schema:additionalType wd:Q3400985 ; schema:location [ a schema:Place; rdfs:label "Germany" ; schema:addressCountry "DE" ] ] ;
   schema:url <https://drks.de/> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Germany" ; schema:sameAs wd:Q183 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Clinical trials" ; schema:sameAs wd:Q30612 ] ;

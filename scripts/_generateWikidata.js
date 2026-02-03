@@ -143,10 +143,11 @@ async function generateReport(resources) {
 
   const generateLink = (id) => id ? `[${id}](https://www.wikidata.org/wiki/${id})` : '❌';
 
-  // 1. Resources List
+  // 1. Resources List (use wikidataLabel if available, otherwise title)
   const resourcesList = resources.map(r => {
     const id = r.wikidataId || r.resourceWikidataId;
-    return `- **${r.title}**: ${generateLink(id)}`;
+    const label = r.wikidataLabel || r.title;
+    return `- **${label}**: ${generateLink(id)}`;
   }).sort();
 
   // 2. Organizations
