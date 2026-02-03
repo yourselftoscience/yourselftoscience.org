@@ -6,17 +6,17 @@ const wikidataResources = require('../public/resources_wikidata.json');
 const outputPath = './public/resources.csv';
 
 function generateCSV() {
-    const headers = [
-    'id', 'title', 'organization', 'link', 'dataTypes', 'compensationType', 
-    'entityCategory', 'entitySubType', 'countries', 'countryCodes', 
+  const headers = [
+    'id', 'title', 'organization', 'link', 'dataTypes', 'compensationType',
+    'entityCategory', 'entitySubType', 'countries', 'countryCodes', 'origin', 'originCode',
     'description', 'instructions', 'citations', 'wikidataId', 'resourceWikidataId', 'dataTypeWikidataIds'
   ];
 
-      const formatCitations = (citations) => {
+  const formatCitations = (citations) => {
     if (!citations || citations.length === 0) return '';
     return citations.map(c => c.link).join('; ');
-      };
-      
+  };
+
   let csvContent = headers.join(',') + '\n';
 
   wikidataResources.forEach(resource => {
@@ -31,6 +31,8 @@ function generateCSV() {
       `"${resource.entitySubType || ''}"`,
       `"${resource.countries ? resource.countries.join('; ') : ''}"`,
       `"${resource.countryCodes ? resource.countryCodes.join('; ') : ''}"`,
+      `"${resource.origin ? resource.origin.replace(/"/g, '""') : ''}"`,
+      `"${resource.originCode ? resource.originCode.replace(/"/g, '""') : ''}"`,
       `"${resource.description ? resource.description.replace(/"/g, '""') : ''}"`,
       `"${resource.instructions ? resource.instructions.join('; ').replace(/"/g, '""') : ''}"`,
       `"${formatCitations(resource.citations)}"`,
@@ -49,4 +51,4 @@ function generateCSV() {
   }
 }
 
-        generateCSV();
+generateCSV();
