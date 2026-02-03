@@ -119,29 +119,6 @@ export default function MissionPage() {
         </div>
       </section>
 
-      {/* Where this goes next (moved up for visibility) */}
-      <section className="mb-12 sd-fade-up">
-        <h2 className="text-2xl font-bold text-apple-primary-text mb-4">Where this goes next</h2>
-        <ul className="space-y-4">
-          {[
-            { title: 'Newsletter & Alerts', desc: 'Receive email updates with optional preferences like country, compensation (paid, volunteer, or no preference), and data types. You can also provide demographic details with your consent to receive more tailored alerts.' },
-            { title: 'A Thriving Community', desc: 'Building a wide and active community to share ideas, provide feedback, and connect participants with researchers.' },
-            { title: 'Trusted Central Hub', desc: 'Becoming the go-to meeting point for people, researchers, companies, academia, and public institutions.' },
-            { title: 'Partnerships and Collaborations', desc: 'Building relationships across sectors to expand reach and impact.' },
-            { title: 'Broadening Citizen Science', desc: 'In the future, we will expand our catalogue to include a dedicated section for a wider range of citizen science projects. This will feature opportunities for public participation in research that go beyond the contribution of personal data or samples, such as classifying images or collecting environmental data.' },
-            { title: 'Multi-Language Integration', desc: 'We are working to translate the platform into multiple languages to make science accessible to everyone, regardless of the language they speak.' }
-          ].map((s, idx) => (
-            <motion.li key={idx} className="flex items-start gap-3" initial={{ opacity: 0, y: 6 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: idx * 0.05 }}>
-              <FaCheckCircle className="mt-0.5 text-apple-accent text-xl flex-shrink-0" />
-              <div>
-                <p className="font-semibold text-apple-primary-text">{s.title}</p>
-                <p className="text-apple-secondary-text text-sm">{s.desc}</p>
-              </div>
-            </motion.li>
-          ))}
-        </ul>
-      </section>
-
       {/* Key stat */}
       <section className="grid grid-cols-1 md:grid-cols-1 gap-4 mb-6 sd-fade">
         {[{ label: 'Opportunities', value: totalResources }].map((m, i) => (
@@ -180,6 +157,29 @@ export default function MissionPage() {
               <div>
                 <p className="font-semibold text-apple-primary-text">{item.title}</p>
                 <p className="text-apple-secondary-text text-sm">{item.desc}</p>
+              </div>
+            </motion.li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Where this goes next */}
+      <section className="mb-12 sd-fade-up">
+        <h2 className="text-2xl font-bold text-apple-primary-text mb-4">Where this goes next</h2>
+        <ul className="space-y-4">
+          {[
+            { title: 'Newsletter & Alerts', desc: 'Receive email updates with optional preferences like country, compensation (paid, volunteer, or no preference), and data types. You can also provide demographic details with your consent to receive more tailored alerts.' },
+            { title: 'A Thriving Community', desc: 'Building a wide and active community to share ideas, provide feedback, and connect participants with researchers.' },
+            { title: 'Trusted Central Hub', desc: 'Becoming the go-to meeting point for people, researchers, companies, academia, and public institutions.' },
+            { title: 'Partnerships and Collaborations', desc: 'Building relationships across sectors to expand reach and impact.' },
+            { title: 'Broadening Citizen Science', desc: 'In the future, we will expand our catalogue to include a dedicated section for a wider range of citizen science projects. This will feature opportunities for public participation in research that go beyond the contribution of personal data or samples, such as classifying images or collecting environmental data.' },
+            { title: 'Multi-Language Integration', desc: 'We are working to translate the platform into multiple languages to make science accessible to everyone, regardless of the language they speak.' }
+          ].map((s, idx) => (
+            <motion.li key={idx} className="flex items-start gap-3" initial={{ opacity: 0, y: 6 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: idx * 0.05 }}>
+              <FaCheckCircle className="mt-0.5 text-apple-accent text-xl flex-shrink-0" />
+              <div>
+                <p className="font-semibold text-apple-primary-text">{s.title}</p>
+                <p className="text-apple-secondary-text text-sm">{s.desc}</p>
               </div>
             </motion.li>
           ))}
