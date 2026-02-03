@@ -277,46 +277,48 @@ export default function ResourceCard({
       id={`resource-${resource.slug}`}
       className={`resource-card flex flex-col relative transition-all duration-500 ease-out ${highlightClass}`}
     >
-      <div className="flex-grow">
+      <div className="">
         <div className="flex justify-between items-start">
           <div className="flex-grow pr-2">
-            {(resource.macroCategories?.length > 0 || resource.entityCategory) && (
-              <div className="mb-2 flex flex-wrap gap-1">
-                {resource.macroCategories?.map((category) => (
-                  <button
-                    key={category}
-                    onClick={() => onMacroCategoryFilterChange && onMacroCategoryFilterChange(category)}
-                    className={`inline-block text-xs font-semibold px-2 py-0.5 rounded-full ${categoryStyles[category] || 'bg-gray-100 text-gray-800'} transition-opacity hover:opacity-80`}
-                  >
-                    {category}
-                  </button>
-                ))}
-                {resource.entityCategory && (() => {
-                  const sector = resource.entityCategory === 'Commercial' ? 'Commercial' : 'Public & Non-Profit';
-                  const isActive = filters.sectors?.includes(sector);
-                  return (
+            <div className="min-h-[1.5rem]">
+              {(resource.macroCategories?.length > 0 || resource.entityCategory) && (
+                <div className="mb-2 flex flex-wrap gap-1">
+                  {resource.macroCategories?.map((category) => (
                     <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onFilterChange('sectors', sector, !isActive);
-                      }}
-                      className={`
-                        px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider border transition-all
-                        ${isActive
-                          ? 'bg-indigo-50 text-indigo-700 border-indigo-200 shadow-sm'
-                          : 'bg-slate-100/80 text-slate-600 border-slate-200 hover:bg-slate-100 hover:border-slate-300 hover:text-slate-800'}
-                      `}
-                      title={`Filter by ${sector}`}
+                      key={category}
+                      onClick={() => onMacroCategoryFilterChange && onMacroCategoryFilterChange(category)}
+                      className={`inline-block text-[11px] font-semibold px-1.5 py-0.5 rounded-full ${categoryStyles[category] || 'bg-gray-100 text-gray-800'} transition-opacity hover:opacity-80`}
                     >
-                      {sector}
+                      {category}
                     </button>
-                  );
-                })()}
-              </div>
-            )}
+                  ))}
+                  {resource.entityCategory && (() => {
+                    const sector = resource.entityCategory === 'Commercial' ? 'Commercial' : 'Public & Non-Profit';
+                    const isActive = filters.sectors?.includes(sector);
+                    return (
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onFilterChange('sectors', sector, !isActive);
+                        }}
+                        className={`
+                        px-1.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider border transition-all
+                        ${isActive
+                            ? 'bg-indigo-50 text-indigo-700 border-indigo-200 shadow-sm'
+                            : 'bg-slate-100/80 text-slate-600 border-slate-200 hover:bg-slate-100 hover:border-slate-300 hover:text-slate-800'}
+                      `}
+                        title={`Filter by ${sector}`}
+                      >
+                        {sector}
+                      </button>
+                    );
+                  })()}
+                </div>
+              )}
+            </div>
 
 
-            <h2 className="text-lg font-semibold text-google-text mt-1">
+            <h2 className="js-card-title text-lg font-semibold text-google-text mt-1 line-clamp-2 flex items-start">
               {resource.title}
             </h2>
           </div>
@@ -335,27 +337,29 @@ export default function ResourceCard({
         <div className="mb-0.5">
           {resource.organization && (
             <div className="flex flex-col items-start gap-0 mt-0">
-              <p className="organization-name text-sm font-medium text-slate-700 leading-tight">
+              <p className="js-card-org organization-name text-sm font-medium text-slate-700 leading-tight">
                 {resource.organization}
               </p>
-              {resource.originCode && (
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    if (resource.origin) {
-                      onFilterChange('origins', resource.origin, !filters.origins?.includes(resource.origin));
-                    }
-                  }}
-                  className={`flex items-center gap-1 py-1.5 rounded text-[10px] uppercase font-bold tracking-wider transition-all duration-200 min-h-[24px]
-                    ${filters.origins?.includes(resource.origin)
-                      ? 'text-blue-700 bg-blue-50 px-2 -ml-2'
-                      : 'text-slate-500 hover:text-slate-700 hover:bg-slate-50 px-0'
-                    }`}
-                  title={`Filter by origin: ${resource.origin || resource.originCode}`}
-                >
-                  <span>based in {resource.origin}</span>
-                </button>
-              )}
+              <div className="min-h-[1.5rem] flex items-center w-full">
+                {resource.originCode && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      if (resource.origin) {
+                        onFilterChange('origins', resource.origin, !filters.origins?.includes(resource.origin));
+                      }
+                    }}
+                    className={`flex items-center gap-1 py-1.5 rounded text-[10px] uppercase font-bold tracking-wider transition-all duration-200 min-h-[24px]
+                      ${filters.origins?.includes(resource.origin)
+                        ? 'text-blue-700 bg-blue-50 px-2 -ml-2'
+                        : 'text-slate-500 hover:text-slate-700 hover:bg-slate-50 px-0'
+                      }`}
+                    title={`Filter by origin: ${resource.origin || resource.originCode}`}
+                  >
+                    <span>based in {resource.origin}</span>
+                  </button>
+                )}
+              </div>
             </div>
           )}
         </div>
@@ -368,10 +372,9 @@ export default function ResourceCard({
               onClick={toggleExpansion}
               onKeyDown={handleKeyDown}
             >
-              {isExpanded
-                ? resource.description
-                : `${resource.description.substring(0, 120)}...`
-              }
+              <span className={isExpanded ? '' : 'line-clamp-3'}>
+                {resource.description}
+              </span>
               <span
                 className="mt-2 block text-sm text-google-blue hover:underline font-medium min-h-[24px] flex items-center"
               >
@@ -386,7 +389,7 @@ export default function ResourceCard({
         )}
       </div>
 
-      <div className="mt-4 pt-4 border-t border-gray-100 flex flex-col gap-3">
+      <div className="mt-auto pt-4 border-t border-gray-100 flex flex-col gap-3">
         <div className="flex flex-col gap-2">
 
           {resource.countries && resource.countries.length > 0 ? (
@@ -413,7 +416,7 @@ export default function ResourceCard({
               })}
             </div>
           ) : (
-            <div className="flex flex-wrap items-center gap-1.5">
+            <div className="flex flex-wrap items-center gap-1.5 min-h-[2.5rem]">
               <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mr-1">Available in</span>
               <TagButton
                 label="Worldwide"

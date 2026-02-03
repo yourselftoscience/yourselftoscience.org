@@ -3,6 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ResourceCard from './ResourceCard';
+import { useCardAlignment } from '@/hooks/useCardAlignment';
 
 export default function ResourceGrid({
   resources,
@@ -15,6 +16,9 @@ export default function ResourceGrid({
   onMacroCategoryFilterChange,
   highlightedResourceSlug,
 }) {
+  // Apply dynamic row alignment to title and organization elements
+  useCardAlignment('.js-resource-grid', ['.js-card-title', '.js-card-org']);
+
   // Scroll to highlighted card when it becomes available
   React.useEffect(() => {
     if (highlightedResourceSlug) {
@@ -44,7 +48,7 @@ export default function ResourceGrid({
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="js-resource-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {resources.length > 0 ? (
         resources.map((resource) => {
           const isHighlighted = highlightedResourceSlug === resource.slug;
