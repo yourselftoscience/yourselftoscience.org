@@ -22,7 +22,7 @@
 - **Fitbit Health Research and Product Development**: ❌
 - **FluCamp**: ❌
 - **Gamete and embryo donation in the United Kingdom**: ❌
-- **German Clinical Trials Register (DRKS)**: ❌
+- **German Clinical Trials Register (DRKS)**: [Q96199255](https://www.wikidata.org/wiki/Q96199255)
 - **GoodNature Program**: ❌
 - **Google Health Studies**: ❌
 - **Health Canada's Clinical Trials Database**: ❌
