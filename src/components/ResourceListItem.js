@@ -19,8 +19,8 @@ const ResourceListItem = ({ resource, onCountryTagClick, activeCountries }) => {
             <h3 className="text-xl font-bold text-google-text">
                 {resource.title}
             </h3>
-            {resource.organization && (
-                <p className="text-sm text-gray-500 mb-2">{resource.organization}</p>
+            {(resource.organization || (resource.organizations && resource.organizations.length > 0)) && (
+                <p className="text-sm text-gray-500 mb-2">{resource.organization || resource.organizations.map(o => o.name).join(', ')}</p>
             )}
             {resource.description && (
                 <p className="text-gray-700 text-base mb-4">
@@ -41,8 +41,8 @@ const ResourceListItem = ({ resource, onCountryTagClick, activeCountries }) => {
                                     key={country}
                                     onClick={() => onCountryTagClick(country)}
                                     className={`inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${isActive
-                                            ? 'bg-blue-100 text-blue-800 ring-1 ring-inset ring-blue-300'
-                                            : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+                                        ? 'bg-blue-100 text-blue-800 ring-1 ring-inset ring-blue-300'
+                                        : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
                                         }`}
                                 >
                                     {resource.countryCodes[index] && resource.countryCodes[index] !== 'EU' && (

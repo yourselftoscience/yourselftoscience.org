@@ -335,10 +335,10 @@ export default function ResourceCard({
           </div>
         </div>
         <div className="mb-0.5">
-          {resource.organization && (
+          {(resource.organization || (resource.organizations && resource.organizations.length > 0)) && (
             <div className="flex flex-col items-start gap-0 mt-0">
               <p className="js-card-org organization-name text-sm font-medium text-slate-700 leading-tight">
-                {resource.organization}
+                {resource.organization || resource.organizations.map(o => o.name).join(', ')}
               </p>
               <div className="min-h-[1.5rem] flex items-center w-full">
                 {resource.originCode && (
@@ -520,6 +520,9 @@ ResourceCard.propTypes = {
     link: PropTypes.string,
     slug: PropTypes.string,
     organization: PropTypes.string,
+    organizations: PropTypes.arrayOf(PropTypes.shape({
+      name: PropTypes.string,
+    })),
     origin: PropTypes.string,
     originCode: PropTypes.string,
     compensationType: PropTypes.string,
