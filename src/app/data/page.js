@@ -66,9 +66,9 @@ ORDER BY DESC(?count)`;
                         <FaDownload className="text-apple-secondary-text" />
                         <h2 className="text-2xl font-bold text-apple-primary-text">Download Full Dataset</h2>
                     </div>
-                     <p className="text-apple-secondary-text mt-2 max-w-2xl mx-auto">
-                           Use these persistent URLs for automated access to always get the latest version of the dataset.
-                     </p>
+                    <p className="text-apple-secondary-text mt-2 max-w-2xl mx-auto">
+                        Use these persistent URLs for automated access to always get the latest version of the dataset.
+                    </p>
                 </div>
                 <div className="flex flex-wrap justify-center items-center gap-4">
                     <a
@@ -150,7 +150,7 @@ ORDER BY DESC(?count)`;
                                 </button>
                             </div>
                         </div>
-                        
+
                         <div className="bg-apple-card border border-apple-divider rounded-xl p-4">
                             <p className="text-sm font-medium text-apple-secondary-text mb-2">RDF/TTL ENDPOINT</p>
                             <div className="flex items-center justify-between bg-white p-3 rounded-lg border border-apple-divider">
@@ -182,9 +182,9 @@ ORDER BY DESC(?count)`;
                         <p className="text-google-text-secondary mb-4 max-w-2xl mx-auto">
                             Our dataset is dedicated to the public domain under the{' '}
                             <a
-                            href="/license/dataset"
-                            className="text-google-blue hover:underline"
-                        >
+                                href="/license/dataset"
+                                className="text-google-blue hover:underline"
+                            >
                                 Creative Commons CC0 1.0 Universal Public Domain Dedication (CC0 1.0)
                             </a>
                             . You can copy, modify, and distribute the data, even for commercial purposes, without asking permission.
@@ -195,7 +195,7 @@ ORDER BY DESC(?count)`;
                     </div>
                 </motion.div>
             </section>
-            
+
             <section className="mt-16">
                 <h2 className="text-2xl font-bold text-apple-primary-text text-center mb-6">Dataset Schema</h2>
                 <div className="prose prose-blue max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
@@ -204,7 +204,7 @@ ORDER BY DESC(?count)`;
                         <li><strong>id:</strong> A persistent, unique identifier (UUID) for the resource.</li>
                         <li><strong>slug:</strong> A user-friendly identifier used in the URL.</li>
                         <li><strong>title:</strong> The name of the resource or study.</li>
-                        <li><strong>organization:</strong> The organization conducting the research.</li>
+                        <li><strong>organizations:</strong> An array of organizations conducting the research, each with a name and optional Wikidata ID.</li>
                         <li><strong>link:</strong> A URL to the resource&apos;s website.</li>
                         <li><strong>dataTypes:</strong> An array of strings describing the types of data collected (e.g., &quot;Genome&quot;, &quot;Health data&quot;).</li>
                         <li><strong>compensationType:</strong> The type of compensation offered (&quot;donation&quot;, &quot;payment&quot;, or &quot;mixed&quot;).</li>
@@ -221,10 +221,10 @@ ORDER BY DESC(?count)`;
                 <h2 className="text-2xl font-bold text-apple-primary-text text-center mb-6">SPARQL Query Examples</h2>
                 <div className="prose prose-blue max-w-3xl mx-auto">
                     <p>
-                        You can query our data directly within Wikidata&apos;s ecosystem using the <a href="https://query.wikidata.org/" target="_blank" rel="noopener noreferrer">Wikidata Query Service</a>. 
+                        You can query our data directly within Wikidata&apos;s ecosystem using the <a href="https://query.wikidata.org/" target="_blank" rel="noopener noreferrer">Wikidata Query Service</a>.
                         Here are some examples to get you started.
                     </p>
-                    
+
                     <h3>Find all resources in our dataset that are also in Wikidata</h3>
                     <pre className="bg-gray-100 p-4 rounded-lg text-sm">
                         <code>

@@ -39,34 +39,37 @@ yts:compensationType a rdfs:Property ;
       ttlContent += `  schema:sameAs wd:${resource.resourceWikidataId} ;\n`;
     }
 
-    if (resource.organization) {
+    if (resource.organizations && resource.organizations.length > 0) {
       const orgType = resource.entityCategory === 'Government' ? 'schema:GovernmentOrganization' : 'schema:Organization';
 
-      ttlContent += `  schema:creator [ a ${orgType}; rdfs:label "${escapeRDFString(resource.organization)}"`;
-      if (resource.wikidataId) {
-        ttlContent += ` ; schema:sameAs wd:${resource.wikidataId}`;
-      }
-
-      if (resource.entityCategoryWikidataId) {
-        ttlContent += ` ; schema:additionalType wd:${resource.entityCategoryWikidataId}`;
-      }
-
-      if (resource.entitySubTypeWikidataId) {
-        ttlContent += ` ; schema:additionalType wd:${resource.entitySubTypeWikidataId}`;
-      }
-
-      if (resource.origin) {
-        ttlContent += ` ; schema:location [ a schema:Place; rdfs:label "${escapeRDFString(resource.origin)}"`;
-        if (resource.originCode) {
-          ttlContent += ` ; schema:addressCountry "${resource.originCode}"`;
+      resource.organizations.forEach((org, index) => {
+        ttlContent += `  schema:creator [ a ${orgType}; rdfs:label "${escapeRDFString(org.name)}"`;
+        if (org.wikidataId) {
+          ttlContent += ` ; schema:sameAs wd:${org.wikidataId}`;
         }
-        if (resource.originWikidataId) {
-          ttlContent += ` ; schema:sameAs wd:${resource.originWikidataId}`;
-        }
-        ttlContent += ' ]';
-      }
 
-      ttlContent += ' ] ;\n';
+        if (resource.entityCategoryWikidataId) {
+          ttlContent += ` ; schema:additionalType wd:${resource.entityCategoryWikidataId}`;
+        }
+
+        if (resource.entitySubTypeWikidataId) {
+          ttlContent += ` ; schema:additionalType wd:${resource.entitySubTypeWikidataId}`;
+        }
+
+        // Add origin only to first org to avoid duplication
+        if (index === 0 && resource.origin) {
+          ttlContent += ` ; schema:location [ a schema:Place; rdfs:label "${escapeRDFString(resource.origin)}"`;
+          if (resource.originCode) {
+            ttlContent += ` ; schema:addressCountry "${resource.originCode}"`;
+          }
+          if (resource.originWikidataId) {
+            ttlContent += ` ; schema:sameAs wd:${resource.originWikidataId}`;
+          }
+          ttlContent += ' ]';
+        }
+
+        ttlContent += ' ] ;\n';
+      });
     }
 
     if (resource.link) {

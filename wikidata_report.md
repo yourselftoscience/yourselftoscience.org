@@ -1,12 +1,13 @@
 # Wikidata Integration Report
 
-**Generated on:** 2/3/2026, 9:56:00 PM
+**Generated on:** 2/4/2026, 4:38:23 PM
 
 ## Resources
-
 - **AATB Accredited Bank Search**: ❌
 - **All of Us**: [Q25004683](https://www.wikidata.org/wiki/Q25004683)
 - **Apple Research**: ❌
+- **Australian Red Cross Lifeblood microbiome donation**: ❌
+- **Bloodworks Northwest Donate Blood for Research**: ❌
 - **Body and tissue donation in Italy**: ❌
 - **Body donation in France**: ❌
 - **CRC Volontari Ricerca Clinica**: ❌
@@ -28,43 +29,40 @@
 - **Health Canada's Clinical Trials Database**: ❌
 - **HealthStreet**: ❌
 - **International Clinical Trials Registry Platform (ICTRP)**: [Q29867940](https://www.wikidata.org/wiki/Q29867940)
-- **Microbiome donation**: ❌
 - **MyPHD**: ❌
+- **NHS Health Research Authority Research Summaries**: ❌
 - **Open Humans**: [Q59696822](https://www.wikidata.org/wiki/Q59696822)
 - **OrganDonor.gov**: ❌
 - **Penn Medicine Donate Your Data**: ❌
-- **Wesley Research Institute placenta donation**: ❌
-- **Donate Blood for Research**: ❌
-- **Research Summaries**: ❌
 - **ResearchMatch**: ❌
 - **Rete Cittadini per la Ricerca**: ❌
 - **SPARK for Autism**: ❌
-- **Wesley Research Institute stool donation**: ❌
 - **UBC Body Donation Program**: ❌
 - **UCSF Social Media Archive**: ❌
 - **University of Cambridge Body and Tissue Donation**: ❌
 - **University of Wrocław Human Hair Decomposition Project**: ❌
+- **Wesley Research Institute placenta donation**: ❌
+- **Wesley Research Institute stool donation**: ❌
 
 ## Participating Organizations
-
 - **American Association of Tissue Banks (AATB)**: ❌
 - **Apple**: [Q312](https://www.wikidata.org/wiki/Q312)
 - **Australian Red Cross Lifeblood**: ❌
 - **Bloodworks Northwest**: ❌
+- **Cambridge Biomedical Research Centre**: [Q33121816](https://www.wikidata.org/wiki/Q33121816)
 - **Centro Ricerche Cliniche di Verona**: ❌
 - **Clinical Trials Information Network (CTIN Poland)**: ❌
 - **Cochrane Library**: ❌
 - **Curewiki**: ❌
 - **DRKS**: ❌
-- **Department of Anatomy at the University Of Cambridge; Cambridge Biomedical Research Centre**: ❌
+- **Department of Anatomy, University of Cambridge**: ❌
 - **Department of Human Biology, University of Wrocław**: ❌
 - **Esperity**: ❌
-- **Eurac Research**: ❌
+- **Eurac Research**: [Q1245390](https://www.wikidata.org/wiki/Q1245390)
 - **European Medicines Agency (EMA)**: [Q130146](https://www.wikidata.org/wiki/Q130146)
 - **Faculty of Medicine at the University of British Columbia**: [Q7863800](https://www.wikidata.org/wiki/Q7863800)
 - **Federal Agency for Medicines and Health Products (FAMHP)**: [Q2682107](https://www.wikidata.org/wiki/Q2682107)
 - **Fitbit**: [Q5455414](https://www.wikidata.org/wiki/Q5455414)
-- **FluCamp/hVIVO**: [Q30268998](https://www.wikidata.org/wiki/Q30268998)
 - **Google**: [Q95](https://www.wikidata.org/wiki/Q95)
 - **Health Canada**: [Q1057591](https://www.wikidata.org/wiki/Q1057591)
 - **Human Fertilisation and Embryology Authority**: [Q1636533](https://www.wikidata.org/wiki/Q1636533)
@@ -82,14 +80,12 @@
 - **U.S. Department of Health & Human Services**: [Q942326](https://www.wikidata.org/wiki/Q942326)
 - **UCSF Library Archives**: [Q25004607](https://www.wikidata.org/wiki/Q25004607)
 - **United States National Library of Medicine (NLM)**: [Q611833](https://www.wikidata.org/wiki/Q611833)
-- **University of Cambridge (Department of Anatomy)**: [Q33121816](https://www.wikidata.org/wiki/Q33121816)
 - **University of Florida Health**: [Q7487946](https://www.wikidata.org/wiki/Q7487946)
 - **Wesley Research Institute**: [Q30289631](https://www.wikidata.org/wiki/Q30289631)
 - **World Health Organization (WHO)**: [Q7817](https://www.wikidata.org/wiki/Q7817)
 - **hVIVO**: [Q30268998](https://www.wikidata.org/wiki/Q30268998)
 
 ## Data Types
-
 - **Blood**: [Q7873](https://www.wikidata.org/wiki/Q7873)
 - **Body**: [Q48422](https://www.wikidata.org/wiki/Q48422)
 - **Clinical trials**: [Q30612](https://www.wikidata.org/wiki/Q30612)
@@ -114,7 +110,6 @@
 - **Wearable data**: ❌
 
 ## Countries
-
 - **Australia**: [Q408](https://www.wikidata.org/wiki/Q408)
 - **Belgium**: [Q31](https://www.wikidata.org/wiki/Q31)
 - **Canada**: [Q16](https://www.wikidata.org/wiki/Q16)
@@ -131,7 +126,6 @@
 - **United States**: [Q30](https://www.wikidata.org/wiki/Q30)
 
 ## Entity Categories
-
 - **Academic**: [Q163740](https://www.wikidata.org/wiki/Q163740)
 - **Commercial**: [Q4830453](https://www.wikidata.org/wiki/Q4830453)
 - **Government**: [Q7188](https://www.wikidata.org/wiki/Q7188)
@@ -146,7 +140,6 @@
 - **Regulatory Agency**: [Q1639780](https://www.wikidata.org/wiki/Q1639780)
 - **Research Agency**: [Q9142054](https://www.wikidata.org/wiki/Q9142054)
 - **Research Center**: [Q42240](https://www.wikidata.org/wiki/Q42240)
-
 - **Research Foundation**: [Q119852396](https://www.wikidata.org/wiki/Q119852396)
 - **Statutory Authority**: [Q7604698](https://www.wikidata.org/wiki/Q7604698)
 - **University Hospital**: [Q1059324](https://www.wikidata.org/wiki/Q1059324)

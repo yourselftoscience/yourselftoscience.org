@@ -24,7 +24,7 @@ try {
     const row = [
       `"${resource.id || ''}"`,
       `"${resource.title ? resource.title.replace(/"/g, '""') : ''}"`,
-      `"${resource.organization ? resource.organization.replace(/"/g, '""') : ''}"`,
+      `"${resource.organizations ? resource.organizations.map(o => o.name).join('; ').replace(/"/g, '""') : ''}"`,
       `"${resource.link || ''}"`,
       `"${resource.dataTypes ? resource.dataTypes.join('; ') : ''}"`,
       `"${resource.compensationType || ''}"`,

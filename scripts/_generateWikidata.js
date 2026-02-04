@@ -150,14 +150,17 @@ async function generateReport(resources) {
     return `- **${label}**: ${generateLink(id)}`;
   }).sort();
 
-  // 2. Organizations
+  // 2. Organizations (from organizations array)
   const organizationMap = new Map();
   resources.forEach(r => {
-    if (r.organization) {
-      if (!organizationMap.has(r.organization) || (r.organizationWikidataId && !organizationMap.get(r.organization))) {
-        // Prefer manual ID first (though it should be the same)
-        organizationMap.set(r.organization, r.organizationWikidataId || null);
-      }
+    if (r.organizations && Array.isArray(r.organizations)) {
+      r.organizations.forEach(org => {
+        if (org.name) {
+          if (!organizationMap.has(org.name) || (org.wikidataId && !organizationMap.get(org.name))) {
+            organizationMap.set(org.name, org.wikidataId || null);
+          }
+        }
+      });
     }
   });
   const organizationsList = Array.from(organizationMap.entries()).sort().map(([key, value]) => {

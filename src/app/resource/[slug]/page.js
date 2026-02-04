@@ -14,13 +14,13 @@ export const dynamicParams = false;
 
 export async function generateMetadata({ params }) {
   const resource = resources.find(p => p.slug === params.slug || p.id === params.slug);
-  
+
   if (!resource) {
     return {
       title: 'Resource Not Found',
     };
   }
-  
+
   const title = `${resource.title} - Yourself to Science`;
   const description = resource.description || `Learn more about contributing to ${resource.title}.`;
   const canonicalUrl = `https://yourselftoscience.org/resource/${resource.slug}`;
@@ -51,7 +51,7 @@ export async function generateMetadata({ params }) {
 
 export default function ResourcePage({ params }) {
   const resource = resources.find(p => p.slug === params.slug || p.id === params.slug);
-  
+
   if (!resource) {
     return <div>Resource not found</div>;
   }
@@ -92,9 +92,9 @@ export default function ResourcePage({ params }) {
       <div className="bg-white shadow-lg rounded-lg overflow-hidden">
         <div className="p-8">
           <h1 className="text-4xl font-extrabold text-gray-900">{resource.title}</h1>
-          <p className="mt-2 text-lg text-gray-600">by {resource.organization}</p>
+          <p className="mt-2 text-lg text-gray-600">by {resource.organizations ? resource.organizations.map(o => o.name).join('; ') : ''}</p>
           <p className="mt-1 text-sm text-gray-500 font-mono">ID: {resource.id}</p>
-          
+
           {resource.description && (
             <p className="mt-6 text-gray-800 text-lg leading-relaxed">{resource.description}</p>
           )}
