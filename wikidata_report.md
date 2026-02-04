@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 2/4/2026, 11:16:34 PM
+**Generated on:** 2/4/2026, 11:18:48 PM
 
 ## Resources
 - **AATB Accredited Bank Search**: ❌
@@ -48,7 +48,7 @@
 - **American Association of Tissue Banks (AATB)**: [Q4743103](https://www.wikidata.org/wiki/Q4743103)
 - **Apple**: [Q312](https://www.wikidata.org/wiki/Q312)
 - **Australian Red Cross Lifeblood**: [Q4824602](https://www.wikidata.org/wiki/Q4824602)
-- **Bloodworks Northwest**: ❌
+- **Bloodworks Northwest**: [Q21015632](https://www.wikidata.org/wiki/Q21015632)
 - **Cambridge Biomedical Research Centre**: [Q33121816](https://www.wikidata.org/wiki/Q33121816)
 - **Centro Ricerche Cliniche di Verona**: ❌
 - **Clinical Trials Information Network (CTIN Poland)**: ❌

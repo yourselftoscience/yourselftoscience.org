@@ -1071,7 +1071,7 @@ const rawResources = [
     "organizations": [
       {
         "name": "Bloodworks Northwest",
-        "wikidataId": null
+        "wikidataId": "Q21015632"
       }
     ],
 

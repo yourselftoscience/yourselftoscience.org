@@ -364,7 +364,7 @@ yts:compensationType a rdfs:Property ;
 <https://yourselftoscience.org/resource/c3v4w5x6-y7z8-a9b0-c1d2-e3f4g5h6i7j8> a schema:Dataset ;
   rdfs:label "Bloodworks Northwest Donate Blood for Research" ;
   schema:description "Bloodworks Northwest’s research program accepts blood donations to support a variety of studies, from developing new treatments to understanding blood-related diseases. This service is available in the Pacific Northwest." ;
-  schema:creator [ a schema:Organization; rdfs:label "Bloodworks Northwest" ; schema:additionalType wd:Q163740 ; schema:additionalType wd:Q163740 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ] ] ;
+  schema:creator [ a schema:Organization; rdfs:label "Bloodworks Northwest" ; schema:sameAs wd:Q21015632 ; schema:additionalType wd:Q163740 ; schema:additionalType wd:Q163740 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ] ] ;
   schema:url <https://bloodworksnw.org/donate/research> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "United States" ; schema:sameAs wd:Q30 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Blood" ; schema:sameAs wd:Q7873 ] ;
