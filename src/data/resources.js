@@ -1006,7 +1006,7 @@ const rawResources = [
     "organizations": [
       {
         "name": "American Association of Tissue Banks (AATB)",
-        "wikidataId": null
+        "wikidataId": "Q4743103"
       }
     ],
 

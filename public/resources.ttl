@@ -339,7 +339,7 @@ yts:compensationType a rdfs:Property ;
 <https://yourselftoscience.org/resource/a1t2u3v4-w5x6-y7z8-a9b0-c1d2e3f4g5h6> a schema:Dataset ;
   rdfs:label "AATB Accredited Bank Search" ;
   schema:description "A search tool to find AATB-accredited tissue banks in the United States, covering various types of tissue, organ, and birth tissue donation." ;
-  schema:creator [ a schema:Organization; rdfs:label "American Association of Tissue Banks (AATB)" ; schema:additionalType wd:Q163740 ; schema:additionalType wd:Q829080 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ] ] ;
+  schema:creator [ a schema:Organization; rdfs:label "American Association of Tissue Banks (AATB)" ; schema:sameAs wd:Q4743103 ; schema:additionalType wd:Q163740 ; schema:additionalType wd:Q829080 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ] ] ;
   schema:url <https://www.aatb.org/accredited-bank-search> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "United States" ; schema:sameAs wd:Q30 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Tissue" ; schema:sameAs wd:Q40397 ] ;

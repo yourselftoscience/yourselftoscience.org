@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 2/4/2026, 10:38:06 PM
+**Generated on:** 2/4/2026, 11:15:37 PM
 
 ## Resources
 - **AATB Accredited Bank Search**: ❌
@@ -45,7 +45,7 @@
 - **Wesley Research Institute stool donation**: ❌
 
 ## Participating Organizations
-- **American Association of Tissue Banks (AATB)**: ❌
+- **American Association of Tissue Banks (AATB)**: [Q4743103](https://www.wikidata.org/wiki/Q4743103)
 - **Apple**: [Q312](https://www.wikidata.org/wiki/Q312)
 - **Australian Red Cross Lifeblood**: ❌
 - **Bloodworks Northwest**: ❌
