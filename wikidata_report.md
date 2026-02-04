@@ -1,23 +1,23 @@
 # Wikidata Integration Report
 
-**Generated on:** 2/4/2026, 4:38:23 PM
+**Generated on:** 2/4/2026, 7:49:23 PM
 
 ## Resources
 - **AATB Accredited Bank Search**: ❌
 - **All of Us**: [Q25004683](https://www.wikidata.org/wiki/Q25004683)
 - **Apple Research**: ❌
 - **Australian Red Cross Lifeblood microbiome donation**: ❌
+- **Belgian Clinical Trials Database**: ❌
 - **Bloodworks Northwest Donate Blood for Research**: ❌
 - **Body and tissue donation in Italy**: ❌
 - **Body donation in France**: ❌
 - **CRC Volontari Ricerca Clinica**: ❌
-- **Clinical Trial Discovery**: ❌
-- **Clinical Trials Database**: ❌
 - **ClinicalTrials.gov**: [Q5133746](https://www.wikidata.org/wiki/Q5133746)
 - **Cochrane Central Register of Controlled Trials (CENTRAL)**: [Q1105187](https://www.wikidata.org/wiki/Q1105187)
 - **Conversational AI Data Donation**: ❌
 - **Curewiki**: ❌
 - **EU Clinical Trials Register**: [Q96183789](https://www.wikidata.org/wiki/Q96183789)
+- **Esperity Clinical Trial Discovery**: ❌
 - **Eurac Research Cover Letter Donation**: ❌
 - **European Clinical Trials Information Network**: ❌
 - **Fitbit Health Research and Product Development**: ❌

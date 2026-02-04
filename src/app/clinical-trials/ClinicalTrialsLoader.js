@@ -23,10 +23,10 @@ export default function ClinicalTrialsLoader() {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const allResources = await response.json();
-        
+
         // Perform filtering on the client side.
         const clinicalTrialsResources = allResources.filter(
-          (resource) => resource.dataTypes && resource.dataTypes.includes('Clinical trials')
+          (resource) => resource.dataTypes && resource.dataTypes.includes('Clinical trials') && resource.status !== 'Inactive'
         );
         const totalResourcesCount = allResources.length;
 
@@ -46,14 +46,14 @@ export default function ClinicalTrialsLoader() {
 
   return (
     <main className="flex-grow">
-        {pageData.isLoading ? (
-          <ClinicalTrialsSkeleton />
-        ) : (
-          <ClinicalTrialsClientPage 
-            resources={pageData.resources} 
-            totalResourcesCount={pageData.totalCount} 
-          />
-        )}
-      </main>
+      {pageData.isLoading ? (
+        <ClinicalTrialsSkeleton />
+      ) : (
+        <ClinicalTrialsClientPage
+          resources={pageData.resources}
+          totalResourcesCount={pageData.totalCount}
+        />
+      )}
+    </main>
   );
 } 

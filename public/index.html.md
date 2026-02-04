@@ -348,7 +348,7 @@ This page provides a filterable catalogue of all resources. You can also downloa
 
 ### [Clinical Trials Database](https://yourselftoscience.org/resource/belgian-clinical-trials-database)
 
-*Description:* A database of clinical trials approved by the Belgian Federal Agency for Medicines and Health Products (FAMHP).
+*Description:* A database of clinical trials approved by the Belgian Federal Agency for Medicines and Health Products (FAMHP). NOTE: This database is no longer available due to changes in the legal framework.
 
 *Data Types:* Clinical trials
 

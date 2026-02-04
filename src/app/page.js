@@ -5,7 +5,7 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef, Suspense } from 'react';
 import PropTypes from 'prop-types';
 import { motion, AnimatePresence } from 'framer-motion';
-import { resources as allResources } from '@/data/resources';
+import { activeResources as allResources } from '@/data/resources';
 import { PAYMENT_TYPES, EU_COUNTRIES } from '@/data/constants';
 import dynamic from 'next/dynamic';
 import CountryFlag from 'react-country-flag';

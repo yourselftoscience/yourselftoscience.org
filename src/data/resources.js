@@ -6,10 +6,10 @@ const rawResources = [
     "slug": "open-humans",
     "title": "Open Humans",
     "organizations": [
-          {
-                "name": "Open Humans Foundation",
-                "wikidataId": "Q59696822"
-          }
+      {
+        "name": "Open Humans Foundation",
+        "wikidataId": "Q59696822"
+      }
     ],
 
     "link": "https://www.openhumans.org/add-data/",
@@ -38,10 +38,10 @@ const rawResources = [
     "slug": "myphd",
     "title": "MyPHD",
     "organizations": [
-          {
-                "name": "Stanford University",
-                "wikidataId": "Q41506"
-          }
+      {
+        "name": "Stanford University",
+        "wikidataId": "Q41506"
+      }
     ],
 
     "link": "https://myphd.stanford.edu/studies/",
@@ -67,10 +67,10 @@ const rawResources = [
     "slug": "google-health-studies",
     "title": "Google Health Studies",
     "organizations": [
-          {
-                "name": "Google",
-                "wikidataId": "Q95"
-          }
+      {
+        "name": "Google",
+        "wikidataId": "Q95"
+      }
     ],
 
     "link": "https://health.google/consumers/health-studies/",
@@ -81,6 +81,7 @@ const rawResources = [
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
     "description": "A platform that lets you contribute to health research using the Google Health Studies app.",
+    "wikidataDescription": "mobile application for participating in health research studies",
     "origin": "United States",
     "originCode": "US"
   },
@@ -89,10 +90,10 @@ const rawResources = [
     "slug": "apple-research",
     "title": "Apple Research",
     "organizations": [
-          {
-                "name": "Apple",
-                "wikidataId": "Q312"
-          }
+      {
+        "name": "Apple",
+        "wikidataId": "Q312"
+      }
     ],
 
     "link": "https://support.apple.com/en-us/108425",
@@ -109,6 +110,7 @@ const rawResources = [
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
     "description": "Participate in health studies using your iPhone and Apple Watch.",
+    "wikidataDescription": "mobile application for participating in health research studies",
     "origin": "United States",
     "originCode": "US"
   },
@@ -117,10 +119,10 @@ const rawResources = [
     "slug": "all-of-us",
     "title": "All of Us",
     "organizations": [
-          {
-                "name": "National Institutes of Health (NIH)",
-                "wikidataId": "Q390551"
-          }
+      {
+        "name": "National Institutes of Health (NIH)",
+        "wikidataId": "Q390551"
+      }
     ],
 
     "link": "https://allofus.nih.gov/",
@@ -138,6 +140,7 @@ const rawResources = [
     "entityCategory": "Government",
     "entitySubType": "Research Agency",
     "description": "A research program from the NIH to gather health data from one million or more people living in the US.",
+    "wikidataDescription": "research program gathering health data from people in the US",
     "origin": "United States",
     "originCode": "US"
   },
@@ -147,10 +150,10 @@ const rawResources = [
     "title": "Health research and product development",
     "wikidataLabel": "Fitbit Health Research and Product Development",
     "organizations": [
-          {
-                "name": "Fitbit",
-                "wikidataId": "Q5455414"
-          }
+      {
+        "name": "Fitbit",
+        "wikidataId": "Q5455414"
+      }
     ],
 
     "instructions": [
@@ -166,6 +169,7 @@ const rawResources = [
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
     "description": "Share your Fitbit data to help improve health research and product development.",
+    "wikidataDescription": "program for sharing wearable data for health research",
     "origin": "United States",
     "originCode": "US"
   },
@@ -174,10 +178,10 @@ const rawResources = [
     "slug": "spark-for-autism",
     "title": "SPARK for Autism",
     "organizations": [
-          {
-                "name": "Simons Foundation",
-                "wikidataId": "Q28148561"
-          }
+      {
+        "name": "Simons Foundation",
+        "wikidataId": "Q28148561"
+      }
     ],
     "link": "https://sparkforautism.org/why/",
     "dataTypes": [
@@ -203,10 +207,10 @@ const rawResources = [
     "title": "Body Donation",
     "wikidataLabel": "UBC Body Donation Program",
     "organizations": [
-          {
-                "name": "Faculty of Medicine at the University of British Columbia",
-                "wikidataId": "Q7863800"
-          }
+      {
+        "name": "Faculty of Medicine at the University of British Columbia",
+        "wikidataId": "Q7863800"
+      }
     ],
 
     "link": "https://cps.med.ubc.ca/the-donation-process/",
@@ -232,14 +236,14 @@ const rawResources = [
     "title": "Body Donation; Tissue Donation",
     "wikidataLabel": "University of Cambridge Body and Tissue Donation",
     "organizations": [
-          {
-                "name": "Department of Anatomy, University of Cambridge",
-                "wikidataId": null
-          },
-          {
-                "name": "Cambridge Biomedical Research Centre",
-                "wikidataId": "Q33121816"
-          }
+      {
+        "name": "Department of Anatomy, University of Cambridge",
+        "wikidataId": null
+      },
+      {
+        "name": "Cambridge Biomedical Research Centre",
+        "wikidataId": "Q33121816"
+      }
     ],
     "link": "https://www.cuh.nhs.uk/our-research/get-involved/donate-body-to-medical-science/",
     "dataTypes": [
@@ -265,10 +269,10 @@ const rawResources = [
     "title": "Body & Tissues Donation",
     "wikidataLabel": "Body and tissue donation in Italy",
     "organizations": [
-          {
-                "name": "Ministero della Salute",
-                "wikidataId": "Q745634"
-          }
+      {
+        "name": "Ministero della Salute",
+        "wikidataId": "Q745634"
+      }
     ],
 
     "link": "https://www.salute.gov.it/portale/disposizionepostmortem/dettaglioContenutiDisposizionepostmortem.jsp?lingua=italiano&id=6004&area=postMortem&menu=vuoto",
@@ -295,10 +299,10 @@ const rawResources = [
     "title": "Donate the Body to Science",
     "wikidataLabel": "Body donation in France",
     "organizations": [
-          {
-                "name": "Service-Public.fr",
-                "wikidataId": "Q3480047"
-          }
+      {
+        "name": "Service-Public.fr",
+        "wikidataId": "Q3480047"
+      }
     ],
 
     "link": "https://www.service-public.fr/particuliers/vosdroits/F180",
@@ -324,10 +328,10 @@ const rawResources = [
     "title": "Eggs, Sperm and Embryos Donation to Research",
     "wikidataLabel": "Gamete and embryo donation in the United Kingdom",
     "organizations": [
-          {
-                "name": "Human Fertilisation and Embryology Authority",
-                "wikidataId": "Q1636533"
-          }
+      {
+        "name": "Human Fertilisation and Embryology Authority",
+        "wikidataId": "Q1636533"
+      }
     ],
 
     "link": "https://www.hfea.gov.uk/donation/donors/donating-to-research/",
@@ -354,10 +358,10 @@ const rawResources = [
     "slug": "clinicaltrials-gov",
     "title": "ClinicalTrials.gov",
     "organizations": [
-          {
-                "name": "United States National Library of Medicine (NLM)",
-                "wikidataId": "Q611833"
-          }
+      {
+        "name": "United States National Library of Medicine (NLM)",
+        "wikidataId": "Q611833"
+      }
     ],
     "link": "https://clinicaltrials.gov/",
     "dataTypes": [
@@ -376,10 +380,10 @@ const rawResources = [
     "slug": "who-ictrp",
     "title": "International Clinical Trials Registry Platform (ICTRP)",
     "organizations": [
-          {
-                "name": "World Health Organization (WHO)",
-                "wikidataId": "Q7817"
-          }
+      {
+        "name": "World Health Organization (WHO)",
+        "wikidataId": "Q7817"
+      }
     ],
     "link": "https://trialsearch.who.int/",
     "dataTypes": [
@@ -399,10 +403,10 @@ const rawResources = [
     "slug": "eu-clinical-trials-register",
     "title": "EU Clinical Trials Register",
     "organizations": [
-          {
-                "name": "European Medicines Agency (EMA)",
-                "wikidataId": "Q130146"
-          }
+      {
+        "name": "European Medicines Agency (EMA)",
+        "wikidataId": "Q130146"
+      }
     ],
 
     "link": "https://euclinicaltrials.eu/search-for-clinical-trials/",
@@ -434,10 +438,10 @@ const rawResources = [
     "slug": "ectin-poland",
     "title": "European Clinical Trials Information Network",
     "organizations": [
-          {
-                "name": "Clinical Trials Information Network (CTIN Poland)",
-                "wikidataId": null
-          }
+      {
+        "name": "Clinical Trials Information Network (CTIN Poland)",
+        "wikidataId": null
+      }
     ],
     "link": "https://clinicaltrials.eu/",
     "dataTypes": [
@@ -472,10 +476,10 @@ const rawResources = [
     "slug": "curewiki",
     "title": "Curewiki",
     "organizations": [
-          {
-                "name": "Curewiki",
-                "wikidataId": null
-          }
+      {
+        "name": "Curewiki",
+        "wikidataId": null
+      }
     ],
     "link": "https://www.curewiki.health/",
     "dataTypes": [
@@ -512,10 +516,10 @@ const rawResources = [
     "slug": "esperity-clinical-trials",
     "title": "Clinical Trial Discovery",
     "organizations": [
-          {
-                "name": "Esperity",
-                "wikidataId": null
-          }
+      {
+        "name": "Esperity",
+        "wikidataId": null
+      }
     ],
     "link": "https://clinicaltrial.be/",
     "dataTypes": [
@@ -528,6 +532,7 @@ const rawResources = [
     "description": "A patient-centric platform for finding and participating in clinical trials.",
     "origin": "Belgium",
     "originCode": "BE",
+    "wikidataLabel": "Esperity Clinical Trial Discovery",
     "citations": [
       {
         "title": "De Corte, W., Delrue, H., Vanfleteren, L. J. J., Dutré, P. E. M., Pottel, H., Devriendt, D. K. J. C., ... & Desmet, M. B. (2012). Randomized clinical trial on the influence of anaesthesia protocol on intestinal motility during laparoscopic surgery requiring small bowel anastomosis. Journal of British Surgery, 99(11), 1524-1529.",
@@ -556,10 +561,10 @@ const rawResources = [
     "slug": "researchmatch",
     "title": "ResearchMatch",
     "organizations": [
-          {
-                "name": "National Institutes of Health (NIH)",
-                "wikidataId": "Q390551"
-          }
+      {
+        "name": "National Institutes of Health (NIH)",
+        "wikidataId": "Q390551"
+      }
     ],
     "link": "https://www.researchmatch.org/",
     "dataTypes": [
@@ -583,10 +588,10 @@ const rawResources = [
     "slug": "flucamp",
     "title": "FluCamp",
     "organizations": [
-          {
-                "name": "hVIVO",
-                "wikidataId": "Q30268998"
-          }
+      {
+        "name": "hVIVO",
+        "wikidataId": "Q30268998"
+      }
     ],
     "link": "https://flucamp.com/",
     "dataTypes": [
@@ -616,10 +621,10 @@ const rawResources = [
     "slug": "healthstreet",
     "title": "HealthStreet",
     "organizations": [
-          {
-                "name": "University of Florida Health",
-                "wikidataId": "Q7487946"
-          }
+      {
+        "name": "University of Florida Health",
+        "wikidataId": "Q7487946"
+      }
     ],
     "link": "https://healthstreet.program.ufl.edu/uf-researchers/participate-in-research/",
     "dataTypes": [
@@ -635,6 +640,7 @@ const rawResources = [
     "entityCategory": "Academic",
     "entitySubType": "Academic",
     "description": "Connects community members in Florida with health research opportunities at the University of Florida.",
+    "wikidataDescription": "program connecting community members with health research opportunities",
     "origin": "United States",
     "originCode": "US"
   },
@@ -643,10 +649,10 @@ const rawResources = [
     "slug": "goodnature-program",
     "title": "GoodNature Program",
     "organizations": [
-          {
-                "name": "Nestlé Health Science U.S.",
-                "wikidataId": "Q45132270"
-          }
+      {
+        "name": "Nestlé Health Science U.S.",
+        "wikidataId": "Q45132270"
+      }
     ],
     "link": "https://goodnatureprogram.com/apply/",
     "dataTypes": [
@@ -671,10 +677,10 @@ const rawResources = [
     "title": "Microbiome donation",
     "wikidataLabel": "Australian Red Cross Lifeblood microbiome donation",
     "organizations": [
-          {
-                "name": "Australian Red Cross Lifeblood",
-                "wikidataId": null
-          }
+      {
+        "name": "Australian Red Cross Lifeblood",
+        "wikidataId": null
+      }
     ],
 
     "link": "https://www.lifeblood.com.au/microbiome",
@@ -700,10 +706,10 @@ const rawResources = [
     "title": "Stool Donation",
     "wikidataLabel": "Wesley Research Institute stool donation",
     "organizations": [
-          {
-                "name": "Wesley Research Institute",
-                "wikidataId": "Q30289631"
-          }
+      {
+        "name": "Wesley Research Institute",
+        "wikidataId": "Q30289631"
+      }
     ],
     "link": "https://www.wesleyresearch.org.au/biobank-project/stool-donation/",
     "dataTypes": [
@@ -728,10 +734,10 @@ const rawResources = [
     "title": "Placenta Donation",
     "wikidataLabel": "Wesley Research Institute placenta donation",
     "organizations": [
-          {
-                "name": "Wesley Research Institute",
-                "wikidataId": "Q30289631"
-          }
+      {
+        "name": "Wesley Research Institute",
+        "wikidataId": "Q30289631"
+      }
     ],
     "link": "https://www.wesleyresearch.org.au/biobank-project/placenta-donation/",
     "dataTypes": [
@@ -756,10 +762,10 @@ const rawResources = [
     "title": "Human Hair Decomposition",
     "wikidataLabel": "University of Wrocław Human Hair Decomposition Project",
     "organizations": [
-          {
-                "name": "Department of Human Biology, University of Wrocław",
-                "wikidataId": null
-          }
+      {
+        "name": "Department of Human Biology, University of Wrocław",
+        "wikidataId": null
+      }
     ],
     "link": "https://biologia.uwr.edu.pl/2023/10/12/znaczenie-wybranych-czynnikow-biologicznych-i-srodowiskowych-w-procesie-rozkladu-ludzkich-wlosow-nabor-na-badania/",
     "dataTypes": [
@@ -794,11 +800,12 @@ const rawResources = [
     "title": "Donating Your Social Media",
     "wikidataLabel": "UCSF Social Media Archive",
     "link": "https://www.library.ucsf.edu/archives/donate/materials/donating-your-social-media/",
+    "wikidataDescription": "digital archive project collecting social media data for research",
     "organizations": [
-          {
-                "name": "UCSF Library Archives",
-                "wikidataId": "Q25004607"
-          }
+      {
+        "name": "UCSF Library Archives",
+        "wikidataId": "Q25004607"
+      }
     ],
     "dataTypes": [
       "Social media data"
@@ -816,10 +823,10 @@ const rawResources = [
     "title": "Donate Your Data for Health",
     "wikidataLabel": "Penn Medicine Donate Your Data",
     "organizations": [
-          {
-                "name": "Penn Medicine",
-                "wikidataId": "Q7896080"
-          }
+      {
+        "name": "Penn Medicine",
+        "wikidataId": "Q7896080"
+      }
     ],
     "link": "https://cdh.nmsdev.com/donate-your-data",
     "dataTypes": [
@@ -832,6 +839,7 @@ const rawResources = [
     "entityCategory": "Academic",
     "entitySubType": "Academic",
     "description": "Share your digital data to help Penn Medicine researchers understand health.",
+    "wikidataDescription": "research program collecting digital health data",
     "origin": "United States",
     "originCode": "US",
     "citations": [
@@ -851,10 +859,10 @@ const rawResources = [
     "title": "Research Summaries",
     "wikidataLabel": "NHS Health Research Authority Research Summaries",
     "organizations": [
-          {
-                "name": "NHS Health Research Authority",
-                "wikidataId": "Q16937226"
-          }
+      {
+        "name": "NHS Health Research Authority",
+        "wikidataId": "Q16937226"
+      }
     ],
     "link": "https://www.hra.nhs.uk/planning-and-improving-research/application-summaries/research-summaries/",
     "dataTypes": [
@@ -878,10 +886,10 @@ const rawResources = [
     "slug": "cochrane-central-register-of-controlled-trials",
     "title": "Cochrane Central Register of Controlled Trials (CENTRAL)",
     "organizations": [
-          {
-                "name": "Cochrane Library",
-                "wikidataId": null
-          }
+      {
+        "name": "Cochrane Library",
+        "wikidataId": null
+      }
     ],
 
     "link": "https://www.cochranelibrary.com/central",
@@ -901,10 +909,10 @@ const rawResources = [
     "slug": "belgian-clinical-trials-database",
     "title": "Clinical Trials Database",
     "organizations": [
-          {
-                "name": "Federal Agency for Medicines and Health Products (FAMHP)",
-                "wikidataId": "Q2682107"
-          }
+      {
+        "name": "Federal Agency for Medicines and Health Products (FAMHP)",
+        "wikidataId": "Q2682107"
+      }
     ],
 
     "link": "https://clinicaltrialsdatabase.be/",
@@ -921,9 +929,11 @@ const rawResources = [
     "resourceType": "registry",
     "entityCategory": "Government",
     "entitySubType": "Regulatory Agency",
-    "description": "A database of clinical trials approved by the Belgian Federal Agency for Medicines and Health Products (FAMHP).",
+    "description": "A database of clinical trials approved by the Belgian Federal Agency for Medicines and Health Products (FAMHP). NOTE: This database is no longer available due to changes in the legal framework.",
+    "status": "Inactive",
     "origin": "Belgium",
     "originCode": "BE",
+    "wikidataLabel": "Belgian Clinical Trials Database",
     "citations": [
       {
         "title": "Krumb, E., Lambert, C., & Hermans, C. (2021). Patient selection for hemophilia gene therapy: Real-life data from a single center. Research and practice in thrombosis and haemostasis, 5(3), 390-394.",
@@ -936,10 +946,10 @@ const rawResources = [
     "slug": "german-clinical-trials-register",
     "title": "German Clinical Trials Register (DRKS)",
     "organizations": [
-          {
-                "name": "DRKS",
-                "wikidataId": null
-          }
+      {
+        "name": "DRKS",
+        "wikidataId": null
+      }
     ],
 
     "link": "https://drks.de/",
@@ -966,10 +976,10 @@ const rawResources = [
     "title": "Health Canada's Clinical Trials Database",
     "link": "https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/health-canada-clinical-trials-database.html",
     "organizations": [
-          {
-                "name": "Health Canada",
-                "wikidataId": "Q1057591"
-          }
+      {
+        "name": "Health Canada",
+        "wikidataId": "Q1057591"
+      }
     ],
 
     "dataTypes": [
@@ -994,10 +1004,10 @@ const rawResources = [
     "slug": "aatb-accredited-bank-search",
     "title": "AATB Accredited Bank Search",
     "organizations": [
-          {
-                "name": "American Association of Tissue Banks (AATB)",
-                "wikidataId": null
-          }
+      {
+        "name": "American Association of Tissue Banks (AATB)",
+        "wikidataId": null
+      }
     ],
 
     "link": "https://www.aatb.org/accredited-bank-search",
@@ -1029,10 +1039,10 @@ const rawResources = [
     "slug": "organdonor-gov",
     "title": "OrganDonor.gov",
     "organizations": [
-          {
-                "name": "U.S. Department of Health & Human Services",
-                "wikidataId": "Q942326"
-          }
+      {
+        "name": "U.S. Department of Health & Human Services",
+        "wikidataId": "Q942326"
+      }
     ],
     "link": "https://www.organdonor.gov/sign-up",
     "dataTypes": [
@@ -1059,10 +1069,10 @@ const rawResources = [
     "title": "Donate Blood for Research",
     "wikidataLabel": "Bloodworks Northwest Donate Blood for Research",
     "organizations": [
-          {
-                "name": "Bloodworks Northwest",
-                "wikidataId": null
-          }
+      {
+        "name": "Bloodworks Northwest",
+        "wikidataId": null
+      }
     ],
 
     "link": "https://bloodworksnw.org/donate/research",
@@ -1081,6 +1091,7 @@ const rawResources = [
     "entityCategory": "Non-Profit",
     "entitySubType": "Non-Profit Organization",
     "description": "Bloodworks Northwest’s research program accepts blood donations to support a variety of studies, from developing new treatments to understanding blood-related diseases. This service is available in the Pacific Northwest.",
+    "wikidataDescription": "blood donation program for research",
     "origin": "United States",
     "originCode": "US",
     "citations": [
@@ -1094,11 +1105,12 @@ const rawResources = [
     "id": "510a8c9d-3dc0-4086-a94f-f9d7ec0bc3a4",
     "slug": "conversational-ai-data-donation",
     "title": "Conversational AI Data Donation",
+    "wikidataDescription": "research project collecting chat history from AI assistants",
     "organizations": [
-          {
-                "name": "Max Planck Institute for Software Systems",
-                "wikidataId": "Q881238"
-          }
+      {
+        "name": "Max Planck Institute for Software Systems",
+        "wikidataId": "Q881238"
+      }
     ],
 
     "link": "https://social-media-data-donator.mpi-sws.org/",
@@ -1120,10 +1132,10 @@ const rawResources = [
     "slug": "crc-volontari-ricerca-clinica",
     "title": "CRC Volontari Ricerca Clinica",
     "organizations": [
-          {
-                "name": "Centro Ricerche Cliniche di Verona",
-                "wikidataId": null
-          }
+      {
+        "name": "Centro Ricerche Cliniche di Verona",
+        "wikidataId": null
+      }
     ],
     "link": "https://www.crcvolontariricercaclinica.it/Volontari/Partecipazione#Diventa",
     "dataTypes": [
@@ -1148,10 +1160,10 @@ const rawResources = [
     "slug": "rete-cittadini-per-la-ricerca",
     "title": "Rete Cittadini per la Ricerca",
     "organizations": [
-          {
-                "name": "San Camillo IRCCS",
-                "wikidataId": null
-          }
+      {
+        "name": "San Camillo IRCCS",
+        "wikidataId": null
+      }
     ],
     "link": "https://hsancamillo.it/rete-cittadini-per-la-ricerca/",
     "dataTypes": [
@@ -1177,10 +1189,10 @@ const rawResources = [
     "title": "Donate Your Cover Letter to Research",
     "wikidataLabel": "Eurac Research Cover Letter Donation",
     "organizations": [
-          {
-                "name": "Eurac Research",
-                "wikidataId": "Q1245390"
-          }
+      {
+        "name": "Eurac Research",
+        "wikidataId": "Q1245390"
+      }
     ],
 
     "link": "https://www.eurac.edu/en/blogs/connecting-the-dots/data-donations-why-should-i-donate-my-cover-letter-to-research",
@@ -1191,6 +1203,7 @@ const rawResources = [
     "entityCategory": "Academic",
     "entitySubType": "Research Center",
     "description": "A data donation campaign focused on collecting cover letters for doctoral research to understand the impact of writing styles in a multilingual professional context.",
+    "wikidataDescription": "data donation campaign collecting cover letters for research",
     "origin": "Italy",
     "originCode": "IT",
     "citations": []
@@ -1278,3 +1291,5 @@ export const citationMap = uniqueCitations.reduce((map, citation, index) => {
   }
   return map;
 }, {});
+
+export const activeResources = resources.filter(r => r.status !== 'Inactive');

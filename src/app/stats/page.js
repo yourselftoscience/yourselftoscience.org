@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { resources as allResources } from '@/data/resources';
+import { activeResources as allResources } from '@/data/resources';
 import { EU_COUNTRIES } from '@/data/constants';
 import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import { FaGlobe, FaDatabase, FaMoneyBillWave, FaChartBar, FaChevronDown, FaBuilding, FaMapMarkedAlt } from 'react-icons/fa';

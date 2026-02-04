@@ -183,7 +183,7 @@ yts:compensationType a rdfs:Property ;
   yts:compensationType "mixed" .
 
 <https://yourselftoscience.org/resource/c5d6e7f8-g9h0-i1j2-k3l4-m5n6o7p8q9r0> a schema:Dataset ;
-  rdfs:label "Clinical Trial Discovery" ;
+  rdfs:label "Esperity Clinical Trial Discovery" ;
   schema:description "A patient-centric platform for finding and participating in clinical trials." ;
   schema:creator [ a schema:Organization; rdfs:label "Esperity" ; schema:additionalType wd:Q4830453 ; schema:additionalType wd:Q4830453 ; schema:location [ a schema:Place; rdfs:label "Belgium" ; schema:addressCountry "BE" ] ] ;
   schema:url <https://clinicaltrial.be/> ;
@@ -309,8 +309,8 @@ yts:compensationType a rdfs:Property ;
   yts:compensationType "mixed" .
 
 <https://yourselftoscience.org/resource/d8q9r0s1-t2u3-v4w5-x6y7-z8a9b0c1d2e3> a schema:Dataset ;
-  rdfs:label "Clinical Trials Database" ;
-  schema:description "A database of clinical trials approved by the Belgian Federal Agency for Medicines and Health Products (FAMHP)." ;
+  rdfs:label "Belgian Clinical Trials Database" ;
+  schema:description "A database of clinical trials approved by the Belgian Federal Agency for Medicines and Health Products (FAMHP). NOTE: This database is no longer available due to changes in the legal framework." ;
   schema:creator [ a schema:GovernmentOrganization; rdfs:label "Federal Agency for Medicines and Health Products (FAMHP)" ; schema:sameAs wd:Q2682107 ; schema:additionalType wd:Q7188 ; schema:additionalType wd:Q1639780 ; schema:location [ a schema:Place; rdfs:label "Belgium" ; schema:addressCountry "BE" ] ] ;
   schema:url <https://clinicaltrialsdatabase.be/> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Belgium" ; schema:sameAs wd:Q31 ] ;

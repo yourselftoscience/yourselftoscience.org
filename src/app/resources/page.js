@@ -1,4 +1,4 @@
-import { resources } from '@/data/resources';
+import { activeResources as resources } from '@/data/resources';
 import Link from 'next/link';
 import { FiInfo, FiArrowRight } from 'react-icons/fi';
 

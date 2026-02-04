@@ -688,7 +688,7 @@
   {
     "id": "c5d6e7f8-g9h0-i1j2-k3l4-m5n6o7p8q9r0",
     "slug": "esperity-clinical-trials",
-    "title": "Clinical Trial Discovery",
+    "title": "Esperity Clinical Trial Discovery",
     "organizations": [
       {
         "name": "Esperity",
@@ -1205,7 +1205,7 @@
   {
     "id": "d8q9r0s1-t2u3-v4w5-x6y7-z8a9b0c1d2e3",
     "slug": "belgian-clinical-trials-database",
-    "title": "Clinical Trials Database",
+    "title": "Belgian Clinical Trials Database",
     "organizations": [
       {
         "name": "Federal Agency for Medicines and Health Products (FAMHP)",
@@ -1226,7 +1226,8 @@
     "resourceType": "registry",
     "entityCategory": "Government",
     "entitySubType": "Regulatory Agency",
-    "description": "A database of clinical trials approved by the Belgian Federal Agency for Medicines and Health Products (FAMHP).",
+    "description": "A database of clinical trials approved by the Belgian Federal Agency for Medicines and Health Products (FAMHP). NOTE: This database is no longer available due to changes in the legal framework.",
+    "status": "Inactive",
     "origin": "Belgium",
     "originCode": "BE",
     "citations": [

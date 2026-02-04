@@ -22,10 +22,10 @@ export default function OrganBodyTissueDonationLoader() {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const allResources = await response.json();
-        
+
         // Filter for Body or Tissue donation resources.
         const bodyDonationResources = allResources.filter(
-          (resource) => resource.dataTypes && (resource.dataTypes.includes('Organ') || resource.dataTypes.includes('Body') || resource.dataTypes.includes('Tissue'))
+          (resource) => resource.dataTypes && (resource.dataTypes.includes('Organ') || resource.dataTypes.includes('Body') || resource.dataTypes.includes('Tissue')) && resource.status !== 'Inactive'
         );
         const totalResourcesCount = allResources.length;
 
@@ -45,14 +45,14 @@ export default function OrganBodyTissueDonationLoader() {
 
   return (
     <main className="flex-grow">
-        {pageData.isLoading ? (
-          <OrganBodyTissueDonationSkeleton />
-        ) : (
-          <OrganBodyTissueDonationClientPage 
-            resources={pageData.resources} 
-            totalResourcesCount={pageData.totalCount} 
-          />
-        )}
-      </main>
+      {pageData.isLoading ? (
+        <OrganBodyTissueDonationSkeleton />
+      ) : (
+        <OrganBodyTissueDonationClientPage
+          resources={pageData.resources}
+          totalResourcesCount={pageData.totalCount}
+        />
+      )}
+    </main>
   );
 } 
