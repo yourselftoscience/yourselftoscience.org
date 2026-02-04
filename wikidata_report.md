@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 2/4/2026, 8:24:26 PM
+**Generated on:** 2/4/2026, 10:38:06 PM
 
 ## Resources
 - **AATB Accredited Bank Search**: ❌
@@ -106,7 +106,6 @@
 - **Stem cells**: [Q48196](https://www.wikidata.org/wiki/Q48196)
 - **Stool**: [Q496](https://www.wikidata.org/wiki/Q496)
 - **Tissue**: [Q40397](https://www.wikidata.org/wiki/Q40397)
-- **Wearable data (Fitbit only)**: ❌
 - **Wearable data**: ❌
 
 ## Countries

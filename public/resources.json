@@ -224,7 +224,7 @@
       "Health & Digital Data"
     ],
     "dataTypeMappings": {
-      "Wearable data (Fitbit only)": null
+      "Wearable data": null
     },
     "countryMappings": {},
     "entityCategoryWikidataId": "Q4830453",

@@ -75,13 +75,18 @@ async function enrichResources() {
 
       // Data Types
       for (const type of resource.dataTypes || []) {
+        let normalizedType = type;
+        if (type === 'Wearable data (Fitbit only)') {
+          normalizedType = 'Wearable data';
+        }
+
         // STRICT check: if key exists in existing mapping (even if value is null/empty, though unlikely), take it.
         // Using Object.prototype.hasOwnProperty to be safe
-        if (existingEntry.dataTypeMappings && Object.prototype.hasOwnProperty.call(existingEntry.dataTypeMappings, type)) {
-          enrichedResource.dataTypeMappings[type] = existingEntry.dataTypeMappings[type];
+        if (existingEntry.dataTypeMappings && Object.prototype.hasOwnProperty.call(existingEntry.dataTypeMappings, normalizedType)) {
+          enrichedResource.dataTypeMappings[normalizedType] = existingEntry.dataTypeMappings[normalizedType];
         } else {
           // New tag? Initialize as null (Manual verification required)
-          enrichedResource.dataTypeMappings[type] = null;
+          enrichedResource.dataTypeMappings[normalizedType] = null;
         }
       }
 
@@ -109,7 +114,11 @@ async function enrichResources() {
 
       // Initialize mappings with keys but null values
       for (const type of resource.dataTypes || []) {
-        enrichedResource.dataTypeMappings[type] = null;
+        let normalizedType = type;
+        if (type === 'Wearable data (Fitbit only)') {
+          normalizedType = 'Wearable data';
+        }
+        enrichedResource.dataTypeMappings[normalizedType] = null;
       }
       for (const country of resource.countries || []) {
         enrichedResource.countryMappings[country] = null;
