@@ -235,7 +235,7 @@ yts:compensationType a rdfs:Property ;
 <https://yourselftoscience.org/resource/b0i1j2k3-l4m5-n6o7-p8q9-r0s1t2u3v4w5> a schema:Dataset ;
   rdfs:label "Australian Red Cross Lifeblood microbiome donation" ;
   schema:description "Australian Red Cross Lifeblood's microbiome research program." ;
-  schema:creator [ a schema:Organization; rdfs:label "Australian Red Cross Lifeblood" ; schema:additionalType wd:Q163740 ; schema:additionalType wd:Q163740 ; schema:location [ a schema:Place; rdfs:label "Australia" ; schema:addressCountry "AU" ] ] ;
+  schema:creator [ a schema:Organization; rdfs:label "Australian Red Cross Lifeblood" ; schema:sameAs wd:Q4824602 ; schema:additionalType wd:Q163740 ; schema:additionalType wd:Q163740 ; schema:location [ a schema:Place; rdfs:label "Australia" ; schema:addressCountry "AU" ] ] ;
   schema:url <https://www.lifeblood.com.au/microbiome> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Australia" ; schema:sameAs wd:Q408 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Stool" ; schema:sameAs wd:Q496 ] ;

@@ -679,7 +679,7 @@ const rawResources = [
     "organizations": [
       {
         "name": "Australian Red Cross Lifeblood",
-        "wikidataId": null
+        "wikidataId": "Q4824602"
       }
     ],
 
