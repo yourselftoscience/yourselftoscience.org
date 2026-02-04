@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 2/4/2026, 7:49:23 PM
+**Generated on:** 2/4/2026, 8:24:26 PM
 
 ## Resources
 - **AATB Accredited Bank Search**: ❌
@@ -54,7 +54,6 @@
 - **Clinical Trials Information Network (CTIN Poland)**: ❌
 - **Cochrane Library**: ❌
 - **Curewiki**: ❌
-- **DRKS**: ❌
 - **Department of Anatomy, University of Cambridge**: ❌
 - **Department of Human Biology, University of Wrocław**: ❌
 - **Esperity**: ❌
@@ -62,6 +61,7 @@
 - **European Medicines Agency (EMA)**: [Q130146](https://www.wikidata.org/wiki/Q130146)
 - **Faculty of Medicine at the University of British Columbia**: [Q7863800](https://www.wikidata.org/wiki/Q7863800)
 - **Federal Agency for Medicines and Health Products (FAMHP)**: [Q2682107](https://www.wikidata.org/wiki/Q2682107)
+- **Federal Institute for Drugs and Medical Devices (BfArM)**: [Q1006215](https://www.wikidata.org/wiki/Q1006215)
 - **Fitbit**: [Q5455414](https://www.wikidata.org/wiki/Q5455414)
 - **Google**: [Q95](https://www.wikidata.org/wiki/Q95)
 - **Health Canada**: [Q1057591](https://www.wikidata.org/wiki/Q1057591)

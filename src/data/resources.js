@@ -947,8 +947,8 @@ const rawResources = [
     "title": "German Clinical Trials Register (DRKS)",
     "organizations": [
       {
-        "name": "DRKS",
-        "wikidataId": null
+        "name": "Federal Institute for Drugs and Medical Devices (BfArM)",
+        "wikidataId": "Q1006215"
       }
     ],
 

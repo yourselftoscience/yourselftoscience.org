@@ -100,6 +100,7 @@
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
     "description": "A platform that lets you contribute to health research using the Google Health Studies app.",
+    "wikidataDescription": "mobile application for participating in health research studies",
     "origin": "United States",
     "originCode": "US",
     "macroCategories": [
@@ -136,6 +137,7 @@
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
     "description": "Participate in health studies using your iPhone and Apple Watch.",
+    "wikidataDescription": "mobile application for participating in health research studies",
     "origin": "United States",
     "originCode": "US",
     "macroCategories": [
@@ -175,6 +177,7 @@
     "entityCategory": "Government",
     "entitySubType": "Research Agency",
     "description": "A research program from the NIH to gather health data from one million or more people living in the US.",
+    "wikidataDescription": "research program gathering health data from people in the US",
     "origin": "United States",
     "originCode": "US",
     "macroCategories": [
@@ -214,6 +217,7 @@
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
     "description": "Share your Fitbit data to help improve health research and product development.",
+    "wikidataDescription": "program for sharing wearable data for health research",
     "origin": "United States",
     "originCode": "US",
     "macroCategories": [
@@ -844,6 +848,7 @@
     "entityCategory": "Academic",
     "entitySubType": "Academic",
     "description": "Connects community members in Florida with health research opportunities at the University of Florida.",
+    "wikidataDescription": "program connecting community members with health research opportunities",
     "origin": "United States",
     "originCode": "US",
     "macroCategories": [
@@ -1063,6 +1068,7 @@
     "slug": "ucsf-social-media-archive",
     "title": "UCSF Social Media Archive",
     "link": "https://www.library.ucsf.edu/archives/donate/materials/donating-your-social-media/",
+    "wikidataDescription": "digital archive project collecting social media data for research",
     "organizations": [
       {
         "name": "UCSF Library Archives",
@@ -1109,6 +1115,7 @@
     "entityCategory": "Academic",
     "entitySubType": "Academic",
     "description": "Share your digital data to help Penn Medicine researchers understand health.",
+    "wikidataDescription": "research program collecting digital health data",
     "origin": "United States",
     "originCode": "US",
     "citations": [
@@ -1254,8 +1261,8 @@
     "title": "German Clinical Trials Register (DRKS)",
     "organizations": [
       {
-        "name": "DRKS",
-        "wikidataId": null
+        "name": "Federal Institute for Drugs and Medical Devices (BfArM)",
+        "wikidataId": "Q1006215"
       }
     ],
     "link": "https://drks.de/",
@@ -1446,6 +1453,7 @@
     "entityCategory": "Non-Profit",
     "entitySubType": "Non-Profit Organization",
     "description": "Bloodworks Northwest’s research program accepts blood donations to support a variety of studies, from developing new treatments to understanding blood-related diseases. This service is available in the Pacific Northwest.",
+    "wikidataDescription": "blood donation program for research",
     "origin": "United States",
     "originCode": "US",
     "citations": [
@@ -1472,6 +1480,7 @@
     "id": "510a8c9d-3dc0-4086-a94f-f9d7ec0bc3a4",
     "slug": "conversational-ai-data-donation",
     "title": "Conversational AI Data Donation",
+    "wikidataDescription": "research project collecting chat history from AI assistants",
     "organizations": [
       {
         "name": "Max Planck Institute for Software Systems",
@@ -1595,6 +1604,7 @@
     "entityCategory": "Academic",
     "entitySubType": "Research Center",
     "description": "A data donation campaign focused on collecting cover letters for doctoral research to understand the impact of writing styles in a multilingual professional context.",
+    "wikidataDescription": "data donation campaign collecting cover letters for research",
     "origin": "Italy",
     "originCode": "IT",
     "citations": [],
