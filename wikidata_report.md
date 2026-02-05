@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 2/5/2026, 4:35:04 AM
+**Generated on:** 2/5/2026, 8:50:54 PM
 
 ## Resources
 - **AATB Accredited Bank Search**: ❌
@@ -22,6 +22,7 @@
 - **European Clinical Trials Information Network**: ❌
 - **Fitbit Health Research and Product Development**: ❌
 - **FluCamp**: ❌
+- **GIMM Biobank**: ❌
 - **Gamete and embryo donation in the United Kingdom**: ❌
 - **German Clinical Trials Register (DRKS)**: [Q96199255](https://www.wikidata.org/wiki/Q96199255)
 - **GoodNature Program**: ❌
@@ -65,6 +66,7 @@
 - **Federal Institute for Drugs and Medical Devices (BfArM)**: [Q1006215](https://www.wikidata.org/wiki/Q1006215)
 - **Fitbit**: [Q5455414](https://www.wikidata.org/wiki/Q5455414)
 - **Google**: [Q95](https://www.wikidata.org/wiki/Q95)
+- **Gulbenkian Institute for Molecular Medicine (GIMM)**: [Q131428172](https://www.wikidata.org/wiki/Q131428172)
 - **Health Canada**: [Q1057591](https://www.wikidata.org/wiki/Q1057591)
 - **Helmholtz Munich**: [Q878592](https://www.wikidata.org/wiki/Q878592)
 - **Human Fertilisation and Embryology Authority**: [Q1636533](https://www.wikidata.org/wiki/Q1636533)
@@ -122,6 +124,7 @@
 - **Liechtenstein**: [Q347](https://www.wikidata.org/wiki/Q347)
 - **Norway**: [Q20](https://www.wikidata.org/wiki/Q20)
 - **Poland**: [Q36](https://www.wikidata.org/wiki/Q36)
+- **Portugal**: [Q45](https://www.wikidata.org/wiki/Q45)
 - **Switzerland**: [Q39](https://www.wikidata.org/wiki/Q39)
 - **United Kingdom**: [Q145](https://www.wikidata.org/wiki/Q145)
 - **United States**: [Q30](https://www.wikidata.org/wiki/Q30)
@@ -142,5 +145,6 @@
 - **Research Agency**: [Q9142054](https://www.wikidata.org/wiki/Q9142054)
 - **Research Center**: [Q42240](https://www.wikidata.org/wiki/Q42240)
 - **Research Foundation**: [Q119852396](https://www.wikidata.org/wiki/Q119852396)
+- **Research Institute**: [Q31855](https://www.wikidata.org/wiki/Q31855)
 - **Statutory Authority**: [Q7604698](https://www.wikidata.org/wiki/Q7604698)
 - **University Hospital**: [Q1059324](https://www.wikidata.org/wiki/Q1059324)

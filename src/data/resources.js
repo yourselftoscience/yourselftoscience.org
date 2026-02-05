@@ -1236,6 +1236,36 @@ const rawResources = [
       "DE"
     ],
     "citations": []
+  },
+  {
+    "id": "f9a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6",
+    "slug": "gimm-biobank",
+    "title": "GIMM Biobank",
+    "organizations": [
+      {
+        "name": "Gulbenkian Institute for Molecular Medicine (GIMM)",
+        "wikidataId": "Q131428172"
+      }
+    ],
+    "link": "https://care.gimm.pt/biobank-for-donors/",
+    "dataTypes": [
+      "Blood"
+    ],
+    "compensationType": "donation",
+    "entityCategory": "Non-Profit",
+    "entitySubType": "Research Institute",
+    "entitySubTypeWikidataId": "Q31855",
+    "description": "A biobank collecting biological samples (primarily blood) from diverse populations to support biomedical research and precision medicine.",
+    "origin": "Portugal",
+    "originCode": "PT",
+    "originWikidataId": "Q45",
+    "countries": [
+      "Portugal"
+    ],
+    "countryCodes": [
+      "PT"
+    ],
+    "citations": []
   }
 ];
 

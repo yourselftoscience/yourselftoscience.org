@@ -88,7 +88,7 @@ yts:compensationType a rdfs:Property ;
   yts:compensationType "donation" .
 
 <https://yourselftoscience.org/resource/f6a7b8c9-d0e1-f2a3-b4c5-d6e7f8g9h0i1> a schema:Dataset ;
-  rdfs:label "University of Cambridge Body and Tissue Donation" ;
+  rdfs:label "University of Cambridge body and tissue donation" ;
   schema:description "Information on donating your body to medical science at the University of Cambridge." ;
   schema:creator [ a schema:Organization; rdfs:label "Department of Anatomy, University of Cambridge" ; schema:additionalType wd:Q3400985 ; schema:additionalType wd:Q3400985 ; schema:location [ a schema:Place; rdfs:label "United Kingdom" ; schema:addressCountry "GB" ] ] ;
   schema:creator [ a schema:Organization; rdfs:label "Cambridge Biomedical Research Centre" ; schema:sameAs wd:Q33121816 ; schema:additionalType wd:Q3400985 ; schema:additionalType wd:Q3400985 ] ;
@@ -303,7 +303,7 @@ yts:compensationType a rdfs:Property ;
 <https://yourselftoscience.org/resource/c7p8q9r0-s1t2-u3v4-w5x6-y7z8a9b0c1d2> a schema:Dataset ;
   rdfs:label "Cochrane Central Register of Controlled Trials (CENTRAL)" ;
   schema:description "A highly concentrated source of reports of randomized and quasi-randomized controlled trials from various databases and other sources. Access requires a subscription to the Cochrane Library." ;
-  schema:creator [ a schema:Organization; rdfs:label "Cochrane Library" ; schema:additionalType wd:Q163740 ; schema:additionalType wd:Q79913 ; schema:location [ a schema:Place; rdfs:label "United Kingdom" ; schema:addressCountry "GB" ] ] ;
+  schema:creator [ a schema:Organization; rdfs:label "Cochrane" ; schema:sameAs wd:Q1105202 ; schema:additionalType wd:Q163740 ; schema:additionalType wd:Q79913 ; schema:location [ a schema:Place; rdfs:label "United Kingdom" ; schema:addressCountry "GB" ] ] ;
   schema:url <https://www.cochranelibrary.com/central> ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Clinical trials" ; schema:sameAs wd:Q30612 ] ;
   yts:compensationType "mixed" .
@@ -405,5 +405,24 @@ yts:compensationType a rdfs:Property ;
   schema:creator [ a schema:Organization; rdfs:label "Eurac Research" ; schema:sameAs wd:Q1245390 ; schema:additionalType wd:Q3400985 ; schema:additionalType wd:Q42240 ; schema:location [ a schema:Place; rdfs:label "Italy" ; schema:addressCountry "IT" ] ] ;
   schema:url <https://www.eurac.edu/en/blogs/connecting-the-dots/data-donations-why-should-i-donate-my-cover-letter-to-research> ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Cover letters" ; schema:sameAs wd:Q569410 ] ;
+  yts:compensationType "donation" .
+
+<https://yourselftoscience.org/resource/e8f1b2c3-d4e5-f6a7-b8c9-d0e1f2a3b4c5> a schema:Dataset ;
+  rdfs:label "PURA Biobank" ;
+  schema:description "Collects biological samples from patients with PURA syndrome, other neurological disorders, and healthy controls to support research." ;
+  schema:creator [ a schema:GovernmentOrganization; rdfs:label "Helmholtz Munich" ; schema:sameAs wd:Q878592 ; schema:location [ a schema:Place; rdfs:label "Germany" ; schema:addressCountry "DE" ] ] ;
+  schema:url <https://www.helmholtz-munich.de/en/pura-biobank/donate-bio-sample> ;
+  schema:spatialCoverage [ a schema:Place; rdfs:label "Germany" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Blood" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Tissue" ] ;
+  yts:compensationType "donation" .
+
+<https://yourselftoscience.org/resource/f9a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6> a schema:Dataset ;
+  rdfs:label "GIMM Biobank" ;
+  schema:description "A biobank collecting biological samples (primarily blood) from diverse populations to support biomedical research and precision medicine." ;
+  schema:creator [ a schema:Organization; rdfs:label "Gulbenkian Institute for Molecular Medicine (GIMM)" ; schema:sameAs wd:Q131428172 ; schema:additionalType wd:Q31855 ; schema:location [ a schema:Place; rdfs:label "Portugal" ; schema:addressCountry "PT" ; schema:sameAs wd:Q45 ] ] ;
+  schema:url <https://care.gimm.pt/biobank-for-donors/> ;
+  schema:spatialCoverage [ a schema:Place; rdfs:label "Portugal" ; schema:sameAs wd:Q45 ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Blood" ; schema:sameAs wd:Q7873 ] ;
   yts:compensationType "donation" .
 

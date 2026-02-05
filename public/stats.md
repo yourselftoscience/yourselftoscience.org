@@ -4,18 +4,18 @@ An overview of the resources available on Yourself to Science, providing insight
 
 ## Overview
 
-- **Total Resources:** 41
+- **Total Resources:** 42
 
 ## Compensation Types
 
-- **Donation:** 21
+- **Donation:** 22
 - **Mixed:** 17
 - **Payment:** 3
 
 ## Top 10 Service Availability by Country
 
 - **Worldwide:** 12
-- **European Union:** 11
+- **European Union:** 12
     - **Breakdown:**
         - **Italy:** 3
         - **EU-Wide:** 3
@@ -23,6 +23,7 @@ An overview of the resources available on Yourself to Science, providing insight
         - **France:** 1
         - **Poland:** 1
         - **Belgium:** 1
+        - **Portugal:** 1
 - **United States:** 9
 - **United Kingdom:** 4
 - **Australia:** 3
@@ -40,6 +41,7 @@ An overview of the resources available on Yourself to Science, providing insight
 - **Wearable data:** 4
 - **Genome:** 3
 - **Stool:** 3
+- **Blood:** 3
 - **Search history:** 2
 - **Eggs:** 2
 - **Embryos:** 2
@@ -47,7 +49,6 @@ An overview of the resources available on Yourself to Science, providing insight
 - **Placenta:** 2
 - **Social media data:** 2
 - **Organ:** 2
-- **Blood:** 2
 - **Location history:** 1
 - **Hair:** 1
 - **Plasma:** 1
@@ -66,12 +67,13 @@ An overview of the resources available on Yourself to Science, providing insight
     - **Academic:** 8
     - **Research Center:** 2
     - **University Hospital:** 1
-- **Non-Profit:** 9
+- **Non-Profit:** 10
     - **Non-Profit Organization:** 4
     - **Research Foundation:** 2
     - **Non-Governmental Organization:** 1
     - **Professional Association:** 1
     - **Hospital:** 1
+    - **Research Institute:** 1
 - **Commercial:** 8
 - **Intergovernmental:** 1
 

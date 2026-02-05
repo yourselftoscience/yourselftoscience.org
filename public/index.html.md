@@ -475,3 +475,15 @@ This page provides a filterable catalogue of all resources. You can also downloa
 *Compensation:* Donation
 
 ---
+
+### [GIMM Biobank](https://yourselftoscience.org/resource/gimm-biobank)
+
+*Description:* A biobank collecting biological samples (primarily blood) from diverse populations to support biomedical research and precision medicine.
+
+*Data Types:* Blood
+
+*Countries:* Portugal
+
+*Compensation:* Donation
+
+---
