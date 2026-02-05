@@ -234,7 +234,7 @@ const rawResources = [
     "id": "f6a7b8c9-d0e1-f2a3-b4c5-d6e7f8g9h0i1",
     "slug": "cambridge-body-tissue-donation",
     "title": "Body Donation; Tissue Donation",
-    "wikidataLabel": "University of Cambridge Body and Tissue Donation",
+    "wikidataLabel": "University of Cambridge body and tissue donation",
     "organizations": [
       {
         "name": "Department of Anatomy, University of Cambridge",
