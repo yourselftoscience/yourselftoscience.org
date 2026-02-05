@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 2/5/2026, 10:02:42 PM
+**Generated on:** 2/5/2026, 10:16:13 PM
 
 ## Resources
 - **AATB Accredited Bank Search**: ❌
@@ -40,7 +40,7 @@
 - **Rete Cittadini per la Ricerca**: ❌
 - **SPARK for Autism**: ❌
 - **UBC Body Donation Program**: ❌
-- **UCSF Social Media Archive**: ❌
+- **UCSF Archives and Special Collections social media archive**: ❌
 - **University of Cambridge body and tissue donation**: ❌
 - **University of Wrocław Human Hair Decomposition Project**: ❌
 - **Wesley Research Institute placenta donation**: ❌

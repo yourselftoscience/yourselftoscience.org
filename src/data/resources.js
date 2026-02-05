@@ -797,8 +797,8 @@ const rawResources = [
   {
     "id": "f4m5n6o7-p8q9-r0s1-t2u3-v4w5x6y7z8a9",
     "slug": "ucsf-social-media-archive",
-    "title": "Donating Your Social Media",
-    "wikidataLabel": "UCSF Social Media Archive",
+    "title": "UCSF Archives and Special Collections social media archive",
+    "wikidataLabel": "UCSF Archives and Special Collections social media archive",
     "link": "https://www.library.ucsf.edu/archives/donate/materials/donating-your-social-media/",
     "wikidataDescription": "digital archive project collecting social media data for research",
     "organizations": [
