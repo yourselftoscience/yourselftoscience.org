@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 2/5/2026, 1:30:05 AM
+**Generated on:** 2/5/2026, 4:35:04 AM
 
 ## Resources
 - **AATB Accredited Bank Search**: ❌
@@ -33,6 +33,7 @@
 - **NHS Health Research Authority Research Summaries**: ❌
 - **Open Humans**: [Q59696822](https://www.wikidata.org/wiki/Q59696822)
 - **OrganDonor.gov**: ❌
+- **PURA Biobank**: ❌
 - **Penn Medicine Donate Your Data**: ❌
 - **ResearchMatch**: ❌
 - **Rete Cittadini per la Ricerca**: ❌
@@ -65,6 +66,7 @@
 - **Fitbit**: [Q5455414](https://www.wikidata.org/wiki/Q5455414)
 - **Google**: [Q95](https://www.wikidata.org/wiki/Q95)
 - **Health Canada**: [Q1057591](https://www.wikidata.org/wiki/Q1057591)
+- **Helmholtz Munich**: [Q878592](https://www.wikidata.org/wiki/Q878592)
 - **Human Fertilisation and Embryology Authority**: [Q1636533](https://www.wikidata.org/wiki/Q1636533)
 - **Max Planck Institute for Software Systems**: [Q881238](https://www.wikidata.org/wiki/Q881238)
 - **Ministero della Salute**: [Q745634](https://www.wikidata.org/wiki/Q745634)

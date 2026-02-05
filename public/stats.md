@@ -4,25 +4,25 @@ An overview of the resources available on Yourself to Science, providing insight
 
 ## Overview
 
-- **Total Resources:** 40
+- **Total Resources:** 41
 
 ## Compensation Types
 
-- **Donation:** 20
+- **Donation:** 21
 - **Mixed:** 17
 - **Payment:** 3
 
 ## Top 10 Service Availability by Country
 
 - **Worldwide:** 12
-- **European Union:** 10
+- **European Union:** 11
     - **Breakdown:**
         - **Italy:** 3
         - **EU-Wide:** 3
+        - **Germany:** 2
         - **France:** 1
         - **Poland:** 1
         - **Belgium:** 1
-        - **Germany:** 1
 - **United States:** 9
 - **United Kingdom:** 4
 - **Australia:** 3
@@ -36,8 +36,8 @@ An overview of the resources available on Yourself to Science, providing insight
 - **Clinical trials:** 15
 - **Health data:** 8
 - **Body:** 5
+- **Tissue:** 5
 - **Wearable data:** 4
-- **Tissue:** 4
 - **Genome:** 3
 - **Stool:** 3
 - **Search history:** 2
@@ -47,9 +47,9 @@ An overview of the resources available on Yourself to Science, providing insight
 - **Placenta:** 2
 - **Social media data:** 2
 - **Organ:** 2
+- **Blood:** 2
 - **Location history:** 1
 - **Hair:** 1
-- **Blood:** 1
 - **Plasma:** 1
 - **Stem cells:** 1
 - **Conversational AI data:** 1
@@ -57,15 +57,15 @@ An overview of the resources available on Yourself to Science, providing insight
 
 ## Entity Type Distribution
 
+- **Government:** 12
+    - **Research Agency:** 4
+    - **Regulatory Agency:** 4
+    - **Public Health Service:** 3
+    - **Statutory Authority:** 1
 - **Academic:** 11
     - **Academic:** 8
     - **Research Center:** 2
     - **University Hospital:** 1
-- **Government:** 11
-    - **Regulatory Agency:** 4
-    - **Research Agency:** 3
-    - **Public Health Service:** 3
-    - **Statutory Authority:** 1
 - **Non-Profit:** 9
     - **Non-Profit Organization:** 4
     - **Research Foundation:** 2

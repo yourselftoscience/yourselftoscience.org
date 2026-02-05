@@ -463,3 +463,15 @@ This page provides a filterable catalogue of all resources. You can also downloa
 *Compensation:* Donation
 
 ---
+
+### [PURA Biobank](https://yourselftoscience.org/resource/pura-biobank)
+
+*Description:* Collects biological samples from patients with PURA syndrome, other neurological disorders, and healthy controls to support research.
+
+*Data Types:* Blood, Tissue
+
+*Countries:* Germany
+
+*Compensation:* Donation
+
+---

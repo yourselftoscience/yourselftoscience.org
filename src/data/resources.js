@@ -1207,6 +1207,35 @@ const rawResources = [
     "origin": "Italy",
     "originCode": "IT",
     "citations": []
+  },
+  {
+    "id": "e8f1b2c3-d4e5-f6a7-b8c9-d0e1f2a3b4c5",
+    "slug": "pura-biobank",
+    "title": "PURA Biobank",
+    "organizations": [
+      {
+        "name": "Helmholtz Munich",
+        "wikidataId": "Q878592"
+      }
+    ],
+    "link": "https://www.helmholtz-munich.de/en/pura-biobank/donate-bio-sample",
+    "dataTypes": [
+      "Blood",
+      "Tissue"
+    ],
+    "compensationType": "donation",
+    "entityCategory": "Government",
+    "entitySubType": "Research Agency",
+    "description": "Collects biological samples from patients with PURA syndrome, other neurological disorders, and healthy controls to support research.",
+    "origin": "Germany",
+    "originCode": "DE",
+    "countries": [
+      "Germany"
+    ],
+    "countryCodes": [
+      "DE"
+    ],
+    "citations": []
   }
 ];
 

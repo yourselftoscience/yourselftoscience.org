@@ -76,3 +76,15 @@ This page catalogues resources related to donating organs, bodies, or tissues fo
 
 ---
 
+### [PURA Biobank](https://yourselftoscience.org/resource/pura-biobank)
+
+*Description:* Collects biological samples from patients with PURA syndrome, other neurological disorders, and healthy controls to support research.
+
+*Data Types:* Blood, Tissue
+
+*Countries:* Germany
+
+*Compensation:* Donation
+
+---
+
