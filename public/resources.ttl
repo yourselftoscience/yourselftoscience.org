@@ -309,7 +309,7 @@ yts:compensationType a rdfs:Property ;
   yts:compensationType "mixed" .
 
 <https://yourselftoscience.org/resource/d8q9r0s1-t2u3-v4w5-x6y7-z8a9b0c1d2e3> a schema:Dataset ;
-  rdfs:label "Belgian Clinical Trials Database" ;
+  rdfs:label "FAMHP clinical trials database" ;
   schema:description "A database of clinical trials approved by the Belgian Federal Agency for Medicines and Health Products (FAMHP). NOTE: This database is no longer available due to changes in the legal framework." ;
   schema:creator [ a schema:GovernmentOrganization; rdfs:label "Federal Agency for Medicines and Health Products (FAMHP)" ; schema:sameAs wd:Q2682107 ; schema:additionalType wd:Q7188 ; schema:additionalType wd:Q1639780 ; schema:location [ a schema:Place; rdfs:label "Belgium" ; schema:addressCountry "BE" ] ] ;
   schema:url <https://clinicaltrialsdatabase.be/> ;
@@ -374,7 +374,7 @@ yts:compensationType a rdfs:Property ;
   yts:compensationType "donation" .
 
 <https://yourselftoscience.org/resource/510a8c9d-3dc0-4086-a94f-f9d7ec0bc3a4> a schema:Dataset ;
-  rdfs:label "Conversational AI Data Donation" ;
+  rdfs:label "Max Planck Institute for Software Systems conversational AI data donation" ;
   schema:description "Donate your chat history from assistants like ChatGPT, Gemini, and Claude to help researchers understand human-AI interaction patterns." ;
   schema:creator [ a schema:Organization; rdfs:label "Max Planck Institute for Software Systems" ; schema:sameAs wd:Q881238 ; schema:location [ a schema:Place; rdfs:label "Germany" ; schema:addressCountry "DE" ] ] ;
   schema:url <https://social-media-data-donator.mpi-sws.org/> ;

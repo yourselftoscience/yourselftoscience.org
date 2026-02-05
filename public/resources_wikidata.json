@@ -1212,7 +1212,7 @@
   {
     "id": "d8q9r0s1-t2u3-v4w5-x6y7-z8a9b0c1d2e3",
     "slug": "belgian-clinical-trials-database",
-    "title": "Belgian Clinical Trials Database",
+    "title": "FAMHP clinical trials database",
     "organizations": [
       {
         "name": "Federal Agency for Medicines and Health Products (FAMHP)",
@@ -1479,7 +1479,7 @@
   {
     "id": "510a8c9d-3dc0-4086-a94f-f9d7ec0bc3a4",
     "slug": "conversational-ai-data-donation",
-    "title": "Conversational AI Data Donation",
+    "title": "Max Planck Institute for Software Systems conversational AI data donation",
     "wikidataDescription": "research project collecting chat history from AI assistants",
     "organizations": [
       {

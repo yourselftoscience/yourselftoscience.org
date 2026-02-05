@@ -1,25 +1,24 @@
 # Wikidata Integration Report
 
-**Generated on:** 2/5/2026, 8:50:54 PM
+**Generated on:** 2/5/2026, 10:02:42 PM
 
 ## Resources
 - **AATB Accredited Bank Search**: ❌
 - **All of Us**: [Q25004683](https://www.wikidata.org/wiki/Q25004683)
 - **Apple Research**: ❌
 - **Australian Red Cross Lifeblood microbiome donation**: ❌
-- **Belgian Clinical Trials Database**: ❌
 - **Bloodworks Northwest Donate Blood for Research**: ❌
 - **Body and tissue donation in Italy**: ❌
 - **Body donation in France**: ❌
 - **CRC Volontari Ricerca Clinica**: ❌
 - **ClinicalTrials.gov**: [Q5133746](https://www.wikidata.org/wiki/Q5133746)
 - **Cochrane Central Register of Controlled Trials (CENTRAL)**: [Q1105187](https://www.wikidata.org/wiki/Q1105187)
-- **Conversational AI Data Donation**: ❌
 - **Curewiki**: ❌
 - **EU Clinical Trials Register**: [Q96183789](https://www.wikidata.org/wiki/Q96183789)
 - **Esperity Clinical Trial Discovery**: ❌
 - **Eurac Research Cover Letter Donation**: ❌
 - **European Clinical Trials Information Network**: ❌
+- **FAMHP clinical trials database**: ❌
 - **Fitbit Health Research and Product Development**: ❌
 - **FluCamp**: ❌
 - **GIMM Biobank**: ❌
@@ -30,6 +29,7 @@
 - **Health Canada's Clinical Trials Database**: ❌
 - **HealthStreet**: ❌
 - **International Clinical Trials Registry Platform (ICTRP)**: [Q29867940](https://www.wikidata.org/wiki/Q29867940)
+- **Max Planck Institute for Software Systems conversational AI data donation**: ❌
 - **MyPHD**: ❌
 - **NHS Health Research Authority Research Summaries**: ❌
 - **Open Humans**: [Q59696822](https://www.wikidata.org/wiki/Q59696822)

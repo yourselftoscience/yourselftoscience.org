@@ -933,7 +933,7 @@ const rawResources = [
     "status": "Inactive",
     "origin": "Belgium",
     "originCode": "BE",
-    "wikidataLabel": "Belgian Clinical Trials Database",
+    "wikidataLabel": "FAMHP clinical trials database",
     "citations": [
       {
         "title": "Krumb, E., Lambert, C., & Hermans, C. (2021). Patient selection for hemophilia gene therapy: Real-life data from a single center. Research and practice in thrombosis and haemostasis, 5(3), 390-394.",
@@ -1105,6 +1105,7 @@ const rawResources = [
     "id": "510a8c9d-3dc0-4086-a94f-f9d7ec0bc3a4",
     "slug": "conversational-ai-data-donation",
     "title": "Conversational AI Data Donation",
+    "wikidataLabel": "Max Planck Institute for Software Systems conversational AI data donation",
     "wikidataDescription": "research project collecting chat history from AI assistants",
     "organizations": [
       {
