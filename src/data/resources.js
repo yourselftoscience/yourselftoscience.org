@@ -1131,7 +1131,8 @@ const rawResources = [
   {
     "id": "c6336f71-b1df-49d6-a121-694e756fbe75",
     "slug": "crc-volontari-ricerca-clinica",
-    "title": "CRC Volontari Ricerca Clinica",
+    "title": "CRC ed i Volontari per la Ricerca Clinica",
+    "wikidataLabel": "CRC ed i Volontari per la Ricerca Clinica",
     "organizations": [
       {
         "name": "Centro Ricerche Cliniche di Verona",

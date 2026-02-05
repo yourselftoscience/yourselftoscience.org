@@ -304,7 +304,7 @@ This page provides a filterable catalogue of all resources. You can also downloa
 
 ---
 
-### [Donating Your Social Media](https://yourselftoscience.org/resource/ucsf-social-media-archive)
+### [UCSF Archives and Special Collections social media archive](https://yourselftoscience.org/resource/ucsf-social-media-archive)
 
 *Description:* Donate your social media archives to the UCSF Library for research.
 
@@ -430,7 +430,7 @@ This page provides a filterable catalogue of all resources. You can also downloa
 
 ---
 
-### [CRC Volontari Ricerca Clinica](https://yourselftoscience.org/resource/crc-volontari-ricerca-clinica)
+### [CRC ed i Volontari per la Ricerca Clinica](https://yourselftoscience.org/resource/crc-volontari-ricerca-clinica)
 
 *Description:* A center in Verona, Italy, conducting clinical trials for healthy volunteers and patients. Volunteers can register to participate in various studies.
 

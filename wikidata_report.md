@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 2/5/2026, 10:16:13 PM
+**Generated on:** 2/5/2026, 10:25:07 PM
 
 ## Resources
 - **AATB Accredited Bank Search**: ❌
@@ -10,7 +10,7 @@
 - **Bloodworks Northwest Donate Blood for Research**: ❌
 - **Body and tissue donation in Italy**: ❌
 - **Body donation in France**: ❌
-- **CRC Volontari Ricerca Clinica**: ❌
+- **CRC ed i Volontari per la Ricerca Clinica**: ❌
 - **ClinicalTrials.gov**: [Q5133746](https://www.wikidata.org/wiki/Q5133746)
 - **Cochrane Central Register of Controlled Trials (CENTRAL)**: [Q1105187](https://www.wikidata.org/wiki/Q1105187)
 - **Curewiki**: ❌
