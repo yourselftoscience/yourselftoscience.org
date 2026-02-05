@@ -127,8 +127,9 @@ async function enrichResources() {
 
     // Force title override from wikidataLabel AND remove wikidataLabel from output
     if (enrichedResource.wikidataLabel) {
-      enrichedResource.title = enrichedResource.wikidataLabel;
-      delete enrichedResource.wikidataLabel; // Remove valid field from output JSON
+      // Decoupled: Title remains for display, wikidataLabel for Wikidata
+      // We do NOT delete it here so it remains available for the report generator
+      // delete enrichedResource.wikidataLabel; 
     }
 
     enrichedResources.push(enrichedResource);

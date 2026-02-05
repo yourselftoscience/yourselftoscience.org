@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 2/5/2026, 10:25:07 PM
+**Generated on:** 2/5/2026, 10:48:51 PM
 
 ## Resources
 - **AATB Accredited Bank Search**: ❌
@@ -8,27 +8,24 @@
 - **Apple Research**: ❌
 - **Australian Red Cross Lifeblood microbiome donation**: ❌
 - **Bloodworks Northwest Donate Blood for Research**: ❌
-- **Body and tissue donation in Italy**: ❌
-- **Body donation in France**: ❌
 - **CRC ed i Volontari per la Ricerca Clinica**: ❌
 - **ClinicalTrials.gov**: [Q5133746](https://www.wikidata.org/wiki/Q5133746)
-- **Cochrane Central Register of Controlled Trials (CENTRAL)**: [Q1105187](https://www.wikidata.org/wiki/Q1105187)
+- **Cochrane Central Register of Controlled Trials**: [Q1105187](https://www.wikidata.org/wiki/Q1105187)
 - **Curewiki**: ❌
 - **EU Clinical Trials Register**: [Q96183789](https://www.wikidata.org/wiki/Q96183789)
 - **Esperity Clinical Trial Discovery**: ❌
-- **Eurac Research Cover Letter Donation**: ❌
+- **Eurac Research cover letter donation**: ❌
 - **European Clinical Trials Information Network**: ❌
 - **FAMHP clinical trials database**: ❌
 - **Fitbit Health Research and Product Development**: ❌
 - **FluCamp**: ❌
 - **GIMM Biobank**: ❌
-- **Gamete and embryo donation in the United Kingdom**: ❌
-- **German Clinical Trials Register (DRKS)**: [Q96199255](https://www.wikidata.org/wiki/Q96199255)
+- **German Clinical Trials Register**: [Q96199255](https://www.wikidata.org/wiki/Q96199255)
 - **GoodNature Program**: ❌
 - **Google Health Studies**: ❌
 - **Health Canada's Clinical Trials Database**: ❌
 - **HealthStreet**: ❌
-- **International Clinical Trials Registry Platform (ICTRP)**: [Q29867940](https://www.wikidata.org/wiki/Q29867940)
+- **International Clinical Trials Registry Platform**: [Q29867940](https://www.wikidata.org/wiki/Q29867940)
 - **Max Planck Institute for Software Systems conversational AI data donation**: ❌
 - **MyPHD**: ❌
 - **NHS Health Research Authority Research Summaries**: ❌
@@ -45,6 +42,9 @@
 - **University of Wrocław Human Hair Decomposition Project**: ❌
 - **Wesley Research Institute placenta donation**: ❌
 - **Wesley Research Institute stool donation**: ❌
+- **body and tissue donation in Italy**: ❌
+- **body donation in France**: ❌
+- **gamete and embryo donation in the United Kingdom**: ❌
 
 ## Participating Organizations
 - **American Association of Tissue Banks (AATB)**: [Q4743103](https://www.wikidata.org/wiki/Q4743103)

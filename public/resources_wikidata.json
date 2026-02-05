@@ -198,6 +198,7 @@
     "id": "d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9g",
     "slug": "fitbit-research",
     "title": "Fitbit Health Research and Product Development",
+    "wikidataLabel": "Fitbit Health Research and Product Development",
     "organizations": [
       {
         "name": "Fitbit",
@@ -274,6 +275,7 @@
     "id": "e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9g0h",
     "slug": "ubc-body-donation",
     "title": "UBC Body Donation Program",
+    "wikidataLabel": "UBC Body Donation Program",
     "organizations": [
       {
         "name": "Faculty of Medicine at the University of British Columbia",
@@ -312,6 +314,7 @@
     "id": "f6a7b8c9-d0e1-f2a3-b4c5-d6e7f8g9h0i1",
     "slug": "cambridge-body-tissue-donation",
     "title": "University of Cambridge body and tissue donation",
+    "wikidataLabel": "University of Cambridge body and tissue donation",
     "organizations": [
       {
         "name": "Department of Anatomy, University of Cambridge",
@@ -355,7 +358,8 @@
   {
     "id": "a7b8c9d0-e1f2-a3b4-c5d6-e7f8g9h0i1j2",
     "slug": "italy-body-tissue-donation",
-    "title": "Body and tissue donation in Italy",
+    "title": "body and tissue donation in Italy",
+    "wikidataLabel": "body and tissue donation in Italy",
     "organizations": [
       {
         "name": "Ministero della Salute",
@@ -395,7 +399,8 @@
   {
     "id": "b8c9d0e1-f2a3-b4c5-d6e7-f8g9h0i1j2k3",
     "slug": "france-body-donation",
-    "title": "Body donation in France",
+    "title": "body donation in France",
+    "wikidataLabel": "body donation in France",
     "organizations": [
       {
         "name": "Service-Public.fr",
@@ -433,7 +438,8 @@
   {
     "id": "c9d0e1f2-a3b4-c5d6-e7f8-g9h0i1j2k3l4",
     "slug": "uk-gamete-donation",
-    "title": "Gamete and embryo donation in the United Kingdom",
+    "title": "gamete and embryo donation in the United Kingdom",
+    "wikidataLabel": "gamete and embryo donation in the United Kingdom",
     "organizations": [
       {
         "name": "Human Fertilisation and Embryology Authority",
@@ -507,7 +513,11 @@
   {
     "id": "e1f2a3b4-c5d6-e7f8-g9h0-i1j2k3l4m5n6",
     "slug": "who-ictrp",
-    "title": "International Clinical Trials Registry Platform (ICTRP)",
+    "title": "International Clinical Trials Registry Platform",
+    "wikidataLabel": "International Clinical Trials Registry Platform",
+    "aliases": [
+      "ICTRP"
+    ],
     "organizations": [
       {
         "name": "World Health Organization (WHO)",
@@ -710,6 +720,7 @@
     "description": "A patient-centric platform for finding and participating in clinical trials.",
     "origin": "Belgium",
     "originCode": "BE",
+    "wikidataLabel": "Esperity Clinical Trial Discovery",
     "citations": [
       {
         "title": "De Corte, W., Delrue, H., Vanfleteren, L. J. J., Dutré, P. E. M., Pottel, H., Devriendt, D. K. J. C., ... & Desmet, M. B. (2012). Randomized clinical trial on the influence of anaesthesia protocol on intestinal motility during laparoscopic surgery requiring small bowel anastomosis. Journal of British Surgery, 99(11), 1524-1529.",
@@ -905,6 +916,7 @@
     "id": "b0i1j2k3-l4m5-n6o7-p8q9-r0s1t2u3v4w5",
     "slug": "lifeblood-microbiome",
     "title": "Australian Red Cross Lifeblood microbiome donation",
+    "wikidataLabel": "Australian Red Cross Lifeblood microbiome donation",
     "organizations": [
       {
         "name": "Australian Red Cross Lifeblood",
@@ -943,6 +955,7 @@
     "id": "c1j2k3l4-m5n6-o7p8-q9r0-s1t2u3v4w5x6",
     "slug": "wesley-stool-donation",
     "title": "Wesley Research Institute stool donation",
+    "wikidataLabel": "Wesley Research Institute stool donation",
     "organizations": [
       {
         "name": "Wesley Research Institute",
@@ -981,6 +994,7 @@
     "id": "d2k3l4m5-n6o7-p8q9-r0s1-t2u3v4w5x6y7",
     "slug": "wesley-placenta-donation",
     "title": "Wesley Research Institute placenta donation",
+    "wikidataLabel": "Wesley Research Institute placenta donation",
     "organizations": [
       {
         "name": "Wesley Research Institute",
@@ -1019,6 +1033,7 @@
     "id": "e3l4m5n6-o7p8-q9r0-s1t2-u3v4w5x6y7z8",
     "slug": "wroclaw-hair-decomposition",
     "title": "University of Wrocław Human Hair Decomposition Project",
+    "wikidataLabel": "University of Wrocław Human Hair Decomposition Project",
     "organizations": [
       {
         "name": "Department of Human Biology, University of Wrocław",
@@ -1067,6 +1082,7 @@
     "id": "f4m5n6o7-p8q9-r0s1-t2u3-v4w5x6y7z8a9",
     "slug": "ucsf-social-media-archive",
     "title": "UCSF Archives and Special Collections social media archive",
+    "wikidataLabel": "UCSF Archives and Special Collections social media archive",
     "link": "https://www.library.ucsf.edu/archives/donate/materials/donating-your-social-media/",
     "wikidataDescription": "digital archive project collecting social media data for research",
     "organizations": [
@@ -1098,6 +1114,7 @@
     "id": "a5n6o7p8-q9r0-s1t2-u3v4-w5x6y7z8a9b0",
     "slug": "penn-medicine-donate-your-data",
     "title": "Penn Medicine Donate Your Data",
+    "wikidataLabel": "Penn Medicine Donate Your Data",
     "organizations": [
       {
         "name": "Penn Medicine",
@@ -1145,6 +1162,7 @@
     "id": "b6o7p8q9-r0s1-t2u3-v4w5-x6y7z8a9b0c1",
     "slug": "hra-research-summaries",
     "title": "NHS Health Research Authority Research Summaries",
+    "wikidataLabel": "NHS Health Research Authority Research Summaries",
     "organizations": [
       {
         "name": "NHS Health Research Authority",
@@ -1180,7 +1198,11 @@
   {
     "id": "c7p8q9r0-s1t2-u3v4-w5x6-y7z8a9b0c1d2",
     "slug": "cochrane-central-register-of-controlled-trials",
-    "title": "Cochrane Central Register of Controlled Trials (CENTRAL)",
+    "title": "Cochrane Central Register of Controlled Trials",
+    "wikidataLabel": "Cochrane Central Register of Controlled Trials",
+    "aliases": [
+      "CENTRAL"
+    ],
     "organizations": [
       {
         "name": "Cochrane",
@@ -1237,6 +1259,7 @@
     "status": "Inactive",
     "origin": "Belgium",
     "originCode": "BE",
+    "wikidataLabel": "FAMHP clinical trials database",
     "citations": [
       {
         "title": "Krumb, E., Lambert, C., & Hermans, C. (2021). Patient selection for hemophilia gene therapy: Real-life data from a single center. Research and practice in thrombosis and haemostasis, 5(3), 390-394.",
@@ -1258,7 +1281,11 @@
   {
     "id": "e9r0s1t2-u3v4-w5x6-y7z8-a9b0c1d2e3f4",
     "slug": "german-clinical-trials-register",
-    "title": "German Clinical Trials Register (DRKS)",
+    "title": "German Clinical Trials Register",
+    "wikidataLabel": "German Clinical Trials Register",
+    "aliases": [
+      "DRKS"
+    ],
     "organizations": [
       {
         "name": "Federal Institute for Drugs and Medical Devices (BfArM)",
@@ -1431,6 +1458,7 @@
     "id": "c3v4w5x6-y7z8-a9b0-c1d2-e3f4g5h6i7j8",
     "slug": "bloodworks-research",
     "title": "Bloodworks Northwest Donate Blood for Research",
+    "wikidataLabel": "Bloodworks Northwest Donate Blood for Research",
     "organizations": [
       {
         "name": "Bloodworks Northwest",
@@ -1480,6 +1508,7 @@
     "id": "510a8c9d-3dc0-4086-a94f-f9d7ec0bc3a4",
     "slug": "conversational-ai-data-donation",
     "title": "Max Planck Institute for Software Systems conversational AI data donation",
+    "wikidataLabel": "Max Planck Institute for Software Systems conversational AI data donation",
     "wikidataDescription": "research project collecting chat history from AI assistants",
     "organizations": [
       {
@@ -1512,6 +1541,7 @@
     "id": "c6336f71-b1df-49d6-a121-694e756fbe75",
     "slug": "crc-volontari-ricerca-clinica",
     "title": "CRC ed i Volontari per la Ricerca Clinica",
+    "wikidataLabel": "CRC ed i Volontari per la Ricerca Clinica",
     "organizations": [
       {
         "name": "Centro Ricerche Cliniche di Verona",
@@ -1589,7 +1619,8 @@
   {
     "id": "16098fce-8138-4695-8aa0-08a0eae8709a",
     "slug": "eurac-cover-letter-donation",
-    "title": "Eurac Research Cover Letter Donation",
+    "title": "Eurac Research cover letter donation",
+    "wikidataLabel": "Eurac Research cover letter donation",
     "organizations": [
       {
         "name": "Eurac Research",

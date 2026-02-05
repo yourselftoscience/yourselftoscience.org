@@ -99,7 +99,7 @@ yts:compensationType a rdfs:Property ;
   yts:compensationType "donation" .
 
 <https://yourselftoscience.org/resource/a7b8c9d0-e1f2-a3b4-c5d6-e7f8g9h0i1j2> a schema:Dataset ;
-  rdfs:label "Body and tissue donation in Italy" ;
+  rdfs:label "body and tissue donation in Italy" ;
   schema:description "Official guidelines for donating body and tissues for study, training, and scientific research in Italy." ;
   schema:creator [ a schema:GovernmentOrganization; rdfs:label "Ministero della Salute" ; schema:sameAs wd:Q745634 ; schema:additionalType wd:Q7188 ; schema:additionalType wd:Q9353606 ; schema:location [ a schema:Place; rdfs:label "Italy" ; schema:addressCountry "IT" ] ] ;
   schema:url <https://www.salute.gov.it/portale/disposizionepostmortem/dettaglioContenutiDisposizionepostmortem.jsp?lingua=italiano&id=6004&area=postMortem&menu=vuoto> ;
@@ -109,7 +109,7 @@ yts:compensationType a rdfs:Property ;
   yts:compensationType "donation" .
 
 <https://yourselftoscience.org/resource/b8c9d0e1-f2a3-b4c5-d6e7-f8g9h0i1j2k3> a schema:Dataset ;
-  rdfs:label "Body donation in France" ;
+  rdfs:label "body donation in France" ;
   schema:description "Official information on body donation for science and medical research in France." ;
   schema:creator [ a schema:GovernmentOrganization; rdfs:label "Service-Public.fr" ; schema:sameAs wd:Q3480047 ; schema:additionalType wd:Q7188 ; schema:additionalType wd:Q9353606 ; schema:location [ a schema:Place; rdfs:label "France" ; schema:addressCountry "FR" ] ] ;
   schema:url <https://www.service-public.fr/particuliers/vosdroits/F180> ;
@@ -118,7 +118,7 @@ yts:compensationType a rdfs:Property ;
   yts:compensationType "donation" .
 
 <https://yourselftoscience.org/resource/c9d0e1f2-a3b4-c5d6-e7f8-g9h0i1j2k3l4> a schema:Dataset ;
-  rdfs:label "Gamete and embryo donation in the United Kingdom" ;
+  rdfs:label "gamete and embryo donation in the United Kingdom" ;
   schema:description "Information on donating eggs, sperm, and embryos for research in the UK." ;
   schema:creator [ a schema:GovernmentOrganization; rdfs:label "Human Fertilisation and Embryology Authority" ; schema:sameAs wd:Q1636533 ; schema:additionalType wd:Q7188 ; schema:additionalType wd:Q7604698 ; schema:location [ a schema:Place; rdfs:label "United Kingdom" ; schema:addressCountry "GB" ] ] ;
   schema:url <https://www.hfea.gov.uk/donation/donors/donating-to-research/> ;
@@ -138,7 +138,7 @@ yts:compensationType a rdfs:Property ;
   yts:compensationType "mixed" .
 
 <https://yourselftoscience.org/resource/e1f2a3b4-c5d6-e7f8-g9h0-i1j2k3l4m5n6> a schema:Dataset ;
-  rdfs:label "International Clinical Trials Registry Platform (ICTRP)" ;
+  rdfs:label "International Clinical Trials Registry Platform" ;
   schema:description "A central database managed by the WHO to search for clinical trials from registries around the world." ;
   schema:creator [ a schema:Organization; rdfs:label "World Health Organization (WHO)" ; schema:sameAs wd:Q7817 ; schema:additionalType wd:Q245065 ; schema:additionalType wd:Q245065 ; schema:location [ a schema:Place; rdfs:label "Switzerland" ; schema:addressCountry "CH" ; schema:sameAs wd:Q39 ] ] ;
   schema:url <https://trialsearch.who.int/> ;
@@ -301,7 +301,7 @@ yts:compensationType a rdfs:Property ;
   yts:compensationType "donation" .
 
 <https://yourselftoscience.org/resource/c7p8q9r0-s1t2-u3v4-w5x6-y7z8a9b0c1d2> a schema:Dataset ;
-  rdfs:label "Cochrane Central Register of Controlled Trials (CENTRAL)" ;
+  rdfs:label "Cochrane Central Register of Controlled Trials" ;
   schema:description "A highly concentrated source of reports of randomized and quasi-randomized controlled trials from various databases and other sources. Access requires a subscription to the Cochrane Library." ;
   schema:creator [ a schema:Organization; rdfs:label "Cochrane" ; schema:sameAs wd:Q1105202 ; schema:additionalType wd:Q163740 ; schema:additionalType wd:Q79913 ; schema:location [ a schema:Place; rdfs:label "United Kingdom" ; schema:addressCountry "GB" ] ] ;
   schema:url <https://www.cochranelibrary.com/central> ;
@@ -319,7 +319,7 @@ yts:compensationType a rdfs:Property ;
   yts:compensationType "mixed" .
 
 <https://yourselftoscience.org/resource/e9r0s1t2-u3v4-w5x6-y7z8-a9b0c1d2e3f4> a schema:Dataset ;
-  rdfs:label "German Clinical Trials Register (DRKS)" ;
+  rdfs:label "German Clinical Trials Register" ;
   schema:description "The primary register for clinical trials conducted in Germany, providing public access to study information." ;
   schema:creator [ a schema:Organization; rdfs:label "Federal Institute for Drugs and Medical Devices (BfArM)" ; schema:sameAs wd:Q1006215 ; schema:additionalType wd:Q3400985 ; schema:additionalType wd:Q3400985 ; schema:location [ a schema:Place; rdfs:label "Germany" ; schema:addressCountry "DE" ] ] ;
   schema:url <https://drks.de/> ;
@@ -400,7 +400,7 @@ yts:compensationType a rdfs:Property ;
   yts:compensationType "mixed" .
 
 <https://yourselftoscience.org/resource/16098fce-8138-4695-8aa0-08a0eae8709a> a schema:Dataset ;
-  rdfs:label "Eurac Research Cover Letter Donation" ;
+  rdfs:label "Eurac Research cover letter donation" ;
   schema:description "A data donation campaign focused on collecting cover letters for doctoral research to understand the impact of writing styles in a multilingual professional context." ;
   schema:creator [ a schema:Organization; rdfs:label "Eurac Research" ; schema:sameAs wd:Q1245390 ; schema:additionalType wd:Q3400985 ; schema:additionalType wd:Q42240 ; schema:location [ a schema:Place; rdfs:label "Italy" ; schema:addressCountry "IT" ] ] ;
   schema:url <https://www.eurac.edu/en/blogs/connecting-the-dots/data-donations-why-should-i-donate-my-cover-letter-to-research> ;

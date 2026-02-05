@@ -267,7 +267,7 @@ const rawResources = [
     "id": "a7b8c9d0-e1f2-a3b4-c5d6-e7f8g9h0i1j2",
     "slug": "italy-body-tissue-donation",
     "title": "Body & Tissues Donation",
-    "wikidataLabel": "Body and tissue donation in Italy",
+    "wikidataLabel": "body and tissue donation in Italy",
     "organizations": [
       {
         "name": "Ministero della Salute",
@@ -297,7 +297,7 @@ const rawResources = [
     "id": "b8c9d0e1-f2a3-b4c5-d6e7-f8g9h0i1j2k3",
     "slug": "france-body-donation",
     "title": "Donate the Body to Science",
-    "wikidataLabel": "Body donation in France",
+    "wikidataLabel": "body donation in France",
     "organizations": [
       {
         "name": "Service-Public.fr",
@@ -326,7 +326,7 @@ const rawResources = [
     "id": "c9d0e1f2-a3b4-c5d6-e7f8-g9h0i1j2k3l4",
     "slug": "uk-gamete-donation",
     "title": "Eggs, Sperm and Embryos Donation to Research",
-    "wikidataLabel": "Gamete and embryo donation in the United Kingdom",
+    "wikidataLabel": "gamete and embryo donation in the United Kingdom",
     "organizations": [
       {
         "name": "Human Fertilisation and Embryology Authority",
@@ -379,6 +379,8 @@ const rawResources = [
     "id": "e1f2a3b4-c5d6-e7f8-g9h0-i1j2k3l4m5n6",
     "slug": "who-ictrp",
     "title": "International Clinical Trials Registry Platform (ICTRP)",
+    "wikidataLabel": "International Clinical Trials Registry Platform",
+    "aliases": ["ICTRP"],
     "organizations": [
       {
         "name": "World Health Organization (WHO)",
@@ -885,6 +887,8 @@ const rawResources = [
     "id": "c7p8q9r0-s1t2-u3v4-w5x6-y7z8a9b0c1d2",
     "slug": "cochrane-central-register-of-controlled-trials",
     "title": "Cochrane Central Register of Controlled Trials (CENTRAL)",
+    "wikidataLabel": "Cochrane Central Register of Controlled Trials",
+    "aliases": ["CENTRAL"],
     "organizations": [
       {
         "name": "Cochrane",
@@ -945,6 +949,8 @@ const rawResources = [
     "id": "e9r0s1t2-u3v4-w5x6-y7z8-a9b0c1d2e3f4",
     "slug": "german-clinical-trials-register",
     "title": "German Clinical Trials Register (DRKS)",
+    "wikidataLabel": "German Clinical Trials Register",
+    "aliases": ["DRKS"],
     "organizations": [
       {
         "name": "Federal Institute for Drugs and Medical Devices (BfArM)",
@@ -1189,7 +1195,7 @@ const rawResources = [
     "id": "16098fce-8138-4695-8aa0-08a0eae8709a",
     "slug": "eurac-cover-letter-donation",
     "title": "Donate Your Cover Letter to Research",
-    "wikidataLabel": "Eurac Research Cover Letter Donation",
+    "wikidataLabel": "Eurac Research cover letter donation",
     "organizations": [
       {
         "name": "Eurac Research",
