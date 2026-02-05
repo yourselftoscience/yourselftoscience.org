@@ -887,8 +887,8 @@ const rawResources = [
     "title": "Cochrane Central Register of Controlled Trials (CENTRAL)",
     "organizations": [
       {
-        "name": "Cochrane Library",
-        "wikidataId": null
+        "name": "Cochrane",
+        "wikidataId": "Q1105202"
       }
     ],
 
