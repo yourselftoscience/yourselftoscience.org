@@ -63,6 +63,12 @@ async function enrichResources() {
       if (existingEntry.originWikidataId) enrichedResource.originWikidataId = existingEntry.originWikidataId;
       if (existingEntry.organizationWikidataId) enrichedResource.organizationWikidataId = existingEntry.organizationWikidataId; // Preserve manual organization ID
 
+      // Preserve Wikidata metadata (Labels, Descriptions, Aliases)
+      if (existingEntry.wikidataLabel && !enrichedResource.wikidataLabel) enrichedResource.wikidataLabel = existingEntry.wikidataLabel;
+      if (existingEntry.wikidataDescription) enrichedResource.wikidataDescription = existingEntry.wikidataDescription;
+      if (existingEntry.aliases) enrichedResource.aliases = existingEntry.aliases;
+
+
       // Also preserve legacy resourceWikidataId if needed (redundant check but safe)
       if (existingEntry.resourceWikidataId) enrichedResource.resourceWikidataId = existingEntry.resourceWikidataId;
 
@@ -236,19 +242,40 @@ async function generateReport(resources) {
 
 **Generated on:** ${new Date().toLocaleString()}
 
-## Resources
+## Project-Organizer Relationships
+
+// Sort resources alphabetically by title/label for this section
+${[...resources].sort((a, b) => (a.wikidataLabel || a.title).localeCompare(b.wikidataLabel || b.title)).map(r => {
+    const projectId = r.wikidataId || r.resourceWikidataId;
+    const projectLink = projectId ? generateLink(projectId) : '❌';
+    const projectTitle = r.wikidataLabel || r.title; // Use Wikidata label if available
+
+    const orgs = (r.organizations || []).map(org => {
+      const orgName = org.name;
+      const orgId = org.wikidataId ? generateLink(org.wikidataId) : 'No Wikidata ID';
+      return `  - ${orgName}: ${orgId}`;
+    }).join('\n');
+    return `- **${projectTitle}**: ${projectLink}\n${orgs}`;
+  }).join('\n')}
+
+## Resources (Projects)
+
 ${resourcesList.join('\n')}
 
 ## Participating Organizations
+
 ${organizationsList.join('\n')}
 
 ## Data Types
+
 ${dataTypesList.join('\n')}
 
 ## Countries
+
 ${countriesList.join('\n')}
 
 ## Entity Categories
+
 ${categoriesList.join('\n')}
 `;
 

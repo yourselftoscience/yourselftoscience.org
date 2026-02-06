@@ -762,7 +762,7 @@ const rawResources = [
     "id": "b4a5c0ef-ea7d-4a5a-967a-3b5c32c170f7",
     "slug": "wroclaw-hair-decomposition",
     "title": "Human Hair Decomposition",
-    "wikidataLabel": "University of Wrocław Human Hair Decomposition Project",
+    "wikidataLabel": "University of Wrocław human hair decomposition project",
     "organizations": [
       {
         "name": "Department of Human Biology, University of Wrocław",

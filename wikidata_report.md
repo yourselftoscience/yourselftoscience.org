@@ -1,8 +1,98 @@
 # Wikidata Integration Report
 
-**Generated on:** 2/6/2026, 11:14:19 PM
+**Generated on:** 2/7/2026, 12:16:31 AM
 
-## Resources
+## Project-Organizer Relationships
+
+// Sort resources alphabetically by title/label for this section
+- **AATB Accredited Bank Search**: ❌
+  - American Association of Tissue Banks (AATB): [Q4743103](https://www.wikidata.org/wiki/Q4743103)
+- **All of Us**: [Q25004683](https://www.wikidata.org/wiki/Q25004683)
+  - National Institutes of Health (NIH): [Q390551](https://www.wikidata.org/wiki/Q390551)
+- **Apple Research**: ❌
+  - Apple: [Q312](https://www.wikidata.org/wiki/Q312)
+- **Australian Red Cross Lifeblood microbiome donation**: ❌
+  - Australian Red Cross Lifeblood: [Q4824602](https://www.wikidata.org/wiki/Q4824602)
+- **Bloodworks Northwest Donate Blood for Research**: ❌
+  - Bloodworks Northwest: [Q21015632](https://www.wikidata.org/wiki/Q21015632)
+- **body and tissue donation in Italy**: ❌
+  - Ministero della Salute: [Q745634](https://www.wikidata.org/wiki/Q745634)
+- **body donation in France**: ❌
+  - Service-Public.fr: [Q3480047](https://www.wikidata.org/wiki/Q3480047)
+- **ClinicalTrials.gov**: [Q5133746](https://www.wikidata.org/wiki/Q5133746)
+  - United States National Library of Medicine (NLM): [Q611833](https://www.wikidata.org/wiki/Q611833)
+- **Cochrane Central Register of Controlled Trials**: [Q1105187](https://www.wikidata.org/wiki/Q1105187)
+  - Cochrane: [Q1105202](https://www.wikidata.org/wiki/Q1105202)
+- **CRC ed i Volontari per la Ricerca Clinica**: ❌
+  - Centro Ricerche Cliniche di Verona: No Wikidata ID
+- **Curewiki**: ❌
+  - Curewiki: No Wikidata ID
+- **Esperity Clinical Trial Discovery**: ❌
+  - Esperity: No Wikidata ID
+- **EU Clinical Trials Register**: [Q96183789](https://www.wikidata.org/wiki/Q96183789)
+  - European Medicines Agency (EMA): [Q130146](https://www.wikidata.org/wiki/Q130146)
+- **Eurac Research cover letter donation**: ❌
+  - Eurac Research: [Q1245390](https://www.wikidata.org/wiki/Q1245390)
+- **European Clinical Trials Information Network**: ❌
+  - Clinical Trials Information Network (CTIN Poland): No Wikidata ID
+- **FAMHP clinical trials database**: ❌
+  - Federal Agency for Medicines and Health Products (FAMHP): [Q2682107](https://www.wikidata.org/wiki/Q2682107)
+- **Fitbit Health Research and Product Development**: ❌
+  - Fitbit: [Q5455414](https://www.wikidata.org/wiki/Q5455414)
+- **FluCamp**: ❌
+  - hVIVO: [Q30268998](https://www.wikidata.org/wiki/Q30268998)
+- **gamete and embryo donation in the United Kingdom**: ❌
+  - Human Fertilisation and Embryology Authority: [Q1636533](https://www.wikidata.org/wiki/Q1636533)
+- **German Clinical Trials Register**: [Q96199255](https://www.wikidata.org/wiki/Q96199255)
+  - Federal Institute for Drugs and Medical Devices (BfArM): [Q1006215](https://www.wikidata.org/wiki/Q1006215)
+- **GIMM Biobank**: ❌
+  - Gulbenkian Institute for Molecular Medicine (GIMM): [Q131428172](https://www.wikidata.org/wiki/Q131428172)
+- **GoodNature Program**: ❌
+  - Nestlé Health Science U.S.: [Q45132270](https://www.wikidata.org/wiki/Q45132270)
+- **Google Health Studies**: ❌
+  - Google: [Q95](https://www.wikidata.org/wiki/Q95)
+- **Health Canada's Clinical Trials Database**: ❌
+  - Health Canada: [Q1057591](https://www.wikidata.org/wiki/Q1057591)
+- **HealthStreet**: ❌
+  - University of Florida Health: [Q7487946](https://www.wikidata.org/wiki/Q7487946)
+- **International Clinical Trials Registry Platform**: [Q29867940](https://www.wikidata.org/wiki/Q29867940)
+  - World Health Organization (WHO): [Q7817](https://www.wikidata.org/wiki/Q7817)
+- **Max Planck Institute for Software Systems conversational AI data donation**: ❌
+  - Max Planck Institute for Software Systems: [Q881238](https://www.wikidata.org/wiki/Q881238)
+- **MyPHD**: ❌
+  - Stanford University: [Q41506](https://www.wikidata.org/wiki/Q41506)
+- **NHS Health Research Authority Research Summaries**: ❌
+  - NHS Health Research Authority: [Q16937226](https://www.wikidata.org/wiki/Q16937226)
+- **Open Humans**: [Q59696822](https://www.wikidata.org/wiki/Q59696822)
+  - Open Humans Foundation: [Q59696822](https://www.wikidata.org/wiki/Q59696822)
+- **OrganDonor.gov**: ❌
+  - U.S. Department of Health & Human Services: [Q942326](https://www.wikidata.org/wiki/Q942326)
+- **Penn Medicine Donate Your Data**: ❌
+  - Penn Medicine: [Q7896080](https://www.wikidata.org/wiki/Q7896080)
+- **PURA Biobank**: ❌
+  - Helmholtz Munich: [Q878592](https://www.wikidata.org/wiki/Q878592)
+- **ResearchMatch**: ❌
+  - National Institutes of Health (NIH): [Q390551](https://www.wikidata.org/wiki/Q390551)
+- **Rete Cittadini per la Ricerca**: ❌
+  - San Camillo IRCCS: No Wikidata ID
+- **SPARK for Autism**: ❌
+  - Simons Foundation: [Q28148561](https://www.wikidata.org/wiki/Q28148561)
+- **UBC Body Donation Program**: ❌
+  - Faculty of Medicine at the University of British Columbia: [Q7863800](https://www.wikidata.org/wiki/Q7863800)
+- **UCSF Archives and Special Collections social media archive**: ❌
+  - UCSF Library Archives: [Q25004607](https://www.wikidata.org/wiki/Q25004607)
+- **University of Cambridge body and tissue donation**: ❌
+  - Department of Anatomy, University of Cambridge: No Wikidata ID
+  - Cambridge Biomedical Research Centre: [Q33121816](https://www.wikidata.org/wiki/Q33121816)
+- **University of Wrocław human hair decomposition project**: ❌
+  - Department of Human Biology, University of Wrocław: No Wikidata ID
+- **Wesley Research Institute placenta donation**: ❌
+  - Wesley Research Institute: [Q30289631](https://www.wikidata.org/wiki/Q30289631)
+- **Wesley Research Institute stool donation**: ❌
+  - Wesley Research Institute: [Q30289631](https://www.wikidata.org/wiki/Q30289631)
+
+## Resources (Projects)
+
 - **AATB Accredited Bank Search**: ❌
 - **All of Us**: [Q25004683](https://www.wikidata.org/wiki/Q25004683)
 - **Apple Research**: ❌
@@ -39,7 +129,7 @@
 - **UBC Body Donation Program**: ❌
 - **UCSF Archives and Special Collections social media archive**: ❌
 - **University of Cambridge body and tissue donation**: ❌
-- **University of Wrocław Human Hair Decomposition Project**: ❌
+- **University of Wrocław human hair decomposition project**: ❌
 - **Wesley Research Institute placenta donation**: ❌
 - **Wesley Research Institute stool donation**: ❌
 - **body and tissue donation in Italy**: ❌
@@ -47,6 +137,7 @@
 - **gamete and embryo donation in the United Kingdom**: ❌
 
 ## Participating Organizations
+
 - **American Association of Tissue Banks (AATB)**: [Q4743103](https://www.wikidata.org/wiki/Q4743103)
 - **Apple**: [Q312](https://www.wikidata.org/wiki/Q312)
 - **Australian Red Cross Lifeblood**: [Q4824602](https://www.wikidata.org/wiki/Q4824602)
@@ -90,6 +181,7 @@
 - **hVIVO**: [Q30268998](https://www.wikidata.org/wiki/Q30268998)
 
 ## Data Types
+
 - **Blood**: [Q7873](https://www.wikidata.org/wiki/Q7873)
 - **Body**: [Q48422](https://www.wikidata.org/wiki/Q48422)
 - **Clinical trials**: [Q30612](https://www.wikidata.org/wiki/Q30612)
@@ -113,6 +205,7 @@
 - **Wearable data**: ❌
 
 ## Countries
+
 - **Australia**: [Q408](https://www.wikidata.org/wiki/Q408)
 - **Belgium**: [Q31](https://www.wikidata.org/wiki/Q31)
 - **Canada**: [Q16](https://www.wikidata.org/wiki/Q16)
@@ -130,6 +223,7 @@
 - **United States**: [Q30](https://www.wikidata.org/wiki/Q30)
 
 ## Entity Categories
+
 - **Academic**: [Q163740](https://www.wikidata.org/wiki/Q163740)
 - **Commercial**: [Q4830453](https://www.wikidata.org/wiki/Q4830453)
 - **Government**: [Q7188](https://www.wikidata.org/wiki/Q7188)

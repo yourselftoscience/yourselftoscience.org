@@ -1032,8 +1032,8 @@
   {
     "id": "b4a5c0ef-ea7d-4a5a-967a-3b5c32c170f7",
     "slug": "wroclaw-hair-decomposition",
-    "title": "University of Wrocław Human Hair Decomposition Project",
-    "wikidataLabel": "University of Wrocław Human Hair Decomposition Project",
+    "title": "University of Wrocław human hair decomposition project",
+    "wikidataLabel": "University of Wrocław human hair decomposition project",
     "organizations": [
       {
         "name": "Department of Human Biology, University of Wrocław",
@@ -1076,7 +1076,12 @@
       "Poland": "Q36"
     },
     "entityCategoryWikidataId": "Q3400985",
-    "entitySubTypeWikidataId": "Q3400985"
+    "entitySubTypeWikidataId": "Q3400985",
+    "wikidataDescription": "research project at the University of Wrocław",
+    "aliases": [
+      "The significance of selected biological and environmental factors in the decomposition of human hair",
+      "Znaczenie wybranych czynników biologicznych i środowiskowych w procesie rozkładu ludzkich włosów"
+    ]
   },
   {
     "id": "baedc14c-bcb0-4232-b91e-7a2b6707945f",

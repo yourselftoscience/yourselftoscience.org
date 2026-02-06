@@ -260,7 +260,7 @@ yts:compensationType a rdfs:Property ;
   yts:compensationType "donation" .
 
 <https://yourselftoscience.org/resource/b4a5c0ef-ea7d-4a5a-967a-3b5c32c170f7> a schema:Dataset ;
-  rdfs:label "University of Wrocław Human Hair Decomposition Project" ;
+  rdfs:label "University of Wrocław human hair decomposition project" ;
   schema:description "Research on human hair decomposition at the University of Wrocław." ;
   schema:creator [ a schema:Organization; rdfs:label "Department of Human Biology, University of Wrocław" ; schema:additionalType wd:Q3400985 ; schema:additionalType wd:Q3400985 ; schema:location [ a schema:Place; rdfs:label "Poland" ; schema:addressCountry "PL" ] ] ;
   schema:url <https://biologia.uwr.edu.pl/2023/10/12/znaczenie-wybranych-czynnikow-biologicznych-i-srodowiskowych-w-procesie-rozkladu-ludzkich-wlosow-nabor-na-badania/> ;

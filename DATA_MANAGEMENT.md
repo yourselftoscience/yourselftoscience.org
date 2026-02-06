@@ -30,7 +30,7 @@ Run the synchronization script. This script blindly copies the new structure fro
 - **It copies**: New resources, new data types.
 - **It initializes**: New Wikidata fields to `null`.
 - **It preserves**: All existing manual edits and IDs.
-- **It generates**: An integration status report at `wikidata_report.md`.
+- **It generates**: An integration status report at `wikidata_report.md` including a project-to-organizer relationship view.
 
 ```bash
 node scripts/_generateWikidata.js
