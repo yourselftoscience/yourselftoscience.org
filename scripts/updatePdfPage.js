@@ -436,7 +436,7 @@ try {
         page-break-inside: avoid;
       `;
 
-      const title = "Yourself to Science™: A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More";
+      const title = "Yourself to Science™: A comprehensive open-source catalogue for contributing your biological and digital self to scientific research";
       const doiUrl = `https://doi.org/${latestDoi}`;
 
       const apa = `Marcolongo, M. (${year}). <em>${title}</em>. Yourself to Science™. ${siteUrl}. ${doiUrl}`;

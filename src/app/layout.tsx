@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     default: "Yourself to Science",
     template: "%s | Yourself to Science",
   },
-  description: "A Comprehensive Open-Source Catalogue of Services for Contributing to Science with Your Data, Genome, Body, and More",
+  description: "A comprehensive open-source catalogue for contributing your biological and digital self to scientific research",
   metadataBase: new URL('https://yourselftoscience.org'),
   keywords: [
     "scientific catalogue",
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   other: {
-    'citation_title': "Yourself to Science: A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More",
+    'citation_title': "Yourself to Science: A comprehensive open-source catalogue for contributing your biological and digital self to scientific research",
     'citation_author': "Mario Marcolongo",
     'citation_publication_date': '2025/01/31',
     'citation_pdf_url': "https://yourselftoscience.org/yourselftoscience.pdf",
@@ -90,7 +90,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Yourself to Science",
     siteName: "Yourself to Science",
-    description: "List of Services for Contributing to Science with Your Data, Genome, Body, and More",
+    description: "A comprehensive open-source catalogue for contributing your biological and digital self to scientific research",
     url: "https://yourselftoscience.org",
     type: "website",
     images: [
@@ -105,7 +105,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Yourself to Science",
-    description: "List of Services for Contributing to Science with Your Data, Genome, Body, and More",
+    description: "A comprehensive open-source catalogue for contributing your biological and digital self to scientific research",
     images: ["https://yourselftoscience.org/preview-tm.png"],
   },
 };

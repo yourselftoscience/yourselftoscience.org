@@ -1,7 +1,7 @@
 {
   "name": "Yourself to Science",
   "short_name": "You2Science",
-  "description": "A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More",
+  "description": "A comprehensive open-source catalogue for contributing your biological and digital self to scientific research",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -18,4 +18,4 @@
       "type": "image/png"
     }
   ]
-} 
+}

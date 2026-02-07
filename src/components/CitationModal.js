@@ -8,7 +8,7 @@ import { latestDoi } from '@/data/config';
 // Function to generate citation in different formats
 const getCitations = (doi) => {
   const year = new Date().getFullYear();
-  const title = "Yourself to Science™: A Comprehensive Open-Source List of Services for Contributing to Science with Your Data, Genome, Body, and More";
+  const title = "Yourself to Science™: A comprehensive open-source catalogue for contributing your biological and digital self to scientific research";
   const url = "https://yourselftoscience.org";
   const doiUrl = `https://doi.org/${doi}`;
   const accessDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
@@ -95,14 +95,14 @@ export default function CitationModal({ isOpen, onClose }) {
                   </button>
                 </Dialog.Title>
                 <div className="mt-4">
-                    <p className="text-sm text-gray-500 mb-4">
-                        Copy the citation in your preferred format or download the RIS file for your reference manager.
-                    </p>
-                    <CitationFormat label="APA" text={citations.apa} />
-                    <CitationFormat label="MLA" text={citations.mla} />
-                    <CitationFormat label="Chicago" text={citations.chicago} />
-                    <CitationFormat label="BibTeX" text={citations.bibtex} />
-                    <CitationFormat label="RIS (for Zotero/EndNote)" text={citations.ris} />
+                  <p className="text-sm text-gray-500 mb-4">
+                    Copy the citation in your preferred format or download the RIS file for your reference manager.
+                  </p>
+                  <CitationFormat label="APA" text={citations.apa} />
+                  <CitationFormat label="MLA" text={citations.mla} />
+                  <CitationFormat label="Chicago" text={citations.chicago} />
+                  <CitationFormat label="BibTeX" text={citations.bibtex} />
+                  <CitationFormat label="RIS (for Zotero/EndNote)" text={citations.ris} />
                 </div>
               </Dialog.Panel>
             </Transition.Child>
