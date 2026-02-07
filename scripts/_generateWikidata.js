@@ -146,6 +146,17 @@ async function enrichResources() {
       }
     }
 
+    // Mapping Compensation Types to Wikidata QIDs
+    if (enrichedResource.compensationType) {
+      const type = enrichedResource.compensationType;
+      if (type === 'payment') enrichedResource.compensationWikidataId = 'Q1742093'; // remuneration
+      else if (type === 'donation') enrichedResource.compensationWikidataId = 'Q1124860'; // donation
+      else if (type === 'mixed') enrichedResource.compensationWikidataId = ['Q1742093', 'Q1124860']; // both
+      else enrichedResource.compensationWikidataId = null;
+    } else {
+      enrichedResource.compensationWikidataId = null;
+    }
+
     enrichedResources.push(enrichedResource);
   }
 
@@ -283,6 +294,26 @@ async function generateReport(resources) {
     return `- **${key}**: ${generateLink(value)}`;
   });
 
+  // 6. Compensation Types
+  const compensationMap = new Map();
+  resources.forEach(r => {
+    if (r.compensationType) {
+      const type = r.compensationType;
+      // Use the QID logic we just added or manual lookup
+      let qid = r.compensationWikidataId;
+      if (Array.isArray(qid)) qid = qid.map(q => generateLink(q)).join(', ');
+      else if (qid) qid = generateLink(qid);
+      else qid = 'No QID';
+
+      if (!compensationMap.has(type)) {
+        compensationMap.set(type, qid);
+      }
+    }
+  });
+  const compensationList = Array.from(compensationMap.entries()).sort().map(([key, value]) => {
+    return `- **${key}**: ${value}`;
+  });
+
   const reportContent = `# Wikidata Integration Report
 
 **Generated on:** ${new Date().toLocaleString()}
@@ -322,6 +353,10 @@ ${countriesList.join('\n')}
 ## Entity Categories
 
 ${categoriesList.join('\n')}
+
+## Compensation Types
+
+${compensationList.join('\n')}
 `;
 
   try {

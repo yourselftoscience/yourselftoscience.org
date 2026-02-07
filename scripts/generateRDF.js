@@ -18,11 +18,11 @@ try {
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix yts: <https://yourselftoscience.org/ontology#> .
 
-yts:compensationType a rdfs:Property ;
-  rdfs:label "compensation type" ;
-  rdfs:comment "The type of compensation offered for the data or resource." ;
+yts:compensationWikidataId a rdfs:Property ;
+  rdfs:label "compensation Wikidata ID" ;
+  rdfs:comment "The Wikidata QID corresponding to the compensation type." ;
   schema:domainIncludes schema:Dataset ;
-  schema:rangeIncludes schema:Text .
+  schema:rangeIncludes schema:URL .
 
 `;
 
@@ -105,7 +105,16 @@ yts:compensationType a rdfs:Property ;
     }
 
     if (resource.compensationType) {
-      ttlContent += `  yts:compensationType "${resource.compensationType}" .\n\n`;
+      ttlContent += `  yts:compensationType "${resource.compensationType}" ;\n`;
+    }
+
+    if (resource.compensationWikidataId) {
+      if (Array.isArray(resource.compensationWikidataId)) {
+        const qids = resource.compensationWikidataId.map(q => `wd:${q}`).join(', ');
+        ttlContent += `  yts:compensationWikidataId ${qids} .\n\n`;
+      } else {
+        ttlContent += `  yts:compensationWikidataId wd:${resource.compensationWikidataId} .\n\n`;
+      }
     } else {
       ttlContent = ttlContent.trim().slice(0, -1) + '.\n\n';
     }

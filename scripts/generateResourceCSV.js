@@ -8,7 +8,7 @@ try {
   const wikidataResources = JSON.parse(readFileSync(jsonPath, 'utf8'));
 
   const headers = [
-    'id', 'title', 'organization', 'link', 'dataTypes', 'compensationType',
+    'id', 'title', 'organization', 'link', 'dataTypes', 'compensationType', 'compensationWikidataId',
     'entityCategory', 'entitySubType', 'countries', 'countryCodes', 'origin', 'originCode',
     'description', 'instructions', 'citations', 'wikidataId', 'resourceWikidataId', 'dataTypeWikidataIds'
   ];
@@ -21,6 +21,11 @@ try {
   let csvContent = headers.join(',') + '\n';
 
   wikidataResources.forEach(resource => {
+    // Handle array or string for compensationWikidataId
+    let compQID = '';
+    if (Array.isArray(resource.compensationWikidataId)) compQID = resource.compensationWikidataId.join('; ');
+    else if (resource.compensationWikidataId) compQID = resource.compensationWikidataId;
+
     const row = [
       `"${resource.id || ''}"`,
       `"${resource.title ? resource.title.replace(/"/g, '""') : ''}"`,
@@ -28,6 +33,7 @@ try {
       `"${resource.link || ''}"`,
       `"${resource.dataTypes ? resource.dataTypes.join('; ') : ''}"`,
       `"${resource.compensationType || ''}"`,
+      `"${compQID}"`,
       `"${resource.entityCategory || ''}"`,
       `"${resource.entitySubType || ''}"`,
       `"${resource.countries ? resource.countries.join('; ') : ''}"`,

@@ -3,11 +3,11 @@
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix yts: <https://yourselftoscience.org/ontology#> .
 
-yts:compensationType a rdfs:Property ;
-  rdfs:label "compensation type" ;
-  rdfs:comment "The type of compensation offered for the data or resource." ;
+yts:compensationWikidataId a rdfs:Property ;
+  rdfs:label "compensation Wikidata ID" ;
+  rdfs:comment "The Wikidata QID corresponding to the compensation type." ;
   schema:domainIncludes schema:Dataset ;
-  schema:rangeIncludes schema:Text .
+  schema:rangeIncludes schema:URL .
 
 <https://yourselftoscience.org/resource/667f25be-9ff2-4e7a-9119-78f2eb61a801> a schema:Dataset ;
   rdfs:label "Open Humans" ;
@@ -21,7 +21,8 @@ yts:compensationType a rdfs:Property ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Search history" ; schema:sameAs wd:Q60461381 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Location history" ] ;
   schema:citation <https://doi.org/10.1093/gigascience/giz076> ;
-  yts:compensationType "donation" .
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/66700d6e-cbc9-40ab-8bf9-eb466844ad52> a schema:Dataset ;
   rdfs:label "MyPHD" ;
@@ -31,7 +32,8 @@ yts:compensationType a rdfs:Property ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ; schema:sameAs wd:Q18745135 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Wearable data" ] ;
   schema:citation <https://doi.org/10.1038/s41746-022-00672-z> ;
-  yts:compensationType "donation" .
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/095034ef-732e-45c6-ad16-54c29c7ba408> a schema:Dataset ;
   rdfs:label "Google Health Studies" ;
@@ -39,7 +41,8 @@ yts:compensationType a rdfs:Property ;
   schema:creator [ a schema:Organization; rdfs:label "Google" ; schema:sameAs wd:Q95 ; schema:additionalType wd:Q4830453 ; schema:additionalType wd:Q4830453 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
   schema:url <https://health.google/consumers/health-studies/> ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ; schema:sameAs wd:Q18745135 ] ;
-  yts:compensationType "donation" .
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/2c7f3ca9-4d4b-41e2-93e2-b0f06bc11cb3> a schema:Dataset ;
   rdfs:label "Apple Research" ;
@@ -48,7 +51,8 @@ yts:compensationType a rdfs:Property ;
   schema:url <https://support.apple.com/en-us/108425> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "United States" ; schema:sameAs wd:Q30 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ; schema:sameAs wd:Q18745135 ] ;
-  yts:compensationType "donation" .
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/3b7e801f-1e45-4c2f-8631-edac7b61743a> a schema:Dataset ;
   rdfs:label "All of Us" ;
@@ -59,14 +63,16 @@ yts:compensationType a rdfs:Property ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "United States" ; schema:sameAs wd:Q30 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ; schema:sameAs wd:Q7020 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ; schema:sameAs wd:Q18745135 ] ;
-  yts:compensationType "mixed" .
+  yts:compensationType "mixed" ;
+  yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/a86ef2b7-fe73-43dd-9f36-356b6b9c861d> a schema:Dataset ;
   rdfs:label "Fitbit Health Research and Product Development" ;
   schema:description "Share your Fitbit data to help improve health research and product development." ;
   schema:creator [ a schema:Organization; rdfs:label "Fitbit" ; schema:sameAs wd:Q5455414 ; schema:additionalType wd:Q4830453 ; schema:additionalType wd:Q4830453 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Wearable data (Fitbit only)" ] ;
-  yts:compensationType "donation" .
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/ff09caec-9a1a-464c-bc8c-009b745ed64a> a schema:Dataset ;
   rdfs:label "SPARK for Autism" ;
@@ -76,7 +82,8 @@ yts:compensationType a rdfs:Property ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "United States" ; schema:sameAs wd:Q30 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ; schema:sameAs wd:Q7020 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ; schema:sameAs wd:Q18745135 ] ;
-  yts:compensationType "mixed" .
+  yts:compensationType "mixed" ;
+  yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/fa3b7b34-7149-4eae-b7da-1ce31650897f> a schema:Dataset ;
   rdfs:label "UBC Body Donation Program" ;
@@ -85,7 +92,8 @@ yts:compensationType a rdfs:Property ;
   schema:url <https://cps.med.ubc.ca/the-donation-process/> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Canada" ; schema:sameAs wd:Q16 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Body" ; schema:sameAs wd:Q48422 ] ;
-  yts:compensationType "donation" .
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/04687f4b-6a45-4d0b-9c92-5487b22f0101> a schema:Dataset ;
   rdfs:label "University of Cambridge body and tissue donation" ;
@@ -96,7 +104,8 @@ yts:compensationType a rdfs:Property ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "United Kingdom" ; schema:sameAs wd:Q145 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Body" ; schema:sameAs wd:Q48422 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Tissue" ; schema:sameAs wd:Q40397 ] ;
-  yts:compensationType "donation" .
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/a358a59c-91fd-4cc3-b971-366b05c1450e> a schema:Dataset ;
   rdfs:label "body and tissue donation in Italy" ;
@@ -106,7 +115,8 @@ yts:compensationType a rdfs:Property ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Italy" ; schema:sameAs wd:Q38 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Body" ; schema:sameAs wd:Q48422 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Tissue" ; schema:sameAs wd:Q40397 ] ;
-  yts:compensationType "donation" .
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/6f6f3a6c-8c92-4f47-a75f-8d2e99e8cec0> a schema:Dataset ;
   rdfs:label "body donation in France" ;
@@ -115,7 +125,8 @@ yts:compensationType a rdfs:Property ;
   schema:url <https://www.service-public.fr/particuliers/vosdroits/F180> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "France" ; schema:sameAs wd:Q142 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Body" ; schema:sameAs wd:Q48422 ] ;
-  yts:compensationType "donation" .
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/b3dc517e-3359-4720-99f3-7fa1928012b2> a schema:Dataset ;
   rdfs:label "gamete and embryo donation in the United Kingdom" ;
@@ -126,7 +137,8 @@ yts:compensationType a rdfs:Property ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Eggs" ; schema:sameAs wd:Q1321695 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Embryos" ; schema:sameAs wd:Q33196 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Sperm" ; schema:sameAs wd:Q17145 ] ;
-  yts:compensationType "donation" .
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/d481c16f-c10c-415b-91d0-24dbf4c1ffbb> a schema:Dataset ;
   rdfs:label "ClinicalTrials.gov" ;
@@ -135,7 +147,8 @@ yts:compensationType a rdfs:Property ;
   schema:creator [ a schema:GovernmentOrganization; rdfs:label "United States National Library of Medicine (NLM)" ; schema:sameAs wd:Q611833 ; schema:additionalType wd:Q7188 ; schema:additionalType wd:Q9142054 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
   schema:url <https://clinicaltrials.gov/> ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Clinical trials" ; schema:sameAs wd:Q30612 ] ;
-  yts:compensationType "mixed" .
+  yts:compensationType "mixed" ;
+  yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/1d837bcd-3582-4a8e-b7f2-6daeb6ee4639> a schema:Dataset ;
   rdfs:label "International Clinical Trials Registry Platform" ;
@@ -144,7 +157,8 @@ yts:compensationType a rdfs:Property ;
   schema:creator [ a schema:Organization; rdfs:label "World Health Organization (WHO)" ; schema:sameAs wd:Q7817 ; schema:additionalType wd:Q245065 ; schema:additionalType wd:Q245065 ; schema:location [ a schema:Place; rdfs:label "Switzerland" ; schema:addressCountry "CH" ; schema:sameAs wd:Q39 ] ] ;
   schema:url <https://trialsearch.who.int/> ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Clinical trials" ; schema:sameAs wd:Q30612 ] ;
-  yts:compensationType "mixed" .
+  yts:compensationType "mixed" ;
+  yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/aaf2c81c-7ac8-4d47-9b5b-ea6567b1fb6d> a schema:Dataset ;
   rdfs:label "EU Clinical Trials Register" ;
@@ -157,7 +171,8 @@ yts:compensationType a rdfs:Property ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Liechtenstein" ; schema:sameAs wd:Q347 ] ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Norway" ; schema:sameAs wd:Q20 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Clinical trials" ; schema:sameAs wd:Q30612 ] ;
-  yts:compensationType "mixed" .
+  yts:compensationType "mixed" ;
+  yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/4a9f519b-a804-4210-adac-3dfcb88b2ac4> a schema:Dataset ;
   rdfs:label "European Clinical Trials Information Network" ;
@@ -168,7 +183,8 @@ yts:compensationType a rdfs:Property ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Clinical trials" ; schema:sameAs wd:Q30612 ] ;
   schema:citation <https://doi.org/10.1016/j.opresp.2025.100438> ;
   schema:citation <https://doi.org/10.1038/s41598-025-02106-8> ;
-  yts:compensationType "mixed" .
+  yts:compensationType "mixed" ;
+  yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/024ad742-b735-40dc-a5e8-2b6dbfb6bebc> a schema:Dataset ;
   rdfs:label "Curewiki" ;
@@ -181,7 +197,8 @@ yts:compensationType a rdfs:Property ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Norway" ; schema:sameAs wd:Q20 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Clinical trials" ; schema:sameAs wd:Q30612 ] ;
   schema:citation <https://doi.org/10.1016/j.esmoop.2025.105287> ;
-  yts:compensationType "mixed" .
+  yts:compensationType "mixed" ;
+  yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/e4e6750d-cb2f-4aff-84f3-55a53deacb79> a schema:Dataset ;
   rdfs:label "Esperity Clinical Trial Discovery" ;
@@ -194,7 +211,8 @@ yts:compensationType a rdfs:Property ;
   schema:citation <https://doi.org/10.1097/RHU.0000000000001120> ;
   schema:citation <https://doi.org/10.1177/0194599815596166> ;
   schema:citation <https://doi.org/10.1186/s13601-019-0269-4> ;
-  yts:compensationType "mixed" .
+  yts:compensationType "mixed" ;
+  yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/aef3da52-dda0-4b1c-93cd-dce266178e9e> a schema:Dataset ;
   rdfs:label "ResearchMatch" ;
@@ -203,7 +221,8 @@ yts:compensationType a rdfs:Property ;
   schema:url <https://www.researchmatch.org/> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "United States" ; schema:sameAs wd:Q30 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Clinical trials" ; schema:sameAs wd:Q30612 ] ;
-  yts:compensationType "mixed" .
+  yts:compensationType "mixed" ;
+  yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/8d828bb1-8f1c-40c6-a0b4-61de7da7c116> a schema:Dataset ;
   rdfs:label "FluCamp" ;
@@ -213,7 +232,8 @@ yts:compensationType a rdfs:Property ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "United Kingdom" ; schema:sameAs wd:Q145 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Clinical trials" ; schema:sameAs wd:Q30612 ] ;
   schema:citation <https://doi.org/10.1016/j.jviromet.2015.08.019> ;
-  yts:compensationType "payment" .
+  yts:compensationType "payment" ;
+  yts:compensationWikidataId wd:Q1742093 .
 
 <https://yourselftoscience.org/resource/059571fa-f8ab-4eea-a8fd-f6980b3b062f> a schema:Dataset ;
   rdfs:label "HealthStreet" ;
@@ -222,7 +242,8 @@ yts:compensationType a rdfs:Property ;
   schema:url <https://healthstreet.program.ufl.edu/uf-researchers/participate-in-research/> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "United States" ; schema:sameAs wd:Q30 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Clinical trials" ; schema:sameAs wd:Q30612 ] ;
-  yts:compensationType "mixed" .
+  yts:compensationType "mixed" ;
+  yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/7d4ce480-7262-4ca8-9674-cbd3cd9cbecf> a schema:Dataset ;
   rdfs:label "GoodNature Program" ;
@@ -231,7 +252,8 @@ yts:compensationType a rdfs:Property ;
   schema:url <https://goodnatureprogram.com/apply/> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "United States" ; schema:sameAs wd:Q30 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Stool" ; schema:sameAs wd:Q496 ] ;
-  yts:compensationType "payment" .
+  yts:compensationType "payment" ;
+  yts:compensationWikidataId wd:Q1742093 .
 
 <https://yourselftoscience.org/resource/7de4a0e5-680d-44a4-896e-623a58982aa6> a schema:Dataset ;
   rdfs:label "Australian Red Cross Lifeblood microbiome donation" ;
@@ -240,7 +262,8 @@ yts:compensationType a rdfs:Property ;
   schema:url <https://www.lifeblood.com.au/microbiome> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Australia" ; schema:sameAs wd:Q408 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Stool" ; schema:sameAs wd:Q496 ] ;
-  yts:compensationType "donation" .
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/c9530d1f-97a4-496a-99b8-7e81461c1545> a schema:Dataset ;
   rdfs:label "Wesley Research Institute stool donation" ;
@@ -249,7 +272,8 @@ yts:compensationType a rdfs:Property ;
   schema:url <https://www.wesleyresearch.org.au/biobank-project/stool-donation/> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Australia" ; schema:sameAs wd:Q408 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Stool" ; schema:sameAs wd:Q496 ] ;
-  yts:compensationType "donation" .
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/b1fd6fb3-c668-44d4-9f7e-00b2fd28878d> a schema:Dataset ;
   rdfs:label "Wesley Research Institute placenta donation" ;
@@ -258,7 +282,8 @@ yts:compensationType a rdfs:Property ;
   schema:url <https://www.wesleyresearch.org.au/biobank-project/placenta-donation/> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Australia" ; schema:sameAs wd:Q408 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Placenta" ; schema:sameAs wd:Q1212935 ] ;
-  yts:compensationType "donation" .
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/b4a5c0ef-ea7d-4a5a-967a-3b5c32c170f7> a schema:Dataset ;
   rdfs:label "University of Wrocław human hair decomposition project" ;
@@ -269,7 +294,8 @@ yts:compensationType a rdfs:Property ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Hair" ; schema:sameAs wd:Q28472 ] ;
   schema:citation <https://doi.org/10.1016/j.forsciint.2023.111784> ;
   schema:citation <https://uwr.edu.pl/en/donate-your-hair-for-science/> ;
-  yts:compensationType "donation" .
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/baedc14c-bcb0-4232-b91e-7a2b6707945f> a schema:Dataset ;
   rdfs:label "UCSF Archives and Special Collections social media archive" ;
@@ -277,7 +303,8 @@ yts:compensationType a rdfs:Property ;
   schema:creator [ a schema:Organization; rdfs:label "UCSF Library Archives" ; schema:sameAs wd:Q25004607 ; schema:additionalType wd:Q3400985 ; schema:additionalType wd:Q3400985 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
   schema:url <https://www.library.ucsf.edu/archives/donate/materials/donating-your-social-media/> ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Social media data" ; schema:sameAs wd:Q131520545 ] ;
-  yts:compensationType "donation" .
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/c0b87e00-d562-4262-8781-85611e98614d> a schema:Dataset ;
   rdfs:label "Penn Medicine Donate Your Data" ;
@@ -290,7 +317,8 @@ yts:compensationType a rdfs:Property ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Search history" ; schema:sameAs wd:Q60461381 ] ;
   schema:citation <https://doi.org/10.1073/pnas.1802331115> ;
   schema:citation <https://doi.org/10.1001/jamanetworkopen.2021.10918> ;
-  yts:compensationType "payment" .
+  yts:compensationType "payment" ;
+  yts:compensationWikidataId wd:Q1742093 .
 
 <https://yourselftoscience.org/resource/d77081db-67ad-45b3-a62a-bd12126ba780> a schema:Dataset ;
   rdfs:label "NHS Health Research Authority Research Summaries" ;
@@ -299,7 +327,8 @@ yts:compensationType a rdfs:Property ;
   schema:url <https://www.hra.nhs.uk/planning-and-improving-research/application-summaries/research-summaries/> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "United Kingdom" ; schema:sameAs wd:Q145 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ] ;
-  yts:compensationType "donation" .
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/40e7f7cf-d7d5-409c-a8a2-c7d01dd26522> a schema:Dataset ;
   rdfs:label "Cochrane Central Register of Controlled Trials" ;
@@ -307,7 +336,8 @@ yts:compensationType a rdfs:Property ;
   schema:creator [ a schema:Organization; rdfs:label "Cochrane" ; schema:sameAs wd:Q1105202 ; schema:additionalType wd:Q163740 ; schema:additionalType wd:Q79913 ; schema:location [ a schema:Place; rdfs:label "United Kingdom" ; schema:addressCountry "GB" ; schema:sameAs wd:Q145 ] ] ;
   schema:url <https://www.cochranelibrary.com/central> ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Clinical trials" ; schema:sameAs wd:Q30612 ] ;
-  yts:compensationType "mixed" .
+  yts:compensationType "mixed" ;
+  yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/5b27c16f-6f83-46e8-b340-7ce503118070> a schema:Dataset ;
   rdfs:label "FAMHP clinical trials database" ;
@@ -317,7 +347,8 @@ yts:compensationType a rdfs:Property ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Belgium" ; schema:sameAs wd:Q31 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Clinical trials" ; schema:sameAs wd:Q30612 ] ;
   schema:citation <https://doi.org/10.1002/rth2.12494> ;
-  yts:compensationType "mixed" .
+  yts:compensationType "mixed" ;
+  yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/b8dda31e-6ee1-4669-a8ed-3e31bb938b64> a schema:Dataset ;
   rdfs:label "German Clinical Trials Register" ;
@@ -327,7 +358,8 @@ yts:compensationType a rdfs:Property ;
   schema:url <https://drks.de/> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Germany" ; schema:sameAs wd:Q183 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Clinical trials" ; schema:sameAs wd:Q30612 ] ;
-  yts:compensationType "mixed" .
+  yts:compensationType "mixed" ;
+  yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/d44227ed-6c83-4eef-b1c5-ee1f8c2d917c> a schema:Dataset ;
   rdfs:label "Health Canada's Clinical Trials Database" ;
@@ -336,7 +368,8 @@ yts:compensationType a rdfs:Property ;
   schema:url <https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/health-canada-clinical-trials-database.html> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Canada" ; schema:sameAs wd:Q16 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Clinical trials" ; schema:sameAs wd:Q30612 ] ;
-  yts:compensationType "mixed" .
+  yts:compensationType "mixed" ;
+  yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/8b211478-1d5d-4244-9da2-e052c0ebd184> a schema:Dataset ;
   rdfs:label "AATB Accredited Bank Search" ;
@@ -351,7 +384,8 @@ yts:compensationType a rdfs:Property ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Eggs" ; schema:sameAs wd:Q1321695 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Sperm" ; schema:sameAs wd:Q17145 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Embryos" ; schema:sameAs wd:Q33196 ] ;
-  yts:compensationType "mixed" .
+  yts:compensationType "mixed" ;
+  yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/0a861cff-a2b0-4ab8-834d-e58b4139770d> a schema:Dataset ;
   rdfs:label "OrganDonor.gov" ;
@@ -361,7 +395,8 @@ yts:compensationType a rdfs:Property ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "United States" ; schema:sameAs wd:Q30 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Organ" ; schema:sameAs wd:Q712378 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Tissue" ; schema:sameAs wd:Q40397 ] ;
-  yts:compensationType "donation" .
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/8c9531fe-4287-4933-b6f5-0e05e516937b> a schema:Dataset ;
   rdfs:label "Bloodworks Northwest Donate Blood for Research" ;
@@ -373,7 +408,8 @@ yts:compensationType a rdfs:Property ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Plasma" ; schema:sameAs wd:Q79749 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Stem cells" ; schema:sameAs wd:Q48196 ] ;
   schema:citation <https://doi.org/10.1111/trf.16630> ;
-  yts:compensationType "donation" .
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/f6d0fc07-302a-4e3d-869a-4eba7798920b> a schema:Dataset ;
   rdfs:label "Max Planck Institute for Software Systems conversational AI data donation" ;
@@ -381,7 +417,8 @@ yts:compensationType a rdfs:Property ;
   schema:creator [ a schema:Organization; rdfs:label "Max Planck Institute for Software Systems" ; schema:sameAs wd:Q881238 ; schema:location [ a schema:Place; rdfs:label "Germany" ; schema:addressCountry "DE" ; schema:sameAs wd:Q183 ] ] ;
   schema:url <https://social-media-data-donator.mpi-sws.org/> ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Conversational AI data" ] ;
-  yts:compensationType "donation" .
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/382a3bc3-c809-4a93-b7e6-33104443cb9b> a schema:Dataset ;
   rdfs:label "CRC ed i Volontari per la Ricerca Clinica" ;
@@ -390,7 +427,8 @@ yts:compensationType a rdfs:Property ;
   schema:url <https://www.crcvolontariricercaclinica.it/Volontari/Partecipazione#Diventa> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Italy" ; schema:sameAs wd:Q38 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Clinical trials" ; schema:sameAs wd:Q30612 ] ;
-  yts:compensationType "mixed" .
+  yts:compensationType "mixed" ;
+  yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/65969d60-e52a-40fd-86b5-3f3fabfad774> a schema:Dataset ;
   rdfs:label "Rete Cittadini per la Ricerca" ;
@@ -399,7 +437,8 @@ yts:compensationType a rdfs:Property ;
   schema:url <https://hsancamillo.it/rete-cittadini-per-la-ricerca/> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Italy" ; schema:sameAs wd:Q38 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Clinical trials" ; schema:sameAs wd:Q30612 ] ;
-  yts:compensationType "mixed" .
+  yts:compensationType "mixed" ;
+  yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/32b73fac-c6f5-4551-af88-0deba969fd30> a schema:Dataset ;
   rdfs:label "Eurac Research cover letter donation" ;
@@ -407,7 +446,8 @@ yts:compensationType a rdfs:Property ;
   schema:creator [ a schema:Organization; rdfs:label "Eurac Research" ; schema:sameAs wd:Q1245390 ; schema:additionalType wd:Q3400985 ; schema:additionalType wd:Q42240 ; schema:location [ a schema:Place; rdfs:label "Italy" ; schema:addressCountry "IT" ; schema:sameAs wd:Q38 ] ] ;
   schema:url <https://www.eurac.edu/en/blogs/connecting-the-dots/data-donations-why-should-i-donate-my-cover-letter-to-research> ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Cover letters" ; schema:sameAs wd:Q569410 ] ;
-  yts:compensationType "donation" .
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/68a587c3-eb94-4ede-b35b-5ac1a84f24df> a schema:Dataset ;
   rdfs:label "PURA Biobank" ;
@@ -417,7 +457,8 @@ yts:compensationType a rdfs:Property ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Germany" ; schema:sameAs wd:Q183 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Blood" ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Tissue" ] ;
-  yts:compensationType "donation" .
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/df15fcd0-c0c0-4726-85e7-dbad12687bde> a schema:Dataset ;
   rdfs:label "GIMM Biobank" ;
@@ -426,5 +467,6 @@ yts:compensationType a rdfs:Property ;
   schema:url <https://care.gimm.pt/biobank-for-donors/> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Portugal" ; schema:sameAs wd:Q45 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Blood" ; schema:sameAs wd:Q7873 ] ;
-  yts:compensationType "donation" .
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
 
