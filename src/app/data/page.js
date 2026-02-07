@@ -2,7 +2,7 @@
 'use client';
 
 import { resources } from '@/data/resources';
-import enrichedResources from '../../../public/resources_wikidata.json';
+
 import { FaDownload, FaCode, FaCopy, FaCheck, FaChartBar } from 'react-icons/fa';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -18,53 +18,7 @@ export default function DataPage() {
         setTimeout(() => setCopiedUrl(null), 2500);
     };
 
-    const sparqlQueryAll = `#Find all items in our dataset that are also in Wikidata
-SELECT ?item ?itemLabel ?ytsURI WHERE {
-  # We inject the known mappings directly into the query so it works on the public endpoint
-  VALUES (?item ?ytsId) {
-    ${resources
-            .filter(r => r.resourceWikidataId)
-            .map(r => `(wd:${r.resourceWikidataId} "${r.id}")`)
-            .join('\n    ')}
-  }
-  BIND(IRI(CONCAT("https://yourselftoscience.org/resource/", ?ytsId)) AS ?ytsURI)
-  OPTIONAL {
-    ?item rdfs:label ?itemLabel .
-    FILTER(LANG(?itemLabel) = "en")
-  }
-}`;
 
-    // Build map of Country Name -> Wikidata QID from enriched data
-    const countryToWikidataId = enrichedResources.reduce((acc, r) => {
-        if (r.origin && r.originWikidataId) acc[r.origin] = r.originWikidataId;
-        if (r.countryMappings) {
-            Object.entries(r.countryMappings).forEach(([country, qid]) => {
-                if (qid) acc[country] = qid;
-            });
-        }
-        return acc;
-    }, {});
-
-    const sparqlQueryCountries = `#Count how many of our resources are available in each country
-SELECT ?countryLabel (COUNT(?ytsURI) AS ?count) WHERE {
-  # We inject the known mappings directly into the query so it works on the public endpoint
-  VALUES (?country ?ytsId) {
-    ${resources
-            .flatMap(r => (r.countries || []).map(c => {
-                const qid = countryToWikidataId[c];
-                return qid ? `(wd:${qid} "${r.id}")` : null;
-            }))
-            .filter(Boolean)
-            .join('\n    ')}
-  }
-  BIND(IRI(CONCAT("https://yourselftoscience.org/resource/", ?ytsId)) AS ?ytsURI)
-  OPTIONAL {
-    ?country rdfs:label ?countryLabel .
-    FILTER(LANG(?countryLabel) = "en")
-  }
-}
-GROUP BY ?countryLabel
-ORDER BY DESC(?count)`;
 
     return (
         <main className="flex-grow w-full max-w-screen-xl mx-auto px-4 py-12 md:py-16">
@@ -244,29 +198,7 @@ ORDER BY DESC(?count)`;
                 </div>
             </section>
 
-            <section className="mt-12">
-                <h2 className="text-2xl font-bold text-apple-primary-text text-center mb-6">SPARQL Query Examples</h2>
-                <div className="prose prose-blue max-w-3xl mx-auto">
-                    <p>
-                        You can query our data directly within Wikidata&apos;s ecosystem using the <a href="https://query.wikidata.org/" target="_blank" rel="noopener noreferrer">Wikidata Query Service</a>.
-                        Here are some examples to get you started.
-                    </p>
 
-                    <h3>Find all resources in our dataset that are also in Wikidata</h3>
-                    <pre className="bg-gray-100 p-4 rounded-lg text-sm">
-                        <code>
-                            {sparqlQueryAll}
-                        </code>
-                    </pre>
-
-                    <h3>Count resources by country (Federated Query Example)</h3>
-                    <pre className="bg-gray-100 p-4 rounded-lg text-sm">
-                        <code>
-                            {sparqlQueryCountries}
-                        </code>
-                    </pre>
-                </div>
-            </section>
         </main>
     );
 };
