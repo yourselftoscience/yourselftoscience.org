@@ -2,6 +2,7 @@
 'use client';
 
 import { resources } from '@/data/resources';
+import enrichedResources from '../../../public/resources_wikidata.json';
 import { FaDownload, FaCode, FaCopy, FaCheck, FaChartBar } from 'react-icons/fa';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -18,23 +19,42 @@ export default function DataPage() {
     };
 
     const sparqlQueryAll = `#Find all items in our dataset that are also in Wikidata
-SELECT ?item ?itemLabel WHERE {
-  VALUES ?ytsId {
-    ${resources.map(r => `"${r.id}"`).join('\n    ')}
+SELECT ?item ?itemLabel ?ytsURI WHERE {
+  # We inject the known mappings directly into the query so it works on the public endpoint
+  VALUES (?item ?ytsId) {
+    ${resources
+            .filter(r => r.resourceWikidataId)
+            .map(r => `(wd:${r.resourceWikidataId} "${r.id}")`)
+            .join('\n    ')}
   }
   BIND(IRI(CONCAT("https://yourselftoscience.org/resource/", ?ytsId)) AS ?ytsURI)
-  ?ytsURI schema:sameAs ?item .
   SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
 }`;
 
-    const sparqlQueryCountries = `#This query cannot be run directly on the public Wikidata endpoint.
-#It is an example of a federated query that would work if the endpoint allowed it.
-#Count how many of our resources are available in each country
+    // Build map of Country Name -> Wikidata QID from enriched data
+    const countryToWikidataId = enrichedResources.reduce((acc, r) => {
+        if (r.origin && r.originWikidataId) acc[r.origin] = r.originWikidataId;
+        if (r.countryMappings) {
+            Object.entries(r.countryMappings).forEach(([country, qid]) => {
+                if (qid) acc[country] = qid;
+            });
+        }
+        return acc;
+    }, {});
+
+    const sparqlQueryCountries = `#Count how many of our resources are available in each country
 SELECT ?countryLabel (COUNT(?ytsURI) AS ?count) WHERE {
-  ?ytsURI schema:spatialCoverage ?country .
-  SERVICE <https://yourselftoscience.org/resources.ttl> {
-    ?ytsURI a schema:Dataset .
+  # We inject the known mappings directly into the query so it works on the public endpoint
+  VALUES (?country ?ytsId) {
+    ${resources
+            .flatMap(r => (r.countries || []).map(c => {
+                const qid = countryToWikidataId[c];
+                return qid ? `(wd:${qid} "${r.id}")` : null;
+            }))
+            .filter(Boolean)
+            .join('\n    ')}
   }
+  BIND(IRI(CONCAT("https://yourselftoscience.org/resource/", ?ytsId)) AS ?ytsURI)
   SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
 }
 GROUP BY ?countryLabel

@@ -8,9 +8,26 @@ const OUTPUT_PATH = './public/resources_wikidata.json';
 
 // Helper function to fetch data from Wikidata removed. Validating manual-only workflow.
 
+// Helper to fetch Wikidata ID by label
+async function fetchWikidataId(label) {
+  if (!label) return null;
+  const url = `https://www.wikidata.org/w/api.php?action=wbsearchentities&search=${encodeURIComponent(label)}&language=en&format=json&origin=*`;
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    if (data.search && data.search.length > 0) {
+      // Return the first match's ID
+      return data.search[0].id;
+    }
+  } catch (error) {
+    console.error(`Error fetching Wikidata ID for "${label}":`, error.message);
+  }
+  return null;
+}
+
 // Main function to enrich resources
 async function enrichResources() {
-  console.log('Starting Safe Sync (Structure Only)...');
+  console.log('Starting Safe Sync (Structure Only + Auto-Fetch Countries)...');
 
   // 1. Load existing Wikidata JSON to preserve manual edits
   let existingWikidataResources = [];
@@ -25,92 +42,86 @@ async function enrichResources() {
   }
 
   // Create a map for quick lookup of existing data
-  // Legacy entries might use slug as ID, newer ones use UUID.
   const existingMap = new Map();
   existingWikidataResources.forEach(r => {
-    existingMap.set(r.id, r); // Map by ID (could be UUID or slug)
-    // If we have a slug, map by slug too (unlikely for legacy but good for safety)
+    existingMap.set(r.id, r);
     if (r.slug) existingMap.set(r.slug, r);
   });
 
   const enrichedResources = [];
 
-  for (const resource of resources) {
-    // 2. Check if resource exists in confirmed JSON
-    // Try matching by canonical ID (UUID) first, then by Slug (legacy ID pattern)
-    let existingEntry = existingMap.get(resource.id) || existingMap.get(resource.slug);
+  // Track unique countries to fetch their IDs if missing
+  const countryToQidMap = new Map();
 
+  // First pass: Collect all existing country QIDs from resources_wikidata.json
+  existingWikidataResources.forEach(r => {
+    if (r.origin && r.originWikidataId) {
+      countryToQidMap.set(r.origin, r.originWikidataId);
+    }
+    if (r.countryMappings) {
+      Object.entries(r.countryMappings).forEach(([country, qid]) => {
+        if (qid) countryToQidMap.set(country, qid);
+      });
+    }
+  });
+
+  // Second pass: Process resources
+  for (const resource of resources) {
+    let existingEntry = existingMap.get(resource.id) || existingMap.get(resource.slug);
     let enrichedResource = { ...resource };
 
-    // Use wikidataLabel as title if available to comply with Wikidata naming guidelines
     if (enrichedResource.wikidataLabel) {
       enrichedResource.title = enrichedResource.wikidataLabel;
     }
 
-    // Initialize mappings containers
     enrichedResource.dataTypeMappings = {};
     enrichedResource.countryMappings = {};
 
     if (existingEntry) {
-      // --- MERGE STRATEGY: PRESERVE WIKIDATA IDs FROM EXISTING ENTRY ---
-      // console.log(`Syncing existing resource: ${resource.title} (matched via ${existingEntry.id === resource.id ? 'UUID' : 'Slug'})`);
-
-      // Preserve manually verified Wikidata IDs
+      // ... (preserve existing fields as before) ...
       if (existingEntry.wikidataId) enrichedResource.wikidataId = existingEntry.wikidataId;
       if (existingEntry.resourceWikidataId) enrichedResource.resourceWikidataId = existingEntry.resourceWikidataId;
       if (existingEntry.entityCategoryWikidataId) enrichedResource.entityCategoryWikidataId = existingEntry.entityCategoryWikidataId;
       if (existingEntry.entitySubTypeWikidataId) enrichedResource.entitySubTypeWikidataId = existingEntry.entitySubTypeWikidataId;
-      if (existingEntry.originWikidataId) enrichedResource.originWikidataId = existingEntry.originWikidataId;
-      if (existingEntry.organizationWikidataId) enrichedResource.organizationWikidataId = existingEntry.organizationWikidataId; // Preserve manual organization ID
 
-      // Preserve Wikidata metadata (Labels, Descriptions, Aliases)
+      // We will re-evaluate originWikidataId based on the global map if missing
+      enrichedResource.originWikidataId = existingEntry.originWikidataId || null;
+
+      if (existingEntry.organizationWikidataId) enrichedResource.organizationWikidataId = existingEntry.organizationWikidataId;
+
       if (existingEntry.wikidataLabel && !enrichedResource.wikidataLabel) enrichedResource.wikidataLabel = existingEntry.wikidataLabel;
       if (existingEntry.wikidataDescription) enrichedResource.wikidataDescription = existingEntry.wikidataDescription;
       if (existingEntry.aliases) enrichedResource.aliases = existingEntry.aliases;
 
-
-      // Also preserve legacy resourceWikidataId if needed (redundant check but safe)
-      if (existingEntry.resourceWikidataId) enrichedResource.resourceWikidataId = existingEntry.resourceWikidataId;
-
-      // Legacy ID preservation REMOVED to allow migration to UUIDs
-      // if (existingEntry.id && existingEntry.id !== resource.id) {
-      //   enrichedResource.id = existingEntry.id;
-      // }
-
-      // Preserve existing mappings where possible
-
       // Data Types
       for (const type of resource.dataTypes || []) {
         let normalizedType = type;
-        if (type === 'Wearable data (Fitbit only)') {
-          normalizedType = 'Wearable data';
-        }
+        if (type === 'Wearable data (Fitbit only)') normalizedType = 'Wearable data';
 
-        // STRICT check: if key exists in existing mapping (even if value is null/empty, though unlikely), take it.
-        // Using Object.prototype.hasOwnProperty to be safe
         if (existingEntry.dataTypeMappings && Object.prototype.hasOwnProperty.call(existingEntry.dataTypeMappings, normalizedType)) {
           enrichedResource.dataTypeMappings[normalizedType] = existingEntry.dataTypeMappings[normalizedType];
         } else {
-          // New tag? Initialize as null (Manual verification required)
           enrichedResource.dataTypeMappings[normalizedType] = null;
         }
       }
 
       // Countries
       for (const country of resource.countries || []) {
-        if (existingEntry.countryMappings && Object.prototype.hasOwnProperty.call(existingEntry.countryMappings, country)) {
+        // Check existing mapping first
+        if (existingEntry.countryMappings && existingEntry.countryMappings[country]) {
           enrichedResource.countryMappings[country] = existingEntry.countryMappings[country];
+          // Ensure global map has it
+          if (!countryToQidMap.has(country)) countryToQidMap.set(country, existingEntry.countryMappings[country]);
         } else {
-          // New country? Initialize as null
-          enrichedResource.countryMappings[country] = null;
+          // If not in this resource, but we know it globally, use that
+          enrichedResource.countryMappings[country] = countryToQidMap.get(country) || null;
         }
       }
 
     } else {
-      // --- NEW RESOURCE: INITIALIZE EMPTY FIELDS ---
+      // New resource
       console.log(`Adding NEW resource structure: ${resource.title}`);
 
-      // Initialize all Wikidata fields to null (unless already in source)
       enrichedResource.wikidataId = resource.wikidataId || null;
       enrichedResource.resourceWikidataId = resource.resourceWikidataId || null;
       enrichedResource.entityCategoryWikidataId = resource.entityCategoryWikidataId || null;
@@ -118,32 +129,66 @@ async function enrichResources() {
       enrichedResource.originWikidataId = resource.originWikidataId || null;
       enrichedResource.organizationWikidataId = resource.organizationWikidataId || null;
 
-      // Initialize mappings with keys but null values
       for (const type of resource.dataTypes || []) {
         let normalizedType = type;
-        if (type === 'Wearable data (Fitbit only)') {
-          normalizedType = 'Wearable data';
-        }
+        if (type === 'Wearable data (Fitbit only)') normalizedType = 'Wearable data';
         enrichedResource.dataTypeMappings[normalizedType] = null;
       }
       for (const country of resource.countries || []) {
-        enrichedResource.countryMappings[country] = null;
+        enrichedResource.countryMappings[country] = countryToQidMap.get(country) || null;
       }
     }
 
-    // Force title override from wikidataLabel AND remove wikidataLabel from output
-    if (enrichedResource.wikidataLabel) {
-      // Decoupled: Title remains for display, wikidataLabel for Wikidata
-      // We do NOT delete it here so it remains available for the report generator
-      // delete enrichedResource.wikidataLabel; 
+    // Check Origin logic
+    if (enrichedResource.origin) {
+      if (!enrichedResource.originWikidataId && countryToQidMap.has(enrichedResource.origin)) {
+        enrichedResource.originWikidataId = countryToQidMap.get(enrichedResource.origin);
+      }
     }
 
     enrichedResources.push(enrichedResource);
   }
 
+  // Third Pass: Fetch Missing Country QIDs
+  // Identify all countries (origin or in mappings) that still have null QIDs
+  const uniqueCountries = new Set();
+  enrichedResources.forEach(r => {
+    if (r.origin) uniqueCountries.add(r.origin);
+    if (r.countryMappings) Object.keys(r.countryMappings).forEach(c => uniqueCountries.add(c));
+  });
+
+  for (const country of uniqueCountries) {
+    if (!countryToQidMap.has(country)) {
+      console.log(`Fetching Wikidata ID for country: ${country}...`);
+      // Adding a small delay to be polite to the API? or simple sequential
+      const qid = await fetchWikidataId(country);
+      if (qid) {
+        console.log(`  Found ${qid} for ${country}`);
+        countryToQidMap.set(country, qid);
+      } else {
+        console.warn(`  No QID found for ${country}`);
+      }
+    }
+  }
+
+  // Fourth Pass: Apply fetched QIDs to resources
+  enrichedResources.forEach(r => {
+    if (r.origin && !r.originWikidataId) {
+      r.originWikidataId = countryToQidMap.get(r.origin) || null;
+    }
+    if (r.countryMappings) {
+      Object.keys(r.countryMappings).forEach(country => {
+        if (!r.countryMappings[country]) {
+          r.countryMappings[country] = countryToQidMap.get(country) || null;
+        }
+      });
+    }
+  });
+
+
   try {
     await writeFile(OUTPUT_PATH, JSON.stringify(enrichedResources, null, 2), 'utf8');
-    console.log(`Successfully synced (Safe Mode) to ${OUTPUT_PATH}`);
+    console.log(`Successfully synced (Safe Mode + Auto-Fetch) to ${OUTPUT_PATH}`);
 
     await generateReport(enrichedResources);
 
