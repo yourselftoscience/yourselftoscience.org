@@ -244,7 +244,7 @@ async function generateReport(resources) {
 
 ## Project-Organizer Relationships
 
-// Sort resources alphabetically by title/label for this section
+
 ${[...resources].sort((a, b) => (a.wikidataLabel || a.title).localeCompare(b.wikidataLabel || b.title)).map(r => {
     const projectId = r.wikidataId || r.resourceWikidataId;
     const projectLink = projectId ? generateLink(projectId) : '❌';
