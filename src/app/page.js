@@ -662,7 +662,7 @@ function HomePageContent({ scrollY }) {
       <p className="text-base text-google-text-secondary max-w-5xl mb-6">
         A comprehensive open-source catalogue for contributing your biological and digital self to scientific research.
         <br />
-        Browse our curated resources to find ways to share your data, genome, body samples, and more.
+        Browse opportunities to share your data, genome, biological samples, and more, including body donation and paid clinical trials.
       </p>
 
       {/* Newsletter Signup */}
