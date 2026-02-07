@@ -234,6 +234,7 @@ ORDER BY DESC(?count)`;
                         <li><strong>link:</strong> A URL to the resource&apos;s website.</li>
                         <li><strong>dataTypes:</strong> An array of strings describing the types of data collected (e.g., &quot;Genome&quot;, &quot;Health data&quot;).</li>
                         <li><strong>compensationType:</strong> The type of compensation offered (&quot;donation&quot;, &quot;payment&quot;, or &quot;mixed&quot;).</li>
+                        <li><strong>origin:</strong> The country where the organization is based (Headquarters).</li>
                         <li><strong>countries:</strong> An array of countries where the resource is available.</li>
                         <li><strong>description:</strong> A brief description of the resource.</li>
                         <li><strong>citations:</strong> An array of academic citations related to the resource.</li>
