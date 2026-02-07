@@ -424,7 +424,7 @@ This page provides a filterable catalogue of all resources. You can also downloa
 
 *Data Types:* Conversational AI data
 
-*Countries:* 
+*Countries:*
 
 *Compensation:* Donation
 

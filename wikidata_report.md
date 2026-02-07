@@ -4,7 +4,6 @@
 
 ## Project-Organizer Relationships
 
-
 - **AATB Accredited Bank Search**: ❌
   - American Association of Tissue Banks (AATB): [Q4743103](https://www.wikidata.org/wiki/Q4743103)
 - **All of Us**: [Q25004683](https://www.wikidata.org/wiki/Q25004683)
