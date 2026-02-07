@@ -3,6 +3,7 @@
 const rawResources = [
   {
     "id": "667f25be-9ff2-4e7a-9119-78f2eb61a801",
+    "resourceWikidataId": "Q59696822",
     "slug": "open-humans",
     "title": "Open Humans",
     "organizations": [
@@ -116,6 +117,7 @@ const rawResources = [
   },
   {
     "id": "3b7e801f-1e45-4c2f-8631-edac7b61743a",
+    "resourceWikidataId": "Q25004683",
     "slug": "all-of-us",
     "title": "All of Us",
     "organizations": [
@@ -355,6 +357,7 @@ const rawResources = [
   },
   {
     "id": "d481c16f-c10c-415b-91d0-24dbf4c1ffbb",
+    "resourceWikidataId": "Q5133746",
     "slug": "clinicaltrials-gov",
     "title": "ClinicalTrials.gov",
     "organizations": [
@@ -377,6 +380,7 @@ const rawResources = [
   },
   {
     "id": "1d837bcd-3582-4a8e-b7f2-6daeb6ee4639",
+    "resourceWikidataId": "Q29867940",
     "slug": "who-ictrp",
     "title": "International Clinical Trials Registry Platform (ICTRP)",
     "wikidataLabel": "International Clinical Trials Registry Platform",
@@ -402,6 +406,7 @@ const rawResources = [
   },
   {
     "id": "aaf2c81c-7ac8-4d47-9b5b-ea6567b1fb6d",
+    "resourceWikidataId": "Q96183789",
     "slug": "eu-clinical-trials-register",
     "title": "EU Clinical Trials Register",
     "organizations": [
@@ -947,6 +952,7 @@ const rawResources = [
   },
   {
     "id": "b8dda31e-6ee1-4669-a8ed-3e31bb938b64",
+    "resourceWikidataId": "Q96199255",
     "slug": "german-clinical-trials-register",
     "title": "German Clinical Trials Register (DRKS)",
     "wikidataLabel": "German Clinical Trials Register",

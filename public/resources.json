@@ -1,6 +1,7 @@
 [
   {
     "id": "667f25be-9ff2-4e7a-9119-78f2eb61a801",
+    "resourceWikidataId": "Q59696822",
     "slug": "open-humans",
     "title": "Open Humans",
     "organizations": [
@@ -40,7 +41,6 @@
       "Location history": null
     },
     "countryMappings": {},
-    "resourceWikidataId": "Q59696822",
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q119852396"
   },
@@ -154,6 +154,7 @@
   },
   {
     "id": "3b7e801f-1e45-4c2f-8631-edac7b61743a",
+    "resourceWikidataId": "Q25004683",
     "slug": "all-of-us",
     "title": "All of Us",
     "organizations": [
@@ -190,7 +191,6 @@
     "countryMappings": {
       "United States": "Q30"
     },
-    "resourceWikidataId": "Q25004683",
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q9142054"
   },
@@ -480,6 +480,7 @@
   },
   {
     "id": "d481c16f-c10c-415b-91d0-24dbf4c1ffbb",
+    "resourceWikidataId": "Q5133746",
     "slug": "clinicaltrials-gov",
     "title": "ClinicalTrials.gov",
     "organizations": [
@@ -506,12 +507,12 @@
       "Clinical trials": "Q30612"
     },
     "countryMappings": {},
-    "resourceWikidataId": "Q5133746",
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q9142054"
   },
   {
     "id": "1d837bcd-3582-4a8e-b7f2-6daeb6ee4639",
+    "resourceWikidataId": "Q29867940",
     "slug": "who-ictrp",
     "title": "International Clinical Trials Registry Platform",
     "wikidataLabel": "International Clinical Trials Registry Platform",
@@ -549,6 +550,7 @@
   },
   {
     "id": "aaf2c81c-7ac8-4d47-9b5b-ea6567b1fb6d",
+    "resourceWikidataId": "Q96183789",
     "slug": "eu-clinical-trials-register",
     "title": "EU Clinical Trials Register",
     "organizations": [
@@ -592,7 +594,6 @@
       "Liechtenstein": "Q347",
       "Norway": "Q20"
     },
-    "resourceWikidataId": "Q96183789",
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q1639780"
   },
@@ -1033,7 +1034,7 @@
     "id": "b4a5c0ef-ea7d-4a5a-967a-3b5c32c170f7",
     "slug": "wroclaw-hair-decomposition",
     "title": "University of Wrocław human hair decomposition project",
-    "wikidataLabel": "Human Hair Decomposition Project",
+    "wikidataLabel": "University of Wrocław human hair decomposition project",
     "organizations": [
       {
         "name": "Department of Human Biology, University of Wrocław",
@@ -1285,6 +1286,7 @@
   },
   {
     "id": "b8dda31e-6ee1-4669-a8ed-3e31bb938b64",
+    "resourceWikidataId": "Q96199255",
     "slug": "german-clinical-trials-register",
     "title": "German Clinical Trials Register",
     "wikidataLabel": "German Clinical Trials Register",
