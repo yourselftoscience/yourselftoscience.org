@@ -21,6 +21,7 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Search history" ; schema:sameAs wd:Q60461381 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Location history" ] ;
   schema:citation <https://doi.org/10.1093/gigascience/giz076> ;
+  schema:citation wd:Q84081777 ;
   yts:compensationType "donation" ;
   yts:compensationWikidataId wd:Q1124860 .
 
@@ -207,10 +208,15 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:url <https://clinicaltrial.be/> ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Clinical trials" ; schema:sameAs wd:Q30612 ] ;
   schema:citation <https://doi.org/10.1002/bjs.8883> ;
+  schema:citation wd:Q48128927 ;
   schema:citation <https://doi.org/10.1093/bja/aet109> ;
+  schema:citation wd:Q46607539 ;
   schema:citation <https://doi.org/10.1097/RHU.0000000000001120> ;
+  schema:citation wd:Q92979915 ;
   schema:citation <https://doi.org/10.1177/0194599815596166> ;
+  schema:citation wd:Q47952689 ;
   schema:citation <https://doi.org/10.1186/s13601-019-0269-4> ;
+  schema:citation wd:Q93090210 ;
   yts:compensationType "mixed" ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
@@ -232,6 +238,7 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "United Kingdom" ; schema:sameAs wd:Q145 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Clinical trials" ; schema:sameAs wd:Q30612 ] ;
   schema:citation <https://doi.org/10.1016/j.jviromet.2015.08.019> ;
+  schema:citation wd:Q40578340 ;
   yts:compensationType "payment" ;
   yts:compensationWikidataId wd:Q1742093 .
 
@@ -316,6 +323,7 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Social media data" ; schema:sameAs wd:Q131520545 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Search history" ; schema:sameAs wd:Q60461381 ] ;
   schema:citation <https://doi.org/10.1073/pnas.1802331115> ;
+  schema:citation wd:Q57465858 ;
   schema:citation <https://doi.org/10.1001/jamanetworkopen.2021.10918> ;
   yts:compensationType "payment" ;
   yts:compensationWikidataId wd:Q1742093 .

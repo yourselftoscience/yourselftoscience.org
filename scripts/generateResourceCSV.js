@@ -10,7 +10,7 @@ try {
   const headers = [
     'id', 'title', 'organization', 'link', 'dataTypes', 'compensationType', 'compensationWikidataId',
     'entityCategory', 'entitySubType', 'countries', 'countryCodes', 'origin', 'originCode',
-    'description', 'instructions', 'citations', 'wikidataId', 'resourceWikidataId', 'dataTypeWikidataIds'
+    'description', 'instructions', 'citations', 'citationWikidataIds', 'wikidataId', 'resourceWikidataId', 'dataTypeWikidataIds'
   ];
 
   const formatCitations = (citations) => {
@@ -43,6 +43,7 @@ try {
       `"${resource.description ? resource.description.replace(/"/g, '""') : ''}"`,
       `"${resource.instructions ? resource.instructions.join('; ').replace(/"/g, '""') : ''}"`,
       `"${formatCitations(resource.citations)}"`,
+      `"${resource.citations ? resource.citations.map(c => c.wikidataId || '').join('; ') : ''}"`,
       `"${resource.wikidataId || ''}"`,
       `"${resource.resourceWikidataId || ''}"`,
       `"${resource.dataTypeMappings ? Object.values(resource.dataTypeMappings).join('; ') : ''}"`

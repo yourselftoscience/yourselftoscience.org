@@ -25,6 +25,31 @@ async function fetchWikidataId(label) {
   return null;
 }
 
+
+// Helper to fetch Wikidata ID by DOI
+async function fetchWikidataIdByDOI(doi) {
+  if (!doi) return null;
+  // Use quoted search for exact phrase match on DOI
+  const query = `"${doi}"`;
+  const url = `https://www.wikidata.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(query)}&format=json&origin=*`;
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    if (data.query && data.query.search && data.query.search.length > 0) {
+      return data.query.search[0].title; // The title is the QID (e.g., Q12345)
+    }
+  } catch (error) {
+    console.error(`Error fetching Wikidata ID for DOI "${doi}":`, error.message);
+  }
+  return null;
+}
+
+function extractDOI(url) {
+  if (!url) return null;
+  const match = url.match(/(10\.\d{4,9}\/[-._;()/:A-Z0-9]+)/i);
+  return match ? match[1] : null;
+}
+
 // Main function to enrich resources
 async function enrichResources() {
   console.log('Starting Safe Sync (Structure Only + Auto-Fetch Countries)...');
@@ -155,6 +180,34 @@ async function enrichResources() {
       else enrichedResource.compensationWikidataId = null;
     } else {
       enrichedResource.compensationWikidataId = null;
+    }
+
+    // Check Citations for DOIs
+    if (enrichedResource.citations && enrichedResource.citations.length > 0) {
+      enrichedResource.citations = await Promise.all(enrichedResource.citations.map(async (citation) => {
+        const enrichedCitation = { ...citation };
+        const doi = extractDOI(citation.link);
+
+        if (doi) {
+          // Check if we already have it in existing data to avoid re-fetching
+          let existingCitation = null;
+          if (existingEntry && existingEntry.citations) {
+            existingCitation = existingEntry.citations.find(c => c.link === citation.link);
+          }
+
+          if (existingCitation && existingCitation.wikidataId) {
+            enrichedCitation.wikidataId = existingCitation.wikidataId;
+          } else {
+            console.log(`Fetching Wikidata ID for DOI: ${doi}...`);
+            const qid = await fetchWikidataIdByDOI(doi);
+            if (qid) {
+              console.log(`  Found ${qid} for DOI ${doi}`);
+              enrichedCitation.wikidataId = qid;
+            }
+          }
+        }
+        return enrichedCitation;
+      }));
     }
 
     enrichedResources.push(enrichedResource);
@@ -314,6 +367,20 @@ async function generateReport(resources) {
     return `- **${key}**: ${value}`;
   });
 
+  // 7. Citations
+  const citationList = [];
+  resources.forEach(r => {
+    if (r.citations) {
+      r.citations.forEach(c => {
+        const doi = extractDOI(c.link);
+        const status = c.wikidataId ? `[${c.wikidataId}](https://www.wikidata.org/wiki/${c.wikidataId})` : '❌';
+        const linkText = doi ? `(DOI: ${doi})` : `([Link](${c.link}))`;
+        const title = c.title && c.title.length > 120 ? c.title.substring(0, 117) + '...' : c.title;
+        citationList.push(`- ${status} **${title}** ${linkText}`);
+      });
+    }
+  });
+
   const reportContent = `# Wikidata Integration Report
 
 **Generated on:** ${new Date().toLocaleString()}
@@ -357,6 +424,10 @@ ${categoriesList.join('\n')}
 ## Compensation Types
 
 ${compensationList.join('\n')}
+
+## Citations
+
+${citationList.join('\n')}
 `;
 
   try {

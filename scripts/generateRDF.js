@@ -101,6 +101,9 @@ yts:compensationWikidataId a rdfs:Property ;
         if (citation.link) {
           ttlContent += `  schema:citation <${citation.link}> ;\n`;
         }
+        if (citation.wikidataId) {
+          ttlContent += `  schema:citation wd:${citation.wikidataId} ;\n`;
+        }
       });
     }
 

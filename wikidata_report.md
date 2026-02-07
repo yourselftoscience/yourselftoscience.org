@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 2/7/2026, 4:18:40 AM
+**Generated on:** 2/7/2026, 4:47:12 AM
 
 ## Project-Organizer Relationships
 
@@ -248,3 +248,23 @@
 - **donation**: [Q1124860](https://www.wikidata.org/wiki/Q1124860)
 - **mixed**: [Q1742093](https://www.wikidata.org/wiki/Q1742093), [Q1124860](https://www.wikidata.org/wiki/Q1124860)
 - **payment**: [Q1742093](https://www.wikidata.org/wiki/Q1742093)
+
+## Citations
+
+- [Q84081777](https://www.wikidata.org/wiki/Q84081777) **Greshake Tzovaras, B., Angrist, M., Arvai, K., Dulaney, M., Estrada-Galiñanes, V., Gunderson, B., ... & Price Ball, M...** (DOI: 10.1093/gigascience/giz076)
+- ❌ **Shandhi, M.M.H., Cho, P.J., Roghanizad, A.R. et al. A method for intelligent allocation of diagnostic testing by leve...** (DOI: 10.1038/s41746-022-00672-z)
+- ❌ **Figueira-Gonçalves, J. M., Callejas-González, F. J., Golpe, R., Máiz-Carro, L., Marín-Oto, M., de Miguel-Díez, J., .....** (DOI: 10.1016/j.opresp.2025.100438)
+- ❌ **Pranaitytė, G., Grybaitė, B., Endriulaityte, U., Mickevičius, V., & Petrikaitė, V. (2025). Exploration of 1-(2, 4-dif...** (DOI: 10.1038/s41598-025-02106-8)
+- ❌ **van der Laan, P., van Houdt, W. J., van Boven, H., Snaebjornsson, P., Bosch, L. J. W., Monkhorst, K., ... & van der G...** (DOI: 10.1016/j.esmoop.2025.105287)
+- [Q48128927](https://www.wikidata.org/wiki/Q48128927) **De Corte, W., Delrue, H., Vanfleteren, L. J. J., Dutré, P. E. M., Pottel, H., Devriendt, D. K. J. C., ... & Desmet, M...** (DOI: 10.1002/bjs.8883)
+- [Q46607539](https://www.wikidata.org/wiki/Q46607539) **Desmet, M., Braems, H., Reynvoet, M., Plasschaert, S., Van Cauwelaert, J., Pottel, H., ... & Van de Velde, M. (2013)....** (DOI: 10.1093/bja/aet109)
+- [Q92979915](https://www.wikidata.org/wiki/Q92979915) **Jacobs, H., Bockaert, M., Bonte, J., D'Haese, M., Degrande, J., Descamps, L., ... & De Bacquer, D. (2020). The impact...** (DOI: 10.1097/RHU.0000000000001120)
+- [Q47952689](https://www.wikidata.org/wiki/Q47952689) **Terryn, S., De Medts, J., & Delsupehe, K. (2015). Comparative effectiveness of the different treatment modalities for...** (DOI: 10.1177/0194599815596166)
+- [Q93090210](https://www.wikidata.org/wiki/Q93090210) **Calus, L., Van Bruaene, N., Bosteels, C., Dejonckheere, S., Van Zele, T., Holtappels, G., ... & Gevaert, P. (2019). T...** (DOI: 10.1186/s13601-019-0269-4)
+- [Q40578340](https://www.wikidata.org/wiki/Q40578340) **Kelly, G., Laxton, C., Garelnabi, M., Alton, B., Addan, F., Catchpole, A., ... & Murray, E. J. (2015). Use of qualita...** (DOI: 10.1016/j.jviromet.2015.08.019)
+- ❌ **Palacz, K., Cholewa, M., Bonar, M., Krzyżanowska, M., & Kadej, M. (2023). The rate and quality of post-mortem hair ro...** (DOI: 10.1016/j.forsciint.2023.111784)
+- ❌ **University of Wrocław. (2023, November 9). Donate your hair for science.** ([Link](https://uwr.edu.pl/en/donate-your-hair-for-science/))
+- [Q57465858](https://www.wikidata.org/wiki/Q57465858) **J.C. Eichstaedt, R.J. Smith, R.M. Merchant, L.H. Ungar, P. Crutchley, D. Preoţiuc-Pietro, D.A. Asch, & H.A. Schwartz,...** (DOI: 10.1073/pnas.1802331115)
+- ❌ **Grande D, Mitra N, Marti XL, et al. Consumer Views on Using Digital Data for COVID-19 Control in the United States. J...** (DOI: 10.1001/jamanetworkopen.2021.10918)
+- ❌ **Krumb, E., Lambert, C., & Hermans, C. (2021). Patient selection for hemophilia gene therapy: Real-life data from a si...** (DOI: 10.1002/rth2.12494)
+- ❌ **Miller, M. J., Skrzekut, A., Kracalik, I., Jones, J. M., Lofy, K. H., Konkle, B. A., ... & Paranjape, S. (2021). How ...** (DOI: 10.1111/trf.16630)
