@@ -28,7 +28,10 @@ SELECT ?item ?itemLabel ?ytsURI WHERE {
             .join('\n    ')}
   }
   BIND(IRI(CONCAT("https://yourselftoscience.org/resource/", ?ytsId)) AS ?ytsURI)
-  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+  OPTIONAL {
+    ?item rdfs:label ?itemLabel .
+    FILTER(LANG(?itemLabel) = "en")
+  }
 }`;
 
     // Build map of Country Name -> Wikidata QID from enriched data
@@ -55,7 +58,10 @@ SELECT ?countryLabel (COUNT(?ytsURI) AS ?count) WHERE {
             .join('\n    ')}
   }
   BIND(IRI(CONCAT("https://yourselftoscience.org/resource/", ?ytsId)) AS ?ytsURI)
-  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+  OPTIONAL {
+    ?country rdfs:label ?countryLabel .
+    FILTER(LANG(?countryLabel) = "en")
+  }
 }
 GROUP BY ?countryLabel
 ORDER BY DESC(?count)`;
