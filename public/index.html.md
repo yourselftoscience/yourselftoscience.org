@@ -487,3 +487,15 @@ This page provides a filterable catalogue of all resources. You can also downloa
 *Compensation:* Donation
 
 ---
+
+### [Genomes.io](https://yourselftoscience.org/resource/genomes-io)
+
+*Description:* A DNA data bank and personal DNA data platform that allows users to control and monetize their genomic data using blockchain technology.
+
+*Data Types:* Genome
+
+*Countries:* Worldwide
+
+*Compensation:* Payment
+
+---

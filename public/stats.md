@@ -4,17 +4,17 @@ An overview of the resources available on Yourself to Science, providing insight
 
 ## Overview
 
-- **Total Resources:** 42
+- **Total Resources:** 43
 
 ## Compensation Types
 
 - **Donation:** 22
 - **Mixed:** 17
-- **Payment:** 3
+- **Payment:** 4
 
 ## Top 10 Service Availability by Country
 
-- **Worldwide:** 12
+- **Worldwide:** 13
 - **European Union:** 12
     - **Breakdown:**
         - **Italy:** 3
@@ -38,8 +38,8 @@ An overview of the resources available on Yourself to Science, providing insight
 - **Health data:** 8
 - **Body:** 5
 - **Tissue:** 5
+- **Genome:** 4
 - **Wearable data:** 4
-- **Genome:** 3
 - **Stool:** 3
 - **Blood:** 3
 - **Search history:** 2
@@ -74,7 +74,7 @@ An overview of the resources available on Yourself to Science, providing insight
     - **Professional Association:** 1
     - **Hospital:** 1
     - **Research Institute:** 1
-- **Commercial:** 8
+- **Commercial:** 9
 - **Intergovernmental:** 1
 
 ## Live Data Access

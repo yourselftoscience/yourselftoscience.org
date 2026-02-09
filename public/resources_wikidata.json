@@ -1875,5 +1875,55 @@
       "Portugal": "Q45"
     },
     "compensationWikidataId": "Q1124860"
+  },
+  {
+    "id": "b39d93dc-97d1-44c1-a689-041e567e0e8b",
+    "slug": "genomes-io",
+    "title": "Genomes.io",
+    "organizations": [
+      {
+        "name": "Genomes.io",
+        "wikidataId": "Q125117291"
+      }
+    ],
+    "link": "https://genomes.io/",
+    "dataTypes": [
+      "Genome"
+    ],
+    "compensationType": "payment",
+    "entityCategory": "Commercial",
+    "entitySubType": "Commercial",
+    "description": "A DNA data bank and personal DNA data platform that allows users to control and monetize their genomic data using blockchain technology.",
+    "wikidataId": "Q125117291",
+    "countries": [
+      "Worldwide"
+    ],
+    "origin": "United Kingdom",
+    "originCode": "GB",
+    "citations": [
+      {
+        "title": "Carvalho, A., Merhout, J. W., Kadiyala, Y., & Bentley II, J. (2021). When good blocks go bad: Managing unwanted blockchain data. International Journal of Information Management, 57, 102263.",
+        "link": "https://doi.org/10.1016/j.ijinfomgt.2020.102263"
+      },
+      {
+        "title": "Kabra, S., Sharma, S., & Sachdeva, M. (2025). Blockchain: A new frontier in secure patient data management. Blockchain‐Enabled Solutions for the Pharmaceutical Industry, 319-334.",
+        "link": "https://doi.org/10.1002/9781394287970.ch15"
+      },
+      {
+        "title": "Wang, R., Ye, F., Tang, S., Zhang, H., He, J., Zhang, X., & Xu, C. (2025). Blockchain Technology for Big-data Sharing in Material Genome Engineering. Scientific Data, 12(1), 1813.",
+        "link": "https://doi.org/10.1038/s41597-025-06092-4"
+      }
+    ],
+    "macroCategories": [
+      "Health & Digital Data"
+    ],
+    "dataTypeMappings": {
+      "Genome": null
+    },
+    "countryMappings": {
+      "Worldwide": "Q13780930"
+    },
+    "originWikidataId": "Q145",
+    "compensationWikidataId": "Q1742093"
   }
 ]

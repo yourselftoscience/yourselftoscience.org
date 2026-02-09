@@ -478,3 +478,16 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationType "donation" ;
   yts:compensationWikidataId wd:Q1124860 .
 
+<https://yourselftoscience.org/resource/b39d93dc-97d1-44c1-a689-041e567e0e8b> a schema:Dataset ;
+  rdfs:label "Genomes.io" ;
+  schema:description "A DNA data bank and personal DNA data platform that allows users to control and monetize their genomic data using blockchain technology." ;
+  schema:creator [ a schema:Organization; rdfs:label "Genomes.io" ; schema:sameAs wd:Q125117291 ; schema:location [ a schema:Place; rdfs:label "United Kingdom" ; schema:addressCountry "GB" ; schema:sameAs wd:Q145 ] ] ;
+  schema:url <https://genomes.io/> ;
+  schema:spatialCoverage [ a schema:Place; rdfs:label "Worldwide" ; schema:sameAs wd:Q13780930 ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ] ;
+  schema:citation <https://doi.org/10.1016/j.ijinfomgt.2020.102263> ;
+  schema:citation <https://doi.org/10.1002/9781394287970.ch15> ;
+  schema:citation <https://doi.org/10.1038/s41597-025-06092-4> ;
+  yts:compensationType "payment" ;
+  yts:compensationWikidataId wd:Q1742093 .
+

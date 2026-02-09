@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 2/7/2026, 4:47:12 AM
+**Generated on:** 2/9/2026, 3:34:10 AM
 
 ## Project-Organizer Relationships
 
@@ -43,6 +43,8 @@
   - hVIVO: [Q30268998](https://www.wikidata.org/wiki/Q30268998)
 - **gamete and embryo donation in the United Kingdom**: ❌
   - Human Fertilisation and Embryology Authority: [Q1636533](https://www.wikidata.org/wiki/Q1636533)
+- **Genomes.io**: [Q125117291](https://www.wikidata.org/wiki/Q125117291)
+  - Genomes.io: [Q125117291](https://www.wikidata.org/wiki/Q125117291)
 - **German Clinical Trials Register**: [Q96199255](https://www.wikidata.org/wiki/Q96199255)
   - Federal Institute for Drugs and Medical Devices (BfArM): [Q1006215](https://www.wikidata.org/wiki/Q1006215)
 - **GIMM Biobank**: ❌
@@ -110,6 +112,7 @@
 - **Fitbit Health Research and Product Development**: ❌
 - **FluCamp**: ❌
 - **GIMM Biobank**: ❌
+- **Genomes.io**: [Q125117291](https://www.wikidata.org/wiki/Q125117291)
 - **German Clinical Trials Register**: [Q96199255](https://www.wikidata.org/wiki/Q96199255)
 - **GoodNature Program**: ❌
 - **Google Health Studies**: ❌
@@ -156,6 +159,7 @@
 - **Federal Agency for Medicines and Health Products (FAMHP)**: [Q2682107](https://www.wikidata.org/wiki/Q2682107)
 - **Federal Institute for Drugs and Medical Devices (BfArM)**: [Q1006215](https://www.wikidata.org/wiki/Q1006215)
 - **Fitbit**: [Q5455414](https://www.wikidata.org/wiki/Q5455414)
+- **Genomes.io**: [Q125117291](https://www.wikidata.org/wiki/Q125117291)
 - **Google**: [Q95](https://www.wikidata.org/wiki/Q95)
 - **Gulbenkian Institute for Molecular Medicine (GIMM)**: [Q131428172](https://www.wikidata.org/wiki/Q131428172)
 - **Health Canada**: [Q1057591](https://www.wikidata.org/wiki/Q1057591)
@@ -221,6 +225,7 @@
 - **Switzerland**: [Q39](https://www.wikidata.org/wiki/Q39)
 - **United Kingdom**: [Q145](https://www.wikidata.org/wiki/Q145)
 - **United States**: [Q30](https://www.wikidata.org/wiki/Q30)
+- **Worldwide**: [Q13780930](https://www.wikidata.org/wiki/Q13780930)
 
 ## Entity Categories
 
@@ -268,3 +273,6 @@
 - ❌ **Grande D, Mitra N, Marti XL, et al. Consumer Views on Using Digital Data for COVID-19 Control in the United States. J...** (DOI: 10.1001/jamanetworkopen.2021.10918)
 - ❌ **Krumb, E., Lambert, C., & Hermans, C. (2021). Patient selection for hemophilia gene therapy: Real-life data from a si...** (DOI: 10.1002/rth2.12494)
 - ❌ **Miller, M. J., Skrzekut, A., Kracalik, I., Jones, J. M., Lofy, K. H., Konkle, B. A., ... & Paranjape, S. (2021). How ...** (DOI: 10.1111/trf.16630)
+- ❌ **Carvalho, A., Merhout, J. W., Kadiyala, Y., & Bentley II, J. (2021). When good blocks go bad: Managing unwanted block...** (DOI: 10.1016/j.ijinfomgt.2020.102263)
+- ❌ **Kabra, S., Sharma, S., & Sachdeva, M. (2025). Blockchain: A new frontier in secure patient data management. Blockchai...** (DOI: 10.1002/9781394287970.ch15)
+- ❌ **Wang, R., Ye, F., Tang, S., Zhang, H., He, J., Zhang, X., & Xu, C. (2025). Blockchain Technology for Big-data Sharing...** (DOI: 10.1038/s41597-025-06092-4)
