@@ -64,7 +64,7 @@ This page provides a filterable catalogue of all resources. You can also downloa
 
 *Description:* Share your Fitbit data to help improve health research and product development.
 
-*Data Types:* Wearable data (Fitbit only)
+*Data Types:* Wearable data
 
 *Compensation:* Donation
 
@@ -494,8 +494,80 @@ This page provides a filterable catalogue of all resources. You can also downloa
 
 *Data Types:* Genome
 
-*Countries:* Worldwide
+*Countries:* 
 
 *Compensation:* Payment
+
+---
+
+### [Research Participation](https://yourselftoscience.org/resource/23andme)
+
+*Description:* Contribute to scientific research aimed at making and supporting meaningful scientific discoveries using your genetic and self-reported data.
+
+*Data Types:* Genome, Health data, Microbiome
+
+*Countries:* 
+
+*Compensation:* Donation
+
+---
+
+### [GEDmatch](https://yourselftoscience.org/resource/gedmatch)
+
+*Description:* A public genealogy database that allows users to opt-in to share their data for research purposes.
+
+*Data Types:* Genome
+
+*Countries:* 
+
+*Compensation:* None
+
+---
+
+### [tellmeGen Research](https://yourselftoscience.org/resource/tellmegen)
+
+*Description:* Contribute to research by sharing your genetic data and answering surveys about your health, traits, and wellness.
+
+*Data Types:* Genome, Health data
+
+*Countries:* 
+
+*Compensation:* Donation
+
+---
+
+### [MyHeritage DNA Research Project](https://yourselftoscience.org/resource/myheritage)
+
+*Description:* Participate in research to help understand human genetics, genealogy, and anthropology by sharing your DNA results and survey responses.
+
+*Data Types:* Genome, Health data
+
+*Countries:* 
+
+*Compensation:* Donation
+
+---
+
+### [Ancestry Human Diversity Project](https://yourselftoscience.org/resource/ancestry)
+
+*Description:* Participate in research to help understand human history, health, and genetics by sharing your DNA data and survey responses.
+
+*Data Types:* Genome, Health data
+
+*Countries:* 
+
+*Compensation:* Donation
+
+---
+
+### [hEDS & Dysautonomia Study (Sequencing.com)](https://yourselftoscience.org/resource/sequencing)
+
+*Description:* Participate in a genetic study for hypermobile Ehlers-Danlos Syndrome (hEDS) and Dysautonomia in collaboration with the Norris Lab at the Medical University of South Carolina.
+
+*Data Types:* Genome
+
+*Countries:* 
+
+*Compensation:* Donation
 
 ---

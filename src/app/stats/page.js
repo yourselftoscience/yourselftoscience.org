@@ -67,7 +67,7 @@ const StatsPage = () => {
     const pathname = usePathname();
 
     const stats = React.useMemo(() => {
-        const resources = allResources;
+        const resources = allResources || [];
         const totalResources = resources.length;
 
         const resourcesByCountry = resources.reduce((acc, resource) => {

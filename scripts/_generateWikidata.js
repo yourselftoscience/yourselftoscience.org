@@ -121,7 +121,7 @@ async function enrichResources() {
       // Data Types
       for (const type of resource.dataTypes || []) {
         let normalizedType = type;
-        if (type === 'Wearable data (Fitbit only)') normalizedType = 'Wearable data';
+
 
         if (existingEntry.dataTypeMappings && Object.prototype.hasOwnProperty.call(existingEntry.dataTypeMappings, normalizedType)) {
           enrichedResource.dataTypeMappings[normalizedType] = existingEntry.dataTypeMappings[normalizedType];
@@ -156,7 +156,7 @@ async function enrichResources() {
 
       for (const type of resource.dataTypes || []) {
         let normalizedType = type;
-        if (type === 'Wearable data (Fitbit only)') normalizedType = 'Wearable data';
+
         enrichedResource.dataTypeMappings[normalizedType] = null;
       }
       for (const country of resource.countries || []) {

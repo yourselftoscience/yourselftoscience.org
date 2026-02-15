@@ -5,7 +5,7 @@ import React, { useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import CountryFlag from 'react-country-flag';
-import { FaHeart, FaDollarSign, FaExternalLinkAlt, FaBook, FaShareAlt, FaCheck, FaGlobe } from 'react-icons/fa';
+import { FaHeart, FaDollarSign, FaExternalLinkAlt, FaBook, FaShareAlt, FaCheck, FaGlobe, FaExclamationCircle, FaUserTag, FaInfoCircle, FaChevronDown } from 'react-icons/fa';
 import { Popover, Transition } from '@headlessui/react';
 import { EU_COUNTRIES } from '@/data/constants';
 import { getResourceShareUrl, copyToClipboard } from '@/utils/shareUtils';
@@ -230,6 +230,7 @@ export default function ResourceCard({
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [hoveringIcon, setHoveringIcon] = useState(null); // 'donation' | 'payment'
+  const [isInstructionsExpanded, setIsInstructionsExpanded] = useState(false); // New state for instructions
   const [showCopied, setShowCopied] = useState(false);
   const hasCitations = resource.citations && resource.citations.length > 0;
 
@@ -364,6 +365,13 @@ export default function ResourceCard({
           )}
         </div>
 
+        {resource.eligibility === 'Customers' && (
+          <div className="mt-1 mb-2 inline-flex items-center gap-1.5 px-2 py-1 rounded bg-blue-50 text-blue-700 border border-blue-200 text-[11px] font-medium leading-tight w-full">
+            <FaInfoCircle className="w-3 h-3 flex-shrink-0 text-blue-500" />
+            <span>Requires being a customer</span>
+          </div>
+        )}
+
 
         {resource.description && (
           descriptionNeedsClamping ? (
@@ -387,6 +395,8 @@ export default function ResourceCard({
             </div>
           )
         )}
+
+
       </div>
 
       <div className="mt-auto pt-4 border-t border-gray-100 flex flex-col gap-3">
@@ -457,59 +467,102 @@ export default function ResourceCard({
           )}
         </div>
 
-        <div className="flex justify-between items-center mt-2">
-          {resource.link ? (
-            <a
-              href={resource.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="action-button"
-              onClick={(e) => e.stopPropagation()}
-              aria-label={`Contribute to ${resource.title}`}
-            >
-              Contribute <FaExternalLinkAlt className="inline ml-1 h-3 w-3" />
-            </a>
+        <div className="flex-grow">
+          {(!resource.instructions || resource.instructions.length === 0) ? (
+            resource.link ? (
+              <a
+                href={resource.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="action-button"
+                onClick={(e) => e.stopPropagation()}
+                aria-label={`Contribute to ${resource.title}`}
+              >
+                Contribute <FaExternalLinkAlt className="inline ml-1 h-3 w-3" />
+              </a>
+            ) : (
+              <Link
+                href={`/resource/${resource.slug}`}
+                className="action-button"
+                onClick={(e) => e.stopPropagation()}
+                aria-label={`View details for ${resource.title}`}
+              >
+                Details
+              </Link>
+            )
           ) : (
-            <Link
-              href={`/resource/${resource.slug}`}
-              className="action-button"
-              onClick={(e) => e.stopPropagation()}
-              aria-label={`View details for ${resource.title}`}
-            >
-              Details
-            </Link>
+            <div className={`transition-all duration-200 ${isInstructionsExpanded ? 'w-full' : 'w-auto inline-block'}`}>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsInstructionsExpanded(!isInstructionsExpanded);
+                }}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-colors duration-200 text-white
+                    ${isInstructionsExpanded
+                    ? 'w-full justify-between bg-blue-700 shadow-inner'
+                    : 'bg-blue-600 hover:bg-blue-700 shadow-sm'
+                  }`}
+              >
+                <span>Instructions</span>
+                <FaChevronDown className={`transition-transform duration-200 text-blue-100 ml-2 ${isInstructionsExpanded ? 'rotate-180' : ''}`} />
+              </button>
+
+              <div className={`transition-all duration-300 ease-in-out overflow-hidden ${isInstructionsExpanded ? 'max-h-96 opacity-100 mt-2' : 'max-h-0 opacity-0'}`}>
+                <div className="px-1 text-sm text-slate-600">
+                  <ol className="list-decimal list-inside space-y-1 mb-3">
+                    {resource.instructions.map((step, idx) => (
+                      <li key={idx} className="pl-1 marker:font-medium marker:text-slate-400">
+                        {step}
+                      </li>
+                    ))}
+                  </ol>
+                  {resource.link && (
+                    <a
+                      href={resource.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-medium text-blue-600 hover:text-blue-800 hover:underline px-1"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      Go to website <FaExternalLinkAlt className="w-3 h-3" />
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div className="flex items-center gap-2 flex-shrink-0 self-start mt-1.5">
+          {hasCitations && citationMap && (
+            <CitationsPopover resource={resource} citationMap={citationMap} />
           )}
 
-          <div className="flex items-center gap-2">
-            {hasCitations && citationMap && (
-              <CitationsPopover resource={resource} citationMap={citationMap} />
-            )}
-
-            <button
-              onClick={handleShare}
-              className={`
+          <button
+            onClick={handleShare}
+            className={`
                 relative group flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium transition-all duration-200 min-h-[24px]
                 ${showCopied
-                  ? 'bg-green-100 text-green-700 ring-1 ring-green-200'
-                  : 'bg-slate-50 text-slate-600 hover:bg-slate-100 hover:text-slate-900 ring-1 ring-slate-200'
-                }
+                ? 'bg-green-100 text-green-700 ring-1 ring-green-200'
+                : 'bg-slate-50 text-slate-600 hover:bg-slate-100 hover:text-slate-900 ring-1 ring-slate-200'
+              }
               `}
-              aria-label="Share this resource"
-              title="Copy link to clipboard"
-            >
-              {showCopied ? (
-                <>
-                  <FaCheck className="w-3 h-3 text-green-600" />
-                  <span className="text-xs">Copied!</span>
-                </>
-              ) : (
-                <FaShareAlt className="w-3 h-3 text-slate-500 group-hover:text-slate-600" />
-              )}
-            </button>
-          </div>
+            aria-label="Share this resource"
+            title="Copy link to clipboard"
+          >
+            {showCopied ? (
+              <>
+                <FaCheck className="w-3 h-3 text-green-600" />
+                <span className="text-xs">Copied!</span>
+              </>
+            ) : (
+              <FaShareAlt className="w-3 h-3 text-slate-500 group-hover:text-slate-600" />
+            )}
+          </button>
         </div>
       </div>
     </div>
+
   );
 }
 

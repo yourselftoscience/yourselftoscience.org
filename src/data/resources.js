@@ -151,6 +151,7 @@ const rawResources = [
     "slug": "fitbit-research",
     "title": "Health research and product development",
     "wikidataLabel": "Fitbit Health Research and Product Development",
+    "resourceType": "service",
     "organizations": [
       {
         "name": "Fitbit",
@@ -165,12 +166,13 @@ const rawResources = [
       "Tap Data shared for research and development"
     ],
     "dataTypes": [
-      "Wearable data (Fitbit only)"
+      "Wearable data"
     ],
     "compensationType": "donation",
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
     "description": "Share your Fitbit data to help improve health research and product development.",
+    "eligibility": "Customers",
     "wikidataDescription": "program for sharing wearable data for health research",
     "origin": "United States",
     "originCode": "US"
@@ -1300,7 +1302,7 @@ const rawResources = [
     "entitySubType": "Commercial",
     "description": "A DNA data bank and personal DNA data platform that allows users to control and monetize their genomic data using blockchain technology.",
     "wikidataId": "Q125117291",
-    "countries": ["Worldwide"],
+    "countries": [],
     "origin": "United Kingdom",
     "originCode": "GB",
     "citations": [
@@ -1317,6 +1319,206 @@ const rawResources = [
         "link": "https://doi.org/10.1038/s41597-025-06092-4"
       }
     ]
+  },
+  {
+    "id": "f98be3f7-293f-47fa-b95e-f01703dd99c8",
+    "slug": "23andme",
+    "title": "Research Participation",
+    "wikidataLabel": "23andMe Research Participation",
+    "resourceType": "service",
+    "organizations": [
+      {
+        "name": "23andMe Holding Co.",
+        "wikidataId": "Q216272"
+      }
+    ],
+    "link": "https://customercare.23andme.com/hc/en-us/articles/212195708-Research-Participation-and-Consent",
+    "origin": "United States",
+    "originCode": "US",
+    "instructions": [
+      "Log in to your 23andMe account",
+      "Go to Account Settings",
+      "View/Change consent under Research Participation",
+      "Optionally review Individual Data Sharing Consent"
+    ],
+    "dataTypes": [
+      "Genome",
+      "Health data",
+      "Microbiome"
+    ],
+    "countries": [],
+    "countryCodes": [],
+    "compensationType": "donation",
+    "entityCategory": "Commercial",
+    "entitySubType": "Commercial",
+    "description": "Contribute to scientific research aimed at making and supporting meaningful scientific discoveries using your genetic and self-reported data.",
+    "eligibility": "Customers",
+    "citations": []
+  },
+  {
+    "id": "e5bbe9fa-66ad-4ea5-ab36-9330205262be",
+    "slug": "gedmatch",
+    "title": "GEDmatch",
+    "resourceType": "service",
+    "organizations": [
+      {
+        "name": "Verogen Inc."
+      }
+    ],
+    "link": "https://www.gedmatch.com/privacy-security/",
+    "origin": "United States",
+    "originCode": "US",
+    "instructions": [
+      "Log in to GEDmatch",
+      "Click the pencil icon next to your DNA kit",
+      "Select 'Public Opt-in' (allows law enforcement matching) or 'Public + Opt-out' (excludes law enforcement matching) to participate in research"
+    ],
+    "dataTypes": [
+      "Genome"
+    ],
+    "countries": [],
+    "countryCodes": [],
+    "compensationType": "none",
+    "entityCategory": "Commercial",
+    "entitySubType": "Commercial",
+    "description": "A public genealogy database that allows users to opt-in to share their data for research purposes.",
+    "citations": []
+  },
+  {
+    "id": "50ed915d-ab6f-478a-9dc5-cf4774cfa14d",
+    "slug": "tellmegen",
+    "title": "tellmeGen Research",
+    "resourceType": "service",
+    "organizations": [
+      {
+        "name": "GENELINK, S.L. (tellmeGen)",
+        "wikidataId": "Q116921900"
+      }
+    ],
+    "link": "https://www.tellmegen.com/en/tellmegen-research",
+    "origin": "Spain",
+    "originCode": "ES",
+    "instructions": [
+      "Log in to your tellmeGen account",
+      "Go to 'Legal consent document' in your profile or settings",
+      "Check the box for 'Research with pseudonymized/anonymized data'",
+      "Complete surveys in your private area to provide health data"
+    ],
+    "dataTypes": [
+      "Genome",
+      "Health data"
+    ],
+    "countries": [],
+    "countryCodes": [],
+    "compensationType": "donation",
+    "entityCategory": "Commercial",
+    "entitySubType": "Commercial",
+    "description": "Contribute to research by sharing your genetic data and answering surveys about your health, traits, and wellness.",
+    "eligibility": "Customers",
+    "citations": []
+  },
+  {
+    "id": "bfdda894-db90-4bf8-89fd-9428a6466583",
+    "slug": "myheritage",
+    "title": "MyHeritage DNA Research Project",
+    "resourceType": "service",
+    "organizations": [
+      {
+        "name": "MyHeritage Ltd",
+        "wikidataId": "Q589757"
+      }
+    ],
+    "link": "https://www.myheritage.com/dna-informed-consent-agreement",
+    "origin": "Israel",
+    "originCode": "IL",
+    "instructions": [
+      "Log in to your MyHeritage account",
+      "Go to 'Settings' > 'My Privacy' > 'My DNA preferences'",
+      "Enable 'MyHeritage DNA Research Project' consent",
+      "Complete surveys to assess health and other traits"
+    ],
+    "dataTypes": [
+      "Genome",
+      "Health data"
+    ],
+    "countries": [],
+    "countryCodes": [],
+    "compensationType": "donation",
+    "entityCategory": "Commercial",
+    "entitySubType": "Commercial",
+    "description": "Participate in research to help understand human genetics, genealogy, and anthropology by sharing your DNA results and survey responses.",
+    "eligibility": "Customers",
+    "citations": []
+  },
+  {
+    "id": "a84efc57-eb85-4ce3-bd56-6103cee8a809",
+    "slug": "ancestry",
+    "title": "Ancestry Human Diversity Project",
+    "resourceType": "service",
+    "organizations": [
+      {
+        "name": "Ancestry.com Inc.",
+        "wikidataId": "Q4752572"
+      }
+    ],
+    "link": "https://www.ancestry.com/c/collaborations",
+    "origin": "United States",
+    "originCode": "US",
+    "instructions": [
+      "Log in to your Ancestry account",
+      "Go to the DNA test settings page",
+      "Review the Informed Consent for the Ancestry Human Diversity Project",
+      "Authorize participation to contribute your data"
+    ],
+    "dataTypes": [
+      "Genome",
+      "Health data"
+    ],
+    "countries": [],
+    "countryCodes": [],
+    "compensationType": "donation",
+    "entityCategory": "Commercial",
+    "entitySubType": "Commercial",
+    "entitySubType": "Commercial",
+    "description": "Participate in research to help understand human history, health, and genetics by sharing your DNA data and survey responses.",
+    "eligibility": "Customers",
+    "citations": []
+  },
+
+  {
+    "id": "fa467f40-436c-4882-9948-aaff485d037a",
+    "slug": "sequencing",
+    "title": "hEDS & Dysautonomia Study (Sequencing.com)",
+    "resourceType": "service",
+    "organizations": [
+      {
+        "name": "Sequencing.com"
+      },
+      {
+        "name": "Medical University of South Carolina",
+        "wikidataId": "Q6806451"
+      }
+    ],
+    "link": "https://get.sequencing.com/research-study/hypermobile-eds-dysautonomia/",
+    "origin": "United States",
+    "originCode": "US",
+    "instructions": [
+      "Opt in to share your genomic data",
+      "Review the research consent",
+      "Complete the online survey"
+    ],
+    "dataTypes": [
+      "Genome"
+    ],
+    "countries": [],
+    "countryCodes": [],
+    "compensationType": "donation",
+    "entityCategory": "Commercial",
+    "entitySubType": "Commercial",
+    "entitySubType": "Commercial",
+    "description": "Participate in a genetic study for hypermobile Ehlers-Danlos Syndrome (hEDS) and Dysautonomia in collaboration with the Norris Lab at the Medical University of South Carolina.",
+    "eligibility": "Customers",
+    "citations": []
   }
 ];
 
@@ -1337,6 +1539,7 @@ const dataTypeToMacroCategory = {
   'Sperm': 'Biological Samples',
   'Embryos': 'Biological Samples',
   'Placenta': 'Biological Samples',
+  'Microbiome': 'Biological Samples',
 
   // Health & Digital Data
   'Genome': 'Health & Digital Data',

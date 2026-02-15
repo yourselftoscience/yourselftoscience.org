@@ -1,14 +1,18 @@
 # Wikidata Integration Report
 
-**Generated on:** 2/9/2026, 3:34:10 AM
+**Generated on:** 2/15/2026, 5:59:01 AM
 
 ## Project-Organizer Relationships
 
 
+- **23andMe Research Participation**: ❌
+  - 23andMe Holding Co.: [Q216272](https://www.wikidata.org/wiki/Q216272)
 - **AATB Accredited Bank Search**: ❌
   - American Association of Tissue Banks (AATB): [Q4743103](https://www.wikidata.org/wiki/Q4743103)
 - **All of Us**: [Q25004683](https://www.wikidata.org/wiki/Q25004683)
   - National Institutes of Health (NIH): [Q390551](https://www.wikidata.org/wiki/Q390551)
+- **Ancestry Human Diversity Project**: ❌
+  - Ancestry.com Inc.: [Q4752572](https://www.wikidata.org/wiki/Q4752572)
 - **Apple Research**: ❌
   - Apple: [Q312](https://www.wikidata.org/wiki/Q312)
 - **Australian Red Cross Lifeblood microbiome donation**: ❌
@@ -43,6 +47,8 @@
   - hVIVO: [Q30268998](https://www.wikidata.org/wiki/Q30268998)
 - **gamete and embryo donation in the United Kingdom**: ❌
   - Human Fertilisation and Embryology Authority: [Q1636533](https://www.wikidata.org/wiki/Q1636533)
+- **GEDmatch**: ❌
+  - Verogen Inc.: No Wikidata ID
 - **Genomes.io**: [Q125117291](https://www.wikidata.org/wiki/Q125117291)
   - Genomes.io: [Q125117291](https://www.wikidata.org/wiki/Q125117291)
 - **German Clinical Trials Register**: [Q96199255](https://www.wikidata.org/wiki/Q96199255)
@@ -57,10 +63,15 @@
   - Health Canada: [Q1057591](https://www.wikidata.org/wiki/Q1057591)
 - **HealthStreet**: ❌
   - University of Florida Health: [Q7487946](https://www.wikidata.org/wiki/Q7487946)
+- **hEDS & Dysautonomia Study (Sequencing.com)**: ❌
+  - Sequencing.com: No Wikidata ID
+  - Medical University of South Carolina: [Q6806451](https://www.wikidata.org/wiki/Q6806451)
 - **International Clinical Trials Registry Platform**: [Q29867940](https://www.wikidata.org/wiki/Q29867940)
   - World Health Organization (WHO): [Q7817](https://www.wikidata.org/wiki/Q7817)
 - **Max Planck Institute for Software Systems conversational AI data donation**: ❌
   - Max Planck Institute for Software Systems: [Q881238](https://www.wikidata.org/wiki/Q881238)
+- **MyHeritage DNA Research Project**: ❌
+  - MyHeritage Ltd: [Q589757](https://www.wikidata.org/wiki/Q589757)
 - **MyPHD**: ❌
   - Stanford University: [Q41506](https://www.wikidata.org/wiki/Q41506)
 - **NHS Health Research Authority Research Summaries**: ❌
@@ -79,6 +90,8 @@
   - San Camillo IRCCS: No Wikidata ID
 - **SPARK for Autism**: ❌
   - Simons Foundation: [Q28148561](https://www.wikidata.org/wiki/Q28148561)
+- **tellmeGen Research**: ❌
+  - GENELINK, S.L. (tellmeGen): [Q116921900](https://www.wikidata.org/wiki/Q116921900)
 - **UBC Body Donation Program**: ❌
   - Faculty of Medicine at the University of British Columbia: [Q7863800](https://www.wikidata.org/wiki/Q7863800)
 - **UCSF Archives and Special Collections social media archive**: ❌
@@ -95,8 +108,10 @@
 
 ## Resources (Projects)
 
+- **23andMe Research Participation**: ❌
 - **AATB Accredited Bank Search**: ❌
 - **All of Us**: [Q25004683](https://www.wikidata.org/wiki/Q25004683)
+- **Ancestry Human Diversity Project**: ❌
 - **Apple Research**: ❌
 - **Australian Red Cross Lifeblood microbiome donation**: ❌
 - **Bloodworks Northwest Donate Blood for Research**: ❌
@@ -111,6 +126,7 @@
 - **FAMHP clinical trials database**: ❌
 - **Fitbit Health Research and Product Development**: ❌
 - **FluCamp**: ❌
+- **GEDmatch**: ❌
 - **GIMM Biobank**: ❌
 - **Genomes.io**: [Q125117291](https://www.wikidata.org/wiki/Q125117291)
 - **German Clinical Trials Register**: [Q96199255](https://www.wikidata.org/wiki/Q96199255)
@@ -120,6 +136,7 @@
 - **HealthStreet**: ❌
 - **International Clinical Trials Registry Platform**: [Q29867940](https://www.wikidata.org/wiki/Q29867940)
 - **Max Planck Institute for Software Systems conversational AI data donation**: ❌
+- **MyHeritage DNA Research Project**: ❌
 - **MyPHD**: ❌
 - **NHS Health Research Authority Research Summaries**: ❌
 - **Open Humans**: [Q59696822](https://www.wikidata.org/wiki/Q59696822)
@@ -138,10 +155,14 @@
 - **body and tissue donation in Italy**: ❌
 - **body donation in France**: ❌
 - **gamete and embryo donation in the United Kingdom**: ❌
+- **hEDS & Dysautonomia Study (Sequencing.com)**: ❌
+- **tellmeGen Research**: ❌
 
 ## Participating Organizations
 
+- **23andMe Holding Co.**: [Q216272](https://www.wikidata.org/wiki/Q216272)
 - **American Association of Tissue Banks (AATB)**: [Q4743103](https://www.wikidata.org/wiki/Q4743103)
+- **Ancestry.com Inc.**: [Q4752572](https://www.wikidata.org/wiki/Q4752572)
 - **Apple**: [Q312](https://www.wikidata.org/wiki/Q312)
 - **Australian Red Cross Lifeblood**: [Q4824602](https://www.wikidata.org/wiki/Q4824602)
 - **Bloodworks Northwest**: [Q21015632](https://www.wikidata.org/wiki/Q21015632)
@@ -159,6 +180,7 @@
 - **Federal Agency for Medicines and Health Products (FAMHP)**: [Q2682107](https://www.wikidata.org/wiki/Q2682107)
 - **Federal Institute for Drugs and Medical Devices (BfArM)**: [Q1006215](https://www.wikidata.org/wiki/Q1006215)
 - **Fitbit**: [Q5455414](https://www.wikidata.org/wiki/Q5455414)
+- **GENELINK, S.L. (tellmeGen)**: [Q116921900](https://www.wikidata.org/wiki/Q116921900)
 - **Genomes.io**: [Q125117291](https://www.wikidata.org/wiki/Q125117291)
 - **Google**: [Q95](https://www.wikidata.org/wiki/Q95)
 - **Gulbenkian Institute for Molecular Medicine (GIMM)**: [Q131428172](https://www.wikidata.org/wiki/Q131428172)
@@ -166,13 +188,16 @@
 - **Helmholtz Munich**: [Q878592](https://www.wikidata.org/wiki/Q878592)
 - **Human Fertilisation and Embryology Authority**: [Q1636533](https://www.wikidata.org/wiki/Q1636533)
 - **Max Planck Institute for Software Systems**: [Q881238](https://www.wikidata.org/wiki/Q881238)
+- **Medical University of South Carolina**: [Q6806451](https://www.wikidata.org/wiki/Q6806451)
 - **Ministero della Salute**: [Q745634](https://www.wikidata.org/wiki/Q745634)
+- **MyHeritage Ltd**: [Q589757](https://www.wikidata.org/wiki/Q589757)
 - **NHS Health Research Authority**: [Q16937226](https://www.wikidata.org/wiki/Q16937226)
 - **National Institutes of Health (NIH)**: [Q390551](https://www.wikidata.org/wiki/Q390551)
 - **Nestlé Health Science U.S.**: [Q45132270](https://www.wikidata.org/wiki/Q45132270)
 - **Open Humans Foundation**: [Q59696822](https://www.wikidata.org/wiki/Q59696822)
 - **Penn Medicine**: [Q7896080](https://www.wikidata.org/wiki/Q7896080)
 - **San Camillo IRCCS**: ❌
+- **Sequencing.com**: ❌
 - **Service-Public.fr**: [Q3480047](https://www.wikidata.org/wiki/Q3480047)
 - **Simons Foundation**: [Q28148561](https://www.wikidata.org/wiki/Q28148561)
 - **Stanford University**: [Q41506](https://www.wikidata.org/wiki/Q41506)
@@ -180,6 +205,7 @@
 - **UCSF Library Archives**: [Q25004607](https://www.wikidata.org/wiki/Q25004607)
 - **United States National Library of Medicine (NLM)**: [Q611833](https://www.wikidata.org/wiki/Q611833)
 - **University of Florida Health**: [Q7487946](https://www.wikidata.org/wiki/Q7487946)
+- **Verogen Inc.**: ❌
 - **Wesley Research Institute**: [Q30289631](https://www.wikidata.org/wiki/Q30289631)
 - **World Health Organization (WHO)**: [Q7817](https://www.wikidata.org/wiki/Q7817)
 - **hVIVO**: [Q30268998](https://www.wikidata.org/wiki/Q30268998)
@@ -197,6 +223,7 @@
 - **Hair**: [Q28472](https://www.wikidata.org/wiki/Q28472)
 - **Health data**: [Q18745135](https://www.wikidata.org/wiki/Q18745135)
 - **Location history**: ❌
+- **Microbiome**: ❌
 - **Organ**: [Q712378](https://www.wikidata.org/wiki/Q712378)
 - **Placenta**: [Q1212935](https://www.wikidata.org/wiki/Q1212935)
 - **Plasma**: [Q79749](https://www.wikidata.org/wiki/Q79749)
@@ -217,15 +244,16 @@
 - **France**: [Q142](https://www.wikidata.org/wiki/Q142)
 - **Germany**: [Q183](https://www.wikidata.org/wiki/Q183)
 - **Iceland**: [Q189](https://www.wikidata.org/wiki/Q189)
+- **Israel**: [Q801](https://www.wikidata.org/wiki/Q801)
 - **Italy**: [Q38](https://www.wikidata.org/wiki/Q38)
 - **Liechtenstein**: [Q347](https://www.wikidata.org/wiki/Q347)
 - **Norway**: [Q20](https://www.wikidata.org/wiki/Q20)
 - **Poland**: [Q36](https://www.wikidata.org/wiki/Q36)
 - **Portugal**: [Q45](https://www.wikidata.org/wiki/Q45)
+- **Spain**: [Q29](https://www.wikidata.org/wiki/Q29)
 - **Switzerland**: [Q39](https://www.wikidata.org/wiki/Q39)
 - **United Kingdom**: [Q145](https://www.wikidata.org/wiki/Q145)
 - **United States**: [Q30](https://www.wikidata.org/wiki/Q30)
-- **Worldwide**: [Q13780930](https://www.wikidata.org/wiki/Q13780930)
 
 ## Entity Categories
 
@@ -252,6 +280,7 @@
 
 - **donation**: [Q1124860](https://www.wikidata.org/wiki/Q1124860)
 - **mixed**: [Q1742093](https://www.wikidata.org/wiki/Q1742093), [Q1124860](https://www.wikidata.org/wiki/Q1124860)
+- **none**: No QID
 - **payment**: [Q1742093](https://www.wikidata.org/wiki/Q1742093)
 
 ## Citations

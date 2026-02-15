@@ -4,17 +4,37 @@ An overview of the resources available on Yourself to Science, providing insight
 
 ## Overview
 
-- **Total Resources:** 43
+- **Total Resources:** 49
 
 ## Compensation Types
 
-- **Donation:** 22
+- **Donation:** 27
 - **Mixed:** 17
 - **Payment:** 4
+- **None:** 1
+
+## Resources Based In
+
+- **United States:** 20
+- **European Union:** 16
+    - **Breakdown:**
+        - **Italy:** 4
+        - **Belgium:** 3
+        - **Germany:** 3
+        - **Poland:** 2
+        - **France:** 1
+        - **EU-Wide:** 1
+        - **Portugal:** 1
+        - **Spain:** 1
+- **United Kingdom:** 6
+- **Australia:** 3
+- **Canada:** 2
+- **Switzerland:** 1
+- **Israel:** 1
 
 ## Top 10 Service Availability by Country
 
-- **Worldwide:** 13
+- **Worldwide:** 19
 - **European Union:** 12
     - **Breakdown:**
         - **Italy:** 3
@@ -35,10 +55,10 @@ An overview of the resources available on Yourself to Science, providing insight
 ## Data Type Distribution
 
 - **Clinical trials:** 15
-- **Health data:** 8
+- **Health data:** 12
+- **Genome:** 10
 - **Body:** 5
 - **Tissue:** 5
-- **Genome:** 4
 - **Wearable data:** 4
 - **Stool:** 3
 - **Blood:** 3
@@ -55,9 +75,11 @@ An overview of the resources available on Yourself to Science, providing insight
 - **Stem cells:** 1
 - **Conversational AI data:** 1
 - **Cover letters:** 1
+- **Microbiome:** 1
 
 ## Entity Type Distribution
 
+- **Commercial:** 15
 - **Government:** 12
     - **Research Agency:** 4
     - **Regulatory Agency:** 4
@@ -74,7 +96,6 @@ An overview of the resources available on Yourself to Science, providing insight
     - **Professional Association:** 1
     - **Hospital:** 1
     - **Research Institute:** 1
-- **Commercial:** 9
 - **Intergovernmental:** 1
 
 ## Live Data Access

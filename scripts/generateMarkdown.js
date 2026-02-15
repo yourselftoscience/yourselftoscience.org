@@ -85,6 +85,31 @@ function generateStatsMarkdown() {
   }, {})).sort(([, a], [, b]) => b - a);
 
 
+  // --- Origin Calculation (similar to Availability) ---
+  const resourcesByOrigin = resources.reduce((acc, resource) => {
+    // Use resource.origin if available, grouping EU countries
+    if (resource.origin) {
+      const originName = resource.origin === 'European Union' || EU_COUNTRIES.includes(resource.origin) ? 'European Union' : resource.origin;
+      acc[originName] = (acc[originName] || 0) + 1;
+    }
+    return acc;
+  }, {});
+
+  const topOrigins = Object.entries(resourcesByOrigin)
+    .sort(([, a], [, b]) => b - a)
+    .slice(0, 10);
+
+  const euOriginBreakdownStats = Object.entries(resources.reduce((acc, resource) => {
+    if (resource.origin) {
+      if (resource.origin === 'European Union') {
+        acc['EU-Wide'] = (acc['EU-Wide'] || 0) + 1;
+      } else if (EU_COUNTRIES.includes(resource.origin)) {
+        acc[resource.origin] = (acc[resource.origin] || 0) + 1;
+      }
+    }
+    return acc;
+  }, {})).sort(([, a], [, b]) => b - a);
+
   // --- Generate Markdown Content ---
 
   let mdContent = `# Project Statistics\n\n`;
@@ -96,6 +121,18 @@ function generateStatsMarkdown() {
   mdContent += `## Compensation Types\n\n`;
   for (const [type, count] of compensationDistribution) {
     mdContent += `- **${type.charAt(0).toUpperCase() + type.slice(1)}:** ${count}\n`;
+  }
+  mdContent += `\n`;
+
+  mdContent += `## Resources Based In\n\n`;
+  for (const [origin, count] of topOrigins) {
+    mdContent += `- **${origin}:** ${count}\n`;
+    if (origin === 'European Union') {
+      mdContent += `    - **Breakdown:**\n`;
+      for (const [euCountry, euCount] of euOriginBreakdownStats) {
+        mdContent += `        - **${euCountry}:** ${euCount}\n`;
+      }
+    }
   }
   mdContent += `\n`;
 

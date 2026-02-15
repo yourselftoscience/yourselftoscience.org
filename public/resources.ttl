@@ -71,7 +71,7 @@ yts:compensationWikidataId a rdfs:Property ;
   rdfs:label "Fitbit Health Research and Product Development" ;
   schema:description "Share your Fitbit data to help improve health research and product development." ;
   schema:creator [ a schema:Organization; rdfs:label "Fitbit" ; schema:sameAs wd:Q5455414 ; schema:additionalType wd:Q4830453 ; schema:additionalType wd:Q4830453 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Wearable data (Fitbit only)" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Wearable data" ] ;
   yts:compensationType "donation" ;
   yts:compensationWikidataId wd:Q1124860 .
 
@@ -483,11 +483,69 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:description "A DNA data bank and personal DNA data platform that allows users to control and monetize their genomic data using blockchain technology." ;
   schema:creator [ a schema:Organization; rdfs:label "Genomes.io" ; schema:sameAs wd:Q125117291 ; schema:location [ a schema:Place; rdfs:label "United Kingdom" ; schema:addressCountry "GB" ; schema:sameAs wd:Q145 ] ] ;
   schema:url <https://genomes.io/> ;
-  schema:spatialCoverage [ a schema:Place; rdfs:label "Worldwide" ; schema:sameAs wd:Q13780930 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ] ;
   schema:citation <https://doi.org/10.1016/j.ijinfomgt.2020.102263> ;
   schema:citation <https://doi.org/10.1002/9781394287970.ch15> ;
   schema:citation <https://doi.org/10.1038/s41597-025-06092-4> ;
   yts:compensationType "payment" ;
   yts:compensationWikidataId wd:Q1742093 .
+
+<https://yourselftoscience.org/resource/f98be3f7-293f-47fa-b95e-f01703dd99c8> a schema:Dataset ;
+  rdfs:label "23andMe Research Participation" ;
+  schema:description "Contribute to scientific research aimed at making and supporting meaningful scientific discoveries using your genetic and self-reported data." ;
+  schema:creator [ a schema:Organization; rdfs:label "23andMe Holding Co." ; schema:sameAs wd:Q216272 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
+  schema:url <https://customercare.23andme.com/hc/en-us/articles/212195708-Research-Participation-and-Consent> ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Microbiome" ] ;
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
+
+<https://yourselftoscience.org/resource/e5bbe9fa-66ad-4ea5-ab36-9330205262be> a schema:Dataset ;
+  rdfs:label "GEDmatch" ;
+  schema:description "A public genealogy database that allows users to opt-in to share their data for research purposes." ;
+  schema:creator [ a schema:Organization; rdfs:label "Verogen Inc." ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
+  schema:url <https://www.gedmatch.com/privacy-security/> ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ] ;
+  yts:compensationType "none" .
+
+<https://yourselftoscience.org/resource/50ed915d-ab6f-478a-9dc5-cf4774cfa14d> a schema:Dataset ;
+  rdfs:label "tellmeGen Research" ;
+  schema:description "Contribute to research by sharing your genetic data and answering surveys about your health, traits, and wellness." ;
+  schema:creator [ a schema:Organization; rdfs:label "GENELINK, S.L. (tellmeGen)" ; schema:sameAs wd:Q116921900 ; schema:location [ a schema:Place; rdfs:label "Spain" ; schema:addressCountry "ES" ; schema:sameAs wd:Q29 ] ] ;
+  schema:url <https://www.tellmegen.com/en/tellmegen-research> ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ] ;
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
+
+<https://yourselftoscience.org/resource/bfdda894-db90-4bf8-89fd-9428a6466583> a schema:Dataset ;
+  rdfs:label "MyHeritage DNA Research Project" ;
+  schema:description "Participate in research to help understand human genetics, genealogy, and anthropology by sharing your DNA results and survey responses." ;
+  schema:creator [ a schema:Organization; rdfs:label "MyHeritage Ltd" ; schema:sameAs wd:Q589757 ; schema:location [ a schema:Place; rdfs:label "Israel" ; schema:addressCountry "IL" ; schema:sameAs wd:Q801 ] ] ;
+  schema:url <https://www.myheritage.com/dna-informed-consent-agreement> ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ] ;
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
+
+<https://yourselftoscience.org/resource/a84efc57-eb85-4ce3-bd56-6103cee8a809> a schema:Dataset ;
+  rdfs:label "Ancestry Human Diversity Project" ;
+  schema:description "Participate in research to help understand human history, health, and genetics by sharing your DNA data and survey responses." ;
+  schema:creator [ a schema:Organization; rdfs:label "Ancestry.com Inc." ; schema:sameAs wd:Q4752572 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
+  schema:url <https://www.ancestry.com/c/collaborations> ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ] ;
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
+
+<https://yourselftoscience.org/resource/fa467f40-436c-4882-9948-aaff485d037a> a schema:Dataset ;
+  rdfs:label "hEDS & Dysautonomia Study (Sequencing.com)" ;
+  schema:description "Participate in a genetic study for hypermobile Ehlers-Danlos Syndrome (hEDS) and Dysautonomia in collaboration with the Norris Lab at the Medical University of South Carolina." ;
+  schema:creator [ a schema:Organization; rdfs:label "Sequencing.com" ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
+  schema:creator [ a schema:Organization; rdfs:label "Medical University of South Carolina" ; schema:sameAs wd:Q6806451 ] ;
+  schema:url <https://get.sequencing.com/research-study/hypermobile-eds-dysautonomia/> ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ] ;
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
 
