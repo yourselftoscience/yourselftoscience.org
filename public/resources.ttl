@@ -244,7 +244,7 @@ yts:compensationWikidataId a rdfs:Property ;
 <https://yourselftoscience.org/resource/aef3da52-dda0-4b1c-93cd-dce266178e9e> a schema:Dataset ;
   rdfs:label "ResearchMatch" ;
   schema:description "A nonprofit program funded by the National Institutes of Health (NIH) that connects people interested in research studies with researchers from top medical centers across the U.S." ;
-  schema:creator [ a schema:GovernmentOrganization; rdfs:label "National Institutes of Health (NIH)" ; schema:sameAs wd:Q390551 ; schema:additionalType wd:Q7188 ; schema:additionalType wd:Q9142054 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
+  schema:creator [ a schema:GovernmentOrganization; rdfs:label "Vanderbilt University Medical Center" ; schema:sameAs wd:Q7914455 ; schema:additionalType wd:Q7188 ; schema:additionalType wd:Q9142054 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
   schema:url <https://www.researchmatch.org/> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "United States" ; schema:sameAs wd:Q30 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Clinical trials" ; schema:sameAs wd:Q30612 ] ;

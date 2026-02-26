@@ -624,8 +624,8 @@ const rawResources = [
     "title": "ResearchMatch",
     "organizations": [
       {
-        "name": "National Institutes of Health (NIH)",
-        "wikidataId": "Q390551"
+        "name": "Vanderbilt University Medical Center",
+        "wikidataId": "Q7914455"
       }
     ],
     "link": "https://www.researchmatch.org/",
