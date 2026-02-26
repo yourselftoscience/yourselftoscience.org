@@ -25,6 +25,16 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationType "donation" ;
   yts:compensationWikidataId wd:Q1124860 .
 
+<https://yourselftoscience.org/resource/6b75822f-2f88-4660-9304-122709d3161f> a schema:Dataset ;
+  rdfs:label "FamilyTreeDNA Group Projects" ;
+  schema:description "Join thousands of collaborative genealogy projects based on surname, geography, or haplogroup to support citizen science and migration pattern discovery." ;
+  schema:creator [ a schema:Organization; rdfs:label "FamilyTreeDNA" ; schema:sameAs wd:Q4038610 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
+  schema:url <https://www.familytreedna.com/group-project> ;
+  schema:spatialCoverage [ a schema:Place; rdfs:label "Worldwide" ; schema:sameAs wd:Q13780930 ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ; schema:sameAs wd:Q7020 ] ;
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
+
 <https://yourselftoscience.org/resource/66700d6e-cbc9-40ab-8bf9-eb466844ad52> a schema:Dataset ;
   rdfs:label "MyPHD" ;
   schema:description "A platform for collecting health data from wearables to detect early signs of infectious diseases." ;
@@ -507,7 +517,8 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:creator [ a schema:Organization; rdfs:label "Verogen Inc." ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
   schema:url <https://www.gedmatch.com/privacy-security/> ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ] ;
-  yts:compensationType "none" .
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/50ed915d-ab6f-478a-9dc5-cf4774cfa14d> a schema:Dataset ;
   rdfs:label "tellmeGen Research" ;

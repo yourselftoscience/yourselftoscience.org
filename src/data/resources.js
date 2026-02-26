@@ -21,6 +21,7 @@ const rawResources = [
       "Search history",
       "Location history"
     ],
+    "compatibleSources": ["Raw Data", "WGS"],
     "compensationType": "donation",
     "entityCategory": "Non-Profit",
     "entitySubType": "Research Foundation",
@@ -33,6 +34,30 @@ const rawResources = [
         "link": "https://doi.org/10.1093/gigascience/giz076"
       }
     ]
+  },
+  {
+    "id": "6b75822f-2f88-4660-9304-122709d3161f",
+    "slug": "familytreedna-group-projects",
+    "title": "FamilyTreeDNA Group Projects",
+    "organizations": [
+      {
+        "name": "FamilyTreeDNA",
+        "wikidataId": "Q4038610"
+      }
+    ],
+    "link": "https://www.familytreedna.com/group-project",
+    "dataTypes": [
+      "Genome"
+    ],
+    "compatibleSources": ["23andMe", "AncestryDNA", "MyHeritage", "FamilyTreeDNA"],
+    "compensationType": "donation",
+    "entityCategory": "Commercial",
+    "entitySubType": "Commercial",
+    "description": "Join thousands of collaborative genealogy projects based on surname, geography, or haplogroup to support citizen science and migration pattern discovery.",
+    "origin": "United States",
+    "originCode": "US",
+    "countries": ["Worldwide"],
+    "locations": ["Worldwide"]
   },
   {
     "id": "66700d6e-cbc9-40ab-8bf9-eb466844ad52",
@@ -1297,6 +1322,7 @@ const rawResources = [
     "dataTypes": [
       "Genome"
     ],
+    "compatibleSources": ["Raw Data"],
     "compensationType": "payment",
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
@@ -1323,7 +1349,7 @@ const rawResources = [
   {
     "id": "f98be3f7-293f-47fa-b95e-f01703dd99c8",
     "slug": "23andme",
-    "title": "Research Participation",
+    "title": "23andMe Research Participation",
     "wikidataLabel": "23andMe Research Participation",
     "resourceType": "service",
     "organizations": [
@@ -1346,6 +1372,7 @@ const rawResources = [
       "Health data",
       "Microbiome"
     ],
+    "compatibleSources": ["23andMe"],
     "countries": [],
     "countryCodes": [],
     "compensationType": "donation",
@@ -1376,9 +1403,10 @@ const rawResources = [
     "dataTypes": [
       "Genome"
     ],
+    "compatibleSources": ["23andMe", "AncestryDNA", "MyHeritage", "FamilyTreeDNA", "Sequencing.com", "tellmeGen"],
     "countries": [],
     "countryCodes": [],
-    "compensationType": "none",
+    "compensationType": "donation",
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
     "description": "A public genealogy database that allows users to opt-in to share their data for research purposes.",
@@ -1408,6 +1436,7 @@ const rawResources = [
       "Genome",
       "Health data"
     ],
+    "compatibleSources": ["tellmeGen"],
     "countries": [],
     "countryCodes": [],
     "compensationType": "donation",
@@ -1441,6 +1470,7 @@ const rawResources = [
       "Genome",
       "Health data"
     ],
+    "compatibleSources": ["MyHeritage"],
     "countries": [],
     "countryCodes": [],
     "compensationType": "donation",
@@ -1474,6 +1504,7 @@ const rawResources = [
       "Genome",
       "Health data"
     ],
+    "compatibleSources": ["AncestryDNA"],
     "countries": [],
     "countryCodes": [],
     "compensationType": "donation",
@@ -1510,11 +1541,11 @@ const rawResources = [
     "dataTypes": [
       "Genome"
     ],
+    "compatibleSources": ["Sequencing.com"],
     "countries": [],
     "countryCodes": [],
     "compensationType": "donation",
     "entityCategory": "Commercial",
-    "entitySubType": "Commercial",
     "entitySubType": "Commercial",
     "description": "Participate in a genetic study for hypermobile Ehlers-Danlos Syndrome (hEDS) and Dysautonomia in collaboration with the Norris Lab at the Medical University of South Carolina.",
     "eligibility": "Customers",

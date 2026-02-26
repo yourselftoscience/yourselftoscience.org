@@ -227,6 +227,7 @@ export default function ResourceCard({
   onWearableFilterToggle,
   onMacroCategoryFilterChange,
   isHighlighted = false,
+  showDataTypes = true,
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [hoveringIcon, setHoveringIcon] = useState(null); // 'donation' | 'payment'
@@ -438,7 +439,7 @@ export default function ResourceCard({
               </TagButton>
             </div>
           )}
-          {resource.dataTypes && resource.dataTypes.length > 0 && (
+          {showDataTypes && resource.dataTypes && resource.dataTypes.length > 0 && (
             <div className="flex flex-wrap items-center gap-1.5">
               {resource.dataTypes.map((type) => {
                 if (typeof type !== 'string' || type.length === 0) return null;
@@ -601,4 +602,5 @@ ResourceCard.propTypes = {
   onWearableFilterToggle: PropTypes.func,
   onMacroCategoryFilterChange: PropTypes.func,
   isHighlighted: PropTypes.bool,
+  showDataTypes: PropTypes.bool,
 };

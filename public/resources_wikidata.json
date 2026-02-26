@@ -18,6 +18,10 @@
       "Search history",
       "Location history"
     ],
+    "compatibleSources": [
+      "Raw Data",
+      "WGS"
+    ],
     "compensationType": "donation",
     "entityCategory": "Non-Profit",
     "entitySubType": "Research Foundation",
@@ -44,6 +48,50 @@
     "countryMappings": {},
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q119852396",
+    "originWikidataId": "Q30",
+    "compensationWikidataId": "Q1124860"
+  },
+  {
+    "id": "6b75822f-2f88-4660-9304-122709d3161f",
+    "slug": "familytreedna-group-projects",
+    "title": "FamilyTreeDNA Group Projects",
+    "organizations": [
+      {
+        "name": "FamilyTreeDNA",
+        "wikidataId": "Q4038610"
+      }
+    ],
+    "link": "https://www.familytreedna.com/group-project",
+    "dataTypes": [
+      "Genome"
+    ],
+    "compatibleSources": [
+      "23andMe",
+      "AncestryDNA",
+      "MyHeritage",
+      "FamilyTreeDNA"
+    ],
+    "compensationType": "donation",
+    "entityCategory": "Commercial",
+    "entitySubType": "Commercial",
+    "description": "Join thousands of collaborative genealogy projects based on surname, geography, or haplogroup to support citizen science and migration pattern discovery.",
+    "origin": "United States",
+    "originCode": "US",
+    "countries": [
+      "Worldwide"
+    ],
+    "locations": [
+      "Worldwide"
+    ],
+    "macroCategories": [
+      "Health & Digital Data"
+    ],
+    "dataTypeMappings": {
+      "Genome": "Q7020"
+    },
+    "countryMappings": {
+      "Worldwide": "Q13780930"
+    },
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860"
   },
@@ -1892,6 +1940,9 @@
     "dataTypes": [
       "Genome"
     ],
+    "compatibleSources": [
+      "Raw Data"
+    ],
     "compensationType": "payment",
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
@@ -1950,6 +2001,9 @@
       "Health data",
       "Microbiome"
     ],
+    "compatibleSources": [
+      "23andMe"
+    ],
     "countries": [],
     "countryCodes": [],
     "compensationType": "donation",
@@ -1992,9 +2046,17 @@
     "dataTypes": [
       "Genome"
     ],
+    "compatibleSources": [
+      "23andMe",
+      "AncestryDNA",
+      "MyHeritage",
+      "FamilyTreeDNA",
+      "Sequencing.com",
+      "tellmeGen"
+    ],
     "countries": [],
     "countryCodes": [],
-    "compensationType": "none",
+    "compensationType": "donation",
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
     "description": "A public genealogy database that allows users to opt-in to share their data for research purposes.",
@@ -2007,7 +2069,7 @@
     },
     "countryMappings": {},
     "originWikidataId": "Q30",
-    "compensationWikidataId": null
+    "compensationWikidataId": "Q1124860"
   },
   {
     "id": "50ed915d-ab6f-478a-9dc5-cf4774cfa14d",
@@ -2032,6 +2094,9 @@
     "dataTypes": [
       "Genome",
       "Health data"
+    ],
+    "compatibleSources": [
+      "tellmeGen"
     ],
     "countries": [],
     "countryCodes": [],
@@ -2076,6 +2141,9 @@
       "Genome",
       "Health data"
     ],
+    "compatibleSources": [
+      "MyHeritage"
+    ],
     "countries": [],
     "countryCodes": [],
     "compensationType": "donation",
@@ -2118,6 +2186,9 @@
     "dataTypes": [
       "Genome",
       "Health data"
+    ],
+    "compatibleSources": [
+      "AncestryDNA"
     ],
     "countries": [],
     "countryCodes": [],
@@ -2162,6 +2233,9 @@
     ],
     "dataTypes": [
       "Genome"
+    ],
+    "compatibleSources": [
+      "Sequencing.com"
     ],
     "countries": [],
     "countryCodes": [],

@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 2/15/2026, 5:59:01 AM
+**Generated on:** 2/26/2026, 3:05:10 AM
 
 ## Project-Organizer Relationships
 
@@ -41,6 +41,8 @@
   - Clinical Trials Information Network (CTIN Poland): No Wikidata ID
 - **FAMHP clinical trials database**: ❌
   - Federal Agency for Medicines and Health Products (FAMHP): [Q2682107](https://www.wikidata.org/wiki/Q2682107)
+- **FamilyTreeDNA Group Projects**: ❌
+  - FamilyTreeDNA: [Q4038610](https://www.wikidata.org/wiki/Q4038610)
 - **Fitbit Health Research and Product Development**: ❌
   - Fitbit: [Q5455414](https://www.wikidata.org/wiki/Q5455414)
 - **FluCamp**: ❌
@@ -124,6 +126,7 @@
 - **Eurac Research cover letter donation**: ❌
 - **European Clinical Trials Information Network**: ❌
 - **FAMHP clinical trials database**: ❌
+- **FamilyTreeDNA Group Projects**: ❌
 - **Fitbit Health Research and Product Development**: ❌
 - **FluCamp**: ❌
 - **GEDmatch**: ❌
@@ -177,6 +180,7 @@
 - **Eurac Research**: [Q1245390](https://www.wikidata.org/wiki/Q1245390)
 - **European Medicines Agency (EMA)**: [Q130146](https://www.wikidata.org/wiki/Q130146)
 - **Faculty of Medicine at the University of British Columbia**: [Q7863800](https://www.wikidata.org/wiki/Q7863800)
+- **FamilyTreeDNA**: [Q4038610](https://www.wikidata.org/wiki/Q4038610)
 - **Federal Agency for Medicines and Health Products (FAMHP)**: [Q2682107](https://www.wikidata.org/wiki/Q2682107)
 - **Federal Institute for Drugs and Medical Devices (BfArM)**: [Q1006215](https://www.wikidata.org/wiki/Q1006215)
 - **Fitbit**: [Q5455414](https://www.wikidata.org/wiki/Q5455414)
@@ -254,6 +258,7 @@
 - **Switzerland**: [Q39](https://www.wikidata.org/wiki/Q39)
 - **United Kingdom**: [Q145](https://www.wikidata.org/wiki/Q145)
 - **United States**: [Q30](https://www.wikidata.org/wiki/Q30)
+- **Worldwide**: [Q13780930](https://www.wikidata.org/wiki/Q13780930)
 
 ## Entity Categories
 
@@ -280,7 +285,6 @@
 
 - **donation**: [Q1124860](https://www.wikidata.org/wiki/Q1124860)
 - **mixed**: [Q1742093](https://www.wikidata.org/wiki/Q1742093), [Q1124860](https://www.wikidata.org/wiki/Q1124860)
-- **none**: No QID
 - **payment**: [Q1742093](https://www.wikidata.org/wiki/Q1742093)
 
 ## Citations

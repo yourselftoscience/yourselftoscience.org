@@ -16,6 +16,18 @@ This page provides a filterable catalogue of all resources. You can also downloa
 
 ---
 
+### [FamilyTreeDNA Group Projects](https://yourselftoscience.org/resource/familytreedna-group-projects)
+
+*Description:* Join thousands of collaborative genealogy projects based on surname, geography, or haplogroup to support citizen science and migration pattern discovery.
+
+*Data Types:* Genome
+
+*Countries:* Worldwide
+
+*Compensation:* Donation
+
+---
+
 ### [MyPHD](https://yourselftoscience.org/resource/myphd)
 
 *Description:* A platform for collecting health data from wearables to detect early signs of infectious diseases.
@@ -500,7 +512,7 @@ This page provides a filterable catalogue of all resources. You can also downloa
 
 ---
 
-### [Research Participation](https://yourselftoscience.org/resource/23andme)
+### [23andMe Research Participation](https://yourselftoscience.org/resource/23andme)
 
 *Description:* Contribute to scientific research aimed at making and supporting meaningful scientific discoveries using your genetic and self-reported data.
 
@@ -520,7 +532,7 @@ This page provides a filterable catalogue of all resources. You can also downloa
 
 *Countries:* 
 
-*Compensation:* None
+*Compensation:* Donation
 
 ---
 
