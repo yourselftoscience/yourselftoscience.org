@@ -174,6 +174,32 @@ export default function DataPage() {
                         </p>
                     </div>
                 </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
+                    className="mt-12"
+                >
+                    <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-6 text-center">
+                        <h2 className="text-2xl font-semibold mb-3 text-apple-primary-text">Wikidata Integration</h2>
+                        <p className="text-apple-secondary-text mb-4 max-w-2xl mx-auto">
+                            Each resource in our catalogue is mapped to{' '}
+                            <a
+                                href="https://www.wikidata.org"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-apple-accent hover:underline"
+                            >
+                                Wikidata
+                            </a>{' '}
+                            QIDs. Organizations, countries, and key entities reference their Wikidata identifiers, making the dataset interoperable with the global knowledge graph.
+                        </p>
+                        <p className="text-sm text-gray-600">
+                            This alignment is maintained manually and is used to enrich existing Wikidata items and identify missing ones.
+                        </p>
+                    </div>
+                </motion.div>
             </section>
 
             <section className="mt-16">
