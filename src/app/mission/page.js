@@ -60,7 +60,7 @@ export default function MissionPage() {
         >
           <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-200 bg-blue-50 text-blue-700 text-sm font-semibold mb-6">
             <FaRocket className="text-blue-600" />
-            <span>The Open Science Catalogue</span>
+            <span>Open Source Catalogue</span>
           </motion.div>
           <motion.h1
             variants={fadeUp}
