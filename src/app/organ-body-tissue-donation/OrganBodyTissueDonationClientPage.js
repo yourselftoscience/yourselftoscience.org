@@ -134,8 +134,8 @@ export default function OrganBodyTissueWizard() {
                 </div>
 
                 <div className="max-w-5xl mx-auto px-4 py-20 text-center relative z-10">
-                    <h1 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-700 to-purple-600 drop-shadow-sm mb-6 md:mb-8 tracking-tight leading-tight pb-2">
-                        Find Donation Programs
+                    <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-700 to-purple-600 drop-shadow-sm mb-6 md:mb-8 tracking-tight leading-tight pb-2">
+                        Find Organ, Body & Tissue Donation Programs
                     </h1>
 
                     {/* Wizard Container */}
