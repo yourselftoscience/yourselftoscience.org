@@ -60,6 +60,18 @@ This page provides a filterable catalogue of all resources. You can also downloa
 
 ---
 
+### [Harvard Personal Genome Project](https://yourselftoscience.org/resource/harvard-pgp)
+
+*Description:* An open science project by Harvard Medical School where participants publicly share their genetic, health, and trait data to drive biological research.
+
+*Data Types:* Genome, Health data
+
+*Countries:* United States
+
+*Compensation:* Donation
+
+---
+
 ### [Genes for Good](https://yourselftoscience.org/resource/genes-for-good)
 
 *Description:* A research study run through a Facebook App that connects health, behavior, and genetics. Participants complete surveys and may become eligible to provide a saliva sample for DNA analysis.

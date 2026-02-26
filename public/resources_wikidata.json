@@ -210,6 +210,50 @@
     "compensationWikidataId": "Q1124860"
   },
   {
+    "id": "e9b2a7d1-5c1a-4d2c-8bf5-f9aee315ebd0",
+    "slug": "harvard-pgp",
+    "title": "Harvard Personal Genome Project",
+    "organizations": [
+      {
+        "name": "Harvard Medical School",
+        "wikidataId": "Q49121"
+      }
+    ],
+    "link": "https://pgp.med.harvard.edu/participate",
+    "dataTypes": [
+      "Genome",
+      "Health data"
+    ],
+    "countries": [
+      "United States"
+    ],
+    "countryCodes": [
+      "US"
+    ],
+    "compensationType": "donation",
+    "compatibleSources": [
+      "Raw Data",
+      "WGS"
+    ],
+    "entityCategory": "Academic",
+    "entitySubType": "University",
+    "description": "An open science project by Harvard Medical School where participants publicly share their genetic, health, and trait data to drive biological research.",
+    "origin": "United States",
+    "originCode": "US",
+    "macroCategories": [
+      "Health & Digital Data"
+    ],
+    "dataTypeMappings": {
+      "Genome": "Q7020",
+      "Health data": "Q18745135"
+    },
+    "countryMappings": {
+      "United States": "Q30"
+    },
+    "originWikidataId": "Q30",
+    "compensationWikidataId": "Q1124860"
+  },
+  {
     "id": "e2ba7d15-5c1a-4d2c-8bf5-f9aee315ebd0",
     "slug": "genes-for-good",
     "title": "Genes for Good",

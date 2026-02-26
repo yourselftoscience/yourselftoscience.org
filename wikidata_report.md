@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 2/26/2026, 3:18:02 AM
+**Generated on:** 2/26/2026, 3:26:49 AM
 
 ## Project-Organizer Relationships
 
@@ -63,6 +63,8 @@
   - Nestlé Health Science U.S.: [Q45132270](https://www.wikidata.org/wiki/Q45132270)
 - **Google Health Studies**: ❌
   - Google: [Q95](https://www.wikidata.org/wiki/Q95)
+- **Harvard Personal Genome Project**: ❌
+  - Harvard Medical School: [Q49121](https://www.wikidata.org/wiki/Q49121)
 - **Health Canada's Clinical Trials Database**: ❌
   - Health Canada: [Q1057591](https://www.wikidata.org/wiki/Q1057591)
 - **HealthStreet**: ❌
@@ -138,6 +140,7 @@
 - **German Clinical Trials Register**: [Q96199255](https://www.wikidata.org/wiki/Q96199255)
 - **GoodNature Program**: ❌
 - **Google Health Studies**: ❌
+- **Harvard Personal Genome Project**: ❌
 - **Health Canada's Clinical Trials Database**: ❌
 - **HealthStreet**: ❌
 - **International Clinical Trials Registry Platform**: [Q29867940](https://www.wikidata.org/wiki/Q29867940)
@@ -191,6 +194,7 @@
 - **Genomes.io**: [Q125117291](https://www.wikidata.org/wiki/Q125117291)
 - **Google**: [Q95](https://www.wikidata.org/wiki/Q95)
 - **Gulbenkian Institute for Molecular Medicine (GIMM)**: [Q131428172](https://www.wikidata.org/wiki/Q131428172)
+- **Harvard Medical School**: [Q49121](https://www.wikidata.org/wiki/Q49121)
 - **Health Canada**: [Q1057591](https://www.wikidata.org/wiki/Q1057591)
 - **Helmholtz Munich**: [Q878592](https://www.wikidata.org/wiki/Q878592)
 - **Human Fertilisation and Embryology Authority**: [Q1636533](https://www.wikidata.org/wiki/Q1636533)

@@ -65,6 +65,17 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationType "donation" ;
   yts:compensationWikidataId wd:Q1124860 .
 
+<https://yourselftoscience.org/resource/e9b2a7d1-5c1a-4d2c-8bf5-f9aee315ebd0> a schema:Dataset ;
+  rdfs:label "Harvard Personal Genome Project" ;
+  schema:description "An open science project by Harvard Medical School where participants publicly share their genetic, health, and trait data to drive biological research." ;
+  schema:creator [ a schema:Organization; rdfs:label "Harvard Medical School" ; schema:sameAs wd:Q49121 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
+  schema:url <https://pgp.med.harvard.edu/participate> ;
+  schema:spatialCoverage [ a schema:Place; rdfs:label "United States" ; schema:sameAs wd:Q30 ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ; schema:sameAs wd:Q7020 ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ; schema:sameAs wd:Q18745135 ] ;
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
+
 <https://yourselftoscience.org/resource/e2ba7d15-5c1a-4d2c-8bf5-f9aee315ebd0> a schema:Dataset ;
   rdfs:label "Genes for Good" ;
   schema:description "A research study run through a Facebook App that connects health, behavior, and genetics. Participants complete surveys and may become eligible to provide a saliva sample for DNA analysis." ;

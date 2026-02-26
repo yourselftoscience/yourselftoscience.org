@@ -217,6 +217,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://yourselftoscience.org/resource/harvard-pgp</loc>
+    <lastmod>2026-02-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://yourselftoscience.org/resource/genes-for-good</loc>
     <lastmod>2026-02-26</lastmod>
     <changefreq>monthly</changefreq>
