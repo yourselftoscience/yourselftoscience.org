@@ -65,6 +65,17 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationType "donation" ;
   yts:compensationWikidataId wd:Q1124860 .
 
+<https://yourselftoscience.org/resource/e2ba7d15-5c1a-4d2c-8bf5-f9aee315ebd0> a schema:Dataset ;
+  rdfs:label "Genes for Good" ;
+  schema:description "A research study run through a Facebook App that connects health, behavior, and genetics. Participants complete surveys and may become eligible to provide a saliva sample for DNA analysis." ;
+  schema:creator [ a schema:Organization; rdfs:label "University of Michigan" ; schema:sameAs wd:Q230492 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
+  schema:url <https://genesforgood.sph.umich.edu/participate> ;
+  schema:spatialCoverage [ a schema:Place; rdfs:label "United States" ; schema:sameAs wd:Q30 ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ; schema:sameAs wd:Q7020 ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ; schema:sameAs wd:Q18745135 ] ;
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
+
 <https://yourselftoscience.org/resource/3b7e801f-1e45-4c2f-8631-edac7b61743a> a schema:Dataset ;
   rdfs:label "All of Us" ;
   schema:description "A research program from the NIH to gather health data from one million or more people living in the US." ;

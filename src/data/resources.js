@@ -141,6 +141,34 @@ const rawResources = [
     "originCode": "US"
   },
   {
+    "id": "e2ba7d15-5c1a-4d2c-8bf5-f9aee315ebd0",
+    "slug": "genes-for-good",
+    "title": "Genes for Good",
+    "organizations": [
+      {
+        "name": "University of Michigan",
+        "wikidataId": "Q230492"
+      }
+    ],
+    "link": "https://genesforgood.sph.umich.edu/participate",
+    "dataTypes": [
+      "Genome",
+      "Health data"
+    ],
+    "countries": [
+      "United States"
+    ],
+    "countryCodes": [
+      "US"
+    ],
+    "compensationType": "donation",
+    "entityCategory": "Academic",
+    "entitySubType": "University",
+    "description": "A research study run through a Facebook App that connects health, behavior, and genetics. Participants complete surveys and may become eligible to provide a saliva sample for DNA analysis.",
+    "origin": "United States",
+    "originCode": "US"
+  },
+  {
     "id": "3b7e801f-1e45-4c2f-8631-edac7b61743a",
     "resourceWikidataId": "Q25004683",
     "slug": "all-of-us",

@@ -60,6 +60,18 @@ This page provides a filterable catalogue of all resources. You can also downloa
 
 ---
 
+### [Genes for Good](https://yourselftoscience.org/resource/genes-for-good)
+
+*Description:* A research study run through a Facebook App that connects health, behavior, and genetics. Participants complete surveys and may become eligible to provide a saliva sample for DNA analysis.
+
+*Data Types:* Genome, Health data
+
+*Countries:* United States
+
+*Compensation:* Donation
+
+---
+
 ### [All of Us](https://yourselftoscience.org/resource/all-of-us)
 
 *Description:* A research program from the NIH to gather health data from one million or more people living in the US.

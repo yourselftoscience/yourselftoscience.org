@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 2/26/2026, 3:05:10 AM
+**Generated on:** 2/26/2026, 3:12:06 AM
 
 ## Project-Organizer Relationships
 
@@ -51,6 +51,8 @@
   - Human Fertilisation and Embryology Authority: [Q1636533](https://www.wikidata.org/wiki/Q1636533)
 - **GEDmatch**: ❌
   - Verogen Inc.: No Wikidata ID
+- **Genes for Good**: ❌
+  - University of Michigan: [Q230492](https://www.wikidata.org/wiki/Q230492)
 - **Genomes.io**: [Q125117291](https://www.wikidata.org/wiki/Q125117291)
   - Genomes.io: [Q125117291](https://www.wikidata.org/wiki/Q125117291)
 - **German Clinical Trials Register**: [Q96199255](https://www.wikidata.org/wiki/Q96199255)
@@ -131,6 +133,7 @@
 - **FluCamp**: ❌
 - **GEDmatch**: ❌
 - **GIMM Biobank**: ❌
+- **Genes for Good**: ❌
 - **Genomes.io**: [Q125117291](https://www.wikidata.org/wiki/Q125117291)
 - **German Clinical Trials Register**: [Q96199255](https://www.wikidata.org/wiki/Q96199255)
 - **GoodNature Program**: ❌
@@ -209,6 +212,7 @@
 - **UCSF Library Archives**: [Q25004607](https://www.wikidata.org/wiki/Q25004607)
 - **United States National Library of Medicine (NLM)**: [Q611833](https://www.wikidata.org/wiki/Q611833)
 - **University of Florida Health**: [Q7487946](https://www.wikidata.org/wiki/Q7487946)
+- **University of Michigan**: [Q230492](https://www.wikidata.org/wiki/Q230492)
 - **Verogen Inc.**: ❌
 - **Wesley Research Institute**: [Q30289631](https://www.wikidata.org/wiki/Q30289631)
 - **World Health Organization (WHO)**: [Q7817](https://www.wikidata.org/wiki/Q7817)
@@ -280,6 +284,7 @@
 - **Research Institute**: [Q31855](https://www.wikidata.org/wiki/Q31855)
 - **Statutory Authority**: [Q7604698](https://www.wikidata.org/wiki/Q7604698)
 - **University Hospital**: [Q1059324](https://www.wikidata.org/wiki/Q1059324)
+- **University**: ❌
 
 ## Compensation Types
 
