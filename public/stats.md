@@ -16,15 +16,15 @@ An overview of the resources available on Yourself to Science, providing insight
 
 - **United States:** 23
 - **European Union:** 16
-    - **Breakdown:**
-        - **Italy:** 4
-        - **Belgium:** 3
-        - **Germany:** 3
-        - **Poland:** 2
-        - **France:** 1
-        - **EU-Wide:** 1
-        - **Portugal:** 1
-        - **Spain:** 1
+  - **Breakdown:**
+    - **Italy:** 4
+    - **Belgium:** 3
+    - **Germany:** 3
+    - **Poland:** 2
+    - **France:** 1
+    - **EU-Wide:** 1
+    - **Portugal:** 1
+    - **Spain:** 1
 - **United Kingdom:** 6
 - **Australia:** 3
 - **Canada:** 2
@@ -35,14 +35,14 @@ An overview of the resources available on Yourself to Science, providing insight
 
 - **Worldwide:** 20
 - **European Union:** 12
-    - **Breakdown:**
-        - **Italy:** 3
-        - **EU-Wide:** 3
-        - **Germany:** 2
-        - **France:** 1
-        - **Poland:** 1
-        - **Belgium:** 1
-        - **Portugal:** 1
+  - **Breakdown:**
+    - **Italy:** 3
+    - **EU-Wide:** 3
+    - **Germany:** 2
+    - **France:** 1
+    - **Poland:** 1
+    - **Belgium:** 1
+    - **Portugal:** 1
 - **United States:** 11
 - **United Kingdom:** 4
 - **Australia:** 3
@@ -80,27 +80,27 @@ An overview of the resources available on Yourself to Science, providing insight
 
 - **Commercial:** 16
 - **Academic:** 13
-    - **Academic:** 8
-    - **University:** 2
-    - **Research Center:** 2
-    - **University Hospital:** 1
+  - **Academic:** 8
+  - **University:** 2
+  - **Research Center:** 2
+  - **University Hospital:** 1
 - **Government:** 12
-    - **Research Agency:** 4
-    - **Regulatory Agency:** 4
-    - **Public Health Service:** 3
-    - **Statutory Authority:** 1
+  - **Research Agency:** 4
+  - **Regulatory Agency:** 4
+  - **Public Health Service:** 3
+  - **Statutory Authority:** 1
 - **Non-Profit:** 10
-    - **Non-Profit Organization:** 4
-    - **Research Foundation:** 2
-    - **Non-Governmental Organization:** 1
-    - **Professional Association:** 1
-    - **Hospital:** 1
-    - **Research Institute:** 1
+  - **Non-Profit Organization:** 4
+  - **Research Foundation:** 2
+  - **Non-Governmental Organization:** 1
+  - **Professional Association:** 1
+  - **Hospital:** 1
+  - **Research Institute:** 1
 - **Intergovernmental:** 1
 
 ## Live Data Access
 
 Use these persistent URLs for automated access to always get the latest version of the dataset.
 
-- **CSV Endpoint:** https://yourselftoscience.org/resources.csv
-- **JSON Endpoint:** https://yourselftoscience.org/resources.json
+- **CSV Endpoint:** <https://yourselftoscience.org/resources.csv>
+- **JSON Endpoint:** <https://yourselftoscience.org/resources.json>

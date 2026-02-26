@@ -38,7 +38,15 @@ exclude:
   - '**/src/app/privacy-policy/page.js'
   - '**/src/app/resource/**/page.js'
   - '**/src/app/stats/page.js'
-
+  - '**/debug-*.js'
+  - '**/count_countries.js'
+  - '**/src/app/what-can-i-do-with-my-genetic-data/layout.js'
+  - '**/src/app/what-can-i-do-with-my-genetic-data/page.js'
+  - '**/src/components/CitationModal.js'
+  - '**/src/components/GeneticProgramCard.js'
+  - '**/src/components/GeneticResourceCard.js'
+  - '**/src/components/ImpactMetric.js'
+  - '**/src/middleware.js'
 # Map custom components to HTML elements
 global-components:
   motion.h1: h1

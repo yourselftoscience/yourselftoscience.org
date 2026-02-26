@@ -368,7 +368,7 @@ function GeneticDataWizard() {
                 </div>
 
                 <div className="max-w-5xl mx-auto px-4 py-20 text-center relative z-10">
-                    <h1 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-600 drop-shadow-sm mb-8 tracking-tight pb-2">
+                    <h1 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-600 drop-shadow-sm mb-6 md:mb-8 tracking-tight leading-tight pb-2">
                         Find Research for Your DNA
                     </h1>
 
@@ -443,8 +443,8 @@ function GeneticDataWizard() {
                                     exit={{ height: 0, opacity: 0 }}
                                     className="relative z-30"
                                 >
-                                    <div className="flex flex-wrap items-center justify-center bg-slate-50/50 border-t border-slate-200/60 p-4 gap-x-4 gap-y-3 relative z-0">
-                                        <div className="flex items-center gap-2 mr-2">
+                                    <div className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center justify-center bg-slate-50/50 border-t border-slate-200/60 p-4 gap-x-4 gap-y-3 relative z-0">
+                                        <div className="flex items-center w-full sm:w-auto sm:mr-2">
                                             <span className="font-bold text-slate-500 uppercase tracking-widest text-[11px]">Filters:</span>
                                         </div>
                                         <MultiSelectDropdown
@@ -453,7 +453,7 @@ function GeneticDataWizard() {
                                             options={COMPENSATIONS}
                                             isOpen={isCompensationMenuOpen}
                                             setIsOpen={setIsCompensationMenuOpen}
-                                            buttonClassName="inline-flex items-center justify-between gap-2 px-4 py-2 bg-white border border-slate-200 hover:border-blue-300 hover:bg-blue-50 text-slate-700 font-semibold rounded-full text-sm min-w-[180px] transition-all shadow-sm"
+                                            buttonClassName="w-full sm:w-auto inline-flex items-center justify-between gap-2 px-4 py-2 bg-white border border-slate-200 hover:border-blue-300 hover:bg-blue-50 text-slate-700 font-semibold rounded-full text-sm sm:min-w-[180px] transition-all shadow-sm"
                                             onToggle={(val) => {
                                                 // Close menu on selection
                                                 setIsCompensationMenuOpen(false);
@@ -471,7 +471,7 @@ function GeneticDataWizard() {
                                             options={SECTORS}
                                             isOpen={isSectorMenuOpen}
                                             setIsOpen={setIsSectorMenuOpen}
-                                            buttonClassName="inline-flex items-center justify-between gap-2 px-4 py-2 bg-white border border-slate-200 hover:border-blue-300 hover:bg-blue-50 text-slate-700 font-semibold rounded-full text-sm min-w-[160px] transition-all shadow-sm"
+                                            buttonClassName="w-full sm:w-auto inline-flex items-center justify-between gap-2 px-4 py-2 bg-white border border-slate-200 hover:border-blue-300 hover:bg-blue-50 text-slate-700 font-semibold rounded-full text-sm sm:min-w-[160px] transition-all shadow-sm"
                                             onToggle={(val) => {
                                                 // Close menu on selection
                                                 setIsSectorMenuOpen(false);
@@ -489,7 +489,7 @@ function GeneticDataWizard() {
                                             options={BASED_IN_OPTIONS}
                                             isOpen={isBasedInMenuOpen}
                                             setIsOpen={setIsBasedInMenuOpen}
-                                            buttonClassName="inline-flex items-center justify-between gap-2 px-4 py-2 bg-white border border-slate-200 hover:border-blue-300 hover:bg-blue-50 text-slate-700 font-semibold rounded-full text-sm min-w-[160px] transition-all shadow-sm"
+                                            buttonClassName="w-full sm:w-auto inline-flex items-center justify-between gap-2 px-4 py-2 bg-white border border-slate-200 hover:border-blue-300 hover:bg-blue-50 text-slate-700 font-semibold rounded-full text-sm sm:min-w-[160px] transition-all shadow-sm"
                                             onToggle={(val) => {
                                                 // Close menu on selection
                                                 setIsBasedInMenuOpen(false);

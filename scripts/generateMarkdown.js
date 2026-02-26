@@ -128,9 +128,9 @@ function generateStatsMarkdown() {
   for (const [origin, count] of topOrigins) {
     mdContent += `- **${origin}:** ${count}\n`;
     if (origin === 'European Union') {
-      mdContent += `    - **Breakdown:**\n`;
+      mdContent += `  - **Breakdown:**\n`;
       for (const [euCountry, euCount] of euOriginBreakdownStats) {
-        mdContent += `        - **${euCountry}:** ${euCount}\n`;
+        mdContent += `    - **${euCountry}:** ${euCount}\n`;
       }
     }
   }
@@ -140,9 +140,9 @@ function generateStatsMarkdown() {
   for (const [country, count] of topCountries) {
     mdContent += `- **${country}:** ${count}\n`;
     if (country === 'European Union') {
-      mdContent += `    - **Breakdown:**\n`;
+      mdContent += `  - **Breakdown:**\n`;
       for (const [euCountry, euCount] of euBreakdownStats) {
-        mdContent += `        - **${euCountry}:** ${euCount}\n`;
+        mdContent += `    - **${euCountry}:** ${euCount}\n`;
       }
     }
   }
@@ -159,7 +159,7 @@ function generateStatsMarkdown() {
     mdContent += `- **${entity.name}:** ${entity.count}\n`;
     if (entity.subTypes.length > 1) {
       for (const [subType, subCount] of entity.subTypes) {
-        mdContent += `    - **${subType}:** ${subCount}\n`;
+        mdContent += `  - **${subType}:** ${subCount}\n`;
       }
     }
   }
@@ -167,8 +167,8 @@ function generateStatsMarkdown() {
 
   mdContent += `## Live Data Access\n\n`;
   mdContent += `Use these persistent URLs for automated access to always get the latest version of the dataset.\n\n`;
-  mdContent += `- **CSV Endpoint:** https://yourselftoscience.org/resources.csv\n`;
-  mdContent += `- **JSON Endpoint:** https://yourselftoscience.org/resources.json\n`;
+  mdContent += `- **CSV Endpoint:** <https://yourselftoscience.org/resources.csv>\n`;
+  mdContent += `- **JSON Endpoint:** <https://yourselftoscience.org/resources.json>\n`;
 
   const outputPath = path.join(__dirname, '../public/stats.md');
   fs.writeFileSync(outputPath, mdContent);
@@ -203,8 +203,8 @@ function generateHomepageMarkdown() {
     }
   }
 
-  // Ensure single trailing newline
-  mdContent += '\n';
+  // Ensure no trailing spaces and single trailing newline
+  mdContent = mdContent.replace(/ +$/gm, '') + '\n';
 
   const outputPath = path.join(__dirname, '../public/index.html.md');
   fs.writeFileSync(outputPath, mdContent);

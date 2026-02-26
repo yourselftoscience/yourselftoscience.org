@@ -460,7 +460,7 @@ This page provides a filterable catalogue of all resources. You can also downloa
 
 *Data Types:* Conversational AI data
 
-*Countries:* 
+*Countries:*
 
 *Compensation:* Donation
 
@@ -530,7 +530,7 @@ This page provides a filterable catalogue of all resources. You can also downloa
 
 *Data Types:* Genome
 
-*Countries:* 
+*Countries:*
 
 *Compensation:* Payment
 
@@ -542,7 +542,7 @@ This page provides a filterable catalogue of all resources. You can also downloa
 
 *Data Types:* Genome, Health data, Microbiome
 
-*Countries:* 
+*Countries:*
 
 *Compensation:* Donation
 
@@ -554,7 +554,7 @@ This page provides a filterable catalogue of all resources. You can also downloa
 
 *Data Types:* Genome
 
-*Countries:* 
+*Countries:*
 
 *Compensation:* Donation
 
@@ -566,7 +566,7 @@ This page provides a filterable catalogue of all resources. You can also downloa
 
 *Data Types:* Genome, Health data
 
-*Countries:* 
+*Countries:*
 
 *Compensation:* Donation
 
@@ -578,7 +578,7 @@ This page provides a filterable catalogue of all resources. You can also downloa
 
 *Data Types:* Genome, Health data
 
-*Countries:* 
+*Countries:*
 
 *Compensation:* Donation
 
@@ -590,7 +590,7 @@ This page provides a filterable catalogue of all resources. You can also downloa
 
 *Data Types:* Genome, Health data
 
-*Countries:* 
+*Countries:*
 
 *Compensation:* Donation
 
@@ -602,7 +602,7 @@ This page provides a filterable catalogue of all resources. You can also downloa
 
 *Data Types:* Genome
 
-*Countries:* 
+*Countries:*
 
 *Compensation:* Donation
 

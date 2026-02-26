@@ -374,7 +374,7 @@ async function generateReport(resources) {
       r.citations.forEach(c => {
         const doi = extractDOI(c.link);
         const status = c.wikidataId ? `[${c.wikidataId}](https://www.wikidata.org/wiki/${c.wikidataId})` : '❌';
-        const linkText = doi ? `(DOI: ${doi})` : `([Link](${c.link}))`;
+        const linkText = doi ? `(DOI: ${doi})` : `([Citation Link](${c.link}))`;
         const title = c.title && c.title.length > 120 ? c.title.substring(0, 117) + '...' : c.title;
         citationList.push(`- ${status} **${title}** ${linkText}`);
       });
@@ -386,7 +386,6 @@ async function generateReport(resources) {
 **Generated on:** ${new Date().toLocaleString()}
 
 ## Project-Organizer Relationships
-
 
 ${[...resources].sort((a, b) => (a.wikidataLabel || a.title).localeCompare(b.wikidataLabel || b.title)).map(r => {
     const projectId = r.wikidataId || r.resourceWikidataId;

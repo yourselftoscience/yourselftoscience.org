@@ -1,9 +1,8 @@
 # Wikidata Integration Report
 
-**Generated on:** 2/26/2026, 3:26:49 AM
+**Generated on:** 2/26/2026, 3:57:37 AM
 
 ## Project-Organizer Relationships
-
 
 - **23andMe Research Participation**: ❌
   - 23andMe Holding Co.: [Q216272](https://www.wikidata.org/wiki/Q216272)
@@ -311,7 +310,7 @@
 - [Q93090210](https://www.wikidata.org/wiki/Q93090210) **Calus, L., Van Bruaene, N., Bosteels, C., Dejonckheere, S., Van Zele, T., Holtappels, G., ... & Gevaert, P. (2019). T...** (DOI: 10.1186/s13601-019-0269-4)
 - [Q40578340](https://www.wikidata.org/wiki/Q40578340) **Kelly, G., Laxton, C., Garelnabi, M., Alton, B., Addan, F., Catchpole, A., ... & Murray, E. J. (2015). Use of qualita...** (DOI: 10.1016/j.jviromet.2015.08.019)
 - ❌ **Palacz, K., Cholewa, M., Bonar, M., Krzyżanowska, M., & Kadej, M. (2023). The rate and quality of post-mortem hair ro...** (DOI: 10.1016/j.forsciint.2023.111784)
-- ❌ **University of Wrocław. (2023, November 9). Donate your hair for science.** ([Link](https://uwr.edu.pl/en/donate-your-hair-for-science/))
+- ❌ **University of Wrocław. (2023, November 9). Donate your hair for science.** ([Citation Link](https://uwr.edu.pl/en/donate-your-hair-for-science/))
 - [Q57465858](https://www.wikidata.org/wiki/Q57465858) **J.C. Eichstaedt, R.J. Smith, R.M. Merchant, L.H. Ungar, P. Crutchley, D. Preoţiuc-Pietro, D.A. Asch, & H.A. Schwartz,...** (DOI: 10.1073/pnas.1802331115)
 - ❌ **Grande D, Mitra N, Marti XL, et al. Consumer Views on Using Digital Data for COVID-19 Control in the United States. J...** (DOI: 10.1001/jamanetworkopen.2021.10918)
 - ❌ **Krumb, E., Lambert, C., & Hermans, C. (2021). Patient selection for hemophilia gene therapy: Real-life data from a si...** (DOI: 10.1002/rth2.12494)
