@@ -4,12 +4,13 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGlobeAmericas, FaBuilding, FaDna, FaHeartbeat, FaHistory, FaExternalLinkAlt, FaInfoCircle, FaChevronDown, FaDollarSign, FaHeart, FaCheck, FaShareAlt } from 'react-icons/fa';
+import { EU_COUNTRIES } from '@/data/constants';
 
 /**
  * A specialized, high-fidelity card component for the Genetic Data Donation page.
  * Features a modern "glassmorphism" aesthetic with premium typography and interactions.
  */
-export default function GeneticResourceCard({ resource, selectedServices, onSectorClick, onCompensationClick }) {
+export default function GeneticResourceCard({ resource, selectedServices, onSectorClick, onCompensationClick, selectedCountries = [] }) {
     const [isHovered, setIsHovered] = useState(false);
     const [showInstructions, setShowInstructions] = useState(false);
     const [copied, setCopied] = useState(false);
@@ -85,14 +86,50 @@ export default function GeneticResourceCard({ resource, selectedServices, onSect
                         </h2>
 
                         {resource.organizations?.map((org, idx) => (
-                            <div key={idx} className="flex items-center text-sm font-medium text-slate-600 mb-1">
-                                <FaBuilding className="mr-1.5 opacity-60 w-3 h-3 text-slate-400" />
-                                {org.name}
-                                <span className="ml-1.5 text-slate-400 font-normal">
+                            <div key={idx} className="flex flex-wrap items-center text-sm font-medium text-slate-600 mb-2 gap-y-1">
+                                <FaBuilding className="mr-1.5 opacity-60 w-3 h-3 text-slate-400 flex-shrink-0" />
+                                <span className="mr-1.5">{org.name}</span>
+                                <span className="text-slate-400 font-normal whitespace-nowrap">
                                     &bull; {resource.origin ? `Based in ${resource.origin}` : 'International'}
                                 </span>
                             </div>
                         ))}
+
+                        {/* Data Types (previously removed, now brought back and generalized) */}
+                        {/* {resource.dataTypes && resource.dataTypes.length > 0 && (
+                            <div className="flex flex-wrap gap-2 mt-3 mb-1">
+                                {resource.dataTypes.map((type, idx) => (
+                                    <span key={idx} className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-100/80 text-slate-600 text-[10px] font-semibold border border-slate-200">
+                                        {type}
+                                    </span>
+                                ))}
+                            </div>
+                        )} */}
+
+                        {/* Conditional Country Availability */}
+                        {selectedCountries.filter(c => c !== 'Any Country' && c !== 'Other Country').length > 1 && (
+                            <div className="flex items-start gap-1.5 mt-3 mb-1 px-2.5 py-1.5 rounded-md bg-slate-50 border border-slate-100">
+                                <FaGlobeAmericas className="mt-0.5 text-slate-400 w-3 h-3 flex-shrink-0" />
+                                <div className="text-[11px] leading-tight text-slate-600">
+                                    <span className="font-semibold text-slate-700 mr-1">Available in:</span>
+                                    {(() => {
+                                        if (!resource.countries || resource.countries.length === 0 || resource.countries.includes('Worldwide')) return 'Worldwide';
+
+                                        const exactMatches = resource.countries.filter(c => selectedCountries.includes(c));
+                                        const euMatches = resource.countries.includes('European Union')
+                                            ? selectedCountries.filter(c => EU_COUNTRIES.includes(c))
+                                            : [];
+
+                                        const combinedMatches = Array.from(new Set([...exactMatches, ...euMatches]));
+
+                                        if (combinedMatches.length > 0) return combinedMatches.join(', ');
+
+                                        // Fallback if no specific matches found but card was rendered
+                                        return resource.countries.join(', ');
+                                    })()}
+                                </div>
+                            </div>
+                        )}
 
                         {/* Compatibility / Official Badges */}
                         {selectedServices?.length > 0 && selectedServices.map((service, index) => {

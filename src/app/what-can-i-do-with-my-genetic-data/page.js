@@ -9,6 +9,7 @@ import { EU_COUNTRIES } from '@/data/constants';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaDna, FaGlobeAmericas, FaInfoCircle, FaCheck, FaChevronDown, FaFilter } from 'react-icons/fa';
 import GeneticResourceCard from '@/components/GeneticResourceCard';
+import MultiSelectDropdown from '@/components/MultiSelectDropdown';
 import Head from 'next/head';
 
 // Service Options
@@ -48,17 +49,13 @@ const BASED_IN_OPTIONS = [
     ...(hasInternational ? [{ value: 'International', label: 'International' }] : [])
 ];
 
-// Extracted from resources.js via script
-// The script found only "United States" as a specific country for genetic resources.
-// "Worldwide" resources will be available to everyone.
-const DETECTED_COUNTRIES = [
-    "United States"
-];
-
-// Country Options (Priority + Others)
-const ALL_COUNTRIES_SORTED = [
-    "United States"
-];
+// Extract countries dynamically from ONLY genetic resources so we don't pollute the
+// dropdown with countries that only have organ/tissue donation programs.
+const countrySet = new Set();
+geneticResourcesList.forEach(r => {
+    if (r.countries) r.countries.forEach(c => { if (c !== 'Worldwide') countrySet.add(c); });
+});
+const ALL_COUNTRIES_SORTED = Array.from(countrySet).sort();
 
 
 function GeneticDataWizard() {
@@ -125,23 +122,18 @@ function GeneticDataWizard() {
             const isAnyCountrySelected = selectedCountries.includes('Any Country');
             const isWorldwideResource = !resource.countries || resource.countries.length === 0 || resource.countries.includes('Worldwide');
 
-            if (isAnyCountrySelected) {
-                // If "Any Country" is active, show Worldwide. 
+            if (isAnyCountrySelected && selectedCountries.length === 1) {
+                // "Any Country" alone = show everything
+                return true;
+            } else if (isAnyCountrySelected) {
+                // "Any Country" + specific countries = worldwide + those countries
                 if (isWorldwideResource) return true;
-
-                // Check if resource matches any OTHER selected country
-                const specificMatch = selectedCountries.some(c => c !== 'Any Country' && resource.countries?.includes(c));
-                if (specificMatch) return true;
-
-                return false;
+                return selectedCountries.some(c => c !== 'Any Country' && resource.countries?.includes(c));
             } else {
                 // "Any Country" NOT selected. Strict filtering.
                 const matchesSpecific = selectedCountries.some(c => resource.countries?.includes(c));
                 const matchesEU = selectedCountries.some(c => EU_COUNTRIES.includes(c)) && resource.countries?.includes('European Union');
-
-                if (isWorldwideResource || matchesSpecific || matchesEU) return true;
-
-                return false;
+                return isWorldwideResource || matchesSpecific || matchesEU;
             }
         });
 
@@ -378,43 +370,56 @@ function GeneticDataWizard() {
                         {/* Main Sentence Builder */}
                         <div className="flex flex-wrap items-center justify-center text-lg md:text-2xl leading-relaxed text-slate-600 p-6 md:p-8 gap-y-3 gap-x-1.5 font-medium relative z-40">
                             <span>I live in</span>
-                            <MultiSelectDropdown
-                                label="Select Country"
-                                selectedValues={selectedCountries}
-                                options={['Any Country', ...ALL_COUNTRIES_SORTED]}
-                                isOpen={isCountryMenuOpen}
-                                setIsOpen={setIsCountryMenuOpen}
-                                onToggle={(val) => {
-                                    if (val === 'Any Country') {
-                                        setSelectedCountries(['Any Country']);
-                                    } else {
-                                        const newSelection = selectedCountries.filter(c => c !== 'Any Country');
-                                        if (selectedCountries.includes(val)) {
-                                            setSelectedCountries(newSelection.filter(c => c !== val));
+
+                            <div className="relative inline-block mx-1">
+                                <MultiSelectDropdown
+                                    label="Any Country"
+                                    selectedValues={selectedCountries}
+                                    options={['Any Country', ...ALL_COUNTRIES_SORTED, 'Other Country']}
+                                    isOpen={isCountryMenuOpen}
+                                    setIsOpen={setIsCountryMenuOpen}
+                                    onToggle={(val) => {
+                                        if (val === 'Any Country') {
+                                            setSelectedCountries(['Any Country']);
+                                            setIsCountryMenuOpen(false);
                                         } else {
-                                            setSelectedCountries([...newSelection, val]);
+                                            setSelectedCountries(prev => {
+                                                const next = prev.filter(c => c !== 'Any Country');
+                                                if (next.includes(val)) {
+                                                    const res = next.filter(c => c !== val);
+                                                    return res.length ? res : ['Any Country'];
+                                                }
+                                                return [...next, val];
+                                            });
                                         }
-                                    }
-                                }}
-                            />
+                                    }}
+                                />
+                            </div>
+
                             <span>and have data from</span>
-                            <MultiSelectDropdown
-                                label="Select Provider"
-                                selectedValues={selectedServices}
-                                options={SERVICES.filter(s => s.value !== '')}
-                                isOpen={isServiceMenuOpen}
-                                setIsOpen={setIsServiceMenuOpen}
-                                onToggle={(val) => {
-                                    if (selectedServices.includes(val)) {
-                                        setSelectedServices(selectedServices.filter(s => s !== val));
-                                    } else {
-                                        setSelectedServices([...selectedServices, val]);
-                                    }
-                                }}
-                            />
+
+                            <div className="relative inline-block mx-1">
+                                <MultiSelectDropdown
+                                    label="Select Provider"
+                                    selectedValues={selectedServices}
+                                    options={SERVICES}
+                                    isOpen={isServiceMenuOpen}
+                                    setIsOpen={setIsServiceMenuOpen}
+                                    onToggle={(val) => {
+                                        setSelectedServices(prev => {
+                                            if (prev.includes(val)) {
+                                                return prev.filter(c => c !== val);
+                                            }
+                                            // Optional: if choosing generic "Raw Data" maybe deselect specific ones,
+                                            // but for now allow multiple combos.
+                                            return [...prev, val];
+                                        });
+                                    }}
+                                />
+                            </div>
                         </div>
 
-                        {/* Expand/Collapse Toggle */}
+                        {/* Filter Toggle Button */}
                         <div className="bg-white/60 relative z-10 flex justify-center pb-2">
                             <button
                                 onClick={() => {

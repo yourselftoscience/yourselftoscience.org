@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import { FaGithub, FaCreativeCommons, FaCreativeCommonsBy, FaCreativeCommonsSa, FaCreativeCommonsZero, FaReddit, FaLinkedin, FaFacebook } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import CitationModal from './CitationModal';
+import NewsletterSignup from './NewsletterSignup';
 
 const FooterLink = ({ href, children, className = '' }) => (
   <li>
@@ -66,6 +67,7 @@ export default function Footer() {
 
   return (
     <>
+      <NewsletterSignup />
       <footer className="bg-apple-surface border-t border-apple-divider text-sm">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
