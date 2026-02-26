@@ -86,6 +86,7 @@ export default function Footer() {
                 <FooterLink href="/stats">Stats</FooterLink>
                 <FooterLink href="/clinical-trials">Clinical Trials</FooterLink>
                 <FooterLink href="/organ-body-tissue-donation">Organ, Body & Tissue</FooterLink>
+                <FooterLink href="/what-can-i-do-with-my-genetic-data">Genetic Data</FooterLink>
               </ul>
             </div>
 
