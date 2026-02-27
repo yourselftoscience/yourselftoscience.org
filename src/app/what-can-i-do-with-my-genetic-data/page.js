@@ -7,10 +7,11 @@ import { activeResources } from '@/data/resources';
 export const dynamic = 'force-dynamic';
 import { EU_COUNTRIES } from '@/data/constants';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaDna, FaGlobeAmericas, FaInfoCircle, FaCheck, FaChevronDown, FaFilter } from 'react-icons/fa';
+import { FaDna, FaGlobeAmericas, FaInfoCircle, FaCheck, FaChevronDown, FaFilter, FaArrowRight } from 'react-icons/fa';
 import GeneticResourceCard from '@/components/GeneticResourceCard';
 import MultiSelectDropdown from '@/components/MultiSelectDropdown';
 import Head from 'next/head';
+import Link from 'next/link';
 
 // Service Options
 const SERVICES = [
@@ -600,6 +601,31 @@ function GeneticDataWizard() {
                                     If you have used a deep <strong>whole-genome sequencing (WGS)</strong> service, you may possess massive files covering your entire genome. These comprehensive formats (often BAM, FASTQ, FASTA, or large VCFs) are significantly larger and require specialized research platforms to process.
                                 </p>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Explore All Resources Suggestion */}
+                <div className="mb-24 max-w-3xl mx-auto">
+                    <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-3xl p-10 shadow-sm border border-blue-100 text-center relative overflow-hidden">
+                        {/* Background decoration */}
+                        <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-200/50 rounded-full blur-3xl pointer-events-none"></div>
+                        <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-indigo-200/50 rounded-full blur-3xl pointer-events-none"></div>
+
+                        <div className="relative z-10">
+                            <h2 className="text-3xl font-bold text-slate-900 mb-4 tracking-tight">
+                                Looking for other ways to contribute?
+                            </h2>
+                            <p className="text-lg text-slate-600 mb-8 max-w-xl mx-auto">
+                                Discover more ways to advance science. Explore our complete directory of <strong className="text-blue-700">{activeResources.length}</strong> active projects across various fields.
+                            </p>
+                            <Link
+                                href="/resources"
+                                className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 hover:-translate-y-0.5 transition-all shadow-lg shadow-blue-500/30 ring-1 ring-blue-700/50"
+                            >
+                                Browse All Resources
+                                <FaArrowRight className="w-5 h-5 ml-2" />
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -6,7 +6,7 @@ import { useSearchParams } from 'next/navigation';
 import { activeResources } from '@/data/resources';
 import { EU_COUNTRIES } from '@/data/constants';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaGlobeAmericas, FaInfoCircle, FaFilter, FaChevronDown, FaHandHoldingHeart } from 'react-icons/fa';
+import { FaGlobeAmericas, FaInfoCircle, FaFilter, FaChevronDown, FaHandHoldingHeart, FaArrowRight } from 'react-icons/fa';
 import MultiSelectDropdown from '@/components/MultiSelectDropdown';
 import GeneticResourceCard from '@/components/GeneticResourceCard';
 
@@ -310,11 +310,29 @@ export default function OrganBodyTissueWizard() {
                     </div>
                 </div>
 
-                {/* Link back */}
-                <div className="mt-8 text-center">
-                    <Link href="/" className="text-sm text-slate-500 hover:text-rose-600 transition-colors font-medium">
-                        ← View all {activeResources.filter(r => r.status !== 'Inactive').length} resources in the catalogue
-                    </Link>
+                {/* Explore All Resources Suggestion */}
+                <div className="mt-24 mb-16 max-w-3xl mx-auto">
+                    <div className="bg-gradient-to-br from-purple-50 to-rose-50 rounded-3xl p-10 shadow-sm border border-rose-100 text-center relative overflow-hidden">
+                        {/* Background decoration */}
+                        <div className="absolute -top-10 -right-10 w-40 h-40 bg-rose-200/50 rounded-full blur-3xl pointer-events-none"></div>
+                        <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-purple-200/50 rounded-full blur-3xl pointer-events-none"></div>
+
+                        <div className="relative z-10">
+                            <h2 className="text-3xl font-bold text-slate-900 mb-4 tracking-tight">
+                                Looking for other ways to contribute?
+                            </h2>
+                            <p className="text-lg text-slate-600 mb-8 max-w-xl mx-auto">
+                                Discover more ways to advance science. Explore our complete directory of <strong className="text-rose-700">{activeResources.length}</strong> active projects across various fields.
+                            </p>
+                            <Link
+                                href="/resources"
+                                className="inline-flex items-center justify-center px-8 py-4 bg-rose-600 text-white font-bold rounded-xl hover:bg-rose-700 hover:-translate-y-0.5 transition-all shadow-lg shadow-rose-500/30 ring-1 ring-rose-700/50"
+                            >
+                                Browse All Resources
+                                <FaArrowRight className="w-5 h-5 ml-2" />
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
