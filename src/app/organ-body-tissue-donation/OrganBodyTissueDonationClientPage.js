@@ -325,7 +325,7 @@ export default function OrganBodyTissueWizard() {
                                 Discover more ways to advance science. Explore our complete directory of <strong className="text-rose-700">{activeResources.length}</strong> active projects across various fields.
                             </p>
                             <Link
-                                href="/resources"
+                                href="/"
                                 className="inline-flex items-center justify-center px-8 py-4 bg-rose-600 text-white font-bold rounded-xl hover:bg-rose-700 hover:-translate-y-0.5 transition-all shadow-lg shadow-rose-500/30 ring-1 ring-rose-700/50"
                             >
                                 Browse All Resources

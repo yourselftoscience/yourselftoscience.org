@@ -5,19 +5,10 @@ import React, { useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import CountryFlag from 'react-country-flag';
-import { FaHeart, FaDollarSign, FaExternalLinkAlt, FaBook, FaShareAlt, FaCheck, FaGlobe, FaExclamationCircle, FaUserTag, FaInfoCircle, FaChevronDown } from 'react-icons/fa';
+import { FaHeart, FaDollarSign, FaExternalLinkAlt, FaBook, FaShareAlt, FaCheck, FaGlobe, FaInfoCircle, FaChevronDown, FaBuilding } from 'react-icons/fa';
 import { Popover, Transition } from '@headlessui/react';
 import { EU_COUNTRIES } from '@/data/constants';
 import { getResourceShareUrl, copyToClipboard } from '@/utils/shareUtils';
-
-const getPaymentInfo = (compensationType = 'donation') => {
-  switch (compensationType) {
-    case 'donation': return { icon: <FaHeart className="text-rose-500" title="Donation" />, label: 'Donation', value: 'donation' };
-    case 'payment': return { icon: <FaDollarSign className="text-green-500" title="Payment" />, label: 'Payment', value: 'payment' };
-    case 'mixed': return { icon: <><FaHeart className="text-rose-500" /><FaDollarSign className="text-green-500 -ml-1" /></>, label: 'Mixed', value: 'mixed' };
-    default: return { icon: <FaHeart className="text-rose-500" title="Donation" />, label: 'Donation' };
-  }
-};
 
 function getCitationKey(citation) {
   if (citation && citation.link) {
@@ -30,9 +21,9 @@ function getCitationKey(citation) {
 }
 
 function TagButton({ label, isActive, onClick, children }) {
-  const baseClasses = "tag flex items-center cursor-pointer transition-colors duration-150 ease-in-out px-2 py-0.5 rounded-md text-xs";
-  const activeClasses = "bg-blue-200 text-blue-800 ring-1 ring-blue-400";
-  const inactiveClasses = "bg-gray-100 text-gray-700 hover:bg-gray-200";
+  const baseClasses = "tag flex items-center cursor-pointer transition-colors duration-150 ease-in-out px-2.5 py-1 rounded-md text-[10px] font-semibold";
+  const activeClasses = "bg-blue-100 text-blue-800 ring-1 ring-blue-300 border-blue-200";
+  const inactiveClasses = "bg-slate-100/80 text-slate-600 border-slate-200 hover:bg-slate-200/80";
 
   return (
     <button
@@ -53,67 +44,110 @@ TagButton.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-function CompensationIcons({ resource, filters, onPaymentFilterChange, compensationTypesOptions, hoveringIcon, setHoveringIcon }) {
+function CompensationBadge({ resource, filters, onPaymentFilterChange, compensationTypesOptions, hoveringIcon, setHoveringIcon }) {
   const compensationType = resource.compensationType || 'donation';
   const option = compensationTypesOptions.find(p => p.value === compensationType);
-
-  if (!option) {
-    const info = getPaymentInfo(compensationType);
-    return <div title={`Compensation: ${info.label}`}>{info.icon}</div>;
-  }
-
   const anyCompFilterActive = filters.compensationTypes.length > 0;
 
   if (compensationType === 'mixed') {
     const donationOption = compensationTypesOptions.find(p => p.value === 'donation');
     const paymentOption = compensationTypesOptions.find(p => p.value === 'payment');
+    const mixedOption = compensationTypesOptions.find(p => p.value === 'mixed');
     const isDonationActive = filters.compensationTypes.some(p => p.value === 'donation');
     const isPaymentActive = filters.compensationTypes.some(p => p.value === 'payment');
 
-    const renderIcon = (type, isFilterActive, option) => {
-      const showAsActive = isFilterActive || (!anyCompFilterActive && hoveringIcon !== (type === 'donation' ? 'payment' : 'donation'));
-      const colorClass = type === 'donation' ? 'text-rose-500' : 'text-green-500';
-      const classes = `${showAsActive ? colorClass : "text-gray-300 hover:" + colorClass} transition-colors`;
-      const Icon = type === 'donation' ? FaHeart : FaDollarSign;
-
-      return (
-        <button
-          onClick={(e) => { e.stopPropagation(); onPaymentFilterChange(option, !isFilterActive); }}
-          title={isFilterActive ? `Deactivate ${type} filter` : `Filter by ${type}`}
-          className="p-1 transition-transform hover:scale-110"
-          onMouseEnter={() => setHoveringIcon(type)}
-          onMouseLeave={() => setHoveringIcon(null)}
-        >
-          <Icon className={classes} />
-        </button>
-      );
+    const handleMixedClick = (targetOption, isCurrentlyActive) => {
+      // When toggling a compensation type on a mixed card, also toggle 'mixed'
+      if (targetOption) {
+        onPaymentFilterChange(targetOption, !isCurrentlyActive);
+        // Also ensure 'mixed' is included/excluded
+        if (mixedOption) {
+          const isMixedActive = filters.compensationTypes.some(p => p.value === 'mixed');
+          if (!isCurrentlyActive && !isMixedActive) {
+            // Turning ON: also add mixed
+            onPaymentFilterChange(mixedOption, true);
+          }
+        }
+      }
     };
 
     return (
-      <>
-        {renderIcon('donation', isDonationActive, donationOption)}
-        {renderIcon('payment', isPaymentActive, paymentOption)}
-      </>
+      <div className="flex items-center gap-1">
+        <button
+          aria-label="Filter by payment"
+          onClick={(e) => { e.stopPropagation(); handleMixedClick(paymentOption, isPaymentActive); }}
+          className="relative group/icon focus:outline-none cursor-pointer"
+        >
+          <div className={`
+            flex items-center justify-center w-8 h-8 rounded-full border shadow-sm transition-all hover:scale-110
+            ${isPaymentActive
+              ? 'bg-emerald-200 border-emerald-400 text-emerald-800 ring-2 ring-emerald-400 scale-110'
+              : 'bg-emerald-100 border-emerald-200 text-emerald-700'}
+          `}>
+            <FaDollarSign />
+          </div>
+          <div className="absolute top-full right-0 mt-2 w-48 p-3 bg-slate-800 text-white text-xs rounded-xl shadow-xl opacity-0 invisible group-hover/icon:opacity-100 group-hover/icon:visible transition-all z-50 pointer-events-none">
+            <div className="font-semibold mb-1">Payment</div>
+            <div className="text-slate-300 leading-tight">Participants are compensated. Click to filter.</div>
+          </div>
+        </button>
+        <button
+          aria-label="Filter by donation"
+          onClick={(e) => { e.stopPropagation(); handleMixedClick(donationOption, isDonationActive); }}
+          className="relative group/icon focus:outline-none cursor-pointer"
+        >
+          <div className={`
+            flex items-center justify-center w-8 h-8 rounded-full border shadow-sm transition-all hover:scale-110
+            ${isDonationActive
+              ? 'bg-rose-200 border-rose-400 text-rose-800 ring-2 ring-rose-400 scale-110'
+              : 'bg-rose-100 border-rose-200 text-rose-700'}
+          `}>
+            <FaHeart />
+          </div>
+          <div className="absolute top-full right-0 mt-2 w-48 p-3 bg-slate-800 text-white text-xs rounded-xl shadow-xl opacity-0 invisible group-hover/icon:opacity-100 group-hover/icon:visible transition-all z-50 pointer-events-none">
+            <div className="font-semibold mb-1">Donation</div>
+            <div className="text-slate-300 leading-tight">Volunteer contribution to research. Click to filter.</div>
+          </div>
+        </button>
+      </div>
     );
   }
 
-  const isFilterOn = filters.compensationTypes.some(p => p.value === compensationType);
-  const displayAsActive = !anyCompFilterActive || isFilterOn;
-  const colorClass = compensationType === 'donation' ? 'text-rose-500' : 'text-green-500';
-  const Icon = compensationType === 'donation' ? FaHeart : FaDollarSign;
+  const isFilterOn = option ? filters.compensationTypes.some(p => p.value === compensationType) : false;
 
   return (
     <button
-      onClick={(e) => { e.stopPropagation(); onPaymentFilterChange(option, !isFilterOn); }}
-      title={isFilterOn ? `Deactivate ${option.label} filter` : `Filter by ${option.label}`}
-      className="p-1 transition-transform hover:scale-110"
+      aria-label={`Compensation: ${compensationType}`}
+      onClick={(e) => {
+        e.stopPropagation();
+        if (option) onPaymentFilterChange(option, !isFilterOn);
+      }}
+      className="relative group/icon focus:outline-none cursor-pointer"
     >
-      <Icon className={`${displayAsActive ? colorClass : "text-gray-300 hover:" + colorClass} transition-colors`} />
+      <div className={`
+        flex items-center justify-center w-8 h-8 rounded-full border shadow-sm transition-all hover:scale-110
+        ${isFilterOn
+          ? (compensationType === 'payment'
+            ? 'bg-emerald-200 border-emerald-400 text-emerald-800 ring-2 ring-emerald-400 scale-110'
+            : 'bg-rose-200 border-rose-400 text-rose-800 ring-2 ring-rose-400 scale-110')
+          : (compensationType === 'payment'
+            ? 'bg-emerald-100 border-emerald-200 text-emerald-700'
+            : 'bg-rose-100 border-rose-200 text-rose-700')}
+      `}>
+        {compensationType === 'payment' ? <FaDollarSign /> : <FaHeart />}
+      </div>
+      <div className="absolute top-full right-0 mt-2 w-48 p-3 bg-slate-800 text-white text-xs rounded-xl shadow-xl opacity-0 invisible group-hover/icon:opacity-100 group-hover/icon:visible transition-all z-50 pointer-events-none">
+        <div className="font-semibold mb-1 capitalize">{compensationType}</div>
+        <div className="text-slate-300 leading-tight">
+          {compensationType === 'payment' && "Participants are compensated. Click to filter."}
+          {(compensationType === 'donation' || !compensationType) && "Volunteer contribution to research. Click to filter."}
+        </div>
+      </div>
     </button>
   );
 }
 
-CompensationIcons.propTypes = {
+CompensationBadge.propTypes = {
   resource: PropTypes.shape({
     compensationType: PropTypes.string,
   }).isRequired,
@@ -159,7 +193,7 @@ function CitationsPopover({ resource, citationMap }) {
             leaveFrom="opacity-100 translate-y-0"
             leaveTo="opacity-0 translate-y-1"
           >
-            <Popover.Panel onClick={(e) => e.stopPropagation()} className="absolute z-10 bottom-full right-0 mb-2 w-72 max-h-60 overflow-y-auto rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <Popover.Panel onClick={(e) => e.stopPropagation()} className="absolute z-50 bottom-full left-0 mb-2 w-72 max-w-[calc(100vw-2rem)] max-h-60 overflow-y-auto rounded-xl bg-white shadow-2xl ring-1 ring-black/10 focus:outline-none">
               <div className="p-3 space-y-2">
                 <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-100 pb-2 mb-3">
                   Service cited by
@@ -229,9 +263,8 @@ export default function ResourceCard({
   isHighlighted = false,
   showDataTypes = true,
 }) {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [hoveringIcon, setHoveringIcon] = useState(null); // 'donation' | 'payment'
-  const [isInstructionsExpanded, setIsInstructionsExpanded] = useState(false); // New state for instructions
+  const [hoveringIcon, setHoveringIcon] = useState(null);
+  const [isInstructionsExpanded, setIsInstructionsExpanded] = useState(false);
   const [showCopied, setShowCopied] = useState(false);
   const hasCitations = resource.citations && resource.citations.length > 0;
 
@@ -247,86 +280,104 @@ export default function ResourceCard({
   };
 
   const categoryStyles = {
-    'Organ, Body & Tissue Donation': 'bg-rose-100 text-rose-800',
-    'Biological Samples': 'bg-blue-100 text-blue-800',
-    'Clinical Trials': 'bg-green-100 text-green-800',
-    'Health & Digital Data': 'bg-yellow-100 text-yellow-800',
+    'Organ, Body & Tissue Donation': 'bg-rose-50/80 text-rose-700 border-rose-200/50',
+    'Biological Samples': 'bg-blue-50/80 text-blue-700 border-blue-200/50',
+    'Clinical Trials': 'bg-green-50/80 text-green-700 border-green-200/50',
+    'Health & Digital Data': 'bg-yellow-50/80 text-yellow-700 border-yellow-200/50',
   };
 
-  const toggleExpansion = (e) => {
-    e.stopPropagation();
-    // Prevent default only if it's a click event to avoid interfering with other interactions if needed,
-    // though for a toggle button it's usually fine.
-    // e.preventDefault(); 
-    setIsExpanded(!isExpanded);
+  const categoryActiveStyles = {
+    'Organ, Body & Tissue Donation': 'bg-rose-100 text-rose-800 border-rose-400 ring-2 ring-rose-400 ring-offset-1 scale-105',
+    'Biological Samples': 'bg-blue-100 text-blue-800 border-blue-400 ring-2 ring-blue-400 ring-offset-1 scale-105',
+    'Clinical Trials': 'bg-green-100 text-green-800 border-green-400 ring-2 ring-green-400 ring-offset-1 scale-105',
+    'Health & Digital Data': 'bg-yellow-100 text-yellow-800 border-yellow-400 ring-2 ring-yellow-400 ring-offset-1 scale-105',
   };
-
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      toggleExpansion(e);
-    }
-  };
-
-  const descriptionNeedsClamping = resource.description && resource.description.length > 150;
 
   const highlightClass = isHighlighted
-    ? 'ring-2 ring-google-blue shadow-xl z-10 bg-blue-50/30'
+    ? 'ring-2 ring-blue-400 shadow-[0_8px_30px_rgba(59,130,246,0.3)] scale-[1.02] bg-blue-50/40 z-10'
     : '';
 
   return (
-    <div
+    <article
       id={`resource-${resource.slug}`}
-      className={`resource-card flex flex-col relative transition-all duration-500 ease-out ${highlightClass}`}
+      className={`resource-card group relative ${highlightClass}`}
     >
-      <div className="">
-        <div className="flex justify-between items-start">
+      {/* Decorative Gradient Background (Subtle) */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-40 pointer-events-none" />
+
+      <div className="relative z-10 flex flex-col h-full">
+        {/* Header Section */}
+        <div className="flex justify-between items-start mb-4">
           <div className="flex-grow pr-2">
-            <div className="min-h-[1.5rem]">
-              {(resource.macroCategories?.length > 0 || resource.entityCategory) && (
-                <div className="mb-2 flex flex-wrap gap-1">
-                  {resource.macroCategories?.map((category) => (
-                    <button
-                      key={category}
-                      onClick={() => onMacroCategoryFilterChange && onMacroCategoryFilterChange(category)}
-                      className={`inline-block text-[11px] font-semibold px-1.5 py-0.5 rounded-full ${categoryStyles[category] || 'bg-gray-100 text-gray-800'} transition-opacity hover:opacity-80`}
-                    >
-                      {category}
-                    </button>
-                  ))}
-                  {resource.entityCategory && (() => {
-                    const sector = resource.entityCategory === 'Commercial' ? 'Commercial' : 'Public & Non-Profit';
-                    const isActive = filters.sectors?.includes(sector);
-                    return (
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          onFilterChange('sectors', sector, !isActive);
-                        }}
-                        className={`
-                        px-1.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider border transition-all
-                        ${isActive
-                            ? 'bg-indigo-50 text-indigo-700 border-indigo-200 shadow-sm'
-                            : 'bg-slate-100/80 text-slate-600 border-slate-200 hover:bg-slate-100 hover:border-slate-300 hover:text-slate-800'}
-                      `}
-                        title={`Filter by ${sector}`}
-                      >
-                        {sector}
-                      </button>
-                    );
-                  })()}
-                </div>
-              )}
+            {/* Category + Sector Badges */}
+            <div className="flex flex-wrap gap-1.5 mb-3">
+              {resource.macroCategories?.map((category) => {
+                const isCatActive = filters.macroCategories?.includes(category);
+                return (
+                  <button
+                    key={category}
+                    onClick={() => onMacroCategoryFilterChange && onMacroCategoryFilterChange(category)}
+                    className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[9px] font-bold tracking-[0.05em] uppercase border shadow-[0_1px_2px_rgba(0,0,0,0.02)] transition-all
+                      ${isCatActive
+                        ? (categoryActiveStyles[category] || 'bg-slate-100 text-slate-800 border-slate-400 ring-2 ring-slate-400 ring-offset-1 scale-105')
+                        : `${categoryStyles[category] || 'bg-slate-50/80 text-slate-700 border-slate-200/50'} hover:opacity-80`}`}
+                  >
+                    {category}
+                  </button>
+                );
+              })}
+              {resource.entityCategory && (() => {
+                const sector = resource.entityCategory === 'Commercial' ? 'Commercial' : 'Public & Non-Profit';
+                const isActive = filters.sectors?.includes(sector);
+                return (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onFilterChange('sectors', sector, !isActive);
+                    }}
+                    className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[9px] font-bold tracking-[0.05em] uppercase border shadow-[0_1px_2px_rgba(0,0,0,0.02)] transition-all
+                      ${isActive
+                        ? 'bg-indigo-50 text-indigo-700 border-indigo-300 ring-2 ring-indigo-300 ring-offset-1 scale-105'
+                        : 'bg-slate-50/50 text-slate-600 border-slate-200/50 hover:bg-slate-100 hover:border-slate-300'}`}
+                    title={`Filter by ${sector}`}
+                  >
+                    {sector}
+                  </button>
+                );
+              })()}
             </div>
 
-
-            <h2 className="js-card-title text-lg font-semibold text-google-text mt-1 line-clamp-2 flex items-start">
+            {/* Title */}
+            <h2 className="text-xl md:text-2xl font-bold text-slate-900 leading-tight mb-1 group-hover:text-blue-600 transition-colors">
               {resource.title}
             </h2>
+
+            {/* Organization + Origin */}
+            {(resource.organization || (resource.organizations && resource.organizations.length > 0)) && (
+              <div className="flex flex-wrap items-center text-sm font-medium text-slate-600 mb-2 gap-y-1">
+                <FaBuilding className="mr-1.5 opacity-60 w-3 h-3 text-slate-400 flex-shrink-0" />
+                <span className="mr-1.5">{resource.organization || resource.organizations.map(o => o.name).join(', ')}</span>
+                {resource.origin && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      if (resource.origin) {
+                        onFilterChange('origins', resource.origin, !filters.origins?.includes(resource.origin));
+                      }
+                    }}
+                    className={`text-slate-400 font-normal whitespace-nowrap hover:text-blue-600 transition-colors ${filters.origins?.includes(resource.origin) ? 'text-blue-600 font-medium' : ''}`}
+                    title={`Filter by origin: ${resource.origin}`}
+                  >
+                    &bull; Based in {resource.origin}
+                  </button>
+                )}
+              </div>
+            )}
           </div>
 
-          <div className="flex-shrink-0 flex items-center gap-1 text-lg">
-            <CompensationIcons
+          {/* Top Right: Compensation Badge */}
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <CompensationBadge
               resource={resource}
               filters={filters}
               onPaymentFilterChange={onPaymentFilterChange}
@@ -336,73 +387,24 @@ export default function ResourceCard({
             />
           </div>
         </div>
-        <div className="mb-0.5">
-          {(resource.organization || (resource.organizations && resource.organizations.length > 0)) && (
-            <div className="flex flex-col items-start gap-0 mt-0">
-              <p className="js-card-org organization-name text-sm font-medium text-slate-700 leading-tight">
-                {resource.organization || resource.organizations.map(o => o.name).join(', ')}
-              </p>
-              <div className="min-h-[1.5rem] flex items-center w-full">
-                {resource.originCode && (
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      if (resource.origin) {
-                        onFilterChange('origins', resource.origin, !filters.origins?.includes(resource.origin));
-                      }
-                    }}
-                    className={`flex items-center gap-1 py-1.5 rounded text-[10px] uppercase font-bold tracking-wider transition-all duration-200 min-h-[24px]
-                      ${filters.origins?.includes(resource.origin)
-                        ? 'text-blue-700 bg-blue-50 px-2 -ml-2'
-                        : 'text-slate-500 hover:text-slate-700 hover:bg-slate-50 px-0'
-                      }`}
-                    title={`Filter by origin: ${resource.origin || resource.originCode}`}
-                  >
-                    <span>based in {resource.origin}</span>
-                  </button>
-                )}
-              </div>
-            </div>
-          )}
-        </div>
 
+        {/* Eligibility Warning */}
         {resource.eligibility === 'Customers' && (
-          <div className="mt-1 mb-2 inline-flex items-center gap-1.5 px-2 py-1 rounded bg-blue-50 text-blue-700 border border-blue-200 text-[11px] font-medium leading-tight w-full">
-            <FaInfoCircle className="w-3 h-3 flex-shrink-0 text-blue-500" />
+          <div className="flex items-start gap-2 text-xs text-blue-700 bg-blue-50/50 p-2.5 rounded-lg border border-blue-100 mb-3">
+            <FaInfoCircle className="mt-0.5 flex-shrink-0 text-blue-500 w-3 h-3" />
             <span>Requires being a customer</span>
           </div>
         )}
 
-
+        {/* Description */}
         {resource.description && (
-          descriptionNeedsClamping ? (
-            <button
-              className="text-sm text-google-text-secondary cursor-pointer text-left w-full bg-transparent border-none py-1"
-              onClick={toggleExpansion}
-              onKeyDown={handleKeyDown}
-            >
-              <span className={isExpanded ? '' : 'line-clamp-3'}>
-                {resource.description}
-              </span>
-              <span
-                className="mt-2 block text-sm text-google-blue hover:underline font-medium min-h-[24px] flex items-center"
-              >
-                {isExpanded ? 'Show less' : 'Show more'}
-              </span>
-            </button>
-          ) : (
-            <div className="text-sm text-google-text-secondary py-1">
-              {resource.description}
-            </div>
-          )
+          <p className="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-3">
+            {resource.description}
+          </p>
         )}
 
-
-      </div>
-
-      <div className="mt-auto pt-4 border-t border-gray-100 flex flex-col gap-3">
-        <div className="flex flex-col gap-2">
-
+        {/* Country & Data Type Tags */}
+        <div className="flex flex-col gap-2 mb-4">
           {resource.countries && resource.countries.length > 0 ? (
             <div className="flex flex-wrap items-center gap-1.5">
               <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mr-1">Available in</span>
@@ -427,7 +429,7 @@ export default function ResourceCard({
               })}
             </div>
           ) : (
-            <div className="flex flex-wrap items-center gap-1.5 min-h-[2.5rem]">
+            <div className="flex flex-wrap items-center gap-1.5">
               <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mr-1">Available in</span>
               <TagButton
                 label="Worldwide"
@@ -468,102 +470,96 @@ export default function ResourceCard({
           )}
         </div>
 
-        <div className="flex-grow">
-          {(!resource.instructions || resource.instructions.length === 0) ? (
-            resource.link ? (
-              <a
-                href={resource.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="action-button"
-                onClick={(e) => e.stopPropagation()}
-                aria-label={`Contribute to ${resource.title}`}
-              >
-                Contribute <FaExternalLinkAlt className="inline ml-1 h-3 w-3" />
-              </a>
-            ) : (
-              <Link
-                href={`/resource/${resource.slug}`}
-                className="action-button"
-                onClick={(e) => e.stopPropagation()}
-                aria-label={`View details for ${resource.title}`}
-              >
-                Details
-              </Link>
-            )
-          ) : (
-            <div className={`transition-all duration-200 ${isInstructionsExpanded ? 'w-full' : 'w-auto inline-block'}`}>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setIsInstructionsExpanded(!isInstructionsExpanded);
-                }}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-colors duration-200 text-white
-                    ${isInstructionsExpanded
-                    ? 'w-full justify-between bg-blue-700 shadow-inner'
-                    : 'bg-blue-600 hover:bg-blue-700 shadow-sm'
-                  }`}
-              >
-                <span>Instructions</span>
-                <FaChevronDown className={`transition-transform duration-200 text-blue-100 ml-2 ${isInstructionsExpanded ? 'rotate-180' : ''}`} />
-              </button>
+        {/* Footer Actions */}
+        <div className="mt-auto pt-4 border-t border-slate-100/50 flex flex-col gap-3">
+          <div className="w-full flex items-start gap-2">
+            <div className="flex-1 relative">
+              {resource.instructions && resource.instructions.length > 0 ? (
+                <div className="relative">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsInstructionsExpanded(!isInstructionsExpanded);
+                    }}
+                    className={`w-full flex items-center justify-between px-5 h-12 rounded-xl text-sm font-semibold transition-all duration-300
+                      ${isInstructionsExpanded
+                        ? 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                        : 'bg-blue-600 text-white shadow-[0_4px_14px_0_rgb(37,99,235,0.39)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.23)] hover:bg-blue-700 hover:-translate-y-[1px]'
+                      }`}
+                  >
+                    <span>{isInstructionsExpanded ? 'Hide Instructions' : 'Instructions'}</span>
+                    <FaChevronDown className={`transition-transform ${isInstructionsExpanded ? 'rotate-180' : ''}`} />
+                  </button>
 
-              <div className={`transition-all duration-300 ease-in-out overflow-hidden ${isInstructionsExpanded ? 'max-h-96 opacity-100 mt-2' : 'max-h-0 opacity-0'}`}>
-                <div className="px-1 text-sm text-slate-600">
-                  <ol className="list-decimal list-inside space-y-1 mb-3">
-                    {resource.instructions.map((step, idx) => (
-                      <li key={idx} className="pl-1 marker:font-medium marker:text-slate-400">
-                        {step}
-                      </li>
-                    ))}
-                  </ol>
-                  {resource.link && (
-                    <a
-                      href={resource.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-medium text-blue-600 hover:text-blue-800 hover:underline px-1"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      Go to website <FaExternalLinkAlt className="w-3 h-3" />
-                    </a>
-                  )}
+                  <div className={`transition-all duration-300 ease-in-out overflow-hidden ${isInstructionsExpanded ? 'max-h-96 opacity-100 mt-2' : 'max-h-0 opacity-0'}`}>
+                    <div className="p-3 bg-slate-50/80 rounded-xl border border-slate-200 text-sm text-slate-600">
+                      <ol className="list-decimal list-inside space-y-1.5">
+                        {resource.instructions.map((step, i) => (
+                          <li key={i}>{step}</li>
+                        ))}
+                      </ol>
+                      {resource.link && (
+                        <a
+                          href={resource.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`Go to ${resource.title} Website`}
+                          className="mt-3 flex items-center justify-center w-full py-2 h-12 bg-white border border-slate-200 rounded-lg text-blue-600 font-medium hover:bg-blue-50 transition-colors"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          Go to Website <FaExternalLinkAlt className="ml-2 text-xs" />
+                        </a>
+                      )}
+                    </div>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                resource.link ? (
+                  <a
+                    href={resource.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="action-button"
+                    onClick={(e) => e.stopPropagation()}
+                    aria-label={`Contribute to ${resource.title}`}
+                  >
+                    Contribute <FaExternalLinkAlt className="ml-2 text-xs opacity-90" />
+                  </a>
+                ) : (
+                  <Link
+                    href={`/resource/${resource.slug}`}
+                    className="action-button"
+                    onClick={(e) => e.stopPropagation()}
+                    aria-label={`View details for ${resource.title}`}
+                  >
+                    Details
+                  </Link>
+                )
+              )}
+            </div>
+
+            {/* Share Button */}
+            <button
+              onClick={handleShare}
+              className={`flex flex-shrink-0 items-center justify-center w-12 h-12 rounded-xl border shadow-sm transition-transform hover:-translate-y-[1px] focus:outline-none 
+                ${showCopied ? 'bg-emerald-50 border-emerald-100 text-emerald-600' : 'bg-white border-slate-200 text-slate-500 hover:text-blue-600 hover:border-blue-200 hover:bg-blue-50'}
+              `}
+              aria-label="Share this resource"
+              title="Copy link to clipboard"
+            >
+              {showCopied ? <FaCheck className="w-4 h-4" /> : <FaShareAlt className="w-4 h-4" />}
+            </button>
+          </div>
+
+          {/* Citations row */}
+          {hasCitations && citationMap && (
+            <div className="flex items-center gap-2 flex-shrink-0 self-start">
+              <CitationsPopover resource={resource} citationMap={citationMap} />
             </div>
           )}
         </div>
-
-        <div className="flex items-center gap-2 flex-shrink-0 self-start mt-1.5">
-          {hasCitations && citationMap && (
-            <CitationsPopover resource={resource} citationMap={citationMap} />
-          )}
-
-          <button
-            onClick={handleShare}
-            className={`
-                relative group flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium transition-all duration-200 min-h-[24px]
-                ${showCopied
-                ? 'bg-green-100 text-green-700 ring-1 ring-green-200'
-                : 'bg-slate-50 text-slate-600 hover:bg-slate-100 hover:text-slate-900 ring-1 ring-slate-200'
-              }
-              `}
-            aria-label="Share this resource"
-            title="Copy link to clipboard"
-          >
-            {showCopied ? (
-              <>
-                <FaCheck className="w-3 h-3 text-green-600" />
-                <span className="text-xs">Copied!</span>
-              </>
-            ) : (
-              <FaShareAlt className="w-3 h-3 text-slate-500 group-hover:text-slate-600" />
-            )}
-          </button>
-        </div>
       </div>
-    </div>
-
+    </article>
   );
 }
 

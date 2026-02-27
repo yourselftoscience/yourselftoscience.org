@@ -10,7 +10,7 @@ import { EU_COUNTRIES } from '@/data/constants';
  * A specialized, high-fidelity card component for the Genetic Data Donation page.
  * Features a modern "glassmorphism" aesthetic with premium typography and interactions.
  */
-export default function GeneticResourceCard({ resource, selectedServices, onSectorClick, onCompensationClick, selectedCountries = [] }) {
+export default function GeneticResourceCard({ resource, selectedServices, onSectorClick, onCompensationClick, selectedCompensation, selectedCountries = [] }) {
     const [isHovered, setIsHovered] = useState(false);
     const [showInstructions, setShowInstructions] = useState(false);
     const [copied, setCopied] = useState(false);
@@ -173,50 +173,25 @@ export default function GeneticResourceCard({ resource, selectedServices, onSect
                     {/* Top Right Actions */}
                     <div className="flex items-center gap-2">
                         {/* Compensation Type Indicator */}
-                        <button
-                            aria-label={`View compensation details for ${resource.title}`}
-                            onClick={(e) => {
-                                // Don't trigger the card's general click if it ever has one
-                                if (onCompensationClick) {
-                                    e.preventDefault();
-                                    e.stopPropagation();
-                                    onCompensationClick(resource.compensationType || 'donation');
-                                }
-                            }}
-                            className="relative group/icon focus:outline-none cursor-pointer"
-                        >
-                            <div className={`
-                    flex items-center justify-center h-8 px-2.5 gap-1 rounded-full border shadow-sm transition-transform hover:scale-110
-                    ${resource.compensationType === 'payment'
-                                    ? 'bg-emerald-100 border-emerald-200 text-emerald-700'
-                                    : resource.compensationType === 'mixed'
-                                        ? 'bg-amber-100 border-amber-200 text-amber-700'
-                                        : 'bg-rose-100 border-rose-200 text-rose-700'}
-                    ${(resource.compensationType !== 'mixed') ? 'w-8 px-0 gap-0' : ''}
-                `}>
-                                {resource.compensationType === 'payment' && <FaDollarSign />}
-                                {resource.compensationType === 'mixed' && (
-                                    <>
-                                        <FaDollarSign className="w-3 h-3" />
-                                        <span className="text-amber-500/50 font-extrabold text-[10px] mx-[1px]">+</span>
-                                        <FaHeart className="w-3 h-3" />
-                                    </>
-                                )}
-                                {(resource.compensationType === 'donation' || !resource.compensationType) && <FaHeart />}
+                        {(resource.compensationType === 'mixed') ? (
+                            <div className="flex items-center gap-1">
+                                <button aria-label="Filter by payment" onClick={(e) => { e.preventDefault(); e.stopPropagation(); if (onCompensationClick) onCompensationClick('payment'); }} className="relative group/icon focus:outline-none cursor-pointer">
+                                    <div className={`flex items-center justify-center w-8 h-8 rounded-full border shadow-sm transition-all hover:scale-110 ${selectedCompensation === 'payment' ? 'bg-emerald-200 border-emerald-400 text-emerald-800 ring-2 ring-emerald-400 scale-110' : 'bg-emerald-100 border-emerald-200 text-emerald-700'}`}><FaDollarSign /></div>
+                                    <div className="absolute top-full right-0 mt-2 w-48 p-3 bg-slate-800 text-white text-xs rounded-xl shadow-xl opacity-0 invisible group-hover/icon:opacity-100 group-hover/icon:visible transition-all z-50 pointer-events-none"><div className="font-semibold mb-1">Payment</div><div className="text-slate-300 leading-tight">Participants are compensated. Click to filter.</div></div>
+                                </button>
+                                <button aria-label="Filter by donation" onClick={(e) => { e.preventDefault(); e.stopPropagation(); if (onCompensationClick) onCompensationClick('donation'); }} className="relative group/icon focus:outline-none cursor-pointer">
+                                    <div className={`flex items-center justify-center w-8 h-8 rounded-full border shadow-sm transition-all hover:scale-110 ${selectedCompensation === 'donation' ? 'bg-rose-200 border-rose-400 text-rose-800 ring-2 ring-rose-400 scale-110' : 'bg-rose-100 border-rose-200 text-rose-700'}`}><FaHeart /></div>
+                                    <div className="absolute top-full right-0 mt-2 w-48 p-3 bg-slate-800 text-white text-xs rounded-xl shadow-xl opacity-0 invisible group-hover/icon:opacity-100 group-hover/icon:visible transition-all z-50 pointer-events-none"><div className="font-semibold mb-1">Donation</div><div className="text-slate-300 leading-tight">Volunteer contribution to research. Click to filter.</div></div>
+                                </button>
                             </div>
-
-                            {/* Tooltip */}
-                            <div className="absolute top-full right-0 mt-2 w-48 p-3 bg-slate-800 text-white text-xs rounded-xl shadow-xl opacity-0 invisible group-hover/icon:opacity-100 group-hover/icon:visible transition-all z-50 pointer-events-none">
-                                <div className="font-semibold mb-1 capitalize">
-                                    {resource.compensationType === 'mixed' ? 'Mixed Compensation' : (resource.compensationType || 'Donation')}
+                        ) : (
+                            <button aria-label={`Compensation: ${resource.compensationType || 'donation'}`} onClick={(e) => { if (onCompensationClick) { e.preventDefault(); e.stopPropagation(); onCompensationClick(resource.compensationType || 'donation'); } }} className="relative group/icon focus:outline-none cursor-pointer">
+                                <div className={`flex items-center justify-center w-8 h-8 rounded-full border shadow-sm transition-all hover:scale-110 ${resource.compensationType === 'payment' ? (selectedCompensation === 'payment' ? 'bg-emerald-200 border-emerald-400 text-emerald-800 ring-2 ring-emerald-400 scale-110' : 'bg-emerald-100 border-emerald-200 text-emerald-700') : (selectedCompensation === (resource.compensationType || 'donation') ? 'bg-rose-200 border-rose-400 text-rose-800 ring-2 ring-rose-400 scale-110' : 'bg-rose-100 border-rose-200 text-rose-700')}`}>
+                                    {resource.compensationType === 'payment' ? <FaDollarSign /> : <FaHeart />}
                                 </div>
-                                <div className="text-slate-300 leading-tight">
-                                    {resource.compensationType === 'payment' && "Participants are compensated. Click to filter."}
-                                    {resource.compensationType === 'mixed' && "Compensation varies. Click to filter."}
-                                    {(resource.compensationType === 'donation' || !resource.compensationType) && "Volunteer contribution to science. Click to filter."}
-                                </div>
-                            </div>
-                        </button>
+                                <div className="absolute top-full right-0 mt-2 w-48 p-3 bg-slate-800 text-white text-xs rounded-xl shadow-xl opacity-0 invisible group-hover/icon:opacity-100 group-hover/icon:visible transition-all z-50 pointer-events-none"><div className="font-semibold mb-1 capitalize">{resource.compensationType || 'Donation'}</div><div className="text-slate-300 leading-tight">{resource.compensationType === 'payment' ? "Participants are compensated. Click to filter." : "Volunteer contribution to research. Click to filter."}</div></div>
+                            </button>
+                        )}
                     </div>
                 </div>
 

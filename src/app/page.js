@@ -9,7 +9,7 @@ import { activeResources as allResources } from '@/data/resources';
 import { PAYMENT_TYPES, EU_COUNTRIES } from '@/data/constants';
 import dynamic from 'next/dynamic';
 import CountryFlag from 'react-country-flag';
-import { FaTimes, FaDownload, FaSlidersH, FaSearch, FaCheck, FaGlobe, FaPlus } from 'react-icons/fa';
+import { FaTimes, FaDownload, FaSlidersH, FaSearch, FaCheck, FaGlobe, FaPlus, FaDna, FaHeartbeat, FaStethoscope, FaLaptopMedical } from 'react-icons/fa';
 import { usePathname, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import NewsletterSignup from '../components/NewsletterSignup';
@@ -656,497 +656,516 @@ function HomePageContent({ scrollY }) {
   const isStickyFilterBar = scrollY > 50;
 
   return (
-    <div className="flex-grow w-full max-w-screen-xl mx-auto px-4 pb-8 pt-3">
+    <div className="flex-grow w-full">
 
-      {/* Intro Text */}
-      <p className="text-base text-google-text-secondary max-w-5xl mb-6">
-        A comprehensive open-source catalogue for contributing your biological and digital self to scientific research.
-        <br />
-        Browse opportunities to share your data, genome, biological samples, and more, including body donation and paid clinical trials.
-      </p>
+      {/* Premium Hero Section with Integrated Newsletter */}
+      <section className="relative bg-white border-b border-slate-200 overflow-hidden">
+        {/* Gradient Blobs (matching wizard pages) */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-30">
+          <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] bg-blue-200 rounded-full blur-3xl" />
+          <div className="absolute top-[10%] right-[10%] w-[40%] h-[40%] bg-indigo-200 rounded-full blur-3xl" />
+          <div className="absolute bottom-[5%] left-[30%] w-[30%] h-[30%] bg-purple-100 rounded-full blur-3xl" />
+        </div>
 
-      {/* Newsletter Signup */}
-      <NewsletterSignup />
+        <div className="max-w-5xl mx-auto px-4 py-12 md:py-14 text-center relative z-10">
+          <h1 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-600 drop-shadow-sm mb-4 md:mb-6 tracking-tight leading-tight pb-2">
+            Contribute to Research
+          </h1>
+          <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto mb-6 leading-relaxed">
+            A comprehensive open-source catalogue for contributing your biological and digital self to scientific research.
+            Browse opportunities to share your data, genome, biological samples, and more.
+          </p>
 
-      {/* Main Layout Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)] gap-6">
+          {/* Newsletter Embedded in Hero */}
+          <div className="w-full max-w-xl mx-auto">
+            <NewsletterSignup />
+          </div>
+        </div>
+      </section>
 
-        {/* Main Content Area */}
-        <main className="py-4">
-          {/* Unified desktop search + filter bar */}
-          <motion.div
-            ref={filterContainerRef}
-            layout
-            initial={false}
-            animate={isStickyFilterBar ? 'sticky' : 'default'}
-            variants={{
-              default: {
-                y: 0,
-                scale: 1,
-                boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-                borderRadius: 999,
-              },
-              sticky: {
-                y: 0,
-                scale: 1,
-                boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-                borderRadius: 999,
-              },
-            }}
-            transition={{
-              type: 'tween',
-              duration: 0.2,
-              ease: 'circOut',
-            }}
-            className={`group relative border backdrop-blur-3xl z-40 mb-4
+      {/* Main Content */}
+      <div className="max-w-screen-xl mx-auto px-4 pb-8 pt-3">
+
+        {/* Main Layout Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)] gap-6">
+
+          {/* Main Content Area */}
+          <main className="py-4">
+            {/* Unified desktop search + filter bar */}
+            <motion.div
+              ref={filterContainerRef}
+              layout
+              initial={false}
+              animate={isStickyFilterBar ? 'sticky' : 'default'}
+              variants={{
+                default: {
+                  y: 0,
+                  scale: 1,
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+                  borderRadius: 999,
+                },
+                sticky: {
+                  y: 0,
+                  scale: 1,
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+                  borderRadius: 999,
+                },
+              }}
+              transition={{
+                type: 'tween',
+                duration: 0.2,
+                ease: 'circOut',
+              }}
+              className={`group relative border backdrop-blur-3xl z-40 mb-4
               ${openFilterPanel ? 'overflow-visible' : 'overflow-hidden'}
               ${isStickyFilterBar
-                ? 'bg-white/95 border-slate-200/75 sticky top-[80px] md:max-w-4xl w-full mx-auto'
-                : 'bg-white/95 border-slate-200/75 relative md:max-w-4xl w-full mx-auto'
-              }`}
-          >
-            <div className="pointer-events-none absolute inset-0">
-              <div className={`absolute inset-0 bg-gradient-to-br from-white/95 via-white/85 to-white/70 transition-opacity duration-500 ${isStickyFilterBar ? 'opacity-100' : 'opacity-80'}`} />
-              <div className={`absolute -top-10 -right-6 w-40 h-40 rounded-full bg-white/80 blur-3xl transition-all duration-500 ${isStickyFilterBar ? 'opacity-85 translate-y-1' : 'opacity-0'}`} />
-              <div className={`absolute -bottom-14 left-4 w-44 h-44 rounded-full bg-transparent blur-3xl transition-all duration-500 ${isStickyFilterBar ? 'opacity-75 translate-y-2' : 'opacity-0'}`} />
-            </div>
-
-            <div className={`relative flex items-center transition-all duration-300 ease-in-out`}>
-              {/* Filter pills */}
-              <div
-                className="hidden lg:flex flex-1 items-stretch"
-              >
-                <FilterPill
-                  label="Category"
-                  summary={macroCategorySummary}
-                  isActive={openFilterPanel === 'macroCategories'}
-                  onClick={() => setOpenFilterPanel(openFilterPanel === 'macroCategories' ? null : 'macroCategories')}
-                  isStickyFilterBar={isStickyFilterBar}
-                />
-                <div className="w-px bg-slate-200 my-3"></div>
-                <FilterPill
-                  label="Available in"
-                  summary={countrySummary}
-                  isActive={openFilterPanel === 'countries'}
-                  onClick={() => setOpenFilterPanel(openFilterPanel === 'countries' ? null : 'countries')}
-                  isStickyFilterBar={isStickyFilterBar}
-                />
-                <div className="w-px bg-slate-200 my-3"></div>
-                <FilterPill
-                  label="Data type"
-                  summary={dataTypeSummary}
-                  isActive={openFilterPanel === 'dataTypes'}
-                  onClick={() => setOpenFilterPanel(openFilterPanel === 'dataTypes' ? null : 'dataTypes')}
-                  isStickyFilterBar={isStickyFilterBar}
-                />
-                <div className="w-px bg-slate-200 my-3"></div>
-                <FilterPill
-                  label="Compensation"
-                  summary={compensationSummary}
-                  isActive={openFilterPanel === 'compensationTypes'}
-                  onClick={() => setOpenFilterPanel(openFilterPanel === 'compensationTypes' ? null : 'compensationTypes')}
-                  isStickyFilterBar={isStickyFilterBar}
-                />
-                <div className="w-px bg-slate-200 my-3"></div>
-                <FilterPill
-                  label={<FaPlus className="text-sm" />}
-                  isActive={openFilterPanel === 'more'}
-                  onClick={() => setOpenFilterPanel(openFilterPanel === 'more' ? null : 'more')}
-                  isStickyFilterBar={isStickyFilterBar}
-                  className="flex-none px-0 items-center w-12"
-                />
+                  ? 'bg-white/95 border-slate-200/75 sticky top-[80px] md:max-w-4xl w-full mx-auto'
+                  : 'bg-white/95 border-slate-200/75 relative md:max-w-4xl w-full mx-auto'
+                }`}
+            >
+              <div className="pointer-events-none absolute inset-0">
+                <div className={`absolute inset-0 bg-gradient-to-br from-white/95 via-white/85 to-white/70 transition-opacity duration-500 ${isStickyFilterBar ? 'opacity-100' : 'opacity-80'}`} />
+                <div className={`absolute -top-10 -right-6 w-40 h-40 rounded-full bg-white/80 blur-3xl transition-all duration-500 ${isStickyFilterBar ? 'opacity-85 translate-y-1' : 'opacity-0'}`} />
+                <div className={`absolute -bottom-14 left-4 w-44 h-44 rounded-full bg-transparent blur-3xl transition-all duration-500 ${isStickyFilterBar ? 'opacity-75 translate-y-2' : 'opacity-0'}`} />
               </div>
 
-              {/* Desktop search field */}
-              <div className={`flex items-center transition-all duration-300 ease-in-out pl-4 w-full lg:w-auto`}>
-                <div className="relative flex-1 flex items-center">
-                  <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
-                  <input
-                    type="text"
-                    placeholder="Search"
-                    value={filters.searchTerm}
-                    onChange={handleSearchChange}
-                    className={`w-full py-3 pl-10 pr-4 text-slate-900 placeholder-slate-500 focus:outline-none text-sm bg-transparent`}
+              <div className={`relative flex items-center transition-all duration-300 ease-in-out`}>
+                {/* Filter pills */}
+                <div
+                  className="hidden lg:flex flex-1 items-stretch"
+                >
+                  <FilterPill
+                    label="Category"
+                    summary={macroCategorySummary}
+                    isActive={openFilterPanel === 'macroCategories'}
+                    onClick={() => setOpenFilterPanel(openFilterPanel === 'macroCategories' ? null : 'macroCategories')}
+                    isStickyFilterBar={isStickyFilterBar}
+                  />
+                  <div className="w-px bg-slate-200 my-3"></div>
+                  <FilterPill
+                    label="Available in"
+                    summary={countrySummary}
+                    isActive={openFilterPanel === 'countries'}
+                    onClick={() => setOpenFilterPanel(openFilterPanel === 'countries' ? null : 'countries')}
+                    isStickyFilterBar={isStickyFilterBar}
+                  />
+                  <div className="w-px bg-slate-200 my-3"></div>
+                  <FilterPill
+                    label="Data type"
+                    summary={dataTypeSummary}
+                    isActive={openFilterPanel === 'dataTypes'}
+                    onClick={() => setOpenFilterPanel(openFilterPanel === 'dataTypes' ? null : 'dataTypes')}
+                    isStickyFilterBar={isStickyFilterBar}
+                  />
+                  <div className="w-px bg-slate-200 my-3"></div>
+                  <FilterPill
+                    label="Compensation"
+                    summary={compensationSummary}
+                    isActive={openFilterPanel === 'compensationTypes'}
+                    onClick={() => setOpenFilterPanel(openFilterPanel === 'compensationTypes' ? null : 'compensationTypes')}
+                    isStickyFilterBar={isStickyFilterBar}
+                  />
+                  <div className="w-px bg-slate-200 my-3"></div>
+                  <FilterPill
+                    label={<FaPlus className="text-sm" />}
+                    isActive={openFilterPanel === 'more'}
+                    onClick={() => setOpenFilterPanel(openFilterPanel === 'more' ? null : 'more')}
+                    isStickyFilterBar={isStickyFilterBar}
+                    className="flex-none px-0 items-center w-12"
                   />
                 </div>
-                {/* Mobile Filter Button */}
-                <button
-                  onClick={toggleFilterDrawer}
-                  className="lg:hidden ml-2 p-2.5 bg-slate-100 rounded-full text-slate-600 hover:bg-slate-200 transition-colors flex-shrink-0"
-                  aria-label="Open filters"
-                >
-                  <FaSlidersH className="text-lg" />
-                </button>
-              </div>
-            </div>
 
-            {/* Expanding filter panels on desktop */}
-            <AnimatePresence>
-              {openFilterPanel && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10, scale: 0.98 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -10, scale: 0.98 }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 40 }}
-                  className="hidden lg:block absolute inset-x-0 top-full mt-4 z-50 px-1"
-                >
-                  <div className="mx-auto w-full max-w-5xl relative overflow-hidden rounded-[28px] border border-slate-200/80 bg-white/95 backdrop-blur-2xl shadow-[0_25px_65px_rgba(15,23,42,0.18)] px-4 lg:px-8 pt-5 pb-6">
-                    <div className="pointer-events-none absolute inset-0">
-                      <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/50 to-transparent" />
-                      <div className="absolute -top-10 left-10 w-32 h-32 bg-white/70 blur-3xl rounded-full" />
-                      <div className="absolute -bottom-16 right-12 w-48 h-48 bg-blue-100/40 blur-[90px] rounded-full" />
-                    </div>
-                    <div className="relative border-t border-slate-100 pt-4">
-                      {openFilterPanel === 'macroCategories' && (
-                        <FilterGroup
-                          title="Category"
-                          options={macroCategoryOptions}
-                          filterKey="macroCategories"
-                          selectedValues={filters.macroCategories}
-                          onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
-                          onSelectAll={(shouldSelect) => handleSelectAll('macroCategories', macroCategoryOptions, shouldSelect)}
-                          config={{ alwaysExpanded: true, columns: 2, HeadingTag: 'h2' }}
-                        />
-                      )}
-                      {openFilterPanel === 'countries' && (
-                        <FilterGroup
-                          title="Available in"
-                          options={countryOptions}
-                          filterKey="countries"
-                          selectedValues={filters.countries}
-                          onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
-                          onSelectAll={(shouldSelect) => handleSelectAll('countries', countryOptions, shouldSelect)}
-                          config={{ alwaysExpanded: true, columns: 3, HeadingTag: 'h2' }}
-                        />
-                      )}
-                      {/* More Filters Panel containing Sector and Origin */}
-                      {openFilterPanel === 'more' && (
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                          <div>
-                            <h2 className="font-semibold text-base text-slate-900 mb-3">Type of Organization</h2>
-                            <div className="flex flex-wrap gap-3">
-                              {['Commercial', 'Public & Non-Profit'].map(sector => {
-                                const isSelected = filters.sectors.includes(sector);
-                                return (
-                                  <button
-                                    key={sector}
-                                    onClick={() => handleFilterChange('sectors', sector, !isSelected)}
-                                    className={`
+                {/* Desktop search field */}
+                <div className={`flex items-center transition-all duration-300 ease-in-out pl-4 w-full lg:w-auto`}>
+                  <div className="relative flex-1 flex items-center">
+                    <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+                    <input
+                      type="text"
+                      placeholder="Search"
+                      value={filters.searchTerm}
+                      onChange={handleSearchChange}
+                      className={`w-full py-3 pl-10 pr-4 text-slate-900 placeholder-slate-500 focus:outline-none text-sm bg-transparent`}
+                    />
+                  </div>
+                  {/* Mobile Filter Button */}
+                  <button
+                    onClick={toggleFilterDrawer}
+                    className="lg:hidden ml-2 p-2.5 bg-slate-100 rounded-full text-slate-600 hover:bg-slate-200 transition-colors flex-shrink-0"
+                    aria-label="Open filters"
+                  >
+                    <FaSlidersH className="text-lg" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Expanding filter panels on desktop */}
+              <AnimatePresence>
+                {openFilterPanel && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -10, scale: 0.98 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 40 }}
+                    className="hidden lg:block absolute inset-x-0 top-full mt-4 z-50 px-1"
+                  >
+                    <div className="mx-auto w-full max-w-5xl relative overflow-hidden rounded-[28px] border border-slate-200/80 bg-white/95 backdrop-blur-2xl shadow-[0_25px_65px_rgba(15,23,42,0.18)] px-4 lg:px-8 pt-5 pb-6">
+                      <div className="pointer-events-none absolute inset-0">
+                        <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/50 to-transparent" />
+                        <div className="absolute -top-10 left-10 w-32 h-32 bg-white/70 blur-3xl rounded-full" />
+                        <div className="absolute -bottom-16 right-12 w-48 h-48 bg-blue-100/40 blur-[90px] rounded-full" />
+                      </div>
+                      <div className="relative border-t border-slate-100 pt-4">
+                        {openFilterPanel === 'macroCategories' && (
+                          <FilterGroup
+                            title="Category"
+                            options={macroCategoryOptions}
+                            filterKey="macroCategories"
+                            selectedValues={filters.macroCategories}
+                            onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
+                            onSelectAll={(shouldSelect) => handleSelectAll('macroCategories', macroCategoryOptions, shouldSelect)}
+                            config={{ alwaysExpanded: true, columns: 2, HeadingTag: 'h2' }}
+                          />
+                        )}
+                        {openFilterPanel === 'countries' && (
+                          <FilterGroup
+                            title="Available in"
+                            options={countryOptions}
+                            filterKey="countries"
+                            selectedValues={filters.countries}
+                            onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
+                            onSelectAll={(shouldSelect) => handleSelectAll('countries', countryOptions, shouldSelect)}
+                            config={{ alwaysExpanded: true, columns: 3, HeadingTag: 'h2' }}
+                          />
+                        )}
+                        {/* More Filters Panel containing Sector and Origin */}
+                        {openFilterPanel === 'more' && (
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                              <h2 className="font-semibold text-base text-slate-900 mb-3">Type of Organization</h2>
+                              <div className="flex flex-wrap gap-3">
+                                {['Commercial', 'Public & Non-Profit'].map(sector => {
+                                  const isSelected = filters.sectors.includes(sector);
+                                  return (
+                                    <button
+                                      key={sector}
+                                      onClick={() => handleFilterChange('sectors', sector, !isSelected)}
+                                      className={`
                                       flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all border
                                       ${isSelected
-                                        ? 'bg-indigo-50 border-indigo-200 text-indigo-700 shadow-sm'
-                                        : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50'}
+                                          ? 'bg-indigo-50 border-indigo-200 text-indigo-700 shadow-sm'
+                                          : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50'}
                                     `}
-                                  >
-                                    <div className={`
+                                    >
+                                      <div className={`
                                       w-4 h-4 rounded border flex items-center justify-center
                                       ${isSelected
-                                        ? 'bg-indigo-600 border-indigo-600 text-white'
-                                        : 'bg-white border-slate-300'}
+                                          ? 'bg-indigo-600 border-indigo-600 text-white'
+                                          : 'bg-white border-slate-300'}
                                     `}>
-                                      {isSelected && <FaCheck className="text-[8px]" />}
-                                    </div>
-                                    {sector}
-                                  </button>
-                                );
-                              })}
+                                        {isSelected && <FaCheck className="text-[8px]" />}
+                                      </div>
+                                      {sector}
+                                    </button>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                            <div>
+                              <FilterGroup
+                                title="Based in"
+                                options={originOptions}
+                                filterKey="origins"
+                                selectedValues={filters.origins}
+                                onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
+                                onSelectAll={(shouldSelect) => handleSelectAll('origins', originOptions, shouldSelect)}
+                                config={{ alwaysExpanded: true, columns: 1, HeadingTag: 'h2' }}
+                              />
                             </div>
                           </div>
-                          <div>
-                            <FilterGroup
-                              title="Based in"
-                              options={originOptions}
-                              filterKey="origins"
-                              selectedValues={filters.origins}
-                              onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
-                              onSelectAll={(shouldSelect) => handleSelectAll('origins', originOptions, shouldSelect)}
-                              config={{ alwaysExpanded: true, columns: 1, HeadingTag: 'h2' }}
-                            />
-                          </div>
-                        </div>
-                      )}
-                      {openFilterPanel === 'dataTypes' && (
-                        <FilterGroup
-                          title="Data type"
-                          options={dataTypeOptions}
-                          filterKey="dataTypes"
-                          selectedValues={filters.dataTypes}
-                          onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
-                          onSelectAll={(shouldSelect) => handleSelectAll('dataTypes', dataTypeOptions, shouldSelect)}
-                          config={{ alwaysExpanded: true, columns: 2, HeadingTag: 'h2' }}
-                        />
-                      )}
-                      {openFilterPanel === 'compensationTypes' && (
-                        <FilterGroup
-                          title="Compensation"
-                          options={PAYMENT_TYPES}
-                          filterKey="compensationTypes"
-                          selectedValues={filters.compensationTypes}
-                          onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
-                          onSelectAll={(shouldSelect) => handleSelectAll('compensationTypes', PAYMENT_TYPES, shouldSelect)}
-                          config={{ alwaysExpanded: true, columns: 2, HeadingTag: 'h2' }}
-                        />
-                      )}
+                        )}
+                        {openFilterPanel === 'dataTypes' && (
+                          <FilterGroup
+                            title="Data type"
+                            options={dataTypeOptions}
+                            filterKey="dataTypes"
+                            selectedValues={filters.dataTypes}
+                            onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
+                            onSelectAll={(shouldSelect) => handleSelectAll('dataTypes', dataTypeOptions, shouldSelect)}
+                            config={{ alwaysExpanded: true, columns: 2, HeadingTag: 'h2' }}
+                          />
+                        )}
+                        {openFilterPanel === 'compensationTypes' && (
+                          <FilterGroup
+                            title="Compensation"
+                            options={PAYMENT_TYPES}
+                            filterKey="compensationTypes"
+                            selectedValues={filters.compensationTypes}
+                            onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
+                            onSelectAll={(shouldSelect) => handleSelectAll('compensationTypes', PAYMENT_TYPES, shouldSelect)}
+                            config={{ alwaysExpanded: true, columns: 2, HeadingTag: 'h2' }}
+                          />
+                        )}
 
-                      <div className="mt-3 flex justify-between items-center text-xs">
-                        <button
-                          type="button"
-                          onClick={() => openFilterPanel && handleClearGroup(openFilterPanel)}
-                          className="text-google-text-secondary hover:text-google-text"
-                        >
-                          Clear
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => setOpenFilterPanel(null)}
-                          className="font-semibold text-google-blue hover:underline"
-                        >
-                          Done
-                        </button>
+                        <div className="mt-3 flex justify-between items-center text-xs">
+                          <button
+                            type="button"
+                            onClick={() => openFilterPanel && handleClearGroup(openFilterPanel)}
+                            className="text-google-text-secondary hover:text-google-text"
+                          >
+                            Clear
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => setOpenFilterPanel(null)}
+                            className="font-semibold text-google-blue hover:underline"
+                          >
+                            Done
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
 
 
 
-          {/* Active Sector Badges */}
-          <div className="mb-4 flex flex-wrap gap-2 items-center">
-            {filters.sectors.map(sector => (
-              <button
-                key={sector}
-                onClick={() => handleFilterChange('sectors', sector, false)}
-                className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-indigo-100 text-indigo-800 border border-indigo-200 hover:bg-indigo-200 transition-colors"
-              >
-                {sector}
-                <FaTimes className="ml-2 h-3 w-3" />
-              </button>
-            ))}
+            {/* Active Sector Badges */}
+            <div className="mb-4 flex flex-wrap gap-2 items-center">
+              {filters.sectors.map(sector => (
+                <button
+                  key={sector}
+                  onClick={() => handleFilterChange('sectors', sector, false)}
+                  className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-indigo-100 text-indigo-800 border border-indigo-200 hover:bg-indigo-200 transition-colors"
+                >
+                  {sector}
+                  <FaTimes className="ml-2 h-3 w-3" />
+                </button>
+              ))}
 
-            {/* Sort origins alphabetically before mapping */}
-            {[...filters.origins].sort((a, b) => a.localeCompare(b)).map(value => {
-              const originOption = originOptions.find(opt => opt.value === value);
-              const label = originOption?.label || value;
-              const code = originOption?.code;
-              return (
-                <span key={`sel-origin-${value}`} className="inline-flex items-center text-sm font-medium px-2 py-1 rounded-full bg-blue-100 text-blue-700">
-                  <span className="mr-1 text-[10px] uppercase font-bold tracking-wider text-blue-800">Based in</span>
-                  {label}
-                  {code && <CountryFlag countryCode={code} svg alt="" aria-hidden="true" style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />}
-                  <button
-                    onClick={() => handleCheckboxChange('origins', value, false)}
-                    className="ml-1 text-google-blue hover:opacity-75"
-                    aria-label={`Remove based in ${label}`}
-                  >
-                    <FaTimes size="0.9em" />
-                  </button>
-                </span>
-              );
-            })}
+              {/* Sort origins alphabetically before mapping */}
+              {[...filters.origins].sort((a, b) => a.localeCompare(b)).map(value => {
+                const originOption = originOptions.find(opt => opt.value === value);
+                const label = originOption?.label || value;
+                const code = originOption?.code;
+                return (
+                  <span key={`sel-origin-${value}`} className="inline-flex items-center text-sm font-medium px-2 py-1 rounded-full bg-blue-100 text-blue-700">
+                    <span className="mr-1 text-[10px] uppercase font-bold tracking-wider text-blue-800">Based in</span>
+                    {label}
+                    {code && <CountryFlag countryCode={code} svg alt="" aria-hidden="true" style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />}
+                    <button
+                      onClick={() => handleCheckboxChange('origins', value, false)}
+                      className="ml-1 text-google-blue hover:opacity-75"
+                      aria-label={`Remove based in ${label}`}
+                    >
+                      <FaTimes size="0.9em" />
+                    </button>
+                  </span>
+                );
+              })}
 
-            {/* Sort macro categories alphabetically before mapping */}
-            {[...filters.macroCategories].sort((a, b) => a.localeCompare(b)).map(value => {
-              const categoryStyles = {
-                'Organ, Body & Tissue Donation': 'bg-rose-100 text-rose-800',
-                'Biological Samples': 'bg-blue-100 text-blue-800',
-                'Clinical Trials': 'bg-green-100 text-green-800',
-                'Health & Digital Data': 'bg-yellow-100 text-yellow-800',
-              };
-              const style = categoryStyles[value] || 'bg-gray-100 text-gray-800';
+              {/* Sort macro categories alphabetically before mapping */}
+              {[...filters.macroCategories].sort((a, b) => a.localeCompare(b)).map(value => {
+                const categoryStyles = {
+                  'Organ, Body & Tissue Donation': 'bg-rose-100 text-rose-800',
+                  'Biological Samples': 'bg-blue-100 text-blue-800',
+                  'Clinical Trials': 'bg-green-100 text-green-800',
+                  'Health & Digital Data': 'bg-yellow-100 text-yellow-800',
+                };
+                const style = categoryStyles[value] || 'bg-gray-100 text-gray-800';
 
-              return (
-                <span key={`sel-mc-${value}`} className={`inline-flex items-center text-sm font-medium px-2 py-1 rounded-full ${style}`}>
+                return (
+                  <span key={`sel-mc-${value}`} className={`inline-flex items-center text-sm font-medium px-2 py-1 rounded-full ${style}`}>
+                    {value}
+                    <button
+                      onClick={() => handleCheckboxChange('macroCategories', value, false)}
+                      className="ml-1 text-google-blue hover:opacity-75"
+                      aria-label={`Remove ${value}`}
+                    >
+                      <FaTimes size="0.9em" />
+                    </button>
+                  </span>
+                );
+              })}
+
+              {/* Sort countries alphabetically before mapping */}
+              {[...filters.countries].sort((a, b) => a.localeCompare(b)).map(value => {
+                const countryOption = countryOptions.find(opt => opt.value === value);
+                const label = countryOption?.label || value;
+                const code = countryOption?.code;
+                return (
+                  <span key={`sel - ctry - ${value} `} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
+                    {label}
+                    {code && <CountryFlag countryCode={code} svg alt="" aria-hidden="true" style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />}
+                    <button
+                      onClick={() => handleCheckboxChange('countries', value, false)}
+                      className="ml-1 text-google-blue hover:opacity-75" aria-label={`Remove ${label} `}>
+                      <FaTimes size="0.9em" />
+                    </button>
+                  </span>
+                );
+              })}
+              {/* Sort data types alphabetically before mapping */}
+              {[...filters.dataTypes].sort((a, b) => a.localeCompare(b)).map(value => (
+                <span key={`sel - dt - ${value} `} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
                   {value}
                   <button
-                    onClick={() => handleCheckboxChange('macroCategories', value, false)}
-                    className="ml-1 text-google-blue hover:opacity-75"
-                    aria-label={`Remove ${value}`}
-                  >
-                    <FaTimes size="0.9em" />
-                  </button>
-                </span>
-              );
-            })}
-
-            {/* Sort countries alphabetically before mapping */}
-            {[...filters.countries].sort((a, b) => a.localeCompare(b)).map(value => {
-              const countryOption = countryOptions.find(opt => opt.value === value);
-              const label = countryOption?.label || value;
-              const code = countryOption?.code;
-              return (
-                <span key={`sel - ctry - ${value} `} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
-                  {label}
-                  {code && <CountryFlag countryCode={code} svg alt="" aria-hidden="true" style={{ width: '1em', height: '0.8em', marginLeft: '4px' }} />}
-                  <button
-                    onClick={() => handleCheckboxChange('countries', value, false)}
-                    className="ml-1 text-google-blue hover:opacity-75" aria-label={`Remove ${label} `}>
-                    <FaTimes size="0.9em" />
-                  </button>
-                </span>
-              );
-            })}
-            {/* Sort data types alphabetically before mapping */}
-            {[...filters.dataTypes].sort((a, b) => a.localeCompare(b)).map(value => (
-              <span key={`sel - dt - ${value} `} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
-                {value}
-                <button
-                  onClick={() => handleCheckboxChange('dataTypes', value, false)}
-                  className="ml-1 text-google-blue hover:opacity-75" aria-label={`Remove ${value} `}>
-                  <FaTimes size="0.9em" />
-                </button>
-              </span>
-            ))}
-            {/* Sort compensation types by PAYMENT_TYPES order before mapping */}
-            {[...filters.compensationTypes]
-              .sort((a, b) => PAYMENT_TYPES.map(p => p.value).indexOf(a.value) - PAYMENT_TYPES.map(p => p.value).indexOf(b.value))
-              .map(option => (
-                <span key={`sel - pay - ${option.value} `} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
-                  {option.value === 'payment' ? '💲' : option.emoji} {option.label}
-                  <button
-                    onClick={() => handlePaymentCheckboxChange(option, false)}
-                    className="ml-1 text-google-blue hover:opacity-75" aria-label={`Remove ${option.label} `}>
+                    onClick={() => handleCheckboxChange('dataTypes', value, false)}
+                    className="ml-1 text-google-blue hover:opacity-75" aria-label={`Remove ${value} `}>
                     <FaTimes size="0.9em" />
                   </button>
                 </span>
               ))}
-
-          </div>
-
-          {/* Resource Grid */}
-          <div className="lg:col-span-1">
-            <ResourceGrid
-              resources={processedResources}
-              filters={filters}
-              onFilterChange={handleCheckboxChange}
-              onPaymentFilterChange={handlePaymentCheckboxChange}
-              compensationTypesOptions={PAYMENT_TYPES}
-              citationMap={citationMap}
-              onWearableFilterToggle={handleWearableFilterToggle}
-              onMacroCategoryFilterChange={handleMacroCategoryFilterChange}
-              highlightedResourceSlug={highlightedResourceSlug}
-            />
-          </div>
-
-          {/* Desktop & Mobile Buttons under cards */}
-          <div className="mt-10 flex flex-col md:flex-row items-center gap-4 w-full max-w-2xl mx-auto">
-            <Link
-              href="/get-involved"
-              className="group w-full md:flex-1 flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-google-blue text-white text-base font-bold shadow-lg shadow-blue-500/20 hover:shadow-xl hover:-translate-y-0.5 hover:bg-blue-800 transition-all duration-300"
-            >
-              <FaPlus className="text-sm group-hover:scale-110 transition-transform" />
-              Suggest a Service
-            </Link>
-            <Link
-              href="/data"
-              className="group w-full md:flex-1 flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-white border-2 border-slate-200 text-slate-700 text-base font-bold hover:border-slate-300 hover:bg-slate-50 transition-all duration-300"
-            >
-              <FaDownload className="text-sm group-hover:scale-110 transition-transform text-slate-400 group-hover:text-slate-600" />
-              Download Dataset
-            </Link>
-          </div>
-
-          {/* References Section */}
-          <ReferencesSection citations={citationList} />
-        </main >
-      </div > {/* End grid */}
-
-      {/* Filter Drawer - Now uses the dynamically imported MobileFilterDrawer */}
-      <MobileFilterDrawer
-        isOpen={isFilterDrawerOpen}
-        toggleDrawer={toggleFilterDrawer}
-        filters={filters}
-        countryOptions={countryOptions}
-        originOptions={originOptions}
-        dataTypeOptions={dataTypeOptions}
-        paymentTypes={PAYMENT_TYPES}
-        handleCheckboxChange={handleCheckboxChange}
-        handlePaymentCheckboxChange={handlePaymentCheckboxChange}
-        handleResetFilters={handleResetFilters}
-        renderFilterContent={() => (
-          <>
-            <FilterGroup
-              title="Category"
-              options={macroCategoryOptions}
-              filterKey="macroCategories"
-              selectedValues={filters.macroCategories}
-              onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
-              onSelectAll={(shouldSelect) => handleSelectAll('macroCategories', macroCategoryOptions, shouldSelect)}
-              config={{ alwaysExpanded: true, HeadingTag: 'h2' }}
-            />
-            <FilterGroup
-              title="Available In"
-              options={countryOptions}
-              filterKey="countries"
-              selectedValues={filters.countries}
-              onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
-              onSelectAll={(shouldSelect) => handleSelectAll('countries', countryOptions, shouldSelect)}
-              config={{ HeadingTag: 'h2' }}
-            />
-            <FilterGroup
-              title="Data Type"
-              options={dataTypeOptions}
-              filterKey="dataTypes"
-              selectedValues={filters.dataTypes}
-              onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
-              onSelectAll={(shouldSelect) => handleSelectAll('dataTypes', dataTypeOptions, shouldSelect)}
-              config={{ HeadingTag: 'h2' }}
-            />
-            <FilterGroup
-              title="Compensation"
-              options={PAYMENT_TYPES}
-              filterKey="compensationTypes"
-              selectedValues={filters.compensationTypes}
-              onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
-              onSelectAll={(shouldSelect) => handleSelectAll('compensationTypes', PAYMENT_TYPES, shouldSelect)}
-              config={{ HeadingTag: 'h2' }}
-            />
-            <div className="mt-6 border-t border-slate-100 pt-5">
-              <h2 className="text-lg font-bold mb-3 text-slate-800">Sector</h2>
-              <div className="flex flex-wrap gap-2">
-                {['Commercial', 'Public & Non-Profit'].map(sector => {
-                  const isSelected = filters.sectors.includes(sector);
-                  return (
+              {/* Sort compensation types by PAYMENT_TYPES order before mapping */}
+              {[...filters.compensationTypes]
+                .sort((a, b) => PAYMENT_TYPES.map(p => p.value).indexOf(a.value) - PAYMENT_TYPES.map(p => p.value).indexOf(b.value))
+                .map(option => (
+                  <span key={`sel - pay - ${option.value} `} className="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-2 py-1 rounded-full">
+                    {option.value === 'payment' ? '💲' : option.emoji} {option.label}
                     <button
-                      key={sector}
-                      onClick={() => handleFilterChange('sectors', sector, !isSelected)}
-                      className={`
-                        flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-medium transition-all border
-                        ${isSelected
-                          ? 'bg-indigo-50 border-indigo-200 text-indigo-700 shadow-sm'
-                          : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50'}
-                      `}
-                    >
-                      <div className={`
-                        w-4 h-4 rounded border flex items-center justify-center
-                        ${isSelected
-                          ? 'bg-indigo-600 border-indigo-600 text-white'
-                          : 'bg-white border-slate-300'}
-                      `}>
-                        {isSelected && <FaCheck className="text-[8px]" />}
-                      </div>
-                      {sector}
+                      onClick={() => handlePaymentCheckboxChange(option, false)}
+                      className="ml-1 text-google-blue hover:opacity-75" aria-label={`Remove ${option.label} `}>
+                      <FaTimes size="0.9em" />
                     </button>
-                  );
-                })}
-              </div>
+                  </span>
+                ))}
+
             </div>
 
-            <FilterGroup
-              title="Based In"
-              options={originOptions}
-              filterKey="origins"
-              selectedValues={filters.origins}
-              onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
-              onSelectAll={(shouldSelect) => handleSelectAll('origins', originOptions, shouldSelect)}
-              config={{ HeadingTag: 'h2' }}
-            />
-          </>
-        )}
-      />
-    </div > // End flex-grow container
+            {/* Resource Grid */}
+            <div className="lg:col-span-1">
+              <ResourceGrid
+                resources={processedResources}
+                filters={filters}
+                onFilterChange={handleCheckboxChange}
+                onPaymentFilterChange={handlePaymentCheckboxChange}
+                compensationTypesOptions={PAYMENT_TYPES}
+                citationMap={citationMap}
+                onWearableFilterToggle={handleWearableFilterToggle}
+                onMacroCategoryFilterChange={handleMacroCategoryFilterChange}
+                highlightedResourceSlug={highlightedResourceSlug}
+              />
+            </div>
+
+            {/* Desktop & Mobile Buttons under cards */}
+            <div className="mt-10 flex flex-col md:flex-row items-center gap-4 w-full max-w-2xl mx-auto">
+              <Link
+                href="/get-involved"
+                className="group w-full md:flex-1 flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-google-blue text-white text-base font-bold shadow-lg shadow-blue-500/20 hover:shadow-xl hover:-translate-y-0.5 hover:bg-blue-800 transition-all duration-300"
+              >
+                <FaPlus className="text-sm group-hover:scale-110 transition-transform" />
+                Suggest a Service
+              </Link>
+              <Link
+                href="/data"
+                className="group w-full md:flex-1 flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-white border-2 border-slate-200 text-slate-700 text-base font-bold hover:border-slate-300 hover:bg-slate-50 transition-all duration-300"
+              >
+                <FaDownload className="text-sm group-hover:scale-110 transition-transform text-slate-400 group-hover:text-slate-600" />
+                Download Dataset
+              </Link>
+            </div>
+
+            {/* References Section */}
+            <ReferencesSection citations={citationList} />
+          </main >
+        </div > {/* End grid */}
+
+        {/* Filter Drawer - Now uses the dynamically imported MobileFilterDrawer */}
+        <MobileFilterDrawer
+          isOpen={isFilterDrawerOpen}
+          toggleDrawer={toggleFilterDrawer}
+          filters={filters}
+          countryOptions={countryOptions}
+          originOptions={originOptions}
+          dataTypeOptions={dataTypeOptions}
+          paymentTypes={PAYMENT_TYPES}
+          handleCheckboxChange={handleCheckboxChange}
+          handlePaymentCheckboxChange={handlePaymentCheckboxChange}
+          handleResetFilters={handleResetFilters}
+          renderFilterContent={() => (
+            <>
+              <FilterGroup
+                title="Category"
+                options={macroCategoryOptions}
+                filterKey="macroCategories"
+                selectedValues={filters.macroCategories}
+                onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
+                onSelectAll={(shouldSelect) => handleSelectAll('macroCategories', macroCategoryOptions, shouldSelect)}
+                config={{ alwaysExpanded: true, HeadingTag: 'h2' }}
+              />
+              <FilterGroup
+                title="Available In"
+                options={countryOptions}
+                filterKey="countries"
+                selectedValues={filters.countries}
+                onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
+                onSelectAll={(shouldSelect) => handleSelectAll('countries', countryOptions, shouldSelect)}
+                config={{ HeadingTag: 'h2' }}
+              />
+              <FilterGroup
+                title="Data Type"
+                options={dataTypeOptions}
+                filterKey="dataTypes"
+                selectedValues={filters.dataTypes}
+                onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
+                onSelectAll={(shouldSelect) => handleSelectAll('dataTypes', dataTypeOptions, shouldSelect)}
+                config={{ HeadingTag: 'h2' }}
+              />
+              <FilterGroup
+                title="Compensation"
+                options={PAYMENT_TYPES}
+                filterKey="compensationTypes"
+                selectedValues={filters.compensationTypes}
+                onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
+                onSelectAll={(shouldSelect) => handleSelectAll('compensationTypes', PAYMENT_TYPES, shouldSelect)}
+                config={{ HeadingTag: 'h2' }}
+              />
+              <div className="mt-6 border-t border-slate-100 pt-5">
+                <h2 className="text-lg font-bold mb-3 text-slate-800">Sector</h2>
+                <div className="flex flex-wrap gap-2">
+                  {['Commercial', 'Public & Non-Profit'].map(sector => {
+                    const isSelected = filters.sectors.includes(sector);
+                    return (
+                      <button
+                        key={sector}
+                        onClick={() => handleFilterChange('sectors', sector, !isSelected)}
+                        className={`
+                        flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-medium transition-all border
+                        ${isSelected
+                            ? 'bg-indigo-50 border-indigo-200 text-indigo-700 shadow-sm'
+                            : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50'}
+                      `}
+                      >
+                        <div className={`
+                        w-4 h-4 rounded border flex items-center justify-center
+                        ${isSelected
+                            ? 'bg-indigo-600 border-indigo-600 text-white'
+                            : 'bg-white border-slate-300'}
+                      `}>
+                          {isSelected && <FaCheck className="text-[8px]" />}
+                        </div>
+                        {sector}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <FilterGroup
+                title="Based In"
+                options={originOptions}
+                filterKey="origins"
+                selectedValues={filters.origins}
+                onFilterChange={(k, v, c) => handleFilterChange(k, v, c)}
+                onSelectAll={(shouldSelect) => handleSelectAll('origins', originOptions, shouldSelect)}
+                config={{ HeadingTag: 'h2' }}
+              />
+            </>
+          )}
+        />
+      </div>
+    </div>
   );
 }
 

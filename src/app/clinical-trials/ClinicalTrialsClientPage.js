@@ -276,6 +276,7 @@ export default function ClinicalTrialsWizard() {
                                                 resource={resource}
                                                 onSectorClick={(sector) => setSelectedSector(sector)}
                                                 onCompensationClick={(comp) => setSelectedCompensation(comp)}
+                                                selectedCompensation={selectedCompensation}
                                                 selectedCountries={selectedCountries}
                                             />
                                         </motion.div>
@@ -304,6 +305,7 @@ export default function ClinicalTrialsWizard() {
                                                 resource={resource}
                                                 onSectorClick={(sector) => setSelectedSector(sector)}
                                                 onCompensationClick={(comp) => setSelectedCompensation(comp)}
+                                                selectedCompensation={selectedCompensation}
                                                 selectedCountries={selectedCountries}
                                             />
                                         </motion.div>
@@ -372,7 +374,7 @@ export default function ClinicalTrialsWizard() {
                                 Discover more ways to advance science. Explore our complete directory of <strong className="text-green-700">{activeResources.length}</strong> active projects across various fields.
                             </p>
                             <Link
-                                href="/resources"
+                                href="/"
                                 className="inline-flex items-center justify-center px-8 py-4 bg-green-600 text-white font-bold rounded-xl hover:bg-green-700 hover:-translate-y-0.5 transition-all shadow-lg shadow-green-500/30 ring-1 ring-green-700/50"
                             >
                                 Browse All Resources

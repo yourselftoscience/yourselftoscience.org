@@ -251,7 +251,7 @@ export default function NewsletterSignup({ compact = false }) {
   }
 
   return (
-    <div ref={formRef} className="w-full max-w-3xl mx-auto my-8">
+    <div ref={formRef} className="w-full max-w-3xl mx-auto my-2">
       <form
         onSubmit={handleSubmit}
         className="relative flex flex-col items-center"

@@ -547,6 +547,7 @@ function GeneticDataWizard() {
                                             setIsFiltersExpanded(true);
                                         }
                                     }}
+                                    selectedCompensation={selectedCompensation}
                                     onCompensationClick={(comp) => {
                                         if (selectedCompensation === comp) {
                                             setSelectedCompensation('Any Compensation');
@@ -620,7 +621,7 @@ function GeneticDataWizard() {
                                 Discover more ways to advance science. Explore our complete directory of <strong className="text-blue-700">{activeResources.length}</strong> active projects across various fields.
                             </p>
                             <Link
-                                href="/resources"
+                                href="/"
                                 className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 hover:-translate-y-0.5 transition-all shadow-lg shadow-blue-500/30 ring-1 ring-blue-700/50"
                             >
                                 Browse All Resources

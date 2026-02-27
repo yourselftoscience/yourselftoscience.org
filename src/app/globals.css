@@ -52,32 +52,37 @@ li:target {
 }
 
 .resource-card {
-  @apply bg-white border border-gray-200 rounded-xl p-4 shadow-sm hover:shadow-lg transition-all duration-300 ease-in-out flex flex-col no-underline text-current;
-  min-height: 260px; /* Or a value that fits your content */
+  @apply bg-white/80 backdrop-blur-2xl border border-white/60 rounded-[2rem] p-6 shadow-md hover:shadow-2xl transition-all duration-500 ease-out flex flex-col no-underline text-current;
+  min-height: 280px;
 }
 
 .resource-card:hover {
-  @apply -translate-y-1;
+  @apply -translate-y-1.5;
 }
 
 .resource-card h2 {
-  @apply text-lg font-semibold mb-1 text-google-text;
+  @apply text-xl md:text-2xl font-bold mb-1 text-slate-900 leading-tight;
 }
 
 .resource-card p {
-  @apply text-sm text-google-text-secondary;
+  @apply text-sm text-slate-600 leading-relaxed;
 }
 
 .organization-name {
-  @apply text-sm font-semibold text-gray-800 mb-3;
+  @apply text-sm font-medium text-slate-600 mb-2;
 }
 
 .tag {
-  @apply inline-flex items-center text-xs bg-gray-100 text-gray-700 px-2 py-0.5 rounded-md;
+  @apply inline-flex items-center text-[10px] font-semibold bg-slate-100/80 text-slate-600 px-2.5 py-1 rounded-md border border-slate-200;
 }
 
 .action-button {
-  @apply inline-block bg-blue-600 text-white font-medium text-sm px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 no-underline;
+  @apply flex items-center justify-center w-full h-12 px-6 bg-blue-600 text-white font-semibold text-sm rounded-xl no-underline transition-all duration-300;
+  box-shadow: 0 4px 14px 0 rgb(37 99 235 / 0.39);
+}
+.action-button:hover {
+  @apply bg-blue-700 -translate-y-[1px];
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.23);
 }
 
 .action-button-disabled {
