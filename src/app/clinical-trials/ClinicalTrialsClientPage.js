@@ -357,11 +357,6 @@ export default function ClinicalTrialsWizard() {
                     </div>
                 </div>
 
-                {/* Disclaimer */}
-                <p className="mt-12 text-sm text-center text-gray-500">
-                    <b>Disclaimer:</b> This website provides a catalogue of resources and does not offer medical advice or recommend any specific trial. Please consult with a healthcare professional before making any decisions about your health or participation in a clinical trial.
-                </p>
-
                 {/* Link back to all resources */}
                 <div className="mt-8 text-center">
                     <Link href="/" className="text-sm text-slate-500 hover:text-green-600 transition-colors font-medium">

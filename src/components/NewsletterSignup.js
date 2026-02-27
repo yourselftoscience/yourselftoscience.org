@@ -192,7 +192,7 @@ export default function NewsletterSignup({ compact = false }) {
 
     if (response.ok) {
       setStatus('success');
-      setMessage('Thank you for subscribing!');
+      setMessage(result.message || 'Thank you for subscribing!');
       // Clear form data immediately to prevent "unsaved changes" warnings
       setFormData({
         email: '',
@@ -413,7 +413,7 @@ export default function NewsletterSignup({ compact = false }) {
                   </div>
                 </div>
                 <p className="text-sm text-gray-600 mt-4 text-center px-4">
-                  By subscribing, you agree to our{' '}
+                  By subscribing, you agree to receive our newsletter and curated opportunities based on your interests. See our{' '}
                   <Link
                     href="/privacy-policy"
                     target="_blank"
@@ -422,7 +422,7 @@ export default function NewsletterSignup({ compact = false }) {
                   >
                     Privacy Policy
                   </Link>
-                  . We respect your privacy and will not sell your personal data.
+                  .
                 </p>
                 <div className="text-center mt-6">
                   <button

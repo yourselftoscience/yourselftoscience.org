@@ -147,7 +147,15 @@ export default function Footer() {
               </Link>
               .
             </p>
-            <p>&copy; {copyrightDate} Yourself to Science<sup>™</sup> (also You2Science<sup>™</sup>). Some Rights Reserved.</p>
+            <p className="flex justify-center space-x-4 mt-2">
+              <Link href="/privacy-policy" className="underline hover:text-apple-accent transition-colors duration-200">
+                Privacy Policy
+              </Link>
+              <Link href="/terms" className="underline hover:text-apple-accent transition-colors duration-200">
+                Terms of Use & Disclaimer
+              </Link>
+            </p>
+            <p className="mt-2">&copy; {copyrightDate} Yourself to Science<sup>™</sup> (also You2Science<sup>™</sup>). Some Rights Reserved.</p>
           </div>
         </div>
       </footer>

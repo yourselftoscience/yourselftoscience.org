@@ -310,11 +310,6 @@ export default function OrganBodyTissueWizard() {
                     </div>
                 </div>
 
-                {/* Disclaimer */}
-                <p className="mt-12 text-sm text-center text-gray-500">
-                    <b>Disclaimer:</b> This website provides a catalogue of resources and does not provide legal or medical advice. Please consult with program coordinators and your family to make informed decisions about donation.
-                </p>
-
                 {/* Link back */}
                 <div className="mt-8 text-center">
                     <Link href="/" className="text-sm text-slate-500 hover:text-rose-600 transition-colors font-medium">

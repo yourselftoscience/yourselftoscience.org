@@ -49,9 +49,12 @@ export async function POST(request) {
   if (researchTopics) merge_fields.TOPICS = researchTopics;
   if (country && country.length > 0) merge_fields.COUNTRY = country.join(', ');
 
+  // Apply Double Opt-In globally for maximum privacy compliance
+  const subscriberStatus = 'pending';
+
   const data = {
     email_address: email,
-    status: 'subscribed',
+    status: subscriberStatus,
     merge_fields,
   };
 
@@ -88,7 +91,10 @@ export async function POST(request) {
       });
     }
 
-    return new Response(JSON.stringify({ message: 'Successfully subscribed!' }), {
+    const successMessage =
+      'Thank you for subscribing! Please check your email to confirm.';
+
+    return new Response(JSON.stringify({ message: successMessage }), {
       status: 201,
       headers: { 'Content-Type': 'application/json' },
     });
