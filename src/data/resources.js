@@ -1470,14 +1470,19 @@ const rawResources = [
     "dataTypes": [
       "Genome"
     ],
-    "compatibleSources": ["23andMe", "AncestryDNA", "MyHeritage", "FamilyTreeDNA", "Sequencing.com", "tellmeGen"],
+    "compatibleSources": ["Raw Data", "23andMe", "AncestryDNA", "MyHeritage", "FamilyTreeDNA", "Sequencing.com", "tellmeGen"],
     "countries": [],
     "countryCodes": [],
     "compensationType": "donation",
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
-    "description": "A public genealogy database that allows users to opt-in to share their data for research purposes.",
-    "citations": []
+    "description": "A public genealogy database that allows users to opt-in to share their data for research purposes. Note: VCF files from unsupported companies must be converted to the 23andMe format before upload.",
+    "citations": [
+      {
+        "title": "GEDmatch DNA Upload Instructions | Sequencing.com Education Center",
+        "link": "https://sequencing.com/education-center/free-dna-upload-sites/gedmatch-dna-upload-instructions"
+      }
+    ]
   },
   {
     "id": "50ed915d-ab6f-478a-9dc5-cf4774cfa14d",

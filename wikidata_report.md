@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 2/28/2026, 4:24:16 AM
+**Generated on:** 2/28/2026, 4:41:45 AM
 
 ## Project-Organizer Relationships
 
@@ -323,5 +323,6 @@
 - ❌ **Carvalho, A., Merhout, J. W., Kadiyala, Y., & Bentley II, J. (2021). When good blocks go bad: Managing unwanted block...** (DOI: 10.1016/j.ijinfomgt.2020.102263)
 - ❌ **Kabra, S., Sharma, S., & Sachdeva, M. (2025). Blockchain: A new frontier in secure patient data management. Blockchai...** (DOI: 10.1002/9781394287970.ch15)
 - ❌ **Wang, R., Ye, F., Tang, S., Zhang, H., He, J., Zhang, X., & Xu, C. (2025). Blockchain Technology for Big-data Sharing...** (DOI: 10.1038/s41597-025-06092-4)
+- ❌ **GEDmatch DNA Upload Instructions | Sequencing.com Education Center** ([Citation Link](https://sequencing.com/education-center/free-dna-upload-sites/gedmatch-dna-upload-instructions))
 - ❌ **Contacting Individual Altruists | Sequencing.com Knowledge Center** ([Citation Link](https://sequencing.com/knowledge-center/altruist-endeavor/altruist-database/contacting-individual-altruists))
 - ❌ **Additional Offers & Altruism Rewards | Sequencing.com Knowledge Center** ([Citation Link](https://sequencing.com/knowledge-center/altruist-endeavor/altruism-rewards/additional-offers))

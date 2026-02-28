@@ -537,10 +537,11 @@ yts:compensationWikidataId a rdfs:Property ;
 
 <https://yourselftoscience.org/resource/e5bbe9fa-66ad-4ea5-ab36-9330205262be> a schema:Dataset ;
   rdfs:label "GEDmatch" ;
-  schema:description "A public genealogy database that allows users to opt-in to share their data for research purposes." ;
+  schema:description "A public genealogy database that allows users to opt-in to share their data for research purposes. Note: VCF files from unsupported companies must be converted to the 23andMe format before upload." ;
   schema:creator [ a schema:Organization; rdfs:label "Verogen Inc." ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
   schema:url <https://www.gedmatch.com/privacy-security/> ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ] ;
+  schema:citation <https://sequencing.com/education-center/free-dna-upload-sites/gedmatch-dna-upload-instructions> ;
   yts:compensationType "donation" ;
   yts:compensationWikidataId wd:Q1124860 .
 

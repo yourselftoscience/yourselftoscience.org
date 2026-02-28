@@ -550,7 +550,7 @@ This page provides a filterable catalogue of all resources. You can also downloa
 
 ### [GEDmatch](https://yourselftoscience.org/resource/gedmatch)
 
-*Description:* A public genealogy database that allows users to opt-in to share their data for research purposes.
+*Description:* A public genealogy database that allows users to opt-in to share their data for research purposes. Note: VCF files from unsupported companies must be converted to the 23andMe format before upload.
 
 *Data Types:* Genome
 
