@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 2/28/2026, 5:33:46 AM
+**Generated on:** 2/28/2026, 5:51:08 AM
 
 ## Project-Organizer Relationships
 
@@ -112,8 +112,8 @@
   - Wesley Research Institute: [Q30289631](https://www.wikidata.org/wiki/Q30289631)
 - **Wesley Research Institute stool donation**: ❌
   - Wesley Research Institute: [Q30289631](https://www.wikidata.org/wiki/Q30289631)
-- **WikiTree**: ❌
-  - WikiTree: No Wikidata ID
+- **WikiTree**: [Q1074931](https://www.wikidata.org/wiki/Q1074931)
+  - WikiTree: [Q1074931](https://www.wikidata.org/wiki/Q1074931)
 
 ## Resources (Projects)
 
@@ -165,7 +165,7 @@
 - **University of Wrocław human hair decomposition project**: ❌
 - **Wesley Research Institute placenta donation**: ❌
 - **Wesley Research Institute stool donation**: ❌
-- **WikiTree**: ❌
+- **WikiTree**: [Q1074931](https://www.wikidata.org/wiki/Q1074931)
 - **body and tissue donation in Italy**: ❌
 - **body donation in France**: ❌
 - **gamete and embryo donation in the United Kingdom**: ❌
@@ -225,7 +225,7 @@
 - **Vanderbilt University Medical Center**: [Q7914455](https://www.wikidata.org/wiki/Q7914455)
 - **Verogen Inc.**: ❌
 - **Wesley Research Institute**: [Q30289631](https://www.wikidata.org/wiki/Q30289631)
-- **WikiTree**: ❌
+- **WikiTree**: [Q1074931](https://www.wikidata.org/wiki/Q1074931)
 - **World Health Organization (WHO)**: [Q7817](https://www.wikidata.org/wiki/Q7817)
 - **hVIVO**: [Q30268998](https://www.wikidata.org/wiki/Q30268998)
 

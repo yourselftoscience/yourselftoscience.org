@@ -1672,11 +1672,13 @@ const rawResources = [
   },
   {
     "id": "5a99f8d8-f020-4d3a-9a61-ca8f7547ad1d",
+    "resourceWikidataId": "Q1074931",
     "slug": "wikitree",
     "title": "WikiTree",
     "organizations": [
       {
-        "name": "WikiTree"
+        "name": "WikiTree",
+        "wikidataId": "Q1074931"
       }
     ],
     "link": "https://www.wikitree.com/wiki/Special:DNATests",
