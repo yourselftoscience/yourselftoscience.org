@@ -582,3 +582,15 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationType "donation" ;
   yts:compensationWikidataId wd:Q1124860 .
 
+<https://yourselftoscience.org/resource/5297c0c6-2633-4109-b7d6-2016045227af> a schema:Dataset ;
+  rdfs:label "Altruist Database (Sequencing.com)" ;
+  schema:description "A free database of anonymous genotypic, phenotypic and interpretation data that allows public searching and analysis. Researchers can request to contact individuals holding specific traits for additional paid studies and opportunities." ;
+  schema:creator [ a schema:Organization; rdfs:label "Sequencing.com" ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
+  schema:url <https://sequencing.com/knowledge-center/altruist-endeavor/altruist-database> ;
+  schema:spatialCoverage [ a schema:Place; rdfs:label "Worldwide" ; schema:sameAs wd:Q13780930 ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ] ;
+  schema:citation <https://sequencing.com/knowledge-center/altruist-endeavor/altruist-database/contacting-individual-altruists> ;
+  schema:citation <https://sequencing.com/knowledge-center/altruist-endeavor/altruism-rewards/additional-offers> ;
+  yts:compensationType "mixed" ;
+  yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
+

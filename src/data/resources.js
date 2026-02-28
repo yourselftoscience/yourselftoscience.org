@@ -1607,6 +1607,53 @@ const rawResources = [
     "description": "Participate in a genetic study for hypermobile Ehlers-Danlos Syndrome (hEDS) and Dysautonomia in collaboration with the Norris Lab at the Medical University of South Carolina.",
     "eligibility": "Customers",
     "citations": []
+  },
+  {
+    "id": "5297c0c6-2633-4109-b7d6-2016045227af",
+    "slug": "altruist-database",
+    "title": "Altruist Database (Sequencing.com)",
+    "organizations": [
+      {
+        "name": "Sequencing.com"
+      }
+    ],
+    "link": "https://sequencing.com/knowledge-center/altruist-endeavor/altruist-database",
+    "dataTypes": [
+      "Genome"
+    ],
+    "compatibleSources": [
+      "Raw Data",
+      "WGS",
+      "Sequencing.com",
+      "23andMe",
+      "AncestryDNA",
+      "MyHeritage",
+      "FamilyTreeDNA",
+      "tellmeGen"
+    ],
+    "countries": ["Worldwide"],
+    "origin": "United States",
+    "originCode": "US",
+    "compensationType": "mixed",
+    "entityCategory": "Commercial",
+    "entitySubType": "Commercial",
+    "description": "A free database of anonymous genotypic, phenotypic and interpretation data that allows public searching and analysis. Researchers can request to contact individuals holding specific traits for additional paid studies and opportunities.",
+    "instructions": [
+      "Upload your genetic data files into your Sequencing.com account",
+      "Navigate to your 'My Files' page",
+      "Change the 'Altruist' toggle button for your file from 'No' to 'Yes'",
+      "Enable 'Receive additional offers' in Settings > Altruism Rewards to receive incentives from researchers"
+    ],
+    "citations": [
+      {
+        "title": "Contacting Individual Altruists | Sequencing.com Knowledge Center",
+        "link": "https://sequencing.com/knowledge-center/altruist-endeavor/altruist-database/contacting-individual-altruists"
+      },
+      {
+        "title": "Additional Offers & Altruism Rewards | Sequencing.com Knowledge Center",
+        "link": "https://sequencing.com/knowledge-center/altruist-endeavor/altruism-rewards/additional-offers"
+      }
+    ]
   }
 ];
 

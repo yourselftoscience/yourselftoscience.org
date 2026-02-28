@@ -4,17 +4,17 @@ An overview of the resources available on Yourself to Science, providing insight
 
 ## Overview
 
-- **Total Resources:** 52
+- **Total Resources:** 53
 
 ## Compensation Types
 
 - **Donation:** 31
-- **Mixed:** 17
+- **Mixed:** 18
 - **Payment:** 4
 
 ## Resources Based In
 
-- **United States:** 23
+- **United States:** 24
 - **European Union:** 16
   - **Breakdown:**
     - **Italy:** 4
@@ -33,7 +33,7 @@ An overview of the resources available on Yourself to Science, providing insight
 
 ## Top 10 Service Availability by Country
 
-- **Worldwide:** 20
+- **Worldwide:** 21
 - **European Union:** 12
   - **Breakdown:**
     - **Italy:** 3
@@ -54,8 +54,8 @@ An overview of the resources available on Yourself to Science, providing insight
 ## Data Type Distribution
 
 - **Clinical trials:** 15
+- **Genome:** 14
 - **Health data:** 14
-- **Genome:** 13
 - **Body:** 5
 - **Tissue:** 5
 - **Wearable data:** 4
@@ -78,7 +78,7 @@ An overview of the resources available on Yourself to Science, providing insight
 
 ## Entity Type Distribution
 
-- **Commercial:** 16
+- **Commercial:** 17
 - **Academic:** 13
   - **Academic:** 8
   - **University:** 2

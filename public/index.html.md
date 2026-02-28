@@ -607,3 +607,15 @@ This page provides a filterable catalogue of all resources. You can also downloa
 *Compensation:* Donation
 
 ---
+
+### [Altruist Database (Sequencing.com)](https://yourselftoscience.org/resource/altruist-database)
+
+*Description:* A free database of anonymous genotypic, phenotypic and interpretation data that allows public searching and analysis. Researchers can request to contact individuals holding specific traits for additional paid studies and opportunities.
+
+*Data Types:* Genome
+
+*Countries:* Worldwide
+
+*Compensation:* Mixed
+
+---
