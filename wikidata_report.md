@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 2/28/2026, 4:20:24 AM
+**Generated on:** 2/28/2026, 4:24:16 AM
 
 ## Project-Organizer Relationships
 
@@ -302,6 +302,8 @@
 ## Citations
 
 - [Q84081777](https://www.wikidata.org/wiki/Q84081777) **Greshake Tzovaras, B., Angrist, M., Arvai, K., Dulaney, M., Estrada-Galiñanes, V., Gunderson, B., ... & Price Ball, M...** (DOI: 10.1093/gigascience/giz076)
+- ❌ **Introduction to Group Projects | FamilyTreeDNA Help Center** ([Citation Link](https://help.familytreedna.com/hc/en-us/articles/4503173806351-Introduction-to-Group-Projects))
+- ❌ **Transferring Your Autosomal DNA From Another Company | FamilyTreeDNA Help Center** ([Citation Link](https://help.familytreedna.com/hc/en-us/articles/4402392808463-Transferring-Your-Autosomal-DNA-From-Another-Company))
 - ❌ **Shandhi, M.M.H., Cho, P.J., Roghanizad, A.R. et al. A method for intelligent allocation of diagnostic testing by leve...** (DOI: 10.1038/s41746-022-00672-z)
 - ❌ **Figueira-Gonçalves, J. M., Callejas-González, F. J., Golpe, R., Máiz-Carro, L., Marín-Oto, M., de Miguel-Díez, J., .....** (DOI: 10.1016/j.opresp.2025.100438)
 - ❌ **Pranaitytė, G., Grybaitė, B., Endriulaityte, U., Mickevičius, V., & Petrikaitė, V. (2025). Exploration of 1-(2, 4-dif...** (DOI: 10.1038/s41598-025-02106-8)

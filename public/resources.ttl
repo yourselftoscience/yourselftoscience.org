@@ -32,6 +32,8 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:url <https://www.familytreedna.com/group-project> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Worldwide" ; schema:sameAs wd:Q13780930 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ; schema:sameAs wd:Q7020 ] ;
+  schema:citation <https://help.familytreedna.com/hc/en-us/articles/4503173806351-Introduction-to-Group-Projects> ;
+  schema:citation <https://help.familytreedna.com/hc/en-us/articles/4402392808463-Transferring-Your-Autosomal-DNA-From-Another-Company> ;
   yts:compensationType "donation" ;
   yts:compensationWikidataId wd:Q1124860 .
 

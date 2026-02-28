@@ -57,7 +57,17 @@ const rawResources = [
     "origin": "United States",
     "originCode": "US",
     "countries": ["Worldwide"],
-    "locations": ["Worldwide"]
+    "locations": ["Worldwide"],
+    "citations": [
+      {
+        "title": "Introduction to Group Projects | FamilyTreeDNA Help Center",
+        "link": "https://help.familytreedna.com/hc/en-us/articles/4503173806351-Introduction-to-Group-Projects"
+      },
+      {
+        "title": "Transferring Your Autosomal DNA From Another Company | FamilyTreeDNA Help Center",
+        "link": "https://help.familytreedna.com/hc/en-us/articles/4402392808463-Transferring-Your-Autosomal-DNA-From-Another-Company"
+      }
+    ]
   },
   {
     "id": "66700d6e-cbc9-40ab-8bf9-eb466844ad52",
