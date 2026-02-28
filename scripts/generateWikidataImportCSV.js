@@ -14,7 +14,7 @@ function generateImportCSV() {
         return !r.resourceWikidataId;
     });
 
-    const headers = ['id', 'name', 'description', 'url', 'type'];
+    const headers = ['id', 'name', 'description', 'url', 'type', 'S854'];
     let csvContent = headers.join(',') + '\n';
 
     let count = 0;
@@ -83,7 +83,8 @@ function generateImportCSV() {
             escapedName,
             escapedDesc,
             escapedUrl,
-            type
+            type,
+            `"https://yourselftoscience.org/resource/${r.id}"`
         ];
 
         csvContent += row.join(',') + '\n';

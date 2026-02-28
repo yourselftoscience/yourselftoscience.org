@@ -18,10 +18,46 @@ export default function DataPage() {
         setTimeout(() => setCopiedUrl(null), 2500);
     };
 
-
+    const jsonLd = {
+      "@context": "https://schema.org/",
+      "@type": "Dataset",
+      "name": "Yourself to Science Open Dataset",
+      "description": "A curated, open-access catalog of services, platforms, and programs that allow individuals to securely contribute to scientific research with their health data, genome, body, and more.",
+      "url": "https://yourselftoscience.org/data",
+      "sameAs": "https://yourselftoscience.org/resources.ttl#dataset",
+      "identifier": ["https://yourselftoscience.org/resources.ttl#dataset"],
+      "creator": {
+        "@type": "Organization",
+        "name": "Yourself to Science",
+        "url": "https://yourselftoscience.org"
+      },
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "isAccessibleForFree": true,
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "text/csv",
+          "contentUrl": "https://yourselftoscience.org/resources.csv"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://yourselftoscience.org/resources.json"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "text/turtle",
+          "contentUrl": "https://yourselftoscience.org/resources.ttl"
+        }
+      ]
+    };
 
     return (
         <main className="flex-grow w-full max-w-screen-xl mx-auto px-4 py-12 md:py-16">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -148,6 +184,27 @@ export default function DataPage() {
                                 </button>
                             </div>
                         </div>
+
+                        <div className="bg-apple-card border border-apple-divider rounded-xl p-4">
+                            <div className="flex items-center justify-between mb-2">
+                                <p className="text-sm font-medium text-apple-secondary-text">VOID ENDPOINT (Semantic Web)</p>
+                                <span className="px-2 py-0.5 rounded text-xs font-semibold bg-indigo-100 text-indigo-800">Linked Data Descriptor</span>
+                            </div>
+                            <div className="flex items-center justify-between bg-white p-3 rounded-lg border border-apple-divider">
+                                <code className="text-apple-primary-text text-sm break-all">https://yourselftoscience.org/void.ttl</code>
+                                <button
+                                    onClick={() => handleCopy('https://yourselftoscience.org/void.ttl')}
+                                    className="p-2 text-apple-secondary-text hover:text-apple-accent transition-colors duration-200"
+                                    aria-label="Copy VoID URL"
+                                >
+                                    {copiedUrl === 'https://yourselftoscience.org/void.ttl' ? (
+                                        <FaCheck className="text-green-500" />
+                                    ) : (
+                                        <FaCopy />
+                                    )}
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </motion.div>
                 <motion.div
@@ -208,6 +265,7 @@ export default function DataPage() {
                     <p>The dataset contains the following fields for each resource:</p>
                     <ul>
                         <li><strong>id:</strong> A persistent, unique identifier (UUID) for the resource.</li>
+                        <li><strong>permalink:</strong> The permanent URI linking directly to the resource&apos;s dataset page.</li>
                         <li><strong>slug:</strong> A user-friendly identifier used in the URL.</li>
                         <li><strong>title:</strong> The name of the resource or study.</li>
                         <li><strong>organizations:</strong> An array of organizations conducting the research, each with a name and optional Wikidata ID.</li>
@@ -218,6 +276,8 @@ export default function DataPage() {
                         <li><strong>countries:</strong> An array of countries where the resource is available.</li>
                         <li><strong>description:</strong> A brief description of the resource.</li>
                         <li><strong>citations:</strong> An array of academic citations related to the resource.</li>
+                        <li><strong>compatibleSources:</strong> Known accepted dataset sources (e.g., &quot;WGS&quot;, &quot;23andMe&quot;).</li>
+                        <li><strong>resourceWikidataId:</strong> The main Wikidata QID aligned with the project.</li>
                         <li><strong>entityCategory:</strong> The general type of the organization (e.g., &quot;Non-Profit&quot;, &quot;Government&quot;).</li>
                         <li><strong>entitySubType:</strong> A more specific classification of the organization (e.g., &quot;Research Foundation&quot;, &quot;Regulatory Agency&quot;).</li>
                     </ul>

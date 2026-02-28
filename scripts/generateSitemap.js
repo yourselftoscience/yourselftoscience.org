@@ -61,11 +61,9 @@ async function generateSitemap() {
       { url: `${SITE_URL}/stats`, priority: '0.9', changefreq: 'weekly', file: 'src/app/stats/page.js', isDataDriven: true },
       { url: `${SITE_URL}/get-involved`, priority: '0.9', changefreq: 'weekly', file: 'src/app/get-involved/page.js' },
       { url: `${SITE_URL}/mission`, priority: '0.9', changefreq: 'monthly', file: 'src/app/mission/page.js' },
+      { url: `${SITE_URL}/what-can-i-do-with-my-genetic-data`, priority: '0.9', changefreq: 'monthly', file: 'src/app/what-can-i-do-with-my-genetic-data/page.js' },
       { url: `${SITE_URL}/clinical-trials`, priority: '0.8', changefreq: 'weekly', file: 'src/app/clinical-trials/page.js', isDataDriven: true },
       { url: `${SITE_URL}/organ-body-tissue-donation`, priority: '0.8', changefreq: 'weekly', file: 'src/app/organ-body-tissue-donation/page.js', isDataDriven: true },
-      { url: `${SITE_URL}/resources`, priority: '0.5', changefreq: 'monthly', file: 'src/app/resources/page.js', isDataDriven: true },
-      { url: `${SITE_URL}/license/content`, priority: '0.3', changefreq: 'yearly', file: 'LICENSE-CONTENT' },
-      { url: `${SITE_URL}/license/code`, priority: '0.3', changefreq: 'yearly', file: 'LICENSE-CODE' },
       { url: `${SITE_URL}/yourselftoscience.pdf`, priority: '0.7', changefreq: 'weekly', file: 'public/yourselftoscience.pdf' }
     ];
 

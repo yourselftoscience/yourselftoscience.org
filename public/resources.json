@@ -49,7 +49,8 @@
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q119852396",
     "originWikidataId": "Q30",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/667f25be-9ff2-4e7a-9119-78f2eb61a801"
   },
   {
     "id": "6b75822f-2f88-4660-9304-122709d3161f",
@@ -103,7 +104,8 @@
       "Worldwide": "Q13780930"
     },
     "originWikidataId": "Q30",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/6b75822f-2f88-4660-9304-122709d3161f"
   },
   {
     "id": "66700d6e-cbc9-40ab-8bf9-eb466844ad52",
@@ -143,7 +145,8 @@
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q119852396",
     "originWikidataId": "Q30",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/66700d6e-cbc9-40ab-8bf9-eb466844ad52"
   },
   {
     "id": "095034ef-732e-45c6-ad16-54c29c7ba408",
@@ -176,7 +179,8 @@
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453",
     "originWikidataId": "Q30",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/095034ef-732e-45c6-ad16-54c29c7ba408"
   },
   {
     "id": "2c7f3ca9-4d4b-41e2-93e2-b0f06bc11cb3",
@@ -217,7 +221,8 @@
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453",
     "originWikidataId": "Q30",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/2c7f3ca9-4d4b-41e2-93e2-b0f06bc11cb3"
   },
   {
     "id": "e9b2a7d1-5c1a-4d2c-8bf5-f9aee315ebd0",
@@ -261,7 +266,8 @@
       "United States": "Q30"
     },
     "originWikidataId": "Q30",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/e9b2a7d1-5c1a-4d2c-8bf5-f9aee315ebd0"
   },
   {
     "id": "e2ba7d15-5c1a-4d2c-8bf5-f9aee315ebd0",
@@ -301,7 +307,8 @@
       "United States": "Q30"
     },
     "originWikidataId": "Q30",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/e2ba7d15-5c1a-4d2c-8bf5-f9aee315ebd0"
   },
   {
     "id": "3b7e801f-1e45-4c2f-8631-edac7b61743a",
@@ -348,7 +355,8 @@
     "compensationWikidataId": [
       "Q1742093",
       "Q1124860"
-    ]
+    ],
+    "permalink": "https://yourselftoscience.org/resource/3b7e801f-1e45-4c2f-8631-edac7b61743a"
   },
   {
     "id": "a86ef2b7-fe73-43dd-9f36-356b6b9c861d",
@@ -389,7 +397,8 @@
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453",
     "originWikidataId": "Q30",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/a86ef2b7-fe73-43dd-9f36-356b6b9c861d"
   },
   {
     "id": "ff09caec-9a1a-464c-bc8c-009b745ed64a",
@@ -434,7 +443,8 @@
     "compensationWikidataId": [
       "Q1742093",
       "Q1124860"
-    ]
+    ],
+    "permalink": "https://yourselftoscience.org/resource/ff09caec-9a1a-464c-bc8c-009b745ed64a"
   },
   {
     "id": "fa3b7b34-7149-4eae-b7da-1ce31650897f",
@@ -475,7 +485,8 @@
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q3400985",
     "originWikidataId": "Q16",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/fa3b7b34-7149-4eae-b7da-1ce31650897f"
   },
   {
     "id": "04687f4b-6a45-4d0b-9c92-5487b22f0101",
@@ -522,7 +533,8 @@
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q3400985",
     "originWikidataId": "Q145",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/04687f4b-6a45-4d0b-9c92-5487b22f0101"
   },
   {
     "id": "a358a59c-91fd-4cc3-b971-366b05c1450e",
@@ -565,7 +577,8 @@
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q9353606",
     "originWikidataId": "Q38",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/a358a59c-91fd-4cc3-b971-366b05c1450e"
   },
   {
     "id": "6f6f3a6c-8c92-4f47-a75f-8d2e99e8cec0",
@@ -606,7 +619,8 @@
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q9353606",
     "originWikidataId": "Q142",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/6f6f3a6c-8c92-4f47-a75f-8d2e99e8cec0"
   },
   {
     "id": "b3dc517e-3359-4720-99f3-7fa1928012b2",
@@ -651,7 +665,8 @@
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q7604698",
     "originWikidataId": "Q145",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/b3dc517e-3359-4720-99f3-7fa1928012b2"
   },
   {
     "id": "d481c16f-c10c-415b-91d0-24dbf4c1ffbb",
@@ -688,7 +703,8 @@
     "compensationWikidataId": [
       "Q1742093",
       "Q1124860"
-    ]
+    ],
+    "permalink": "https://yourselftoscience.org/resource/d481c16f-c10c-415b-91d0-24dbf4c1ffbb"
   },
   {
     "id": "1d837bcd-3582-4a8e-b7f2-6daeb6ee4639",
@@ -730,7 +746,8 @@
     "compensationWikidataId": [
       "Q1742093",
       "Q1124860"
-    ]
+    ],
+    "permalink": "https://yourselftoscience.org/resource/1d837bcd-3582-4a8e-b7f2-6daeb6ee4639"
   },
   {
     "id": "aaf2c81c-7ac8-4d47-9b5b-ea6567b1fb6d",
@@ -784,7 +801,8 @@
     "compensationWikidataId": [
       "Q1742093",
       "Q1124860"
-    ]
+    ],
+    "permalink": "https://yourselftoscience.org/resource/aaf2c81c-7ac8-4d47-9b5b-ea6567b1fb6d"
   },
   {
     "id": "4a9f519b-a804-4210-adac-3dfcb88b2ac4",
@@ -838,7 +856,8 @@
     "compensationWikidataId": [
       "Q1742093",
       "Q1124860"
-    ]
+    ],
+    "permalink": "https://yourselftoscience.org/resource/4a9f519b-a804-4210-adac-3dfcb88b2ac4"
   },
   {
     "id": "024ad742-b735-40dc-a5e8-2b6dbfb6bebc",
@@ -897,7 +916,8 @@
     "compensationWikidataId": [
       "Q1742093",
       "Q1124860"
-    ]
+    ],
+    "permalink": "https://yourselftoscience.org/resource/024ad742-b735-40dc-a5e8-2b6dbfb6bebc"
   },
   {
     "id": "e4e6750d-cb2f-4aff-84f3-55a53deacb79",
@@ -961,7 +981,8 @@
     "compensationWikidataId": [
       "Q1742093",
       "Q1124860"
-    ]
+    ],
+    "permalink": "https://yourselftoscience.org/resource/e4e6750d-cb2f-4aff-84f3-55a53deacb79"
   },
   {
     "id": "aef3da52-dda0-4b1c-93cd-dce266178e9e",
@@ -1004,7 +1025,8 @@
     "compensationWikidataId": [
       "Q1742093",
       "Q1124860"
-    ]
+    ],
+    "permalink": "https://yourselftoscience.org/resource/aef3da52-dda0-4b1c-93cd-dce266178e9e"
   },
   {
     "id": "8d828bb1-8f1c-40c6-a0b4-61de7da7c116",
@@ -1051,7 +1073,8 @@
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453",
     "originWikidataId": "Q145",
-    "compensationWikidataId": "Q1742093"
+    "compensationWikidataId": "Q1742093",
+    "permalink": "https://yourselftoscience.org/resource/8d828bb1-8f1c-40c6-a0b4-61de7da7c116"
   },
   {
     "id": "059571fa-f8ab-4eea-a8fd-f6980b3b062f",
@@ -1095,7 +1118,8 @@
     "compensationWikidataId": [
       "Q1742093",
       "Q1124860"
-    ]
+    ],
+    "permalink": "https://yourselftoscience.org/resource/059571fa-f8ab-4eea-a8fd-f6980b3b062f"
   },
   {
     "id": "7d4ce480-7262-4ca8-9674-cbd3cd9cbecf",
@@ -1135,7 +1159,8 @@
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453",
     "originWikidataId": "Q30",
-    "compensationWikidataId": "Q1742093"
+    "compensationWikidataId": "Q1742093",
+    "permalink": "https://yourselftoscience.org/resource/7d4ce480-7262-4ca8-9674-cbd3cd9cbecf"
   },
   {
     "id": "7de4a0e5-680d-44a4-896e-623a58982aa6",
@@ -1176,7 +1201,8 @@
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q163740",
     "originWikidataId": "Q408",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/7de4a0e5-680d-44a4-896e-623a58982aa6"
   },
   {
     "id": "c9530d1f-97a4-496a-99b8-7e81461c1545",
@@ -1217,7 +1243,8 @@
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q163740",
     "originWikidataId": "Q408",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/c9530d1f-97a4-496a-99b8-7e81461c1545"
   },
   {
     "id": "b1fd6fb3-c668-44d4-9f7e-00b2fd28878d",
@@ -1258,7 +1285,8 @@
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q163740",
     "originWikidataId": "Q408",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/b1fd6fb3-c668-44d4-9f7e-00b2fd28878d"
   },
   {
     "id": "b4a5c0ef-ea7d-4a5a-967a-3b5c32c170f7",
@@ -1314,7 +1342,8 @@
       "The significance of selected biological and environmental factors in the decomposition of human hair",
       "Znaczenie wybranych czynników biologicznych i środowiskowych w procesie rozkładu ludzkich włosów"
     ],
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/b4a5c0ef-ea7d-4a5a-967a-3b5c32c170f7"
   },
   {
     "id": "baedc14c-bcb0-4232-b91e-7a2b6707945f",
@@ -1348,7 +1377,8 @@
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q3400985",
     "originWikidataId": "Q30",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/baedc14c-bcb0-4232-b91e-7a2b6707945f"
   },
   {
     "id": "c0b87e00-d562-4262-8781-85611e98614d",
@@ -1399,7 +1429,8 @@
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q3400985",
     "originWikidataId": "Q30",
-    "compensationWikidataId": "Q1742093"
+    "compensationWikidataId": "Q1742093",
+    "permalink": "https://yourselftoscience.org/resource/c0b87e00-d562-4262-8781-85611e98614d"
   },
   {
     "id": "d77081db-67ad-45b3-a62a-bd12126ba780",
@@ -1438,7 +1469,8 @@
       "United Kingdom": "Q145"
     },
     "originWikidataId": "Q145",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/d77081db-67ad-45b3-a62a-bd12126ba780"
   },
   {
     "id": "40e7f7cf-d7d5-409c-a8a2-c7d01dd26522",
@@ -1479,7 +1511,8 @@
     "compensationWikidataId": [
       "Q1742093",
       "Q1124860"
-    ]
+    ],
+    "permalink": "https://yourselftoscience.org/resource/40e7f7cf-d7d5-409c-a8a2-c7d01dd26522"
   },
   {
     "id": "5b27c16f-6f83-46e8-b340-7ce503118070",
@@ -1531,7 +1564,8 @@
     "compensationWikidataId": [
       "Q1742093",
       "Q1124860"
-    ]
+    ],
+    "permalink": "https://yourselftoscience.org/resource/5b27c16f-6f83-46e8-b340-7ce503118070"
   },
   {
     "id": "b8dda31e-6ee1-4669-a8ed-3e31bb938b64",
@@ -1581,7 +1615,8 @@
     "compensationWikidataId": [
       "Q1742093",
       "Q1124860"
-    ]
+    ],
+    "permalink": "https://yourselftoscience.org/resource/b8dda31e-6ee1-4669-a8ed-3e31bb938b64"
   },
   {
     "id": "d44227ed-6c83-4eef-b1c5-ee1f8c2d917c",
@@ -1625,7 +1660,8 @@
     "compensationWikidataId": [
       "Q1742093",
       "Q1124860"
-    ]
+    ],
+    "permalink": "https://yourselftoscience.org/resource/d44227ed-6c83-4eef-b1c5-ee1f8c2d917c"
   },
   {
     "id": "8b211478-1d5d-4244-9da2-e052c0ebd184",
@@ -1682,7 +1718,8 @@
     "compensationWikidataId": [
       "Q1742093",
       "Q1124860"
-    ]
+    ],
+    "permalink": "https://yourselftoscience.org/resource/8b211478-1d5d-4244-9da2-e052c0ebd184"
   },
   {
     "id": "0a861cff-a2b0-4ab8-834d-e58b4139770d",
@@ -1725,7 +1762,8 @@
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q9353606",
     "originWikidataId": "Q30",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/0a861cff-a2b0-4ab8-834d-e58b4139770d"
   },
   {
     "id": "8c9531fe-4287-4933-b6f5-0e05e516937b",
@@ -1777,7 +1815,8 @@
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q163740",
     "originWikidataId": "Q30",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/8c9531fe-4287-4933-b6f5-0e05e516937b"
   },
   {
     "id": "f6d0fc07-302a-4e3d-869a-4eba7798920b",
@@ -1812,7 +1851,8 @@
     },
     "countryMappings": {},
     "originWikidataId": "Q183",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/f6d0fc07-302a-4e3d-869a-4eba7798920b"
   },
   {
     "id": "382a3bc3-c809-4a93-b7e6-33104443cb9b",
@@ -1857,7 +1897,8 @@
     "compensationWikidataId": [
       "Q1742093",
       "Q1124860"
-    ]
+    ],
+    "permalink": "https://yourselftoscience.org/resource/382a3bc3-c809-4a93-b7e6-33104443cb9b"
   },
   {
     "id": "65969d60-e52a-40fd-86b5-3f3fabfad774",
@@ -1901,7 +1942,8 @@
     "compensationWikidataId": [
       "Q1742093",
       "Q1124860"
-    ]
+    ],
+    "permalink": "https://yourselftoscience.org/resource/65969d60-e52a-40fd-86b5-3f3fabfad774"
   },
   {
     "id": "32b73fac-c6f5-4551-af88-0deba969fd30",
@@ -1936,7 +1978,8 @@
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q42240",
     "originWikidataId": "Q38",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/32b73fac-c6f5-4551-af88-0deba969fd30"
   },
   {
     "id": "68a587c3-eb94-4ede-b35b-5ac1a84f24df",
@@ -1978,7 +2021,8 @@
       "Germany": "Q183"
     },
     "originWikidataId": "Q183",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/68a587c3-eb94-4ede-b35b-5ac1a84f24df"
   },
   {
     "id": "df15fcd0-c0c0-4726-85e7-dbad12687bde",
@@ -2018,7 +2062,8 @@
     "countryMappings": {
       "Portugal": "Q45"
     },
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/df15fcd0-c0c0-4726-85e7-dbad12687bde"
   },
   {
     "id": "b39d93dc-97d1-44c1-a689-041e567e0e8b",
@@ -2067,7 +2112,8 @@
     },
     "countryMappings": {},
     "originWikidataId": "Q145",
-    "compensationWikidataId": "Q1742093"
+    "compensationWikidataId": "Q1742093",
+    "permalink": "https://yourselftoscience.org/resource/b39d93dc-97d1-44c1-a689-041e567e0e8b"
   },
   {
     "id": "f98be3f7-293f-47fa-b95e-f01703dd99c8",
@@ -2117,7 +2163,8 @@
     },
     "countryMappings": {},
     "originWikidataId": "Q30",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/f98be3f7-293f-47fa-b95e-f01703dd99c8"
   },
   {
     "id": "e5bbe9fa-66ad-4ea5-ab36-9330205262be",
@@ -2169,7 +2216,8 @@
     },
     "countryMappings": {},
     "originWikidataId": "Q30",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/e5bbe9fa-66ad-4ea5-ab36-9330205262be"
   },
   {
     "id": "50ed915d-ab6f-478a-9dc5-cf4774cfa14d",
@@ -2215,7 +2263,8 @@
     },
     "countryMappings": {},
     "originWikidataId": "Q29",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/50ed915d-ab6f-478a-9dc5-cf4774cfa14d"
   },
   {
     "id": "bfdda894-db90-4bf8-89fd-9428a6466583",
@@ -2261,7 +2310,8 @@
     },
     "countryMappings": {},
     "originWikidataId": "Q801",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/bfdda894-db90-4bf8-89fd-9428a6466583"
   },
   {
     "id": "a84efc57-eb85-4ce3-bd56-6103cee8a809",
@@ -2307,7 +2357,8 @@
     },
     "countryMappings": {},
     "originWikidataId": "Q30",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/a84efc57-eb85-4ce3-bd56-6103cee8a809"
   },
   {
     "id": "fa467f40-436c-4882-9948-aaff485d037a",
@@ -2353,7 +2404,8 @@
     },
     "countryMappings": {},
     "originWikidataId": "Q30",
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/fa467f40-436c-4882-9948-aaff485d037a"
   },
   {
     "id": "5297c0c6-2633-4109-b7d6-2016045227af",
@@ -2416,7 +2468,8 @@
     "compensationWikidataId": [
       "Q1742093",
       "Q1124860"
-    ]
+    ],
+    "permalink": "https://yourselftoscience.org/resource/5297c0c6-2633-4109-b7d6-2016045227af"
   },
   {
     "id": "5a99f8d8-f020-4d3a-9a61-ca8f7547ad1d",
@@ -2481,6 +2534,7 @@
       "Worldwide": "Q13780930"
     },
     "originWikidataId": null,
-    "compensationWikidataId": "Q1124860"
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/5a99f8d8-f020-4d3a-9a61-ca8f7547ad1d"
   }
 ]

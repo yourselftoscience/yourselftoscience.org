@@ -1,13 +1,17 @@
 // src/app/resource/[slug]/page.js
 import { resources } from '@/data/resources';
-import { redirect } from 'next/navigation';
+import { redirect, permanentRedirect } from 'next/navigation';
 import Link from 'next/link';
-import { FaExternalLinkAlt, FaHeart, FaDollarSign, FaQuestionCircle, FaUniversity, FaBuilding, FaFlask, FaLandmark, FaInfoCircle, FaLaptop, FaMobileAlt, FaCog, FaShareAlt, FaMapMarkerAlt, FaGlobe, FaTag, FaClipboardList, FaUserCheck, FaUserFriends, FaCoins, FaListOl, FaUserShield, FaArrowRight } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaHeart, FaDollarSign, FaQuestionCircle, FaUniversity, FaBuilding, FaFlask, FaLandmark, FaInfoCircle, FaLaptop, FaMobileAlt, FaCog, FaShareAlt, FaMapMarkerAlt, FaGlobe, FaTag, FaClipboardList, FaUserCheck, FaUserFriends, FaCoins, FaListOl, FaUserShield, FaArrowRight, FaBox, FaBook, FaDatabase, FaCodeBranch } from 'react-icons/fa';
 
 export async function generateStaticParams() {
-  return resources.map((resource) => ({
+  const slugs = resources.map((resource) => ({
     slug: resource.slug,
   }));
+  const ids = resources.map((resource) => ({
+    slug: resource.id,
+  }));
+  return [...slugs, ...ids];
 }
 
 export const dynamicParams = false;
@@ -40,12 +44,6 @@ export async function generateMetadata({ params }) {
     alternates: {
       canonical: canonicalUrl,
     },
-    scripts: [
-      {
-        type: 'application/ld+json',
-        innerHTML: JSON.stringify(jsonLd),
-      },
-    ],
   };
 }
 
@@ -58,7 +56,7 @@ export default function ResourcePage({ params }) {
 
   // If the page was accessed via ID, redirect to the canonical slug URL
   if (params.slug === resource.id && params.slug !== resource.slug) {
-    redirect(`/resource/${resource.slug}`);
+    permanentRedirect(`/resource/${resource.slug}`);
   }
 
   const getStepIcon = (step) => {
@@ -71,6 +69,22 @@ export default function ResourcePage({ params }) {
   };
 
   const persistentIdUrl = `https://yourselftoscience.org/resource/${resource.id}`;
+  const canonicalUrl = `https://yourselftoscience.org/resource/${resource.slug}`;
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    'name': resource.title,
+    'url': canonicalUrl,
+    'identifier': persistentIdUrl,
+    'mainEntity': {
+      '@type': 'Thing',
+      'name': resource.title,
+      'description': resource.description,
+      'url': resource.link,
+      ...(resource.resourceWikidataId && { 'sameAs': `https://www.wikidata.org/wiki/${resource.resourceWikidataId}` })
+    }
+  };
 
   const getCompensationIcon = (type) => {
     if (type === 'donation') return <span className="text-red-500">❤️</span>;
@@ -81,6 +95,10 @@ export default function ResourcePage({ params }) {
 
   return (
     <main className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Back to all resources link */}
       <div className="mb-8">
         <Link href="/" className="text-blue-600 hover:underline flex items-center">
@@ -92,7 +110,18 @@ export default function ResourcePage({ params }) {
       <div className="bg-white shadow-lg rounded-lg overflow-hidden">
         <div className="p-8">
           <h1 className="text-4xl font-extrabold text-gray-900">{resource.title}</h1>
-          <p className="mt-2 text-lg text-gray-600">by {resource.organizations ? resource.organizations.map(o => o.name).join('; ') : ''}</p>
+          <p className="mt-2 text-lg text-gray-600">by {resource.organizations ? resource.organizations.map((o, i) => (
+            <span key={i}>
+              {o.wikidataId ? (
+                <a href={`https://www.wikidata.org/wiki/${o.wikidataId}`} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 hover:underline">
+                  {o.name}
+                </a>
+              ) : (
+                o.name
+              )}
+              {i < resource.organizations.length - 1 ? '; ' : ''}
+            </span>
+          )) : ''}</p>
           <p className="mt-1 text-sm text-gray-500 font-mono">ID: {resource.id}</p>
 
           {resource.description && (
@@ -138,6 +167,20 @@ export default function ResourcePage({ params }) {
                 <FaInfoCircle className="mr-2" /> {resource.entityCategory} / {resource.entitySubType}
               </span>
             </div>
+            
+            {resource.compatibleSources && resource.compatibleSources.length > 0 && (
+              <div>
+                <h2 className="text-2xl font-bold text-gray-800 mb-4">Compatible Sources</h2>
+                <div className="flex flex-wrap gap-3">
+                  {resource.compatibleSources.map((source) => (
+                    <span key={source} className="inline-flex items-center bg-indigo-100 text-indigo-800 text-md font-medium px-4 py-2 rounded-full">
+                      <FaBox className="mr-2" /> {source}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+            
           </div>
 
           <div className="mt-10 text-center">
@@ -169,12 +212,61 @@ export default function ResourcePage({ params }) {
             </div>
           )}
 
-          {/* Persistent Identifier */}
-          <div className="mt-12 pt-8 border-t border-gray-200">
-            <h3 className="text-xl font-semibold text-gray-800">Persistent Identifier</h3>
-            <p className="mt-2 text-gray-600">This is the permanent, unique ID for this resource. You can use this for stable linking and data integration.</p>
-            <div className="mt-3 bg-gray-100 p-4 rounded-lg text-gray-700 font-mono text-sm break-all">
-              https://yourselftoscience.org/resource/{resource.id}
+          {resource.citations && resource.citations.length > 0 && (
+            <div className="mt-12 pt-8 border-t border-gray-200">
+              <h2 className="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <FaBook className="mr-3 text-gray-600" /> References
+              </h2>
+              <ul className="list-disc list-inside space-y-3 text-gray-700 ml-4">
+                {resource.citations.map((citation, index) => (
+                  <li key={index}>
+                    {citation.link ? (
+                      <a href={citation.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                        {citation.title}
+                      </a>
+                    ) : (
+                      citation.title
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Metadata & Open Data */}
+          <div className="mt-12 pt-8 border-t border-gray-200 bg-gray-50 -mx-8 -mb-8 p-8 rounded-b-lg">
+            <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
+              <FaDatabase className="mr-2 text-blue-600" /> Open Data & Metadata
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <p className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3">Persistent Identifier</p>
+                <div className="bg-white border border-gray-200 p-3 rounded-md text-gray-800 font-mono text-sm break-all shadow-sm">
+                  https://yourselftoscience.org/resource/{resource.id}
+                </div>
+                <p className="mt-2 text-xs text-gray-500 leading-relaxed">
+                  Use this permanent ID for stable linking in research papers and dataset integrations.
+                </p>
+              </div>
+
+              <div>
+                <p className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3">Linked Open Data</p>
+                <div className="space-y-3">
+                  <a href="/data" className="flex items-center text-blue-600 hover:text-blue-800 hover:underline text-sm font-medium">
+                    <FaCodeBranch className="mr-2" /> View Full Catalogue Dataset
+                  </a>
+                  {resource.resourceWikidataId && (
+                    <a href={`https://www.wikidata.org/wiki/${resource.resourceWikidataId}`} target="_blank" rel="noopener noreferrer" className="flex items-center text-blue-600 hover:text-blue-800 hover:underline text-sm font-medium">
+                      <span className="mr-2 font-bold font-serif px-1 bg-gray-200 text-gray-600 rounded text-xs">W</span>
+                      Wikidata Entity ({resource.resourceWikidataId})
+                    </a>
+                  )}
+                  <a href={`/resources.json`} target="_blank" rel="noopener noreferrer" className="flex items-center text-blue-600 hover:text-blue-800 hover:underline text-sm font-medium">
+                    <FaDatabase className="mr-2" /> Download resources.json
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>

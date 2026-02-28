@@ -1,5 +1,5 @@
 const title = "Open Dataset & API | Yourself to Science – CC0 Public Domain Data";
-const description = "Download the complete Yourself to Science dataset in JSON, CSV, and Markdown formats. CC0 1.0 public domain licensed. Aligned with Wikidata QIDs for interoperability. Explore the schema, licensing, and data endpoints.";
+const description = "Download the complete Yourself to Science dataset in JSON, CSV, and RDF/TTL formats. CC0 1.0 public domain licensed. Aligned with Wikidata QIDs for interoperability. Explore the schema, licensing, and data endpoints.";
 const url = "https://yourselftoscience.org/data";
 const siteName = "Yourself to Science";
 

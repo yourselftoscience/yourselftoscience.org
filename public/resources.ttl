@@ -10,6 +10,9 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:rangeIncludes schema:URL .
 
 <https://yourselftoscience.org/resource/667f25be-9ff2-4e7a-9119-78f2eb61a801> a schema:Dataset ;
+  schema:identifier "667f25be-9ff2-4e7a-9119-78f2eb61a801" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/667f25be-9ff2-4e7a-9119-78f2eb61a801> ;
+  schema:sameAs <https://yourselftoscience.org/resource/open-humans> ;
   rdfs:label "Open Humans" ;
   schema:description "A platform for participant-centered research and personal data exploration." ;
   schema:sameAs wd:Q59696822 ;
@@ -26,6 +29,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/6b75822f-2f88-4660-9304-122709d3161f> a schema:Dataset ;
+  schema:identifier "6b75822f-2f88-4660-9304-122709d3161f" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/6b75822f-2f88-4660-9304-122709d3161f> ;
+  schema:sameAs <https://yourselftoscience.org/resource/familytreedna-group-projects> ;
   rdfs:label "FamilyTreeDNA Group Projects" ;
   schema:description "Join thousands of collaborative genealogy projects based on surname, geography, or haplogroup to support citizen science and migration pattern discovery." ;
   schema:creator [ a schema:Organization; rdfs:label "FamilyTreeDNA" ; schema:sameAs wd:Q4038610 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
@@ -38,6 +44,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/66700d6e-cbc9-40ab-8bf9-eb466844ad52> a schema:Dataset ;
+  schema:identifier "66700d6e-cbc9-40ab-8bf9-eb466844ad52" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/66700d6e-cbc9-40ab-8bf9-eb466844ad52> ;
+  schema:sameAs <https://yourselftoscience.org/resource/myphd> ;
   rdfs:label "MyPHD" ;
   schema:description "A platform for collecting health data from wearables to detect early signs of infectious diseases." ;
   schema:creator [ a schema:Organization; rdfs:label "Stanford University" ; schema:sameAs wd:Q41506 ; schema:additionalType wd:Q163740 ; schema:additionalType wd:Q119852396 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
@@ -49,6 +58,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/095034ef-732e-45c6-ad16-54c29c7ba408> a schema:Dataset ;
+  schema:identifier "095034ef-732e-45c6-ad16-54c29c7ba408" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/095034ef-732e-45c6-ad16-54c29c7ba408> ;
+  schema:sameAs <https://yourselftoscience.org/resource/google-health-studies> ;
   rdfs:label "Google Health Studies" ;
   schema:description "A platform that lets you contribute to health research using the Google Health Studies app." ;
   schema:creator [ a schema:Organization; rdfs:label "Google" ; schema:sameAs wd:Q95 ; schema:additionalType wd:Q4830453 ; schema:additionalType wd:Q4830453 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
@@ -58,6 +70,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/2c7f3ca9-4d4b-41e2-93e2-b0f06bc11cb3> a schema:Dataset ;
+  schema:identifier "2c7f3ca9-4d4b-41e2-93e2-b0f06bc11cb3" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/2c7f3ca9-4d4b-41e2-93e2-b0f06bc11cb3> ;
+  schema:sameAs <https://yourselftoscience.org/resource/apple-research> ;
   rdfs:label "Apple Research" ;
   schema:description "Participate in health studies using your iPhone and Apple Watch." ;
   schema:creator [ a schema:Organization; rdfs:label "Apple" ; schema:sameAs wd:Q312 ; schema:additionalType wd:Q4830453 ; schema:additionalType wd:Q4830453 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
@@ -68,6 +83,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/e9b2a7d1-5c1a-4d2c-8bf5-f9aee315ebd0> a schema:Dataset ;
+  schema:identifier "e9b2a7d1-5c1a-4d2c-8bf5-f9aee315ebd0" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/e9b2a7d1-5c1a-4d2c-8bf5-f9aee315ebd0> ;
+  schema:sameAs <https://yourselftoscience.org/resource/harvard-pgp> ;
   rdfs:label "Harvard Personal Genome Project" ;
   schema:description "An open science project by Harvard Medical School where participants publicly share their genetic, health, and trait data to drive biological research." ;
   schema:creator [ a schema:Organization; rdfs:label "Harvard Medical School" ; schema:sameAs wd:Q49121 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
@@ -79,6 +97,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/e2ba7d15-5c1a-4d2c-8bf5-f9aee315ebd0> a schema:Dataset ;
+  schema:identifier "e2ba7d15-5c1a-4d2c-8bf5-f9aee315ebd0" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/e2ba7d15-5c1a-4d2c-8bf5-f9aee315ebd0> ;
+  schema:sameAs <https://yourselftoscience.org/resource/genes-for-good> ;
   rdfs:label "Genes for Good" ;
   schema:description "A research study run through a Facebook App that connects health, behavior, and genetics. Participants complete surveys and may become eligible to provide a saliva sample for DNA analysis." ;
   schema:creator [ a schema:Organization; rdfs:label "University of Michigan" ; schema:sameAs wd:Q230492 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
@@ -90,6 +111,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/3b7e801f-1e45-4c2f-8631-edac7b61743a> a schema:Dataset ;
+  schema:identifier "3b7e801f-1e45-4c2f-8631-edac7b61743a" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/3b7e801f-1e45-4c2f-8631-edac7b61743a> ;
+  schema:sameAs <https://yourselftoscience.org/resource/all-of-us> ;
   rdfs:label "All of Us" ;
   schema:description "A research program from the NIH to gather health data from one million or more people living in the US." ;
   schema:sameAs wd:Q25004683 ;
@@ -102,6 +126,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/a86ef2b7-fe73-43dd-9f36-356b6b9c861d> a schema:Dataset ;
+  schema:identifier "a86ef2b7-fe73-43dd-9f36-356b6b9c861d" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/a86ef2b7-fe73-43dd-9f36-356b6b9c861d> ;
+  schema:sameAs <https://yourselftoscience.org/resource/fitbit-research> ;
   rdfs:label "Fitbit Health Research and Product Development" ;
   schema:description "Share your Fitbit data to help improve health research and product development." ;
   schema:creator [ a schema:Organization; rdfs:label "Fitbit" ; schema:sameAs wd:Q5455414 ; schema:additionalType wd:Q4830453 ; schema:additionalType wd:Q4830453 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
@@ -110,6 +137,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/ff09caec-9a1a-464c-bc8c-009b745ed64a> a schema:Dataset ;
+  schema:identifier "ff09caec-9a1a-464c-bc8c-009b745ed64a" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/ff09caec-9a1a-464c-bc8c-009b745ed64a> ;
+  schema:sameAs <https://yourselftoscience.org/resource/spark-for-autism> ;
   rdfs:label "SPARK for Autism" ;
   schema:description "A landmark autism research project connecting autistic individuals and their families to research." ;
   schema:creator [ a schema:Organization; rdfs:label "Simons Foundation" ; schema:sameAs wd:Q28148561 ; schema:additionalType wd:Q163740 ; schema:additionalType wd:Q119852396 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
@@ -121,6 +151,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/fa3b7b34-7149-4eae-b7da-1ce31650897f> a schema:Dataset ;
+  schema:identifier "fa3b7b34-7149-4eae-b7da-1ce31650897f" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/fa3b7b34-7149-4eae-b7da-1ce31650897f> ;
+  schema:sameAs <https://yourselftoscience.org/resource/ubc-body-donation> ;
   rdfs:label "UBC Body Donation Program" ;
   schema:description "The UBC Body Donation Program accepts donations for anatomical study and medical research." ;
   schema:creator [ a schema:Organization; rdfs:label "Faculty of Medicine at the University of British Columbia" ; schema:sameAs wd:Q7863800 ; schema:additionalType wd:Q3400985 ; schema:additionalType wd:Q3400985 ; schema:location [ a schema:Place; rdfs:label "Canada" ; schema:addressCountry "CA" ; schema:sameAs wd:Q16 ] ] ;
@@ -131,6 +164,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/04687f4b-6a45-4d0b-9c92-5487b22f0101> a schema:Dataset ;
+  schema:identifier "04687f4b-6a45-4d0b-9c92-5487b22f0101" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/04687f4b-6a45-4d0b-9c92-5487b22f0101> ;
+  schema:sameAs <https://yourselftoscience.org/resource/cambridge-body-tissue-donation> ;
   rdfs:label "University of Cambridge body and tissue donation" ;
   schema:description "Information on donating your body to medical science at the University of Cambridge." ;
   schema:creator [ a schema:Organization; rdfs:label "Department of Anatomy, University of Cambridge" ; schema:additionalType wd:Q3400985 ; schema:additionalType wd:Q3400985 ; schema:location [ a schema:Place; rdfs:label "United Kingdom" ; schema:addressCountry "GB" ; schema:sameAs wd:Q145 ] ] ;
@@ -143,6 +179,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/a358a59c-91fd-4cc3-b971-366b05c1450e> a schema:Dataset ;
+  schema:identifier "a358a59c-91fd-4cc3-b971-366b05c1450e" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/a358a59c-91fd-4cc3-b971-366b05c1450e> ;
+  schema:sameAs <https://yourselftoscience.org/resource/italy-body-tissue-donation> ;
   rdfs:label "body and tissue donation in Italy" ;
   schema:description "Official guidelines for donating body and tissues for study, training, and scientific research in Italy." ;
   schema:creator [ a schema:GovernmentOrganization; rdfs:label "Ministero della Salute" ; schema:sameAs wd:Q745634 ; schema:additionalType wd:Q7188 ; schema:additionalType wd:Q9353606 ; schema:location [ a schema:Place; rdfs:label "Italy" ; schema:addressCountry "IT" ; schema:sameAs wd:Q38 ] ] ;
@@ -154,6 +193,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/6f6f3a6c-8c92-4f47-a75f-8d2e99e8cec0> a schema:Dataset ;
+  schema:identifier "6f6f3a6c-8c92-4f47-a75f-8d2e99e8cec0" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/6f6f3a6c-8c92-4f47-a75f-8d2e99e8cec0> ;
+  schema:sameAs <https://yourselftoscience.org/resource/france-body-donation> ;
   rdfs:label "body donation in France" ;
   schema:description "Official information on body donation for science and medical research in France." ;
   schema:creator [ a schema:GovernmentOrganization; rdfs:label "Service-Public.fr" ; schema:sameAs wd:Q3480047 ; schema:additionalType wd:Q7188 ; schema:additionalType wd:Q9353606 ; schema:location [ a schema:Place; rdfs:label "France" ; schema:addressCountry "FR" ; schema:sameAs wd:Q142 ] ] ;
@@ -164,6 +206,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/b3dc517e-3359-4720-99f3-7fa1928012b2> a schema:Dataset ;
+  schema:identifier "b3dc517e-3359-4720-99f3-7fa1928012b2" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/b3dc517e-3359-4720-99f3-7fa1928012b2> ;
+  schema:sameAs <https://yourselftoscience.org/resource/uk-gamete-donation> ;
   rdfs:label "gamete and embryo donation in the United Kingdom" ;
   schema:description "Information on donating eggs, sperm, and embryos for research in the UK." ;
   schema:creator [ a schema:GovernmentOrganization; rdfs:label "Human Fertilisation and Embryology Authority" ; schema:sameAs wd:Q1636533 ; schema:additionalType wd:Q7188 ; schema:additionalType wd:Q7604698 ; schema:location [ a schema:Place; rdfs:label "United Kingdom" ; schema:addressCountry "GB" ; schema:sameAs wd:Q145 ] ] ;
@@ -176,6 +221,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/d481c16f-c10c-415b-91d0-24dbf4c1ffbb> a schema:Dataset ;
+  schema:identifier "d481c16f-c10c-415b-91d0-24dbf4c1ffbb" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/d481c16f-c10c-415b-91d0-24dbf4c1ffbb> ;
+  schema:sameAs <https://yourselftoscience.org/resource/clinicaltrials-gov> ;
   rdfs:label "ClinicalTrials.gov" ;
   schema:description "A comprehensive registry and results database of publicly and privately supported clinical studies conducted around the world. Managed by the U.S. National Library of Medicine." ;
   schema:sameAs wd:Q5133746 ;
@@ -186,6 +234,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/1d837bcd-3582-4a8e-b7f2-6daeb6ee4639> a schema:Dataset ;
+  schema:identifier "1d837bcd-3582-4a8e-b7f2-6daeb6ee4639" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/1d837bcd-3582-4a8e-b7f2-6daeb6ee4639> ;
+  schema:sameAs <https://yourselftoscience.org/resource/who-ictrp> ;
   rdfs:label "International Clinical Trials Registry Platform" ;
   schema:description "A central database managed by the WHO to search for clinical trials from registries around the world." ;
   schema:sameAs wd:Q29867940 ;
@@ -196,6 +247,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/aaf2c81c-7ac8-4d47-9b5b-ea6567b1fb6d> a schema:Dataset ;
+  schema:identifier "aaf2c81c-7ac8-4d47-9b5b-ea6567b1fb6d" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/aaf2c81c-7ac8-4d47-9b5b-ea6567b1fb6d> ;
+  schema:sameAs <https://yourselftoscience.org/resource/eu-clinical-trials-register> ;
   rdfs:label "EU Clinical Trials Register" ;
   schema:description "The European Union's official database for clinical trials conducted in the EU and EEA." ;
   schema:sameAs wd:Q96183789 ;
@@ -210,6 +264,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/4a9f519b-a804-4210-adac-3dfcb88b2ac4> a schema:Dataset ;
+  schema:identifier "4a9f519b-a804-4210-adac-3dfcb88b2ac4" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/4a9f519b-a804-4210-adac-3dfcb88b2ac4> ;
+  schema:sameAs <https://yourselftoscience.org/resource/ectin-poland> ;
   rdfs:label "European Clinical Trials Information Network" ;
   schema:description "A clinical trials information network providing access to studies in Poland and Europe." ;
   schema:creator [ a schema:Organization; rdfs:label "Clinical Trials Information Network (CTIN Poland)" ; schema:additionalType wd:Q4830453 ; schema:additionalType wd:Q4830453 ; schema:location [ a schema:Place; rdfs:label "Poland" ; schema:addressCountry "PL" ; schema:sameAs wd:Q36 ] ] ;
@@ -222,6 +279,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/024ad742-b735-40dc-a5e8-2b6dbfb6bebc> a schema:Dataset ;
+  schema:identifier "024ad742-b735-40dc-a5e8-2b6dbfb6bebc" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/024ad742-b735-40dc-a5e8-2b6dbfb6bebc> ;
+  schema:sameAs <https://yourselftoscience.org/resource/curewiki> ;
   rdfs:label "Curewiki" ;
   schema:description "A platform connecting patients with clinical trials for various conditions." ;
   schema:creator [ a schema:Organization; rdfs:label "Curewiki" ; schema:additionalType wd:Q4830453 ; schema:additionalType wd:Q4830453 ; schema:location [ a schema:Place; rdfs:label "Belgium" ; schema:addressCountry "BE" ; schema:sameAs wd:Q31 ] ] ;
@@ -236,6 +296,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/e4e6750d-cb2f-4aff-84f3-55a53deacb79> a schema:Dataset ;
+  schema:identifier "e4e6750d-cb2f-4aff-84f3-55a53deacb79" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/e4e6750d-cb2f-4aff-84f3-55a53deacb79> ;
+  schema:sameAs <https://yourselftoscience.org/resource/esperity-clinical-trials> ;
   rdfs:label "Esperity Clinical Trial Discovery" ;
   schema:description "A patient-centric platform for finding and participating in clinical trials." ;
   schema:creator [ a schema:Organization; rdfs:label "Esperity" ; schema:additionalType wd:Q4830453 ; schema:additionalType wd:Q4830453 ; schema:location [ a schema:Place; rdfs:label "Belgium" ; schema:addressCountry "BE" ; schema:sameAs wd:Q31 ] ] ;
@@ -255,6 +318,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/aef3da52-dda0-4b1c-93cd-dce266178e9e> a schema:Dataset ;
+  schema:identifier "aef3da52-dda0-4b1c-93cd-dce266178e9e" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/aef3da52-dda0-4b1c-93cd-dce266178e9e> ;
+  schema:sameAs <https://yourselftoscience.org/resource/researchmatch> ;
   rdfs:label "ResearchMatch" ;
   schema:description "A nonprofit program funded by the National Institutes of Health (NIH) that connects people interested in research studies with researchers from top medical centers across the U.S." ;
   schema:creator [ a schema:GovernmentOrganization; rdfs:label "Vanderbilt University Medical Center" ; schema:sameAs wd:Q7914455 ; schema:additionalType wd:Q7188 ; schema:additionalType wd:Q9142054 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
@@ -265,6 +331,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/8d828bb1-8f1c-40c6-a0b4-61de7da7c116> a schema:Dataset ;
+  schema:identifier "8d828bb1-8f1c-40c6-a0b4-61de7da7c116" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/8d828bb1-8f1c-40c6-a0b4-61de7da7c116> ;
+  schema:sameAs <https://yourselftoscience.org/resource/flucamp> ;
   rdfs:label "FluCamp" ;
   schema:description "Conducts clinical trials for flu and common cold viruses in London and Manchester, compensating volunteers for their time." ;
   schema:creator [ a schema:Organization; rdfs:label "hVIVO" ; schema:sameAs wd:Q30268998 ; schema:additionalType wd:Q4830453 ; schema:additionalType wd:Q4830453 ; schema:location [ a schema:Place; rdfs:label "United Kingdom" ; schema:addressCountry "GB" ; schema:sameAs wd:Q145 ] ] ;
@@ -277,6 +346,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093 .
 
 <https://yourselftoscience.org/resource/059571fa-f8ab-4eea-a8fd-f6980b3b062f> a schema:Dataset ;
+  schema:identifier "059571fa-f8ab-4eea-a8fd-f6980b3b062f" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/059571fa-f8ab-4eea-a8fd-f6980b3b062f> ;
+  schema:sameAs <https://yourselftoscience.org/resource/healthstreet> ;
   rdfs:label "HealthStreet" ;
   schema:description "Connects community members in Florida with health research opportunities at the University of Florida." ;
   schema:creator [ a schema:Organization; rdfs:label "University of Florida Health" ; schema:sameAs wd:Q7487946 ; schema:additionalType wd:Q3400985 ; schema:additionalType wd:Q3400985 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
@@ -287,6 +359,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/7d4ce480-7262-4ca8-9674-cbd3cd9cbecf> a schema:Dataset ;
+  schema:identifier "7d4ce480-7262-4ca8-9674-cbd3cd9cbecf" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/7d4ce480-7262-4ca8-9674-cbd3cd9cbecf> ;
+  schema:sameAs <https://yourselftoscience.org/resource/goodnature-program> ;
   rdfs:label "GoodNature Program" ;
   schema:description "A stool donation program supporting research into microbiome-based therapeutics." ;
   schema:creator [ a schema:Organization; rdfs:label "Nestlé Health Science U.S." ; schema:sameAs wd:Q45132270 ; schema:additionalType wd:Q4830453 ; schema:additionalType wd:Q4830453 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
@@ -297,6 +372,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093 .
 
 <https://yourselftoscience.org/resource/7de4a0e5-680d-44a4-896e-623a58982aa6> a schema:Dataset ;
+  schema:identifier "7de4a0e5-680d-44a4-896e-623a58982aa6" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/7de4a0e5-680d-44a4-896e-623a58982aa6> ;
+  schema:sameAs <https://yourselftoscience.org/resource/lifeblood-microbiome> ;
   rdfs:label "Australian Red Cross Lifeblood microbiome donation" ;
   schema:description "Australian Red Cross Lifeblood's microbiome research program." ;
   schema:creator [ a schema:Organization; rdfs:label "Australian Red Cross Lifeblood" ; schema:sameAs wd:Q4824602 ; schema:additionalType wd:Q163740 ; schema:additionalType wd:Q163740 ; schema:location [ a schema:Place; rdfs:label "Australia" ; schema:addressCountry "AU" ; schema:sameAs wd:Q408 ] ] ;
@@ -307,6 +385,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/c9530d1f-97a4-496a-99b8-7e81461c1545> a schema:Dataset ;
+  schema:identifier "c9530d1f-97a4-496a-99b8-7e81461c1545" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/c9530d1f-97a4-496a-99b8-7e81461c1545> ;
+  schema:sameAs <https://yourselftoscience.org/resource/wesley-stool-donation> ;
   rdfs:label "Wesley Research Institute stool donation" ;
   schema:description "Stool donation program at Wesley Research Institute." ;
   schema:creator [ a schema:Organization; rdfs:label "Wesley Research Institute" ; schema:sameAs wd:Q30289631 ; schema:additionalType wd:Q163740 ; schema:additionalType wd:Q163740 ; schema:location [ a schema:Place; rdfs:label "Australia" ; schema:addressCountry "AU" ; schema:sameAs wd:Q408 ] ] ;
@@ -317,6 +398,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/b1fd6fb3-c668-44d4-9f7e-00b2fd28878d> a schema:Dataset ;
+  schema:identifier "b1fd6fb3-c668-44d4-9f7e-00b2fd28878d" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/b1fd6fb3-c668-44d4-9f7e-00b2fd28878d> ;
+  schema:sameAs <https://yourselftoscience.org/resource/wesley-placenta-donation> ;
   rdfs:label "Wesley Research Institute placenta donation" ;
   schema:description "Placenta donation program at Wesley Research Institute." ;
   schema:creator [ a schema:Organization; rdfs:label "Wesley Research Institute" ; schema:sameAs wd:Q30289631 ; schema:additionalType wd:Q163740 ; schema:additionalType wd:Q163740 ; schema:location [ a schema:Place; rdfs:label "Australia" ; schema:addressCountry "AU" ; schema:sameAs wd:Q408 ] ] ;
@@ -327,6 +411,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/b4a5c0ef-ea7d-4a5a-967a-3b5c32c170f7> a schema:Dataset ;
+  schema:identifier "b4a5c0ef-ea7d-4a5a-967a-3b5c32c170f7" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/b4a5c0ef-ea7d-4a5a-967a-3b5c32c170f7> ;
+  schema:sameAs <https://yourselftoscience.org/resource/wroclaw-hair-decomposition> ;
   rdfs:label "University of Wrocław human hair decomposition project" ;
   schema:description "Research on human hair decomposition at the University of Wrocław." ;
   schema:creator [ a schema:Organization; rdfs:label "Department of Human Biology, University of Wrocław" ; schema:additionalType wd:Q3400985 ; schema:additionalType wd:Q3400985 ; schema:location [ a schema:Place; rdfs:label "Poland" ; schema:addressCountry "PL" ; schema:sameAs wd:Q36 ] ] ;
@@ -339,6 +426,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/baedc14c-bcb0-4232-b91e-7a2b6707945f> a schema:Dataset ;
+  schema:identifier "baedc14c-bcb0-4232-b91e-7a2b6707945f" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/baedc14c-bcb0-4232-b91e-7a2b6707945f> ;
+  schema:sameAs <https://yourselftoscience.org/resource/ucsf-social-media-archive> ;
   rdfs:label "UCSF Archives and Special Collections social media archive" ;
   schema:description "Donate your social media archives to the UCSF Library for research." ;
   schema:creator [ a schema:Organization; rdfs:label "UCSF Library Archives" ; schema:sameAs wd:Q25004607 ; schema:additionalType wd:Q3400985 ; schema:additionalType wd:Q3400985 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
@@ -348,6 +438,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/c0b87e00-d562-4262-8781-85611e98614d> a schema:Dataset ;
+  schema:identifier "c0b87e00-d562-4262-8781-85611e98614d" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/c0b87e00-d562-4262-8781-85611e98614d> ;
+  schema:sameAs <https://yourselftoscience.org/resource/penn-medicine-donate-your-data> ;
   rdfs:label "Penn Medicine Donate Your Data" ;
   schema:description "Share your digital data to help Penn Medicine researchers understand health." ;
   schema:creator [ a schema:Organization; rdfs:label "Penn Medicine" ; schema:sameAs wd:Q7896080 ; schema:additionalType wd:Q3400985 ; schema:additionalType wd:Q3400985 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
@@ -363,6 +456,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093 .
 
 <https://yourselftoscience.org/resource/d77081db-67ad-45b3-a62a-bd12126ba780> a schema:Dataset ;
+  schema:identifier "d77081db-67ad-45b3-a62a-bd12126ba780" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/d77081db-67ad-45b3-a62a-bd12126ba780> ;
+  schema:sameAs <https://yourselftoscience.org/resource/hra-research-summaries> ;
   rdfs:label "NHS Health Research Authority Research Summaries" ;
   schema:description "Plain-language summaries of research studies approved by the NHS Health Research Authority." ;
   schema:creator [ a schema:GovernmentOrganization; rdfs:label "NHS Health Research Authority" ; schema:sameAs wd:Q16937226 ; schema:location [ a schema:Place; rdfs:label "United Kingdom" ; schema:addressCountry "GB" ; schema:sameAs wd:Q145 ] ] ;
@@ -373,6 +469,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/40e7f7cf-d7d5-409c-a8a2-c7d01dd26522> a schema:Dataset ;
+  schema:identifier "40e7f7cf-d7d5-409c-a8a2-c7d01dd26522" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/40e7f7cf-d7d5-409c-a8a2-c7d01dd26522> ;
+  schema:sameAs <https://yourselftoscience.org/resource/cochrane-central-register-of-controlled-trials> ;
   rdfs:label "Cochrane Central Register of Controlled Trials" ;
   schema:description "A highly concentrated source of reports of randomized and quasi-randomized controlled trials from various databases and other sources. Access requires a subscription to the Cochrane Library." ;
   schema:creator [ a schema:Organization; rdfs:label "Cochrane" ; schema:sameAs wd:Q1105202 ; schema:additionalType wd:Q163740 ; schema:additionalType wd:Q79913 ; schema:location [ a schema:Place; rdfs:label "United Kingdom" ; schema:addressCountry "GB" ; schema:sameAs wd:Q145 ] ] ;
@@ -382,6 +481,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/5b27c16f-6f83-46e8-b340-7ce503118070> a schema:Dataset ;
+  schema:identifier "5b27c16f-6f83-46e8-b340-7ce503118070" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/5b27c16f-6f83-46e8-b340-7ce503118070> ;
+  schema:sameAs <https://yourselftoscience.org/resource/belgian-clinical-trials-database> ;
   rdfs:label "FAMHP clinical trials database" ;
   schema:description "A database of clinical trials approved by the Belgian Federal Agency for Medicines and Health Products (FAMHP). NOTE: This database is no longer available due to changes in the legal framework." ;
   schema:creator [ a schema:GovernmentOrganization; rdfs:label "Federal Agency for Medicines and Health Products (FAMHP)" ; schema:sameAs wd:Q2682107 ; schema:additionalType wd:Q7188 ; schema:additionalType wd:Q1639780 ; schema:location [ a schema:Place; rdfs:label "Belgium" ; schema:addressCountry "BE" ; schema:sameAs wd:Q31 ] ] ;
@@ -393,6 +495,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/b8dda31e-6ee1-4669-a8ed-3e31bb938b64> a schema:Dataset ;
+  schema:identifier "b8dda31e-6ee1-4669-a8ed-3e31bb938b64" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/b8dda31e-6ee1-4669-a8ed-3e31bb938b64> ;
+  schema:sameAs <https://yourselftoscience.org/resource/german-clinical-trials-register> ;
   rdfs:label "German Clinical Trials Register" ;
   schema:description "The primary register for clinical trials conducted in Germany, providing public access to study information." ;
   schema:sameAs wd:Q96199255 ;
@@ -404,6 +509,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/d44227ed-6c83-4eef-b1c5-ee1f8c2d917c> a schema:Dataset ;
+  schema:identifier "d44227ed-6c83-4eef-b1c5-ee1f8c2d917c" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/d44227ed-6c83-4eef-b1c5-ee1f8c2d917c> ;
+  schema:sameAs <https://yourselftoscience.org/resource/health-canada-clinical-trials-database> ;
   rdfs:label "Health Canada's Clinical Trials Database" ;
   schema:description "A listing of specific information relating to phase I, II, and III clinical trials in patients authorized by Health Canada." ;
   schema:creator [ a schema:GovernmentOrganization; rdfs:label "Health Canada" ; schema:sameAs wd:Q1057591 ; schema:additionalType wd:Q7188 ; schema:additionalType wd:Q1639780 ; schema:location [ a schema:Place; rdfs:label "Canada" ; schema:addressCountry "CA" ; schema:sameAs wd:Q16 ] ] ;
@@ -414,6 +522,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/8b211478-1d5d-4244-9da2-e052c0ebd184> a schema:Dataset ;
+  schema:identifier "8b211478-1d5d-4244-9da2-e052c0ebd184" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/8b211478-1d5d-4244-9da2-e052c0ebd184> ;
+  schema:sameAs <https://yourselftoscience.org/resource/aatb-accredited-bank-search> ;
   rdfs:label "AATB Accredited Bank Search" ;
   schema:description "A search tool to find AATB-accredited tissue banks in the United States, covering various types of tissue, organ, and birth tissue donation." ;
   schema:creator [ a schema:Organization; rdfs:label "American Association of Tissue Banks (AATB)" ; schema:sameAs wd:Q4743103 ; schema:additionalType wd:Q163740 ; schema:additionalType wd:Q829080 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
@@ -430,6 +541,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/0a861cff-a2b0-4ab8-834d-e58b4139770d> a schema:Dataset ;
+  schema:identifier "0a861cff-a2b0-4ab8-834d-e58b4139770d" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/0a861cff-a2b0-4ab8-834d-e58b4139770d> ;
+  schema:sameAs <https://yourselftoscience.org/resource/organdonor-gov> ;
   rdfs:label "OrganDonor.gov" ;
   schema:description "The official U.S. government website for organ, eye, and tissue donation. Provides information and links to state registries to sign up as a donor." ;
   schema:creator [ a schema:GovernmentOrganization; rdfs:label "U.S. Department of Health & Human Services" ; schema:sameAs wd:Q942326 ; schema:additionalType wd:Q7188 ; schema:additionalType wd:Q9353606 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
@@ -441,6 +555,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/8c9531fe-4287-4933-b6f5-0e05e516937b> a schema:Dataset ;
+  schema:identifier "8c9531fe-4287-4933-b6f5-0e05e516937b" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/8c9531fe-4287-4933-b6f5-0e05e516937b> ;
+  schema:sameAs <https://yourselftoscience.org/resource/bloodworks-research> ;
   rdfs:label "Bloodworks Northwest Donate Blood for Research" ;
   schema:description "Bloodworks Northwest’s research program accepts blood donations to support a variety of studies, from developing new treatments to understanding blood-related diseases. This service is available in the Pacific Northwest." ;
   schema:creator [ a schema:Organization; rdfs:label "Bloodworks Northwest" ; schema:sameAs wd:Q21015632 ; schema:additionalType wd:Q163740 ; schema:additionalType wd:Q163740 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
@@ -454,6 +571,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/f6d0fc07-302a-4e3d-869a-4eba7798920b> a schema:Dataset ;
+  schema:identifier "f6d0fc07-302a-4e3d-869a-4eba7798920b" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/f6d0fc07-302a-4e3d-869a-4eba7798920b> ;
+  schema:sameAs <https://yourselftoscience.org/resource/conversational-ai-data-donation> ;
   rdfs:label "Max Planck Institute for Software Systems conversational AI data donation" ;
   schema:description "Donate your chat history from assistants like ChatGPT, Gemini, and Claude to help researchers understand human-AI interaction patterns." ;
   schema:creator [ a schema:Organization; rdfs:label "Max Planck Institute for Software Systems" ; schema:sameAs wd:Q881238 ; schema:location [ a schema:Place; rdfs:label "Germany" ; schema:addressCountry "DE" ; schema:sameAs wd:Q183 ] ] ;
@@ -463,6 +583,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/382a3bc3-c809-4a93-b7e6-33104443cb9b> a schema:Dataset ;
+  schema:identifier "382a3bc3-c809-4a93-b7e6-33104443cb9b" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/382a3bc3-c809-4a93-b7e6-33104443cb9b> ;
+  schema:sameAs <https://yourselftoscience.org/resource/crc-volontari-ricerca-clinica> ;
   rdfs:label "CRC ed i Volontari per la Ricerca Clinica" ;
   schema:description "A center in Verona, Italy, conducting clinical trials for healthy volunteers and patients. Volunteers can register to participate in various studies." ;
   schema:creator [ a schema:Organization; rdfs:label "Centro Ricerche Cliniche di Verona" ; schema:additionalType wd:Q3400985 ; schema:additionalType wd:Q1059324 ; schema:location [ a schema:Place; rdfs:label "Italy" ; schema:addressCountry "IT" ; schema:sameAs wd:Q38 ] ] ;
@@ -473,6 +596,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/65969d60-e52a-40fd-86b5-3f3fabfad774> a schema:Dataset ;
+  schema:identifier "65969d60-e52a-40fd-86b5-3f3fabfad774" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/65969d60-e52a-40fd-86b5-3f3fabfad774> ;
+  schema:sameAs <https://yourselftoscience.org/resource/rete-cittadini-per-la-ricerca> ;
   rdfs:label "Rete Cittadini per la Ricerca" ;
   schema:description "A network for citizens to participate in scientific research at San Camillo IRCCS, contributing to medical progress and new therapies." ;
   schema:creator [ a schema:Organization; rdfs:label "San Camillo IRCCS" ; schema:additionalType wd:Q163740 ; schema:additionalType wd:Q16917 ; schema:location [ a schema:Place; rdfs:label "Italy" ; schema:addressCountry "IT" ; schema:sameAs wd:Q38 ] ] ;
@@ -483,6 +609,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/32b73fac-c6f5-4551-af88-0deba969fd30> a schema:Dataset ;
+  schema:identifier "32b73fac-c6f5-4551-af88-0deba969fd30" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/32b73fac-c6f5-4551-af88-0deba969fd30> ;
+  schema:sameAs <https://yourselftoscience.org/resource/eurac-cover-letter-donation> ;
   rdfs:label "Eurac Research cover letter donation" ;
   schema:description "A data donation campaign focused on collecting cover letters for doctoral research to understand the impact of writing styles in a multilingual professional context." ;
   schema:creator [ a schema:Organization; rdfs:label "Eurac Research" ; schema:sameAs wd:Q1245390 ; schema:additionalType wd:Q3400985 ; schema:additionalType wd:Q42240 ; schema:location [ a schema:Place; rdfs:label "Italy" ; schema:addressCountry "IT" ; schema:sameAs wd:Q38 ] ] ;
@@ -492,6 +621,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/68a587c3-eb94-4ede-b35b-5ac1a84f24df> a schema:Dataset ;
+  schema:identifier "68a587c3-eb94-4ede-b35b-5ac1a84f24df" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/68a587c3-eb94-4ede-b35b-5ac1a84f24df> ;
+  schema:sameAs <https://yourselftoscience.org/resource/pura-biobank> ;
   rdfs:label "PURA Biobank" ;
   schema:description "Collects biological samples from patients with PURA syndrome, other neurological disorders, and healthy controls to support research." ;
   schema:creator [ a schema:GovernmentOrganization; rdfs:label "Helmholtz Munich" ; schema:sameAs wd:Q878592 ; schema:location [ a schema:Place; rdfs:label "Germany" ; schema:addressCountry "DE" ; schema:sameAs wd:Q183 ] ] ;
@@ -503,6 +635,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/df15fcd0-c0c0-4726-85e7-dbad12687bde> a schema:Dataset ;
+  schema:identifier "df15fcd0-c0c0-4726-85e7-dbad12687bde" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/df15fcd0-c0c0-4726-85e7-dbad12687bde> ;
+  schema:sameAs <https://yourselftoscience.org/resource/gimm-biobank> ;
   rdfs:label "GIMM Biobank" ;
   schema:description "A biobank collecting biological samples (primarily blood) from diverse populations to support biomedical research and precision medicine." ;
   schema:creator [ a schema:Organization; rdfs:label "Gulbenkian Institute for Molecular Medicine (GIMM)" ; schema:sameAs wd:Q131428172 ; schema:additionalType wd:Q31855 ; schema:location [ a schema:Place; rdfs:label "Portugal" ; schema:addressCountry "PT" ; schema:sameAs wd:Q45 ] ] ;
@@ -513,6 +648,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/b39d93dc-97d1-44c1-a689-041e567e0e8b> a schema:Dataset ;
+  schema:identifier "b39d93dc-97d1-44c1-a689-041e567e0e8b" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/b39d93dc-97d1-44c1-a689-041e567e0e8b> ;
+  schema:sameAs <https://yourselftoscience.org/resource/genomes-io> ;
   rdfs:label "Genomes.io" ;
   schema:description "A DNA data bank and personal DNA data platform that allows users to control and monetize their genomic data using blockchain technology." ;
   schema:creator [ a schema:Organization; rdfs:label "Genomes.io" ; schema:sameAs wd:Q125117291 ; schema:location [ a schema:Place; rdfs:label "United Kingdom" ; schema:addressCountry "GB" ; schema:sameAs wd:Q145 ] ] ;
@@ -525,6 +663,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093 .
 
 <https://yourselftoscience.org/resource/f98be3f7-293f-47fa-b95e-f01703dd99c8> a schema:Dataset ;
+  schema:identifier "f98be3f7-293f-47fa-b95e-f01703dd99c8" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/f98be3f7-293f-47fa-b95e-f01703dd99c8> ;
+  schema:sameAs <https://yourselftoscience.org/resource/23andme> ;
   rdfs:label "23andMe Research Participation" ;
   schema:description "Contribute to scientific research aimed at making and supporting meaningful scientific discoveries using your genetic and self-reported data." ;
   schema:creator [ a schema:Organization; rdfs:label "23andMe Holding Co." ; schema:sameAs wd:Q216272 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
@@ -536,6 +677,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/e5bbe9fa-66ad-4ea5-ab36-9330205262be> a schema:Dataset ;
+  schema:identifier "e5bbe9fa-66ad-4ea5-ab36-9330205262be" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/e5bbe9fa-66ad-4ea5-ab36-9330205262be> ;
+  schema:sameAs <https://yourselftoscience.org/resource/gedmatch> ;
   rdfs:label "GEDmatch" ;
   schema:description "A public genealogy database that allows users to opt-in to share their data for research purposes. Note: VCF files from unsupported companies must be converted to the 23andMe format before upload." ;
   schema:creator [ a schema:Organization; rdfs:label "Verogen Inc." ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
@@ -546,6 +690,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/50ed915d-ab6f-478a-9dc5-cf4774cfa14d> a schema:Dataset ;
+  schema:identifier "50ed915d-ab6f-478a-9dc5-cf4774cfa14d" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/50ed915d-ab6f-478a-9dc5-cf4774cfa14d> ;
+  schema:sameAs <https://yourselftoscience.org/resource/tellmegen> ;
   rdfs:label "tellmeGen Research" ;
   schema:description "Contribute to research by sharing your genetic data and answering surveys about your health, traits, and wellness." ;
   schema:creator [ a schema:Organization; rdfs:label "GENELINK, S.L. (tellmeGen)" ; schema:sameAs wd:Q116921900 ; schema:location [ a schema:Place; rdfs:label "Spain" ; schema:addressCountry "ES" ; schema:sameAs wd:Q29 ] ] ;
@@ -556,6 +703,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/bfdda894-db90-4bf8-89fd-9428a6466583> a schema:Dataset ;
+  schema:identifier "bfdda894-db90-4bf8-89fd-9428a6466583" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/bfdda894-db90-4bf8-89fd-9428a6466583> ;
+  schema:sameAs <https://yourselftoscience.org/resource/myheritage> ;
   rdfs:label "MyHeritage DNA Research Project" ;
   schema:description "Participate in research to help understand human genetics, genealogy, and anthropology by sharing your DNA results and survey responses." ;
   schema:creator [ a schema:Organization; rdfs:label "MyHeritage Ltd" ; schema:sameAs wd:Q589757 ; schema:location [ a schema:Place; rdfs:label "Israel" ; schema:addressCountry "IL" ; schema:sameAs wd:Q801 ] ] ;
@@ -566,6 +716,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/a84efc57-eb85-4ce3-bd56-6103cee8a809> a schema:Dataset ;
+  schema:identifier "a84efc57-eb85-4ce3-bd56-6103cee8a809" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/a84efc57-eb85-4ce3-bd56-6103cee8a809> ;
+  schema:sameAs <https://yourselftoscience.org/resource/ancestry> ;
   rdfs:label "Ancestry Human Diversity Project" ;
   schema:description "Participate in research to help understand human history, health, and genetics by sharing your DNA data and survey responses." ;
   schema:creator [ a schema:Organization; rdfs:label "Ancestry.com Inc." ; schema:sameAs wd:Q4752572 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
@@ -576,6 +729,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/fa467f40-436c-4882-9948-aaff485d037a> a schema:Dataset ;
+  schema:identifier "fa467f40-436c-4882-9948-aaff485d037a" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/fa467f40-436c-4882-9948-aaff485d037a> ;
+  schema:sameAs <https://yourselftoscience.org/resource/sequencing> ;
   rdfs:label "hEDS & Dysautonomia Study (Sequencing.com)" ;
   schema:description "Participate in a genetic study for hypermobile Ehlers-Danlos Syndrome (hEDS) and Dysautonomia in collaboration with the Norris Lab at the Medical University of South Carolina." ;
   schema:creator [ a schema:Organization; rdfs:label "Sequencing.com" ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
@@ -586,6 +742,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/5297c0c6-2633-4109-b7d6-2016045227af> a schema:Dataset ;
+  schema:identifier "5297c0c6-2633-4109-b7d6-2016045227af" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/5297c0c6-2633-4109-b7d6-2016045227af> ;
+  schema:sameAs <https://yourselftoscience.org/resource/altruist-database> ;
   rdfs:label "Altruist Database (Sequencing.com)" ;
   schema:description "A free database of anonymous genotypic, phenotypic and interpretation data that allows public searching and analysis. Researchers can request to contact individuals holding specific traits for additional paid studies and opportunities." ;
   schema:creator [ a schema:Organization; rdfs:label "Sequencing.com" ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
@@ -598,6 +757,9 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/5a99f8d8-f020-4d3a-9a61-ca8f7547ad1d> a schema:Dataset ;
+  schema:identifier "5a99f8d8-f020-4d3a-9a61-ca8f7547ad1d" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/5a99f8d8-f020-4d3a-9a61-ca8f7547ad1d> ;
+  schema:sameAs <https://yourselftoscience.org/resource/wikitree> ;
   rdfs:label "WikiTree" ;
   schema:description "A collaborative genealogy platform that allows users to add their DNA test information (like GEDmatch ID or usernames, rather than raw data files) to their profiles to help confirm relationships and find genetic cousins." ;
   schema:sameAs wd:Q1074931 ;

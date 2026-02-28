@@ -8,7 +8,7 @@ try {
   const wikidataResources = JSON.parse(readFileSync(jsonPath, 'utf8'));
 
   const headers = [
-    'id', 'title', 'organization', 'link', 'dataTypes', 'compensationType', 'compensationWikidataId',
+    'id', 'permalink', 'title', 'organization', 'link', 'dataTypes', 'compensationType', 'compensationWikidataId',
     'entityCategory', 'entitySubType', 'countries', 'countryCodes', 'origin', 'originCode',
     'description', 'instructions', 'citations', 'citationWikidataIds', 'wikidataId', 'resourceWikidataId', 'dataTypeWikidataIds'
   ];
@@ -28,6 +28,7 @@ try {
 
     const row = [
       `"${resource.id || ''}"`,
+      `"https://yourselftoscience.org/resource/${resource.id}"`,
       `"${resource.title ? resource.title.replace(/"/g, '""') : ''}"`,
       `"${resource.organizations ? resource.organizations.map(o => o.name).join('; ').replace(/"/g, '""') : ''}"`,
       `"${resource.link || ''}"`,

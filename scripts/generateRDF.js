@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { join } from 'path';
 
 const outputPath = join(process.cwd(), 'public/resources.ttl');
@@ -12,6 +12,11 @@ function escapeRDFString(str) {
 
 try {
   const wikidataResources = JSON.parse(readFileSync(jsonPath, 'utf8'));
+  const idToSlugPath = join(process.cwd(), 'public/id-to-slug.json');
+  let idToSlug = {};
+  if (existsSync(idToSlugPath)) {
+    idToSlug = JSON.parse(readFileSync(idToSlugPath, 'utf8'));
+  }
 
   let ttlContent = `@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <http://schema.org/> .
@@ -29,6 +34,13 @@ yts:compensationWikidataId a rdfs:Property ;
   wikidataResources.forEach(resource => {
     const resourceUri = `<${BASE_URI}${resource.id}>`;
     ttlContent += `${resourceUri} a schema:Dataset ;\n`;
+    ttlContent += `  schema:identifier "${resource.id}" ;\n`;
+    ttlContent += `  schema:mainEntityOfPage <${BASE_URI}${resource.id}> ;\n`;
+    
+    if (idToSlug[resource.id]) {
+        ttlContent += `  schema:sameAs <${BASE_URI}${idToSlug[resource.id]}> ;\n`;
+    }
+
     ttlContent += `  rdfs:label "${escapeRDFString(resource.title)}" ;\n`;
 
     if (resource.description) {

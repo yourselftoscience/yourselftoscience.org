@@ -6,7 +6,14 @@ const outputPath = join(process.cwd(), 'public/resources.json');
 
 try {
   const wikidataResources = JSON.parse(readFileSync(jsonPath, 'utf8'));
-  const jsonContent = JSON.stringify(wikidataResources, null, 2);
+  
+  // Inject canonical permalink for linked data interoperability
+  const enrichedResources = wikidataResources.map(resource => ({
+    ...resource,
+    permalink: `https://yourselftoscience.org/resource/${resource.id}`
+  }));
+
+  const jsonContent = JSON.stringify(enrichedResources, null, 2);
   writeFileSync(outputPath, jsonContent, 'utf8');
   console.log(`Successfully generated JSON file at ${outputPath}`);
 } catch (error) {
