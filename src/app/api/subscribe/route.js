@@ -45,7 +45,7 @@ export async function POST(request) {
   // you must define corresponding Merge Tags in your Mailchimp Audience settings.
   // e.g., GENDER, YOB, TOPICS
   if (gender) merge_fields.GENDER = gender;
-  if (yearOfBirth) merge_fields.YOB = yearOfBirth;
+  if (yearOfBirth) merge_fields.YOB = Number(yearOfBirth);
   if (researchTopics) merge_fields.TOPICS = researchTopics;
   if (country && country.length > 0) merge_fields.COUNTRY = country.join(', ');
 
