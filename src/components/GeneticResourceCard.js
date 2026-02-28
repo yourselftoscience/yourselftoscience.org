@@ -286,7 +286,7 @@ export default function GeneticResourceCard({ resource, selectedServices, onSect
                 {/* <div className="flex flex-wrap gap-2 mb-6">...</div> */}
 
                 {/* Description */}
-                {resource.description && resource.description.length > 150 ? (
+                {resource.description && resource.description.length > 200 ? (
                     <button
                         onClick={(e) => { e.preventDefault(); e.stopPropagation(); setIsDescriptionExpanded(!isDescriptionExpanded); }}
                         className="mb-6 w-full text-left group/desc focus:outline-none block"
