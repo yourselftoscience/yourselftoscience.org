@@ -172,16 +172,22 @@ function CitationsPopover({ resource, citationMap }) {
         <>
           <Popover.Button
             className={`
-              group flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium transition-all duration-200 min-h-[24px]
+              flex flex-shrink-0 items-center justify-center w-12 h-12 rounded-xl border shadow-sm transition-transform hover:-translate-y-[1px] focus:outline-none focus:ring-2 focus:ring-blue-500/50
               ${open
-                ? 'bg-google-blue/10 text-google-blue ring-1 ring-google-blue/20'
-                : 'bg-slate-50 text-slate-600 hover:bg-slate-100 hover:text-slate-900 ring-1 ring-slate-200'
+                ? 'bg-blue-50 border-blue-200 text-blue-600'
+                : 'bg-white border-slate-200 text-slate-500 hover:text-blue-600 hover:border-blue-200 hover:bg-blue-50'
               }
             `}
             onClick={(e) => e.stopPropagation()}
             aria-label={`View ${resource.citations.length} ${resource.citations.length === 1 ? 'citation' : 'citations'}`}
+            title="View official sources / citations"
           >
-            <FaBook className={`w-3 h-3 ${open ? 'text-google-blue' : 'text-slate-500 group-hover:text-slate-600'}`} />
+            <div className="relative flex items-center justify-center">
+               <FaBook className="w-4 h-4 ml-[-2px]" />
+               <span className="absolute -top-2 -right-3 flex h-4 w-4 items-center justify-center rounded-full bg-blue-100 text-[9px] font-bold text-blue-700 ring-2 ring-white">
+                 {resource.citations.length}
+               </span>
+            </div>
           </Popover.Button>
 
           <Transition
@@ -266,6 +272,7 @@ export default function ResourceCard({
   const [hoveringIcon, setHoveringIcon] = useState(null);
   const [isInstructionsExpanded, setIsInstructionsExpanded] = useState(false);
   const [showCopied, setShowCopied] = useState(false);
+  const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
   const hasCitations = resource.citations && resource.citations.length > 0;
 
   const handleShare = async (e) => {
@@ -300,7 +307,7 @@ export default function ResourceCard({
   return (
     <article
       id={`resource-${resource.slug}`}
-      className={`resource-card group relative ${highlightClass}`}
+      className={`resource-card group relative hover:z-[40] focus-within:z-[40] ${highlightClass}`}
     >
       {/* Decorative Gradient Background (Subtle) */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-40 pointer-events-none" />
@@ -397,11 +404,26 @@ export default function ResourceCard({
         )}
 
         {/* Description */}
-        {resource.description && (
-          <p className="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-3">
-            {resource.description}
-          </p>
-        )}
+        {resource.description && resource.description.length > 150 ? (
+          <button
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); setIsDescriptionExpanded(!isDescriptionExpanded); }}
+            className="mb-4 w-full text-left group/desc focus:outline-none block"
+            aria-expanded={isDescriptionExpanded}
+          >
+            <p className={`text-slate-600 text-sm leading-relaxed transition-colors group-hover/desc:text-slate-800 ${!isDescriptionExpanded ? 'line-clamp-3' : ''}`}>
+              {resource.description}
+            </p>
+            <span className="mt-1 inline-block text-xs text-blue-600 group-hover/desc:text-blue-800 font-medium transition-colors">
+              {isDescriptionExpanded ? 'Show less' : 'Read more'}
+            </span>
+          </button>
+        ) : resource.description ? (
+          <div className="mb-4">
+            <p className="text-slate-600 text-sm leading-relaxed">
+              {resource.description}
+            </p>
+          </div>
+        ) : null}
 
         {/* Country & Data Type Tags */}
         <div className="flex flex-col gap-2 mb-4">
@@ -538,10 +560,15 @@ export default function ResourceCard({
               )}
             </div>
 
+            {/* Citations Button */}
+            {hasCitations && citationMap && (
+              <CitationsPopover resource={resource} citationMap={citationMap} />
+            )}
+
             {/* Share Button */}
             <button
               onClick={handleShare}
-              className={`flex flex-shrink-0 items-center justify-center w-12 h-12 rounded-xl border shadow-sm transition-transform hover:-translate-y-[1px] focus:outline-none 
+              className={`flex flex-shrink-0 items-center justify-center w-12 h-12 rounded-xl border shadow-sm transition-transform hover:-translate-y-[1px] focus:outline-none focus:ring-2 focus:ring-blue-500/50
                 ${showCopied ? 'bg-emerald-50 border-emerald-100 text-emerald-600' : 'bg-white border-slate-200 text-slate-500 hover:text-blue-600 hover:border-blue-200 hover:bg-blue-50'}
               `}
               aria-label="Share this resource"
@@ -550,13 +577,6 @@ export default function ResourceCard({
               {showCopied ? <FaCheck className="w-4 h-4" /> : <FaShareAlt className="w-4 h-4" />}
             </button>
           </div>
-
-          {/* Citations row */}
-          {hasCitations && citationMap && (
-            <div className="flex items-center gap-2 flex-shrink-0 self-start">
-              <CitationsPopover resource={resource} citationMap={citationMap} />
-            </div>
-          )}
         </div>
       </div>
     </article>

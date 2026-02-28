@@ -1,20 +1,107 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaGlobeAmericas, FaBuilding, FaDna, FaHeartbeat, FaHistory, FaExternalLinkAlt, FaInfoCircle, FaChevronDown, FaDollarSign, FaHeart, FaCheck, FaShareAlt } from 'react-icons/fa';
+import { FaGlobeAmericas, FaBuilding, FaDna, FaHeartbeat, FaHistory, FaExternalLinkAlt, FaInfoCircle, FaChevronDown, FaDollarSign, FaHeart, FaCheck, FaShareAlt, FaBook } from 'react-icons/fa';
 import { EU_COUNTRIES } from '@/data/constants';
+import { Popover, Transition } from '@headlessui/react';
 
 /**
  * A specialized, high-fidelity card component for the Genetic Data Donation page.
  * Features a modern "glassmorphism" aesthetic with premium typography and interactions.
  */
+
+function getCitationKey(citation) {
+    if (citation && citation.link) {
+        return citation.link.trim();
+    }
+    if (citation && citation.title) {
+        return citation.title.trim().toLowerCase().substring(0, 50);
+    }
+    return null;
+}
+
+function CitationsPopover({ resource }) {
+    if (!resource || !resource.citations || resource.citations.length === 0) return null;
+    return (
+        <Popover className="relative flex items-center">
+            {({ open }) => (
+                <>
+                    <Popover.Button
+                        className={`
+                            flex flex-shrink-0 items-center justify-center w-12 h-12 rounded-xl border shadow-sm transition-transform hover:-translate-y-[1px] focus:outline-none focus:ring-2 focus:ring-blue-500/50
+                            ${open
+                                ? 'bg-blue-50 border-blue-200 text-blue-600'
+                                : 'bg-white border-slate-200 text-slate-500 hover:text-blue-600 hover:border-blue-200 hover:bg-blue-50'
+                            }
+                        `}
+                        onClick={(e) => e.stopPropagation()}
+                        aria-label={`View ${resource.citations.length} ${resource.citations.length === 1 ? 'citation' : 'citations'}`}
+                        title="View official sources / citations"
+                    >
+                        <div className="relative flex items-center justify-center">
+                            <FaBook className="w-4 h-4 ml-[-2px]" />
+                            <span className="absolute -top-2 -right-3 flex h-4 w-4 items-center justify-center rounded-full bg-blue-100 text-[9px] font-bold text-blue-700 ring-2 ring-white">
+                                {resource.citations.length}
+                            </span>
+                        </div>
+                    </Popover.Button>
+
+                    <Transition
+                        as={Fragment}
+                        enter="transition ease-out duration-200"
+                        enterFrom="opacity-0 translate-y-1"
+                        enterTo="opacity-100 translate-y-0"
+                        leave="transition ease-in duration-150"
+                        leaveFrom="opacity-100 translate-y-0"
+                        leaveTo="opacity-0 translate-y-1"
+                    >
+                        <Popover.Panel 
+                            onClick={(e) => e.stopPropagation()} 
+                            className="absolute z-50 bottom-full right-0 mb-2 w-72 max-w-[calc(100vw-2rem)] max-h-60 overflow-y-auto rounded-xl bg-white shadow-2xl ring-1 ring-black/10 focus:outline-none"
+                        >
+                            <div className="p-3 space-y-2">
+                                <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-100 pb-2 mb-3">
+                                    Service cited by
+                                </h3>
+                                <ol className="list-decimal list-inside space-y-1.5">
+                                    {resource.citations.map((citation, idx) => {
+                                        const key = getCitationKey(citation) || idx;
+                                        return (
+                                            <li key={key} className="text-xs text-slate-600 leading-relaxed p-1.5 rounded-md hover:bg-slate-50 transition-colors">
+                                                {citation.link ? (
+                                                    <a
+                                                        href={citation.link}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="text-indigo-600 hover:underline break-words"
+                                                    >
+                                                        {citation.title}
+                                                    </a>
+                                                ) : (
+                                                    <span className="break-words">{citation.title}</span>
+                                                )}
+                                            </li>
+                                        );
+                                    })}
+                                </ol>
+                            </div>
+                        </Popover.Panel>
+                    </Transition>
+                </>
+            )}
+        </Popover>
+    );
+}
+
 export default function GeneticResourceCard({ resource, selectedServices, onSectorClick, onCompensationClick, selectedCompensation, selectedCountries = [] }) {
     const [isHovered, setIsHovered] = useState(false);
     const [showInstructions, setShowInstructions] = useState(false);
+    const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
     const [copied, setCopied] = useState(false);
     const [isTargeted, setIsTargeted] = useState(false);
+    const hasCitations = resource.citations && resource.citations.length > 0;
 
     // Watch the URL hash to see if this card is the active target of a deep link
     useEffect(() => {
@@ -58,12 +145,12 @@ export default function GeneticResourceCard({ resource, selectedServices, onSect
     return (
         <article
             id={resource.slug}
-            className={`group relative flex flex-col h-full backdrop-blur-2xl rounded-[2rem] transition-all duration-500 overflow-hidden ${isTargeted ? targetStyles : idleStyles}`}
+            className={`group relative flex flex-col h-full backdrop-blur-2xl rounded-[2rem] transition-all duration-500 hover:z-[40] focus-within:z-[40] ${isTargeted ? targetStyles : idleStyles}`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
             {/* Decorative Gradient Background (Subtle) */}
-            <div className={`absolute inset-0 bg-gradient-to-br from-white/40 to-transparent opacity-80 transition-opacity duration-500 ${isHovered ? 'opacity-40' : 'opacity-80'}`} />
+            <div className={`absolute inset-0 rounded-[2rem] overflow-hidden bg-gradient-to-br from-white/40 to-transparent opacity-80 transition-opacity duration-500 ${isHovered ? 'opacity-40' : 'opacity-80'}`} />
 
             <div className="relative z-10 flex flex-col h-full p-6">
                 {/* Header Section */}
@@ -199,9 +286,26 @@ export default function GeneticResourceCard({ resource, selectedServices, onSect
                 {/* <div className="flex flex-wrap gap-2 mb-6">...</div> */}
 
                 {/* Description */}
-                <p className="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-3">
-                    {resource.description}
-                </p>
+                {resource.description && resource.description.length > 150 ? (
+                    <button
+                        onClick={(e) => { e.preventDefault(); e.stopPropagation(); setIsDescriptionExpanded(!isDescriptionExpanded); }}
+                        className="mb-6 w-full text-left group/desc focus:outline-none block"
+                        aria-expanded={isDescriptionExpanded}
+                    >
+                        <p className={`text-slate-600 text-sm leading-relaxed transition-colors group-hover/desc:text-slate-800 ${!isDescriptionExpanded ? 'line-clamp-3' : ''}`}>
+                            {resource.description}
+                        </p>
+                        <span className="mt-1 inline-block text-xs text-indigo-600 group-hover/desc:text-indigo-800 font-medium transition-colors">
+                            {isDescriptionExpanded ? 'Show less' : 'Read more'}
+                        </span>
+                    </button>
+                ) : resource.description ? (
+                    <div className="mb-6">
+                        <p className="text-slate-600 text-sm leading-relaxed">
+                            {resource.description}
+                        </p>
+                    </div>
+                ) : null}
 
                 {/* Footer Actions */}
                 <div className="mt-auto pt-4 border-t border-slate-100/50 flex flex-col gap-3">
@@ -272,13 +376,18 @@ export default function GeneticResourceCard({ resource, selectedServices, onSect
                             )}
                         </div>
 
+                        {/* Citations Button */}
+                        {hasCitations && (
+                            <CitationsPopover resource={resource} />
+                        )}
+
                         {/* Share Button (Native Anchor Link) */}
                         <a
                             href={`#${resource.slug}`}
                             onClick={(e) => {
                                 handleCopyLink(e);
                             }}
-                            className={`flex flex-shrink-0 items-center justify-center w-12 h-12 rounded-xl border shadow-sm transition-transform hover:-translate-y-[1px] focus:outline-none 
+                            className={`flex flex-shrink-0 items-center justify-center w-12 h-12 rounded-xl border shadow-sm transition-transform hover:-translate-y-[1px] focus:outline-none focus:ring-2 focus:ring-blue-500/50
                                 ${copied ? 'bg-emerald-50 border-emerald-100 text-emerald-600' : 'bg-white border-slate-200 text-slate-500 hover:text-blue-600 hover:border-blue-200 hover:bg-blue-50'}
                             `}
                             title="Copy link to this resource"
