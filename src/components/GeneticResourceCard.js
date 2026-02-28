@@ -309,6 +309,14 @@ export default function GeneticResourceCard({ resource, selectedServices, onSect
 
                 {/* Footer Actions */}
                 <div className="mt-auto pt-4 border-t border-slate-100/50 flex flex-col gap-3">
+                    {/* Requires Sample Warning for Biobanks */}
+                    {(!resource.compatibleSources || resource.compatibleSources.length === 0) && (
+                        <div className="flex items-start gap-2 text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded-xl border border-indigo-100 mb-1">
+                            <FaInfoCircle className="mt-0.5 flex-shrink-0" />
+                            <span><strong>Note:</strong> Provides their own genetic testing kit. They do not accept existing digital DNA uploads.</span>
+                        </div>
+                    )}
+
                     {/* Eligibility Warning if any */}
                     {resource.eligibility === 'Customers' && (
                         <div className="flex items-start gap-2 text-xs text-amber-600 bg-amber-50/50 p-2 rounded-lg border border-amber-100">
