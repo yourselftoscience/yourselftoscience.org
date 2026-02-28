@@ -1,5 +1,5 @@
-const title = "Genetic Data Donation Wizard | Donate DNA to Science";
-const description = "Find research projects that accept your raw DNA data from 23andMe, AncestryDNA, and others. Discover academic, non-profit, commercial, and paid research opportunities.";
+const title = "Put Your DNA to Work | Find Paid & Scientific Research Opportunities";
+const description = "Discover what you can do with your DNA data. Match your raw data from 23andMe, AncestryDNA, or any provider with academic, non-profit, or commercial research studies, including paid opportunities.";
 const url = "https://yourselftoscience.org/what-can-i-do-with-my-genetic-data";
 const siteName = "Yourself to Science";
 
