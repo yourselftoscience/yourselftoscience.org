@@ -48,9 +48,12 @@ export default function ResourcesListPage() {
           <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
             All Resources
           </h1>
-          <p className="mt-4 text-xl text-gray-500">
+          <p className="mt-4 mb-4 text-xl text-gray-500">
             A complete catalogue of all services for contributing to science.
           </p>
+          <div className="text-center text-sm text-gray-500">
+            Looking for raw data? <Link href="/data" className="text-blue-600 hover:underline">Access the Open Datasets</Link>
+          </div>
         </div>
 
         <div className="border border-gray-200 rounded-lg shadow-sm overflow-hidden">

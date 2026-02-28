@@ -99,13 +99,30 @@ export default function ResourcePage({ params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      {/* Back to all resources link */}
-      <div className="mb-8">
-        <Link href="/" className="text-blue-600 hover:underline flex items-center">
-          <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd"></path></svg>
-          Back to all resources
-        </Link>
-      </div>
+      {/* Breadcrumb Navigation */}
+      <nav aria-label="breadcrumb" className="mb-8 text-sm">
+        <ol className="flex items-center space-x-2 text-gray-600 flex-wrap">
+          <li>
+            <Link href="/" className="text-blue-600 hover:underline">
+              Home
+            </Link>
+          </li>
+          <li>
+            <span className="text-gray-400">/</span>
+          </li>
+          <li>
+            <Link href="/resources" className="text-blue-600 hover:underline">
+              Resource
+            </Link>
+          </li>
+          <li>
+            <span className="text-gray-400">/</span>
+          </li>
+          <li className="text-gray-500 font-medium truncate max-w-[200px] sm:max-w-md md:max-w-lg" aria-current="page">
+            {resource.title}
+          </li>
+        </ol>
+      </nav>
 
       <div className="bg-white shadow-lg rounded-lg overflow-hidden">
         <div className="p-8">
