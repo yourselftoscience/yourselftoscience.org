@@ -58,23 +58,26 @@ async function generateSitemap() {
     
     const staticPages = [
       { url: `${SITE_URL}/`, priority: '1.0', changefreq: 'weekly', file: 'src/app/page.js', isDataDriven: true },
-      { url: `${SITE_URL}/stats`, priority: '0.9', changefreq: 'weekly', file: 'src/app/stats/page.js', isDataDriven: true },
-      { url: `${SITE_URL}/get-involved`, priority: '0.9', changefreq: 'weekly', file: 'src/app/get-involved/page.js' },
-      { url: `${SITE_URL}/mission`, priority: '0.9', changefreq: 'monthly', file: 'src/app/mission/page.js' },
-      { url: `${SITE_URL}/what-can-i-do-with-my-genetic-data`, priority: '0.9', changefreq: 'monthly', file: 'src/app/what-can-i-do-with-my-genetic-data/page.js' },
-      { url: `${SITE_URL}/clinical-trials`, priority: '0.8', changefreq: 'weekly', file: 'src/app/clinical-trials/page.js', isDataDriven: true },
-      { url: `${SITE_URL}/organ-body-tissue-donation`, priority: '0.8', changefreq: 'weekly', file: 'src/app/organ-body-tissue-donation/page.js', isDataDriven: true },
-      { url: `${SITE_URL}/yourselftoscience.pdf`, priority: '0.7', changefreq: 'weekly', file: 'public/yourselftoscience.pdf' }
+      { url: `${SITE_URL}/data`, priority: '0.9', changefreq: 'weekly', file: 'src/app/data/page.js', isDataDriven: true },
+      { url: `${SITE_URL}/clinical-trials`, priority: '0.9', changefreq: 'weekly', file: 'src/app/clinical-trials/page.js', isDataDriven: true },
+      { url: `${SITE_URL}/organ-body-tissue-donation`, priority: '0.9', changefreq: 'weekly', file: 'src/app/organ-body-tissue-donation/page.js', isDataDriven: true },
+      { url: `${SITE_URL}/what-can-i-do-with-my-genetic-data`, priority: '0.8', changefreq: 'monthly', file: 'src/app/what-can-i-do-with-my-genetic-data/page.js' },
+      { url: `${SITE_URL}/stats`, priority: '0.8', changefreq: 'weekly', file: 'src/app/stats/page.js', isDataDriven: true },
+      { url: `${SITE_URL}/get-involved`, priority: '0.8', changefreq: 'monthly', file: 'src/app/get-involved/page.js' },
+      { url: `${SITE_URL}/mission`, priority: '0.7', changefreq: 'monthly', file: 'src/app/mission/page.js' },
+      { url: `${SITE_URL}/privacy-policy`, priority: '0.3', changefreq: 'yearly', file: 'src/app/privacy-policy/page.js' },
+      { url: `${SITE_URL}/terms`, priority: '0.3', changefreq: 'yearly', file: 'src/app/terms/page.js' },
+      { url: `${SITE_URL}/yourselftoscience.pdf`, priority: '0.4', changefreq: 'monthly', file: 'public/yourselftoscience.pdf' }
     ];
 
     const dataDrivenLastMod = getLastModified('src/data/resources.js');
 
     const markdownPages = [
-      { url: `${SITE_URL}/index.html.md`, priority: '0.8', changefreq: 'weekly' },
-      { url: `${SITE_URL}/stats.md`, priority: '0.7', changefreq: 'weekly' },
-      { url: `${SITE_URL}/get-involved.md`, priority: '0.7', changefreq: 'weekly' },
-      { url: `${SITE_URL}/clinical-trials.md`, priority: '0.6', changefreq: 'weekly' },
-      { url: `${SITE_URL}/organ-body-tissue-donation.md`, priority: '0.6', changefreq: 'weekly' },
+      { url: `${SITE_URL}/index.html.md`, priority: '0.4', changefreq: 'weekly' },
+      { url: `${SITE_URL}/stats.md`, priority: '0.4', changefreq: 'weekly' },
+      { url: `${SITE_URL}/get-involved.md`, priority: '0.4', changefreq: 'weekly' },
+      { url: `${SITE_URL}/clinical-trials.md`, priority: '0.4', changefreq: 'weekly' },
+      { url: `${SITE_URL}/organ-body-tissue-donation.md`, priority: '0.4', changefreq: 'weekly' },
     ]
 
     let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -112,7 +115,7 @@ async function generateSitemap() {
     <loc>${SITE_URL}/clinical-trials?countries=${encodeURIComponent(country)}</loc>
     <lastmod>${dataDrivenLastMod}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>`;
     });
 
@@ -123,7 +126,7 @@ async function generateSitemap() {
     <loc>${SITE_URL}/organ-body-tissue-donation?countries=${encodeURIComponent(country)}</loc>
     <lastmod>${dataDrivenLastMod}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>`;
     });
 
@@ -135,8 +138,8 @@ async function generateSitemap() {
   <url>
     <loc>${SITE_URL}/resource/${resource.slug}</loc>
     <lastmod>${lastModForResources}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>`;
     });
 
