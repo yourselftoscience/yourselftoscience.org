@@ -619,3 +619,15 @@ This page provides a filterable catalogue of all resources. You can also downloa
 *Compensation:* Mixed
 
 ---
+
+### [WikiTree](https://yourselftoscience.org/resource/wikitree)
+
+*Description:* A collaborative genealogy platform that allows users to add their DNA test information (like GEDmatch ID or usernames, rather than raw data files) to their profiles to help confirm relationships and find genetic cousins.
+
+*Data Types:* Genome
+
+*Countries:* Worldwide
+
+*Compensation:* Donation
+
+---

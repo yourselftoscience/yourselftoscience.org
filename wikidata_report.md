@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 2/28/2026, 4:41:45 AM
+**Generated on:** 2/28/2026, 5:03:46 AM
 
 ## Project-Organizer Relationships
 
@@ -112,6 +112,8 @@
   - Wesley Research Institute: [Q30289631](https://www.wikidata.org/wiki/Q30289631)
 - **Wesley Research Institute stool donation**: ❌
   - Wesley Research Institute: [Q30289631](https://www.wikidata.org/wiki/Q30289631)
+- **WikiTree**: ❌
+  - WikiTree: No Wikidata ID
 
 ## Resources (Projects)
 
@@ -163,6 +165,7 @@
 - **University of Wrocław human hair decomposition project**: ❌
 - **Wesley Research Institute placenta donation**: ❌
 - **Wesley Research Institute stool donation**: ❌
+- **WikiTree**: ❌
 - **body and tissue donation in Italy**: ❌
 - **body donation in France**: ❌
 - **gamete and embryo donation in the United Kingdom**: ❌
@@ -222,6 +225,7 @@
 - **Vanderbilt University Medical Center**: [Q7914455](https://www.wikidata.org/wiki/Q7914455)
 - **Verogen Inc.**: ❌
 - **Wesley Research Institute**: [Q30289631](https://www.wikidata.org/wiki/Q30289631)
+- **WikiTree**: ❌
 - **World Health Organization (WHO)**: [Q7817](https://www.wikidata.org/wiki/Q7817)
 - **hVIVO**: [Q30268998](https://www.wikidata.org/wiki/Q30268998)
 
@@ -326,3 +330,6 @@
 - ❌ **GEDmatch DNA Upload Instructions | Sequencing.com Education Center** ([Citation Link](https://sequencing.com/education-center/free-dna-upload-sites/gedmatch-dna-upload-instructions))
 - ❌ **Contacting Individual Altruists | Sequencing.com Knowledge Center** ([Citation Link](https://sequencing.com/knowledge-center/altruist-endeavor/altruist-database/contacting-individual-altruists))
 - ❌ **Additional Offers & Altruism Rewards | Sequencing.com Knowledge Center** ([Citation Link](https://sequencing.com/knowledge-center/altruist-endeavor/altruism-rewards/additional-offers))
+- ❌ **Add a DNA test to your profile | WikiTree Help** ([Citation Link](https://www.wikitree.com/wiki/Space:WikiTree_Help:_Add_a_DNA_test_to_your_profile))
+- ❌ **Connecting DNA Test Results to WikiTree Profiles | WikiTree Help** ([Citation Link](https://www.wikitree.com/wiki/Space:Connecting_DNA_Test_Results_to_WikiTree_Profiles))
+- ❌ **How to Get Started with DNA | WikiTree Help** ([Citation Link](https://www.wikitree.com/wiki/Help:How_to_Get_Started_with_DNA))

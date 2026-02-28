@@ -1669,6 +1669,56 @@ const rawResources = [
         "link": "https://sequencing.com/knowledge-center/altruist-endeavor/altruism-rewards/additional-offers"
       }
     ]
+  },
+  {
+    "id": "5a99f8d8-f020-4d3a-9a61-ca8f7547ad1d",
+    "slug": "wikitree",
+    "title": "WikiTree",
+    "organizations": [
+      {
+        "name": "WikiTree"
+      }
+    ],
+    "link": "https://www.wikitree.com/wiki/Special:DNATests",
+    "dataTypes": [
+      "Genome"
+    ],
+    "compatibleSources": [
+      "AncestryDNA",
+      "MyHeritage",
+      "LivingDNA",
+      "23andMe",
+      "FamilyTreeDNA",
+      "GEDmatch"
+    ],
+    "countries": ["Worldwide"],
+    "compensationType": "donation",
+    "entityCategory": "Commercial",
+    "entitySubType": "Commercial",
+    "description": "A collaborative genealogy platform that allows users to add their DNA test information (like GEDmatch ID or usernames, rather than raw data files) to their profiles to help confirm relationships and find genetic cousins.",
+    "instructions": [
+      "Create a profile on WikiTree",
+      "For autosomal DNA tests, upload your raw data file to GEDmatch and write down your kit number.",
+      "Click the 'Add' drop-down list at the top right of your WikiTree profile",
+      "Select 'DNA Test Information'",
+      "Select the exact DNA test you took",
+      "Enter your GEDmatch kit ID, FamilyTree DNA kit number, or associated username",
+      "Ensure your WikiTree privacy settings are set to 'Private with Public Biography and Family Tree'"
+    ],
+    "citations": [
+      {
+        "title": "Add a DNA test to your profile | WikiTree Help",
+        "link": "https://www.wikitree.com/wiki/Space:WikiTree_Help:_Add_a_DNA_test_to_your_profile"
+      },
+      {
+        "title": "Connecting DNA Test Results to WikiTree Profiles | WikiTree Help",
+        "link": "https://www.wikitree.com/wiki/Space:Connecting_DNA_Test_Results_to_WikiTree_Profiles"
+      },
+      {
+        "title": "How to Get Started with DNA | WikiTree Help",
+        "link": "https://www.wikitree.com/wiki/Help:How_to_Get_Started_with_DNA"
+      }
+    ]
   }
 ];
 
