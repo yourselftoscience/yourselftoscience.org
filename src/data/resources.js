@@ -697,6 +697,7 @@ const rawResources = [
   },
   {
     "id": "aef3da52-dda0-4b1c-93cd-dce266178e9e",
+    "resourceWikidataId": "Q138520376",
     "slug": "researchmatch",
     "title": "ResearchMatch",
     "organizations": [

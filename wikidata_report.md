@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 3/2/2026, 7:05:01 AM
+**Generated on:** 3/2/2026, 7:06:49 AM
 
 ## Project-Organizer Relationships
 
@@ -93,7 +93,7 @@
   - Penn Medicine: [Q7896080](https://www.wikidata.org/wiki/Q7896080)
 - **PURA Biobank**: [Q138520864](https://www.wikidata.org/wiki/Q138520864)
   - Helmholtz Munich: [Q878592](https://www.wikidata.org/wiki/Q878592)
-- **ResearchMatch**: ❌
+- **ResearchMatch**: [Q138520376](https://www.wikidata.org/wiki/Q138520376)
   - Vanderbilt University Medical Center: [Q7914455](https://www.wikidata.org/wiki/Q7914455)
 - **Rete Cittadini per la Ricerca**: ❌
   - San Camillo IRCCS: No Wikidata ID
@@ -159,7 +159,7 @@
 - **OrganDonor.gov**: [Q138520869](https://www.wikidata.org/wiki/Q138520869)
 - **PURA Biobank**: [Q138520864](https://www.wikidata.org/wiki/Q138520864)
 - **Penn Medicine Donate Your Data**: ❌
-- **ResearchMatch**: ❌
+- **ResearchMatch**: [Q138520376](https://www.wikidata.org/wiki/Q138520376)
 - **Rete Cittadini per la Ricerca**: ❌
 - **SPARK for Autism**: [Q138518848](https://www.wikidata.org/wiki/Q138518848)
 - **UBC Body Donation Program**: ❌
