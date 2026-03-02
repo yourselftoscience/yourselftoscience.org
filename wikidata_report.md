@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 3/2/2026, 6:58:26 AM
+**Generated on:** 3/2/2026, 7:01:45 AM
 
 ## Project-Organizer Relationships
 
@@ -91,7 +91,7 @@
   - U.S. Department of Health & Human Services: [Q942326](https://www.wikidata.org/wiki/Q942326)
 - **Penn Medicine Donate Your Data**: ❌
   - Penn Medicine: [Q7896080](https://www.wikidata.org/wiki/Q7896080)
-- **PURA Biobank**: ❌
+- **PURA Biobank**: [Q138520864](https://www.wikidata.org/wiki/Q138520864)
   - Helmholtz Munich: [Q878592](https://www.wikidata.org/wiki/Q878592)
 - **ResearchMatch**: ❌
   - Vanderbilt University Medical Center: [Q7914455](https://www.wikidata.org/wiki/Q7914455)
@@ -157,7 +157,7 @@
 - **NHS Health Research Authority Research Summaries**: ❌
 - **Open Humans**: [Q59696822](https://www.wikidata.org/wiki/Q59696822)
 - **OrganDonor.gov**: ❌
-- **PURA Biobank**: ❌
+- **PURA Biobank**: [Q138520864](https://www.wikidata.org/wiki/Q138520864)
 - **Penn Medicine Donate Your Data**: ❌
 - **ResearchMatch**: ❌
 - **Rete Cittadini per la Ricerca**: ❌

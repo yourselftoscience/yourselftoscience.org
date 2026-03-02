@@ -644,6 +644,7 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:sameAs <https://yourselftoscience.org/resource/pura-biobank> ;
   rdfs:label "PURA Biobank" ;
   schema:description "Collects biological samples from patients with PURA syndrome, other neurological disorders, and healthy controls to support research." ;
+  schema:sameAs wd:Q138520864 ;
   schema:creator [ a schema:GovernmentOrganization; rdfs:label "Helmholtz Munich" ; schema:sameAs wd:Q878592 ; schema:location [ a schema:Place; rdfs:label "Germany" ; schema:addressCountry "DE" ; schema:sameAs wd:Q183 ] ] ;
   schema:url <https://www.helmholtz-munich.de/en/pura-biobank/donate-bio-sample> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Germany" ; schema:sameAs wd:Q183 ] ;
