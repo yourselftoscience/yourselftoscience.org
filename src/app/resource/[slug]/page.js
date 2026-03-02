@@ -216,6 +216,24 @@ export default function ResourcePage({ params }) {
               </span>
             </div>
 
+            {resource.origin && (
+              <div>
+                <h2 className="text-2xl font-bold text-gray-800 mb-4">Based In</h2>
+                <span className="inline-flex items-center bg-teal-100 text-teal-800 text-md font-medium px-4 py-2 rounded-full">
+                  <FaBuilding className="mr-2" /> {resource.origin} {resource.originCode ? `(${resource.originCode})` : ''}
+                </span>
+              </div>
+            )}
+
+            {resource.resourceType && (
+              <div>
+                <h2 className="text-2xl font-bold text-gray-800 mb-4">Resource Type</h2>
+                <span className="inline-flex items-center bg-orange-100 text-orange-800 text-md font-medium px-4 py-2 rounded-full">
+                  <FaDatabase className="mr-2" /> {resource.resourceType.charAt(0).toUpperCase() + resource.resourceType.slice(1)}
+                </span>
+              </div>
+            )}
+
             {resource.compatibleSources && resource.compatibleSources.length > 0 && (
               <div>
                 <h2 className="text-2xl font-bold text-gray-800 mb-4">Compatible Sources</h2>
