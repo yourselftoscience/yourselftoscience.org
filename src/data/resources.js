@@ -108,6 +108,7 @@ const rawResources = [
     "id": "66700d6e-cbc9-40ab-8bf9-eb466844ad52",
     "slug": "myphd",
     "title": "MyPHD",
+    "resourceWikidataId": "Q138521770",
     "organizations": [
       {
         "name": "Stanford University",
@@ -191,6 +192,7 @@ const rawResources = [
     "id": "e9b2a7d1-5c1a-4d2c-8bf5-f9aee315ebd0",
     "slug": "harvard-pgp",
     "title": "Harvard Personal Genome Project",
+    "resourceWikidataId": "Q138521490",
     "organizations": [
       {
         "name": "Harvard Medical School",
@@ -220,6 +222,7 @@ const rawResources = [
     "id": "e2ba7d15-5c1a-4d2c-8bf5-f9aee315ebd0",
     "slug": "genes-for-good",
     "title": "Genes for Good",
+    "resourceWikidataId": "Q138521482",
     "organizations": [
       {
         "name": "University of Michigan",
@@ -789,6 +792,7 @@ const rawResources = [
     "id": "7d4ce480-7262-4ca8-9674-cbd3cd9cbecf",
     "slug": "goodnature-program",
     "title": "GoodNature Program",
+    "resourceWikidataId": "Q138521454",
     "organizations": [
       {
         "name": "Nestlé Health Science U.S.",
@@ -1391,6 +1395,7 @@ const rawResources = [
     "id": "df15fcd0-c0c0-4726-85e7-dbad12687bde",
     "slug": "gimm-biobank",
     "title": "GIMM Biobank",
+    "resourceWikidataId": "Q138521422",
     "organizations": [
       {
         "name": "Gulbenkian Institute for Molecular Medicine (GIMM)",

@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 3/2/2026, 8:46:25 AM
+**Generated on:** 3/2/2026, 9:55:58 AM
 
 ## Project-Organizer Relationships
 
@@ -52,7 +52,7 @@
   - Human Fertilisation and Embryology Authority: [Q1636533](https://www.wikidata.org/wiki/Q1636533)
 - **GEDmatch**: [Q53953540](https://www.wikidata.org/wiki/Q53953540)
   - Verogen Inc.: [Q138520595](https://www.wikidata.org/wiki/Q138520595)
-- **Genes for Good**: ❌
+- **Genes for Good**: [Q138521482](https://www.wikidata.org/wiki/Q138521482)
   - University of Michigan: [Q230492](https://www.wikidata.org/wiki/Q230492)
 - **GenomeConnect**: ❌
   - Clinical Genome Resource (ClinGen): [Q64403342](https://www.wikidata.org/wiki/Q64403342)
@@ -60,13 +60,13 @@
   - Genomes.io: [Q125117291](https://www.wikidata.org/wiki/Q125117291)
 - **German Clinical Trials Register**: [Q96199255](https://www.wikidata.org/wiki/Q96199255)
   - Federal Institute for Drugs and Medical Devices (BfArM): [Q1006215](https://www.wikidata.org/wiki/Q1006215)
-- **GIMM Biobank**: ❌
+- **GIMM Biobank**: [Q138521422](https://www.wikidata.org/wiki/Q138521422)
   - Gulbenkian Institute for Molecular Medicine (GIMM): [Q131428172](https://www.wikidata.org/wiki/Q131428172)
-- **GoodNature Program**: ❌
+- **GoodNature Program**: [Q138521454](https://www.wikidata.org/wiki/Q138521454)
   - Nestlé Health Science U.S.: [Q45132270](https://www.wikidata.org/wiki/Q45132270)
 - **Google Health Studies**: [Q138518518](https://www.wikidata.org/wiki/Q138518518)
   - Google: [Q95](https://www.wikidata.org/wiki/Q95)
-- **Harvard Personal Genome Project**: ❌
+- **Harvard Personal Genome Project**: [Q138521490](https://www.wikidata.org/wiki/Q138521490)
   - Harvard Medical School: [Q49121](https://www.wikidata.org/wiki/Q49121)
 - **Health Canada's Clinical Trials Database**: ❌
   - Health Canada: [Q1057591](https://www.wikidata.org/wiki/Q1057591)
@@ -81,7 +81,7 @@
   - Max Planck Institute for Software Systems: [Q881238](https://www.wikidata.org/wiki/Q881238)
 - **MyHeritage DNA Research Project**: ❌
   - MyHeritage Ltd: [Q589757](https://www.wikidata.org/wiki/Q589757)
-- **MyPHD**: ❌
+- **MyPHD**: [Q138521770](https://www.wikidata.org/wiki/Q138521770)
   - Stanford University: [Q41506](https://www.wikidata.org/wiki/Q41506)
 - **NHS Health Research Authority Research Summaries**: ❌
   - NHS Health Research Authority: [Q16937226](https://www.wikidata.org/wiki/Q16937226)
@@ -140,20 +140,20 @@
 - **Fitbit Health Research and Product Development**: ❌
 - **FluCamp**: [Q138521080](https://www.wikidata.org/wiki/Q138521080)
 - **GEDmatch**: [Q53953540](https://www.wikidata.org/wiki/Q53953540)
-- **GIMM Biobank**: ❌
-- **Genes for Good**: ❌
+- **GIMM Biobank**: [Q138521422](https://www.wikidata.org/wiki/Q138521422)
+- **Genes for Good**: [Q138521482](https://www.wikidata.org/wiki/Q138521482)
 - **GenomeConnect**: ❌
 - **Genomes.io**: [Q125117291](https://www.wikidata.org/wiki/Q125117291)
 - **German Clinical Trials Register**: [Q96199255](https://www.wikidata.org/wiki/Q96199255)
-- **GoodNature Program**: ❌
+- **GoodNature Program**: [Q138521454](https://www.wikidata.org/wiki/Q138521454)
 - **Google Health Studies**: [Q138518518](https://www.wikidata.org/wiki/Q138518518)
-- **Harvard Personal Genome Project**: ❌
+- **Harvard Personal Genome Project**: [Q138521490](https://www.wikidata.org/wiki/Q138521490)
 - **Health Canada's Clinical Trials Database**: ❌
 - **HealthStreet**: ❌
 - **International Clinical Trials Registry Platform**: [Q29867940](https://www.wikidata.org/wiki/Q29867940)
 - **Max Planck Institute for Software Systems conversational AI data donation**: ❌
 - **MyHeritage DNA Research Project**: ❌
-- **MyPHD**: ❌
+- **MyPHD**: [Q138521770](https://www.wikidata.org/wiki/Q138521770)
 - **NHS Health Research Authority Research Summaries**: ❌
 - **Open Humans**: [Q59696822](https://www.wikidata.org/wiki/Q59696822)
 - **OrganDonor.gov**: [Q138520869](https://www.wikidata.org/wiki/Q138520869)
