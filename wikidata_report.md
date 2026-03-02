@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 3/2/2026, 5:45:04 AM
+**Generated on:** 3/2/2026, 5:50:29 AM
 
 ## Project-Organizer Relationships
 
@@ -50,7 +50,7 @@
   - hVIVO: [Q30268998](https://www.wikidata.org/wiki/Q30268998)
 - **gamete and embryo donation in the United Kingdom**: ❌
   - Human Fertilisation and Embryology Authority: [Q1636533](https://www.wikidata.org/wiki/Q1636533)
-- **GEDmatch**: ❌
+- **GEDmatch**: [Q53953540](https://www.wikidata.org/wiki/Q53953540)
   - Verogen Inc.: No Wikidata ID
 - **Genes for Good**: ❌
   - University of Michigan: [Q230492](https://www.wikidata.org/wiki/Q230492)
@@ -139,7 +139,7 @@
 - **FamilyTreeDNA Group Projects**: ❌
 - **Fitbit Health Research and Product Development**: ❌
 - **FluCamp**: ❌
-- **GEDmatch**: ❌
+- **GEDmatch**: [Q53953540](https://www.wikidata.org/wiki/Q53953540)
 - **GIMM Biobank**: ❌
 - **Genes for Good**: ❌
 - **GenomeConnect**: ❌

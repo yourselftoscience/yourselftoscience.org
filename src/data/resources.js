@@ -1489,6 +1489,7 @@ const rawResources = [
   },
   {
     "id": "e5bbe9fa-66ad-4ea5-ab36-9330205262be",
+    "resourceWikidataId": "Q53953540",
     "slug": "gedmatch",
     "title": "GEDmatch",
     "resourceType": "service",
