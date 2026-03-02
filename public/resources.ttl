@@ -159,6 +159,7 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:sameAs <https://yourselftoscience.org/resource/spark-for-autism> ;
   rdfs:label "SPARK for Autism" ;
   schema:description "A landmark autism research project connecting autistic individuals and their families to research." ;
+  schema:sameAs wd:Q138518848 ;
   schema:creator [ a schema:Organization; rdfs:label "Simons Foundation" ; schema:sameAs wd:Q28148561 ; schema:additionalType wd:Q163740 ; schema:additionalType wd:Q119852396 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
   schema:url <https://sparkforautism.org/why/> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "United States" ; schema:sameAs wd:Q30 ] ;

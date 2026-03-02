@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 3/2/2026, 5:34:38 AM
+**Generated on:** 3/2/2026, 5:45:04 AM
 
 ## Project-Organizer Relationships
 
@@ -97,7 +97,7 @@
   - Vanderbilt University Medical Center: [Q7914455](https://www.wikidata.org/wiki/Q7914455)
 - **Rete Cittadini per la Ricerca**: ❌
   - San Camillo IRCCS: No Wikidata ID
-- **SPARK for Autism**: ❌
+- **SPARK for Autism**: [Q138518848](https://www.wikidata.org/wiki/Q138518848)
   - Simons Foundation: [Q28148561](https://www.wikidata.org/wiki/Q28148561)
 - **tellmeGen Research**: ❌
   - GENELINK, S.L. (tellmeGen): [Q116921900](https://www.wikidata.org/wiki/Q116921900)
@@ -161,7 +161,7 @@
 - **Penn Medicine Donate Your Data**: ❌
 - **ResearchMatch**: ❌
 - **Rete Cittadini per la Ricerca**: ❌
-- **SPARK for Autism**: ❌
+- **SPARK for Autism**: [Q138518848](https://www.wikidata.org/wiki/Q138518848)
 - **UBC Body Donation Program**: ❌
 - **UCSF Archives and Special Collections social media archive**: ❌
 - **University of Cambridge body and tissue donation**: ❌
