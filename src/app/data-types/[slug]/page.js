@@ -107,13 +107,13 @@ export default function DataTypeNodePage({ params }) {
                         </div>
 
                         <div>
-                            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Persistent Identifier (UUID)</p>
+                            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Persistent Identifier (UUID URL)</p>
                             <div className="flex items-center justify-between bg-gray-50 border border-gray-200 p-3 rounded-lg">
                                 <code className="text-sm font-mono text-gray-600 break-all">
-                                    {dataType.id}
+                                    https://yourselftoscience.org/data-types/{dataType.id}
                                 </code>
                                 <div className="ml-4 flex-shrink-0">
-                                    <CopyButton text={dataType.id} />
+                                    <CopyButton text={`https://yourselftoscience.org/data-types/${dataType.id}`} />
                                 </div>
                             </div>
                         </div>
@@ -136,8 +136,8 @@ export default function DataTypeNodePage({ params }) {
                     <div className="grid gap-4 sm:grid-cols-2">
                         {associatedResources.map((resource) => (
                             <Link
-                                key={resource.slug}
-                                href={`/resource/${resource.slug}`}
+                                key={resource.id}
+                                href={`/resource/${resource.id}`}
                                 className="bg-white border border-gray-200 rounded-xl p-5 hover:shadow-md hover:border-blue-300 transition-all group relative overflow-hidden flex flex-col h-full"
                             >
                                 <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">

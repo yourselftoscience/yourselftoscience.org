@@ -174,11 +174,18 @@ export default function ResourcePage({ params }) {
             <div>
               <h2 className="text-2xl font-bold text-gray-800 mb-4">Data Types</h2>
               <div className="flex flex-wrap gap-3">
-                {(resource.dataTypes || []).map((type) => (
-                  <span key={type} className="inline-flex items-center bg-blue-100 text-blue-800 text-md font-medium px-4 py-2 rounded-full">
-                    <FaTag className="mr-2" /> {type}
-                  </span>
-                ))}
+                {(resource.dataTypes || []).map((type) => {
+                  return (
+                    <Link
+                      href={`/data-types/${type.toLowerCase().replace(/\s+/g, '-')}`}
+                      key={type}
+                      className="inline-flex items-center bg-blue-100 text-blue-800 text-md font-medium px-4 py-2 rounded-full hover:bg-blue-200 transition-colors cursor-pointer"
+                      title={`View definition for ${type}`}
+                    >
+                      <FaTag className="mr-2" /> {type}
+                    </Link>
+                  );
+                })}
               </div>
             </div>
             <div>

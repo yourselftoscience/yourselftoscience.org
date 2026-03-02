@@ -63,10 +63,10 @@ export default function DataTypesPage() {
                                             </div>
                                         </div>
                                         <div>
-                                            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Persistent Identifier (UUID)</p>
+                                            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Persistent Identifier (UUID URL)</p>
                                             <div className="flex items-center justify-between text-xs text-mono bg-white border border-gray-200 p-2 rounded-md shadow-sm text-gray-500">
-                                                <span>{id}</span>
-                                                <CopyButton text={id} />
+                                                <span className="truncate pr-2">https://yourselftoscience.org/data-types/{id}</span>
+                                                <CopyButton text={`https://yourselftoscience.org/data-types/${id}`} />
                                             </div>
                                         </div>
                                     </div>
