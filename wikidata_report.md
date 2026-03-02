@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 3/2/2026, 5:50:29 AM
+**Generated on:** 3/2/2026, 6:58:26 AM
 
 ## Project-Organizer Relationships
 
@@ -51,7 +51,7 @@
 - **gamete and embryo donation in the United Kingdom**: ❌
   - Human Fertilisation and Embryology Authority: [Q1636533](https://www.wikidata.org/wiki/Q1636533)
 - **GEDmatch**: [Q53953540](https://www.wikidata.org/wiki/Q53953540)
-  - Verogen Inc.: No Wikidata ID
+  - Verogen Inc.: [Q138520595](https://www.wikidata.org/wiki/Q138520595)
 - **Genes for Good**: ❌
   - University of Michigan: [Q230492](https://www.wikidata.org/wiki/Q230492)
 - **GenomeConnect**: ❌
@@ -227,7 +227,7 @@
 - **University of Florida Health**: [Q7487946](https://www.wikidata.org/wiki/Q7487946)
 - **University of Michigan**: [Q230492](https://www.wikidata.org/wiki/Q230492)
 - **Vanderbilt University Medical Center**: [Q7914455](https://www.wikidata.org/wiki/Q7914455)
-- **Verogen Inc.**: ❌
+- **Verogen Inc.**: [Q138520595](https://www.wikidata.org/wiki/Q138520595)
 - **Wesley Research Institute**: [Q30289631](https://www.wikidata.org/wiki/Q30289631)
 - **WikiTree**: [Q1074931](https://www.wikidata.org/wiki/Q1074931)
 - **World Health Organization (WHO)**: [Q7817](https://www.wikidata.org/wiki/Q7817)

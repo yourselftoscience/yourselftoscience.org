@@ -1495,7 +1495,8 @@ const rawResources = [
     "resourceType": "service",
     "organizations": [
       {
-        "name": "Verogen Inc."
+        "name": "Verogen Inc.",
+        "wikidataId": "Q138520595"
       }
     ],
     "link": "https://www.gedmatch.com/privacy-security/",
