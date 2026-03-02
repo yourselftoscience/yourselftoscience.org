@@ -193,6 +193,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://yourselftoscience.org/resource/living-dna-research</loc>
+    <lastmod>2026-03-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://yourselftoscience.org/resource/genomeconnect</loc>
     <lastmod>2026-03-02</lastmod>
     <changefreq>weekly</changefreq>

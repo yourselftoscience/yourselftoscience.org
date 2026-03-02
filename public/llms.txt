@@ -25,6 +25,7 @@ This project is radically open. Our **entire dataset** is dedicated to the publi
 
 ## Individual Resources
 
+- [Living DNA Global Research Project](https://yourselftoscience.org/resource/living-dna-research.md): A research project by Living DNA to map the world's genetic history and investigate the role genetics plays in health and lifestyle.
 - [GenomeConnect](https://yourselftoscience.org/resource/genomeconnect.md): A patient registry engaging individuals as partners in data sharing by collecting genetic testing results and health information.
 - [Open Humans](https://yourselftoscience.org/resource/open-humans.md): A platform for participant-centered research and personal data exploration.
 - [FamilyTreeDNA Group Projects](https://yourselftoscience.org/resource/familytreedna-group-projects.md): Join thousands of collaborative genealogy projects based on surname, geography, or haplogroup to support citizen science and migration pattern discovery.

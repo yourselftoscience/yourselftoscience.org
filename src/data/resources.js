@@ -2,6 +2,35 @@
 
 const rawResources = [
   {
+    "id": "c20e8f39-d20a-4006-a660-689d1f65b352",
+    "slug": "living-dna-research",
+    "title": "Living DNA Global Research Project",
+    "organizations": [
+      {
+        "name": "Living DNA",
+        "wikidataId": "Q85781784"
+      }
+    ],
+    "link": "https://support.livingdna.com/hc/en-us/articles/360012326740-How-do-I-participate-in-research",
+    "dataTypes": [
+      "Genome",
+      "Health data"
+    ],
+    "compatibleSources": [
+      "AncestryDNA",
+      "23andMe",
+      "MyHeritage",
+      "FamilyTreeDNA",
+      "Others"
+    ],
+    "compensationType": "donation",
+    "entityCategory": "Commercial",
+    "entitySubType": "Commercial",
+    "description": "A research project by Living DNA to map the world's genetic history and investigate the role genetics plays in health and lifestyle. Participants can opt-in to use their genetic data for scientific research.",
+    "origin": "United Kingdom",
+    "originCode": "GB"
+  },
+  {
     "id": "ffd02d96-c153-448b-ad19-353badefcf3b",
     "slug": "genomeconnect",
     "title": "GenomeConnect",

@@ -6,6 +6,16 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ## All Resources
 
+### [Living DNA Global Research Project](https://yourselftoscience.org/resource/living-dna-research)
+
+*Description:* A research project by Living DNA to map the world's genetic history and investigate the role genetics plays in health and lifestyle. Participants can opt-in to use their genetic data for scientific research.
+
+*Data Types:* Genome, Health data
+
+*Compensation:* Donation
+
+---
+
 ### [GenomeConnect](https://yourselftoscience.org/resource/genomeconnect)
 
 *Description:* A patient registry engaging individuals as partners in data sharing by collecting genetic testing results and health information. Note: Data from participants in the European Union (EU), European Economic Area (EEA), and United Kingdom (UK) cannot currently be processed due to GDPR. They accept electronic (pdf, doc, jpg) or physical clinical reports but they do not process raw data files.

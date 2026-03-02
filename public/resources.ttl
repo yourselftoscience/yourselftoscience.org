@@ -9,6 +9,19 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:domainIncludes schema:Dataset ;
   schema:rangeIncludes schema:URL .
 
+<https://yourselftoscience.org/resource/c20e8f39-d20a-4006-a660-689d1f65b352> a schema:Dataset ;
+  schema:identifier "c20e8f39-d20a-4006-a660-689d1f65b352" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/c20e8f39-d20a-4006-a660-689d1f65b352> ;
+  schema:sameAs <https://yourselftoscience.org/resource/living-dna-research> ;
+  rdfs:label "Living DNA Global Research Project" ;
+  schema:description "A research project by Living DNA to map the world's genetic history and investigate the role genetics plays in health and lifestyle. Participants can opt-in to use their genetic data for scientific research." ;
+  schema:creator [ a schema:Organization; rdfs:label "Living DNA" ; schema:sameAs wd:Q85781784 ; schema:location [ a schema:Place; rdfs:label "United Kingdom" ; schema:addressCountry "GB" ; schema:sameAs wd:Q145 ] ] ;
+  schema:url <https://support.livingdna.com/hc/en-us/articles/360012326740-How-do-I-participate-in-research> ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ] ;
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
+
 <https://yourselftoscience.org/resource/ffd02d96-c153-448b-ad19-353badefcf3b> a schema:Dataset ;
   schema:identifier "ffd02d96-c153-448b-ad19-353badefcf3b" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/ffd02d96-c153-448b-ad19-353badefcf3b> ;

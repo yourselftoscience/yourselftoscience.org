@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 3/2/2026, 9:55:58 AM
+**Generated on:** 3/2/2026, 3:42:49 PM
 
 ## Project-Organizer Relationships
 
@@ -77,6 +77,8 @@
   - Medical University of South Carolina: [Q6806451](https://www.wikidata.org/wiki/Q6806451)
 - **International Clinical Trials Registry Platform**: [Q29867940](https://www.wikidata.org/wiki/Q29867940)
   - World Health Organization (WHO): [Q7817](https://www.wikidata.org/wiki/Q7817)
+- **Living DNA Global Research Project**: ❌
+  - Living DNA: [Q85781784](https://www.wikidata.org/wiki/Q85781784)
 - **Max Planck Institute for Software Systems conversational AI data donation**: ❌
   - Max Planck Institute for Software Systems: [Q881238](https://www.wikidata.org/wiki/Q881238)
 - **MyHeritage DNA Research Project**: ❌
@@ -151,6 +153,7 @@
 - **Health Canada's Clinical Trials Database**: ❌
 - **HealthStreet**: ❌
 - **International Clinical Trials Registry Platform**: [Q29867940](https://www.wikidata.org/wiki/Q29867940)
+- **Living DNA Global Research Project**: ❌
 - **Max Planck Institute for Software Systems conversational AI data donation**: ❌
 - **MyHeritage DNA Research Project**: ❌
 - **MyPHD**: [Q138521770](https://www.wikidata.org/wiki/Q138521770)
@@ -207,6 +210,7 @@
 - **Health Canada**: [Q1057591](https://www.wikidata.org/wiki/Q1057591)
 - **Helmholtz Munich**: [Q878592](https://www.wikidata.org/wiki/Q878592)
 - **Human Fertilisation and Embryology Authority**: [Q1636533](https://www.wikidata.org/wiki/Q1636533)
+- **Living DNA**: [Q85781784](https://www.wikidata.org/wiki/Q85781784)
 - **Max Planck Institute for Software Systems**: [Q881238](https://www.wikidata.org/wiki/Q881238)
 - **Medical University of South Carolina**: [Q6806451](https://www.wikidata.org/wiki/Q6806451)
 - **Ministero della Salute**: [Q745634](https://www.wikidata.org/wiki/Q745634)

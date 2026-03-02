@@ -11,6 +11,16 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ## All Resources
 
+### [Living DNA Global Research Project](https://yourselftoscience.org/resource/living-dna-research)
+
+*Description:* A research project by Living DNA to map the world's genetic history and investigate the role genetics plays in health and lifestyle. Participants can opt-in to use their genetic data for scientific research.
+
+*Data Types:* Genome, Health data
+
+*Compensation:* Donation
+
+---
+
 ### [GenomeConnect](https://yourselftoscience.org/resource/genomeconnect)
 
 *Description:* A patient registry engaging individuals as partners in data sharing by collecting genetic testing results and health information. Note: Data from participants in the European Union (EU), European Economic Area (EEA), and United Kingdom (UK) cannot currently be processed due to GDPR. They accept electronic (pdf, doc, jpg) or physical clinical reports but they do not process raw data files.
@@ -731,6 +741,7 @@ Translating the catalogue natively so science is universally accessible regardle
 - [hEDS & Dysautonomia Study (Sequencing.com)](https://yourselftoscience.org/resource/sequencing)
 - [Human Hair Decomposition](https://yourselftoscience.org/resource/wroclaw-hair-decomposition)
 - [International Clinical Trials Registry Platform (ICTRP)](https://yourselftoscience.org/resource/who-ictrp)
+- [Living DNA Global Research Project](https://yourselftoscience.org/resource/living-dna-research)
 - [Microbiome donation](https://yourselftoscience.org/resource/lifeblood-microbiome)
 - [MyHeritage DNA Research Project](https://yourselftoscience.org/resource/myheritage)
 - [MyPHD](https://yourselftoscience.org/resource/myphd)
@@ -758,11 +769,11 @@ An overview of the resources available on Yourself to Science, providing insight
 
 ## Overview
 
-- **Total Resources:** 55
+- **Total Resources:** 56
 
 ## Compensation Types
 
-- **Donation:** 33
+- **Donation:** 34
 - **Mixed:** 18
 - **Payment:** 4
 
@@ -779,7 +790,7 @@ An overview of the resources available on Yourself to Science, providing insight
     - **EU-Wide:** 1
     - **Portugal:** 1
     - **Spain:** 1
-- **United Kingdom:** 6
+- **United Kingdom:** 7
 - **Australia:** 3
 - **Canada:** 2
 - **Switzerland:** 1
@@ -787,7 +798,7 @@ An overview of the resources available on Yourself to Science, providing insight
 
 ## Top 10 Service Availability by Country
 
-- **Worldwide:** 23
+- **Worldwide:** 24
 - **European Union:** 12
   - **Breakdown:**
     - **Italy:** 3
@@ -807,8 +818,8 @@ An overview of the resources available on Yourself to Science, providing insight
 
 ## Data Type Distribution
 
-- **Genome:** 16
-- **Health data:** 15
+- **Genome:** 17
+- **Health data:** 16
 - **Clinical trials:** 15
 - **Body:** 5
 - **Tissue:** 5
@@ -832,7 +843,7 @@ An overview of the resources available on Yourself to Science, providing insight
 
 ## Entity Type Distribution
 
-- **Commercial:** 18
+- **Commercial:** 19
 - **Academic:** 13
   - **Academic:** 8
   - **University:** 2
@@ -1074,6 +1085,12 @@ This page catalogues resources related to donating organs, bodies, or tissues fo
 > Find research for your DNA. A directory of active projects across various fields that accept genetic data (like 23andMe, AncestryDNA, or WGS).
 
 ## Genetic Data Resources
+
+### [Living DNA Global Research Project](https://yourselftoscience.org/resource/living-dna-research)
+
+*Description:* A research project by Living DNA to map the world's genetic history and investigate the role genetics plays in health and lifestyle. Participants can opt-in to use their genetic data for scientific research.
+
+---
 
 ### [GenomeConnect](https://yourselftoscience.org/resource/genomeconnect)
 

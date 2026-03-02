@@ -42,6 +42,7 @@
 - [hEDS & Dysautonomia Study (Sequencing.com)](https://yourselftoscience.org/resource/sequencing)
 - [Human Hair Decomposition](https://yourselftoscience.org/resource/wroclaw-hair-decomposition)
 - [International Clinical Trials Registry Platform (ICTRP)](https://yourselftoscience.org/resource/who-ictrp)
+- [Living DNA Global Research Project](https://yourselftoscience.org/resource/living-dna-research)
 - [Microbiome donation](https://yourselftoscience.org/resource/lifeblood-microbiome)
 - [MyHeritage DNA Research Project](https://yourselftoscience.org/resource/myheritage)
 - [MyPHD](https://yourselftoscience.org/resource/myphd)
