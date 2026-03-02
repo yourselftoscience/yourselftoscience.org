@@ -4,6 +4,7 @@ import { redirect, permanentRedirect } from 'next/navigation';
 import Link from 'next/link';
 import { permanentDoi } from '@/data/config';
 import { FaExternalLinkAlt, FaHeart, FaDollarSign, FaQuestionCircle, FaUniversity, FaBuilding, FaFlask, FaLandmark, FaInfoCircle, FaLaptop, FaMobileAlt, FaCog, FaShareAlt, FaMapMarkerAlt, FaGlobe, FaTag, FaClipboardList, FaUserCheck, FaUserFriends, FaCoins, FaListOl, FaUserShield, FaArrowRight, FaBox, FaBook, FaDatabase, FaCodeBranch } from 'react-icons/fa';
+import CopyButton from '@/components/CopyButton';
 
 export async function generateStaticParams() {
   const slugs = resources.map((resource) => ({
@@ -111,9 +112,9 @@ export default function ResourcePage({ params }) {
   };
 
   const getCompensationIcon = (type) => {
-    if (type === 'donation') return <span className="text-red-500">❤️</span>;
-    if (type === 'payment') return <span className="text-green-500">💵</span>;
-    if (type === 'mixed') return <>❤️+💵</>;
+    if (type === 'donation') return <span className="text-red-500 mr-2">❤️</span>;
+    if (type === 'payment') return <span className="text-green-500 mr-2">💵</span>;
+    if (type === 'mixed') return <span className="mr-2">❤️+💵</span>;
     return null;
   };
 
@@ -206,7 +207,7 @@ export default function ResourcePage({ params }) {
             <div>
               <h2 className="text-2xl font-bold text-gray-800 mb-4">Compensation</h2>
               <span className="inline-flex items-center bg-yellow-100 text-yellow-800 text-md font-medium px-4 py-2 rounded-full">
-                {getCompensationIcon(resource.compensationType)} {resource.compensationType}
+                {getCompensationIcon(resource.compensationType)} {resource.compensationType.charAt(0).toUpperCase() + resource.compensationType.slice(1)}
               </span>
             </div>
             <div>
@@ -308,8 +309,9 @@ export default function ResourcePage({ params }) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <p className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3">Persistent Identifier</p>
-                <div className="bg-white border border-gray-200 p-3 rounded-md text-gray-800 font-mono text-sm break-all shadow-sm">
-                  https://yourselftoscience.org/resource/{resource.id}
+                <div className="bg-white border border-gray-200 p-3 rounded-md text-gray-800 font-mono text-sm break-all shadow-sm flex items-center justify-between">
+                  <span>https://yourselftoscience.org/resource/{resource.id}</span>
+                  <CopyButton text={`https://yourselftoscience.org/resource/${resource.id}`} />
                 </div>
                 <p className="mt-2 text-xs text-gray-500 leading-relaxed">
                   Use this permanent ID for stable linking in research papers and dataset integrations.

@@ -1,8 +1,8 @@
 # Yourself to Science: Contribute to Science
 
-Yourself to Science™ is an open-source project providing a comprehensive catalogue of services that allow individuals to contribute to scientific research with their data, genome, body, and more.
+> A comprehensive open-source catalogue for contributing your biological and digital self to scientific research. Browse opportunities to share your data, genome, biological samples, and more.
 
-This page provides a filterable catalogue of all resources. You can also download the full dataset as CSV or JSON.
+This project is open source. The content is licensed under CC BY-SA 4.0 and the code is licensed under AGPL-3.0. This page provides a filterable catalogue of all resources. You can also download the full dataset as CSV or JSON.
 
 ## All Resources
 

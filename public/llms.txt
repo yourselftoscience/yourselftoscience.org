@@ -1,4 +1,4 @@
-# Yourself to Science
+# Yourself to Science Catalog
 
 > Yourself to Science™ is an open-source project providing a comprehensive list of services that allow individuals to contribute to scientific research with their data, genome, body, and more.
 
@@ -6,6 +6,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ## Key Pages
 - [All Resources](https://yourselftoscience.org/): The main page with a filterable list of all resources.
+- [Data Dictionary](https://yourselftoscience.org/data-types): Ontology definitions of data types.
 - [Stats](https://yourselftoscience.org/stats): Statistics about the resources listed.
 - [Clinical Trials](https://yourselftoscience.org/clinical-trials): A dedicated page for clinical trial resources.
 - [Organ, Body & Tissue Donation](https://yourselftoscience.org/organ-body-tissue-donation): A dedicated page for organ, body, and tissue donation resources.
@@ -26,4 +27,62 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 ## Optional
 - [Content License](https://yourselftoscience.org/license/content): The CC BY-SA 4.0 license for the content.
 - [Code License](https://yourselftoscience.org/license/code): The AGPL-3.0 license for the source code.
-- [PDF Version](https://yourselftoscience.org/yourselftoscience.pdf): A PDF version of the resource list. 
+- [PDF Version](https://yourselftoscience.org/yourselftoscience.pdf): A PDF version of the resource list.
+
+## Resources
+
+- [GenomeConnect](https://yourselftoscience.org/resource/genomeconnect): A patient registry engaging individuals as partners in data sharing by collecting genetic testing results and health information. Note: Data from participants in the European Union (EU), European Economic Area (EEA), and United Kingdom (UK) cannot currently be processed due to GDPR. They accept electronic (pdf, doc, jpg) or physical clinical reports but they do not process raw data files.
+- [Open Humans](https://yourselftoscience.org/resource/open-humans): A platform for participant-centered research and personal data exploration.
+- [FamilyTreeDNA Group Projects](https://yourselftoscience.org/resource/familytreedna-group-projects): Join thousands of collaborative genealogy projects based on surname, geography, or haplogroup to support citizen science and migration pattern discovery.
+- [MyPHD](https://yourselftoscience.org/resource/myphd): A platform for collecting health data from wearables to detect early signs of infectious diseases.
+- [Google Health Studies](https://yourselftoscience.org/resource/google-health-studies): A platform that lets you contribute to health research using the Google Health Studies app.
+- [Apple Research](https://yourselftoscience.org/resource/apple-research): Participate in health studies using your iPhone and Apple Watch.
+- [Harvard Personal Genome Project](https://yourselftoscience.org/resource/harvard-pgp): An open science project by Harvard Medical School where participants publicly share their genetic, health, and trait data to drive biological research.
+- [Genes for Good](https://yourselftoscience.org/resource/genes-for-good): A research study run through a Facebook App that connects health, behavior, and genetics. Participants complete surveys and may become eligible to provide a saliva sample for DNA analysis.
+- [All of Us](https://yourselftoscience.org/resource/all-of-us): A research program from the NIH to gather health data from one million or more people living in the US.
+- [Health research and product development](https://yourselftoscience.org/resource/fitbit-research): Share your Fitbit data to help improve health research and product development.
+- [SPARK for Autism](https://yourselftoscience.org/resource/spark-for-autism): A landmark autism research project connecting autistic individuals and their families to research.
+- [Body Donation](https://yourselftoscience.org/resource/ubc-body-donation): The UBC Body Donation Program accepts donations for anatomical study and medical research.
+- [Body Donation; Tissue Donation](https://yourselftoscience.org/resource/cambridge-body-tissue-donation): Information on donating your body to medical science at the University of Cambridge.
+- [Body & Tissues Donation](https://yourselftoscience.org/resource/italy-body-tissue-donation): Official guidelines for donating body and tissues for study, training, and scientific research in Italy.
+- [Donate the Body to Science](https://yourselftoscience.org/resource/france-body-donation): Official information on body donation for science and medical research in France.
+- [Eggs, Sperm and Embryos Donation to Research](https://yourselftoscience.org/resource/uk-gamete-donation): Information on donating eggs, sperm, and embryos for research in the UK.
+- [ClinicalTrials.gov](https://yourselftoscience.org/resource/clinicaltrials-gov): A comprehensive registry and results database of publicly and privately supported clinical studies conducted around the world. Managed by the U.S. National Library of Medicine.
+- [International Clinical Trials Registry Platform (ICTRP)](https://yourselftoscience.org/resource/who-ictrp): A central database managed by the WHO to search for clinical trials from registries around the world.
+- [EU Clinical Trials Register](https://yourselftoscience.org/resource/eu-clinical-trials-register): The European Union's official database for clinical trials conducted in the EU and EEA.
+- [European Clinical Trials Information Network](https://yourselftoscience.org/resource/ectin-poland): A clinical trials information network providing access to studies in Poland and Europe.
+- [Curewiki](https://yourselftoscience.org/resource/curewiki): A platform connecting patients with clinical trials for various conditions.
+- [Clinical Trial Discovery](https://yourselftoscience.org/resource/esperity-clinical-trials): A patient-centric platform for finding and participating in clinical trials.
+- [ResearchMatch](https://yourselftoscience.org/resource/researchmatch): A nonprofit program funded by the National Institutes of Health (NIH) that connects people interested in research studies with researchers from top medical centers across the U.S.
+- [FluCamp](https://yourselftoscience.org/resource/flucamp): Conducts clinical trials for flu and common cold viruses in London and Manchester, compensating volunteers for their time.
+- [HealthStreet](https://yourselftoscience.org/resource/healthstreet): Connects community members in Florida with health research opportunities at the University of Florida.
+- [GoodNature Program](https://yourselftoscience.org/resource/goodnature-program): A stool donation program supporting research into microbiome-based therapeutics.
+- [Microbiome donation](https://yourselftoscience.org/resource/lifeblood-microbiome): Australian Red Cross Lifeblood's microbiome research program.
+- [Stool Donation](https://yourselftoscience.org/resource/wesley-stool-donation): Stool donation program at Wesley Research Institute.
+- [Placenta Donation](https://yourselftoscience.org/resource/wesley-placenta-donation): Placenta donation program at Wesley Research Institute.
+- [Human Hair Decomposition](https://yourselftoscience.org/resource/wroclaw-hair-decomposition): Research on human hair decomposition at the University of Wrocław.
+- [UCSF Archives and Special Collections social media archive](https://yourselftoscience.org/resource/ucsf-social-media-archive): Donate your social media archives to the UCSF Library for research.
+- [Donate Your Data for Health](https://yourselftoscience.org/resource/penn-medicine-donate-your-data): Share your digital data to help Penn Medicine researchers understand health.
+- [Research Summaries](https://yourselftoscience.org/resource/hra-research-summaries): Plain-language summaries of research studies approved by the NHS Health Research Authority.
+- [Cochrane Central Register of Controlled Trials (CENTRAL)](https://yourselftoscience.org/resource/cochrane-central-register-of-controlled-trials): A highly concentrated source of reports of randomized and quasi-randomized controlled trials from various databases and other sources. Access requires a subscription to the Cochrane Library.
+- [Clinical Trials Database](https://yourselftoscience.org/resource/belgian-clinical-trials-database): A database of clinical trials approved by the Belgian Federal Agency for Medicines and Health Products (FAMHP). NOTE: This database is no longer available due to changes in the legal framework.
+- [German Clinical Trials Register (DRKS)](https://yourselftoscience.org/resource/german-clinical-trials-register): The primary register for clinical trials conducted in Germany, providing public access to study information.
+- [Health Canada's Clinical Trials Database](https://yourselftoscience.org/resource/health-canada-clinical-trials-database): A listing of specific information relating to phase I, II, and III clinical trials in patients authorized by Health Canada.
+- [AATB Accredited Bank Search](https://yourselftoscience.org/resource/aatb-accredited-bank-search): A search tool to find AATB-accredited tissue banks in the United States, covering various types of tissue, organ, and birth tissue donation.
+- [OrganDonor.gov](https://yourselftoscience.org/resource/organdonor-gov): The official U.S. government website for organ, eye, and tissue donation. Provides information and links to state registries to sign up as a donor.
+- [Donate Blood for Research](https://yourselftoscience.org/resource/bloodworks-research): Bloodworks Northwest’s research program accepts blood donations to support a variety of studies, from developing new treatments to understanding blood-related diseases. This service is available in the Pacific Northwest.
+- [Conversational AI Data Donation](https://yourselftoscience.org/resource/conversational-ai-data-donation): Donate your chat history from assistants like ChatGPT, Gemini, and Claude to help researchers understand human-AI interaction patterns.
+- [CRC ed i Volontari per la Ricerca Clinica](https://yourselftoscience.org/resource/crc-volontari-ricerca-clinica): A center in Verona, Italy, conducting clinical trials for healthy volunteers and patients. Volunteers can register to participate in various studies.
+- [Rete Cittadini per la Ricerca](https://yourselftoscience.org/resource/rete-cittadini-per-la-ricerca): A network for citizens to participate in scientific research at San Camillo IRCCS, contributing to medical progress and new therapies.
+- [Donate Your Cover Letter to Research](https://yourselftoscience.org/resource/eurac-cover-letter-donation): A data donation campaign focused on collecting cover letters for doctoral research to understand the impact of writing styles in a multilingual professional context.
+- [PURA Biobank](https://yourselftoscience.org/resource/pura-biobank): Collects biological samples from patients with PURA syndrome, other neurological disorders, and healthy controls to support research.
+- [GIMM Biobank](https://yourselftoscience.org/resource/gimm-biobank): A biobank collecting biological samples (primarily blood) from diverse populations to support biomedical research and precision medicine.
+- [Genomes.io](https://yourselftoscience.org/resource/genomes-io): A DNA data bank and personal DNA data platform that allows users to control and monetize their genomic data using blockchain technology.
+- [23andMe Research Participation](https://yourselftoscience.org/resource/23andme): Contribute to scientific research aimed at making and supporting meaningful scientific discoveries using your genetic and self-reported data.
+- [GEDmatch](https://yourselftoscience.org/resource/gedmatch): A public genealogy database that allows users to opt-in to share their data for research purposes. Note: VCF files from unsupported companies must be converted to the 23andMe format before upload.
+- [tellmeGen Research](https://yourselftoscience.org/resource/tellmegen): Contribute to research by sharing your genetic data and answering surveys about your health, traits, and wellness.
+- [MyHeritage DNA Research Project](https://yourselftoscience.org/resource/myheritage): Participate in research to help understand human genetics, genealogy, and anthropology by sharing your DNA results and survey responses.
+- [Ancestry Human Diversity Project](https://yourselftoscience.org/resource/ancestry): Participate in research to help understand human history, health, and genetics by sharing your DNA data and survey responses.
+- [hEDS & Dysautonomia Study (Sequencing.com)](https://yourselftoscience.org/resource/sequencing): Participate in a genetic study for hypermobile Ehlers-Danlos Syndrome (hEDS) and Dysautonomia in collaboration with the Norris Lab at the Medical University of South Carolina.
+- [Altruist Database (Sequencing.com)](https://yourselftoscience.org/resource/altruist-database): A free database of anonymous genotypic, phenotypic and interpretation data that allows public searching and analysis. Researchers can request to contact individuals holding specific traits for additional paid studies and opportunities.
+- [WikiTree](https://yourselftoscience.org/resource/wikitree): A collaborative genealogy platform that allows users to add their DNA test information (like GEDmatch ID or usernames, rather than raw data files) to their profiles to help confirm relationships and find genetic cousins.

@@ -179,8 +179,8 @@ function generateHomepageMarkdown() {
   console.log('Generating index.html.md...');
 
   let mdContent = `# Yourself to Science: Contribute to Science\n\n`;
-  mdContent += `Yourself to Science™ is an open-source project providing a comprehensive catalogue of services that allow individuals to contribute to scientific research with their data, genome, body, and more.\n\n`;
-  mdContent += `This page provides a filterable catalogue of all resources. You can also download the full dataset as CSV or JSON.\n\n`;
+  mdContent += `> A comprehensive open-source catalogue for contributing your biological and digital self to scientific research. Browse opportunities to share your data, genome, biological samples, and more.\n\n`;
+  mdContent += `This project is open source. The content is licensed under CC BY-SA 4.0 and the code is licensed under AGPL-3.0. This page provides a filterable catalogue of all resources. You can also download the full dataset as CSV or JSON.\n\n`;
   mdContent += `## All Resources\n\n`;
 
   for (const [index, resource] of resources.entries()) {
@@ -299,12 +299,56 @@ function generateGetInvolvedMarkdown() {
 }
 
 
+function generateLlmsTxt() {
+  console.log('Generating llms.txt...');
+
+  let content = `# Yourself to Science Catalog\n\n`;
+  content += `> Yourself to Science™ is an open-source project providing a comprehensive list of services that allow individuals to contribute to scientific research with their data, genome, body, and more.\n\n`;
+  content += `This project is open source. The content is licensed under CC BY-SA 4.0 and the code is licensed under AGPL-3.0. The full list of resources is available in JSON and CSV formats.\n\n`;
+
+  content += `## Key Pages\n`;
+  content += `- [All Resources](https://yourselftoscience.org/): The main page with a filterable list of all resources.\n`;
+  content += `- [Data Dictionary](https://yourselftoscience.org/data-types): Ontology definitions of data types.\n`;
+  content += `- [Stats](https://yourselftoscience.org/stats): Statistics about the resources listed.\n`;
+  content += `- [Clinical Trials](https://yourselftoscience.org/clinical-trials): A dedicated page for clinical trial resources.\n`;
+  content += `- [Organ, Body & Tissue Donation](https://yourselftoscience.org/organ-body-tissue-donation): A dedicated page for organ, body, and tissue donation resources.\n`;
+  content += `- [Get Involved](https://yourselftoscience.org/get-involved): Information on how to contribute to the project.\n\n`;
+
+  content += `## Markdown Versions\n`;
+  content += `- [Homepage (Markdown)](https://yourselftoscience.org/index.html.md)\n`;
+  content += `- [Stats (Markdown)](https://yourselftoscience.org/stats.md)\n`;
+  content += `- [Clinical Trials (Markdown)](https://yourselftoscience.org/clinical-trials.md)\n`;
+  content += `- [Organ, Body & Tissue Donation (Markdown)](https://yourselftoscience.org/organ-body-tissue-donation.md)\n`;
+  content += `- [Get Involved (Markdown)](https://yourselftoscience.org/get-involved.md)\n\n`;
+
+  content += `## Data Files\n`;
+  content += `- [resources.json](https://yourselftoscience.org/resources.json): All resource data in JSON format.\n`;
+  content += `- [resources.csv](https://yourselftoscience.org/resources.csv): All resource data in CSV format.\n`;
+  content += `- [sitemap.xml](https://yourselftoscience.org/sitemap.xml): The sitemap for the website.\n\n`;
+
+  content += `## Optional\n`;
+  content += `- [Content License](https://yourselftoscience.org/license/content): The CC BY-SA 4.0 license for the content.\n`;
+  content += `- [Code License](https://yourselftoscience.org/license/code): The AGPL-3.0 license for the source code.\n`;
+  content += `- [PDF Version](https://yourselftoscience.org/yourselftoscience.pdf): A PDF version of the resource list.\n\n`;
+
+  content += `## Resources\n\n`;
+
+  for (const resource of resources) {
+    content += `- [${resource.title}](https://yourselftoscience.org/resource/${resource.slug}): ${resource.description}\n`;
+  }
+
+  const outputPath = path.join(__dirname, '../public/llms.txt');
+  fs.writeFileSync(outputPath, content);
+  console.log(`Successfully generated ${outputPath}`);
+}
+
 function generateAllMarkdown() {
   generateStatsMarkdown();
   generateHomepageMarkdown();
   generateClinicalTrialsMarkdown();
   generateOrganBodyTissueDonationMarkdown();
   generateGetInvolvedMarkdown();
+  generateLlmsTxt();
 }
 
 generateAllMarkdown();
