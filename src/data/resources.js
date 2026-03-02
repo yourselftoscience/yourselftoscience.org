@@ -1180,6 +1180,7 @@ const rawResources = [
   },
   {
     "id": "0a861cff-a2b0-4ab8-834d-e58b4139770d",
+    "resourceWikidataId": "Q138520869",
     "slug": "organdonor-gov",
     "title": "OrganDonor.gov",
     "organizations": [

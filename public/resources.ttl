@@ -564,6 +564,7 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:sameAs <https://yourselftoscience.org/resource/organdonor-gov> ;
   rdfs:label "OrganDonor.gov" ;
   schema:description "The official U.S. government website for organ, eye, and tissue donation. Provides information and links to state registries to sign up as a donor." ;
+  schema:sameAs wd:Q138520869 ;
   schema:creator [ a schema:GovernmentOrganization; rdfs:label "U.S. Department of Health & Human Services" ; schema:sameAs wd:Q942326 ; schema:additionalType wd:Q7188 ; schema:additionalType wd:Q9353606 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
   schema:url <https://www.organdonor.gov/sign-up> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "United States" ; schema:sameAs wd:Q30 ] ;

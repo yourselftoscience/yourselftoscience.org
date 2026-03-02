@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 3/2/2026, 7:01:45 AM
+**Generated on:** 3/2/2026, 7:05:01 AM
 
 ## Project-Organizer Relationships
 
@@ -87,7 +87,7 @@
   - NHS Health Research Authority: [Q16937226](https://www.wikidata.org/wiki/Q16937226)
 - **Open Humans**: [Q59696822](https://www.wikidata.org/wiki/Q59696822)
   - Open Humans Foundation: [Q59696822](https://www.wikidata.org/wiki/Q59696822)
-- **OrganDonor.gov**: ❌
+- **OrganDonor.gov**: [Q138520869](https://www.wikidata.org/wiki/Q138520869)
   - U.S. Department of Health & Human Services: [Q942326](https://www.wikidata.org/wiki/Q942326)
 - **Penn Medicine Donate Your Data**: ❌
   - Penn Medicine: [Q7896080](https://www.wikidata.org/wiki/Q7896080)
@@ -156,7 +156,7 @@
 - **MyPHD**: ❌
 - **NHS Health Research Authority Research Summaries**: ❌
 - **Open Humans**: [Q59696822](https://www.wikidata.org/wiki/Q59696822)
-- **OrganDonor.gov**: ❌
+- **OrganDonor.gov**: [Q138520869](https://www.wikidata.org/wiki/Q138520869)
 - **PURA Biobank**: [Q138520864](https://www.wikidata.org/wiki/Q138520864)
 - **Penn Medicine Donate Your Data**: ❌
 - **ResearchMatch**: ❌
