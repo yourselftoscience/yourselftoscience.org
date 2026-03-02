@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths-ignore:
-      - 'src/app/layout.tsx'
+      - 'src/data/config.js'
       - 'scripts/updatePdfPage.js'
 
 permissions:
@@ -117,14 +117,14 @@ jobs:
           mkdir -p public
           echo "${{ steps.get_doi.outputs.doi }}" > public/latest_doi.txt
 
-      - name: Update DOI in layout.tsx
+      - name: Update DOI in config.js
         if: steps.get_doi.outputs.doi
         run: |
           DOI_VALUE="${{ steps.get_doi.outputs.doi }}"
-          LAYOUT_FILE="src/app/layout.tsx"
-          # Use sed to replace the hardcoded DOI in the layout file
-          sed -i "s/const latestDoi = '[0-9\.]*\/zenodo\.[0-9]*';/const latestDoi = '$DOI_VALUE';/" "$LAYOUT_FILE"
-          echo "Updated DOI in $LAYOUT_FILE"
+          CONFIG_FILE="src/data/config.js"
+          # Use sed to replace the hardcoded DOI in the config file
+          sed -i "s/export const latestDoi = '[0-9\.]*\/zenodo\.[0-9]*';/export const latestDoi = '$DOI_VALUE';/" "$CONFIG_FILE"
+          echo "Updated DOI in $CONFIG_FILE"
 
       - name: Configure Git
         run: |
@@ -134,7 +134,7 @@ jobs:
       - name: Commit and push updated files
         if: steps.get_doi.outputs.doi
         run: |
-          git add public/latest_doi.txt src/app/layout.tsx
+          git add public/latest_doi.txt src/data/config.js
           # Check if there are changes to commit
           if git diff --staged --quiet; then
             echo "No changes to DOI files to commit."

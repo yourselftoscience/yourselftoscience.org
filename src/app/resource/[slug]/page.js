@@ -2,6 +2,7 @@
 import { resources } from '@/data/resources';
 import { redirect, permanentRedirect } from 'next/navigation';
 import Link from 'next/link';
+import { permanentDoi } from '@/data/config';
 import { FaExternalLinkAlt, FaHeart, FaDollarSign, FaQuestionCircle, FaUniversity, FaBuilding, FaFlask, FaLandmark, FaInfoCircle, FaLaptop, FaMobileAlt, FaCog, FaShareAlt, FaMapMarkerAlt, FaGlobe, FaTag, FaClipboardList, FaUserCheck, FaUserFriends, FaCoins, FaListOl, FaUserShield, FaArrowRight, FaBox, FaBook, FaDatabase, FaCodeBranch } from 'react-icons/fa';
 
 export async function generateStaticParams() {
@@ -30,20 +31,36 @@ export async function generateMetadata({ params }) {
   const canonicalUrl = `https://yourselftoscience.org/resource/${resource.slug}`;
   const persistentIdUrl = `https://yourselftoscience.org/resource/${resource.id}`;
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    'name': resource.title,
-    'url': canonicalUrl,
-    'identifier': persistentIdUrl,
-  };
-
   return {
     title,
     description,
     alternates: {
       canonical: canonicalUrl,
     },
+    openGraph: {
+      title,
+      description,
+      url: canonicalUrl,
+      type: 'article',
+      siteName: 'Yourself to Science',
+    },
+    twitter: {
+      card: 'summary',
+      title,
+      description,
+    },
+    other: {
+      'citation_title': title,
+      'citation_publisher': 'Yourself to Science',
+      'citation_publication_date': new Date().getFullYear().toString(),
+      'citation_language': 'en',
+      'citation_inbook_title': 'Yourself to Science Catalogue',
+      'DC.title': title,
+      'DC.identifier': persistentIdUrl,
+      'DC.description': description,
+      'DC.publisher': 'Yourself to Science',
+      'DC.relation.ispartof': `doi:${permanentDoi}`
+    }
   };
 }
 
@@ -73,17 +90,24 @@ export default function ResourcePage({ params }) {
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'WebPage',
+    '@type': 'Dataset',
     'name': resource.title,
+    'description': resource.description,
     'url': canonicalUrl,
     'identifier': persistentIdUrl,
-    'mainEntity': {
-      '@type': 'Thing',
-      'name': resource.title,
-      'description': resource.description,
-      'url': resource.link,
-      ...(resource.resourceWikidataId && { 'sameAs': `https://www.wikidata.org/wiki/${resource.resourceWikidataId}` })
-    }
+    'includedInDataCatalog': {
+      '@type': 'DataCatalog',
+      'name': 'Yourself to Science',
+      'url': 'https://yourselftoscience.org',
+      'identifier': `https://doi.org/${permanentDoi}`
+    },
+    'creator': resource.organizations ? resource.organizations.map(org => ({
+      '@type': 'Organization',
+      'name': org.name,
+      ...(org.wikidataId && { 'sameAs': `https://www.wikidata.org/wiki/${org.wikidataId}` })
+    })) : undefined,
+    'isAccessibleForFree': true,
+    ...(resource.resourceWikidataId && { 'sameAs': `https://www.wikidata.org/wiki/${resource.resourceWikidataId}` })
   };
 
   const getCompensationIcon = (type) => {
