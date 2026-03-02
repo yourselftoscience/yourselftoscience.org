@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 3/2/2026, 2:25:48 AM
+**Generated on:** 3/2/2026, 5:09:04 AM
 
 ## Project-Organizer Relationships
 
@@ -14,7 +14,7 @@
   - Sequencing.com: No Wikidata ID
 - **Ancestry Human Diversity Project**: ❌
   - Ancestry.com Inc.: [Q4752572](https://www.wikidata.org/wiki/Q4752572)
-- **Apple Research**: ❌
+- **Apple Research**: [Q138517979](https://www.wikidata.org/wiki/Q138517979)
   - Apple: [Q312](https://www.wikidata.org/wiki/Q312)
 - **Australian Red Cross Lifeblood microbiome donation**: ❌
   - Australian Red Cross Lifeblood: [Q4824602](https://www.wikidata.org/wiki/Q4824602)
@@ -124,7 +124,7 @@
 - **All of Us**: [Q25004683](https://www.wikidata.org/wiki/Q25004683)
 - **Altruist Database (Sequencing.com)**: ❌
 - **Ancestry Human Diversity Project**: ❌
-- **Apple Research**: ❌
+- **Apple Research**: [Q138517979](https://www.wikidata.org/wiki/Q138517979)
 - **Australian Red Cross Lifeblood microbiome donation**: ❌
 - **Bloodworks Northwest Donate Blood for Research**: ❌
 - **CRC ed i Volontari per la Ricerca Clinica**: ❌

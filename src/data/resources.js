@@ -158,6 +158,7 @@ const rawResources = [
   },
   {
     "id": "2c7f3ca9-4d4b-41e2-93e2-b0f06bc11cb3",
+    "resourceWikidataId": "Q138517979",
     "slug": "apple-research",
     "title": "Apple Research",
     "organizations": [

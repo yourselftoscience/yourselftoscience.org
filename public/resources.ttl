@@ -90,6 +90,7 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:sameAs <https://yourselftoscience.org/resource/apple-research> ;
   rdfs:label "Apple Research" ;
   schema:description "Participate in health studies using your iPhone and Apple Watch." ;
+  schema:sameAs wd:Q138517979 ;
   schema:creator [ a schema:Organization; rdfs:label "Apple" ; schema:sameAs wd:Q312 ; schema:additionalType wd:Q4830453 ; schema:additionalType wd:Q4830453 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
   schema:url <https://support.apple.com/en-us/108425> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "United States" ; schema:sameAs wd:Q30 ] ;
