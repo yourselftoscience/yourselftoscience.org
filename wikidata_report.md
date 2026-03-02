@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 2/28/2026, 5:51:08 AM
+**Generated on:** 3/2/2026, 2:25:48 AM
 
 ## Project-Organizer Relationships
 
@@ -54,6 +54,8 @@
   - Verogen Inc.: No Wikidata ID
 - **Genes for Good**: ❌
   - University of Michigan: [Q230492](https://www.wikidata.org/wiki/Q230492)
+- **GenomeConnect**: ❌
+  - Clinical Genome Resource (ClinGen): [Q64403342](https://www.wikidata.org/wiki/Q64403342)
 - **Genomes.io**: [Q125117291](https://www.wikidata.org/wiki/Q125117291)
   - Genomes.io: [Q125117291](https://www.wikidata.org/wiki/Q125117291)
 - **German Clinical Trials Register**: [Q96199255](https://www.wikidata.org/wiki/Q96199255)
@@ -140,6 +142,7 @@
 - **GEDmatch**: ❌
 - **GIMM Biobank**: ❌
 - **Genes for Good**: ❌
+- **GenomeConnect**: ❌
 - **Genomes.io**: [Q125117291](https://www.wikidata.org/wiki/Q125117291)
 - **German Clinical Trials Register**: [Q96199255](https://www.wikidata.org/wiki/Q96199255)
 - **GoodNature Program**: ❌
@@ -182,6 +185,7 @@
 - **Bloodworks Northwest**: [Q21015632](https://www.wikidata.org/wiki/Q21015632)
 - **Cambridge Biomedical Research Centre**: [Q33121816](https://www.wikidata.org/wiki/Q33121816)
 - **Centro Ricerche Cliniche di Verona**: ❌
+- **Clinical Genome Resource (ClinGen)**: [Q64403342](https://www.wikidata.org/wiki/Q64403342)
 - **Clinical Trials Information Network (CTIN Poland)**: ❌
 - **Cochrane**: [Q1105202](https://www.wikidata.org/wiki/Q1105202)
 - **Curewiki**: ❌
@@ -293,6 +297,7 @@
 - **Research Center**: [Q42240](https://www.wikidata.org/wiki/Q42240)
 - **Research Foundation**: [Q119852396](https://www.wikidata.org/wiki/Q119852396)
 - **Research Institute**: [Q31855](https://www.wikidata.org/wiki/Q31855)
+- **Research Project**: [Q1298668](https://www.wikidata.org/wiki/Q1298668)
 - **Statutory Authority**: [Q7604698](https://www.wikidata.org/wiki/Q7604698)
 - **University Hospital**: [Q1059324](https://www.wikidata.org/wiki/Q1059324)
 - **University**: ❌
@@ -305,6 +310,8 @@
 
 ## Citations
 
+- ❌ **GenomeConnect FAQ** ([Citation Link](https://www.clinicalgenome.org/genomeconnect/for-patients-genomeconnect/faq/))
+- ❌ **GenomeConnect - Share Your Genetics Results** ([Citation Link](https://www.clinicalgenome.org/genomeconnect/for-patients-genomeconnect/get-started/share-your-genetics-results/))
 - [Q84081777](https://www.wikidata.org/wiki/Q84081777) **Greshake Tzovaras, B., Angrist, M., Arvai, K., Dulaney, M., Estrada-Galiñanes, V., Gunderson, B., ... & Price Ball, M...** (DOI: 10.1093/gigascience/giz076)
 - ❌ **Introduction to Group Projects | FamilyTreeDNA Help Center** ([Citation Link](https://help.familytreedna.com/hc/en-us/articles/4503173806351-Introduction-to-Group-Projects))
 - ❌ **Transferring Your Autosomal DNA From Another Company | FamilyTreeDNA Help Center** ([Citation Link](https://help.familytreedna.com/hc/en-us/articles/4402392808463-Transferring-Your-Autosomal-DNA-From-Another-Company))

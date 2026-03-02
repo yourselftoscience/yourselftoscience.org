@@ -158,17 +158,24 @@ export default function ResourcePage({ params }) {
             </div>
             <div>
               <h2 className="text-2xl font-bold text-gray-800 mb-4">Availability</h2>
-              <div className="flex flex-wrap gap-3">
-                {(resource.countries || []).length === 0 || (resource.countries && resource.countries[0] === "Worldwide") ? (
-                  <span className="inline-flex items-center bg-green-100 text-green-800 text-md font-medium px-4 py-2 rounded-full">
-                    <FaGlobe className="mr-2" /> Worldwide
-                  </span>
-                ) : (
-                  (resource.countries || []).map((country, index) => (
-                    <span key={country} className="inline-flex items-center bg-green-100 text-green-800 text-md font-medium px-4 py-2 rounded-full">
-                      <FaMapMarkerAlt className="mr-2" /> {country}
+              <div className="flex flex-col gap-3">
+                <div className="flex flex-wrap gap-3">
+                  {(resource.countries || []).length === 0 || (resource.countries && resource.countries[0] === "Worldwide") ? (
+                    <span className="inline-flex items-center bg-green-100 text-green-800 text-md font-medium px-4 py-2 rounded-full">
+                      <FaGlobe className="mr-2" /> Worldwide
                     </span>
-                  ))
+                  ) : (
+                    (resource.countries || []).map((country, index) => (
+                      <span key={country} className="inline-flex items-center bg-green-100 text-green-800 text-md font-medium px-4 py-2 rounded-full">
+                        <FaMapMarkerAlt className="mr-2" /> {country}
+                      </span>
+                    ))
+                  )}
+                </div>
+                {resource.excludedCountries && resource.excludedCountries.length > 0 && (
+                  <div className="text-sm text-red-600 mt-1">
+                    <span className="font-semibold">Excludes:</span> {resource.excludedCountries.join(', ')}
+                  </div>
                 )}
               </div>
             </div>
@@ -184,7 +191,7 @@ export default function ResourcePage({ params }) {
                 <FaInfoCircle className="mr-2" /> {resource.entityCategory} / {resource.entitySubType}
               </span>
             </div>
-            
+
             {resource.compatibleSources && resource.compatibleSources.length > 0 && (
               <div>
                 <h2 className="text-2xl font-bold text-gray-800 mb-4">Compatible Sources</h2>
@@ -197,7 +204,7 @@ export default function ResourcePage({ params }) {
                 </div>
               </div>
             )}
-            
+
           </div>
 
           <div className="mt-10 text-center">
@@ -255,7 +262,7 @@ export default function ResourcePage({ params }) {
             <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
               <FaDatabase className="mr-2 text-blue-600" /> Open Data & Metadata
             </h3>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <p className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3">Persistent Identifier</p>

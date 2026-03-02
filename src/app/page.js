@@ -438,11 +438,24 @@ function HomePageContent({ scrollY }) {
     const expandedCountries = expandCountries(filters.countries || []);
     if (expandedCountries.length > 0) {
       filteredData = filteredData.filter(resource => {
-        const isWorldwide = !resource.countries || resource.countries.length === 0;
+        // If the user selected countries that are EXCLUDED by this resource, omit it immediately
+        if (resource.excludedCountries && resource.excludedCountries.some(ec => expandedCountries.includes(ec))) {
+          return false;
+        }
+
+        const isWorldwide = !resource.countries || resource.countries.length === 0 || (resource.countries.length === 1 && resource.countries[0] === 'Worldwide');
+
         // Check if "Worldwide" is explicitly selected and the resource is worldwide
         if (expandedCountries.includes('Worldwide') && isWorldwide) {
           return true;
         }
+
+        // If the resource is worldwide, and the user selected specific countries, 
+        // they can see the resource UNLESS their country is explicitly in excludedCountries (handled above)
+        if (isWorldwide && expandedCountries.some(c => c !== 'Worldwide')) {
+          return true;
+        }
+
         // Check if the resource matches any selected specific country (reverted logic to ONLY check availability)
         return resource.countries && resource.countries.some(rc => expandedCountries.includes(rc));
       });

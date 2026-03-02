@@ -6,6 +6,16 @@ This page provides a filterable catalogue of all resources. You can also downloa
 
 ## All Resources
 
+### [GenomeConnect](https://yourselftoscience.org/resource/genomeconnect)
+
+*Description:* A patient registry engaging individuals as partners in data sharing by collecting genetic testing results and health information. Note: Data from participants in the European Union (EU), European Economic Area (EEA), and United Kingdom (UK) cannot currently be processed due to GDPR. They accept electronic (pdf, doc, jpg) or physical clinical reports but they do not process raw data files.
+
+*Data Types:* Genome, Health data
+
+*Compensation:* Donation
+
+---
+
 ### [Open Humans](https://yourselftoscience.org/resource/open-humans)
 
 *Description:* A platform for participant-centered research and personal data exploration.

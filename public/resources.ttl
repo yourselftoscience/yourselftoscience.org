@@ -9,6 +9,21 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:domainIncludes schema:Dataset ;
   schema:rangeIncludes schema:URL .
 
+<https://yourselftoscience.org/resource/ffd02d96-c153-448b-ad19-353badefcf3b> a schema:Dataset ;
+  schema:identifier "ffd02d96-c153-448b-ad19-353badefcf3b" ;
+  schema:mainEntityOfPage <https://yourselftoscience.org/resource/ffd02d96-c153-448b-ad19-353badefcf3b> ;
+  schema:sameAs <https://yourselftoscience.org/resource/genomeconnect> ;
+  rdfs:label "GenomeConnect" ;
+  schema:description "A patient registry engaging individuals as partners in data sharing by collecting genetic testing results and health information. Note: Data from participants in the European Union (EU), European Economic Area (EEA), and United Kingdom (UK) cannot currently be processed due to GDPR. They accept electronic (pdf, doc, jpg) or physical clinical reports but they do not process raw data files." ;
+  schema:creator [ a schema:Organization; rdfs:label "Clinical Genome Resource (ClinGen)" ; schema:sameAs wd:Q64403342 ; schema:additionalType wd:Q1298668 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
+  schema:url <https://www.genomeconnect.org/> ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ] ;
+  schema:citation <https://www.clinicalgenome.org/genomeconnect/for-patients-genomeconnect/faq/> ;
+  schema:citation <https://www.clinicalgenome.org/genomeconnect/for-patients-genomeconnect/get-started/share-your-genetics-results/> ;
+  yts:compensationType "donation" ;
+  yts:compensationWikidataId wd:Q1124860 .
+
 <https://yourselftoscience.org/resource/667f25be-9ff2-4e7a-9119-78f2eb61a801> a schema:Dataset ;
   schema:identifier "667f25be-9ff2-4e7a-9119-78f2eb61a801" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/667f25be-9ff2-4e7a-9119-78f2eb61a801> ;

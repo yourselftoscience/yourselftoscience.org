@@ -1,5 +1,60 @@
 [
   {
+    "id": "ffd02d96-c153-448b-ad19-353badefcf3b",
+    "slug": "genomeconnect",
+    "title": "GenomeConnect",
+    "organizations": [
+      {
+        "name": "Clinical Genome Resource (ClinGen)",
+        "wikidataId": "Q64403342"
+      }
+    ],
+    "link": "https://www.genomeconnect.org/",
+    "dataTypes": [
+      "Genome",
+      "Health data"
+    ],
+    "compatibleSources": [
+      "Clinical Report"
+    ],
+    "compensationType": "donation",
+    "entityCategory": "Non-Profit",
+    "entitySubType": "Research Project",
+    "entitySubTypeWikidataId": "Q1298668",
+    "description": "A patient registry engaging individuals as partners in data sharing by collecting genetic testing results and health information. Note: Data from participants in the European Union (EU), European Economic Area (EEA), and United Kingdom (UK) cannot currently be processed due to GDPR. They accept electronic (pdf, doc, jpg) or physical clinical reports but they do not process raw data files.",
+    "origin": "United States",
+    "originCode": "US",
+    "excludedCountries": [
+      "European Union",
+      "United Kingdom",
+      "European Economic Area",
+      "EU",
+      "EEA",
+      "UK"
+    ],
+    "citations": [
+      {
+        "title": "GenomeConnect FAQ",
+        "link": "https://www.clinicalgenome.org/genomeconnect/for-patients-genomeconnect/faq/"
+      },
+      {
+        "title": "GenomeConnect - Share Your Genetics Results",
+        "link": "https://www.clinicalgenome.org/genomeconnect/for-patients-genomeconnect/get-started/share-your-genetics-results/"
+      }
+    ],
+    "macroCategories": [
+      "Health & Digital Data"
+    ],
+    "dataTypeMappings": {
+      "Genome": null,
+      "Health data": null
+    },
+    "countryMappings": {},
+    "originWikidataId": "Q30",
+    "compensationWikidataId": "Q1124860",
+    "permalink": "https://yourselftoscience.org/resource/ffd02d96-c153-448b-ad19-353badefcf3b"
+  },
+  {
     "id": "667f25be-9ff2-4e7a-9119-78f2eb61a801",
     "resourceWikidataId": "Q59696822",
     "slug": "open-humans",
