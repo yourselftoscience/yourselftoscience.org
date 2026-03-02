@@ -135,6 +135,7 @@ const rawResources = [
   },
   {
     "id": "095034ef-732e-45c6-ad16-54c29c7ba408",
+    "resourceWikidataId": "Q138518518",
     "slug": "google-health-studies",
     "title": "Google Health Studies",
     "organizations": [

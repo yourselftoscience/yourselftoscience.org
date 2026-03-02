@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 3/2/2026, 5:09:04 AM
+**Generated on:** 3/2/2026, 5:11:26 AM
 
 ## Project-Organizer Relationships
 
@@ -64,7 +64,7 @@
   - Gulbenkian Institute for Molecular Medicine (GIMM): [Q131428172](https://www.wikidata.org/wiki/Q131428172)
 - **GoodNature Program**: ❌
   - Nestlé Health Science U.S.: [Q45132270](https://www.wikidata.org/wiki/Q45132270)
-- **Google Health Studies**: ❌
+- **Google Health Studies**: [Q138518518](https://www.wikidata.org/wiki/Q138518518)
   - Google: [Q95](https://www.wikidata.org/wiki/Q95)
 - **Harvard Personal Genome Project**: ❌
   - Harvard Medical School: [Q49121](https://www.wikidata.org/wiki/Q49121)
@@ -146,7 +146,7 @@
 - **Genomes.io**: [Q125117291](https://www.wikidata.org/wiki/Q125117291)
 - **German Clinical Trials Register**: [Q96199255](https://www.wikidata.org/wiki/Q96199255)
 - **GoodNature Program**: ❌
-- **Google Health Studies**: ❌
+- **Google Health Studies**: [Q138518518](https://www.wikidata.org/wiki/Q138518518)
 - **Harvard Personal Genome Project**: ❌
 - **Health Canada's Clinical Trials Database**: ❌
 - **HealthStreet**: ❌

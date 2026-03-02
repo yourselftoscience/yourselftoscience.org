@@ -78,6 +78,7 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:sameAs <https://yourselftoscience.org/resource/google-health-studies> ;
   rdfs:label "Google Health Studies" ;
   schema:description "A platform that lets you contribute to health research using the Google Health Studies app." ;
+  schema:sameAs wd:Q138518518 ;
   schema:creator [ a schema:Organization; rdfs:label "Google" ; schema:sameAs wd:Q95 ; schema:additionalType wd:Q4830453 ; schema:additionalType wd:Q4830453 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
   schema:url <https://health.google/consumers/health-studies/> ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ; schema:sameAs wd:Q18745135 ] ;
