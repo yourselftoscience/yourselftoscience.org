@@ -1,21 +1,19 @@
 # Get Involved
 
-Our mission is to provide a transparent, accessible, and comprehensive catalogue of services to advance scientific research. This project is built by the community, for the community, and every contribution is incredibly valuable.
+Our mission is to provide a transparent, accessible, and comprehensive catalogue of services that allow individuals to contribute their biological and digital self to science. We are building a public good and welcome contributors, funders, and partners of all kinds.
 
-## Join the Discussion
+## Ways to Contribute
 
-The best place to start. Suggest new services, share ideas, and get feedback from the community. Perfect for all users.
+- **Suggest new services:** Share ideas on Reddit or GitHub.
+- **Code:** Contribute to our open-source project on GitHub. We are built on foundations of transparency, access, and community.
+- **Partner With Us:** Connect with us to list an initiative or help build the catalogue.
+- **Contact:** Email hello@yourselftoscience.org
 
-[Suggest on Reddit](https://www.reddit.com/r/YourselfToScience/submit?title=Suggestion%3A%20New%20Service%20-%20[Service%20Title]&text=Please%20fill%20out%20the%20following%20information%20as%20completely%20as%20possible.%0A%0A**Service%20Title%3A**%0A%0A**Service%20Link%3A**%0A%0A**Data%20Types%3A**%20(e.g.%2C%20Genome%2C%20Health%20data%2C%20Fitbit%20data%2C%20etc.)%0A%0A**Countries%20Available%3A**%20(e.g.%2C%20Worldwide%2C%20United%20States%2C%20etc.)%0A%0A**Why%20it's%20a%20good%20fit%20for%20the%20catalogue%3A**)
+### Core Principles
 
-## Go Direct
+- **Radically Open:** Dataset (CC0 1.0), content (CC BY-SA), and code (AGPL-3) are openly licensed.
+- **Community-Driven:** A collaborative ecosystem welcoming contributions from a global base.
+- **Accessible:** Built for everyone. Maintained with a high focus on accessibility and readability.
+- **AI-Ready:** Open data (CC0), open-source code, and an [llms.txt](https://yourselftoscience.org/llms.txt) file make the catalogue fully accessible to AI systems and LLMs.
 
-For developers and those comfortable with GitHub. Use our template to add your suggestion directly to our project tracker.
-
-[Suggest on GitHub](https://github.com/yourselftoscience/yourselftoscience.org/issues/new?template=suggest-a-service.md&title=Suggestion:%20New%20Service%20-%20[Service%20Title])
-
-## Contact Us
-
-Have a question, suggestion, or collaboration idea? We’d love to hear from you. Email us at [hello@yourselftoscience.org](mailto:hello@yourselftoscience.org).
-
-Want to help in other ways? Explore our [project repository](https://github.com/yourselftoscience/yourselftoscience.org) for documentation, code, and more.
+[Project Repository](https://github.com/yourselftoscience/yourselftoscience.org)

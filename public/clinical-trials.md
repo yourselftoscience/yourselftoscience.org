@@ -8,19 +8,11 @@ This page catalogues resources related to contributing to clinical trials.
 
 *Description:* A comprehensive registry and results database of publicly and privately supported clinical studies conducted around the world. Managed by the U.S. National Library of Medicine.
 
-*Data Types:* Clinical trials
-
-*Compensation:* Mixed
-
 ---
 
 ### [International Clinical Trials Registry Platform (ICTRP)](https://yourselftoscience.org/resource/who-ictrp)
 
 *Description:* A central database managed by the WHO to search for clinical trials from registries around the world.
-
-*Data Types:* Clinical trials
-
-*Compensation:* Mixed
 
 ---
 
@@ -28,23 +20,11 @@ This page catalogues resources related to contributing to clinical trials.
 
 *Description:* The European Union's official database for clinical trials conducted in the EU and EEA.
 
-*Data Types:* Clinical trials
-
-*Countries:* European Union, Iceland, Liechtenstein, Norway
-
-*Compensation:* Mixed
-
 ---
 
 ### [European Clinical Trials Information Network](https://yourselftoscience.org/resource/ectin-poland)
 
 *Description:* A clinical trials information network providing access to studies in Poland and Europe.
-
-*Data Types:* Clinical trials
-
-*Countries:* European Union
-
-*Compensation:* Mixed
 
 ---
 
@@ -52,21 +32,11 @@ This page catalogues resources related to contributing to clinical trials.
 
 *Description:* A platform connecting patients with clinical trials for various conditions.
 
-*Data Types:* Clinical trials
-
-*Countries:* European Union, Iceland, Liechtenstein, Norway
-
-*Compensation:* Mixed
-
 ---
 
 ### [Clinical Trial Discovery](https://yourselftoscience.org/resource/esperity-clinical-trials)
 
 *Description:* A patient-centric platform for finding and participating in clinical trials.
-
-*Data Types:* Clinical trials
-
-*Compensation:* Mixed
 
 ---
 
@@ -74,23 +44,11 @@ This page catalogues resources related to contributing to clinical trials.
 
 *Description:* A nonprofit program funded by the National Institutes of Health (NIH) that connects people interested in research studies with researchers from top medical centers across the U.S.
 
-*Data Types:* Clinical trials
-
-*Countries:* United States
-
-*Compensation:* Mixed
-
 ---
 
 ### [FluCamp](https://yourselftoscience.org/resource/flucamp)
 
 *Description:* Conducts clinical trials for flu and common cold viruses in London and Manchester, compensating volunteers for their time.
-
-*Data Types:* Clinical trials
-
-*Countries:* United Kingdom
-
-*Compensation:* Payment
 
 ---
 
@@ -98,21 +56,11 @@ This page catalogues resources related to contributing to clinical trials.
 
 *Description:* Connects community members in Florida with health research opportunities at the University of Florida.
 
-*Data Types:* Clinical trials
-
-*Countries:* United States
-
-*Compensation:* Mixed
-
 ---
 
 ### [Cochrane Central Register of Controlled Trials (CENTRAL)](https://yourselftoscience.org/resource/cochrane-central-register-of-controlled-trials)
 
 *Description:* A highly concentrated source of reports of randomized and quasi-randomized controlled trials from various databases and other sources. Access requires a subscription to the Cochrane Library.
-
-*Data Types:* Clinical trials
-
-*Compensation:* Mixed
 
 ---
 
@@ -120,23 +68,11 @@ This page catalogues resources related to contributing to clinical trials.
 
 *Description:* A database of clinical trials approved by the Belgian Federal Agency for Medicines and Health Products (FAMHP). NOTE: This database is no longer available due to changes in the legal framework.
 
-*Data Types:* Clinical trials
-
-*Countries:* Belgium
-
-*Compensation:* Mixed
-
 ---
 
 ### [German Clinical Trials Register (DRKS)](https://yourselftoscience.org/resource/german-clinical-trials-register)
 
 *Description:* The primary register for clinical trials conducted in Germany, providing public access to study information.
-
-*Data Types:* Clinical trials
-
-*Countries:* Germany
-
-*Compensation:* Mixed
 
 ---
 
@@ -144,35 +80,17 @@ This page catalogues resources related to contributing to clinical trials.
 
 *Description:* A listing of specific information relating to phase I, II, and III clinical trials in patients authorized by Health Canada.
 
-*Data Types:* Clinical trials
-
-*Countries:* Canada
-
-*Compensation:* Mixed
-
 ---
 
 ### [CRC ed i Volontari per la Ricerca Clinica](https://yourselftoscience.org/resource/crc-volontari-ricerca-clinica)
 
 *Description:* A center in Verona, Italy, conducting clinical trials for healthy volunteers and patients. Volunteers can register to participate in various studies.
 
-*Data Types:* Clinical trials
-
-*Countries:* Italy
-
-*Compensation:* Mixed
-
 ---
 
 ### [Rete Cittadini per la Ricerca](https://yourselftoscience.org/resource/rete-cittadini-per-la-ricerca)
 
 *Description:* A network for citizens to participate in scientific research at San Camillo IRCCS, contributing to medical progress and new therapies.
-
-*Data Types:* Clinical trials
-
-*Countries:* Italy
-
-*Compensation:* Mixed
 
 ---
 

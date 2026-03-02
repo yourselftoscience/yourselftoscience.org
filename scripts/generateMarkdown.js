@@ -2,16 +2,23 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { resources } from '../src/data/resources.js';
+import { dataTypesOntology } from '../src/data/ontology.js';
 import { EU_COUNTRIES } from '../src/data/constants.js';
 
 // Get current directory in ESM
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const PUBLIC_DIR = path.join(__dirname, '../public');
+const RESOURCE_DIR = path.join(PUBLIC_DIR, 'resource');
+
+// Ensure directories exist
+if (!fs.existsSync(RESOURCE_DIR)) {
+  fs.mkdirSync(RESOURCE_DIR, { recursive: true });
+}
+
 function generateStatsMarkdown() {
   console.log('Generating stats.md...');
-
-  // --- Replicate stats calculations from stats/page.js ---
 
   const totalResources = resources.length;
 
@@ -84,10 +91,7 @@ function generateStatsMarkdown() {
     return acc;
   }, {})).sort(([, a], [, b]) => b - a);
 
-
-  // --- Origin Calculation (similar to Availability) ---
   const resourcesByOrigin = resources.reduce((acc, resource) => {
-    // Use resource.origin if available, grouping EU countries
     if (resource.origin) {
       const originName = resource.origin === 'European Union' || EU_COUNTRIES.includes(resource.origin) ? 'European Union' : resource.origin;
       acc[originName] = (acc[originName] || 0) + 1;
@@ -110,20 +114,15 @@ function generateStatsMarkdown() {
     return acc;
   }, {})).sort(([, a], [, b]) => b - a);
 
-  // --- Generate Markdown Content ---
-
   let mdContent = `# Project Statistics\n\n`;
   mdContent += `An overview of the resources available on Yourself to Science, providing insights into the landscape of citizen science contribution.\n\n`;
-
   mdContent += `## Overview\n\n`;
   mdContent += `- **Total Resources:** ${totalResources}\n\n`;
-
   mdContent += `## Compensation Types\n\n`;
   for (const [type, count] of compensationDistribution) {
     mdContent += `- **${type.charAt(0).toUpperCase() + type.slice(1)}:** ${count}\n`;
   }
   mdContent += `\n`;
-
   mdContent += `## Resources Based In\n\n`;
   for (const [origin, count] of topOrigins) {
     mdContent += `- **${origin}:** ${count}\n`;
@@ -135,7 +134,6 @@ function generateStatsMarkdown() {
     }
   }
   mdContent += `\n`;
-
   mdContent += `## Top 10 Service Availability by Country\n\n`;
   for (const [country, count] of topCountries) {
     mdContent += `- **${country}:** ${count}\n`;
@@ -147,13 +145,11 @@ function generateStatsMarkdown() {
     }
   }
   mdContent += `\n`;
-
   mdContent += `## Data Type Distribution\n\n`;
   for (const [type, count] of dataTypesDistribution) {
     mdContent += `- **${type}:** ${count}\n`;
   }
   mdContent += `\n`;
-
   mdContent += `## Entity Type Distribution\n\n`;
   for (const entity of entityTypeDistribution) {
     mdContent += `- **${entity.name}:** ${entity.count}\n`;
@@ -164,13 +160,12 @@ function generateStatsMarkdown() {
     }
   }
   mdContent += `\n`;
-
   mdContent += `## Live Data Access\n\n`;
   mdContent += `Use these persistent URLs for automated access to always get the latest version of the dataset.\n\n`;
   mdContent += `- **CSV Endpoint:** <https://yourselftoscience.org/resources.csv>\n`;
   mdContent += `- **JSON Endpoint:** <https://yourselftoscience.org/resources.json>\n`;
 
-  const outputPath = path.join(__dirname, '../public/stats.md');
+  const outputPath = path.join(PUBLIC_DIR, 'stats.md');
   fs.writeFileSync(outputPath, mdContent);
   console.log(`Successfully generated ${outputPath}`);
 }
@@ -195,20 +190,84 @@ function generateHomepageMarkdown() {
     if (resource.compensationType) {
       mdContent += `*Compensation:* ${resource.compensationType.charAt(0).toUpperCase() + resource.compensationType.slice(1)}\n\n`;
     }
-    // Add separator only if it's not the last item
     if (index < resources.length - 1) {
       mdContent += `---\n\n`;
-    } else {
-      mdContent += `---`; // End with separator but no extra newlines
     }
   }
 
-  // Ensure no trailing spaces and single trailing newline
-  mdContent = mdContent.replace(/ +$/gm, '') + '\n';
-
-  const outputPath = path.join(__dirname, '../public/index.html.md');
+  const outputPath = path.join(PUBLIC_DIR, 'index.html.md');
   fs.writeFileSync(outputPath, mdContent);
   console.log(`Successfully generated ${outputPath}`);
+}
+
+function generateResourceMarkdown(resource) {
+  let mdContent = `# ${resource.title}\n\n`;
+  mdContent += `> ${resource.description}\n\n`;
+
+  if (resource.organizations) {
+    const orgs = resource.organizations.map(o => o.name).join('; ');
+    mdContent += `**Organizations:** ${orgs}\n\n`;
+  }
+
+  mdContent += `**Persistent ID:** https://yourselftoscience.org/resource/${resource.id}\n`;
+  mdContent += `**Canonical URL:** https://yourselftoscience.org/resource/${resource.slug}\n\n`;
+
+  mdContent += `## Details\n\n`;
+  mdContent += `- **Data Types:** ${(resource.dataTypes || []).join(', ')}\n`;
+  mdContent += `- **Compensation:** ${resource.compensationType || 'donation'}\n`;
+  mdContent += `- **Entity Category:** ${resource.entityCategory || 'Other'}\n`;
+  mdContent += `- **Entity Sub-Type:** ${resource.entitySubType || 'Not Specified'}\n`;
+
+  if (resource.origin) {
+    mdContent += `- **Based In:** ${resource.origin}\n`;
+  }
+
+  const countries = (resource.countries && resource.countries.length > 0) ? resource.countries.join(', ') : 'Worldwide';
+  mdContent += `- **Availability:** ${countries}\n`;
+
+  if (resource.excludedCountries && resource.excludedCountries.length > 0) {
+    mdContent += `- **Excluded Countries:** ${resource.excludedCountries.join(', ')}\n`;
+  }
+
+  if (resource.compatibleSources && resource.compatibleSources.length > 0) {
+    mdContent += `- **Compatible Sources:** ${resource.compatibleSources.join(', ')}\n`;
+  }
+
+  mdContent += `\n## How to Contribute\n\n`;
+  mdContent += `[Contribute Now](${resource.link})\n\n`;
+
+  if (resource.instructions && resource.instructions.length > 0) {
+    mdContent += `### Steps\n\n`;
+    resource.instructions.forEach((instruction, index) => {
+      mdContent += `${index + 1}. ${instruction}\n`;
+    });
+    mdContent += `\n`;
+  }
+
+  if (resource.citations && resource.citations.length > 0) {
+    mdContent += `## References\n\n`;
+    resource.citations.forEach(citation => {
+      if (citation.link) {
+        mdContent += `- [${citation.title}](${citation.link})\n`;
+      } else {
+        mdContent += `- ${citation.title}\n`;
+      }
+    });
+    mdContent += `\n`;
+  }
+
+  if (resource.resourceWikidataId) {
+    mdContent += `## Linked Data\n\n`;
+    mdContent += `- [Wikidata Entity](https://www.wikidata.org/wiki/${resource.resourceWikidataId})\n`;
+  }
+
+  const outputPath = path.join(RESOURCE_DIR, `${resource.slug}.md`);
+  fs.writeFileSync(outputPath, mdContent);
+}
+
+function generateAllResourceMarkdowns() {
+  console.log(`Generating markdown for ${resources.length} resources...`);
+  resources.forEach(generateResourceMarkdown);
 }
 
 function generateClinicalTrialsMarkdown() {
@@ -222,21 +281,48 @@ function generateClinicalTrialsMarkdown() {
   for (const resource of clinicalTrialResources) {
     mdContent += `### [${resource.title}](https://yourselftoscience.org/resource/${resource.slug})\n\n`;
     mdContent += `*Description:* ${resource.description}\n\n`;
-    if (resource.dataTypes) {
-      mdContent += `*Data Types:* ${resource.dataTypes.join(', ')}\n\n`;
-    }
-    if (resource.countries) {
-      mdContent += `*Countries:* ${resource.countries.join(', ')}\n\n`;
-    }
-    if (resource.compensationType) {
-      mdContent += `*Compensation:* ${resource.compensationType.charAt(0).toUpperCase() + resource.compensationType.slice(1)}\n\n`;
-    }
     mdContent += `---\n\n`;
   }
 
-  const outputPath = path.join(__dirname, '../public/clinical-trials.md');
+  const outputPath = path.join(PUBLIC_DIR, 'clinical-trials.md');
   fs.writeFileSync(outputPath, mdContent);
-  console.log(`Successfully generated ${outputPath}`);
+}
+
+function generateGeneticDataMarkdown() {
+  console.log('Generating what-can-i-do-with-my-genetic-data.md...');
+  const geneticResourcesList = resources.filter(resource =>
+    resource.dataTypes?.some(t => t.includes('Genome') || t.includes('DNA') || t.includes('Genetic'))
+  );
+
+  let mdContent = `# What can I do with my genetic data?\n\n`;
+  mdContent += `> Find research for your DNA. A directory of active projects across various fields that accept genetic data (like 23andMe, AncestryDNA, or WGS).\n\n`;
+  mdContent += `## Genetic Data Resources\n\n`;
+
+  for (const resource of geneticResourcesList) {
+    mdContent += `### [${resource.title}](https://yourselftoscience.org/resource/${resource.slug})\n\n`;
+    mdContent += `*Description:* ${resource.description}\n\n`;
+    mdContent += `---\n\n`;
+  }
+
+  const outputPath = path.join(PUBLIC_DIR, 'what-can-i-do-with-my-genetic-data.md');
+  fs.writeFileSync(outputPath, mdContent);
+}
+
+function generateDataPageMarkdown() {
+  console.log('Generating data.md...');
+  let mdContent = `# Dataset & Access\n\n`;
+  mdContent += `> Our complete dataset is open and available for anyone. We believe science data should be free. Unlike closed platforms, our entire catalogue is available as an Open Dataset published under the CC0 1.0 Universal license (Public Domain).\n\n`;
+  mdContent += `## Live Data Access\n\n`;
+  mdContent += `Use these persistent URLs for automated access to always get the latest version of the dataset.\n\n`;
+  mdContent += `- **CSV Endpoint:** <https://yourselftoscience.org/resources.csv>\n`;
+  mdContent += `- **JSON Endpoint:** <https://yourselftoscience.org/resources.json>\n`;
+  mdContent += `- **RDF/TTL Endpoint:** <https://yourselftoscience.org/resources.ttl>\n`;
+  mdContent += `- **VOID Endpoint:** <https://yourselftoscience.org/void.ttl>\n\n`;
+  mdContent += `## Licensing\n\n`;
+  mdContent += `Our dataset is dedicated to the public domain under the Creative Commons CC0 1.0 Universal Public Domain Dedication (CC0 1.0).\n\n`;
+
+  const outputPath = path.join(PUBLIC_DIR, 'data.md');
+  fs.writeFileSync(outputPath, mdContent);
 }
 
 function generateOrganBodyTissueDonationMarkdown() {
@@ -254,103 +340,214 @@ function generateOrganBodyTissueDonationMarkdown() {
   for (const resource of donationResources) {
     mdContent += `### [${resource.title}](https://yourselftoscience.org/resource/${resource.slug})\n\n`;
     mdContent += `*Description:* ${resource.description}\n\n`;
-    if (resource.dataTypes) {
-      mdContent += `*Data Types:* ${resource.dataTypes.join(', ')}\n\n`;
-    }
-    if (resource.countries) {
-      mdContent += `*Countries:* ${resource.countries.join(', ')}\n\n`;
-    }
-    if (resource.compensationType) {
-      mdContent += `*Compensation:* ${resource.compensationType.charAt(0).toUpperCase() + resource.compensationType.slice(1)}\n\n`;
-    }
     mdContent += `---\n\n`;
   }
 
-  const outputPath = path.join(__dirname, '../public/organ-body-tissue-donation.md');
+  const outputPath = path.join(PUBLIC_DIR, 'organ-body-tissue-donation.md');
   fs.writeFileSync(outputPath, mdContent);
-  console.log(`Successfully generated ${outputPath}`);
 }
 
 function generateGetInvolvedMarkdown() {
   console.log('Generating get-involved.md...');
-
-  const redditSuggestUrl = `https://www.reddit.com/r/YourselfToScience/submit?title=Suggestion%3A%20New%20Service%20-%20[Service%20Title]&text=Please%20fill%20out%20the%20following%20information%20as%20completely%20as%20possible.%0A%0A**Service%20Title%3A**%0A%0A**Service%20Link%3A**%0A%0A**Data%20Types%3A**%20(e.g.%2C%20Genome%2C%20Health%20data%2C%20Fitbit%20data%2C%20etc.)%0A%0A**Countries%20Available%3A**%20(e.g.%2C%20Worldwide%2C%20United%20States%2C%20etc.)%0A%0A**Why%20it's%20a%20good%20fit%20for%20the%20catalogue%3A**`;
-  const githubSuggestUrl = `https://github.com/yourselftoscience/yourselftoscience.org/issues/new?template=suggest-a-service.md&title=Suggestion:%20New%20Service%20-%20[Service%20Title]`;
-
   let mdContent = `# Get Involved\n\n`;
-  mdContent += `Our mission is to provide a transparent, accessible, and comprehensive catalogue of services to advance scientific research. This project is built by the community, for the community, and every contribution is incredibly valuable.\n\n`;
+  mdContent += `Our mission is to provide a transparent, accessible, and comprehensive catalogue of services that allow individuals to contribute their biological and digital self to science. We are building a public good and welcome contributors, funders, and partners of all kinds.\n\n`;
 
-  mdContent += `## Join the Discussion\n\n`;
-  mdContent += `The best place to start. Suggest new services, share ideas, and get feedback from the community. Perfect for all users.\n\n`;
-  mdContent += `[Suggest on Reddit](${redditSuggestUrl})\n\n`;
+  mdContent += `## Ways to Contribute\n\n`;
+  mdContent += `- **Suggest new services:** Share ideas on Reddit or GitHub.\n`;
+  mdContent += `- **Code:** Contribute to our open-source project on GitHub. We are built on foundations of transparency, access, and community.\n`;
+  mdContent += `- **Partner With Us:** Connect with us to list an initiative or help build the catalogue.\n`;
+  mdContent += `- **Contact:** Email hello@yourselftoscience.org\n\n`;
 
-  mdContent += `## Go Direct\n\n`;
-  mdContent += `For developers and those comfortable with GitHub. Use our template to add your suggestion directly to our project tracker.\n\n`;
-  mdContent += `[Suggest on GitHub](${githubSuggestUrl})\n\n`;
+  mdContent += `### Core Principles\n\n`;
+  mdContent += `- **Radically Open:** Dataset (CC0 1.0), content (CC BY-SA), and code (AGPL-3) are openly licensed.\n`;
+  mdContent += `- **Community-Driven:** A collaborative ecosystem welcoming contributions from a global base.\n`;
+  mdContent += `- **Accessible:** Built for everyone. Maintained with a high focus on accessibility and readability.\n`;
+  mdContent += `- **AI-Ready:** Open data (CC0), open-source code, and an [llms.txt](https://yourselftoscience.org/llms.txt) file make the catalogue fully accessible to AI systems and LLMs.\n\n`;
 
-  mdContent += `## Contact Us\n\n`;
-  mdContent += `Have a question, suggestion, or collaboration idea? We’d love to hear from you. Email us at [hello@yourselftoscience.org](mailto:hello@yourselftoscience.org).\n\n`
+  mdContent += `[Project Repository](https://github.com/yourselftoscience/yourselftoscience.org)\n`;
 
-  mdContent += `Want to help in other ways? Explore our [project repository](https://github.com/yourselftoscience/yourselftoscience.org) for documentation, code, and more.\n`;
-
-  const outputPath = path.join(__dirname, '../public/get-involved.md');
+  const outputPath = path.join(PUBLIC_DIR, 'get-involved.md');
   fs.writeFileSync(outputPath, mdContent);
-  console.log(`Successfully generated ${outputPath}`);
 }
 
+function generateMissionMarkdown() {
+  console.log('Generating mission.md...');
+  let mdContent = `# Our Mission & Roadmap\n\n`;
+  mdContent += `> Building the simplest way to contribute to science through a unified, public catalogue of clinical trials, registries, databases, and programs.\n\n`;
+
+  mdContent += `## The Challenge\n\n`;
+  mdContent += `Many programs already exist—but without shared infrastructure, it's hard for people to navigate the full landscape. We believe everyone benefits when information is unified and accessible.\n\n`;
+  mdContent += `- **Scattered Landscape:** Registries, donation portals, and services all exist independently, making it hard to see the full picture.\n`;
+  mdContent += `- **Geographic Complexity:** Understanding where an opportunity is available often takes significant effort.\n`;
+  mdContent += `- **Missing Context:** Details like organization type and compensation structure are valuable but not always easy to find or compare.\n`;
+  mdContent += `- **No Shared Catalogue:** Previously, there was no standardized, open catalogue with machine-readable information.\n\n`;
+
+  mdContent += `## Our Solution: A Unified, Open Catalogue\n\n`;
+  mdContent += `By standardizing descriptions—normalizing country, data types, organization, and compensation—we make discovering and comparing opportunities frictionless.\n\n`;
+
+  mdContent += `## Roadmap\n\n`;
+  mdContent += `### PHASE 1: Trusted Central Hub\n`;
+  mdContent += `Becoming the go-to reference for citizens, researchers, academia, and public institutions.\n\n`;
+  mdContent += `### PHASE 2: Personalized Alerts\n`;
+  mdContent += `Rollout of tailored newsletter updates based on country, data-type preference, and compensation models.\n\n`;
+  mdContent += `### PHASE 3: Broadening Citizen Science\n`;
+  mdContent += `Expanding beyond personal data to environmental data collection, image classification, and crowd-sourced field research.\n\n`;
+  mdContent += `### PHASE 4: Multi-Language Integration\n`;
+  mdContent += `Translating the catalogue natively so science is universally accessible regardless of spoken language.\n`;
+
+  const outputPath = path.join(PUBLIC_DIR, 'mission.md');
+  fs.writeFileSync(outputPath, mdContent);
+}
+
+function generateDataTypesMarkdown() {
+  console.log('Generating data-types.md...');
+  let mdContent = `# Data Dictionary\n\n`;
+  mdContent += `> Ontology definitions for the biological, digital, and clinical data types tracked in the Yourself to Science catalogue.\n\n`;
+
+  const sortedTypes = [...dataTypesOntology].sort((a, b) => a.title.localeCompare(b.title));
+
+  for (const item of sortedTypes) {
+    mdContent += `## ${item.title}\n\n`;
+    mdContent += `${item.description}\n\n`;
+    mdContent += `- **ID:** ${item.id}\n`;
+    mdContent += `- **Semantic URL:** https://yourselftoscience.org/data-types/${item.slug}\n`;
+    if (item.wikidataId) {
+      mdContent += `- **Wikidata:** [${item.wikidataId}](https://www.wikidata.org/wiki/${item.wikidataId})\n`;
+    }
+    mdContent += `\n`;
+  }
+
+  const outputPath = path.join(PUBLIC_DIR, 'data-types.md');
+  fs.writeFileSync(outputPath, mdContent);
+}
+
+function generateResourcesListMarkdown() {
+  console.log('Generating resources.md (simplified list)...');
+  let mdContent = `# All Resources List\n\n`;
+  mdContent += `> A simplified, alphabetical listing of all research resources and contribution opportunities.\n\n`;
+
+  const sortedResources = [...resources].sort((a, b) =>
+    a.title.toLowerCase().localeCompare(b.title.toLowerCase())
+  );
+
+  for (const resource of sortedResources) {
+    mdContent += `- [${resource.title}](https://yourselftoscience.org/resource/${resource.slug})\n`;
+  }
+
+  const outputPath = path.join(PUBLIC_DIR, 'resources.md');
+  fs.writeFileSync(outputPath, mdContent);
+}
 
 function generateLlmsTxt() {
   console.log('Generating llms.txt...');
 
   let content = `# Yourself to Science Catalog\n\n`;
   content += `> Yourself to Science™ is an open-source project providing a comprehensive list of services that allow individuals to contribute to scientific research with their data, genome, body, and more.\n\n`;
-  content += `This project is open source. The content is licensed under CC BY-SA 4.0 and the code is licensed under AGPL-3.0. The full list of resources is available in JSON and CSV formats.\n\n`;
+  content += `This project is radically open. Our **entire dataset** is dedicated to the public domain under the [CC0 1.0 Universal license](https://yourselftoscience.org/data). The mission content is licensed under CC BY-SA 4.0 and the code is licensed under AGPL-3.0.\n\n`;
 
-  content += `## Key Pages\n`;
-  content += `- [All Resources](https://yourselftoscience.org/): The main page with a filterable list of all resources.\n`;
-  content += `- [Data Dictionary](https://yourselftoscience.org/data-types): Ontology definitions of data types.\n`;
-  content += `- [Stats](https://yourselftoscience.org/stats): Statistics about the resources listed.\n`;
-  content += `- [Clinical Trials](https://yourselftoscience.org/clinical-trials): A dedicated page for clinical trial resources.\n`;
-  content += `- [Organ, Body & Tissue Donation](https://yourselftoscience.org/organ-body-tissue-donation): A dedicated page for organ, body, and tissue donation resources.\n`;
-  content += `- [Get Involved](https://yourselftoscience.org/get-involved): Information on how to contribute to the project.\n\n`;
+  content += `## Core Documentation\n\n`;
+  content += `- [Full Catalogue (Markdown)](https://yourselftoscience.org/index.html.md): The main catalogue of all scientific contribution opportunities.\n`;
+  content += `- [Our Mission](https://yourselftoscience.org/mission.md): The vision, core principles, and roadmap for a unified open catalogue.\n`;
+  content += `- [Simplified List](https://yourselftoscience.org/resources.md): A concise, alphabetical listing of all catalogued resources.\n`;
+  content += `- [Project Statistics](https://yourselftoscience.org/stats.md): Insights into the landscape of citizen science contribution.\n`;
+  content += `- [Dataset & Access](https://yourselftoscience.org/data.md): Information on live data endpoints and CC0 dataset licensing.\n`;
+  content += `- [Get Involved](https://yourselftoscience.org/get-involved.md): How to contribute to the project, suggest services, or partner with us.\n\n`;
 
-  content += `## Markdown Versions\n`;
-  content += `- [Homepage (Markdown)](https://yourselftoscience.org/index.html.md)\n`;
-  content += `- [Stats (Markdown)](https://yourselftoscience.org/stats.md)\n`;
-  content += `- [Clinical Trials (Markdown)](https://yourselftoscience.org/clinical-trials.md)\n`;
-  content += `- [Organ, Body & Tissue Donation (Markdown)](https://yourselftoscience.org/organ-body-tissue-donation.md)\n`;
-  content += `- [Get Involved (Markdown)](https://yourselftoscience.org/get-involved.md)\n\n`;
+  content += `## Specialized Collections\n\n`;
+  content += `- [Clinical Trials](https://yourselftoscience.org/clinical-trials.md): Focus on clinical trials and research registries.\n`;
+  content += `- [Organ, Body & Tissue Donation](https://yourselftoscience.org/organ-body-tissue-donation.md): Specialized collection for physical biological donations.\n`;
+  content += `- [Genetic Data Wizard](https://yourselftoscience.org/what-can-i-do-with-my-genetic-data.md): Find research for your DNA and discover projects accepting genomic data.\n\n`;
 
-  content += `## Data Files\n`;
-  content += `- [resources.json](https://yourselftoscience.org/resources.json): All resource data in JSON format.\n`;
-  content += `- [resources.csv](https://yourselftoscience.org/resources.csv): All resource data in CSV format.\n`;
-  content += `- [sitemap.xml](https://yourselftoscience.org/sitemap.xml): The sitemap for the website.\n\n`;
+  content += `## Metadata & Schema\n\n`;
+  content += `- [Data Dictionary](https://yourselftoscience.org/data-types.md): Definitions and technical ontology of data types.\n\n`;
 
-  content += `## Optional\n`;
-  content += `- [Content License](https://yourselftoscience.org/license/content): The CC BY-SA 4.0 license for the content.\n`;
-  content += `- [Code License](https://yourselftoscience.org/license/code): The AGPL-3.0 license for the source code.\n`;
-  content += `- [PDF Version](https://yourselftoscience.org/yourselftoscience.pdf): A PDF version of the resource list.\n\n`;
-
-  content += `## Resources\n\n`;
-
+  content += `## Individual Resources\n\n`;
   for (const resource of resources) {
-    content += `- [${resource.title}](https://yourselftoscience.org/resource/${resource.slug}): ${resource.description}\n`;
+    content += `- [${resource.title}](https://yourselftoscience.org/resource/${resource.slug}.md): ${resource.description.split('.')[0]}.\n`;
   }
 
-  const outputPath = path.join(__dirname, '../public/llms.txt');
+  content += `\n## Data Files\n\n`;
+  content += `- [resources.json](https://yourselftoscience.org/resources.json): Full machine-readable dataset.\n`;
+  content += `- [resources.csv](https://yourselftoscience.org/resources.csv): Spreadsheet-compatible dataset.\n`;
+  content += `- [sitemap.xml](https://yourselftoscience.org/sitemap.xml): Index of all human-readable pages.\n\n`;
+
+  content += `## Optional\n\n`;
+  content += `- [Full PDF Catalogue](https://yourselftoscience.org/yourselftoscience.pdf): Print-ready version of the resource list.\n`;
+
+  const outputPath = path.join(PUBLIC_DIR, 'llms.txt');
   fs.writeFileSync(outputPath, content);
   console.log(`Successfully generated ${outputPath}`);
+}
+
+function generateLlmsCtx() {
+  console.log('Generating llms-ctx.txt and llms-ctx-full.txt...');
+
+  const llmsTxtPath = path.join(PUBLIC_DIR, 'llms.txt');
+  if (!fs.existsSync(llmsTxtPath)) return;
+
+  const llmsTxt = fs.readFileSync(llmsTxtPath, 'utf8');
+
+  // Extract all links
+  const linkRegex = /\[([^\]]+)\]\((https:\/\/yourselftoscience\.org\/[^\)]+\.md)\)/g;
+  let match;
+  const links = [];
+  while ((match = linkRegex.exec(llmsTxt)) !== null) {
+    links.push({ name: match[1], url: match[2] });
+  }
+
+  let fullCtx = `# Yourself to Science Full Context\n\n`;
+  fullCtx += `This file contains the full context of the Yourself to Science catalogue, including all resource details.\n\n`;
+
+  for (const link of links) {
+    const relativePath = link.url.replace('https://yourselftoscience.org/', '');
+    const filePath = path.join(PUBLIC_DIR, relativePath);
+
+    if (fs.existsSync(filePath)) {
+      const content = fs.readFileSync(filePath, 'utf8');
+      fullCtx += `\n--- START OF ${link.name} ---\n\n`;
+      fullCtx += content;
+      fullCtx += `\n--- END OF ${link.name} ---\n\n`;
+    }
+  }
+
+  fs.writeFileSync(path.join(PUBLIC_DIR, 'llms-ctx-full.txt'), fullCtx);
+
+  // For llms-ctx.txt, we might exclude resources or just take core pages
+  let coreCtx = `# Yourself to Science Core Context\n\n`;
+  const coreLinks = links.filter(l => !l.url.includes('/resource/'));
+
+  for (const link of coreLinks) {
+    const relativePath = link.url.replace('https://yourselftoscience.org/', '');
+    const filePath = path.join(PUBLIC_DIR, relativePath);
+
+    if (fs.existsSync(filePath)) {
+      const content = fs.readFileSync(filePath, 'utf8');
+      coreCtx += `\n--- START OF ${link.name} ---\n\n`;
+      coreCtx += content;
+      coreCtx += `\n--- END OF ${link.name} ---\n\n`;
+    }
+  }
+
+  fs.writeFileSync(path.join(PUBLIC_DIR, 'llms-ctx.txt'), coreCtx);
+  console.log('Successfully generated context files.');
 }
 
 function generateAllMarkdown() {
   generateStatsMarkdown();
   generateHomepageMarkdown();
+  generateResourcesListMarkdown();
   generateClinicalTrialsMarkdown();
   generateOrganBodyTissueDonationMarkdown();
+  generateGeneticDataMarkdown();
+  generateDataPageMarkdown();
   generateGetInvolvedMarkdown();
+  generateMissionMarkdown();
+  generateDataTypesMarkdown();
+  generateAllResourceMarkdowns();
   generateLlmsTxt();
+  generateLlmsCtx();
 }
 
 generateAllMarkdown();
 
-export { generateAllMarkdown }; 
+export { generateAllMarkdown };

@@ -470,7 +470,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 *Data Types:* Conversational AI data
 
-*Countries:*
+*Countries:* 
 
 *Compensation:* Donation
 
@@ -540,7 +540,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 *Data Types:* Genome
 
-*Countries:*
+*Countries:* 
 
 *Compensation:* Payment
 
@@ -552,7 +552,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 *Data Types:* Genome, Health data, Microbiome
 
-*Countries:*
+*Countries:* 
 
 *Compensation:* Donation
 
@@ -564,7 +564,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 *Data Types:* Genome
 
-*Countries:*
+*Countries:* 
 
 *Compensation:* Donation
 
@@ -576,7 +576,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 *Data Types:* Genome, Health data
 
-*Countries:*
+*Countries:* 
 
 *Compensation:* Donation
 
@@ -588,7 +588,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 *Data Types:* Genome, Health data
 
-*Countries:*
+*Countries:* 
 
 *Compensation:* Donation
 
@@ -600,7 +600,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 *Data Types:* Genome, Health data
 
-*Countries:*
+*Countries:* 
 
 *Compensation:* Donation
 
@@ -612,7 +612,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 *Data Types:* Genome
 
-*Countries:*
+*Countries:* 
 
 *Compensation:* Donation
 
@@ -640,4 +640,3 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 *Compensation:* Donation
 
----

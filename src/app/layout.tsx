@@ -146,6 +146,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://static.cloudflareinsights.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://static.cloudflareinsights.com" />
         <meta name="citation_online_date" content={currentDate} />
+        {/* Help AI agents and search engines discover the llms.txt file */}
+        <link rel="llms" href="/llms.txt" />
         {/* Add other necessary head elements like charset, viewport */}
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

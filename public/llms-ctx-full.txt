@@ -1,0 +1,3117 @@
+# Yourself to Science Full Context
+
+This file contains the full context of the Yourself to Science catalogue, including all resource details.
+
+
+--- START OF Full Catalogue (Markdown) ---
+
+# Yourself to Science: Contribute to Science
+
+> A comprehensive open-source catalogue for contributing your biological and digital self to scientific research. Browse opportunities to share your data, genome, biological samples, and more.
+
+This project is open source. The content is licensed under CC BY-SA 4.0 and the code is licensed under AGPL-3.0. This page provides a filterable catalogue of all resources. You can also download the full dataset as CSV or JSON.
+
+## All Resources
+
+### [GenomeConnect](https://yourselftoscience.org/resource/genomeconnect)
+
+*Description:* A patient registry engaging individuals as partners in data sharing by collecting genetic testing results and health information. Note: Data from participants in the European Union (EU), European Economic Area (EEA), and United Kingdom (UK) cannot currently be processed due to GDPR. They accept electronic (pdf, doc, jpg) or physical clinical reports but they do not process raw data files.
+
+*Data Types:* Genome, Health data
+
+*Compensation:* Donation
+
+---
+
+### [Open Humans](https://yourselftoscience.org/resource/open-humans)
+
+*Description:* A platform for participant-centered research and personal data exploration.
+
+*Data Types:* Genome, Health data, Wearable data, Search history, Location history
+
+*Compensation:* Donation
+
+---
+
+### [FamilyTreeDNA Group Projects](https://yourselftoscience.org/resource/familytreedna-group-projects)
+
+*Description:* Join thousands of collaborative genealogy projects based on surname, geography, or haplogroup to support citizen science and migration pattern discovery.
+
+*Data Types:* Genome
+
+*Countries:* Worldwide
+
+*Compensation:* Donation
+
+---
+
+### [MyPHD](https://yourselftoscience.org/resource/myphd)
+
+*Description:* A platform for collecting health data from wearables to detect early signs of infectious diseases.
+
+*Data Types:* Health data, Wearable data
+
+*Compensation:* Donation
+
+---
+
+### [Google Health Studies](https://yourselftoscience.org/resource/google-health-studies)
+
+*Description:* A platform that lets you contribute to health research using the Google Health Studies app.
+
+*Data Types:* Health data
+
+*Compensation:* Donation
+
+---
+
+### [Apple Research](https://yourselftoscience.org/resource/apple-research)
+
+*Description:* Participate in health studies using your iPhone and Apple Watch.
+
+*Data Types:* Health data
+
+*Countries:* United States
+
+*Compensation:* Donation
+
+---
+
+### [Harvard Personal Genome Project](https://yourselftoscience.org/resource/harvard-pgp)
+
+*Description:* An open science project by Harvard Medical School where participants publicly share their genetic, health, and trait data to drive biological research.
+
+*Data Types:* Genome, Health data
+
+*Countries:* United States
+
+*Compensation:* Donation
+
+---
+
+### [Genes for Good](https://yourselftoscience.org/resource/genes-for-good)
+
+*Description:* A research study run through a Facebook App that connects health, behavior, and genetics. Participants complete surveys and may become eligible to provide a saliva sample for DNA analysis.
+
+*Data Types:* Genome, Health data
+
+*Countries:* United States
+
+*Compensation:* Donation
+
+---
+
+### [All of Us](https://yourselftoscience.org/resource/all-of-us)
+
+*Description:* A research program from the NIH to gather health data from one million or more people living in the US.
+
+*Data Types:* Genome, Health data
+
+*Countries:* United States
+
+*Compensation:* Mixed
+
+---
+
+### [Health research and product development](https://yourselftoscience.org/resource/fitbit-research)
+
+*Description:* Share your Fitbit data to help improve health research and product development.
+
+*Data Types:* Wearable data
+
+*Compensation:* Donation
+
+---
+
+### [SPARK for Autism](https://yourselftoscience.org/resource/spark-for-autism)
+
+*Description:* A landmark autism research project connecting autistic individuals and their families to research.
+
+*Data Types:* Genome, Health data
+
+*Countries:* United States
+
+*Compensation:* Mixed
+
+---
+
+### [Body Donation](https://yourselftoscience.org/resource/ubc-body-donation)
+
+*Description:* The UBC Body Donation Program accepts donations for anatomical study and medical research.
+
+*Data Types:* Body
+
+*Countries:* Canada
+
+*Compensation:* Donation
+
+---
+
+### [Body Donation; Tissue Donation](https://yourselftoscience.org/resource/cambridge-body-tissue-donation)
+
+*Description:* Information on donating your body to medical science at the University of Cambridge.
+
+*Data Types:* Body, Tissue
+
+*Countries:* United Kingdom
+
+*Compensation:* Donation
+
+---
+
+### [Body & Tissues Donation](https://yourselftoscience.org/resource/italy-body-tissue-donation)
+
+*Description:* Official guidelines for donating body and tissues for study, training, and scientific research in Italy.
+
+*Data Types:* Body, Tissue
+
+*Countries:* Italy
+
+*Compensation:* Donation
+
+---
+
+### [Donate the Body to Science](https://yourselftoscience.org/resource/france-body-donation)
+
+*Description:* Official information on body donation for science and medical research in France.
+
+*Data Types:* Body
+
+*Countries:* France
+
+*Compensation:* Donation
+
+---
+
+### [Eggs, Sperm and Embryos Donation to Research](https://yourselftoscience.org/resource/uk-gamete-donation)
+
+*Description:* Information on donating eggs, sperm, and embryos for research in the UK.
+
+*Data Types:* Eggs, Embryos, Sperm
+
+*Countries:* United Kingdom
+
+*Compensation:* Donation
+
+---
+
+### [ClinicalTrials.gov](https://yourselftoscience.org/resource/clinicaltrials-gov)
+
+*Description:* A comprehensive registry and results database of publicly and privately supported clinical studies conducted around the world. Managed by the U.S. National Library of Medicine.
+
+*Data Types:* Clinical trials
+
+*Compensation:* Mixed
+
+---
+
+### [International Clinical Trials Registry Platform (ICTRP)](https://yourselftoscience.org/resource/who-ictrp)
+
+*Description:* A central database managed by the WHO to search for clinical trials from registries around the world.
+
+*Data Types:* Clinical trials
+
+*Compensation:* Mixed
+
+---
+
+### [EU Clinical Trials Register](https://yourselftoscience.org/resource/eu-clinical-trials-register)
+
+*Description:* The European Union's official database for clinical trials conducted in the EU and EEA.
+
+*Data Types:* Clinical trials
+
+*Countries:* European Union, Iceland, Liechtenstein, Norway
+
+*Compensation:* Mixed
+
+---
+
+### [European Clinical Trials Information Network](https://yourselftoscience.org/resource/ectin-poland)
+
+*Description:* A clinical trials information network providing access to studies in Poland and Europe.
+
+*Data Types:* Clinical trials
+
+*Countries:* European Union
+
+*Compensation:* Mixed
+
+---
+
+### [Curewiki](https://yourselftoscience.org/resource/curewiki)
+
+*Description:* A platform connecting patients with clinical trials for various conditions.
+
+*Data Types:* Clinical trials
+
+*Countries:* European Union, Iceland, Liechtenstein, Norway
+
+*Compensation:* Mixed
+
+---
+
+### [Clinical Trial Discovery](https://yourselftoscience.org/resource/esperity-clinical-trials)
+
+*Description:* A patient-centric platform for finding and participating in clinical trials.
+
+*Data Types:* Clinical trials
+
+*Compensation:* Mixed
+
+---
+
+### [ResearchMatch](https://yourselftoscience.org/resource/researchmatch)
+
+*Description:* A nonprofit program funded by the National Institutes of Health (NIH) that connects people interested in research studies with researchers from top medical centers across the U.S.
+
+*Data Types:* Clinical trials
+
+*Countries:* United States
+
+*Compensation:* Mixed
+
+---
+
+### [FluCamp](https://yourselftoscience.org/resource/flucamp)
+
+*Description:* Conducts clinical trials for flu and common cold viruses in London and Manchester, compensating volunteers for their time.
+
+*Data Types:* Clinical trials
+
+*Countries:* United Kingdom
+
+*Compensation:* Payment
+
+---
+
+### [HealthStreet](https://yourselftoscience.org/resource/healthstreet)
+
+*Description:* Connects community members in Florida with health research opportunities at the University of Florida.
+
+*Data Types:* Clinical trials
+
+*Countries:* United States
+
+*Compensation:* Mixed
+
+---
+
+### [GoodNature Program](https://yourselftoscience.org/resource/goodnature-program)
+
+*Description:* A stool donation program supporting research into microbiome-based therapeutics.
+
+*Data Types:* Stool
+
+*Countries:* United States
+
+*Compensation:* Payment
+
+---
+
+### [Microbiome donation](https://yourselftoscience.org/resource/lifeblood-microbiome)
+
+*Description:* Australian Red Cross Lifeblood's microbiome research program.
+
+*Data Types:* Stool
+
+*Countries:* Australia
+
+*Compensation:* Donation
+
+---
+
+### [Stool Donation](https://yourselftoscience.org/resource/wesley-stool-donation)
+
+*Description:* Stool donation program at Wesley Research Institute.
+
+*Data Types:* Stool
+
+*Countries:* Australia
+
+*Compensation:* Donation
+
+---
+
+### [Placenta Donation](https://yourselftoscience.org/resource/wesley-placenta-donation)
+
+*Description:* Placenta donation program at Wesley Research Institute.
+
+*Data Types:* Placenta
+
+*Countries:* Australia
+
+*Compensation:* Donation
+
+---
+
+### [Human Hair Decomposition](https://yourselftoscience.org/resource/wroclaw-hair-decomposition)
+
+*Description:* Research on human hair decomposition at the University of Wrocław.
+
+*Data Types:* Hair
+
+*Countries:* Poland
+
+*Compensation:* Donation
+
+---
+
+### [UCSF Archives and Special Collections social media archive](https://yourselftoscience.org/resource/ucsf-social-media-archive)
+
+*Description:* Donate your social media archives to the UCSF Library for research.
+
+*Data Types:* Social media data
+
+*Compensation:* Donation
+
+---
+
+### [Donate Your Data for Health](https://yourselftoscience.org/resource/penn-medicine-donate-your-data)
+
+*Description:* Share your digital data to help Penn Medicine researchers understand health.
+
+*Data Types:* Health data, Wearable data, Social media data, Search history
+
+*Compensation:* Payment
+
+---
+
+### [Research Summaries](https://yourselftoscience.org/resource/hra-research-summaries)
+
+*Description:* Plain-language summaries of research studies approved by the NHS Health Research Authority.
+
+*Data Types:* Health data
+
+*Countries:* United Kingdom
+
+*Compensation:* Donation
+
+---
+
+### [Cochrane Central Register of Controlled Trials (CENTRAL)](https://yourselftoscience.org/resource/cochrane-central-register-of-controlled-trials)
+
+*Description:* A highly concentrated source of reports of randomized and quasi-randomized controlled trials from various databases and other sources. Access requires a subscription to the Cochrane Library.
+
+*Data Types:* Clinical trials
+
+*Compensation:* Mixed
+
+---
+
+### [Clinical Trials Database](https://yourselftoscience.org/resource/belgian-clinical-trials-database)
+
+*Description:* A database of clinical trials approved by the Belgian Federal Agency for Medicines and Health Products (FAMHP). NOTE: This database is no longer available due to changes in the legal framework.
+
+*Data Types:* Clinical trials
+
+*Countries:* Belgium
+
+*Compensation:* Mixed
+
+---
+
+### [German Clinical Trials Register (DRKS)](https://yourselftoscience.org/resource/german-clinical-trials-register)
+
+*Description:* The primary register for clinical trials conducted in Germany, providing public access to study information.
+
+*Data Types:* Clinical trials
+
+*Countries:* Germany
+
+*Compensation:* Mixed
+
+---
+
+### [Health Canada's Clinical Trials Database](https://yourselftoscience.org/resource/health-canada-clinical-trials-database)
+
+*Description:* A listing of specific information relating to phase I, II, and III clinical trials in patients authorized by Health Canada.
+
+*Data Types:* Clinical trials
+
+*Countries:* Canada
+
+*Compensation:* Mixed
+
+---
+
+### [AATB Accredited Bank Search](https://yourselftoscience.org/resource/aatb-accredited-bank-search)
+
+*Description:* A search tool to find AATB-accredited tissue banks in the United States, covering various types of tissue, organ, and birth tissue donation.
+
+*Data Types:* Tissue, Body, Organ, Placenta, Eggs, Sperm, Embryos
+
+*Countries:* United States
+
+*Compensation:* Mixed
+
+---
+
+### [OrganDonor.gov](https://yourselftoscience.org/resource/organdonor-gov)
+
+*Description:* The official U.S. government website for organ, eye, and tissue donation. Provides information and links to state registries to sign up as a donor.
+
+*Data Types:* Organ, Tissue
+
+*Countries:* United States
+
+*Compensation:* Donation
+
+---
+
+### [Donate Blood for Research](https://yourselftoscience.org/resource/bloodworks-research)
+
+*Description:* Bloodworks Northwest’s research program accepts blood donations to support a variety of studies, from developing new treatments to understanding blood-related diseases. This service is available in the Pacific Northwest.
+
+*Data Types:* Blood, Plasma, Stem cells
+
+*Countries:* United States
+
+*Compensation:* Donation
+
+---
+
+### [Conversational AI Data Donation](https://yourselftoscience.org/resource/conversational-ai-data-donation)
+
+*Description:* Donate your chat history from assistants like ChatGPT, Gemini, and Claude to help researchers understand human-AI interaction patterns.
+
+*Data Types:* Conversational AI data
+
+*Countries:* 
+
+*Compensation:* Donation
+
+---
+
+### [CRC ed i Volontari per la Ricerca Clinica](https://yourselftoscience.org/resource/crc-volontari-ricerca-clinica)
+
+*Description:* A center in Verona, Italy, conducting clinical trials for healthy volunteers and patients. Volunteers can register to participate in various studies.
+
+*Data Types:* Clinical trials
+
+*Countries:* Italy
+
+*Compensation:* Mixed
+
+---
+
+### [Rete Cittadini per la Ricerca](https://yourselftoscience.org/resource/rete-cittadini-per-la-ricerca)
+
+*Description:* A network for citizens to participate in scientific research at San Camillo IRCCS, contributing to medical progress and new therapies.
+
+*Data Types:* Clinical trials
+
+*Countries:* Italy
+
+*Compensation:* Mixed
+
+---
+
+### [Donate Your Cover Letter to Research](https://yourselftoscience.org/resource/eurac-cover-letter-donation)
+
+*Description:* A data donation campaign focused on collecting cover letters for doctoral research to understand the impact of writing styles in a multilingual professional context.
+
+*Data Types:* Cover letters
+
+*Compensation:* Donation
+
+---
+
+### [PURA Biobank](https://yourselftoscience.org/resource/pura-biobank)
+
+*Description:* Collects biological samples from patients with PURA syndrome, other neurological disorders, and healthy controls to support research.
+
+*Data Types:* Blood, Tissue
+
+*Countries:* Germany
+
+*Compensation:* Donation
+
+---
+
+### [GIMM Biobank](https://yourselftoscience.org/resource/gimm-biobank)
+
+*Description:* A biobank collecting biological samples (primarily blood) from diverse populations to support biomedical research and precision medicine.
+
+*Data Types:* Blood
+
+*Countries:* Portugal
+
+*Compensation:* Donation
+
+---
+
+### [Genomes.io](https://yourselftoscience.org/resource/genomes-io)
+
+*Description:* A DNA data bank and personal DNA data platform that allows users to control and monetize their genomic data using blockchain technology.
+
+*Data Types:* Genome
+
+*Countries:* 
+
+*Compensation:* Payment
+
+---
+
+### [23andMe Research Participation](https://yourselftoscience.org/resource/23andme)
+
+*Description:* Contribute to scientific research aimed at making and supporting meaningful scientific discoveries using your genetic and self-reported data.
+
+*Data Types:* Genome, Health data, Microbiome
+
+*Countries:* 
+
+*Compensation:* Donation
+
+---
+
+### [GEDmatch](https://yourselftoscience.org/resource/gedmatch)
+
+*Description:* A public genealogy database that allows users to opt-in to share their data for research purposes. Note: VCF files from unsupported companies must be converted to the 23andMe format before upload.
+
+*Data Types:* Genome
+
+*Countries:* 
+
+*Compensation:* Donation
+
+---
+
+### [tellmeGen Research](https://yourselftoscience.org/resource/tellmegen)
+
+*Description:* Contribute to research by sharing your genetic data and answering surveys about your health, traits, and wellness.
+
+*Data Types:* Genome, Health data
+
+*Countries:* 
+
+*Compensation:* Donation
+
+---
+
+### [MyHeritage DNA Research Project](https://yourselftoscience.org/resource/myheritage)
+
+*Description:* Participate in research to help understand human genetics, genealogy, and anthropology by sharing your DNA results and survey responses.
+
+*Data Types:* Genome, Health data
+
+*Countries:* 
+
+*Compensation:* Donation
+
+---
+
+### [Ancestry Human Diversity Project](https://yourselftoscience.org/resource/ancestry)
+
+*Description:* Participate in research to help understand human history, health, and genetics by sharing your DNA data and survey responses.
+
+*Data Types:* Genome, Health data
+
+*Countries:* 
+
+*Compensation:* Donation
+
+---
+
+### [hEDS & Dysautonomia Study (Sequencing.com)](https://yourselftoscience.org/resource/sequencing)
+
+*Description:* Participate in a genetic study for hypermobile Ehlers-Danlos Syndrome (hEDS) and Dysautonomia in collaboration with the Norris Lab at the Medical University of South Carolina.
+
+*Data Types:* Genome
+
+*Countries:* 
+
+*Compensation:* Donation
+
+---
+
+### [Altruist Database (Sequencing.com)](https://yourselftoscience.org/resource/altruist-database)
+
+*Description:* A free database of anonymous genotypic, phenotypic and interpretation data that allows public searching and analysis. Researchers can request to contact individuals holding specific traits for additional paid studies and opportunities.
+
+*Data Types:* Genome
+
+*Countries:* Worldwide
+
+*Compensation:* Mixed
+
+---
+
+### [WikiTree](https://yourselftoscience.org/resource/wikitree)
+
+*Description:* A collaborative genealogy platform that allows users to add their DNA test information (like GEDmatch ID or usernames, rather than raw data files) to their profiles to help confirm relationships and find genetic cousins.
+
+*Data Types:* Genome
+
+*Countries:* Worldwide
+
+*Compensation:* Donation
+
+
+--- END OF Full Catalogue (Markdown) ---
+
+
+--- START OF Our Mission ---
+
+# Our Mission & Roadmap
+
+> Building the simplest way to contribute to science through a unified, public catalogue of clinical trials, registries, databases, and programs.
+
+## The Challenge
+
+Many programs already exist—but without shared infrastructure, it's hard for people to navigate the full landscape. We believe everyone benefits when information is unified and accessible.
+
+- **Scattered Landscape:** Registries, donation portals, and services all exist independently, making it hard to see the full picture.
+- **Geographic Complexity:** Understanding where an opportunity is available often takes significant effort.
+- **Missing Context:** Details like organization type and compensation structure are valuable but not always easy to find or compare.
+- **No Shared Catalogue:** Previously, there was no standardized, open catalogue with machine-readable information.
+
+## Our Solution: A Unified, Open Catalogue
+
+By standardizing descriptions—normalizing country, data types, organization, and compensation—we make discovering and comparing opportunities frictionless.
+
+## Roadmap
+
+### PHASE 1: Trusted Central Hub
+Becoming the go-to reference for citizens, researchers, academia, and public institutions.
+
+### PHASE 2: Personalized Alerts
+Rollout of tailored newsletter updates based on country, data-type preference, and compensation models.
+
+### PHASE 3: Broadening Citizen Science
+Expanding beyond personal data to environmental data collection, image classification, and crowd-sourced field research.
+
+### PHASE 4: Multi-Language Integration
+Translating the catalogue natively so science is universally accessible regardless of spoken language.
+
+--- END OF Our Mission ---
+
+
+--- START OF Simplified List ---
+
+# All Resources List
+
+> A simplified, alphabetical listing of all research resources and contribution opportunities.
+
+- [23andMe Research Participation](https://yourselftoscience.org/resource/23andme)
+- [AATB Accredited Bank Search](https://yourselftoscience.org/resource/aatb-accredited-bank-search)
+- [All of Us](https://yourselftoscience.org/resource/all-of-us)
+- [Altruist Database (Sequencing.com)](https://yourselftoscience.org/resource/altruist-database)
+- [Ancestry Human Diversity Project](https://yourselftoscience.org/resource/ancestry)
+- [Apple Research](https://yourselftoscience.org/resource/apple-research)
+- [Body & Tissues Donation](https://yourselftoscience.org/resource/italy-body-tissue-donation)
+- [Body Donation](https://yourselftoscience.org/resource/ubc-body-donation)
+- [Body Donation; Tissue Donation](https://yourselftoscience.org/resource/cambridge-body-tissue-donation)
+- [Clinical Trial Discovery](https://yourselftoscience.org/resource/esperity-clinical-trials)
+- [Clinical Trials Database](https://yourselftoscience.org/resource/belgian-clinical-trials-database)
+- [ClinicalTrials.gov](https://yourselftoscience.org/resource/clinicaltrials-gov)
+- [Cochrane Central Register of Controlled Trials (CENTRAL)](https://yourselftoscience.org/resource/cochrane-central-register-of-controlled-trials)
+- [Conversational AI Data Donation](https://yourselftoscience.org/resource/conversational-ai-data-donation)
+- [CRC ed i Volontari per la Ricerca Clinica](https://yourselftoscience.org/resource/crc-volontari-ricerca-clinica)
+- [Curewiki](https://yourselftoscience.org/resource/curewiki)
+- [Donate Blood for Research](https://yourselftoscience.org/resource/bloodworks-research)
+- [Donate the Body to Science](https://yourselftoscience.org/resource/france-body-donation)
+- [Donate Your Cover Letter to Research](https://yourselftoscience.org/resource/eurac-cover-letter-donation)
+- [Donate Your Data for Health](https://yourselftoscience.org/resource/penn-medicine-donate-your-data)
+- [Eggs, Sperm and Embryos Donation to Research](https://yourselftoscience.org/resource/uk-gamete-donation)
+- [EU Clinical Trials Register](https://yourselftoscience.org/resource/eu-clinical-trials-register)
+- [European Clinical Trials Information Network](https://yourselftoscience.org/resource/ectin-poland)
+- [FamilyTreeDNA Group Projects](https://yourselftoscience.org/resource/familytreedna-group-projects)
+- [FluCamp](https://yourselftoscience.org/resource/flucamp)
+- [GEDmatch](https://yourselftoscience.org/resource/gedmatch)
+- [Genes for Good](https://yourselftoscience.org/resource/genes-for-good)
+- [GenomeConnect](https://yourselftoscience.org/resource/genomeconnect)
+- [Genomes.io](https://yourselftoscience.org/resource/genomes-io)
+- [German Clinical Trials Register (DRKS)](https://yourselftoscience.org/resource/german-clinical-trials-register)
+- [GIMM Biobank](https://yourselftoscience.org/resource/gimm-biobank)
+- [GoodNature Program](https://yourselftoscience.org/resource/goodnature-program)
+- [Google Health Studies](https://yourselftoscience.org/resource/google-health-studies)
+- [Harvard Personal Genome Project](https://yourselftoscience.org/resource/harvard-pgp)
+- [Health Canada's Clinical Trials Database](https://yourselftoscience.org/resource/health-canada-clinical-trials-database)
+- [Health research and product development](https://yourselftoscience.org/resource/fitbit-research)
+- [HealthStreet](https://yourselftoscience.org/resource/healthstreet)
+- [hEDS & Dysautonomia Study (Sequencing.com)](https://yourselftoscience.org/resource/sequencing)
+- [Human Hair Decomposition](https://yourselftoscience.org/resource/wroclaw-hair-decomposition)
+- [International Clinical Trials Registry Platform (ICTRP)](https://yourselftoscience.org/resource/who-ictrp)
+- [Microbiome donation](https://yourselftoscience.org/resource/lifeblood-microbiome)
+- [MyHeritage DNA Research Project](https://yourselftoscience.org/resource/myheritage)
+- [MyPHD](https://yourselftoscience.org/resource/myphd)
+- [Open Humans](https://yourselftoscience.org/resource/open-humans)
+- [OrganDonor.gov](https://yourselftoscience.org/resource/organdonor-gov)
+- [Placenta Donation](https://yourselftoscience.org/resource/wesley-placenta-donation)
+- [PURA Biobank](https://yourselftoscience.org/resource/pura-biobank)
+- [Research Summaries](https://yourselftoscience.org/resource/hra-research-summaries)
+- [ResearchMatch](https://yourselftoscience.org/resource/researchmatch)
+- [Rete Cittadini per la Ricerca](https://yourselftoscience.org/resource/rete-cittadini-per-la-ricerca)
+- [SPARK for Autism](https://yourselftoscience.org/resource/spark-for-autism)
+- [Stool Donation](https://yourselftoscience.org/resource/wesley-stool-donation)
+- [tellmeGen Research](https://yourselftoscience.org/resource/tellmegen)
+- [UCSF Archives and Special Collections social media archive](https://yourselftoscience.org/resource/ucsf-social-media-archive)
+- [WikiTree](https://yourselftoscience.org/resource/wikitree)
+
+--- END OF Simplified List ---
+
+
+--- START OF Project Statistics ---
+
+# Project Statistics
+
+An overview of the resources available on Yourself to Science, providing insights into the landscape of citizen science contribution.
+
+## Overview
+
+- **Total Resources:** 55
+
+## Compensation Types
+
+- **Donation:** 33
+- **Mixed:** 18
+- **Payment:** 4
+
+## Resources Based In
+
+- **United States:** 25
+- **European Union:** 16
+  - **Breakdown:**
+    - **Italy:** 4
+    - **Belgium:** 3
+    - **Germany:** 3
+    - **Poland:** 2
+    - **France:** 1
+    - **EU-Wide:** 1
+    - **Portugal:** 1
+    - **Spain:** 1
+- **United Kingdom:** 6
+- **Australia:** 3
+- **Canada:** 2
+- **Switzerland:** 1
+- **Israel:** 1
+
+## Top 10 Service Availability by Country
+
+- **Worldwide:** 23
+- **European Union:** 12
+  - **Breakdown:**
+    - **Italy:** 3
+    - **EU-Wide:** 3
+    - **Germany:** 2
+    - **France:** 1
+    - **Poland:** 1
+    - **Belgium:** 1
+    - **Portugal:** 1
+- **United States:** 11
+- **United Kingdom:** 4
+- **Australia:** 3
+- **Canada:** 2
+- **Iceland:** 2
+- **Liechtenstein:** 2
+- **Norway:** 2
+
+## Data Type Distribution
+
+- **Genome:** 16
+- **Health data:** 15
+- **Clinical trials:** 15
+- **Body:** 5
+- **Tissue:** 5
+- **Wearable data:** 4
+- **Stool:** 3
+- **Blood:** 3
+- **Search history:** 2
+- **Eggs:** 2
+- **Embryos:** 2
+- **Sperm:** 2
+- **Placenta:** 2
+- **Social media data:** 2
+- **Organ:** 2
+- **Location history:** 1
+- **Hair:** 1
+- **Plasma:** 1
+- **Stem cells:** 1
+- **Conversational AI data:** 1
+- **Cover letters:** 1
+- **Microbiome:** 1
+
+## Entity Type Distribution
+
+- **Commercial:** 18
+- **Academic:** 13
+  - **Academic:** 8
+  - **University:** 2
+  - **Research Center:** 2
+  - **University Hospital:** 1
+- **Government:** 12
+  - **Research Agency:** 4
+  - **Regulatory Agency:** 4
+  - **Public Health Service:** 3
+  - **Statutory Authority:** 1
+- **Non-Profit:** 11
+  - **Non-Profit Organization:** 4
+  - **Research Foundation:** 2
+  - **Research Project:** 1
+  - **Non-Governmental Organization:** 1
+  - **Professional Association:** 1
+  - **Hospital:** 1
+  - **Research Institute:** 1
+- **Intergovernmental:** 1
+
+## Live Data Access
+
+Use these persistent URLs for automated access to always get the latest version of the dataset.
+
+- **CSV Endpoint:** <https://yourselftoscience.org/resources.csv>
+- **JSON Endpoint:** <https://yourselftoscience.org/resources.json>
+
+--- END OF Project Statistics ---
+
+
+--- START OF Dataset & Access ---
+
+# Dataset & Access
+
+> Our complete dataset is open and available for anyone. We believe science data should be free. Unlike closed platforms, our entire catalogue is available as an Open Dataset published under the CC0 1.0 Universal license (Public Domain).
+
+## Live Data Access
+
+Use these persistent URLs for automated access to always get the latest version of the dataset.
+
+- **CSV Endpoint:** <https://yourselftoscience.org/resources.csv>
+- **JSON Endpoint:** <https://yourselftoscience.org/resources.json>
+- **RDF/TTL Endpoint:** <https://yourselftoscience.org/resources.ttl>
+- **VOID Endpoint:** <https://yourselftoscience.org/void.ttl>
+
+## Licensing
+
+Our dataset is dedicated to the public domain under the Creative Commons CC0 1.0 Universal Public Domain Dedication (CC0 1.0).
+
+
+--- END OF Dataset & Access ---
+
+
+--- START OF Get Involved ---
+
+# Get Involved
+
+Our mission is to provide a transparent, accessible, and comprehensive catalogue of services that allow individuals to contribute their biological and digital self to science. We are building a public good and welcome contributors, funders, and partners of all kinds.
+
+## Ways to Contribute
+
+- **Suggest new services:** Share ideas on Reddit or GitHub.
+- **Code:** Contribute to our open-source project on GitHub. We are built on foundations of transparency, access, and community.
+- **Partner With Us:** Connect with us to list an initiative or help build the catalogue.
+- **Contact:** Email hello@yourselftoscience.org
+
+### Core Principles
+
+- **Radically Open:** Dataset (CC0 1.0), content (CC BY-SA), and code (AGPL-3) are openly licensed.
+- **Community-Driven:** A collaborative ecosystem welcoming contributions from a global base.
+- **Accessible:** Built for everyone. Maintained with a high focus on accessibility and readability.
+- **AI-Ready:** Open data (CC0), open-source code, and an [llms.txt](https://yourselftoscience.org/llms.txt) file make the catalogue fully accessible to AI systems and LLMs.
+
+[Project Repository](https://github.com/yourselftoscience/yourselftoscience.org)
+
+--- END OF Get Involved ---
+
+
+--- START OF Clinical Trials ---
+
+# Clinical Trials
+
+This page catalogues resources related to contributing to clinical trials.
+
+## Clinical Trial Resources
+
+### [ClinicalTrials.gov](https://yourselftoscience.org/resource/clinicaltrials-gov)
+
+*Description:* A comprehensive registry and results database of publicly and privately supported clinical studies conducted around the world. Managed by the U.S. National Library of Medicine.
+
+---
+
+### [International Clinical Trials Registry Platform (ICTRP)](https://yourselftoscience.org/resource/who-ictrp)
+
+*Description:* A central database managed by the WHO to search for clinical trials from registries around the world.
+
+---
+
+### [EU Clinical Trials Register](https://yourselftoscience.org/resource/eu-clinical-trials-register)
+
+*Description:* The European Union's official database for clinical trials conducted in the EU and EEA.
+
+---
+
+### [European Clinical Trials Information Network](https://yourselftoscience.org/resource/ectin-poland)
+
+*Description:* A clinical trials information network providing access to studies in Poland and Europe.
+
+---
+
+### [Curewiki](https://yourselftoscience.org/resource/curewiki)
+
+*Description:* A platform connecting patients with clinical trials for various conditions.
+
+---
+
+### [Clinical Trial Discovery](https://yourselftoscience.org/resource/esperity-clinical-trials)
+
+*Description:* A patient-centric platform for finding and participating in clinical trials.
+
+---
+
+### [ResearchMatch](https://yourselftoscience.org/resource/researchmatch)
+
+*Description:* A nonprofit program funded by the National Institutes of Health (NIH) that connects people interested in research studies with researchers from top medical centers across the U.S.
+
+---
+
+### [FluCamp](https://yourselftoscience.org/resource/flucamp)
+
+*Description:* Conducts clinical trials for flu and common cold viruses in London and Manchester, compensating volunteers for their time.
+
+---
+
+### [HealthStreet](https://yourselftoscience.org/resource/healthstreet)
+
+*Description:* Connects community members in Florida with health research opportunities at the University of Florida.
+
+---
+
+### [Cochrane Central Register of Controlled Trials (CENTRAL)](https://yourselftoscience.org/resource/cochrane-central-register-of-controlled-trials)
+
+*Description:* A highly concentrated source of reports of randomized and quasi-randomized controlled trials from various databases and other sources. Access requires a subscription to the Cochrane Library.
+
+---
+
+### [Clinical Trials Database](https://yourselftoscience.org/resource/belgian-clinical-trials-database)
+
+*Description:* A database of clinical trials approved by the Belgian Federal Agency for Medicines and Health Products (FAMHP). NOTE: This database is no longer available due to changes in the legal framework.
+
+---
+
+### [German Clinical Trials Register (DRKS)](https://yourselftoscience.org/resource/german-clinical-trials-register)
+
+*Description:* The primary register for clinical trials conducted in Germany, providing public access to study information.
+
+---
+
+### [Health Canada's Clinical Trials Database](https://yourselftoscience.org/resource/health-canada-clinical-trials-database)
+
+*Description:* A listing of specific information relating to phase I, II, and III clinical trials in patients authorized by Health Canada.
+
+---
+
+### [CRC ed i Volontari per la Ricerca Clinica](https://yourselftoscience.org/resource/crc-volontari-ricerca-clinica)
+
+*Description:* A center in Verona, Italy, conducting clinical trials for healthy volunteers and patients. Volunteers can register to participate in various studies.
+
+---
+
+### [Rete Cittadini per la Ricerca](https://yourselftoscience.org/resource/rete-cittadini-per-la-ricerca)
+
+*Description:* A network for citizens to participate in scientific research at San Camillo IRCCS, contributing to medical progress and new therapies.
+
+---
+
+
+--- END OF Clinical Trials ---
+
+
+--- START OF Organ, Body & Tissue Donation ---
+
+# Organ, Body & Tissue Donation
+
+This page catalogues resources related to donating organs, bodies, or tissues for scientific research.
+
+## Organ, Body & Tissue Donation Resources
+
+### [Body Donation](https://yourselftoscience.org/resource/ubc-body-donation)
+
+*Description:* The UBC Body Donation Program accepts donations for anatomical study and medical research.
+
+---
+
+### [Body Donation; Tissue Donation](https://yourselftoscience.org/resource/cambridge-body-tissue-donation)
+
+*Description:* Information on donating your body to medical science at the University of Cambridge.
+
+---
+
+### [Body & Tissues Donation](https://yourselftoscience.org/resource/italy-body-tissue-donation)
+
+*Description:* Official guidelines for donating body and tissues for study, training, and scientific research in Italy.
+
+---
+
+### [Donate the Body to Science](https://yourselftoscience.org/resource/france-body-donation)
+
+*Description:* Official information on body donation for science and medical research in France.
+
+---
+
+### [AATB Accredited Bank Search](https://yourselftoscience.org/resource/aatb-accredited-bank-search)
+
+*Description:* A search tool to find AATB-accredited tissue banks in the United States, covering various types of tissue, organ, and birth tissue donation.
+
+---
+
+### [OrganDonor.gov](https://yourselftoscience.org/resource/organdonor-gov)
+
+*Description:* The official U.S. government website for organ, eye, and tissue donation. Provides information and links to state registries to sign up as a donor.
+
+---
+
+### [PURA Biobank](https://yourselftoscience.org/resource/pura-biobank)
+
+*Description:* Collects biological samples from patients with PURA syndrome, other neurological disorders, and healthy controls to support research.
+
+---
+
+
+--- END OF Organ, Body & Tissue Donation ---
+
+
+--- START OF Genetic Data Wizard ---
+
+# What can I do with my genetic data?
+
+> Find research for your DNA. A directory of active projects across various fields that accept genetic data (like 23andMe, AncestryDNA, or WGS).
+
+## Genetic Data Resources
+
+### [GenomeConnect](https://yourselftoscience.org/resource/genomeconnect)
+
+*Description:* A patient registry engaging individuals as partners in data sharing by collecting genetic testing results and health information. Note: Data from participants in the European Union (EU), European Economic Area (EEA), and United Kingdom (UK) cannot currently be processed due to GDPR. They accept electronic (pdf, doc, jpg) or physical clinical reports but they do not process raw data files.
+
+---
+
+### [Open Humans](https://yourselftoscience.org/resource/open-humans)
+
+*Description:* A platform for participant-centered research and personal data exploration.
+
+---
+
+### [FamilyTreeDNA Group Projects](https://yourselftoscience.org/resource/familytreedna-group-projects)
+
+*Description:* Join thousands of collaborative genealogy projects based on surname, geography, or haplogroup to support citizen science and migration pattern discovery.
+
+---
+
+### [Harvard Personal Genome Project](https://yourselftoscience.org/resource/harvard-pgp)
+
+*Description:* An open science project by Harvard Medical School where participants publicly share their genetic, health, and trait data to drive biological research.
+
+---
+
+### [Genes for Good](https://yourselftoscience.org/resource/genes-for-good)
+
+*Description:* A research study run through a Facebook App that connects health, behavior, and genetics. Participants complete surveys and may become eligible to provide a saliva sample for DNA analysis.
+
+---
+
+### [All of Us](https://yourselftoscience.org/resource/all-of-us)
+
+*Description:* A research program from the NIH to gather health data from one million or more people living in the US.
+
+---
+
+### [SPARK for Autism](https://yourselftoscience.org/resource/spark-for-autism)
+
+*Description:* A landmark autism research project connecting autistic individuals and their families to research.
+
+---
+
+### [Genomes.io](https://yourselftoscience.org/resource/genomes-io)
+
+*Description:* A DNA data bank and personal DNA data platform that allows users to control and monetize their genomic data using blockchain technology.
+
+---
+
+### [23andMe Research Participation](https://yourselftoscience.org/resource/23andme)
+
+*Description:* Contribute to scientific research aimed at making and supporting meaningful scientific discoveries using your genetic and self-reported data.
+
+---
+
+### [GEDmatch](https://yourselftoscience.org/resource/gedmatch)
+
+*Description:* A public genealogy database that allows users to opt-in to share their data for research purposes. Note: VCF files from unsupported companies must be converted to the 23andMe format before upload.
+
+---
+
+### [tellmeGen Research](https://yourselftoscience.org/resource/tellmegen)
+
+*Description:* Contribute to research by sharing your genetic data and answering surveys about your health, traits, and wellness.
+
+---
+
+### [MyHeritage DNA Research Project](https://yourselftoscience.org/resource/myheritage)
+
+*Description:* Participate in research to help understand human genetics, genealogy, and anthropology by sharing your DNA results and survey responses.
+
+---
+
+### [Ancestry Human Diversity Project](https://yourselftoscience.org/resource/ancestry)
+
+*Description:* Participate in research to help understand human history, health, and genetics by sharing your DNA data and survey responses.
+
+---
+
+### [hEDS & Dysautonomia Study (Sequencing.com)](https://yourselftoscience.org/resource/sequencing)
+
+*Description:* Participate in a genetic study for hypermobile Ehlers-Danlos Syndrome (hEDS) and Dysautonomia in collaboration with the Norris Lab at the Medical University of South Carolina.
+
+---
+
+### [Altruist Database (Sequencing.com)](https://yourselftoscience.org/resource/altruist-database)
+
+*Description:* A free database of anonymous genotypic, phenotypic and interpretation data that allows public searching and analysis. Researchers can request to contact individuals holding specific traits for additional paid studies and opportunities.
+
+---
+
+### [WikiTree](https://yourselftoscience.org/resource/wikitree)
+
+*Description:* A collaborative genealogy platform that allows users to add their DNA test information (like GEDmatch ID or usernames, rather than raw data files) to their profiles to help confirm relationships and find genetic cousins.
+
+---
+
+
+--- END OF Genetic Data Wizard ---
+
+
+--- START OF Data Dictionary ---
+
+# Data Dictionary
+
+> Ontology definitions for the biological, digital, and clinical data types tracked in the Yourself to Science catalogue.
+
+## Blood
+
+Biological samples consisting of blood, including whole blood, serum, or plasma, typically used for biomarker analysis, genetic testing, and disease research.
+
+- **ID:** eb87d5dc-6d2c-4b5c-bba7-1422da6fb7ea
+- **Semantic URL:** https://yourselftoscience.org/data-types/blood
+- **Wikidata:** [Q7873](https://www.wikidata.org/wiki/Q7873)
+
+## Body
+
+Whole body donation after death for medical research, education, and anatomical study.
+
+- **ID:** c8c4e138-b4b3-4696-bad4-54c375c3d22b
+- **Semantic URL:** https://yourselftoscience.org/data-types/body
+- **Wikidata:** [Q48422](https://www.wikidata.org/wiki/Q48422)
+
+## Clinical trials
+
+Participation in research studies that explore whether a medical strategy, treatment, or device is safe and effective for humans.
+
+- **ID:** 70d22c92-acbc-4f7f-855c-023a17f2db88
+- **Semantic URL:** https://yourselftoscience.org/data-types/clinical-trials
+- **Wikidata:** [Q30612](https://www.wikidata.org/wiki/Q30612)
+
+## Conversational AI data
+
+Transcripts, audio recordings, or logs of interactions with artificial intelligence systems, used to train and improve natural language processing models.
+
+- **ID:** f694db09-66c3-4d72-bc32-b7e1ce8eabb6
+- **Semantic URL:** https://yourselftoscience.org/data-types/conversational-ai-data
+- **Wikidata:** [Q138521412](https://www.wikidata.org/wiki/Q138521412)
+
+## Cover letters
+
+Textual data from application cover letters, often used in natural language processing research, bias detection, and employment studies.
+
+- **ID:** 5fe25208-4170-4ccb-8e10-384f58bd1c8f
+- **Semantic URL:** https://yourselftoscience.org/data-types/cover-letters
+- **Wikidata:** [Q569410](https://www.wikidata.org/wiki/Q569410)
+
+## Eggs
+
+Human oocytes (eggs) donated for fertility research, stem cell creation, or developmental biology studies.
+
+- **ID:** eaadd85f-3d6d-49d7-ae23-a1789c6258f4
+- **Semantic URL:** https://yourselftoscience.org/data-types/eggs
+- **Wikidata:** [Q1321695](https://www.wikidata.org/wiki/Q1321695)
+
+## Embryos
+
+Human embryos donated for scientific research, typically for stem cell derivation or studies on early human development.
+
+- **ID:** b218cd06-d70d-4581-9b16-8f3e1b10860c
+- **Semantic URL:** https://yourselftoscience.org/data-types/embryos
+- **Wikidata:** [Q33196](https://www.wikidata.org/wiki/Q33196)
+
+## Genome
+
+Complete set of DNA sequences from an individual, including all genes, used for broad genetic research, ancestry mapping, and personalized medicine.
+
+- **ID:** 46f8fb0f-f4c3-4c9c-8597-90977a45952c
+- **Semantic URL:** https://yourselftoscience.org/data-types/genome
+- **Wikidata:** [Q7020](https://www.wikidata.org/wiki/Q7020)
+
+## Hair
+
+Hair samples used for toxicology, forensic analysis, trace mineral testing, or genetic research.
+
+- **ID:** df3486df-20ce-4389-8071-85b4f62fdff4
+- **Semantic URL:** https://yourselftoscience.org/data-types/hair
+- **Wikidata:** [Q28472](https://www.wikidata.org/wiki/Q28472)
+
+## Health data
+
+General electronic health records, self-reported medical history, symptom tracking, or clinical data.
+
+- **ID:** 276b009f-6e86-424a-ae98-212dcbb54dfc
+- **Semantic URL:** https://yourselftoscience.org/data-types/health-data
+- **Wikidata:** [Q18745135](https://www.wikidata.org/wiki/Q18745135)
+
+## Location history
+
+Geospatial data tracking an individual's movements over time, often collected via smartphones, used in epidemiological studies and urban planning.
+
+- **ID:** 9fdfffbf-7bd3-4f51-b847-a87071bceba0
+- **Semantic URL:** https://yourselftoscience.org/data-types/location-history
+
+## Microbiome
+
+Data derived from the genetic material of all the microbes - bacteria, fungi, protozoa and viruses - that live on and inside the human body.
+
+- **ID:** ce756ec5-236b-4e89-a78e-0f738012643a
+- **Semantic URL:** https://yourselftoscience.org/data-types/microbiome
+
+## Organ
+
+Specific solid organs (e.g., heart, lungs, kidneys) donated after death for medical research and transplantation science.
+
+- **ID:** 6e28fe6f-43b6-4bba-9b7e-00b8e766fb9a
+- **Semantic URL:** https://yourselftoscience.org/data-types/organ
+- **Wikidata:** [Q712378](https://www.wikidata.org/wiki/Q712378)
+
+## Placenta
+
+Placental tissue collected after childbirth, used for studying fetal development, maternal health, and regenerative medicine.
+
+- **ID:** 9da9ff60-c9a9-4bba-b1bf-f54af467c699
+- **Semantic URL:** https://yourselftoscience.org/data-types/placenta
+- **Wikidata:** [Q1212935](https://www.wikidata.org/wiki/Q1212935)
+
+## Plasma
+
+The clear, yellowish fluid part of the blood that carries cells and proteins throughout the body, used in a variety of therapeutic and research contexts.
+
+- **ID:** b76509f6-0684-4861-bd93-19bd6f2128aa
+- **Semantic URL:** https://yourselftoscience.org/data-types/plasma
+- **Wikidata:** [Q79749](https://www.wikidata.org/wiki/Q79749)
+
+## Search history
+
+Logs of queries submitted to search engines, utilized in behavioral research, sociological studies, and algorithmic training.
+
+- **ID:** 44410a74-d4dc-4dcd-adc9-9b7c845b4b1a
+- **Semantic URL:** https://yourselftoscience.org/data-types/search-history
+- **Wikidata:** [Q60461381](https://www.wikidata.org/wiki/Q60461381)
+
+## Social media data
+
+Public or extracted data from social media platforms, including posts, interactions, and metadata, used for sociological, linguistic, and psychological research.
+
+- **ID:** 8c3b999a-02ed-4bc8-bbcd-d4de76d8b965
+- **Semantic URL:** https://yourselftoscience.org/data-types/social-media-data
+- **Wikidata:** [Q131520545](https://www.wikidata.org/wiki/Q131520545)
+
+## Sperm
+
+Male reproductive cells donated for fertility research, developmental biology, and genetic studies.
+
+- **ID:** ea91c2ce-97fc-4e42-8c10-53bc3ec36696
+- **Semantic URL:** https://yourselftoscience.org/data-types/sperm
+- **Wikidata:** [Q17145](https://www.wikidata.org/wiki/Q17145)
+
+## Stem cells
+
+Undifferentiated cells capable of giving rise to indefinitely more cells of the same type, used in regenerative medicine, tissue engineering, and disease modeling.
+
+- **ID:** 849fcd0f-b4b3-46bc-a567-9d7fb894b9f2
+- **Semantic URL:** https://yourselftoscience.org/data-types/stem-cells
+- **Wikidata:** [Q48196](https://www.wikidata.org/wiki/Q48196)
+
+## Stool
+
+Fecal samples typically collected to analyze the gut microbiome, digestive health, and related systemic conditions.
+
+- **ID:** 3e46c75c-f4b9-4f7f-8be2-8dbabb9e5f5f
+- **Semantic URL:** https://yourselftoscience.org/data-types/stool
+- **Wikidata:** [Q496](https://www.wikidata.org/wiki/Q496)
+
+## Tissue
+
+Samples of biological tissue (e.g., skin, muscle, tumor biopsies) used for cellular research, pathology, and genetic profiling.
+
+- **ID:** 0d94f2bb-4c8d-429f-8a03-7cbce5bb9cff
+- **Semantic URL:** https://yourselftoscience.org/data-types/tissue
+- **Wikidata:** [Q40397](https://www.wikidata.org/wiki/Q40397)
+
+## Wearable data
+
+Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) collected via consumer wearable devices like smartwatches or fitness trackers.
+
+- **ID:** 33ebae2f-6eb7-4560-afbf-3ae7930db6a5
+- **Semantic URL:** https://yourselftoscience.org/data-types/wearable-data
+- **Wikidata:** [Q138520977](https://www.wikidata.org/wiki/Q138520977)
+
+
+--- END OF Data Dictionary ---
+
+
+--- START OF GenomeConnect ---
+
+# GenomeConnect
+
+> A patient registry engaging individuals as partners in data sharing by collecting genetic testing results and health information. Note: Data from participants in the European Union (EU), European Economic Area (EEA), and United Kingdom (UK) cannot currently be processed due to GDPR. They accept electronic (pdf, doc, jpg) or physical clinical reports but they do not process raw data files.
+
+**Organizations:** Clinical Genome Resource (ClinGen)
+
+**Persistent ID:** https://yourselftoscience.org/resource/ffd02d96-c153-448b-ad19-353badefcf3b
+**Canonical URL:** https://yourselftoscience.org/resource/genomeconnect
+
+## Details
+
+- **Data Types:** Genome, Health data
+- **Compensation:** donation
+- **Entity Category:** Non-Profit
+- **Entity Sub-Type:** Research Project
+- **Based In:** United States
+- **Availability:** Worldwide
+- **Excluded Countries:** European Union, United Kingdom, European Economic Area, EU, EEA, UK
+- **Compatible Sources:** Clinical Report
+
+## How to Contribute
+
+[Contribute Now](https://www.genomeconnect.org/)
+
+## References
+
+- [GenomeConnect FAQ](https://www.clinicalgenome.org/genomeconnect/for-patients-genomeconnect/faq/)
+- [GenomeConnect - Share Your Genetics Results](https://www.clinicalgenome.org/genomeconnect/for-patients-genomeconnect/get-started/share-your-genetics-results/)
+
+
+--- END OF GenomeConnect ---
+
+
+--- START OF Open Humans ---
+
+# Open Humans
+
+> A platform for participant-centered research and personal data exploration.
+
+**Organizations:** Open Humans Foundation
+
+**Persistent ID:** https://yourselftoscience.org/resource/667f25be-9ff2-4e7a-9119-78f2eb61a801
+**Canonical URL:** https://yourselftoscience.org/resource/open-humans
+
+## Details
+
+- **Data Types:** Genome, Health data, Wearable data, Search history, Location history
+- **Compensation:** donation
+- **Entity Category:** Non-Profit
+- **Entity Sub-Type:** Research Foundation
+- **Based In:** United States
+- **Availability:** Worldwide
+- **Compatible Sources:** Raw Data, WGS
+
+## How to Contribute
+
+[Contribute Now](https://www.openhumans.org/add-data/)
+
+## References
+
+- [Greshake Tzovaras, B., Angrist, M., Arvai, K., Dulaney, M., Estrada-Galiñanes, V., Gunderson, B., ... & Price Ball, M. (2019). Open Humans: A platform for participant-centered research and personal data exploration. GigaScience, 8(6), giz076.](https://doi.org/10.1093/gigascience/giz076)
+
+## Linked Data
+
+- [Wikidata Entity](https://www.wikidata.org/wiki/Q59696822)
+
+--- END OF Open Humans ---
+
+
+--- START OF FamilyTreeDNA Group Projects ---
+
+# FamilyTreeDNA Group Projects
+
+> Join thousands of collaborative genealogy projects based on surname, geography, or haplogroup to support citizen science and migration pattern discovery.
+
+**Organizations:** FamilyTreeDNA
+
+**Persistent ID:** https://yourselftoscience.org/resource/6b75822f-2f88-4660-9304-122709d3161f
+**Canonical URL:** https://yourselftoscience.org/resource/familytreedna-group-projects
+
+## Details
+
+- **Data Types:** Genome
+- **Compensation:** donation
+- **Entity Category:** Commercial
+- **Entity Sub-Type:** Commercial
+- **Based In:** United States
+- **Availability:** Worldwide
+- **Compatible Sources:** 23andMe, AncestryDNA, MyHeritage, FamilyTreeDNA
+
+## How to Contribute
+
+[Contribute Now](https://www.familytreedna.com/group-project)
+
+## References
+
+- [Introduction to Group Projects | FamilyTreeDNA Help Center](https://help.familytreedna.com/hc/en-us/articles/4503173806351-Introduction-to-Group-Projects)
+- [Transferring Your Autosomal DNA From Another Company | FamilyTreeDNA Help Center](https://help.familytreedna.com/hc/en-us/articles/4402392808463-Transferring-Your-Autosomal-DNA-From-Another-Company)
+
+
+--- END OF FamilyTreeDNA Group Projects ---
+
+
+--- START OF MyPHD ---
+
+# MyPHD
+
+> A platform for collecting health data from wearables to detect early signs of infectious diseases.
+
+**Organizations:** Stanford University
+
+**Persistent ID:** https://yourselftoscience.org/resource/66700d6e-cbc9-40ab-8bf9-eb466844ad52
+**Canonical URL:** https://yourselftoscience.org/resource/myphd
+
+## Details
+
+- **Data Types:** Health data, Wearable data
+- **Compensation:** donation
+- **Entity Category:** Academic
+- **Entity Sub-Type:** Academic
+- **Based In:** United States
+- **Availability:** Worldwide
+
+## How to Contribute
+
+[Contribute Now](https://myphd.stanford.edu/studies/)
+
+## References
+
+- [Shandhi, M.M.H., Cho, P.J., Roghanizad, A.R. et al. A method for intelligent allocation of diagnostic testing by leveraging data from commercial wearable devices: a case study on COVID-19. npj Digit. Med. 5, 130 (2022)](https://doi.org/10.1038/s41746-022-00672-z)
+
+## Linked Data
+
+- [Wikidata Entity](https://www.wikidata.org/wiki/Q138521770)
+
+--- END OF MyPHD ---
+
+
+--- START OF Google Health Studies ---
+
+# Google Health Studies
+
+> A platform that lets you contribute to health research using the Google Health Studies app.
+
+**Organizations:** Google
+
+**Persistent ID:** https://yourselftoscience.org/resource/095034ef-732e-45c6-ad16-54c29c7ba408
+**Canonical URL:** https://yourselftoscience.org/resource/google-health-studies
+
+## Details
+
+- **Data Types:** Health data
+- **Compensation:** donation
+- **Entity Category:** Commercial
+- **Entity Sub-Type:** Commercial
+- **Based In:** United States
+- **Availability:** Worldwide
+
+## How to Contribute
+
+[Contribute Now](https://health.google/consumers/health-studies/)
+
+## Linked Data
+
+- [Wikidata Entity](https://www.wikidata.org/wiki/Q138518518)
+
+--- END OF Google Health Studies ---
+
+
+--- START OF Apple Research ---
+
+# Apple Research
+
+> Participate in health studies using your iPhone and Apple Watch.
+
+**Organizations:** Apple
+
+**Persistent ID:** https://yourselftoscience.org/resource/2c7f3ca9-4d4b-41e2-93e2-b0f06bc11cb3
+**Canonical URL:** https://yourselftoscience.org/resource/apple-research
+
+## Details
+
+- **Data Types:** Health data
+- **Compensation:** donation
+- **Entity Category:** Commercial
+- **Entity Sub-Type:** Commercial
+- **Based In:** United States
+- **Availability:** United States
+
+## How to Contribute
+
+[Contribute Now](https://support.apple.com/en-us/108425)
+
+## Linked Data
+
+- [Wikidata Entity](https://www.wikidata.org/wiki/Q138517979)
+
+--- END OF Apple Research ---
+
+
+--- START OF Harvard Personal Genome Project ---
+
+# Harvard Personal Genome Project
+
+> An open science project by Harvard Medical School where participants publicly share their genetic, health, and trait data to drive biological research.
+
+**Organizations:** Harvard Medical School
+
+**Persistent ID:** https://yourselftoscience.org/resource/e9b2a7d1-5c1a-4d2c-8bf5-f9aee315ebd0
+**Canonical URL:** https://yourselftoscience.org/resource/harvard-pgp
+
+## Details
+
+- **Data Types:** Genome, Health data
+- **Compensation:** donation
+- **Entity Category:** Academic
+- **Entity Sub-Type:** University
+- **Based In:** United States
+- **Availability:** United States
+- **Compatible Sources:** Raw Data, WGS
+
+## How to Contribute
+
+[Contribute Now](https://pgp.med.harvard.edu/participate)
+
+## Linked Data
+
+- [Wikidata Entity](https://www.wikidata.org/wiki/Q138521490)
+
+--- END OF Harvard Personal Genome Project ---
+
+
+--- START OF Genes for Good ---
+
+# Genes for Good
+
+> A research study run through a Facebook App that connects health, behavior, and genetics. Participants complete surveys and may become eligible to provide a saliva sample for DNA analysis.
+
+**Organizations:** University of Michigan
+
+**Persistent ID:** https://yourselftoscience.org/resource/e2ba7d15-5c1a-4d2c-8bf5-f9aee315ebd0
+**Canonical URL:** https://yourselftoscience.org/resource/genes-for-good
+
+## Details
+
+- **Data Types:** Genome, Health data
+- **Compensation:** donation
+- **Entity Category:** Academic
+- **Entity Sub-Type:** University
+- **Based In:** United States
+- **Availability:** United States
+
+## How to Contribute
+
+[Contribute Now](https://genesforgood.sph.umich.edu/participate)
+
+## Linked Data
+
+- [Wikidata Entity](https://www.wikidata.org/wiki/Q138521482)
+
+--- END OF Genes for Good ---
+
+
+--- START OF All of Us ---
+
+# All of Us
+
+> A research program from the NIH to gather health data from one million or more people living in the US.
+
+**Organizations:** National Institutes of Health (NIH)
+
+**Persistent ID:** https://yourselftoscience.org/resource/3b7e801f-1e45-4c2f-8631-edac7b61743a
+**Canonical URL:** https://yourselftoscience.org/resource/all-of-us
+
+## Details
+
+- **Data Types:** Genome, Health data
+- **Compensation:** mixed
+- **Entity Category:** Government
+- **Entity Sub-Type:** Research Agency
+- **Based In:** United States
+- **Availability:** United States
+
+## How to Contribute
+
+[Contribute Now](https://allofus.nih.gov/)
+
+## Linked Data
+
+- [Wikidata Entity](https://www.wikidata.org/wiki/Q25004683)
+
+--- END OF All of Us ---
+
+
+--- START OF Health research and product development ---
+
+# Health research and product development
+
+> Share your Fitbit data to help improve health research and product development.
+
+**Organizations:** Fitbit
+
+**Persistent ID:** https://yourselftoscience.org/resource/a86ef2b7-fe73-43dd-9f36-356b6b9c861d
+**Canonical URL:** https://yourselftoscience.org/resource/fitbit-research
+
+## Details
+
+- **Data Types:** Wearable data
+- **Compensation:** donation
+- **Entity Category:** Commercial
+- **Entity Sub-Type:** Commercial
+- **Based In:** United States
+- **Availability:** Worldwide
+
+## How to Contribute
+
+[Contribute Now](undefined)
+
+### Steps
+
+1. Open the Fitbit app
+2. Go to Fitbit settings
+3. Select Manage data and privacy
+4. Tap Data shared for research and development
+
+
+--- END OF Health research and product development ---
+
+
+--- START OF SPARK for Autism ---
+
+# SPARK for Autism
+
+> A landmark autism research project connecting autistic individuals and their families to research.
+
+**Organizations:** Simons Foundation
+
+**Persistent ID:** https://yourselftoscience.org/resource/ff09caec-9a1a-464c-bc8c-009b745ed64a
+**Canonical URL:** https://yourselftoscience.org/resource/spark-for-autism
+
+## Details
+
+- **Data Types:** Genome, Health data
+- **Compensation:** mixed
+- **Entity Category:** Non-Profit
+- **Entity Sub-Type:** Research Foundation
+- **Based In:** United States
+- **Availability:** United States
+
+## How to Contribute
+
+[Contribute Now](https://sparkforautism.org/why/)
+
+## Linked Data
+
+- [Wikidata Entity](https://www.wikidata.org/wiki/Q138518848)
+
+--- END OF SPARK for Autism ---
+
+
+--- START OF Body Donation ---
+
+# Body Donation
+
+> The UBC Body Donation Program accepts donations for anatomical study and medical research.
+
+**Organizations:** Faculty of Medicine at the University of British Columbia
+
+**Persistent ID:** https://yourselftoscience.org/resource/fa3b7b34-7149-4eae-b7da-1ce31650897f
+**Canonical URL:** https://yourselftoscience.org/resource/ubc-body-donation
+
+## Details
+
+- **Data Types:** Body
+- **Compensation:** donation
+- **Entity Category:** Academic
+- **Entity Sub-Type:** Academic
+- **Based In:** Canada
+- **Availability:** Canada
+
+## How to Contribute
+
+[Contribute Now](https://cps.med.ubc.ca/the-donation-process/)
+
+
+--- END OF Body Donation ---
+
+
+--- START OF Body Donation; Tissue Donation ---
+
+# Body Donation; Tissue Donation
+
+> Information on donating your body to medical science at the University of Cambridge.
+
+**Organizations:** Department of Anatomy, University of Cambridge; Cambridge Biomedical Research Centre
+
+**Persistent ID:** https://yourselftoscience.org/resource/04687f4b-6a45-4d0b-9c92-5487b22f0101
+**Canonical URL:** https://yourselftoscience.org/resource/cambridge-body-tissue-donation
+
+## Details
+
+- **Data Types:** Body, Tissue
+- **Compensation:** donation
+- **Entity Category:** Academic
+- **Entity Sub-Type:** Academic
+- **Based In:** United Kingdom
+- **Availability:** United Kingdom
+
+## How to Contribute
+
+[Contribute Now](https://www.cuh.nhs.uk/our-research/get-involved/donate-body-to-medical-science/)
+
+
+--- END OF Body Donation; Tissue Donation ---
+
+
+--- START OF Body & Tissues Donation ---
+
+# Body & Tissues Donation
+
+> Official guidelines for donating body and tissues for study, training, and scientific research in Italy.
+
+**Organizations:** Ministero della Salute
+
+**Persistent ID:** https://yourselftoscience.org/resource/a358a59c-91fd-4cc3-b971-366b05c1450e
+**Canonical URL:** https://yourselftoscience.org/resource/italy-body-tissue-donation
+
+## Details
+
+- **Data Types:** Body, Tissue
+- **Compensation:** donation
+- **Entity Category:** Government
+- **Entity Sub-Type:** Public Health Service
+- **Based In:** Italy
+- **Availability:** Italy
+
+## How to Contribute
+
+[Contribute Now](https://www.salute.gov.it/portale/disposizionepostmortem/dettaglioContenutiDisposizionepostmortem.jsp?lingua=italiano&id=6004&area=postMortem&menu=vuoto)
+
+
+--- END OF Body & Tissues Donation ---
+
+
+--- START OF Donate the Body to Science ---
+
+# Donate the Body to Science
+
+> Official information on body donation for science and medical research in France.
+
+**Organizations:** Service-Public.fr
+
+**Persistent ID:** https://yourselftoscience.org/resource/6f6f3a6c-8c92-4f47-a75f-8d2e99e8cec0
+**Canonical URL:** https://yourselftoscience.org/resource/france-body-donation
+
+## Details
+
+- **Data Types:** Body
+- **Compensation:** donation
+- **Entity Category:** Government
+- **Entity Sub-Type:** Public Health Service
+- **Based In:** France
+- **Availability:** France
+
+## How to Contribute
+
+[Contribute Now](https://www.service-public.fr/particuliers/vosdroits/F180)
+
+
+--- END OF Donate the Body to Science ---
+
+
+--- START OF Eggs, Sperm and Embryos Donation to Research ---
+
+# Eggs, Sperm and Embryos Donation to Research
+
+> Information on donating eggs, sperm, and embryos for research in the UK.
+
+**Organizations:** Human Fertilisation and Embryology Authority
+
+**Persistent ID:** https://yourselftoscience.org/resource/b3dc517e-3359-4720-99f3-7fa1928012b2
+**Canonical URL:** https://yourselftoscience.org/resource/uk-gamete-donation
+
+## Details
+
+- **Data Types:** Eggs, Embryos, Sperm
+- **Compensation:** donation
+- **Entity Category:** Government
+- **Entity Sub-Type:** Statutory Authority
+- **Based In:** United Kingdom
+- **Availability:** United Kingdom
+
+## How to Contribute
+
+[Contribute Now](https://www.hfea.gov.uk/donation/donors/donating-to-research/)
+
+
+--- END OF Eggs, Sperm and Embryos Donation to Research ---
+
+
+--- START OF ClinicalTrials.gov ---
+
+# ClinicalTrials.gov
+
+> A comprehensive registry and results database of publicly and privately supported clinical studies conducted around the world. Managed by the U.S. National Library of Medicine.
+
+**Organizations:** United States National Library of Medicine (NLM)
+
+**Persistent ID:** https://yourselftoscience.org/resource/d481c16f-c10c-415b-91d0-24dbf4c1ffbb
+**Canonical URL:** https://yourselftoscience.org/resource/clinicaltrials-gov
+
+## Details
+
+- **Data Types:** Clinical trials
+- **Compensation:** mixed
+- **Entity Category:** Government
+- **Entity Sub-Type:** Research Agency
+- **Based In:** United States
+- **Availability:** Worldwide
+
+## How to Contribute
+
+[Contribute Now](https://clinicaltrials.gov/)
+
+## Linked Data
+
+- [Wikidata Entity](https://www.wikidata.org/wiki/Q5133746)
+
+--- END OF ClinicalTrials.gov ---
+
+
+--- START OF International Clinical Trials Registry Platform (ICTRP) ---
+
+# International Clinical Trials Registry Platform (ICTRP)
+
+> A central database managed by the WHO to search for clinical trials from registries around the world.
+
+**Organizations:** World Health Organization (WHO)
+
+**Persistent ID:** https://yourselftoscience.org/resource/1d837bcd-3582-4a8e-b7f2-6daeb6ee4639
+**Canonical URL:** https://yourselftoscience.org/resource/who-ictrp
+
+## Details
+
+- **Data Types:** Clinical trials
+- **Compensation:** mixed
+- **Entity Category:** Intergovernmental
+- **Entity Sub-Type:** Intergovernmental Organization
+- **Based In:** Switzerland
+- **Availability:** Worldwide
+
+## How to Contribute
+
+[Contribute Now](https://trialsearch.who.int/)
+
+## Linked Data
+
+- [Wikidata Entity](https://www.wikidata.org/wiki/Q29867940)
+
+--- END OF International Clinical Trials Registry Platform (ICTRP) ---
+
+
+--- START OF EU Clinical Trials Register ---
+
+# EU Clinical Trials Register
+
+> The European Union's official database for clinical trials conducted in the EU and EEA.
+
+**Organizations:** European Medicines Agency (EMA)
+
+**Persistent ID:** https://yourselftoscience.org/resource/aaf2c81c-7ac8-4d47-9b5b-ea6567b1fb6d
+**Canonical URL:** https://yourselftoscience.org/resource/eu-clinical-trials-register
+
+## Details
+
+- **Data Types:** Clinical trials
+- **Compensation:** mixed
+- **Entity Category:** Government
+- **Entity Sub-Type:** Regulatory Agency
+- **Based In:** European Union
+- **Availability:** European Union, Iceland, Liechtenstein, Norway
+
+## How to Contribute
+
+[Contribute Now](https://euclinicaltrials.eu/search-for-clinical-trials/)
+
+## Linked Data
+
+- [Wikidata Entity](https://www.wikidata.org/wiki/Q96183789)
+
+--- END OF EU Clinical Trials Register ---
+
+
+--- START OF European Clinical Trials Information Network ---
+
+# European Clinical Trials Information Network
+
+> A clinical trials information network providing access to studies in Poland and Europe.
+
+**Organizations:** Clinical Trials Information Network (CTIN Poland)
+
+**Persistent ID:** https://yourselftoscience.org/resource/4a9f519b-a804-4210-adac-3dfcb88b2ac4
+**Canonical URL:** https://yourselftoscience.org/resource/ectin-poland
+
+## Details
+
+- **Data Types:** Clinical trials
+- **Compensation:** mixed
+- **Entity Category:** Commercial
+- **Entity Sub-Type:** Commercial
+- **Based In:** Poland
+- **Availability:** European Union
+
+## How to Contribute
+
+[Contribute Now](https://clinicaltrials.eu/)
+
+## References
+
+- [Figueira-Gonçalves, J. M., Callejas-González, F. J., Golpe, R., Máiz-Carro, L., Marín-Oto, M., de Miguel-Díez, J., ... & Hurtado-Fuentes, Á. (2025). Current Evidence on the Usefulness of Potential Therapies in the Prevention of COPD Exacerbations: Beyond the Use of Bronchodilator Therapy and Inhaled Corticosteroids. Open Respiratory Archives, 7(2), 100438.](https://doi.org/10.1016/j.opresp.2025.100438)
+- [Pranaitytė, G., Grybaitė, B., Endriulaityte, U., Mickevičius, V., & Petrikaitė, V. (2025). Exploration of 1-(2, 4-difluorophenyl)-5-oxopyrrolidine-3-carboxylic acid derivatives effect on triple-negative breast, prostate cancer and melanoma cell 2D and 3D cultures. Scientific Reports, 15(1), 1-16.](https://doi.org/10.1038/s41598-025-02106-8)
+
+
+--- END OF European Clinical Trials Information Network ---
+
+
+--- START OF Curewiki ---
+
+# Curewiki
+
+> A platform connecting patients with clinical trials for various conditions.
+
+**Organizations:** Curewiki
+
+**Persistent ID:** https://yourselftoscience.org/resource/024ad742-b735-40dc-a5e8-2b6dbfb6bebc
+**Canonical URL:** https://yourselftoscience.org/resource/curewiki
+
+## Details
+
+- **Data Types:** Clinical trials
+- **Compensation:** mixed
+- **Entity Category:** Commercial
+- **Entity Sub-Type:** Commercial
+- **Based In:** Belgium
+- **Availability:** European Union, Iceland, Liechtenstein, Norway
+
+## How to Contribute
+
+[Contribute Now](https://www.curewiki.health/)
+
+## References
+
+- [van der Laan, P., van Houdt, W. J., van Boven, H., Snaebjornsson, P., Bosch, L. J. W., Monkhorst, K., ... & van der Graaf, W. T. A. (2025). The role of whole-genome sequencing for guiding systemic therapy in patients with soft tissue sarcoma. ESMO open, 10(6), 105287.](https://doi.org/10.1016/j.esmoop.2025.105287)
+
+
+--- END OF Curewiki ---
+
+
+--- START OF Clinical Trial Discovery ---
+
+# Clinical Trial Discovery
+
+> A patient-centric platform for finding and participating in clinical trials.
+
+**Organizations:** Esperity
+
+**Persistent ID:** https://yourselftoscience.org/resource/e4e6750d-cb2f-4aff-84f3-55a53deacb79
+**Canonical URL:** https://yourselftoscience.org/resource/esperity-clinical-trials
+
+## Details
+
+- **Data Types:** Clinical trials
+- **Compensation:** mixed
+- **Entity Category:** Commercial
+- **Entity Sub-Type:** Commercial
+- **Based In:** Belgium
+- **Availability:** Worldwide
+
+## How to Contribute
+
+[Contribute Now](https://clinicaltrial.be/)
+
+## References
+
+- [De Corte, W., Delrue, H., Vanfleteren, L. J. J., Dutré, P. E. M., Pottel, H., Devriendt, D. K. J. C., ... & Desmet, M. B. (2012). Randomized clinical trial on the influence of anaesthesia protocol on intestinal motility during laparoscopic surgery requiring small bowel anastomosis. Journal of British Surgery, 99(11), 1524-1529.](https://doi.org/10.1002/bjs.8883)
+- [Desmet, M., Braems, H., Reynvoet, M., Plasschaert, S., Van Cauwelaert, J., Pottel, H., ... & Van de Velde, M. (2013). IV and perineural dexamethasone are equivalent in increasing the analgesic duration of a single-shot interscalene block with ropivacaine for shoulder surgery: a prospective, randomized, placebo-controlled study. British journal of anaesthesia, 111(3), 445-452.](https://doi.org/10.1093/bja/aet109)
+- [Jacobs, H., Bockaert, M., Bonte, J., D'Haese, M., Degrande, J., Descamps, L., ... & De Bacquer, D. (2020). The impact of a group-based multidisciplinary rehabilitation program on the quality of life in patients with fibromyalgia: results from the QUALIFIBRO study. JCR: Journal of Clinical Rheumatology, 26(8), 313-319.](https://doi.org/10.1097/RHU.0000000000001120)
+- [Terryn, S., De Medts, J., & Delsupehe, K. (2015). Comparative effectiveness of the different treatment modalities for snoring. Otolaryngology–Head and Neck Surgery, 153(3), 468-475.](https://doi.org/10.1177/0194599815596166)
+- [Calus, L., Van Bruaene, N., Bosteels, C., Dejonckheere, S., Van Zele, T., Holtappels, G., ... & Gevaert, P. (2019). Twelve‐year follow‐up study after endoscopic sinus surgery in patients with chronic rhinosinusitis with nasal polyposis. Clinical and translational allergy, 9(1), 30.](https://doi.org/10.1186/s13601-019-0269-4)
+
+
+--- END OF Clinical Trial Discovery ---
+
+
+--- START OF ResearchMatch ---
+
+# ResearchMatch
+
+> A nonprofit program funded by the National Institutes of Health (NIH) that connects people interested in research studies with researchers from top medical centers across the U.S.
+
+**Organizations:** Vanderbilt University Medical Center
+
+**Persistent ID:** https://yourselftoscience.org/resource/aef3da52-dda0-4b1c-93cd-dce266178e9e
+**Canonical URL:** https://yourselftoscience.org/resource/researchmatch
+
+## Details
+
+- **Data Types:** Clinical trials
+- **Compensation:** mixed
+- **Entity Category:** Government
+- **Entity Sub-Type:** Research Agency
+- **Based In:** United States
+- **Availability:** United States
+
+## How to Contribute
+
+[Contribute Now](https://www.researchmatch.org/)
+
+## Linked Data
+
+- [Wikidata Entity](https://www.wikidata.org/wiki/Q138520376)
+
+--- END OF ResearchMatch ---
+
+
+--- START OF FluCamp ---
+
+# FluCamp
+
+> Conducts clinical trials for flu and common cold viruses in London and Manchester, compensating volunteers for their time.
+
+**Organizations:** hVIVO
+
+**Persistent ID:** https://yourselftoscience.org/resource/8d828bb1-8f1c-40c6-a0b4-61de7da7c116
+**Canonical URL:** https://yourselftoscience.org/resource/flucamp
+
+## Details
+
+- **Data Types:** Clinical trials
+- **Compensation:** payment
+- **Entity Category:** Commercial
+- **Entity Sub-Type:** Commercial
+- **Based In:** United Kingdom
+- **Availability:** United Kingdom
+
+## How to Contribute
+
+[Contribute Now](https://flucamp.com/)
+
+## References
+
+- [Kelly, G., Laxton, C., Garelnabi, M., Alton, B., Addan, F., Catchpole, A., ... & Murray, E. J. (2015). Use of qualitative integrative cycler PCR (qicPCR) to identify optimal therapeutic dosing time-points in a Respiratory Syncytial Virus Human Viral Challenge Model (hVCM). Journal of virological methods, 224, 83-90.](https://doi.org/10.1016/j.jviromet.2015.08.019)
+
+## Linked Data
+
+- [Wikidata Entity](https://www.wikidata.org/wiki/Q138521080)
+
+--- END OF FluCamp ---
+
+
+--- START OF HealthStreet ---
+
+# HealthStreet
+
+> Connects community members in Florida with health research opportunities at the University of Florida.
+
+**Organizations:** University of Florida Health
+
+**Persistent ID:** https://yourselftoscience.org/resource/059571fa-f8ab-4eea-a8fd-f6980b3b062f
+**Canonical URL:** https://yourselftoscience.org/resource/healthstreet
+
+## Details
+
+- **Data Types:** Clinical trials
+- **Compensation:** mixed
+- **Entity Category:** Academic
+- **Entity Sub-Type:** Academic
+- **Based In:** United States
+- **Availability:** United States
+
+## How to Contribute
+
+[Contribute Now](https://healthstreet.program.ufl.edu/uf-researchers/participate-in-research/)
+
+
+--- END OF HealthStreet ---
+
+
+--- START OF GoodNature Program ---
+
+# GoodNature Program
+
+> A stool donation program supporting research into microbiome-based therapeutics.
+
+**Organizations:** Nestlé Health Science U.S.
+
+**Persistent ID:** https://yourselftoscience.org/resource/7d4ce480-7262-4ca8-9674-cbd3cd9cbecf
+**Canonical URL:** https://yourselftoscience.org/resource/goodnature-program
+
+## Details
+
+- **Data Types:** Stool
+- **Compensation:** payment
+- **Entity Category:** Commercial
+- **Entity Sub-Type:** Commercial
+- **Based In:** United States
+- **Availability:** United States
+
+## How to Contribute
+
+[Contribute Now](https://goodnatureprogram.com/apply/)
+
+## Linked Data
+
+- [Wikidata Entity](https://www.wikidata.org/wiki/Q138521454)
+
+--- END OF GoodNature Program ---
+
+
+--- START OF Microbiome donation ---
+
+# Microbiome donation
+
+> Australian Red Cross Lifeblood's microbiome research program.
+
+**Organizations:** Australian Red Cross Lifeblood
+
+**Persistent ID:** https://yourselftoscience.org/resource/7de4a0e5-680d-44a4-896e-623a58982aa6
+**Canonical URL:** https://yourselftoscience.org/resource/lifeblood-microbiome
+
+## Details
+
+- **Data Types:** Stool
+- **Compensation:** donation
+- **Entity Category:** Non-Profit
+- **Entity Sub-Type:** Non-Profit Organization
+- **Based In:** Australia
+- **Availability:** Australia
+
+## How to Contribute
+
+[Contribute Now](https://www.lifeblood.com.au/microbiome)
+
+
+--- END OF Microbiome donation ---
+
+
+--- START OF Stool Donation ---
+
+# Stool Donation
+
+> Stool donation program at Wesley Research Institute.
+
+**Organizations:** Wesley Research Institute
+
+**Persistent ID:** https://yourselftoscience.org/resource/c9530d1f-97a4-496a-99b8-7e81461c1545
+**Canonical URL:** https://yourselftoscience.org/resource/wesley-stool-donation
+
+## Details
+
+- **Data Types:** Stool
+- **Compensation:** donation
+- **Entity Category:** Non-Profit
+- **Entity Sub-Type:** Non-Profit Organization
+- **Based In:** Australia
+- **Availability:** Australia
+
+## How to Contribute
+
+[Contribute Now](https://www.wesleyresearch.org.au/biobank-project/stool-donation/)
+
+
+--- END OF Stool Donation ---
+
+
+--- START OF Placenta Donation ---
+
+# Placenta Donation
+
+> Placenta donation program at Wesley Research Institute.
+
+**Organizations:** Wesley Research Institute
+
+**Persistent ID:** https://yourselftoscience.org/resource/b1fd6fb3-c668-44d4-9f7e-00b2fd28878d
+**Canonical URL:** https://yourselftoscience.org/resource/wesley-placenta-donation
+
+## Details
+
+- **Data Types:** Placenta
+- **Compensation:** donation
+- **Entity Category:** Non-Profit
+- **Entity Sub-Type:** Non-Profit Organization
+- **Based In:** Australia
+- **Availability:** Australia
+
+## How to Contribute
+
+[Contribute Now](https://www.wesleyresearch.org.au/biobank-project/placenta-donation/)
+
+
+--- END OF Placenta Donation ---
+
+
+--- START OF Human Hair Decomposition ---
+
+# Human Hair Decomposition
+
+> Research on human hair decomposition at the University of Wrocław.
+
+**Organizations:** Department of Human Biology, University of Wrocław
+
+**Persistent ID:** https://yourselftoscience.org/resource/b4a5c0ef-ea7d-4a5a-967a-3b5c32c170f7
+**Canonical URL:** https://yourselftoscience.org/resource/wroclaw-hair-decomposition
+
+## Details
+
+- **Data Types:** Hair
+- **Compensation:** donation
+- **Entity Category:** Academic
+- **Entity Sub-Type:** Academic
+- **Based In:** Poland
+- **Availability:** Poland
+
+## How to Contribute
+
+[Contribute Now](https://biologia.uwr.edu.pl/2023/10/12/znaczenie-wybranych-czynnikow-biologicznych-i-srodowiskowych-w-procesie-rozkladu-ludzkich-wlosow-nabor-na-badania/)
+
+## References
+
+- [Palacz, K., Cholewa, M., Bonar, M., Krzyżanowska, M., & Kadej, M. (2023). The rate and quality of post-mortem hair root changes in relation to melanin content. Forensic Science International, 350, 111784.](https://doi.org/10.1016/j.forsciint.2023.111784)
+- [University of Wrocław. (2023, November 9). Donate your hair for science.](https://uwr.edu.pl/en/donate-your-hair-for-science/)
+
+
+--- END OF Human Hair Decomposition ---
+
+
+--- START OF UCSF Archives and Special Collections social media archive ---
+
+# UCSF Archives and Special Collections social media archive
+
+> Donate your social media archives to the UCSF Library for research.
+
+**Organizations:** UCSF Library Archives
+
+**Persistent ID:** https://yourselftoscience.org/resource/baedc14c-bcb0-4232-b91e-7a2b6707945f
+**Canonical URL:** https://yourselftoscience.org/resource/ucsf-social-media-archive
+
+## Details
+
+- **Data Types:** Social media data
+- **Compensation:** donation
+- **Entity Category:** Academic
+- **Entity Sub-Type:** Academic
+- **Based In:** United States
+- **Availability:** Worldwide
+
+## How to Contribute
+
+[Contribute Now](https://www.library.ucsf.edu/archives/donate/materials/donating-your-social-media/)
+
+
+--- END OF UCSF Archives and Special Collections social media archive ---
+
+
+--- START OF Donate Your Data for Health ---
+
+# Donate Your Data for Health
+
+> Share your digital data to help Penn Medicine researchers understand health.
+
+**Organizations:** Penn Medicine
+
+**Persistent ID:** https://yourselftoscience.org/resource/c0b87e00-d562-4262-8781-85611e98614d
+**Canonical URL:** https://yourselftoscience.org/resource/penn-medicine-donate-your-data
+
+## Details
+
+- **Data Types:** Health data, Wearable data, Social media data, Search history
+- **Compensation:** payment
+- **Entity Category:** Academic
+- **Entity Sub-Type:** Academic
+- **Based In:** United States
+- **Availability:** Worldwide
+
+## How to Contribute
+
+[Contribute Now](https://cdh.nmsdev.com/donate-your-data)
+
+## References
+
+- [J.C. Eichstaedt, R.J. Smith, R.M. Merchant, L.H. Ungar, P. Crutchley, D. Preoţiuc-Pietro, D.A. Asch, & H.A. Schwartz,   Facebook language predicts depression in medical records, Proc. Natl. Acad. Sci. U.S.A. 115 (44) 11203-11208, (2018).](https://doi.org/10.1073/pnas.1802331115)
+- [Grande D, Mitra N, Marti XL, et al. Consumer Views on Using Digital Data for COVID-19 Control in the United States. JAMA Netw Open. 2021;4(5):e2110918](https://doi.org/10.1001/jamanetworkopen.2021.10918)
+
+
+--- END OF Donate Your Data for Health ---
+
+
+--- START OF Research Summaries ---
+
+# Research Summaries
+
+> Plain-language summaries of research studies approved by the NHS Health Research Authority.
+
+**Organizations:** NHS Health Research Authority
+
+**Persistent ID:** https://yourselftoscience.org/resource/d77081db-67ad-45b3-a62a-bd12126ba780
+**Canonical URL:** https://yourselftoscience.org/resource/hra-research-summaries
+
+## Details
+
+- **Data Types:** Health data
+- **Compensation:** donation
+- **Entity Category:** Government
+- **Entity Sub-Type:** Regulatory Agency
+- **Based In:** United Kingdom
+- **Availability:** United Kingdom
+
+## How to Contribute
+
+[Contribute Now](https://www.hra.nhs.uk/planning-and-improving-research/application-summaries/research-summaries/)
+
+
+--- END OF Research Summaries ---
+
+
+--- START OF Cochrane Central Register of Controlled Trials (CENTRAL) ---
+
+# Cochrane Central Register of Controlled Trials (CENTRAL)
+
+> A highly concentrated source of reports of randomized and quasi-randomized controlled trials from various databases and other sources. Access requires a subscription to the Cochrane Library.
+
+**Organizations:** Cochrane
+
+**Persistent ID:** https://yourselftoscience.org/resource/40e7f7cf-d7d5-409c-a8a2-c7d01dd26522
+**Canonical URL:** https://yourselftoscience.org/resource/cochrane-central-register-of-controlled-trials
+
+## Details
+
+- **Data Types:** Clinical trials
+- **Compensation:** mixed
+- **Entity Category:** Non-Profit
+- **Entity Sub-Type:** Non-Governmental Organization
+- **Based In:** United Kingdom
+- **Availability:** Worldwide
+
+## How to Contribute
+
+[Contribute Now](https://www.cochranelibrary.com/central)
+
+
+--- END OF Cochrane Central Register of Controlled Trials (CENTRAL) ---
+
+
+--- START OF Clinical Trials Database ---
+
+# Clinical Trials Database
+
+> A database of clinical trials approved by the Belgian Federal Agency for Medicines and Health Products (FAMHP). NOTE: This database is no longer available due to changes in the legal framework.
+
+**Organizations:** Federal Agency for Medicines and Health Products (FAMHP)
+
+**Persistent ID:** https://yourselftoscience.org/resource/5b27c16f-6f83-46e8-b340-7ce503118070
+**Canonical URL:** https://yourselftoscience.org/resource/belgian-clinical-trials-database
+
+## Details
+
+- **Data Types:** Clinical trials
+- **Compensation:** mixed
+- **Entity Category:** Government
+- **Entity Sub-Type:** Regulatory Agency
+- **Based In:** Belgium
+- **Availability:** Belgium
+
+## How to Contribute
+
+[Contribute Now](https://clinicaltrialsdatabase.be/)
+
+## References
+
+- [Krumb, E., Lambert, C., & Hermans, C. (2021). Patient selection for hemophilia gene therapy: Real-life data from a single center. Research and practice in thrombosis and haemostasis, 5(3), 390-394.](https://doi.org/10.1002/rth2.12494)
+
+
+--- END OF Clinical Trials Database ---
+
+
+--- START OF German Clinical Trials Register (DRKS) ---
+
+# German Clinical Trials Register (DRKS)
+
+> The primary register for clinical trials conducted in Germany, providing public access to study information.
+
+**Organizations:** Federal Institute for Drugs and Medical Devices (BfArM)
+
+**Persistent ID:** https://yourselftoscience.org/resource/b8dda31e-6ee1-4669-a8ed-3e31bb938b64
+**Canonical URL:** https://yourselftoscience.org/resource/german-clinical-trials-register
+
+## Details
+
+- **Data Types:** Clinical trials
+- **Compensation:** mixed
+- **Entity Category:** Academic
+- **Entity Sub-Type:** Academic
+- **Based In:** Germany
+- **Availability:** Germany
+
+## How to Contribute
+
+[Contribute Now](https://drks.de/)
+
+## Linked Data
+
+- [Wikidata Entity](https://www.wikidata.org/wiki/Q96199255)
+
+--- END OF German Clinical Trials Register (DRKS) ---
+
+
+--- START OF Health Canada's Clinical Trials Database ---
+
+# Health Canada's Clinical Trials Database
+
+> A listing of specific information relating to phase I, II, and III clinical trials in patients authorized by Health Canada.
+
+**Organizations:** Health Canada
+
+**Persistent ID:** https://yourselftoscience.org/resource/d44227ed-6c83-4eef-b1c5-ee1f8c2d917c
+**Canonical URL:** https://yourselftoscience.org/resource/health-canada-clinical-trials-database
+
+## Details
+
+- **Data Types:** Clinical trials
+- **Compensation:** mixed
+- **Entity Category:** Government
+- **Entity Sub-Type:** Regulatory Agency
+- **Based In:** Canada
+- **Availability:** Canada
+
+## How to Contribute
+
+[Contribute Now](https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/health-canada-clinical-trials-database.html)
+
+
+--- END OF Health Canada's Clinical Trials Database ---
+
+
+--- START OF AATB Accredited Bank Search ---
+
+# AATB Accredited Bank Search
+
+> A search tool to find AATB-accredited tissue banks in the United States, covering various types of tissue, organ, and birth tissue donation.
+
+**Organizations:** American Association of Tissue Banks (AATB)
+
+**Persistent ID:** https://yourselftoscience.org/resource/8b211478-1d5d-4244-9da2-e052c0ebd184
+**Canonical URL:** https://yourselftoscience.org/resource/aatb-accredited-bank-search
+
+## Details
+
+- **Data Types:** Tissue, Body, Organ, Placenta, Eggs, Sperm, Embryos
+- **Compensation:** mixed
+- **Entity Category:** Non-Profit
+- **Entity Sub-Type:** Professional Association
+- **Based In:** United States
+- **Availability:** United States
+
+## How to Contribute
+
+[Contribute Now](https://www.aatb.org/accredited-bank-search)
+
+
+--- END OF AATB Accredited Bank Search ---
+
+
+--- START OF OrganDonor.gov ---
+
+# OrganDonor.gov
+
+> The official U.S. government website for organ, eye, and tissue donation. Provides information and links to state registries to sign up as a donor.
+
+**Organizations:** U.S. Department of Health & Human Services
+
+**Persistent ID:** https://yourselftoscience.org/resource/0a861cff-a2b0-4ab8-834d-e58b4139770d
+**Canonical URL:** https://yourselftoscience.org/resource/organdonor-gov
+
+## Details
+
+- **Data Types:** Organ, Tissue
+- **Compensation:** donation
+- **Entity Category:** Government
+- **Entity Sub-Type:** Public Health Service
+- **Based In:** United States
+- **Availability:** United States
+
+## How to Contribute
+
+[Contribute Now](https://www.organdonor.gov/sign-up)
+
+## Linked Data
+
+- [Wikidata Entity](https://www.wikidata.org/wiki/Q138520869)
+
+--- END OF OrganDonor.gov ---
+
+
+--- START OF Donate Blood for Research ---
+
+# Donate Blood for Research
+
+> Bloodworks Northwest’s research program accepts blood donations to support a variety of studies, from developing new treatments to understanding blood-related diseases. This service is available in the Pacific Northwest.
+
+**Organizations:** Bloodworks Northwest
+
+**Persistent ID:** https://yourselftoscience.org/resource/8c9531fe-4287-4933-b6f5-0e05e516937b
+**Canonical URL:** https://yourselftoscience.org/resource/bloodworks-research
+
+## Details
+
+- **Data Types:** Blood, Plasma, Stem cells
+- **Compensation:** donation
+- **Entity Category:** Non-Profit
+- **Entity Sub-Type:** Non-Profit Organization
+- **Based In:** United States
+- **Availability:** United States
+
+## How to Contribute
+
+[Contribute Now](https://bloodworksnw.org/donate/research)
+
+## References
+
+- [Miller, M. J., Skrzekut, A., Kracalik, I., Jones, J. M., Lofy, K. H., Konkle, B. A., ... & Paranjape, S. (2021). How do I… facilitate a rapid response to a public health emergency requiring plasma collection with a public–private partnership?. Transfusion, 61(10), 2814-2824.](https://doi.org/10.1111/trf.16630)
+
+
+--- END OF Donate Blood for Research ---
+
+
+--- START OF Conversational AI Data Donation ---
+
+# Conversational AI Data Donation
+
+> Donate your chat history from assistants like ChatGPT, Gemini, and Claude to help researchers understand human-AI interaction patterns.
+
+**Organizations:** Max Planck Institute for Software Systems
+
+**Persistent ID:** https://yourselftoscience.org/resource/f6d0fc07-302a-4e3d-869a-4eba7798920b
+**Canonical URL:** https://yourselftoscience.org/resource/conversational-ai-data-donation
+
+## Details
+
+- **Data Types:** Conversational AI data
+- **Compensation:** donation
+- **Entity Category:** Academic
+- **Entity Sub-Type:** Research Center
+- **Based In:** Germany
+- **Availability:** Worldwide
+
+## How to Contribute
+
+[Contribute Now](https://social-media-data-donator.mpi-sws.org/)
+
+
+--- END OF Conversational AI Data Donation ---
+
+
+--- START OF CRC ed i Volontari per la Ricerca Clinica ---
+
+# CRC ed i Volontari per la Ricerca Clinica
+
+> A center in Verona, Italy, conducting clinical trials for healthy volunteers and patients. Volunteers can register to participate in various studies.
+
+**Organizations:** Centro Ricerche Cliniche di Verona
+
+**Persistent ID:** https://yourselftoscience.org/resource/382a3bc3-c809-4a93-b7e6-33104443cb9b
+**Canonical URL:** https://yourselftoscience.org/resource/crc-volontari-ricerca-clinica
+
+## Details
+
+- **Data Types:** Clinical trials
+- **Compensation:** mixed
+- **Entity Category:** Academic
+- **Entity Sub-Type:** University Hospital
+- **Based In:** Italy
+- **Availability:** Italy
+
+## How to Contribute
+
+[Contribute Now](https://www.crcvolontariricercaclinica.it/Volontari/Partecipazione#Diventa)
+
+
+--- END OF CRC ed i Volontari per la Ricerca Clinica ---
+
+
+--- START OF Rete Cittadini per la Ricerca ---
+
+# Rete Cittadini per la Ricerca
+
+> A network for citizens to participate in scientific research at San Camillo IRCCS, contributing to medical progress and new therapies.
+
+**Organizations:** San Camillo IRCCS
+
+**Persistent ID:** https://yourselftoscience.org/resource/65969d60-e52a-40fd-86b5-3f3fabfad774
+**Canonical URL:** https://yourselftoscience.org/resource/rete-cittadini-per-la-ricerca
+
+## Details
+
+- **Data Types:** Clinical trials
+- **Compensation:** mixed
+- **Entity Category:** Non-Profit
+- **Entity Sub-Type:** Hospital
+- **Based In:** Italy
+- **Availability:** Italy
+
+## How to Contribute
+
+[Contribute Now](https://hsancamillo.it/rete-cittadini-per-la-ricerca/)
+
+
+--- END OF Rete Cittadini per la Ricerca ---
+
+
+--- START OF Donate Your Cover Letter to Research ---
+
+# Donate Your Cover Letter to Research
+
+> A data donation campaign focused on collecting cover letters for doctoral research to understand the impact of writing styles in a multilingual professional context.
+
+**Organizations:** Eurac Research
+
+**Persistent ID:** https://yourselftoscience.org/resource/32b73fac-c6f5-4551-af88-0deba969fd30
+**Canonical URL:** https://yourselftoscience.org/resource/eurac-cover-letter-donation
+
+## Details
+
+- **Data Types:** Cover letters
+- **Compensation:** donation
+- **Entity Category:** Academic
+- **Entity Sub-Type:** Research Center
+- **Based In:** Italy
+- **Availability:** Worldwide
+
+## How to Contribute
+
+[Contribute Now](https://www.eurac.edu/en/blogs/connecting-the-dots/data-donations-why-should-i-donate-my-cover-letter-to-research)
+
+
+--- END OF Donate Your Cover Letter to Research ---
+
+
+--- START OF PURA Biobank ---
+
+# PURA Biobank
+
+> Collects biological samples from patients with PURA syndrome, other neurological disorders, and healthy controls to support research.
+
+**Organizations:** Helmholtz Munich
+
+**Persistent ID:** https://yourselftoscience.org/resource/68a587c3-eb94-4ede-b35b-5ac1a84f24df
+**Canonical URL:** https://yourselftoscience.org/resource/pura-biobank
+
+## Details
+
+- **Data Types:** Blood, Tissue
+- **Compensation:** donation
+- **Entity Category:** Government
+- **Entity Sub-Type:** Research Agency
+- **Based In:** Germany
+- **Availability:** Germany
+
+## How to Contribute
+
+[Contribute Now](https://www.helmholtz-munich.de/en/pura-biobank/donate-bio-sample)
+
+## Linked Data
+
+- [Wikidata Entity](https://www.wikidata.org/wiki/Q138520864)
+
+--- END OF PURA Biobank ---
+
+
+--- START OF GIMM Biobank ---
+
+# GIMM Biobank
+
+> A biobank collecting biological samples (primarily blood) from diverse populations to support biomedical research and precision medicine.
+
+**Organizations:** Gulbenkian Institute for Molecular Medicine (GIMM)
+
+**Persistent ID:** https://yourselftoscience.org/resource/df15fcd0-c0c0-4726-85e7-dbad12687bde
+**Canonical URL:** https://yourselftoscience.org/resource/gimm-biobank
+
+## Details
+
+- **Data Types:** Blood
+- **Compensation:** donation
+- **Entity Category:** Non-Profit
+- **Entity Sub-Type:** Research Institute
+- **Based In:** Portugal
+- **Availability:** Portugal
+
+## How to Contribute
+
+[Contribute Now](https://care.gimm.pt/biobank-for-donors/)
+
+## Linked Data
+
+- [Wikidata Entity](https://www.wikidata.org/wiki/Q138521422)
+
+--- END OF GIMM Biobank ---
+
+
+--- START OF Genomes.io ---
+
+# Genomes.io
+
+> A DNA data bank and personal DNA data platform that allows users to control and monetize their genomic data using blockchain technology.
+
+**Organizations:** Genomes.io
+
+**Persistent ID:** https://yourselftoscience.org/resource/b39d93dc-97d1-44c1-a689-041e567e0e8b
+**Canonical URL:** https://yourselftoscience.org/resource/genomes-io
+
+## Details
+
+- **Data Types:** Genome
+- **Compensation:** payment
+- **Entity Category:** Commercial
+- **Entity Sub-Type:** Commercial
+- **Based In:** United Kingdom
+- **Availability:** Worldwide
+- **Compatible Sources:** Raw Data
+
+## How to Contribute
+
+[Contribute Now](https://genomes.io/)
+
+## References
+
+- [Carvalho, A., Merhout, J. W., Kadiyala, Y., & Bentley II, J. (2021). When good blocks go bad: Managing unwanted blockchain data. International Journal of Information Management, 57, 102263.](https://doi.org/10.1016/j.ijinfomgt.2020.102263)
+- [Kabra, S., Sharma, S., & Sachdeva, M. (2025). Blockchain: A new frontier in secure patient data management. Blockchain‐Enabled Solutions for the Pharmaceutical Industry, 319-334.](https://doi.org/10.1002/9781394287970.ch15)
+- [Wang, R., Ye, F., Tang, S., Zhang, H., He, J., Zhang, X., & Xu, C. (2025). Blockchain Technology for Big-data Sharing in Material Genome Engineering. Scientific Data, 12(1), 1813.](https://doi.org/10.1038/s41597-025-06092-4)
+
+
+--- END OF Genomes.io ---
+
+
+--- START OF 23andMe Research Participation ---
+
+# 23andMe Research Participation
+
+> Contribute to scientific research aimed at making and supporting meaningful scientific discoveries using your genetic and self-reported data.
+
+**Organizations:** 23andMe Holding Co.
+
+**Persistent ID:** https://yourselftoscience.org/resource/f98be3f7-293f-47fa-b95e-f01703dd99c8
+**Canonical URL:** https://yourselftoscience.org/resource/23andme
+
+## Details
+
+- **Data Types:** Genome, Health data, Microbiome
+- **Compensation:** donation
+- **Entity Category:** Commercial
+- **Entity Sub-Type:** Commercial
+- **Based In:** United States
+- **Availability:** Worldwide
+- **Compatible Sources:** 23andMe
+
+## How to Contribute
+
+[Contribute Now](https://customercare.23andme.com/hc/en-us/articles/212195708-Research-Participation-and-Consent)
+
+### Steps
+
+1. Log in to your 23andMe account
+2. Go to Account Settings
+3. View/Change consent under Research Participation
+4. Optionally review Individual Data Sharing Consent
+
+
+--- END OF 23andMe Research Participation ---
+
+
+--- START OF GEDmatch ---
+
+# GEDmatch
+
+> A public genealogy database that allows users to opt-in to share their data for research purposes. Note: VCF files from unsupported companies must be converted to the 23andMe format before upload.
+
+**Organizations:** Verogen Inc.
+
+**Persistent ID:** https://yourselftoscience.org/resource/e5bbe9fa-66ad-4ea5-ab36-9330205262be
+**Canonical URL:** https://yourselftoscience.org/resource/gedmatch
+
+## Details
+
+- **Data Types:** Genome
+- **Compensation:** donation
+- **Entity Category:** Commercial
+- **Entity Sub-Type:** Commercial
+- **Based In:** United States
+- **Availability:** Worldwide
+- **Compatible Sources:** Raw Data, 23andMe, AncestryDNA, MyHeritage, FamilyTreeDNA, Sequencing.com, tellmeGen
+
+## How to Contribute
+
+[Contribute Now](https://www.gedmatch.com/privacy-security/)
+
+### Steps
+
+1. Log in to GEDmatch
+2. Click the pencil icon next to your DNA kit
+3. Select 'Public Opt-in' (allows law enforcement matching) or 'Public + Opt-out' (excludes law enforcement matching) to participate in research
+
+## References
+
+- [GEDmatch DNA Upload Instructions | Sequencing.com Education Center](https://sequencing.com/education-center/free-dna-upload-sites/gedmatch-dna-upload-instructions)
+
+## Linked Data
+
+- [Wikidata Entity](https://www.wikidata.org/wiki/Q53953540)
+
+--- END OF GEDmatch ---
+
+
+--- START OF tellmeGen Research ---
+
+# tellmeGen Research
+
+> Contribute to research by sharing your genetic data and answering surveys about your health, traits, and wellness.
+
+**Organizations:** GENELINK, S.L. (tellmeGen)
+
+**Persistent ID:** https://yourselftoscience.org/resource/50ed915d-ab6f-478a-9dc5-cf4774cfa14d
+**Canonical URL:** https://yourselftoscience.org/resource/tellmegen
+
+## Details
+
+- **Data Types:** Genome, Health data
+- **Compensation:** donation
+- **Entity Category:** Commercial
+- **Entity Sub-Type:** Commercial
+- **Based In:** Spain
+- **Availability:** Worldwide
+- **Compatible Sources:** tellmeGen
+
+## How to Contribute
+
+[Contribute Now](https://www.tellmegen.com/en/tellmegen-research)
+
+### Steps
+
+1. Log in to your tellmeGen account
+2. Go to 'Legal consent document' in your profile or settings
+3. Check the box for 'Research with pseudonymized/anonymized data'
+4. Complete surveys in your private area to provide health data
+
+
+--- END OF tellmeGen Research ---
+
+
+--- START OF MyHeritage DNA Research Project ---
+
+# MyHeritage DNA Research Project
+
+> Participate in research to help understand human genetics, genealogy, and anthropology by sharing your DNA results and survey responses.
+
+**Organizations:** MyHeritage Ltd
+
+**Persistent ID:** https://yourselftoscience.org/resource/bfdda894-db90-4bf8-89fd-9428a6466583
+**Canonical URL:** https://yourselftoscience.org/resource/myheritage
+
+## Details
+
+- **Data Types:** Genome, Health data
+- **Compensation:** donation
+- **Entity Category:** Commercial
+- **Entity Sub-Type:** Commercial
+- **Based In:** Israel
+- **Availability:** Worldwide
+- **Compatible Sources:** MyHeritage
+
+## How to Contribute
+
+[Contribute Now](https://www.myheritage.com/dna-informed-consent-agreement)
+
+### Steps
+
+1. Log in to your MyHeritage account
+2. Go to 'Settings' > 'My Privacy' > 'My DNA preferences'
+3. Enable 'MyHeritage DNA Research Project' consent
+4. Complete surveys to assess health and other traits
+
+
+--- END OF MyHeritage DNA Research Project ---
+
+
+--- START OF Ancestry Human Diversity Project ---
+
+# Ancestry Human Diversity Project
+
+> Participate in research to help understand human history, health, and genetics by sharing your DNA data and survey responses.
+
+**Organizations:** Ancestry.com Inc.
+
+**Persistent ID:** https://yourselftoscience.org/resource/a84efc57-eb85-4ce3-bd56-6103cee8a809
+**Canonical URL:** https://yourselftoscience.org/resource/ancestry
+
+## Details
+
+- **Data Types:** Genome, Health data
+- **Compensation:** donation
+- **Entity Category:** Commercial
+- **Entity Sub-Type:** Commercial
+- **Based In:** United States
+- **Availability:** Worldwide
+- **Compatible Sources:** AncestryDNA
+
+## How to Contribute
+
+[Contribute Now](https://www.ancestry.com/c/collaborations)
+
+### Steps
+
+1. Log in to your Ancestry account
+2. Go to the DNA test settings page
+3. Review the Informed Consent for the Ancestry Human Diversity Project
+4. Authorize participation to contribute your data
+
+
+--- END OF Ancestry Human Diversity Project ---
+
+
+--- START OF hEDS & Dysautonomia Study (Sequencing.com) ---
+
+# hEDS & Dysautonomia Study (Sequencing.com)
+
+> Participate in a genetic study for hypermobile Ehlers-Danlos Syndrome (hEDS) and Dysautonomia in collaboration with the Norris Lab at the Medical University of South Carolina.
+
+**Organizations:** Sequencing.com; Medical University of South Carolina
+
+**Persistent ID:** https://yourselftoscience.org/resource/fa467f40-436c-4882-9948-aaff485d037a
+**Canonical URL:** https://yourselftoscience.org/resource/sequencing
+
+## Details
+
+- **Data Types:** Genome
+- **Compensation:** donation
+- **Entity Category:** Commercial
+- **Entity Sub-Type:** Commercial
+- **Based In:** United States
+- **Availability:** Worldwide
+- **Compatible Sources:** Sequencing.com
+
+## How to Contribute
+
+[Contribute Now](https://get.sequencing.com/research-study/hypermobile-eds-dysautonomia/)
+
+### Steps
+
+1. Opt in to share your genomic data
+2. Review the research consent
+3. Complete the online survey
+
+
+--- END OF hEDS & Dysautonomia Study (Sequencing.com) ---
+
+
+--- START OF Altruist Database (Sequencing.com) ---
+
+# Altruist Database (Sequencing.com)
+
+> A free database of anonymous genotypic, phenotypic and interpretation data that allows public searching and analysis. Researchers can request to contact individuals holding specific traits for additional paid studies and opportunities.
+
+**Organizations:** Sequencing.com
+
+**Persistent ID:** https://yourselftoscience.org/resource/5297c0c6-2633-4109-b7d6-2016045227af
+**Canonical URL:** https://yourselftoscience.org/resource/altruist-database
+
+## Details
+
+- **Data Types:** Genome
+- **Compensation:** mixed
+- **Entity Category:** Commercial
+- **Entity Sub-Type:** Commercial
+- **Based In:** United States
+- **Availability:** Worldwide
+- **Compatible Sources:** Raw Data, WGS, Sequencing.com, 23andMe, AncestryDNA, MyHeritage, FamilyTreeDNA, tellmeGen
+
+## How to Contribute
+
+[Contribute Now](https://sequencing.com/knowledge-center/altruist-endeavor/altruist-database)
+
+### Steps
+
+1. Upload your genetic data files into your Sequencing.com account
+2. Navigate to your 'My Files' page
+3. Change the 'Altruist' toggle button for your file from 'No' to 'Yes'
+4. Enable 'Receive additional offers' in Settings > Altruism Rewards to receive incentives from researchers
+
+## References
+
+- [Contacting Individual Altruists | Sequencing.com Knowledge Center](https://sequencing.com/knowledge-center/altruist-endeavor/altruist-database/contacting-individual-altruists)
+- [Additional Offers & Altruism Rewards | Sequencing.com Knowledge Center](https://sequencing.com/knowledge-center/altruist-endeavor/altruism-rewards/additional-offers)
+
+
+--- END OF Altruist Database (Sequencing.com) ---
+
+
+--- START OF WikiTree ---
+
+# WikiTree
+
+> A collaborative genealogy platform that allows users to add their DNA test information (like GEDmatch ID or usernames, rather than raw data files) to their profiles to help confirm relationships and find genetic cousins.
+
+**Organizations:** WikiTree
+
+**Persistent ID:** https://yourselftoscience.org/resource/5a99f8d8-f020-4d3a-9a61-ca8f7547ad1d
+**Canonical URL:** https://yourselftoscience.org/resource/wikitree
+
+## Details
+
+- **Data Types:** Genome
+- **Compensation:** donation
+- **Entity Category:** Commercial
+- **Entity Sub-Type:** Commercial
+- **Availability:** Worldwide
+- **Compatible Sources:** AncestryDNA, MyHeritage, LivingDNA, 23andMe, FamilyTreeDNA, GEDmatch
+
+## How to Contribute
+
+[Contribute Now](https://www.wikitree.com/wiki/Special:DNATests)
+
+### Steps
+
+1. Create a profile on WikiTree
+2. For autosomal DNA tests, upload your raw data file to GEDmatch and write down your kit number.
+3. Click the 'Add' drop-down list at the top right of your WikiTree profile
+4. Select 'DNA Test Information'
+5. Select the exact DNA test you took
+6. Enter your GEDmatch kit ID, FamilyTree DNA kit number, or associated username
+7. Ensure your WikiTree privacy settings are set to 'Private with Public Biography and Family Tree'
+
+## References
+
+- [Add a DNA test to your profile | WikiTree Help](https://www.wikitree.com/wiki/Space:WikiTree_Help:_Add_a_DNA_test_to_your_profile)
+- [Connecting DNA Test Results to WikiTree Profiles | WikiTree Help](https://www.wikitree.com/wiki/Space:Connecting_DNA_Test_Results_to_WikiTree_Profiles)
+- [How to Get Started with DNA | WikiTree Help](https://www.wikitree.com/wiki/Help:How_to_Get_Started_with_DNA)
+
+## Linked Data
+
+- [Wikidata Entity](https://www.wikidata.org/wiki/Q1074931)
+
+--- END OF WikiTree ---
+

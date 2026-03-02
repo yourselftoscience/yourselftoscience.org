@@ -19,37 +19,37 @@ export default function DataPage() {
     };
 
     const jsonLd = {
-      "@context": "https://schema.org/",
-      "@type": "Dataset",
-      "name": "Yourself to Science Open Dataset",
-      "description": "A curated, open-access catalog of services, platforms, and programs that allow individuals to securely contribute to scientific research with their health data, genome, body, and more.",
-      "url": "https://yourselftoscience.org/data",
-      "sameAs": "https://yourselftoscience.org/resources.ttl#dataset",
-      "identifier": ["https://yourselftoscience.org/resources.ttl#dataset"],
-      "creator": {
-        "@type": "Organization",
-        "name": "Yourself to Science",
-        "url": "https://yourselftoscience.org"
-      },
-      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
-      "isAccessibleForFree": true,
-      "distribution": [
-        {
-          "@type": "DataDownload",
-          "encodingFormat": "text/csv",
-          "contentUrl": "https://yourselftoscience.org/resources.csv"
+        "@context": "https://schema.org/",
+        "@type": "Dataset",
+        "name": "Yourself to Science Open Dataset",
+        "description": "A curated, open-access catalog of services, platforms, and programs that allow individuals to securely contribute to scientific research with their health data, genome, body, and more.",
+        "url": "https://yourselftoscience.org/data",
+        "sameAs": "https://yourselftoscience.org/resources.ttl#dataset",
+        "identifier": ["https://yourselftoscience.org/resources.ttl#dataset"],
+        "creator": {
+            "@type": "Organization",
+            "name": "Yourself to Science",
+            "url": "https://yourselftoscience.org"
         },
-        {
-          "@type": "DataDownload",
-          "encodingFormat": "application/json",
-          "contentUrl": "https://yourselftoscience.org/resources.json"
-        },
-        {
-          "@type": "DataDownload",
-          "encodingFormat": "text/turtle",
-          "contentUrl": "https://yourselftoscience.org/resources.ttl"
-        }
-      ]
+        "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "isAccessibleForFree": true,
+        "distribution": [
+            {
+                "@type": "DataDownload",
+                "encodingFormat": "text/csv",
+                "contentUrl": "https://yourselftoscience.org/resources.csv"
+            },
+            {
+                "@type": "DataDownload",
+                "encodingFormat": "application/json",
+                "contentUrl": "https://yourselftoscience.org/resources.json"
+            },
+            {
+                "@type": "DataDownload",
+                "encodingFormat": "text/turtle",
+                "contentUrl": "https://yourselftoscience.org/resources.ttl"
+            }
+        ]
     };
 
     return (
@@ -262,7 +262,12 @@ export default function DataPage() {
             <section className="mt-16">
                 <h2 className="text-2xl font-bold text-apple-primary-text text-center mb-6">Dataset Schema</h2>
                 <div className="prose prose-blue max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
-                    <p>The dataset contains the following fields for each resource:</p>
+                    <p>
+                        The dataset contains the following fields for each resource. For detailed definitions of each data type, visit our{' '}
+                        <Link href="/data-types" className="text-apple-accent hover:underline font-medium">
+                            Full Data Dictionary
+                        </Link>.
+                    </p>
                     <ul>
                         <li><strong>id:</strong> A persistent, unique identifier (UUID) for the resource.</li>
                         <li><strong>permalink:</strong> The permanent URI linking directly to the resource&apos;s dataset page.</li>
