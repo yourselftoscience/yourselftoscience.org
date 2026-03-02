@@ -355,6 +355,7 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:sameAs <https://yourselftoscience.org/resource/flucamp> ;
   rdfs:label "FluCamp" ;
   schema:description "Conducts clinical trials for flu and common cold viruses in London and Manchester, compensating volunteers for their time." ;
+  schema:sameAs wd:Q138521080 ;
   schema:creator [ a schema:Organization; rdfs:label "hVIVO" ; schema:sameAs wd:Q30268998 ; schema:additionalType wd:Q4830453 ; schema:additionalType wd:Q4830453 ; schema:location [ a schema:Place; rdfs:label "United Kingdom" ; schema:addressCountry "GB" ; schema:sameAs wd:Q145 ] ] ;
   schema:url <https://flucamp.com/> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "United Kingdom" ; schema:sameAs wd:Q145 ] ;

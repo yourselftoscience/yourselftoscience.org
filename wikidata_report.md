@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 3/2/2026, 7:06:49 AM
+**Generated on:** 3/2/2026, 8:46:25 AM
 
 ## Project-Organizer Relationships
 
@@ -46,7 +46,7 @@
   - FamilyTreeDNA: [Q4038610](https://www.wikidata.org/wiki/Q4038610)
 - **Fitbit Health Research and Product Development**: ❌
   - Fitbit: [Q5455414](https://www.wikidata.org/wiki/Q5455414)
-- **FluCamp**: ❌
+- **FluCamp**: [Q138521080](https://www.wikidata.org/wiki/Q138521080)
   - hVIVO: [Q30268998](https://www.wikidata.org/wiki/Q30268998)
 - **gamete and embryo donation in the United Kingdom**: ❌
   - Human Fertilisation and Embryology Authority: [Q1636533](https://www.wikidata.org/wiki/Q1636533)
@@ -138,7 +138,7 @@
 - **FAMHP clinical trials database**: ❌
 - **FamilyTreeDNA Group Projects**: ❌
 - **Fitbit Health Research and Product Development**: ❌
-- **FluCamp**: ❌
+- **FluCamp**: [Q138521080](https://www.wikidata.org/wiki/Q138521080)
 - **GEDmatch**: [Q53953540](https://www.wikidata.org/wiki/Q53953540)
 - **GIMM Biobank**: ❌
 - **Genes for Good**: ❌

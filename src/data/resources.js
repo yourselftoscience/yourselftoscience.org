@@ -727,6 +727,7 @@ const rawResources = [
     "id": "8d828bb1-8f1c-40c6-a0b4-61de7da7c116",
     "slug": "flucamp",
     "title": "FluCamp",
+    "resourceWikidataId": "Q138521080",
     "organizations": [
       {
         "name": "hVIVO",
