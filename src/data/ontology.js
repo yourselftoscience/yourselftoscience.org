@@ -154,3 +154,11 @@ export const dataTypesOntology = [
         "description": "Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) collected via consumer wearable devices like smartwatches or fitness trackers."
     }
 ];
+
+export function getDataTypeBySlugOrId(identifier) {
+    if (!identifier) return null;
+    const lowerId = identifier.toLowerCase();
+    return dataTypesOntology.find(
+        (dt) => dt.slug.toLowerCase() === lowerId || dt.id.toLowerCase() === lowerId
+    );
+}

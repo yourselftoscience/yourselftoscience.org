@@ -72,7 +72,18 @@ async function updateOntology() {
     dataTypesOntology.sort((a, b) => a.title.localeCompare(b.title));
 
     // 6. Rewrite src/data/ontology.js completely ensuring exact formatting structure
-    const content = `// src/data/ontology.js\n\nexport const dataTypesOntology = ${JSON.stringify(dataTypesOntology, null, 4)};\n`;
+    const content = `// src/data/ontology.js
+
+export const dataTypesOntology = ${JSON.stringify(dataTypesOntology, null, 4)};
+
+export function getDataTypeBySlugOrId(identifier) {
+    if (!identifier) return null;
+    const lowerId = identifier.toLowerCase();
+    return dataTypesOntology.find(
+        (dt) => dt.slug.toLowerCase() === lowerId || dt.id.toLowerCase() === lowerId
+    );
+}
+`;
 
     fs.writeFileSync(ontologyPath, content, 'utf8');
 
