@@ -17,8 +17,8 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:description "A research project by Living DNA to map the world's genetic history and investigate the role genetics plays in health and lifestyle. Participants can opt-in to use their genetic data for scientific research." ;
   schema:creator [ a schema:Organization; rdfs:label "Living DNA" ; schema:sameAs wd:Q85781784 ; schema:location [ a schema:Place; rdfs:label "United Kingdom" ; schema:addressCountry "GB" ; schema:sameAs wd:Q145 ] ] ;
   schema:url <https://support.livingdna.com/hc/en-us/articles/360012326740-How-do-I-participate-in-research> ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ] ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ; schema:sameAs wd:Q7020 ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ; schema:sameAs wd:Q18745135 ] ;
   yts:compensationType "donation" ;
   yts:compensationWikidataId wd:Q1124860 .
 
@@ -28,10 +28,11 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:sameAs <https://yourselftoscience.org/resource/genomeconnect> ;
   rdfs:label "GenomeConnect" ;
   schema:description "A patient registry engaging individuals as partners in data sharing by collecting genetic testing results and health information. Note: Data from participants in the European Union (EU), European Economic Area (EEA), and United Kingdom (UK) cannot currently be processed due to GDPR. They accept electronic (pdf, doc, jpg) or physical clinical reports but they do not process raw data files." ;
+  schema:sameAs wd:Q138546215 ;
   schema:creator [ a schema:Organization; rdfs:label "Clinical Genome Resource (ClinGen)" ; schema:sameAs wd:Q64403342 ; schema:additionalType wd:Q1298668 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
   schema:url <https://www.genomeconnect.org/> ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ] ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ; schema:sameAs wd:Q7020 ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ; schema:sameAs wd:Q18745135 ] ;
   schema:citation <https://www.clinicalgenome.org/genomeconnect/for-patients-genomeconnect/faq/> ;
   schema:citation <https://www.clinicalgenome.org/genomeconnect/for-patients-genomeconnect/get-started/share-your-genetics-results/> ;
   yts:compensationType "donation" ;
@@ -48,7 +49,7 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:url <https://www.openhumans.org/add-data/> ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ; schema:sameAs wd:Q7020 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ; schema:sameAs wd:Q18745135 ] ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Wearable data" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Wearable data" ; schema:sameAs wd:Q138520977 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Search history" ; schema:sameAs wd:Q60461381 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Location history" ] ;
   schema:citation <https://doi.org/10.1093/gigascience/giz076> ;
@@ -81,7 +82,7 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:creator [ a schema:Organization; rdfs:label "Stanford University" ; schema:sameAs wd:Q41506 ; schema:additionalType wd:Q163740 ; schema:additionalType wd:Q119852396 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
   schema:url <https://myphd.stanford.edu/studies/> ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ; schema:sameAs wd:Q18745135 ] ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Wearable data" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Wearable data" ; schema:sameAs wd:Q138520977 ] ;
   schema:citation <https://doi.org/10.1038/s41746-022-00672-z> ;
   yts:compensationType "donation" ;
   yts:compensationWikidataId wd:Q1124860 .
@@ -165,7 +166,7 @@ yts:compensationWikidataId a rdfs:Property ;
   rdfs:label "Fitbit Health Research and Product Development" ;
   schema:description "Share your Fitbit data to help improve health research and product development." ;
   schema:creator [ a schema:Organization; rdfs:label "Fitbit" ; schema:sameAs wd:Q5455414 ; schema:additionalType wd:Q4830453 ; schema:additionalType wd:Q4830453 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Wearable data" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Wearable data" ; schema:sameAs wd:Q138520977 ] ;
   yts:compensationType "donation" ;
   yts:compensationWikidataId wd:Q1124860 .
 
@@ -484,7 +485,7 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:creator [ a schema:Organization; rdfs:label "Penn Medicine" ; schema:sameAs wd:Q7896080 ; schema:additionalType wd:Q3400985 ; schema:additionalType wd:Q3400985 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
   schema:url <https://cdh.nmsdev.com/donate-your-data> ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ; schema:sameAs wd:Q18745135 ] ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Wearable data" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Wearable data" ; schema:sameAs wd:Q138520977 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Social media data" ; schema:sameAs wd:Q131520545 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Search history" ; schema:sameAs wd:Q60461381 ] ;
   schema:citation <https://doi.org/10.1073/pnas.1802331115> ;
@@ -502,7 +503,7 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:creator [ a schema:GovernmentOrganization; rdfs:label "NHS Health Research Authority" ; schema:sameAs wd:Q16937226 ; schema:location [ a schema:Place; rdfs:label "United Kingdom" ; schema:addressCountry "GB" ; schema:sameAs wd:Q145 ] ] ;
   schema:url <https://www.hra.nhs.uk/planning-and-improving-research/application-summaries/research-summaries/> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "United Kingdom" ; schema:sameAs wd:Q145 ] ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ; schema:sameAs wd:Q18745135 ] ;
   yts:compensationType "donation" ;
   yts:compensationWikidataId wd:Q1124860 .
 
@@ -617,7 +618,7 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:description "Donate your chat history from assistants like ChatGPT, Gemini, and Claude to help researchers understand human-AI interaction patterns." ;
   schema:creator [ a schema:Organization; rdfs:label "Max Planck Institute for Software Systems" ; schema:sameAs wd:Q881238 ; schema:location [ a schema:Place; rdfs:label "Germany" ; schema:addressCountry "DE" ; schema:sameAs wd:Q183 ] ] ;
   schema:url <https://social-media-data-donator.mpi-sws.org/> ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Conversational AI data" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Conversational AI data" ; schema:sameAs wd:Q138521412 ] ;
   yts:compensationType "donation" ;
   yts:compensationWikidataId wd:Q1124860 .
 
@@ -669,8 +670,8 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:creator [ a schema:GovernmentOrganization; rdfs:label "Helmholtz Munich" ; schema:sameAs wd:Q878592 ; schema:location [ a schema:Place; rdfs:label "Germany" ; schema:addressCountry "DE" ; schema:sameAs wd:Q183 ] ] ;
   schema:url <https://www.helmholtz-munich.de/en/pura-biobank/donate-bio-sample> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Germany" ; schema:sameAs wd:Q183 ] ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Blood" ] ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Tissue" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Blood" ; schema:sameAs wd:Q7873 ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Tissue" ; schema:sameAs wd:Q40397 ] ;
   yts:compensationType "donation" ;
   yts:compensationWikidataId wd:Q1124860 .
 
@@ -696,7 +697,7 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:description "A DNA data bank and personal DNA data platform that allows users to control and monetize their genomic data using blockchain technology." ;
   schema:creator [ a schema:Organization; rdfs:label "Genomes.io" ; schema:sameAs wd:Q125117291 ; schema:location [ a schema:Place; rdfs:label "United Kingdom" ; schema:addressCountry "GB" ; schema:sameAs wd:Q145 ] ] ;
   schema:url <https://genomes.io/> ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ; schema:sameAs wd:Q7020 ] ;
   schema:citation <https://doi.org/10.1016/j.ijinfomgt.2020.102263> ;
   schema:citation <https://doi.org/10.1002/9781394287970.ch15> ;
   schema:citation <https://doi.org/10.1038/s41597-025-06092-4> ;
@@ -711,8 +712,8 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:description "Contribute to scientific research aimed at making and supporting meaningful scientific discoveries using your genetic and self-reported data." ;
   schema:creator [ a schema:Organization; rdfs:label "23andMe Holding Co." ; schema:sameAs wd:Q216272 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
   schema:url <https://customercare.23andme.com/hc/en-us/articles/212195708-Research-Participation-and-Consent> ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ] ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ; schema:sameAs wd:Q7020 ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ; schema:sameAs wd:Q18745135 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Microbiome" ] ;
   yts:compensationType "donation" ;
   yts:compensationWikidataId wd:Q1124860 .
@@ -726,7 +727,7 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:sameAs wd:Q53953540 ;
   schema:creator [ a schema:Organization; rdfs:label "Verogen Inc." ; schema:sameAs wd:Q138520595 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
   schema:url <https://www.gedmatch.com/privacy-security/> ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ; schema:sameAs wd:Q7020 ] ;
   schema:citation <https://sequencing.com/education-center/free-dna-upload-sites/gedmatch-dna-upload-instructions> ;
   yts:compensationType "donation" ;
   yts:compensationWikidataId wd:Q1124860 .
@@ -739,8 +740,8 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:description "Contribute to research by sharing your genetic data and answering surveys about your health, traits, and wellness." ;
   schema:creator [ a schema:Organization; rdfs:label "GENELINK, S.L. (tellmeGen)" ; schema:sameAs wd:Q116921900 ; schema:location [ a schema:Place; rdfs:label "Spain" ; schema:addressCountry "ES" ; schema:sameAs wd:Q29 ] ] ;
   schema:url <https://www.tellmegen.com/en/tellmegen-research> ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ] ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ; schema:sameAs wd:Q7020 ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ; schema:sameAs wd:Q18745135 ] ;
   yts:compensationType "donation" ;
   yts:compensationWikidataId wd:Q1124860 .
 
@@ -752,8 +753,8 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:description "Participate in research to help understand human genetics, genealogy, and anthropology by sharing your DNA results and survey responses." ;
   schema:creator [ a schema:Organization; rdfs:label "MyHeritage Ltd" ; schema:sameAs wd:Q589757 ; schema:location [ a schema:Place; rdfs:label "Israel" ; schema:addressCountry "IL" ; schema:sameAs wd:Q801 ] ] ;
   schema:url <https://www.myheritage.com/dna-informed-consent-agreement> ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ] ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ; schema:sameAs wd:Q7020 ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ; schema:sameAs wd:Q18745135 ] ;
   yts:compensationType "donation" ;
   yts:compensationWikidataId wd:Q1124860 .
 
@@ -765,8 +766,8 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:description "Participate in research to help understand human history, health, and genetics by sharing your DNA data and survey responses." ;
   schema:creator [ a schema:Organization; rdfs:label "Ancestry.com Inc." ; schema:sameAs wd:Q4752572 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
   schema:url <https://www.ancestry.com/c/collaborations> ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ] ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ; schema:sameAs wd:Q7020 ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ; schema:sameAs wd:Q18745135 ] ;
   yts:compensationType "donation" ;
   yts:compensationWikidataId wd:Q1124860 .
 
@@ -779,7 +780,7 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:creator [ a schema:Organization; rdfs:label "Sequencing.com" ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
   schema:creator [ a schema:Organization; rdfs:label "Medical University of South Carolina" ; schema:sameAs wd:Q6806451 ] ;
   schema:url <https://get.sequencing.com/research-study/hypermobile-eds-dysautonomia/> ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ; schema:sameAs wd:Q7020 ] ;
   yts:compensationType "donation" ;
   yts:compensationWikidataId wd:Q1124860 .
 
@@ -792,7 +793,7 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:creator [ a schema:Organization; rdfs:label "Sequencing.com" ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
   schema:url <https://sequencing.com/knowledge-center/altruist-endeavor/altruist-database> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Worldwide" ; schema:sameAs wd:Q13780930 ] ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ; schema:sameAs wd:Q7020 ] ;
   schema:citation <https://sequencing.com/knowledge-center/altruist-endeavor/altruist-database/contacting-individual-altruists> ;
   schema:citation <https://sequencing.com/knowledge-center/altruist-endeavor/altruism-rewards/additional-offers> ;
   yts:compensationType "mixed" ;
@@ -808,7 +809,7 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:creator [ a schema:Organization; rdfs:label "The WikiTree Company" ; schema:sameAs wd:Q138545843 ] ;
   schema:url <https://www.wikitree.com/wiki/Special:DNATests> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Worldwide" ; schema:sameAs wd:Q13780930 ] ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ; schema:sameAs wd:Q7020 ] ;
   schema:citation <https://www.wikitree.com/wiki/Space:WikiTree_Help:_Add_a_DNA_test_to_your_profile> ;
   schema:citation <https://www.wikitree.com/wiki/Space:Connecting_DNA_Test_Results_to_WikiTree_Profiles> ;
   schema:citation <https://www.wikitree.com/wiki/Help:How_to_Get_Started_with_DNA> ;

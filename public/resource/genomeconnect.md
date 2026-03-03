@@ -27,3 +27,6 @@
 - [GenomeConnect FAQ](https://www.clinicalgenome.org/genomeconnect/for-patients-genomeconnect/faq/)
 - [GenomeConnect - Share Your Genetics Results](https://www.clinicalgenome.org/genomeconnect/for-patients-genomeconnect/get-started/share-your-genetics-results/)
 
+## Linked Data
+
+- [Wikidata Entity](https://www.wikidata.org/wiki/Q138546215)

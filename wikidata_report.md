@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 3/3/2026, 10:54:48 AM
+**Generated on:** 3/3/2026, 11:35:17 AM
 
 ## Project-Organizer Relationships
 
@@ -54,7 +54,7 @@
   - Verogen Inc.: [Q138520595](https://www.wikidata.org/wiki/Q138520595)
 - **Genes for Good**: [Q138521482](https://www.wikidata.org/wiki/Q138521482)
   - University of Michigan: [Q230492](https://www.wikidata.org/wiki/Q230492)
-- **GenomeConnect**: ❌
+- **GenomeConnect**: [Q138546215](https://www.wikidata.org/wiki/Q138546215)
   - Clinical Genome Resource (ClinGen): [Q64403342](https://www.wikidata.org/wiki/Q64403342)
 - **Genomes.io**: [Q125117291](https://www.wikidata.org/wiki/Q125117291)
   - Genomes.io: [Q125117291](https://www.wikidata.org/wiki/Q125117291)
@@ -144,7 +144,7 @@
 - **GEDmatch**: [Q53953540](https://www.wikidata.org/wiki/Q53953540)
 - **GIMM Biobank**: [Q138521422](https://www.wikidata.org/wiki/Q138521422)
 - **Genes for Good**: [Q138521482](https://www.wikidata.org/wiki/Q138521482)
-- **GenomeConnect**: ❌
+- **GenomeConnect**: [Q138546215](https://www.wikidata.org/wiki/Q138546215)
 - **Genomes.io**: [Q125117291](https://www.wikidata.org/wiki/Q125117291)
 - **German Clinical Trials Register**: [Q96199255](https://www.wikidata.org/wiki/Q96199255)
 - **GoodNature Program**: [Q138521454](https://www.wikidata.org/wiki/Q138521454)
@@ -242,7 +242,7 @@
 - **Blood**: [Q7873](https://www.wikidata.org/wiki/Q7873)
 - **Body**: [Q48422](https://www.wikidata.org/wiki/Q48422)
 - **Clinical trials**: [Q30612](https://www.wikidata.org/wiki/Q30612)
-- **Conversational AI data**: ❌
+- **Conversational AI data**: [Q138521412](https://www.wikidata.org/wiki/Q138521412)
 - **Cover letters**: [Q569410](https://www.wikidata.org/wiki/Q569410)
 - **Eggs**: [Q1321695](https://www.wikidata.org/wiki/Q1321695)
 - **Embryos**: [Q33196](https://www.wikidata.org/wiki/Q33196)
@@ -260,7 +260,7 @@
 - **Stem cells**: [Q48196](https://www.wikidata.org/wiki/Q48196)
 - **Stool**: [Q496](https://www.wikidata.org/wiki/Q496)
 - **Tissue**: [Q40397](https://www.wikidata.org/wiki/Q40397)
-- **Wearable data**: ❌
+- **Wearable data**: [Q138520977](https://www.wikidata.org/wiki/Q138520977)
 
 ## Countries
 

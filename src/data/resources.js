@@ -1,6 +1,6 @@
 // src/data/resources.js
 
-const rawResources = [
+export const rawResources = [
   {
     "id": "c20e8f39-d20a-4006-a660-689d1f65b352",
     "slug": "living-dna-research",
@@ -32,6 +32,7 @@ const rawResources = [
   },
   {
     "id": "ffd02d96-c153-448b-ad19-353badefcf3b",
+    "resourceWikidataId": "Q138546215",
     "slug": "genomeconnect",
     "title": "GenomeConnect",
     "organizations": [

@@ -27,12 +27,9 @@
     "description": "A research project by Living DNA to map the world's genetic history and investigate the role genetics plays in health and lifestyle. Participants can opt-in to use their genetic data for scientific research.",
     "origin": "United Kingdom",
     "originCode": "GB",
-    "macroCategories": [
-      "Health & Digital Data"
-    ],
     "dataTypeMappings": {
-      "Genome": null,
-      "Health data": null
+      "Genome": "Q7020",
+      "Health data": "Q18745135"
     },
     "countryMappings": {},
     "wikidataId": null,
@@ -45,6 +42,7 @@
   },
   {
     "id": "ffd02d96-c153-448b-ad19-353badefcf3b",
+    "resourceWikidataId": "Q138546215",
     "slug": "genomeconnect",
     "title": "GenomeConnect",
     "organizations": [
@@ -86,16 +84,12 @@
         "link": "https://www.clinicalgenome.org/genomeconnect/for-patients-genomeconnect/get-started/share-your-genetics-results/"
       }
     ],
-    "macroCategories": [
-      "Health & Digital Data"
-    ],
     "dataTypeMappings": {
-      "Genome": null,
-      "Health data": null
+      "Genome": "Q7020",
+      "Health data": "Q18745135"
     },
     "countryMappings": {},
     "wikidataId": null,
-    "resourceWikidataId": null,
     "entityCategoryWikidataId": null,
     "organizationWikidataId": null,
     "originWikidataId": "Q30",
@@ -137,13 +131,10 @@
         "wikidataId": "Q84081777"
       }
     ],
-    "macroCategories": [
-      "Health & Digital Data"
-    ],
     "dataTypeMappings": {
       "Genome": "Q7020",
       "Health data": "Q18745135",
-      "Wearable data": null,
+      "Wearable data": "Q138520977",
       "Search history": "Q60461381",
       "Location history": null
     },
@@ -197,9 +188,6 @@
         "link": "https://help.familytreedna.com/hc/en-us/articles/4402392808463-Transferring-Your-Autosomal-DNA-From-Another-Company"
       }
     ],
-    "macroCategories": [
-      "Health & Digital Data"
-    ],
     "dataTypeMappings": {
       "Genome": "Q7020"
     },
@@ -242,12 +230,9 @@
         "link": "https://doi.org/10.1038/s41746-022-00672-z"
       }
     ],
-    "macroCategories": [
-      "Health & Digital Data"
-    ],
     "dataTypeMappings": {
       "Health data": "Q18745135",
-      "Wearable data": null
+      "Wearable data": "Q138520977"
     },
     "countryMappings": {},
     "wikidataId": null,
@@ -279,9 +264,6 @@
     "wikidataDescription": "mobile application for participating in health research studies",
     "origin": "United States",
     "originCode": "US",
-    "macroCategories": [
-      "Health & Digital Data"
-    ],
     "dataTypeMappings": {
       "Health data": "Q18745135"
     },
@@ -321,9 +303,6 @@
     "wikidataDescription": "mobile application for participating in health research studies",
     "origin": "United States",
     "originCode": "US",
-    "macroCategories": [
-      "Health & Digital Data"
-    ],
     "dataTypeMappings": {
       "Health data": "Q18745135"
     },
@@ -369,9 +348,6 @@
     "description": "An open science project by Harvard Medical School where participants publicly share their genetic, health, and trait data to drive biological research.",
     "origin": "United States",
     "originCode": "US",
-    "macroCategories": [
-      "Health & Digital Data"
-    ],
     "dataTypeMappings": {
       "Genome": "Q7020",
       "Health data": "Q18745135"
@@ -414,9 +390,6 @@
     "description": "A research study run through a Facebook App that connects health, behavior, and genetics. Participants complete surveys and may become eligible to provide a saliva sample for DNA analysis.",
     "origin": "United States",
     "originCode": "US",
-    "macroCategories": [
-      "Health & Digital Data"
-    ],
     "dataTypeMappings": {
       "Genome": "Q7020",
       "Health data": "Q18745135"
@@ -460,9 +433,6 @@
     "wikidataDescription": "research program gathering health data from people in the US",
     "origin": "United States",
     "originCode": "US",
-    "macroCategories": [
-      "Health & Digital Data"
-    ],
     "dataTypeMappings": {
       "Genome": "Q7020",
       "Health data": "Q18745135"
@@ -509,11 +479,8 @@
     "wikidataDescription": "program for sharing wearable data for health research",
     "origin": "United States",
     "originCode": "US",
-    "macroCategories": [
-      "Health & Digital Data"
-    ],
     "dataTypeMappings": {
-      "Wearable data": null
+      "Wearable data": "Q138520977"
     },
     "countryMappings": {},
     "wikidataId": null,
@@ -552,9 +519,6 @@
     "description": "A landmark autism research project connecting autistic individuals and their families to research.",
     "origin": "United States",
     "originCode": "US",
-    "macroCategories": [
-      "Health & Digital Data"
-    ],
     "dataTypeMappings": {
       "Genome": "Q7020",
       "Health data": "Q18745135"
@@ -599,9 +563,6 @@
     "description": "The UBC Body Donation Program accepts donations for anatomical study and medical research.",
     "origin": "Canada",
     "originCode": "CA",
-    "macroCategories": [
-      "Organ, Body & Tissue Donation"
-    ],
     "dataTypeMappings": {
       "Body": "Q48422"
     },
@@ -648,9 +609,6 @@
     "description": "Information on donating your body to medical science at the University of Cambridge.",
     "origin": "United Kingdom",
     "originCode": "GB",
-    "macroCategories": [
-      "Organ, Body & Tissue Donation"
-    ],
     "dataTypeMappings": {
       "Body": "Q48422",
       "Tissue": "Q40397"
@@ -694,9 +652,6 @@
     "description": "Official guidelines for donating body and tissues for study, training, and scientific research in Italy.",
     "origin": "Italy",
     "originCode": "IT",
-    "macroCategories": [
-      "Organ, Body & Tissue Donation"
-    ],
     "dataTypeMappings": {
       "Body": "Q48422",
       "Tissue": "Q40397"
@@ -739,9 +694,6 @@
     "description": "Official information on body donation for science and medical research in France.",
     "origin": "France",
     "originCode": "FR",
-    "macroCategories": [
-      "Organ, Body & Tissue Donation"
-    ],
     "dataTypeMappings": {
       "Body": "Q48422"
     },
@@ -785,9 +737,6 @@
     "description": "Information on donating eggs, sperm, and embryos for research in the UK.",
     "origin": "United Kingdom",
     "originCode": "GB",
-    "macroCategories": [
-      "Biological Samples"
-    ],
     "dataTypeMappings": {
       "Eggs": "Q1321695",
       "Embryos": "Q33196",
@@ -826,9 +775,6 @@
     "description": "A comprehensive registry and results database of publicly and privately supported clinical studies conducted around the world. Managed by the U.S. National Library of Medicine.",
     "origin": "United States",
     "originCode": "US",
-    "macroCategories": [
-      "Clinical Trials"
-    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
@@ -870,9 +816,6 @@
     "origin": "Switzerland",
     "originCode": "CH",
     "originWikidataId": "Q39",
-    "macroCategories": [
-      "Clinical Trials"
-    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
@@ -920,9 +863,6 @@
     "description": "The European Union's official database for clinical trials conducted in the EU and EEA.",
     "origin": "European Union",
     "originCode": "EU",
-    "macroCategories": [
-      "Clinical Trials"
-    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
@@ -979,9 +919,6 @@
         "link": "https://doi.org/10.1038/s41598-025-02106-8"
       }
     ],
-    "macroCategories": [
-      "Clinical Trials"
-    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
@@ -1037,9 +974,6 @@
         "title": "van der Laan, P., van Houdt, W. J., van Boven, H., Snaebjornsson, P., Bosch, L. J. W., Monkhorst, K., ... & van der Graaf, W. T. A. (2025). The role of whole-genome sequencing for guiding systemic therapy in patients with soft tissue sarcoma. ESMO open, 10(6), 105287.",
         "link": "https://doi.org/10.1016/j.esmoop.2025.105287"
       }
-    ],
-    "macroCategories": [
-      "Clinical Trials"
     ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
@@ -1110,9 +1044,6 @@
         "wikidataId": "Q93090210"
       }
     ],
-    "macroCategories": [
-      "Clinical Trials"
-    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
@@ -1155,9 +1086,6 @@
     "description": "A nonprofit program funded by the National Institutes of Health (NIH) that connects people interested in research studies with researchers from top medical centers across the U.S.",
     "origin": "United States",
     "originCode": "US",
-    "macroCategories": [
-      "Clinical Trials"
-    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
@@ -1208,9 +1136,6 @@
         "wikidataId": "Q40578340"
       }
     ],
-    "macroCategories": [
-      "Clinical Trials"
-    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
@@ -1252,9 +1177,6 @@
     "wikidataDescription": "program connecting community members with health research opportunities",
     "origin": "United States",
     "originCode": "US",
-    "macroCategories": [
-      "Clinical Trials"
-    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
@@ -1298,9 +1220,6 @@
     "description": "A stool donation program supporting research into microbiome-based therapeutics.",
     "origin": "United States",
     "originCode": "US",
-    "macroCategories": [
-      "Biological Samples"
-    ],
     "dataTypeMappings": {
       "Stool": "Q496"
     },
@@ -1341,9 +1260,6 @@
     "description": "Australian Red Cross Lifeblood's microbiome research program.",
     "origin": "Australia",
     "originCode": "AU",
-    "macroCategories": [
-      "Biological Samples"
-    ],
     "dataTypeMappings": {
       "Stool": "Q496"
     },
@@ -1385,9 +1301,6 @@
     "description": "Stool donation program at Wesley Research Institute.",
     "origin": "Australia",
     "originCode": "AU",
-    "macroCategories": [
-      "Biological Samples"
-    ],
     "dataTypeMappings": {
       "Stool": "Q496"
     },
@@ -1429,9 +1342,6 @@
     "description": "Placenta donation program at Wesley Research Institute.",
     "origin": "Australia",
     "originCode": "AU",
-    "macroCategories": [
-      "Biological Samples"
-    ],
     "dataTypeMappings": {
       "Placenta": "Q1212935"
     },
@@ -1483,9 +1393,6 @@
         "link": "https://uwr.edu.pl/en/donate-your-hair-for-science/"
       }
     ],
-    "macroCategories": [
-      "Biological Samples"
-    ],
     "dataTypeMappings": {
       "Hair": "Q28472"
     },
@@ -1527,9 +1434,6 @@
     "description": "Donate your social media archives to the UCSF Library for research.",
     "origin": "United States",
     "originCode": "US",
-    "macroCategories": [
-      "Health & Digital Data"
-    ],
     "dataTypeMappings": {
       "Social media data": "Q131520545"
     },
@@ -1578,12 +1482,9 @@
         "link": "https://doi.org/10.1001/jamanetworkopen.2021.10918"
       }
     ],
-    "macroCategories": [
-      "Health & Digital Data"
-    ],
     "dataTypeMappings": {
       "Health data": "Q18745135",
-      "Wearable data": null,
+      "Wearable data": "Q138520977",
       "Social media data": "Q131520545",
       "Search history": "Q60461381"
     },
@@ -1623,11 +1524,8 @@
     "description": "Plain-language summaries of research studies approved by the NHS Health Research Authority.",
     "origin": "United Kingdom",
     "originCode": "GB",
-    "macroCategories": [
-      "Health & Digital Data"
-    ],
     "dataTypeMappings": {
-      "Health data": null
+      "Health data": "Q18745135"
     },
     "countryMappings": {
       "United Kingdom": "Q145"
@@ -1665,9 +1563,6 @@
     "description": "A highly concentrated source of reports of randomized and quasi-randomized controlled trials from various databases and other sources. Access requires a subscription to the Cochrane Library.",
     "origin": "United Kingdom",
     "originCode": "GB",
-    "macroCategories": [
-      "Clinical Trials"
-    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
@@ -1718,9 +1613,6 @@
         "link": "https://doi.org/10.1002/rth2.12494"
       }
     ],
-    "macroCategories": [
-      "Clinical Trials"
-    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
@@ -1770,9 +1662,6 @@
     "description": "The primary register for clinical trials conducted in Germany, providing public access to study information.",
     "origin": "Germany",
     "originCode": "DE",
-    "macroCategories": [
-      "Clinical Trials"
-    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
@@ -1816,9 +1705,6 @@
     "description": "A listing of specific information relating to phase I, II, and III clinical trials in patients authorized by Health Canada.",
     "origin": "Canada",
     "originCode": "CA",
-    "macroCategories": [
-      "Clinical Trials"
-    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
@@ -1869,10 +1755,6 @@
     "description": "A search tool to find AATB-accredited tissue banks in the United States, covering various types of tissue, organ, and birth tissue donation.",
     "origin": "United States",
     "originCode": "US",
-    "macroCategories": [
-      "Biological Samples",
-      "Organ, Body & Tissue Donation"
-    ],
     "dataTypeMappings": {
       "Tissue": "Q40397",
       "Body": "Q48422",
@@ -1925,9 +1807,6 @@
     "description": "The official U.S. government website for organ, eye, and tissue donation. Provides information and links to state registries to sign up as a donor.",
     "origin": "United States",
     "originCode": "US",
-    "macroCategories": [
-      "Organ, Body & Tissue Donation"
-    ],
     "dataTypeMappings": {
       "Organ": "Q712378",
       "Tissue": "Q40397"
@@ -1978,9 +1857,6 @@
         "link": "https://doi.org/10.1111/trf.16630"
       }
     ],
-    "macroCategories": [
-      "Biological Samples"
-    ],
     "dataTypeMappings": {
       "Blood": "Q7873",
       "Plasma": "Q79749",
@@ -2022,11 +1898,8 @@
     "origin": "Germany",
     "originCode": "DE",
     "citations": [],
-    "macroCategories": [
-      "Health & Digital Data"
-    ],
     "dataTypeMappings": {
-      "Conversational AI data": null
+      "Conversational AI data": "Q138521412"
     },
     "countryMappings": {},
     "wikidataId": null,
@@ -2065,9 +1938,6 @@
     "origin": "Italy",
     "originCode": "IT",
     "citations": [],
-    "macroCategories": [
-      "Clinical Trials"
-    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
@@ -2112,9 +1982,6 @@
     "origin": "Italy",
     "originCode": "IT",
     "citations": [],
-    "macroCategories": [
-      "Clinical Trials"
-    ],
     "dataTypeMappings": {
       "Clinical trials": "Q30612"
     },
@@ -2155,9 +2022,6 @@
     "origin": "Italy",
     "originCode": "IT",
     "citations": [],
-    "macroCategories": [
-      "Health & Digital Data"
-    ],
     "dataTypeMappings": {
       "Cover letters": "Q569410"
     },
@@ -2199,13 +2063,9 @@
       "DE"
     ],
     "citations": [],
-    "macroCategories": [
-      "Biological Samples",
-      "Organ, Body & Tissue Donation"
-    ],
     "dataTypeMappings": {
-      "Blood": null,
-      "Tissue": null
+      "Blood": "Q7873",
+      "Tissue": "Q40397"
     },
     "countryMappings": {
       "Germany": "Q183"
@@ -2247,9 +2107,6 @@
       "PT"
     ],
     "citations": [],
-    "macroCategories": [
-      "Biological Samples"
-    ],
     "dataTypeMappings": {
       "Blood": "Q7873"
     },
@@ -2300,11 +2157,8 @@
         "link": "https://doi.org/10.1038/s41597-025-06092-4"
       }
     ],
-    "macroCategories": [
-      "Health & Digital Data"
-    ],
     "dataTypeMappings": {
-      "Genome": null
+      "Genome": "Q7020"
     },
     "countryMappings": {},
     "resourceWikidataId": null,
@@ -2351,13 +2205,9 @@
     "description": "Contribute to scientific research aimed at making and supporting meaningful scientific discoveries using your genetic and self-reported data.",
     "eligibility": "Customers",
     "citations": [],
-    "macroCategories": [
-      "Biological Samples",
-      "Health & Digital Data"
-    ],
     "dataTypeMappings": {
-      "Genome": null,
-      "Health data": null,
+      "Genome": "Q7020",
+      "Health data": "Q18745135",
       "Microbiome": null
     },
     "countryMappings": {},
@@ -2413,11 +2263,8 @@
         "link": "https://sequencing.com/education-center/free-dna-upload-sites/gedmatch-dna-upload-instructions"
       }
     ],
-    "macroCategories": [
-      "Health & Digital Data"
-    ],
     "dataTypeMappings": {
-      "Genome": null
+      "Genome": "Q7020"
     },
     "countryMappings": {},
     "wikidataId": null,
@@ -2462,12 +2309,9 @@
     "description": "Contribute to research by sharing your genetic data and answering surveys about your health, traits, and wellness.",
     "eligibility": "Customers",
     "citations": [],
-    "macroCategories": [
-      "Health & Digital Data"
-    ],
     "dataTypeMappings": {
-      "Genome": null,
-      "Health data": null
+      "Genome": "Q7020",
+      "Health data": "Q18745135"
     },
     "countryMappings": {},
     "wikidataId": null,
@@ -2513,12 +2357,9 @@
     "description": "Participate in research to help understand human genetics, genealogy, and anthropology by sharing your DNA results and survey responses.",
     "eligibility": "Customers",
     "citations": [],
-    "macroCategories": [
-      "Health & Digital Data"
-    ],
     "dataTypeMappings": {
-      "Genome": null,
-      "Health data": null
+      "Genome": "Q7020",
+      "Health data": "Q18745135"
     },
     "countryMappings": {},
     "wikidataId": null,
@@ -2564,12 +2405,9 @@
     "description": "Participate in research to help understand human history, health, and genetics by sharing your DNA data and survey responses.",
     "eligibility": "Customers",
     "citations": [],
-    "macroCategories": [
-      "Health & Digital Data"
-    ],
     "dataTypeMappings": {
-      "Genome": null,
-      "Health data": null
+      "Genome": "Q7020",
+      "Health data": "Q18745135"
     },
     "countryMappings": {},
     "wikidataId": null,
@@ -2616,11 +2454,8 @@
     "description": "Participate in a genetic study for hypermobile Ehlers-Danlos Syndrome (hEDS) and Dysautonomia in collaboration with the Norris Lab at the Medical University of South Carolina.",
     "eligibility": "Customers",
     "citations": [],
-    "macroCategories": [
-      "Health & Digital Data"
-    ],
     "dataTypeMappings": {
-      "Genome": null
+      "Genome": "Q7020"
     },
     "countryMappings": {},
     "wikidataId": null,
@@ -2679,11 +2514,8 @@
         "link": "https://sequencing.com/knowledge-center/altruist-endeavor/altruism-rewards/additional-offers"
       }
     ],
-    "macroCategories": [
-      "Health & Digital Data"
-    ],
     "dataTypeMappings": {
-      "Genome": null
+      "Genome": "Q7020"
     },
     "countryMappings": {
       "Worldwide": "Q13780930"
@@ -2752,11 +2584,8 @@
         "link": "https://www.wikitree.com/wiki/Help:How_to_Get_Started_with_DNA"
       }
     ],
-    "macroCategories": [
-      "Health & Digital Data"
-    ],
     "dataTypeMappings": {
-      "Genome": null
+      "Genome": "Q7020"
     },
     "countryMappings": {
       "Worldwide": "Q13780930"

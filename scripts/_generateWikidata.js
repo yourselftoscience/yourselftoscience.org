@@ -3,7 +3,8 @@ import { createRequire } from 'module';
 import { existsSync } from 'fs';
 
 const require = createRequire(import.meta.url);
-const resources = require('../src/data/resources.js').resources;
+const resources = require('../src/data/resources.js').rawResources;
+const dataTypesOntology = require('../src/data/ontology.js').dataTypesOntology;
 const OUTPUT_PATH = './public/resources_wikidata.json';
 
 // Helper function to fetch data from Wikidata removed. Validating manual-only workflow.
@@ -121,8 +122,11 @@ async function enrichResources() {
       for (const type of resource.dataTypes || []) {
         let normalizedType = type;
 
+        const ontologyEntry = dataTypesOntology.find(dt => dt.title === normalizedType);
 
-        if (existingEntry.dataTypeMappings && Object.prototype.hasOwnProperty.call(existingEntry.dataTypeMappings, normalizedType)) {
+        if (ontologyEntry && ontologyEntry.wikidataId) {
+          enrichedResource.dataTypeMappings[normalizedType] = ontologyEntry.wikidataId;
+        } else if (existingEntry.dataTypeMappings && Object.prototype.hasOwnProperty.call(existingEntry.dataTypeMappings, normalizedType)) {
           enrichedResource.dataTypeMappings[normalizedType] = existingEntry.dataTypeMappings[normalizedType];
         } else {
           enrichedResource.dataTypeMappings[normalizedType] = null;
@@ -156,7 +160,13 @@ async function enrichResources() {
       for (const type of resource.dataTypes || []) {
         let normalizedType = type;
 
-        enrichedResource.dataTypeMappings[normalizedType] = null;
+        const ontologyEntry = dataTypesOntology.find(dt => dt.title === normalizedType);
+
+        if (ontologyEntry && ontologyEntry.wikidataId) {
+          enrichedResource.dataTypeMappings[normalizedType] = ontologyEntry.wikidataId;
+        } else {
+          enrichedResource.dataTypeMappings[normalizedType] = null;
+        }
       }
       for (const country of resource.countries || []) {
         enrichedResource.countryMappings[country] = countryToQidMap.get(country) || null;
