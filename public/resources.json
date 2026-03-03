@@ -2256,7 +2256,7 @@
     "dataTypeMappings": {
       "Genome": "Q7020",
       "Health data": "Q18745135",
-      "Microbiome": null
+      "Microbiome": "Q1500347"
     },
     "countryMappings": {},
     "wikidataId": null,

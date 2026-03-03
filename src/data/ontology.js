@@ -81,6 +81,7 @@ export const dataTypesOntology = [
         "id": "ce756ec5-236b-4e89-a78e-0f738012643a",
         "title": "Microbiome",
         "slug": "microbiome",
+        "wikidataId": "Q1500347",
         "description": "Data derived from the genetic material of all the microbes - bacteria, fungi, protozoa and viruses - that live on and inside the human body."
     },
     {

@@ -1293,6 +1293,7 @@ Data derived from the genetic material of all the microbes - bacteria, fungi, pr
 
 - **ID:** ce756ec5-236b-4e89-a78e-0f738012643a
 - **Semantic URL:** https://yourselftoscience.org/data-types/microbiome
+- **Wikidata:** [Q1500347](https://www.wikidata.org/wiki/Q1500347)
 
 ## Organ
 

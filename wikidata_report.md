@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 3/3/2026, 11:35:17 AM
+**Generated on:** 3/3/2026, 3:48:09 PM
 
 ## Project-Organizer Relationships
 
@@ -250,7 +250,7 @@
 - **Hair**: [Q28472](https://www.wikidata.org/wiki/Q28472)
 - **Health data**: [Q18745135](https://www.wikidata.org/wiki/Q18745135)
 - **Location history**: ❌
-- **Microbiome**: ❌
+- **Microbiome**: [Q1500347](https://www.wikidata.org/wiki/Q1500347)
 - **Organ**: [Q712378](https://www.wikidata.org/wiki/Q712378)
 - **Placenta**: [Q1212935](https://www.wikidata.org/wiki/Q1212935)
 - **Plasma**: [Q79749](https://www.wikidata.org/wiki/Q79749)

@@ -714,7 +714,7 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:url <https://customercare.23andme.com/hc/en-us/articles/212195708-Research-Participation-and-Consent> ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ; schema:sameAs wd:Q7020 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ; schema:sameAs wd:Q18745135 ] ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Microbiome" ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Microbiome" ; schema:sameAs wd:Q1500347 ] ;
   yts:compensationType "donation" ;
   yts:compensationWikidataId wd:Q1124860 .
 

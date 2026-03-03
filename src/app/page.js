@@ -373,7 +373,7 @@ function HomePageContent({ scrollY }) {
     for (const resource of allResources) {
       const resourceCountries = resource.countries || [];
       for (const [index, country] of resourceCountries.entries()) {
-        if (typeof country === 'string' && country.length > 0) {
+        if (typeof country === 'string' && country.length > 0 && country !== 'Worldwide') {
           countries.add(country);
         }
         if (resource.countryCodes?.[index] && !countryCodeMap.has(country)) {
