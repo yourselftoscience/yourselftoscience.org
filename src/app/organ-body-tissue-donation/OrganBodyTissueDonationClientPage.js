@@ -35,8 +35,14 @@ const donationResources = activeResources.filter(
     r => r.dataTypes?.some(t => organBodyTissueTypes.includes(t)) && r.status !== 'Inactive'
 );
 const countrySet = new Set();
+const excludedAcronyms = ['EU', 'EEA', 'UK', 'European Union', 'European Economic Area'];
 donationResources.forEach(r => {
     if (r.countries) r.countries.forEach(c => { if (c !== 'Worldwide') countrySet.add(c); });
+    if (r.excludedCountries) {
+        r.excludedCountries.forEach(c => {
+            if (!excludedAcronyms.includes(c)) countrySet.add(c);
+        });
+    }
 });
 const ALL_COUNTRIES_SORTED = Array.from(countrySet).sort();
 
@@ -62,6 +68,7 @@ export default function OrganBodyTissueWizard() {
     });
 
     // --- URL Sync ---
+    // ... (kept unchanged)
     useEffect(() => {
         const params = new URLSearchParams();
         if (selectedCountries.length > 0 && !selectedCountries.includes('Any Country'))
@@ -89,6 +96,20 @@ export default function OrganBodyTissueWizard() {
             // Country filter
             const isAnyCountrySelected = selectedCountries.includes('Any Country');
             const isWorldwideResource = !resource.countries || resource.countries.length === 0 || resource.countries.includes('Worldwide');
+
+            // --- EXCLUSION CHECK ---
+            const specificCountriesSelected = selectedCountries.filter(c => c !== 'Any Country');
+            if (specificCountriesSelected.length > 0 && resource.excludedCountries) {
+                const allSelectedAreExcluded = specificCountriesSelected.every(c => {
+                    if (resource.excludedCountries.includes(c)) return true;
+                    if (EU_COUNTRIES.includes(c) && (resource.excludedCountries.includes('European Union') || resource.excludedCountries.includes('EU') || resource.excludedCountries.includes('EEA'))) return true;
+                    return false;
+                });
+
+                if (!isAnyCountrySelected && allSelectedAreExcluded) {
+                    return false;
+                }
+            }
 
             if (isAnyCountrySelected && selectedCountries.length === 1) {
                 // "Any Country" alone = show everything

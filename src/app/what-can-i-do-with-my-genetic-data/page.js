@@ -53,8 +53,14 @@ const BASED_IN_OPTIONS = [
 // Extract countries dynamically from ONLY genetic resources so we don't pollute the
 // dropdown with countries that only have organ/tissue donation programs.
 const countrySet = new Set();
+const excludedAcronyms = ['EU', 'EEA', 'UK', 'European Union', 'European Economic Area'];
 geneticResourcesList.forEach(r => {
     if (r.countries) r.countries.forEach(c => { if (c !== 'Worldwide') countrySet.add(c); });
+    if (r.excludedCountries) {
+        r.excludedCountries.forEach(c => {
+            if (!excludedAcronyms.includes(c)) countrySet.add(c);
+        });
+    }
 });
 const ALL_COUNTRIES_SORTED = Array.from(countrySet).sort();
 
@@ -122,6 +128,26 @@ function GeneticDataWizard() {
             // If "Any Country" is selected (alone or among others), show global + specific matches
             const isAnyCountrySelected = selectedCountries.includes('Any Country');
             const isWorldwideResource = !resource.countries || resource.countries.length === 0 || resource.countries.includes('Worldwide');
+
+            // --- EXCLUSION CHECK ---
+            const specificCountriesSelected = selectedCountries.filter(c => c !== 'Any Country');
+            if (specificCountriesSelected.length > 0 && resource.excludedCountries) {
+                // If the user's selected specific countries are ALL excluded for this resource, hide it.
+                // Or rather, if we want to be strict: if ANY selected country is excluded, do we hide it?
+                // Example: user selects "France" and "United Kingdom".
+                // GenomeConnect excludes UK. Is it shown? Yes, for France.
+                // BUT wait! If they select only "United Kingdom", all selected countries are excluded.
+                const allSelectedAreExcluded = specificCountriesSelected.every(c => {
+                    if (resource.excludedCountries.includes(c)) return true;
+                    if (EU_COUNTRIES.includes(c) && (resource.excludedCountries.includes('European Union') || resource.excludedCountries.includes('EU') || resource.excludedCountries.includes('EEA'))) return true;
+                    return false;
+                });
+
+                // If they didn't select "Any Country" AND all their specific countries are excluded, hide it.
+                if (!isAnyCountrySelected && allSelectedAreExcluded) {
+                    return false;
+                }
+            }
 
             if (isAnyCountrySelected && selectedCountries.length === 1) {
                 // "Any Country" alone = show everything

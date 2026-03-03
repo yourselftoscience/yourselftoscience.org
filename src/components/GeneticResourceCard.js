@@ -57,8 +57,8 @@ function CitationsPopover({ resource }) {
                         leaveFrom="opacity-100 translate-y-0"
                         leaveTo="opacity-0 translate-y-1"
                     >
-                        <Popover.Panel 
-                            onClick={(e) => e.stopPropagation()} 
+                        <Popover.Panel
+                            onClick={(e) => e.stopPropagation()}
                             className="absolute z-50 bottom-full right-0 mb-2 w-72 max-w-[calc(100vw-2rem)] max-h-60 overflow-y-auto rounded-xl bg-white shadow-2xl ring-1 ring-black/10 focus:outline-none"
                         >
                             <div className="p-3 space-y-2">

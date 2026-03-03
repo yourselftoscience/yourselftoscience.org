@@ -183,10 +183,10 @@ function CitationsPopover({ resource, citationMap }) {
             title="View official sources / citations"
           >
             <div className="relative flex items-center justify-center">
-               <FaBook className="w-4 h-4 ml-[-2px]" />
-               <span className="absolute -top-2 -right-3 flex h-4 w-4 items-center justify-center rounded-full bg-blue-100 text-[9px] font-bold text-blue-700 ring-2 ring-white">
-                 {resource.citations.length}
-               </span>
+              <FaBook className="w-4 h-4 ml-[-2px]" />
+              <span className="absolute -top-2 -right-3 flex h-4 w-4 items-center justify-center rounded-full bg-blue-100 text-[9px] font-bold text-blue-700 ring-2 ring-white">
+                {resource.citations.length}
+              </span>
             </div>
           </Popover.Button>
 
