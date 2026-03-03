@@ -35,6 +35,11 @@
       "Health data": null
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "resourceWikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q145",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/c20e8f39-d20a-4006-a660-689d1f65b352"
@@ -90,6 +95,10 @@
       "Health data": null
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "resourceWikidataId": null,
+    "entityCategoryWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/ffd02d96-c153-448b-ad19-353badefcf3b"
@@ -141,8 +150,10 @@
       "Location history": null
     },
     "countryMappings": {},
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q119852396",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/667f25be-9ff2-4e7a-9119-78f2eb61a801"
@@ -198,6 +209,11 @@
     "countryMappings": {
       "Worldwide": "Q13780930"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/6b75822f-2f88-4660-9304-122709d3161f"
@@ -238,8 +254,10 @@
       "Wearable data": null
     },
     "countryMappings": {},
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q119852396",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/66700d6e-cbc9-40ab-8bf9-eb466844ad52"
@@ -273,8 +291,10 @@
       "Health data": "Q18745135"
     },
     "countryMappings": {},
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/095034ef-732e-45c6-ad16-54c29c7ba408"
@@ -316,8 +336,10 @@
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/2c7f3ca9-4d4b-41e2-93e2-b0f06bc11cb3"
@@ -364,6 +386,10 @@
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/e9b2a7d1-5c1a-4d2c-8bf5-f9aee315ebd0"
@@ -406,6 +432,10 @@
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/e2ba7d15-5c1a-4d2c-8bf5-f9aee315ebd0"
@@ -449,8 +479,10 @@
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q9142054",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": [
       "Q1742093",
@@ -494,8 +526,11 @@
       "Wearable data": null
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/a86ef2b7-fe73-43dd-9f36-356b6b9c861d"
@@ -538,8 +573,10 @@
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q119852396",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": [
       "Q1742093",
@@ -583,8 +620,11 @@
     "countryMappings": {
       "Canada": "Q16"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q3400985",
+    "organizationWikidataId": null,
     "originWikidataId": "Q16",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/fa3b7b34-7149-4eae-b7da-1ce31650897f"
@@ -631,8 +671,11 @@
     "countryMappings": {
       "United Kingdom": "Q145"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q3400985",
+    "organizationWikidataId": null,
     "originWikidataId": "Q145",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/04687f4b-6a45-4d0b-9c92-5487b22f0101"
@@ -675,8 +718,11 @@
     "countryMappings": {
       "Italy": "Q38"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q9353606",
+    "organizationWikidataId": null,
     "originWikidataId": "Q38",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/a358a59c-91fd-4cc3-b971-366b05c1450e"
@@ -717,8 +763,11 @@
     "countryMappings": {
       "France": "Q142"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q9353606",
+    "organizationWikidataId": null,
     "originWikidataId": "Q142",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/6f6f3a6c-8c92-4f47-a75f-8d2e99e8cec0"
@@ -763,8 +812,11 @@
     "countryMappings": {
       "United Kingdom": "Q145"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q7604698",
+    "organizationWikidataId": null,
     "originWikidataId": "Q145",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/b3dc517e-3359-4720-99f3-7fa1928012b2"
@@ -798,8 +850,10 @@
       "Clinical trials": "Q30612"
     },
     "countryMappings": {},
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q9142054",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": [
       "Q1742093",
@@ -844,6 +898,7 @@
     "wikidataId": "Q29867940",
     "entityCategoryWikidataId": "Q245065",
     "entitySubTypeWikidataId": "Q245065",
+    "organizationWikidataId": null,
     "compensationWikidataId": [
       "Q1742093",
       "Q1124860"
@@ -896,8 +951,10 @@
       "Liechtenstein": "Q347",
       "Norway": "Q20"
     },
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q1639780",
+    "organizationWikidataId": null,
     "originWikidataId": "Q458",
     "compensationWikidataId": [
       "Q1742093",
@@ -951,8 +1008,11 @@
     "countryMappings": {
       "European Union": "Q458"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453",
+    "organizationWikidataId": null,
     "originWikidataId": "Q36",
     "compensationWikidataId": [
       "Q1742093",
@@ -1011,8 +1071,11 @@
       "Liechtenstein": "Q347",
       "Norway": "Q20"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453",
+    "organizationWikidataId": null,
     "originWikidataId": "Q31",
     "compensationWikidataId": [
       "Q1742093",
@@ -1076,8 +1139,11 @@
       "Clinical trials": "Q30612"
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453",
+    "organizationWikidataId": null,
     "originWikidataId": "Q31",
     "compensationWikidataId": [
       "Q1742093",
@@ -1121,8 +1187,10 @@
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q9142054",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": [
       "Q1742093",
@@ -1173,14 +1241,17 @@
     "countryMappings": {
       "United Kingdom": "Q145"
     },
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453",
+    "organizationWikidataId": null,
     "originWikidataId": "Q145",
     "compensationWikidataId": "Q1742093",
     "permalink": "https://yourselftoscience.org/resource/8d828bb1-8f1c-40c6-a0b4-61de7da7c116"
   },
   {
     "id": "059571fa-f8ab-4eea-a8fd-f6980b3b062f",
+    "resourceWikidataId": "Q138545917",
     "slug": "healthstreet",
     "title": "HealthStreet",
     "organizations": [
@@ -1215,8 +1286,10 @@
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q3400985",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": [
       "Q1742093",
@@ -1260,8 +1333,10 @@
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1742093",
     "permalink": "https://yourselftoscience.org/resource/7d4ce480-7262-4ca8-9674-cbd3cd9cbecf"
@@ -1302,8 +1377,11 @@
     "countryMappings": {
       "Australia": "Q408"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q163740",
+    "organizationWikidataId": null,
     "originWikidataId": "Q408",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/7de4a0e5-680d-44a4-896e-623a58982aa6"
@@ -1344,8 +1422,11 @@
     "countryMappings": {
       "Australia": "Q408"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q163740",
+    "organizationWikidataId": null,
     "originWikidataId": "Q408",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/c9530d1f-97a4-496a-99b8-7e81461c1545"
@@ -1386,8 +1467,11 @@
     "countryMappings": {
       "Australia": "Q408"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q163740",
+    "organizationWikidataId": null,
     "originWikidataId": "Q408",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/b1fd6fb3-c668-44d4-9f7e-00b2fd28878d"
@@ -1438,8 +1522,11 @@
     "countryMappings": {
       "Poland": "Q36"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q3400985",
+    "organizationWikidataId": null,
     "originWikidataId": "Q36",
     "wikidataDescription": "research project at the University of Wrocław",
     "aliases": [
@@ -1478,8 +1565,11 @@
       "Social media data": "Q131520545"
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q3400985",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/baedc14c-bcb0-4232-b91e-7a2b6707945f"
@@ -1530,8 +1620,11 @@
       "Search history": "Q60461381"
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q3400985",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1742093",
     "permalink": "https://yourselftoscience.org/resource/c0b87e00-d562-4262-8781-85611e98614d"
@@ -1572,6 +1665,11 @@
     "countryMappings": {
       "United Kingdom": "Q145"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q145",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/d77081db-67ad-45b3-a62a-bd12126ba780"
@@ -1609,8 +1707,10 @@
     },
     "countryMappings": {},
     "wikidataId": "Q1105187",
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q79913",
+    "organizationWikidataId": null,
     "originWikidataId": "Q145",
     "compensationWikidataId": [
       "Q1742093",
@@ -1662,8 +1762,11 @@
     "countryMappings": {
       "Belgium": "Q31"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q1639780",
+    "organizationWikidataId": null,
     "originWikidataId": "Q31",
     "compensationWikidataId": [
       "Q1742093",
@@ -1715,6 +1818,7 @@
     "wikidataId": "Q96199255",
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q3400985",
+    "organizationWikidataId": null,
     "originWikidataId": "Q183",
     "compensationWikidataId": [
       "Q1742093",
@@ -1758,8 +1862,11 @@
     "countryMappings": {
       "Canada": "Q16"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q1639780",
+    "organizationWikidataId": null,
     "originWikidataId": "Q16",
     "compensationWikidataId": [
       "Q1742093",
@@ -1816,8 +1923,11 @@
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q829080",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": [
       "Q1742093",
@@ -1864,8 +1974,10 @@
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q9353606",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/0a861cff-a2b0-4ab8-834d-e58b4139770d"
@@ -1917,8 +2029,11 @@
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q163740",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/8c9531fe-4287-4933-b6f5-0e05e516937b"
@@ -1955,6 +2070,11 @@
       "Conversational AI data": null
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "resourceWikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q183",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/f6d0fc07-302a-4e3d-869a-4eba7798920b"
@@ -1996,8 +2116,11 @@
     "countryMappings": {
       "Italy": "Q38"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q1059324",
+    "organizationWikidataId": null,
     "originWikidataId": "Q38",
     "compensationWikidataId": [
       "Q1742093",
@@ -2041,8 +2164,11 @@
     "countryMappings": {
       "Italy": "Q38"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q16917",
+    "organizationWikidataId": null,
     "originWikidataId": "Q38",
     "compensationWikidataId": [
       "Q1742093",
@@ -2080,8 +2206,11 @@
       "Cover letters": "Q569410"
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q42240",
+    "organizationWikidataId": null,
     "originWikidataId": "Q38",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/32b73fac-c6f5-4551-af88-0deba969fd30"
@@ -2126,6 +2255,10 @@
     "countryMappings": {
       "Germany": "Q183"
     },
+    "wikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q183",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/68a587c3-eb94-4ede-b35b-5ac1a84f24df"
@@ -2169,6 +2302,9 @@
     "countryMappings": {
       "Portugal": "Q45"
     },
+    "wikidataId": null,
+    "entityCategoryWikidataId": null,
+    "organizationWikidataId": null,
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/df15fcd0-c0c0-4726-85e7-dbad12687bde"
   },
@@ -2218,6 +2354,10 @@
       "Genome": null
     },
     "countryMappings": {},
+    "resourceWikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q145",
     "compensationWikidataId": "Q1742093",
     "permalink": "https://yourselftoscience.org/resource/b39d93dc-97d1-44c1-a689-041e567e0e8b"
@@ -2269,6 +2409,11 @@
       "Microbiome": null
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "resourceWikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/f98be3f7-293f-47fa-b95e-f01703dd99c8"
@@ -2324,6 +2469,10 @@
       "Genome": null
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/e5bbe9fa-66ad-4ea5-ab36-9330205262be"
@@ -2371,6 +2520,11 @@
       "Health data": null
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "resourceWikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q29",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/50ed915d-ab6f-478a-9dc5-cf4774cfa14d"
@@ -2418,6 +2572,11 @@
       "Health data": null
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "resourceWikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q801",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/bfdda894-db90-4bf8-89fd-9428a6466583"
@@ -2465,6 +2624,11 @@
       "Health data": null
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "resourceWikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/a84efc57-eb85-4ce3-bd56-6103cee8a809"
@@ -2512,6 +2676,11 @@
       "Genome": null
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "resourceWikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/fa467f40-436c-4882-9948-aaff485d037a"
@@ -2573,6 +2742,11 @@
     "countryMappings": {
       "Worldwide": "Q13780930"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": [
       "Q1742093",
@@ -2642,6 +2816,10 @@
     "countryMappings": {
       "Worldwide": "Q13780930"
     },
+    "wikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": null,
     "compensationWikidataId": "Q1124860",
     "permalink": "https://yourselftoscience.org/resource/5a99f8d8-f020-4d3a-9a61-ca8f7547ad1d"

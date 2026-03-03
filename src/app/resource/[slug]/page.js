@@ -1,5 +1,5 @@
 // src/app/resource/[slug]/page.js
-import { resources } from '@/data/resources';
+import resources from '@/../public/resources_wikidata.json';
 import { redirect, permanentRedirect } from 'next/navigation';
 import Link from 'next/link';
 import { permanentDoi } from '@/data/config';

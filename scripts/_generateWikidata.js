@@ -103,16 +103,15 @@ async function enrichResources() {
     enrichedResource.countryMappings = {};
 
     if (existingEntry) {
-      // ... (preserve existing fields as before) ...
-      if (existingEntry.wikidataId) enrichedResource.wikidataId = existingEntry.wikidataId;
-      if (existingEntry.resourceWikidataId) enrichedResource.resourceWikidataId = existingEntry.resourceWikidataId;
-      if (existingEntry.entityCategoryWikidataId) enrichedResource.entityCategoryWikidataId = existingEntry.entityCategoryWikidataId;
-      if (existingEntry.entitySubTypeWikidataId) enrichedResource.entitySubTypeWikidataId = existingEntry.entitySubTypeWikidataId;
+      // Prioritize resources.js manual additions/changes over existing JSON
+      enrichedResource.wikidataId = resource.wikidataId || existingEntry.wikidataId || null;
+      enrichedResource.resourceWikidataId = resource.resourceWikidataId || existingEntry.resourceWikidataId || null;
+      enrichedResource.entityCategoryWikidataId = resource.entityCategoryWikidataId || existingEntry.entityCategoryWikidataId || null;
+      enrichedResource.entitySubTypeWikidataId = resource.entitySubTypeWikidataId || existingEntry.entitySubTypeWikidataId || null;
+      enrichedResource.organizationWikidataId = resource.organizationWikidataId || existingEntry.organizationWikidataId || null;
 
       // We will re-evaluate originWikidataId based on the global map if missing
-      enrichedResource.originWikidataId = existingEntry.originWikidataId || null;
-
-      if (existingEntry.organizationWikidataId) enrichedResource.organizationWikidataId = existingEntry.organizationWikidataId;
+      enrichedResource.originWikidataId = resource.originWikidataId || existingEntry.originWikidataId || null;
 
       if (existingEntry.wikidataLabel && !enrichedResource.wikidataLabel) enrichedResource.wikidataLabel = existingEntry.wikidataLabel;
       if (existingEntry.wikidataDescription) enrichedResource.wikidataDescription = existingEntry.wikidataDescription;

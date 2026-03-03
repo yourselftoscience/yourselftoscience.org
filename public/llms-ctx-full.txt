@@ -2193,6 +2193,9 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 
 [Contribute Now](https://healthstreet.program.ufl.edu/uf-researchers/participate-in-research/)
 
+## Linked Data
+
+- [Wikidata Entity](https://www.wikidata.org/wiki/Q138545917)
 
 --- END OF HealthStreet ---
 

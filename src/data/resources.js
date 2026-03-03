@@ -791,6 +791,7 @@ const rawResources = [
   },
   {
     "id": "059571fa-f8ab-4eea-a8fd-f6980b3b062f",
+    "resourceWikidataId": "Q138545917",
     "slug": "healthstreet",
     "title": "HealthStreet",
     "organizations": [

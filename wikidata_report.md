@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 3/3/2026, 10:37:23 AM
+**Generated on:** 3/3/2026, 10:48:33 AM
 
 ## Project-Organizer Relationships
 
@@ -70,7 +70,7 @@
   - Harvard Medical School: [Q49121](https://www.wikidata.org/wiki/Q49121)
 - **Health Canada's Clinical Trials Database**: ❌
   - Health Canada: [Q1057591](https://www.wikidata.org/wiki/Q1057591)
-- **HealthStreet**: ❌
+- **HealthStreet**: [Q138545917](https://www.wikidata.org/wiki/Q138545917)
   - University of Florida Health: [Q7487946](https://www.wikidata.org/wiki/Q7487946)
 - **hEDS & Dysautonomia Study (Sequencing.com)**: ❌
   - Sequencing.com: No Wikidata ID
@@ -151,7 +151,7 @@
 - **Google Health Studies**: [Q138518518](https://www.wikidata.org/wiki/Q138518518)
 - **Harvard Personal Genome Project**: [Q138521490](https://www.wikidata.org/wiki/Q138521490)
 - **Health Canada's Clinical Trials Database**: ❌
-- **HealthStreet**: ❌
+- **HealthStreet**: [Q138545917](https://www.wikidata.org/wiki/Q138545917)
 - **International Clinical Trials Registry Platform**: [Q29867940](https://www.wikidata.org/wiki/Q29867940)
 - **Living DNA Global Research Project**: ❌
 - **Max Planck Institute for Software Systems conversational AI data donation**: ❌

@@ -387,6 +387,7 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:sameAs <https://yourselftoscience.org/resource/healthstreet> ;
   rdfs:label "HealthStreet" ;
   schema:description "Connects community members in Florida with health research opportunities at the University of Florida." ;
+  schema:sameAs wd:Q138545917 ;
   schema:creator [ a schema:Organization; rdfs:label "University of Florida Health" ; schema:sameAs wd:Q7487946 ; schema:additionalType wd:Q3400985 ; schema:additionalType wd:Q3400985 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
   schema:url <https://healthstreet.program.ufl.edu/uf-researchers/participate-in-research/> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "United States" ; schema:sameAs wd:Q30 ] ;

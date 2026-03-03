@@ -35,6 +35,11 @@
       "Health data": null
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "resourceWikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q145",
     "compensationWikidataId": "Q1124860"
   },
@@ -89,6 +94,10 @@
       "Health data": null
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "resourceWikidataId": null,
+    "entityCategoryWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860"
   },
@@ -139,8 +148,10 @@
       "Location history": null
     },
     "countryMappings": {},
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q119852396",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860"
   },
@@ -195,6 +206,11 @@
     "countryMappings": {
       "Worldwide": "Q13780930"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860"
   },
@@ -234,8 +250,10 @@
       "Wearable data": null
     },
     "countryMappings": {},
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q119852396",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860"
   },
@@ -268,8 +286,10 @@
       "Health data": "Q18745135"
     },
     "countryMappings": {},
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860"
   },
@@ -310,8 +330,10 @@
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860"
   },
@@ -357,6 +379,10 @@
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860"
   },
@@ -398,6 +424,10 @@
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860"
   },
@@ -440,8 +470,10 @@
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q9142054",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": [
       "Q1742093",
@@ -484,8 +516,11 @@
       "Wearable data": null
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860"
   },
@@ -527,8 +562,10 @@
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q119852396",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": [
       "Q1742093",
@@ -571,8 +608,11 @@
     "countryMappings": {
       "Canada": "Q16"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q3400985",
+    "organizationWikidataId": null,
     "originWikidataId": "Q16",
     "compensationWikidataId": "Q1124860"
   },
@@ -618,8 +658,11 @@
     "countryMappings": {
       "United Kingdom": "Q145"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q3400985",
+    "organizationWikidataId": null,
     "originWikidataId": "Q145",
     "compensationWikidataId": "Q1124860"
   },
@@ -661,8 +704,11 @@
     "countryMappings": {
       "Italy": "Q38"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q9353606",
+    "organizationWikidataId": null,
     "originWikidataId": "Q38",
     "compensationWikidataId": "Q1124860"
   },
@@ -702,8 +748,11 @@
     "countryMappings": {
       "France": "Q142"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q9353606",
+    "organizationWikidataId": null,
     "originWikidataId": "Q142",
     "compensationWikidataId": "Q1124860"
   },
@@ -747,8 +796,11 @@
     "countryMappings": {
       "United Kingdom": "Q145"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q7604698",
+    "organizationWikidataId": null,
     "originWikidataId": "Q145",
     "compensationWikidataId": "Q1124860"
   },
@@ -781,8 +833,10 @@
       "Clinical trials": "Q30612"
     },
     "countryMappings": {},
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q9142054",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": [
       "Q1742093",
@@ -826,6 +880,7 @@
     "wikidataId": "Q29867940",
     "entityCategoryWikidataId": "Q245065",
     "entitySubTypeWikidataId": "Q245065",
+    "organizationWikidataId": null,
     "compensationWikidataId": [
       "Q1742093",
       "Q1124860"
@@ -877,8 +932,10 @@
       "Liechtenstein": "Q347",
       "Norway": "Q20"
     },
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q1639780",
+    "organizationWikidataId": null,
     "originWikidataId": "Q458",
     "compensationWikidataId": [
       "Q1742093",
@@ -931,8 +988,11 @@
     "countryMappings": {
       "European Union": "Q458"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453",
+    "organizationWikidataId": null,
     "originWikidataId": "Q36",
     "compensationWikidataId": [
       "Q1742093",
@@ -990,8 +1050,11 @@
       "Liechtenstein": "Q347",
       "Norway": "Q20"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453",
+    "organizationWikidataId": null,
     "originWikidataId": "Q31",
     "compensationWikidataId": [
       "Q1742093",
@@ -1054,8 +1117,11 @@
       "Clinical trials": "Q30612"
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453",
+    "organizationWikidataId": null,
     "originWikidataId": "Q31",
     "compensationWikidataId": [
       "Q1742093",
@@ -1098,8 +1164,10 @@
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q9142054",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": [
       "Q1742093",
@@ -1149,13 +1217,16 @@
     "countryMappings": {
       "United Kingdom": "Q145"
     },
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453",
+    "organizationWikidataId": null,
     "originWikidataId": "Q145",
     "compensationWikidataId": "Q1742093"
   },
   {
     "id": "059571fa-f8ab-4eea-a8fd-f6980b3b062f",
+    "resourceWikidataId": "Q138545917",
     "slug": "healthstreet",
     "title": "HealthStreet",
     "organizations": [
@@ -1190,8 +1261,10 @@
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q3400985",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": [
       "Q1742093",
@@ -1234,8 +1307,10 @@
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1742093"
   },
@@ -1275,8 +1350,11 @@
     "countryMappings": {
       "Australia": "Q408"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q163740",
+    "organizationWikidataId": null,
     "originWikidataId": "Q408",
     "compensationWikidataId": "Q1124860"
   },
@@ -1316,8 +1394,11 @@
     "countryMappings": {
       "Australia": "Q408"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q163740",
+    "organizationWikidataId": null,
     "originWikidataId": "Q408",
     "compensationWikidataId": "Q1124860"
   },
@@ -1357,8 +1438,11 @@
     "countryMappings": {
       "Australia": "Q408"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q163740",
+    "organizationWikidataId": null,
     "originWikidataId": "Q408",
     "compensationWikidataId": "Q1124860"
   },
@@ -1408,8 +1492,11 @@
     "countryMappings": {
       "Poland": "Q36"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q3400985",
+    "organizationWikidataId": null,
     "originWikidataId": "Q36",
     "wikidataDescription": "research project at the University of Wrocław",
     "aliases": [
@@ -1447,8 +1534,11 @@
       "Social media data": "Q131520545"
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q3400985",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860"
   },
@@ -1498,8 +1588,11 @@
       "Search history": "Q60461381"
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q3400985",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1742093"
   },
@@ -1539,6 +1632,11 @@
     "countryMappings": {
       "United Kingdom": "Q145"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q145",
     "compensationWikidataId": "Q1124860"
   },
@@ -1575,8 +1673,10 @@
     },
     "countryMappings": {},
     "wikidataId": "Q1105187",
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q79913",
+    "organizationWikidataId": null,
     "originWikidataId": "Q145",
     "compensationWikidataId": [
       "Q1742093",
@@ -1627,8 +1727,11 @@
     "countryMappings": {
       "Belgium": "Q31"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q1639780",
+    "organizationWikidataId": null,
     "originWikidataId": "Q31",
     "compensationWikidataId": [
       "Q1742093",
@@ -1679,6 +1782,7 @@
     "wikidataId": "Q96199255",
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q3400985",
+    "organizationWikidataId": null,
     "originWikidataId": "Q183",
     "compensationWikidataId": [
       "Q1742093",
@@ -1721,8 +1825,11 @@
     "countryMappings": {
       "Canada": "Q16"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q1639780",
+    "organizationWikidataId": null,
     "originWikidataId": "Q16",
     "compensationWikidataId": [
       "Q1742093",
@@ -1778,8 +1885,11 @@
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q829080",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": [
       "Q1742093",
@@ -1825,8 +1935,10 @@
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": null,
     "entityCategoryWikidataId": "Q7188",
     "entitySubTypeWikidataId": "Q9353606",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860"
   },
@@ -1877,8 +1989,11 @@
     "countryMappings": {
       "United States": "Q30"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q163740",
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860"
   },
@@ -1914,6 +2029,11 @@
       "Conversational AI data": null
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "resourceWikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q183",
     "compensationWikidataId": "Q1124860"
   },
@@ -1954,8 +2074,11 @@
     "countryMappings": {
       "Italy": "Q38"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q1059324",
+    "organizationWikidataId": null,
     "originWikidataId": "Q38",
     "compensationWikidataId": [
       "Q1742093",
@@ -1998,8 +2121,11 @@
     "countryMappings": {
       "Italy": "Q38"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q163740",
     "entitySubTypeWikidataId": "Q16917",
+    "organizationWikidataId": null,
     "originWikidataId": "Q38",
     "compensationWikidataId": [
       "Q1742093",
@@ -2036,8 +2162,11 @@
       "Cover letters": "Q569410"
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "resourceWikidataId": null,
     "entityCategoryWikidataId": "Q3400985",
     "entitySubTypeWikidataId": "Q42240",
+    "organizationWikidataId": null,
     "originWikidataId": "Q38",
     "compensationWikidataId": "Q1124860"
   },
@@ -2081,6 +2210,10 @@
     "countryMappings": {
       "Germany": "Q183"
     },
+    "wikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q183",
     "compensationWikidataId": "Q1124860"
   },
@@ -2123,6 +2256,9 @@
     "countryMappings": {
       "Portugal": "Q45"
     },
+    "wikidataId": null,
+    "entityCategoryWikidataId": null,
+    "organizationWikidataId": null,
     "compensationWikidataId": "Q1124860"
   },
   {
@@ -2171,6 +2307,10 @@
       "Genome": null
     },
     "countryMappings": {},
+    "resourceWikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q145",
     "compensationWikidataId": "Q1742093"
   },
@@ -2221,6 +2361,11 @@
       "Microbiome": null
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "resourceWikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860"
   },
@@ -2275,6 +2420,10 @@
       "Genome": null
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860"
   },
@@ -2321,6 +2470,11 @@
       "Health data": null
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "resourceWikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q29",
     "compensationWikidataId": "Q1124860"
   },
@@ -2367,6 +2521,11 @@
       "Health data": null
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "resourceWikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q801",
     "compensationWikidataId": "Q1124860"
   },
@@ -2413,6 +2572,11 @@
       "Health data": null
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "resourceWikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860"
   },
@@ -2459,6 +2623,11 @@
       "Genome": null
     },
     "countryMappings": {},
+    "wikidataId": null,
+    "resourceWikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860"
   },
@@ -2519,6 +2688,11 @@
     "countryMappings": {
       "Worldwide": "Q13780930"
     },
+    "wikidataId": null,
+    "resourceWikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": [
       "Q1742093",
@@ -2587,6 +2761,10 @@
     "countryMappings": {
       "Worldwide": "Q13780930"
     },
+    "wikidataId": null,
+    "entityCategoryWikidataId": null,
+    "entitySubTypeWikidataId": null,
+    "organizationWikidataId": null,
     "originWikidataId": null,
     "compensationWikidataId": "Q1124860"
   }
