@@ -1,4 +1,4 @@
-# Donate Your Data for Health
+# Penn Medicine Donate Your Data
 
 > Share your digital data to help Penn Medicine researchers understand health.
 

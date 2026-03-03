@@ -1,4 +1,4 @@
-# Cochrane Central Register of Controlled Trials (CENTRAL)
+# Cochrane Central Register of Controlled Trials
 
 > A highly concentrated source of reports of randomized and quasi-randomized controlled trials from various databases and other sources. Access requires a subscription to the Cochrane Library.
 

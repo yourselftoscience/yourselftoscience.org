@@ -1,4 +1,4 @@
-# German Clinical Trials Register (DRKS)
+# German Clinical Trials Register
 
 > The primary register for clinical trials conducted in Germany, providing public access to study information.
 

@@ -1,4 +1,4 @@
-# Clinical Trial Discovery
+# Esperity Clinical Trial Discovery
 
 > A patient-centric platform for finding and participating in clinical trials.
 

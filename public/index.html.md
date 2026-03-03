@@ -116,7 +116,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Health research and product development](https://yourselftoscience.org/resource/fitbit-research)
+### [Fitbit Health Research and Product Development](https://yourselftoscience.org/resource/fitbit-research)
 
 *Description:* Share your Fitbit data to help improve health research and product development.
 
@@ -138,7 +138,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Body Donation](https://yourselftoscience.org/resource/ubc-body-donation)
+### [UBC Body Donation Program](https://yourselftoscience.org/resource/ubc-body-donation)
 
 *Description:* The UBC Body Donation Program accepts donations for anatomical study and medical research.
 
@@ -150,7 +150,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Body Donation; Tissue Donation](https://yourselftoscience.org/resource/cambridge-body-tissue-donation)
+### [University of Cambridge body and tissue donation](https://yourselftoscience.org/resource/cambridge-body-tissue-donation)
 
 *Description:* Information on donating your body to medical science at the University of Cambridge.
 
@@ -162,7 +162,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Body & Tissues Donation](https://yourselftoscience.org/resource/italy-body-tissue-donation)
+### [body and tissue donation in Italy](https://yourselftoscience.org/resource/italy-body-tissue-donation)
 
 *Description:* Official guidelines for donating body and tissues for study, training, and scientific research in Italy.
 
@@ -174,7 +174,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Donate the Body to Science](https://yourselftoscience.org/resource/france-body-donation)
+### [body donation in France](https://yourselftoscience.org/resource/france-body-donation)
 
 *Description:* Official information on body donation for science and medical research in France.
 
@@ -186,7 +186,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Eggs, Sperm and Embryos Donation to Research](https://yourselftoscience.org/resource/uk-gamete-donation)
+### [gamete and embryo donation in the United Kingdom](https://yourselftoscience.org/resource/uk-gamete-donation)
 
 *Description:* Information on donating eggs, sperm, and embryos for research in the UK.
 
@@ -208,7 +208,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [International Clinical Trials Registry Platform (ICTRP)](https://yourselftoscience.org/resource/who-ictrp)
+### [International Clinical Trials Registry Platform](https://yourselftoscience.org/resource/who-ictrp)
 
 *Description:* A central database managed by the WHO to search for clinical trials from registries around the world.
 
@@ -254,7 +254,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Clinical Trial Discovery](https://yourselftoscience.org/resource/esperity-clinical-trials)
+### [Esperity Clinical Trial Discovery](https://yourselftoscience.org/resource/esperity-clinical-trials)
 
 *Description:* A patient-centric platform for finding and participating in clinical trials.
 
@@ -312,7 +312,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Microbiome donation](https://yourselftoscience.org/resource/lifeblood-microbiome)
+### [Australian Red Cross Lifeblood microbiome donation](https://yourselftoscience.org/resource/lifeblood-microbiome)
 
 *Description:* Australian Red Cross Lifeblood's microbiome research program.
 
@@ -324,7 +324,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Stool Donation](https://yourselftoscience.org/resource/wesley-stool-donation)
+### [Wesley Research Institute stool donation](https://yourselftoscience.org/resource/wesley-stool-donation)
 
 *Description:* Stool donation program at Wesley Research Institute.
 
@@ -336,7 +336,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Placenta Donation](https://yourselftoscience.org/resource/wesley-placenta-donation)
+### [Wesley Research Institute placenta donation](https://yourselftoscience.org/resource/wesley-placenta-donation)
 
 *Description:* Placenta donation program at Wesley Research Institute.
 
@@ -348,7 +348,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Human Hair Decomposition](https://yourselftoscience.org/resource/wroclaw-hair-decomposition)
+### [University of Wrocław human hair decomposition project](https://yourselftoscience.org/resource/wroclaw-hair-decomposition)
 
 *Description:* Research on human hair decomposition at the University of Wrocław.
 
@@ -370,7 +370,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Donate Your Data for Health](https://yourselftoscience.org/resource/penn-medicine-donate-your-data)
+### [Penn Medicine Donate Your Data](https://yourselftoscience.org/resource/penn-medicine-donate-your-data)
 
 *Description:* Share your digital data to help Penn Medicine researchers understand health.
 
@@ -380,7 +380,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Research Summaries](https://yourselftoscience.org/resource/hra-research-summaries)
+### [NHS Health Research Authority Research Summaries](https://yourselftoscience.org/resource/hra-research-summaries)
 
 *Description:* Plain-language summaries of research studies approved by the NHS Health Research Authority.
 
@@ -392,7 +392,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Cochrane Central Register of Controlled Trials (CENTRAL)](https://yourselftoscience.org/resource/cochrane-central-register-of-controlled-trials)
+### [Cochrane Central Register of Controlled Trials](https://yourselftoscience.org/resource/cochrane-central-register-of-controlled-trials)
 
 *Description:* A highly concentrated source of reports of randomized and quasi-randomized controlled trials from various databases and other sources. Access requires a subscription to the Cochrane Library.
 
@@ -402,7 +402,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Clinical Trials Database](https://yourselftoscience.org/resource/belgian-clinical-trials-database)
+### [FAMHP clinical trials database](https://yourselftoscience.org/resource/belgian-clinical-trials-database)
 
 *Description:* A database of clinical trials approved by the Belgian Federal Agency for Medicines and Health Products (FAMHP). NOTE: This database is no longer available due to changes in the legal framework.
 
@@ -414,7 +414,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [German Clinical Trials Register (DRKS)](https://yourselftoscience.org/resource/german-clinical-trials-register)
+### [German Clinical Trials Register](https://yourselftoscience.org/resource/german-clinical-trials-register)
 
 *Description:* The primary register for clinical trials conducted in Germany, providing public access to study information.
 
@@ -462,7 +462,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Donate Blood for Research](https://yourselftoscience.org/resource/bloodworks-research)
+### [Bloodworks Northwest Donate Blood for Research](https://yourselftoscience.org/resource/bloodworks-research)
 
 *Description:* Bloodworks Northwest’s research program accepts blood donations to support a variety of studies, from developing new treatments to understanding blood-related diseases. This service is available in the Pacific Northwest.
 
@@ -474,7 +474,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Conversational AI Data Donation](https://yourselftoscience.org/resource/conversational-ai-data-donation)
+### [Max Planck Institute for Software Systems conversational AI data donation](https://yourselftoscience.org/resource/conversational-ai-data-donation)
 
 *Description:* Donate your chat history from assistants like ChatGPT, Gemini, and Claude to help researchers understand human-AI interaction patterns.
 
@@ -510,7 +510,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Donate Your Cover Letter to Research](https://yourselftoscience.org/resource/eurac-cover-letter-donation)
+### [Eurac Research cover letter donation](https://yourselftoscience.org/resource/eurac-cover-letter-donation)
 
 *Description:* A data donation campaign focused on collecting cover letters for doctoral research to understand the impact of writing styles in a multilingual professional context.
 

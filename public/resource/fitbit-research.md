@@ -1,4 +1,4 @@
-# Health research and product development
+# Fitbit Health Research and Product Development
 
 > Share your Fitbit data to help improve health research and product development.
 

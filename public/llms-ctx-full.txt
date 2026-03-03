@@ -123,7 +123,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Health research and product development](https://yourselftoscience.org/resource/fitbit-research)
+### [Fitbit Health Research and Product Development](https://yourselftoscience.org/resource/fitbit-research)
 
 *Description:* Share your Fitbit data to help improve health research and product development.
 
@@ -145,7 +145,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Body Donation](https://yourselftoscience.org/resource/ubc-body-donation)
+### [UBC Body Donation Program](https://yourselftoscience.org/resource/ubc-body-donation)
 
 *Description:* The UBC Body Donation Program accepts donations for anatomical study and medical research.
 
@@ -157,7 +157,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Body Donation; Tissue Donation](https://yourselftoscience.org/resource/cambridge-body-tissue-donation)
+### [University of Cambridge body and tissue donation](https://yourselftoscience.org/resource/cambridge-body-tissue-donation)
 
 *Description:* Information on donating your body to medical science at the University of Cambridge.
 
@@ -169,7 +169,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Body & Tissues Donation](https://yourselftoscience.org/resource/italy-body-tissue-donation)
+### [body and tissue donation in Italy](https://yourselftoscience.org/resource/italy-body-tissue-donation)
 
 *Description:* Official guidelines for donating body and tissues for study, training, and scientific research in Italy.
 
@@ -181,7 +181,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Donate the Body to Science](https://yourselftoscience.org/resource/france-body-donation)
+### [body donation in France](https://yourselftoscience.org/resource/france-body-donation)
 
 *Description:* Official information on body donation for science and medical research in France.
 
@@ -193,7 +193,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Eggs, Sperm and Embryos Donation to Research](https://yourselftoscience.org/resource/uk-gamete-donation)
+### [gamete and embryo donation in the United Kingdom](https://yourselftoscience.org/resource/uk-gamete-donation)
 
 *Description:* Information on donating eggs, sperm, and embryos for research in the UK.
 
@@ -215,7 +215,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [International Clinical Trials Registry Platform (ICTRP)](https://yourselftoscience.org/resource/who-ictrp)
+### [International Clinical Trials Registry Platform](https://yourselftoscience.org/resource/who-ictrp)
 
 *Description:* A central database managed by the WHO to search for clinical trials from registries around the world.
 
@@ -261,7 +261,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Clinical Trial Discovery](https://yourselftoscience.org/resource/esperity-clinical-trials)
+### [Esperity Clinical Trial Discovery](https://yourselftoscience.org/resource/esperity-clinical-trials)
 
 *Description:* A patient-centric platform for finding and participating in clinical trials.
 
@@ -319,7 +319,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Microbiome donation](https://yourselftoscience.org/resource/lifeblood-microbiome)
+### [Australian Red Cross Lifeblood microbiome donation](https://yourselftoscience.org/resource/lifeblood-microbiome)
 
 *Description:* Australian Red Cross Lifeblood's microbiome research program.
 
@@ -331,7 +331,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Stool Donation](https://yourselftoscience.org/resource/wesley-stool-donation)
+### [Wesley Research Institute stool donation](https://yourselftoscience.org/resource/wesley-stool-donation)
 
 *Description:* Stool donation program at Wesley Research Institute.
 
@@ -343,7 +343,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Placenta Donation](https://yourselftoscience.org/resource/wesley-placenta-donation)
+### [Wesley Research Institute placenta donation](https://yourselftoscience.org/resource/wesley-placenta-donation)
 
 *Description:* Placenta donation program at Wesley Research Institute.
 
@@ -355,7 +355,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Human Hair Decomposition](https://yourselftoscience.org/resource/wroclaw-hair-decomposition)
+### [University of Wrocław human hair decomposition project](https://yourselftoscience.org/resource/wroclaw-hair-decomposition)
 
 *Description:* Research on human hair decomposition at the University of Wrocław.
 
@@ -377,7 +377,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Donate Your Data for Health](https://yourselftoscience.org/resource/penn-medicine-donate-your-data)
+### [Penn Medicine Donate Your Data](https://yourselftoscience.org/resource/penn-medicine-donate-your-data)
 
 *Description:* Share your digital data to help Penn Medicine researchers understand health.
 
@@ -387,7 +387,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Research Summaries](https://yourselftoscience.org/resource/hra-research-summaries)
+### [NHS Health Research Authority Research Summaries](https://yourselftoscience.org/resource/hra-research-summaries)
 
 *Description:* Plain-language summaries of research studies approved by the NHS Health Research Authority.
 
@@ -399,7 +399,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Cochrane Central Register of Controlled Trials (CENTRAL)](https://yourselftoscience.org/resource/cochrane-central-register-of-controlled-trials)
+### [Cochrane Central Register of Controlled Trials](https://yourselftoscience.org/resource/cochrane-central-register-of-controlled-trials)
 
 *Description:* A highly concentrated source of reports of randomized and quasi-randomized controlled trials from various databases and other sources. Access requires a subscription to the Cochrane Library.
 
@@ -409,7 +409,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Clinical Trials Database](https://yourselftoscience.org/resource/belgian-clinical-trials-database)
+### [FAMHP clinical trials database](https://yourselftoscience.org/resource/belgian-clinical-trials-database)
 
 *Description:* A database of clinical trials approved by the Belgian Federal Agency for Medicines and Health Products (FAMHP). NOTE: This database is no longer available due to changes in the legal framework.
 
@@ -421,7 +421,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [German Clinical Trials Register (DRKS)](https://yourselftoscience.org/resource/german-clinical-trials-register)
+### [German Clinical Trials Register](https://yourselftoscience.org/resource/german-clinical-trials-register)
 
 *Description:* The primary register for clinical trials conducted in Germany, providing public access to study information.
 
@@ -469,7 +469,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Donate Blood for Research](https://yourselftoscience.org/resource/bloodworks-research)
+### [Bloodworks Northwest Donate Blood for Research](https://yourselftoscience.org/resource/bloodworks-research)
 
 *Description:* Bloodworks Northwest’s research program accepts blood donations to support a variety of studies, from developing new treatments to understanding blood-related diseases. This service is available in the Pacific Northwest.
 
@@ -481,7 +481,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Conversational AI Data Donation](https://yourselftoscience.org/resource/conversational-ai-data-donation)
+### [Max Planck Institute for Software Systems conversational AI data donation](https://yourselftoscience.org/resource/conversational-ai-data-donation)
 
 *Description:* Donate your chat history from assistants like ChatGPT, Gemini, and Claude to help researchers understand human-AI interaction patterns.
 
@@ -517,7 +517,7 @@ This project is open source. The content is licensed under CC BY-SA 4.0 and the 
 
 ---
 
-### [Donate Your Cover Letter to Research](https://yourselftoscience.org/resource/eurac-cover-letter-donation)
+### [Eurac Research cover letter donation](https://yourselftoscience.org/resource/eurac-cover-letter-donation)
 
 *Description:* A data donation campaign focused on collecting cover letters for doctoral research to understand the impact of writing styles in a multilingual professional context.
 
@@ -709,55 +709,55 @@ Translating the catalogue natively so science is universally accessible regardle
 - [Altruist Database (Sequencing.com)](https://yourselftoscience.org/resource/altruist-database)
 - [Ancestry Human Diversity Project](https://yourselftoscience.org/resource/ancestry)
 - [Apple Research](https://yourselftoscience.org/resource/apple-research)
-- [Body & Tissues Donation](https://yourselftoscience.org/resource/italy-body-tissue-donation)
-- [Body Donation](https://yourselftoscience.org/resource/ubc-body-donation)
-- [Body Donation; Tissue Donation](https://yourselftoscience.org/resource/cambridge-body-tissue-donation)
-- [Clinical Trial Discovery](https://yourselftoscience.org/resource/esperity-clinical-trials)
-- [Clinical Trials Database](https://yourselftoscience.org/resource/belgian-clinical-trials-database)
+- [Australian Red Cross Lifeblood microbiome donation](https://yourselftoscience.org/resource/lifeblood-microbiome)
+- [Bloodworks Northwest Donate Blood for Research](https://yourselftoscience.org/resource/bloodworks-research)
+- [body and tissue donation in Italy](https://yourselftoscience.org/resource/italy-body-tissue-donation)
+- [body donation in France](https://yourselftoscience.org/resource/france-body-donation)
 - [ClinicalTrials.gov](https://yourselftoscience.org/resource/clinicaltrials-gov)
-- [Cochrane Central Register of Controlled Trials (CENTRAL)](https://yourselftoscience.org/resource/cochrane-central-register-of-controlled-trials)
-- [Conversational AI Data Donation](https://yourselftoscience.org/resource/conversational-ai-data-donation)
+- [Cochrane Central Register of Controlled Trials](https://yourselftoscience.org/resource/cochrane-central-register-of-controlled-trials)
 - [CRC ed i Volontari per la Ricerca Clinica](https://yourselftoscience.org/resource/crc-volontari-ricerca-clinica)
 - [Curewiki](https://yourselftoscience.org/resource/curewiki)
-- [Donate Blood for Research](https://yourselftoscience.org/resource/bloodworks-research)
-- [Donate the Body to Science](https://yourselftoscience.org/resource/france-body-donation)
-- [Donate Your Cover Letter to Research](https://yourselftoscience.org/resource/eurac-cover-letter-donation)
-- [Donate Your Data for Health](https://yourselftoscience.org/resource/penn-medicine-donate-your-data)
-- [Eggs, Sperm and Embryos Donation to Research](https://yourselftoscience.org/resource/uk-gamete-donation)
+- [Esperity Clinical Trial Discovery](https://yourselftoscience.org/resource/esperity-clinical-trials)
 - [EU Clinical Trials Register](https://yourselftoscience.org/resource/eu-clinical-trials-register)
+- [Eurac Research cover letter donation](https://yourselftoscience.org/resource/eurac-cover-letter-donation)
 - [European Clinical Trials Information Network](https://yourselftoscience.org/resource/ectin-poland)
+- [FAMHP clinical trials database](https://yourselftoscience.org/resource/belgian-clinical-trials-database)
 - [FamilyTreeDNA Group Projects](https://yourselftoscience.org/resource/familytreedna-group-projects)
+- [Fitbit Health Research and Product Development](https://yourselftoscience.org/resource/fitbit-research)
 - [FluCamp](https://yourselftoscience.org/resource/flucamp)
+- [gamete and embryo donation in the United Kingdom](https://yourselftoscience.org/resource/uk-gamete-donation)
 - [GEDmatch](https://yourselftoscience.org/resource/gedmatch)
 - [Genes for Good](https://yourselftoscience.org/resource/genes-for-good)
 - [GenomeConnect](https://yourselftoscience.org/resource/genomeconnect)
 - [Genomes.io](https://yourselftoscience.org/resource/genomes-io)
-- [German Clinical Trials Register (DRKS)](https://yourselftoscience.org/resource/german-clinical-trials-register)
+- [German Clinical Trials Register](https://yourselftoscience.org/resource/german-clinical-trials-register)
 - [GIMM Biobank](https://yourselftoscience.org/resource/gimm-biobank)
 - [GoodNature Program](https://yourselftoscience.org/resource/goodnature-program)
 - [Google Health Studies](https://yourselftoscience.org/resource/google-health-studies)
 - [Harvard Personal Genome Project](https://yourselftoscience.org/resource/harvard-pgp)
 - [Health Canada's Clinical Trials Database](https://yourselftoscience.org/resource/health-canada-clinical-trials-database)
-- [Health research and product development](https://yourselftoscience.org/resource/fitbit-research)
 - [HealthStreet](https://yourselftoscience.org/resource/healthstreet)
 - [hEDS & Dysautonomia Study (Sequencing.com)](https://yourselftoscience.org/resource/sequencing)
-- [Human Hair Decomposition](https://yourselftoscience.org/resource/wroclaw-hair-decomposition)
-- [International Clinical Trials Registry Platform (ICTRP)](https://yourselftoscience.org/resource/who-ictrp)
+- [International Clinical Trials Registry Platform](https://yourselftoscience.org/resource/who-ictrp)
 - [Living DNA Global Research Project](https://yourselftoscience.org/resource/living-dna-research)
-- [Microbiome donation](https://yourselftoscience.org/resource/lifeblood-microbiome)
+- [Max Planck Institute for Software Systems conversational AI data donation](https://yourselftoscience.org/resource/conversational-ai-data-donation)
 - [MyHeritage DNA Research Project](https://yourselftoscience.org/resource/myheritage)
 - [MyPHD](https://yourselftoscience.org/resource/myphd)
+- [NHS Health Research Authority Research Summaries](https://yourselftoscience.org/resource/hra-research-summaries)
 - [Open Humans](https://yourselftoscience.org/resource/open-humans)
 - [OrganDonor.gov](https://yourselftoscience.org/resource/organdonor-gov)
-- [Placenta Donation](https://yourselftoscience.org/resource/wesley-placenta-donation)
+- [Penn Medicine Donate Your Data](https://yourselftoscience.org/resource/penn-medicine-donate-your-data)
 - [PURA Biobank](https://yourselftoscience.org/resource/pura-biobank)
-- [Research Summaries](https://yourselftoscience.org/resource/hra-research-summaries)
 - [ResearchMatch](https://yourselftoscience.org/resource/researchmatch)
 - [Rete Cittadini per la Ricerca](https://yourselftoscience.org/resource/rete-cittadini-per-la-ricerca)
 - [SPARK for Autism](https://yourselftoscience.org/resource/spark-for-autism)
-- [Stool Donation](https://yourselftoscience.org/resource/wesley-stool-donation)
 - [tellmeGen Research](https://yourselftoscience.org/resource/tellmegen)
+- [UBC Body Donation Program](https://yourselftoscience.org/resource/ubc-body-donation)
 - [UCSF Archives and Special Collections social media archive](https://yourselftoscience.org/resource/ucsf-social-media-archive)
+- [University of Cambridge body and tissue donation](https://yourselftoscience.org/resource/cambridge-body-tissue-donation)
+- [University of Wrocław human hair decomposition project](https://yourselftoscience.org/resource/wroclaw-hair-decomposition)
+- [Wesley Research Institute placenta donation](https://yourselftoscience.org/resource/wesley-placenta-donation)
+- [Wesley Research Institute stool donation](https://yourselftoscience.org/resource/wesley-stool-donation)
 - [WikiTree](https://yourselftoscience.org/resource/wikitree)
 
 --- END OF Simplified List ---
@@ -938,7 +938,7 @@ This page catalogues resources related to contributing to clinical trials.
 
 ---
 
-### [International Clinical Trials Registry Platform (ICTRP)](https://yourselftoscience.org/resource/who-ictrp)
+### [International Clinical Trials Registry Platform](https://yourselftoscience.org/resource/who-ictrp)
 
 *Description:* A central database managed by the WHO to search for clinical trials from registries around the world.
 
@@ -962,7 +962,7 @@ This page catalogues resources related to contributing to clinical trials.
 
 ---
 
-### [Clinical Trial Discovery](https://yourselftoscience.org/resource/esperity-clinical-trials)
+### [Esperity Clinical Trial Discovery](https://yourselftoscience.org/resource/esperity-clinical-trials)
 
 *Description:* A patient-centric platform for finding and participating in clinical trials.
 
@@ -986,19 +986,19 @@ This page catalogues resources related to contributing to clinical trials.
 
 ---
 
-### [Cochrane Central Register of Controlled Trials (CENTRAL)](https://yourselftoscience.org/resource/cochrane-central-register-of-controlled-trials)
+### [Cochrane Central Register of Controlled Trials](https://yourselftoscience.org/resource/cochrane-central-register-of-controlled-trials)
 
 *Description:* A highly concentrated source of reports of randomized and quasi-randomized controlled trials from various databases and other sources. Access requires a subscription to the Cochrane Library.
 
 ---
 
-### [Clinical Trials Database](https://yourselftoscience.org/resource/belgian-clinical-trials-database)
+### [FAMHP clinical trials database](https://yourselftoscience.org/resource/belgian-clinical-trials-database)
 
 *Description:* A database of clinical trials approved by the Belgian Federal Agency for Medicines and Health Products (FAMHP). NOTE: This database is no longer available due to changes in the legal framework.
 
 ---
 
-### [German Clinical Trials Register (DRKS)](https://yourselftoscience.org/resource/german-clinical-trials-register)
+### [German Clinical Trials Register](https://yourselftoscience.org/resource/german-clinical-trials-register)
 
 *Description:* The primary register for clinical trials conducted in Germany, providing public access to study information.
 
@@ -1034,25 +1034,25 @@ This page catalogues resources related to donating organs, bodies, or tissues fo
 
 ## Organ, Body & Tissue Donation Resources
 
-### [Body Donation](https://yourselftoscience.org/resource/ubc-body-donation)
+### [UBC Body Donation Program](https://yourselftoscience.org/resource/ubc-body-donation)
 
 *Description:* The UBC Body Donation Program accepts donations for anatomical study and medical research.
 
 ---
 
-### [Body Donation; Tissue Donation](https://yourselftoscience.org/resource/cambridge-body-tissue-donation)
+### [University of Cambridge body and tissue donation](https://yourselftoscience.org/resource/cambridge-body-tissue-donation)
 
 *Description:* Information on donating your body to medical science at the University of Cambridge.
 
 ---
 
-### [Body & Tissues Donation](https://yourselftoscience.org/resource/italy-body-tissue-donation)
+### [body and tissue donation in Italy](https://yourselftoscience.org/resource/italy-body-tissue-donation)
 
 *Description:* Official guidelines for donating body and tissues for study, training, and scientific research in Italy.
 
 ---
 
-### [Donate the Body to Science](https://yourselftoscience.org/resource/france-body-donation)
+### [body donation in France](https://yourselftoscience.org/resource/france-body-donation)
 
 *Description:* Official information on body donation for science and medical research in France.
 
@@ -1703,9 +1703,9 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 --- END OF All of Us ---
 
 
---- START OF Health research and product development ---
+--- START OF Fitbit Health Research and Product Development ---
 
-# Health research and product development
+# Fitbit Health Research and Product Development
 
 > Share your Fitbit data to help improve health research and product development.
 
@@ -1735,7 +1735,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 4. Tap Data shared for research and development
 
 
---- END OF Health research and product development ---
+--- END OF Fitbit Health Research and Product Development ---
 
 
 --- START OF SPARK for Autism ---
@@ -1769,9 +1769,9 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 --- END OF SPARK for Autism ---
 
 
---- START OF Body Donation ---
+--- START OF UBC Body Donation Program ---
 
-# Body Donation
+# UBC Body Donation Program
 
 > The UBC Body Donation Program accepts donations for anatomical study and medical research.
 
@@ -1794,12 +1794,12 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 [Contribute Now](https://cps.med.ubc.ca/the-donation-process/)
 
 
---- END OF Body Donation ---
+--- END OF UBC Body Donation Program ---
 
 
---- START OF Body Donation; Tissue Donation ---
+--- START OF University of Cambridge body and tissue donation ---
 
-# Body Donation; Tissue Donation
+# University of Cambridge body and tissue donation
 
 > Information on donating your body to medical science at the University of Cambridge.
 
@@ -1822,12 +1822,12 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 [Contribute Now](https://www.cuh.nhs.uk/our-research/get-involved/donate-body-to-medical-science/)
 
 
---- END OF Body Donation; Tissue Donation ---
+--- END OF University of Cambridge body and tissue donation ---
 
 
---- START OF Body & Tissues Donation ---
+--- START OF body and tissue donation in Italy ---
 
-# Body & Tissues Donation
+# body and tissue donation in Italy
 
 > Official guidelines for donating body and tissues for study, training, and scientific research in Italy.
 
@@ -1850,12 +1850,12 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 [Contribute Now](https://www.salute.gov.it/portale/disposizionepostmortem/dettaglioContenutiDisposizionepostmortem.jsp?lingua=italiano&id=6004&area=postMortem&menu=vuoto)
 
 
---- END OF Body & Tissues Donation ---
+--- END OF body and tissue donation in Italy ---
 
 
---- START OF Donate the Body to Science ---
+--- START OF body donation in France ---
 
-# Donate the Body to Science
+# body donation in France
 
 > Official information on body donation for science and medical research in France.
 
@@ -1878,12 +1878,12 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 [Contribute Now](https://www.service-public.fr/particuliers/vosdroits/F180)
 
 
---- END OF Donate the Body to Science ---
+--- END OF body donation in France ---
 
 
---- START OF Eggs, Sperm and Embryos Donation to Research ---
+--- START OF gamete and embryo donation in the United Kingdom ---
 
-# Eggs, Sperm and Embryos Donation to Research
+# gamete and embryo donation in the United Kingdom
 
 > Information on donating eggs, sperm, and embryos for research in the UK.
 
@@ -1906,7 +1906,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 [Contribute Now](https://www.hfea.gov.uk/donation/donors/donating-to-research/)
 
 
---- END OF Eggs, Sperm and Embryos Donation to Research ---
+--- END OF gamete and embryo donation in the United Kingdom ---
 
 
 --- START OF ClinicalTrials.gov ---
@@ -1940,9 +1940,9 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 --- END OF ClinicalTrials.gov ---
 
 
---- START OF International Clinical Trials Registry Platform (ICTRP) ---
+--- START OF International Clinical Trials Registry Platform ---
 
-# International Clinical Trials Registry Platform (ICTRP)
+# International Clinical Trials Registry Platform
 
 > A central database managed by the WHO to search for clinical trials from registries around the world.
 
@@ -1968,7 +1968,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 
 - [Wikidata Entity](https://www.wikidata.org/wiki/Q29867940)
 
---- END OF International Clinical Trials Registry Platform (ICTRP) ---
+--- END OF International Clinical Trials Registry Platform ---
 
 
 --- START OF EU Clinical Trials Register ---
@@ -2067,9 +2067,9 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 --- END OF Curewiki ---
 
 
---- START OF Clinical Trial Discovery ---
+--- START OF Esperity Clinical Trial Discovery ---
 
-# Clinical Trial Discovery
+# Esperity Clinical Trial Discovery
 
 > A patient-centric platform for finding and participating in clinical trials.
 
@@ -2100,7 +2100,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 - [Calus, L., Van Bruaene, N., Bosteels, C., Dejonckheere, S., Van Zele, T., Holtappels, G., ... & Gevaert, P. (2019). Twelve‐year follow‐up study after endoscopic sinus surgery in patients with chronic rhinosinusitis with nasal polyposis. Clinical and translational allergy, 9(1), 30.](https://doi.org/10.1186/s13601-019-0269-4)
 
 
---- END OF Clinical Trial Discovery ---
+--- END OF Esperity Clinical Trial Discovery ---
 
 
 --- START OF ResearchMatch ---
@@ -2231,9 +2231,9 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 --- END OF GoodNature Program ---
 
 
---- START OF Microbiome donation ---
+--- START OF Australian Red Cross Lifeblood microbiome donation ---
 
-# Microbiome donation
+# Australian Red Cross Lifeblood microbiome donation
 
 > Australian Red Cross Lifeblood's microbiome research program.
 
@@ -2256,12 +2256,12 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 [Contribute Now](https://www.lifeblood.com.au/microbiome)
 
 
---- END OF Microbiome donation ---
+--- END OF Australian Red Cross Lifeblood microbiome donation ---
 
 
---- START OF Stool Donation ---
+--- START OF Wesley Research Institute stool donation ---
 
-# Stool Donation
+# Wesley Research Institute stool donation
 
 > Stool donation program at Wesley Research Institute.
 
@@ -2284,12 +2284,12 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 [Contribute Now](https://www.wesleyresearch.org.au/biobank-project/stool-donation/)
 
 
---- END OF Stool Donation ---
+--- END OF Wesley Research Institute stool donation ---
 
 
---- START OF Placenta Donation ---
+--- START OF Wesley Research Institute placenta donation ---
 
-# Placenta Donation
+# Wesley Research Institute placenta donation
 
 > Placenta donation program at Wesley Research Institute.
 
@@ -2312,12 +2312,12 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 [Contribute Now](https://www.wesleyresearch.org.au/biobank-project/placenta-donation/)
 
 
---- END OF Placenta Donation ---
+--- END OF Wesley Research Institute placenta donation ---
 
 
---- START OF Human Hair Decomposition ---
+--- START OF University of Wrocław human hair decomposition project ---
 
-# Human Hair Decomposition
+# University of Wrocław human hair decomposition project
 
 > Research on human hair decomposition at the University of Wrocław.
 
@@ -2345,7 +2345,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 - [University of Wrocław. (2023, November 9). Donate your hair for science.](https://uwr.edu.pl/en/donate-your-hair-for-science/)
 
 
---- END OF Human Hair Decomposition ---
+--- END OF University of Wrocław human hair decomposition project ---
 
 
 --- START OF UCSF Archives and Special Collections social media archive ---
@@ -2376,9 +2376,9 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 --- END OF UCSF Archives and Special Collections social media archive ---
 
 
---- START OF Donate Your Data for Health ---
+--- START OF Penn Medicine Donate Your Data ---
 
-# Donate Your Data for Health
+# Penn Medicine Donate Your Data
 
 > Share your digital data to help Penn Medicine researchers understand health.
 
@@ -2406,12 +2406,12 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 - [Grande D, Mitra N, Marti XL, et al. Consumer Views on Using Digital Data for COVID-19 Control in the United States. JAMA Netw Open. 2021;4(5):e2110918](https://doi.org/10.1001/jamanetworkopen.2021.10918)
 
 
---- END OF Donate Your Data for Health ---
+--- END OF Penn Medicine Donate Your Data ---
 
 
---- START OF Research Summaries ---
+--- START OF NHS Health Research Authority Research Summaries ---
 
-# Research Summaries
+# NHS Health Research Authority Research Summaries
 
 > Plain-language summaries of research studies approved by the NHS Health Research Authority.
 
@@ -2434,12 +2434,12 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 [Contribute Now](https://www.hra.nhs.uk/planning-and-improving-research/application-summaries/research-summaries/)
 
 
---- END OF Research Summaries ---
+--- END OF NHS Health Research Authority Research Summaries ---
 
 
---- START OF Cochrane Central Register of Controlled Trials (CENTRAL) ---
+--- START OF Cochrane Central Register of Controlled Trials ---
 
-# Cochrane Central Register of Controlled Trials (CENTRAL)
+# Cochrane Central Register of Controlled Trials
 
 > A highly concentrated source of reports of randomized and quasi-randomized controlled trials from various databases and other sources. Access requires a subscription to the Cochrane Library.
 
@@ -2462,12 +2462,12 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 [Contribute Now](https://www.cochranelibrary.com/central)
 
 
---- END OF Cochrane Central Register of Controlled Trials (CENTRAL) ---
+--- END OF Cochrane Central Register of Controlled Trials ---
 
 
---- START OF Clinical Trials Database ---
+--- START OF FAMHP clinical trials database ---
 
-# Clinical Trials Database
+# FAMHP clinical trials database
 
 > A database of clinical trials approved by the Belgian Federal Agency for Medicines and Health Products (FAMHP). NOTE: This database is no longer available due to changes in the legal framework.
 
@@ -2494,12 +2494,12 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 - [Krumb, E., Lambert, C., & Hermans, C. (2021). Patient selection for hemophilia gene therapy: Real-life data from a single center. Research and practice in thrombosis and haemostasis, 5(3), 390-394.](https://doi.org/10.1002/rth2.12494)
 
 
---- END OF Clinical Trials Database ---
+--- END OF FAMHP clinical trials database ---
 
 
---- START OF German Clinical Trials Register (DRKS) ---
+--- START OF German Clinical Trials Register ---
 
-# German Clinical Trials Register (DRKS)
+# German Clinical Trials Register
 
 > The primary register for clinical trials conducted in Germany, providing public access to study information.
 
@@ -2525,7 +2525,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 
 - [Wikidata Entity](https://www.wikidata.org/wiki/Q96199255)
 
---- END OF German Clinical Trials Register (DRKS) ---
+--- END OF German Clinical Trials Register ---
 
 
 --- START OF Health Canada's Clinical Trials Database ---
@@ -2615,9 +2615,9 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 --- END OF OrganDonor.gov ---
 
 
---- START OF Donate Blood for Research ---
+--- START OF Bloodworks Northwest Donate Blood for Research ---
 
-# Donate Blood for Research
+# Bloodworks Northwest Donate Blood for Research
 
 > Bloodworks Northwest’s research program accepts blood donations to support a variety of studies, from developing new treatments to understanding blood-related diseases. This service is available in the Pacific Northwest.
 
@@ -2644,12 +2644,12 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 - [Miller, M. J., Skrzekut, A., Kracalik, I., Jones, J. M., Lofy, K. H., Konkle, B. A., ... & Paranjape, S. (2021). How do I… facilitate a rapid response to a public health emergency requiring plasma collection with a public–private partnership?. Transfusion, 61(10), 2814-2824.](https://doi.org/10.1111/trf.16630)
 
 
---- END OF Donate Blood for Research ---
+--- END OF Bloodworks Northwest Donate Blood for Research ---
 
 
---- START OF Conversational AI Data Donation ---
+--- START OF Max Planck Institute for Software Systems conversational AI data donation ---
 
-# Conversational AI Data Donation
+# Max Planck Institute for Software Systems conversational AI data donation
 
 > Donate your chat history from assistants like ChatGPT, Gemini, and Claude to help researchers understand human-AI interaction patterns.
 
@@ -2672,7 +2672,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 [Contribute Now](https://social-media-data-donator.mpi-sws.org/)
 
 
---- END OF Conversational AI Data Donation ---
+--- END OF Max Planck Institute for Software Systems conversational AI data donation ---
 
 
 --- START OF CRC ed i Volontari per la Ricerca Clinica ---
@@ -2731,9 +2731,9 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 --- END OF Rete Cittadini per la Ricerca ---
 
 
---- START OF Donate Your Cover Letter to Research ---
+--- START OF Eurac Research cover letter donation ---
 
-# Donate Your Cover Letter to Research
+# Eurac Research cover letter donation
 
 > A data donation campaign focused on collecting cover letters for doctoral research to understand the impact of writing styles in a multilingual professional context.
 
@@ -2756,7 +2756,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 [Contribute Now](https://www.eurac.edu/en/blogs/connecting-the-dots/data-donations-why-should-i-donate-my-cover-letter-to-research)
 
 
---- END OF Donate Your Cover Letter to Research ---
+--- END OF Eurac Research cover letter donation ---
 
 
 --- START OF PURA Biobank ---

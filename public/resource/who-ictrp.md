@@ -1,4 +1,4 @@
-# International Clinical Trials Registry Platform (ICTRP)
+# International Clinical Trials Registry Platform
 
 > A central database managed by the WHO to search for clinical trials from registries around the world.
 

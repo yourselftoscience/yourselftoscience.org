@@ -1,4 +1,4 @@
-# Donate Your Cover Letter to Research
+# Eurac Research cover letter donation
 
 > A data donation campaign focused on collecting cover letters for doctoral research to understand the impact of writing styles in a multilingual professional context.
 

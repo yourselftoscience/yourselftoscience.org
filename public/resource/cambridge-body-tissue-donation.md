@@ -1,4 +1,4 @@
-# Body Donation; Tissue Donation
+# University of Cambridge body and tissue donation
 
 > Information on donating your body to medical science at the University of Cambridge.
 

@@ -1,4 +1,4 @@
-# Conversational AI Data Donation
+# Max Planck Institute for Software Systems conversational AI data donation
 
 > Donate your chat history from assistants like ChatGPT, Gemini, and Claude to help researchers understand human-AI interaction patterns.
 

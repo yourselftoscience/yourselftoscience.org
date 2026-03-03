@@ -1,4 +1,4 @@
-# Stool Donation
+# Wesley Research Institute stool donation
 
 > Stool donation program at Wesley Research Institute.
 

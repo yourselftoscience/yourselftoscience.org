@@ -1,4 +1,4 @@
-# Research Summaries
+# NHS Health Research Authority Research Summaries
 
 > Plain-language summaries of research studies approved by the NHS Health Research Authority.
 

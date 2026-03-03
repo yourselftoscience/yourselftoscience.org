@@ -1840,7 +1840,9 @@ const dataTypeToMacroCategory = {
 };
 
 
-export const resources = rawResources.map(r => {
+import enrichedResources from '../../public/resources_wikidata.json' with { type: 'json' };
+
+export const resources = enrichedResources.map(r => {
   const macroCategories = Array.from(new Set(
     (r.dataTypes || []).map(type => dataTypeToMacroCategory[type]).filter(Boolean)
   )).sort();

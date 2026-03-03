@@ -1,4 +1,4 @@
-# Donate the Body to Science
+# body donation in France
 
 > Official information on body donation for science and medical research in France.
 

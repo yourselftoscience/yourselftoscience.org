@@ -10,7 +10,7 @@ This page catalogues resources related to contributing to clinical trials.
 
 ---
 
-### [International Clinical Trials Registry Platform (ICTRP)](https://yourselftoscience.org/resource/who-ictrp)
+### [International Clinical Trials Registry Platform](https://yourselftoscience.org/resource/who-ictrp)
 
 *Description:* A central database managed by the WHO to search for clinical trials from registries around the world.
 
@@ -34,7 +34,7 @@ This page catalogues resources related to contributing to clinical trials.
 
 ---
 
-### [Clinical Trial Discovery](https://yourselftoscience.org/resource/esperity-clinical-trials)
+### [Esperity Clinical Trial Discovery](https://yourselftoscience.org/resource/esperity-clinical-trials)
 
 *Description:* A patient-centric platform for finding and participating in clinical trials.
 
@@ -58,19 +58,19 @@ This page catalogues resources related to contributing to clinical trials.
 
 ---
 
-### [Cochrane Central Register of Controlled Trials (CENTRAL)](https://yourselftoscience.org/resource/cochrane-central-register-of-controlled-trials)
+### [Cochrane Central Register of Controlled Trials](https://yourselftoscience.org/resource/cochrane-central-register-of-controlled-trials)
 
 *Description:* A highly concentrated source of reports of randomized and quasi-randomized controlled trials from various databases and other sources. Access requires a subscription to the Cochrane Library.
 
 ---
 
-### [Clinical Trials Database](https://yourselftoscience.org/resource/belgian-clinical-trials-database)
+### [FAMHP clinical trials database](https://yourselftoscience.org/resource/belgian-clinical-trials-database)
 
 *Description:* A database of clinical trials approved by the Belgian Federal Agency for Medicines and Health Products (FAMHP). NOTE: This database is no longer available due to changes in the legal framework.
 
 ---
 
-### [German Clinical Trials Register (DRKS)](https://yourselftoscience.org/resource/german-clinical-trials-register)
+### [German Clinical Trials Register](https://yourselftoscience.org/resource/german-clinical-trials-register)
 
 *Description:* The primary register for clinical trials conducted in Germany, providing public access to study information.
 

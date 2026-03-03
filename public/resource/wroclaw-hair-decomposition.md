@@ -1,4 +1,4 @@
-# Human Hair Decomposition
+# University of Wrocław human hair decomposition project
 
 > Research on human hair decomposition at the University of Wrocław.
 

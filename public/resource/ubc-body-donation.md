@@ -1,4 +1,4 @@
-# Body Donation
+# UBC Body Donation Program
 
 > The UBC Body Donation Program accepts donations for anatomical study and medical research.
 
