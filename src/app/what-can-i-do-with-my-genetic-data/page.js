@@ -52,15 +52,25 @@ const BASED_IN_OPTIONS = [
 
 // Extract countries dynamically from ONLY genetic resources so we don't pollute the
 // dropdown with countries that only have organ/tissue donation programs.
-const countrySet = new Set();
-const excludedAcronyms = ['EU', 'EEA', 'UK', 'European Union', 'European Economic Area'];
-geneticResourcesList.forEach(r => {
-    if (r.countries) r.countries.forEach(c => { if (c !== 'Worldwide') countrySet.add(c); });
-    if (r.excludedCountries) {
-        r.excludedCountries.forEach(c => {
-            if (!excludedAcronyms.includes(c)) countrySet.add(c);
-        });
+const expandCountrySet = (c, set) => {
+    if (c === 'European Union' || c === 'EU' || c === 'EEA' || c === 'European Economic Area') {
+        EU_COUNTRIES.forEach(eu => set.add(eu));
+        if (c === 'EEA' || c === 'European Economic Area') {
+            set.add('Iceland');
+            set.add('Liechtenstein');
+            set.add('Norway');
+        }
+    } else if (c === 'UK') {
+        set.add('United Kingdom');
+    } else if (c !== 'Worldwide') {
+        set.add(c);
     }
+};
+
+const countrySet = new Set();
+geneticResourcesList.forEach(r => {
+    if (r.countries) r.countries.forEach(c => expandCountrySet(c, countrySet));
+    if (r.excludedCountries) r.excludedCountries.forEach(c => expandCountrySet(c, countrySet));
 });
 const ALL_COUNTRIES_SORTED = Array.from(countrySet).sort();
 
