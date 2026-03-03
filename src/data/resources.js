@@ -73,7 +73,7 @@ const rawResources = [
     "organizations": [
       {
         "name": "Open Humans Foundation",
-        "wikidataId": "Q59696822"
+        "wikidataId": "Q138545776"
       }
     ],
 

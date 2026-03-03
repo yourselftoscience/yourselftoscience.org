@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 3/2/2026, 3:42:49 PM
+**Generated on:** 3/3/2026, 10:30:54 AM
 
 ## Project-Organizer Relationships
 
@@ -88,7 +88,7 @@
 - **NHS Health Research Authority Research Summaries**: ❌
   - NHS Health Research Authority: [Q16937226](https://www.wikidata.org/wiki/Q16937226)
 - **Open Humans**: [Q59696822](https://www.wikidata.org/wiki/Q59696822)
-  - Open Humans Foundation: [Q59696822](https://www.wikidata.org/wiki/Q59696822)
+  - Open Humans Foundation: [Q138545776](https://www.wikidata.org/wiki/Q138545776)
 - **OrganDonor.gov**: [Q138520869](https://www.wikidata.org/wiki/Q138520869)
   - U.S. Department of Health & Human Services: [Q942326](https://www.wikidata.org/wiki/Q942326)
 - **Penn Medicine Donate Your Data**: ❌
@@ -218,7 +218,7 @@
 - **NHS Health Research Authority**: [Q16937226](https://www.wikidata.org/wiki/Q16937226)
 - **National Institutes of Health (NIH)**: [Q390551](https://www.wikidata.org/wiki/Q390551)
 - **Nestlé Health Science U.S.**: [Q45132270](https://www.wikidata.org/wiki/Q45132270)
-- **Open Humans Foundation**: [Q59696822](https://www.wikidata.org/wiki/Q59696822)
+- **Open Humans Foundation**: [Q138545776](https://www.wikidata.org/wiki/Q138545776)
 - **Penn Medicine**: [Q7896080](https://www.wikidata.org/wiki/Q7896080)
 - **San Camillo IRCCS**: ❌
 - **Sequencing.com**: ❌

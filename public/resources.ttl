@@ -44,7 +44,7 @@ yts:compensationWikidataId a rdfs:Property ;
   rdfs:label "Open Humans" ;
   schema:description "A platform for participant-centered research and personal data exploration." ;
   schema:sameAs wd:Q59696822 ;
-  schema:creator [ a schema:Organization; rdfs:label "Open Humans Foundation" ; schema:sameAs wd:Q59696822 ; schema:additionalType wd:Q163740 ; schema:additionalType wd:Q119852396 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
+  schema:creator [ a schema:Organization; rdfs:label "Open Humans Foundation" ; schema:sameAs wd:Q138545776 ; schema:additionalType wd:Q163740 ; schema:additionalType wd:Q119852396 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
   schema:url <https://www.openhumans.org/add-data/> ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ; schema:sameAs wd:Q7020 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Health data" ; schema:sameAs wd:Q18745135 ] ;
