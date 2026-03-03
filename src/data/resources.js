@@ -1755,8 +1755,8 @@ const rawResources = [
     "title": "WikiTree",
     "organizations": [
       {
-        "name": "WikiTree",
-        "wikidataId": "Q1074931"
+        "name": "The WikiTree Company",
+        "wikidataId": "Q138545843"
       }
     ],
     "link": "https://www.wikitree.com/wiki/Special:DNATests",

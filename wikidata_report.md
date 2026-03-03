@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 3/3/2026, 10:30:54 AM
+**Generated on:** 3/3/2026, 10:37:23 AM
 
 ## Project-Organizer Relationships
 
@@ -117,7 +117,7 @@
 - **Wesley Research Institute stool donation**: ❌
   - Wesley Research Institute: [Q30289631](https://www.wikidata.org/wiki/Q30289631)
 - **WikiTree**: [Q1074931](https://www.wikidata.org/wiki/Q1074931)
-  - WikiTree: [Q1074931](https://www.wikidata.org/wiki/Q1074931)
+  - The WikiTree Company: [Q138545843](https://www.wikidata.org/wiki/Q138545843)
 
 ## Resources (Projects)
 
@@ -225,6 +225,7 @@
 - **Service-Public.fr**: [Q3480047](https://www.wikidata.org/wiki/Q3480047)
 - **Simons Foundation**: [Q28148561](https://www.wikidata.org/wiki/Q28148561)
 - **Stanford University**: [Q41506](https://www.wikidata.org/wiki/Q41506)
+- **The WikiTree Company**: [Q138545843](https://www.wikidata.org/wiki/Q138545843)
 - **U.S. Department of Health & Human Services**: [Q942326](https://www.wikidata.org/wiki/Q942326)
 - **UCSF Library Archives**: [Q25004607](https://www.wikidata.org/wiki/Q25004607)
 - **United States National Library of Medicine (NLM)**: [Q611833](https://www.wikidata.org/wiki/Q611833)
@@ -233,7 +234,6 @@
 - **Vanderbilt University Medical Center**: [Q7914455](https://www.wikidata.org/wiki/Q7914455)
 - **Verogen Inc.**: [Q138520595](https://www.wikidata.org/wiki/Q138520595)
 - **Wesley Research Institute**: [Q30289631](https://www.wikidata.org/wiki/Q30289631)
-- **WikiTree**: [Q1074931](https://www.wikidata.org/wiki/Q1074931)
 - **World Health Organization (WHO)**: [Q7817](https://www.wikidata.org/wiki/Q7817)
 - **hVIVO**: [Q30268998](https://www.wikidata.org/wiki/Q30268998)
 

@@ -2,7 +2,7 @@
 
 > A collaborative genealogy platform that allows users to add their DNA test information (like GEDmatch ID or usernames, rather than raw data files) to their profiles to help confirm relationships and find genetic cousins.
 
-**Organizations:** WikiTree
+**Organizations:** The WikiTree Company
 
 **Persistent ID:** https://yourselftoscience.org/resource/5a99f8d8-f020-4d3a-9a61-ca8f7547ad1d
 **Canonical URL:** https://yourselftoscience.org/resource/wikitree
