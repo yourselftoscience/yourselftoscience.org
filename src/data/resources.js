@@ -1343,10 +1343,11 @@ export const rawResources = [
     "id": "65969d60-e52a-40fd-86b5-3f3fabfad774",
     "slug": "rete-cittadini-per-la-ricerca",
     "title": "Rete Cittadini per la Ricerca",
+    "wikidataId": "Q138589661",
     "organizations": [
       {
         "name": "San Camillo IRCCS",
-        "wikidataId": null
+        "wikidataId": "Q138589652"
       }
     ],
     "link": "https://hsancamillo.it/rete-cittadini-per-la-ricerca/",

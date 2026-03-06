@@ -641,7 +641,7 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:sameAs <https://yourselftoscience.org/resource/rete-cittadini-per-la-ricerca> ;
   rdfs:label "Rete Cittadini per la Ricerca" ;
   schema:description "A network for citizens to participate in scientific research at San Camillo IRCCS, contributing to medical progress and new therapies." ;
-  schema:creator [ a schema:Organization; rdfs:label "San Camillo IRCCS" ; schema:additionalType wd:Q163740 ; schema:additionalType wd:Q16917 ; schema:location [ a schema:Place; rdfs:label "Italy" ; schema:addressCountry "IT" ; schema:sameAs wd:Q38 ] ] ;
+  schema:creator [ a schema:Organization; rdfs:label "San Camillo IRCCS" ; schema:sameAs wd:Q138589652 ; schema:additionalType wd:Q163740 ; schema:additionalType wd:Q16917 ; schema:location [ a schema:Place; rdfs:label "Italy" ; schema:addressCountry "IT" ; schema:sameAs wd:Q38 ] ] ;
   schema:url <https://hsancamillo.it/rete-cittadini-per-la-ricerca/> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Italy" ; schema:sameAs wd:Q38 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Clinical trials" ; schema:sameAs wd:Q30612 ] ;

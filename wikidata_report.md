@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 3/3/2026, 3:48:09 PM
+**Generated on:** 3/6/2026, 11:14:36 PM
 
 ## Project-Organizer Relationships
 
@@ -97,8 +97,8 @@
   - Helmholtz Munich: [Q878592](https://www.wikidata.org/wiki/Q878592)
 - **ResearchMatch**: [Q138520376](https://www.wikidata.org/wiki/Q138520376)
   - Vanderbilt University Medical Center: [Q7914455](https://www.wikidata.org/wiki/Q7914455)
-- **Rete Cittadini per la Ricerca**: ❌
-  - San Camillo IRCCS: No Wikidata ID
+- **Rete Cittadini per la Ricerca**: [Q138589661](https://www.wikidata.org/wiki/Q138589661)
+  - San Camillo IRCCS: [Q138589652](https://www.wikidata.org/wiki/Q138589652)
 - **SPARK for Autism**: [Q138518848](https://www.wikidata.org/wiki/Q138518848)
   - Simons Foundation: [Q28148561](https://www.wikidata.org/wiki/Q28148561)
 - **tellmeGen Research**: ❌
@@ -163,7 +163,7 @@
 - **PURA Biobank**: [Q138520864](https://www.wikidata.org/wiki/Q138520864)
 - **Penn Medicine Donate Your Data**: ❌
 - **ResearchMatch**: [Q138520376](https://www.wikidata.org/wiki/Q138520376)
-- **Rete Cittadini per la Ricerca**: ❌
+- **Rete Cittadini per la Ricerca**: [Q138589661](https://www.wikidata.org/wiki/Q138589661)
 - **SPARK for Autism**: [Q138518848](https://www.wikidata.org/wiki/Q138518848)
 - **UBC Body Donation Program**: ❌
 - **UCSF Archives and Special Collections social media archive**: ❌
@@ -220,7 +220,7 @@
 - **Nestlé Health Science U.S.**: [Q45132270](https://www.wikidata.org/wiki/Q45132270)
 - **Open Humans Foundation**: [Q138545776](https://www.wikidata.org/wiki/Q138545776)
 - **Penn Medicine**: [Q7896080](https://www.wikidata.org/wiki/Q7896080)
-- **San Camillo IRCCS**: ❌
+- **San Camillo IRCCS**: [Q138589652](https://www.wikidata.org/wiki/Q138589652)
 - **Sequencing.com**: ❌
 - **Service-Public.fr**: [Q3480047](https://www.wikidata.org/wiki/Q3480047)
 - **Simons Foundation**: [Q28148561](https://www.wikidata.org/wiki/Q28148561)
