@@ -729,7 +729,7 @@ function HomePageContent({ scrollY }) {
                 duration: 0.2,
                 ease: 'circOut',
               }}
-              className={`group relative border backdrop-blur-3xl z-40 mb-4
+              className={`group relative border backdrop-blur-3xl z-[45] mb-4
               ${openFilterPanel ? 'overflow-visible' : 'overflow-hidden'}
               ${isStickyFilterBar
                   ? 'bg-white/95 border-slate-200/75 sticky top-[80px] md:max-w-4xl w-full mx-auto'
