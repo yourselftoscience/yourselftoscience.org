@@ -1,6 +1,5 @@
 import { Suspense } from 'react';
 import GetInvolvedClientPage from './GetInvolvedClientPage';
-import NewsletterSignup from '../../components/NewsletterSignup';
 
 export const metadata = {
   title: 'Get Involved | Yourself to Science',
@@ -11,9 +10,6 @@ export default function GetInvolvedPage() {
   return (
     <Suspense>
       <GetInvolvedClientPage />
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 flex justify-center">
-        <NewsletterSignup />
-      </div>
     </Suspense>
   );
 } 
