@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { resources } from '../src/data/resources.js';
+import { enrichedResourcesWithMacro as resources } from '../src/data/resources.js';
 import { dataTypesOntology } from '../src/data/ontology.js';
 import { EU_COUNTRIES } from '../src/data/constants.js';
 

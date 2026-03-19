@@ -96,6 +96,9 @@ async function enrichResources() {
     let existingEntry = existingMap.get(resource.id) || existingMap.get(resource.slug);
     let enrichedResource = { ...resource };
 
+    // Preserve the original title from resources.js as displayTitle for user-facing pages (homepage).
+    // The wikidataLabel overwrites title for use in generated .md files, datasets, and exports.
+    enrichedResource.displayTitle = resource.title;
     if (enrichedResource.wikidataLabel) {
       enrichedResource.title = enrichedResource.wikidataLabel;
     }

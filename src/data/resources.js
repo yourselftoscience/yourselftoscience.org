@@ -1844,7 +1844,8 @@ const dataTypeToMacroCategory = {
 
 import enrichedResources from '../../public/resources_wikidata.json' with { type: 'json' };
 
-export const resources = enrichedResources.map(r => {
+// Resources with descriptive Wikidata titles — used by generation scripts (.md, .csv, .ttl, etc.)
+export const enrichedResourcesWithMacro = enrichedResources.map(r => {
   const macroCategories = Array.from(new Set(
     (r.dataTypes || []).map(type => dataTypeToMacroCategory[type]).filter(Boolean)
   )).sort();
@@ -1854,6 +1855,13 @@ export const resources = enrichedResources.map(r => {
     macroCategories,
   };
 });
+
+// Resources with simpler display titles — used by user-facing pages (homepage, cards, etc.)
+export const resources = enrichedResourcesWithMacro.map(r => ({
+  ...r,
+  // Use the original simpler title (displayTitle) for user-facing pages like the homepage.
+  title: r.displayTitle || r.title,
+}));
 
 // Helper to generate a consistent key for a citation
 function getCitationKey(citation) {
