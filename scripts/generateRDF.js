@@ -18,6 +18,13 @@ try {
     idToSlug = JSON.parse(readFileSync(idToSlugPath, 'utf8'));
   }
 
+  const statsPath = join(process.cwd(), 'src/data/wikidataStats.json');
+  let citedQIDs = new Set();
+  try {
+    const stats = JSON.parse(readFileSync(statsPath, 'utf8'));
+    citedQIDs = new Set(stats.items ? stats.items.map(i => i.id) : []);
+  } catch(e) {}
+
   let ttlContent = `@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <http://schema.org/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
@@ -49,6 +56,9 @@ yts:compensationWikidataId a rdfs:Property ;
 
     if (resource.resourceWikidataId) {
       ttlContent += `  schema:sameAs wd:${resource.resourceWikidataId} ;\n`;
+      if (citedQIDs.has(resource.resourceWikidataId)) {
+        ttlContent += `  schema:isReferencedBy wd:${resource.resourceWikidataId} ;\n`;
+      }
     }
 
     if (resource.organizations && resource.organizations.length > 0) {

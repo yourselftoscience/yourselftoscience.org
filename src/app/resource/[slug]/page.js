@@ -3,8 +3,9 @@ import resources from '@/../public/resources_wikidata.json';
 import { redirect, permanentRedirect } from 'next/navigation';
 import Link from 'next/link';
 import { permanentDoi } from '@/data/config';
-import { FaExternalLinkAlt, FaHeart, FaDollarSign, FaQuestionCircle, FaUniversity, FaBuilding, FaFlask, FaLandmark, FaInfoCircle, FaLaptop, FaMobileAlt, FaCog, FaShareAlt, FaMapMarkerAlt, FaGlobe, FaTag, FaClipboardList, FaUserCheck, FaUserFriends, FaCoins, FaListOl, FaUserShield, FaArrowRight, FaBox, FaBook, FaDatabase, FaCodeBranch } from 'react-icons/fa';
+import { FaCheckCircle, FaExternalLinkAlt, FaHeart, FaDollarSign, FaQuestionCircle, FaUniversity, FaBuilding, FaFlask, FaLandmark, FaInfoCircle, FaLaptop, FaMobileAlt, FaCog, FaShareAlt, FaMapMarkerAlt, FaGlobe, FaTag, FaClipboardList, FaUserCheck, FaUserFriends, FaCoins, FaListOl, FaUserShield, FaArrowRight, FaBox, FaBook, FaDatabase, FaCodeBranch } from 'react-icons/fa';
 import CopyButton from '@/components/CopyButton';
+import wikidataStats from '@/data/wikidataStats.json';
 
 export async function generateStaticParams() {
   const slugs = resources.map((resource) => ({
@@ -110,6 +111,8 @@ export default function ResourcePage({ params }) {
     'isAccessibleForFree': true,
     ...(resource.resourceWikidataId && { 'sameAs': `https://www.wikidata.org/wiki/${resource.resourceWikidataId}` })
   };
+
+  const isCitedOnWikidata = resource.resourceWikidataId && wikidataStats.items?.some(i => i.id === resource.resourceWikidataId);
 
   const getCompensationIcon = (type) => {
     if (type === 'donation') return <span className="text-red-500 mr-2">❤️</span>;
@@ -340,6 +343,12 @@ export default function ResourcePage({ params }) {
                   <a href={`/resources.json`} target="_blank" rel="noopener noreferrer" className="flex items-center text-blue-600 hover:text-blue-800 hover:underline text-sm font-medium">
                     <FaDatabase className="mr-2" /> Download resources.json
                   </a>
+                  {isCitedOnWikidata && (
+                    <div className="flex items-start text-sm font-medium text-green-700 mt-4 py-2 px-3 bg-green-50 border border-green-200 rounded-md">
+                      <FaCheckCircle className="mr-2 mt-0.5 flex-shrink-0" />
+                      <span>This exact resource leverages Yourself to Science as a <a href="https://www.wikidata.org/wiki/Property:P854" className="underline hover:text-green-900" target="_blank" rel="noopener noreferrer">verifiable reference URL</a> on Wikidata.</span>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

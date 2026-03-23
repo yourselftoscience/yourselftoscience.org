@@ -1,9 +1,10 @@
 import { dataTypesOntology, getDataTypeBySlugOrId } from '@/data/ontology';
 import { resources } from '@/data/resources';
 import { notFound, redirect } from 'next/navigation';
-import { FaDatabase, FaArrowLeft, FaExternalLinkAlt, FaBuilding, FaTag } from 'react-icons/fa';
+import { FaDatabase, FaArrowLeft, FaExternalLinkAlt, FaBuilding, FaTag, FaCheckCircle } from 'react-icons/fa';
 import Link from 'next/link';
 import CopyButton from '@/components/CopyButton';
+import wikidataStats from '@/data/wikidataStats.json';
 
 // 1. Generate Static Params for all Slugs AND UUIDs
 export async function generateStaticParams() {
@@ -44,6 +45,10 @@ export default function DataTypeNodePage({ params }) {
     const associatedResources = resources.filter(
         (resource) => resource.dataTypes && resource.dataTypes.includes(dataType.title)
     );
+
+    // Check if this data type is cited on Wikidata
+    const citedQIDs = new Set(wikidataStats?.items?.map(i => i.id) || []);
+    const isCitedOnWikidata = dataType.wikidataId ? citedQIDs.has(dataType.wikidataId) : false;
 
     // Generate the JSON-LD payload for the Semantic Web
     // This explicitly tells Wikidata that this page defines a Class/Term
@@ -92,6 +97,19 @@ export default function DataTypeNodePage({ params }) {
                     <p className="text-xl text-gray-700 leading-relaxed mb-8">
                         {dataType.description}
                     </p>
+
+                    {/* Wikidata Integration Banner */}
+                    {isCitedOnWikidata && (
+                        <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-8 flex items-start gap-3 shadow-sm">
+                            <FaCheckCircle className="text-green-500 text-xl flex-shrink-0 mt-0.5" />
+                            <div>
+                                <h4 className="text-green-800 font-bold mb-1">Globally Referenced Open Data</h4>
+                                <p className="text-green-700 text-sm">
+                                    This semantic data type actively leverages Yourself to Science as a <a href={`https://www.wikidata.org/wiki/${dataType.wikidataId}`} target="_blank" rel="noopener noreferrer" className="underline font-semibold hover:text-green-900 transition-colors">verifiable reference URL</a> on Wikidata.
+                                </p>
+                            </div>
+                        </div>
+                    )}
 
                     <div className="space-y-4 pt-6 border-t border-gray-100">
                         <div>

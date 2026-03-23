@@ -6,6 +6,7 @@
 
 **Persistent ID:** https://yourselftoscience.org/resource/5a99f8d8-f020-4d3a-9a61-ca8f7547ad1d
 **Canonical URL:** https://yourselftoscience.org/resource/wikitree
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q1074931)
 
 ## Details
 

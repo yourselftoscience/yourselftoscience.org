@@ -6,6 +6,7 @@
 
 **Persistent ID:** https://yourselftoscience.org/resource/e9b2a7d1-5c1a-4d2c-8bf5-f9aee315ebd0
 **Canonical URL:** https://yourselftoscience.org/resource/harvard-pgp
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q138521490)
 
 ## Details
 

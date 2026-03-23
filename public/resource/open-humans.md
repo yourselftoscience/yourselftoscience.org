@@ -6,6 +6,7 @@
 
 **Persistent ID:** https://yourselftoscience.org/resource/667f25be-9ff2-4e7a-9119-78f2eb61a801
 **Canonical URL:** https://yourselftoscience.org/resource/open-humans
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q59696822)
 
 ## Details
 

@@ -6,6 +6,7 @@
 
 **Persistent ID:** https://yourselftoscience.org/resource/8d828bb1-8f1c-40c6-a0b4-61de7da7c116
 **Canonical URL:** https://yourselftoscience.org/resource/flucamp
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q138521080)
 
 ## Details
 

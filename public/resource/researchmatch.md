@@ -6,6 +6,7 @@
 
 **Persistent ID:** https://yourselftoscience.org/resource/aef3da52-dda0-4b1c-93cd-dce266178e9e
 **Canonical URL:** https://yourselftoscience.org/resource/researchmatch
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q138520376)
 
 ## Details
 

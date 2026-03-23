@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion, animate, useInView } from 'framer-motion';
 import { resources } from '@/data/resources';
+import wikidataStats from '@/data/wikidataStats.json';
 import { FaHeart, FaGlobe, FaHandshake, FaChartLine, FaGithub, FaBolt, FaUsers, FaSearch, FaShieldAlt, FaCheckCircle, FaStethoscope, FaUniversity, FaRocket, FaUniversalAccess, FaRobot, FaArrowRight, FaMapMarkerAlt, FaDatabase, FaMoneyBillWave, FaProjectDiagram } from 'react-icons/fa';
 
 export default function MissionPage() {
@@ -244,7 +245,7 @@ export default function MissionPage() {
                 </li>
                 <li className="flex items-start gap-3 text-apple-secondary-text">
                   <FaCheckCircle className="mt-1 text-green-500 flex-shrink-0" />
-                  <span><strong>Wikidata Aligned:</strong> Each resource is mapped to Wikidata QIDs, making the dataset interoperable with the global knowledge graph.</span>
+                  <span><strong>Enriching Open Knowledge:</strong> We are actively integrating our public domain dataset into Wikidata. By serving as a verifiable reference source (currently cited on <strong>{wikidataStats.referencedItemsCount || 0} unique items</strong>), we help ensure the global knowledge graph—and the AI systems trained on it—has accurate, structured information on scientific participation.</span>
                 </li>
               </ul>
 

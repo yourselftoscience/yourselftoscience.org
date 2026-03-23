@@ -1843,6 +1843,9 @@ const dataTypeToMacroCategory = {
 
 
 import enrichedResources from '../../public/resources_wikidata.json' with { type: 'json' };
+import wikidataStats from './wikidataStats.json' with { type: 'json' };
+
+const citedQIDs = new Set(wikidataStats.items ? wikidataStats.items.map(item => item.id) : []);
 
 // Resources with descriptive Wikidata titles — used by generation scripts (.md, .csv, .ttl, etc.)
 export const enrichedResourcesWithMacro = enrichedResources.map(r => {
@@ -1850,9 +1853,12 @@ export const enrichedResourcesWithMacro = enrichedResources.map(r => {
     (r.dataTypes || []).map(type => dataTypeToMacroCategory[type]).filter(Boolean)
   )).sort();
 
+  const isCitedOnWikidata = r.resourceWikidataId ? citedQIDs.has(r.resourceWikidataId) : false;
+
   return {
     ...r,
     macroCategories,
+    isCitedOnWikidata,
   };
 });
 

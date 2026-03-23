@@ -4,13 +4,22 @@ import { join } from 'path';
 const jsonPath = join(process.cwd(), 'public/resources_wikidata.json');
 const outputPath = join(process.cwd(), 'public/resources.csv');
 
+const statsPath = join(process.cwd(), 'src/data/wikidataStats.json');
+
 try {
   const wikidataResources = JSON.parse(readFileSync(jsonPath, 'utf8'));
+
+  let citedQIDs = new Set();
+  try {
+    const stats = JSON.parse(readFileSync(statsPath, 'utf8'));
+    citedQIDs = new Set(stats.items ? stats.items.map(i => i.id) : []);
+  } catch(e) {}
 
   const headers = [
     'id', 'permalink', 'title', 'organization', 'link', 'dataTypes', 'compensationType', 'compensationWikidataId',
     'entityCategory', 'entitySubType', 'countries', 'countryCodes', 'origin', 'originCode',
-    'description', 'instructions', 'citations', 'citationWikidataIds', 'wikidataId', 'resourceWikidataId', 'dataTypeWikidataIds'
+    'description', 'instructions', 'citations', 'citationWikidataIds', 'wikidataId', 'resourceWikidataId', 'dataTypeWikidataIds',
+    'isCitedOnWikidata', 'wikidataReferenceUrl'
   ];
 
   const formatCitations = (citations) => {
@@ -25,6 +34,9 @@ try {
     let compQID = '';
     if (Array.isArray(resource.compensationWikidataId)) compQID = resource.compensationWikidataId.join('; ');
     else if (resource.compensationWikidataId) compQID = resource.compensationWikidataId;
+
+    const isCited = resource.resourceWikidataId ? citedQIDs.has(resource.resourceWikidataId) : false;
+    const refUrl = isCited ? `https://www.wikidata.org/wiki/${resource.resourceWikidataId}` : '';
 
     const row = [
       `"${resource.id || ''}"`,
@@ -47,7 +59,9 @@ try {
       `"${resource.citations ? resource.citations.map(c => c.wikidataId || '').join('; ') : ''}"`,
       `"${resource.wikidataId || ''}"`,
       `"${resource.resourceWikidataId || ''}"`,
-      `"${resource.dataTypeMappings ? Object.values(resource.dataTypeMappings).join('; ') : ''}"`
+      `"${resource.dataTypeMappings ? Object.values(resource.dataTypeMappings).join('; ') : ''}"`,
+      `"${isCited}"`,
+      `"${refUrl}"`
     ];
     csvContent += row.join(',') + '\n';
   });

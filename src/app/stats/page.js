@@ -4,11 +4,21 @@
 import React, { useState, useMemo } from 'react';
 import { activeResources as allResources } from '@/data/resources';
 import { EU_COUNTRIES } from '@/data/constants';
+import wikidataStats from '@/data/wikidataStats.json';
 import { motion, useScroll, AnimatePresence } from 'framer-motion';
-import { FaGlobe, FaDatabase, FaMoneyBillWave, FaChartBar, FaChevronDown, FaBuilding, FaMapMarkedAlt } from 'react-icons/fa';
+import { FaGlobe, FaDatabase, FaMoneyBillWave, FaChartBar, FaChevronDown, FaBuilding, FaMapMarkedAlt, FaProjectDiagram } from 'react-icons/fa';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import NewsletterSignup from '@/components/NewsletterSignup';
+
+const WikidataIcon = ({ size = "1.5em" }) => (
+    <svg style={{ width: size, height: size }} viewBox="0 0 1050 590" fill="currentColor">
+        <path fill="#000000" d="M120 540h150v-90C250 200 120 180 120 180v360zm180 0h150V330c-20-80-150-150-150-150v360zm180 0h150V240C610 80 480 50 480 50v490zM660 540h150V330c-20-80-150-150-150-150v360zm180 0h150v-90c-20-250-150-270-150-270v360z" />
+        <path fill="#990000" d="M30 540h60v-90C70 200 30 180 30 180v360z"/>
+        <path fill="#339966" d="M30 180h60v-90C70 30 30 30 30 30v150z"/>
+        <path fill="#006699" d="M960 540h60v-90c-20-250-60-270-60-270v360z"/>
+    </svg>
+);
 
 const StatCard = ({ title, value, icon, children }) => (
     <motion.div
@@ -60,6 +70,7 @@ const StatsPage = () => {
     const { scrollY } = useScroll();
     const [isEuExpanded, setIsEuExpanded] = useState(false);
     const [isOriginEuExpanded, setIsOriginEuExpanded] = useState(false); // New state for Origin EU expansion
+    const [isWikidataExpanded, setIsWikidataExpanded] = useState(false);
 
     const [expandedEntityTypes, setExpandedEntityTypes] = useState(new Set());
     const [visibleEntityTypes, setVisibleEntityTypes] = useState(4);
@@ -244,8 +255,53 @@ const StatsPage = () => {
                 className="space-y-6"
             >
                 {/* Row 1: Smaller Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <StatCard title="Total Resources" value={stats.totalResources} icon={<FaChartBar size="1.5em" />} />
+                    
+                    <StatCard title="Cited on Wikidata" value={wikidataStats.referencedItemsCount || 0} icon={<WikidataIcon />}>
+                        <div className="mt-4 text-xs text-apple-secondary-text leading-relaxed">
+                            Unique items using <span className="font-semibold text-apple-primary-text">yourselftoscience.org</span> as a reference URL (P854).
+                        </div>
+                        {wikidataStats.items && wikidataStats.items.length > 0 && (
+                            <div className="mt-4">
+                                <button
+                                    onClick={() => setIsWikidataExpanded(!isWikidataExpanded)}
+                                    className="flex items-center gap-1 text-sm font-medium text-apple-accent hover:text-blue-700 transition-colors"
+                                >
+                                    {isWikidataExpanded ? "Hide items" : "View all items"}
+                                    <motion.div animate={{ rotate: isWikidataExpanded ? 180 : 0 }}>
+                                        <FaChevronDown size="0.8em" />
+                                    </motion.div>
+                                </button>
+                                <AnimatePresence>
+                                    {isWikidataExpanded && (
+                                        <motion.div
+                                            initial={{ opacity: 0, height: 0 }}
+                                            animate={{ opacity: 1, height: 'auto' }}
+                                            exit={{ opacity: 0, height: 0 }}
+                                            className="overflow-hidden mt-3"
+                                        >
+                                            <div className="max-h-60 overflow-y-auto pr-2 flex flex-col gap-2">
+                                                {wikidataStats.items.map((item, idx) => (
+                                                    <a 
+                                                        key={idx} 
+                                                        href={`https://www.wikidata.org/wiki/${item.id}`}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="flex items-center justify-between p-2 rounded-lg border border-apple-divider hover:border-apple-accent hover:bg-blue-50/50 transition-colors group"
+                                                    >
+                                                        <span className="text-sm font-medium text-apple-primary-text truncate pr-2 group-hover:text-apple-accent">{item.label}</span>
+                                                        <span className="text-xs text-apple-secondary-text font-mono bg-gray-100 px-1.5 py-0.5 rounded">{item.id}</span>
+                                                    </a>
+                                                ))}
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+                        )}
+                    </StatCard>
+
                     <StatCard title="Compensation Types" icon={<FaMoneyBillWave size="1.5em" />}>
                         <div className="mt-6">
                             {stats.compensationDistribution.map(([type, count], index) => (

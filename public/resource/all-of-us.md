@@ -6,6 +6,7 @@
 
 **Persistent ID:** https://yourselftoscience.org/resource/3b7e801f-1e45-4c2f-8631-edac7b61743a
 **Canonical URL:** https://yourselftoscience.org/resource/all-of-us
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q25004683)
 
 ## Details
 

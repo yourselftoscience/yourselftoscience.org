@@ -818,6 +818,10 @@ An overview of the resources available on Yourself to Science, providing insight
 - **Liechtenstein:** 2
 - **Norway:** 2
 
+## Wikidata Impact
+
+Yourself to Science is actively enriching the global knowledge graph. Our dataset is used as a verified reference URL (P854) on **29 distinct Wikidata items**.
+
 ## Data Type Distribution
 
 - **Genome:** 17
@@ -1231,6 +1235,7 @@ Transcripts, audio recordings, or logs of interactions with artificial intellige
 - **ID:** f694db09-66c3-4d72-bc32-b7e1ce8eabb6
 - **Semantic URL:** https://yourselftoscience.org/data-types/conversational-ai-data
 - **Wikidata:** [Q138521412](https://www.wikidata.org/wiki/Q138521412)
+- **Wikidata Citation:** This semantic data type actively leverages Yourself to Science as a [verifiable reference URL (P854)](https://www.wikidata.org/wiki/Q138521412)
 
 ## Cover letters
 
@@ -1374,6 +1379,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 - **ID:** 33ebae2f-6eb7-4560-afbf-3ae7930db6a5
 - **Semantic URL:** https://yourselftoscience.org/data-types/wearable-data
 - **Wikidata:** [Q138520977](https://www.wikidata.org/wiki/Q138520977)
+- **Wikidata Citation:** This semantic data type actively leverages Yourself to Science as a [verifiable reference URL (P854)](https://www.wikidata.org/wiki/Q138520977)
 
 
 --- END OF Data Dictionary ---
@@ -1418,6 +1424,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 
 **Persistent ID:** https://yourselftoscience.org/resource/ffd02d96-c153-448b-ad19-353badefcf3b
 **Canonical URL:** https://yourselftoscience.org/resource/genomeconnect
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q138546215)
 
 ## Details
 
@@ -1456,6 +1463,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 
 **Persistent ID:** https://yourselftoscience.org/resource/667f25be-9ff2-4e7a-9119-78f2eb61a801
 **Canonical URL:** https://yourselftoscience.org/resource/open-humans
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q59696822)
 
 ## Details
 
@@ -1526,6 +1534,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 
 **Persistent ID:** https://yourselftoscience.org/resource/66700d6e-cbc9-40ab-8bf9-eb466844ad52
 **Canonical URL:** https://yourselftoscience.org/resource/myphd
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q138521770)
 
 ## Details
 
@@ -1561,6 +1570,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 
 **Persistent ID:** https://yourselftoscience.org/resource/095034ef-732e-45c6-ad16-54c29c7ba408
 **Canonical URL:** https://yourselftoscience.org/resource/google-health-studies
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q138518518)
 
 ## Details
 
@@ -1592,6 +1602,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 
 **Persistent ID:** https://yourselftoscience.org/resource/2c7f3ca9-4d4b-41e2-93e2-b0f06bc11cb3
 **Canonical URL:** https://yourselftoscience.org/resource/apple-research
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q138517979)
 
 ## Details
 
@@ -1623,6 +1634,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 
 **Persistent ID:** https://yourselftoscience.org/resource/e9b2a7d1-5c1a-4d2c-8bf5-f9aee315ebd0
 **Canonical URL:** https://yourselftoscience.org/resource/harvard-pgp
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q138521490)
 
 ## Details
 
@@ -1655,6 +1667,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 
 **Persistent ID:** https://yourselftoscience.org/resource/e2ba7d15-5c1a-4d2c-8bf5-f9aee315ebd0
 **Canonical URL:** https://yourselftoscience.org/resource/genes-for-good
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q138521482)
 
 ## Details
 
@@ -1686,6 +1699,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 
 **Persistent ID:** https://yourselftoscience.org/resource/3b7e801f-1e45-4c2f-8631-edac7b61743a
 **Canonical URL:** https://yourselftoscience.org/resource/all-of-us
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q25004683)
 
 ## Details
 
@@ -1752,6 +1766,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 
 **Persistent ID:** https://yourselftoscience.org/resource/ff09caec-9a1a-464c-bc8c-009b745ed64a
 **Canonical URL:** https://yourselftoscience.org/resource/spark-for-autism
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q138518848)
 
 ## Details
 
@@ -2117,6 +2132,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 
 **Persistent ID:** https://yourselftoscience.org/resource/aef3da52-dda0-4b1c-93cd-dce266178e9e
 **Canonical URL:** https://yourselftoscience.org/resource/researchmatch
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q138520376)
 
 ## Details
 
@@ -2148,6 +2164,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 
 **Persistent ID:** https://yourselftoscience.org/resource/8d828bb1-8f1c-40c6-a0b4-61de7da7c116
 **Canonical URL:** https://yourselftoscience.org/resource/flucamp
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q138521080)
 
 ## Details
 
@@ -2183,6 +2200,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 
 **Persistent ID:** https://yourselftoscience.org/resource/059571fa-f8ab-4eea-a8fd-f6980b3b062f
 **Canonical URL:** https://yourselftoscience.org/resource/healthstreet
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q138545917)
 
 ## Details
 
@@ -2214,6 +2232,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 
 **Persistent ID:** https://yourselftoscience.org/resource/7d4ce480-7262-4ca8-9674-cbd3cd9cbecf
 **Canonical URL:** https://yourselftoscience.org/resource/goodnature-program
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q138521454)
 
 ## Details
 
@@ -2598,6 +2617,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 
 **Persistent ID:** https://yourselftoscience.org/resource/0a861cff-a2b0-4ab8-834d-e58b4139770d
 **Canonical URL:** https://yourselftoscience.org/resource/organdonor-gov
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q138520869)
 
 ## Details
 
@@ -2773,6 +2793,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 
 **Persistent ID:** https://yourselftoscience.org/resource/68a587c3-eb94-4ede-b35b-5ac1a84f24df
 **Canonical URL:** https://yourselftoscience.org/resource/pura-biobank
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q138520864)
 
 ## Details
 
@@ -2804,6 +2825,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 
 **Persistent ID:** https://yourselftoscience.org/resource/df15fcd0-c0c0-4726-85e7-dbad12687bde
 **Canonical URL:** https://yourselftoscience.org/resource/gimm-biobank
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q138521422)
 
 ## Details
 
@@ -2906,6 +2928,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 
 **Persistent ID:** https://yourselftoscience.org/resource/e5bbe9fa-66ad-4ea5-ab36-9330205262be
 **Canonical URL:** https://yourselftoscience.org/resource/gedmatch
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q53953540)
 
 ## Details
 
@@ -3132,6 +3155,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 
 **Persistent ID:** https://yourselftoscience.org/resource/5a99f8d8-f020-4d3a-9a61-ca8f7547ad1d
 **Canonical URL:** https://yourselftoscience.org/resource/wikitree
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q1074931)
 
 ## Details
 

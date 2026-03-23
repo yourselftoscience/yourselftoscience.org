@@ -6,6 +6,7 @@
 
 **Persistent ID:** https://yourselftoscience.org/resource/68a587c3-eb94-4ede-b35b-5ac1a84f24df
 **Canonical URL:** https://yourselftoscience.org/resource/pura-biobank
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q138520864)
 
 ## Details
 

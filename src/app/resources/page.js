@@ -1,6 +1,7 @@
 import { activeResources as resources } from '@/data/resources';
 import Link from 'next/link';
 import { FiInfo, FiArrowRight } from 'react-icons/fi';
+import wikidataStats from '@/data/wikidataStats.json';
 
 export const metadata = {
   title: 'All Resources - Yourself to Science',
@@ -53,6 +54,9 @@ export default function ResourcesListPage() {
           </p>
           <div className="text-center text-sm text-gray-500">
             Looking for raw data? <Link href="/data" className="text-blue-600 hover:underline">Access the Open Datasets</Link>
+          </div>
+          <div className="text-center text-sm text-gray-500 mt-2">
+            These resources are mapped to the global knowledge graph, with this dataset currently serving as a reference on <strong>{wikidataStats.referencedItemsCount || 0} Wikidata items</strong>.
           </div>
         </div>
 

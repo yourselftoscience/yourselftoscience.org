@@ -1,0 +1,122 @@
+{
+  "referencedItemsCount": 29,
+  "items": [
+    {
+      "id": "Q25004683",
+      "label": "All of Us"
+    },
+    {
+      "id": "Q138517979",
+      "label": "Apple Research"
+    },
+    {
+      "id": "Q138605288",
+      "label": "Centro Ricerche Cliniche di Verona"
+    },
+    {
+      "id": "Q64403342",
+      "label": "ClinGen"
+    },
+    {
+      "id": "Q138521412",
+      "label": "conversational AI data"
+    },
+    {
+      "id": "Q138605295",
+      "label": "CRC ed i Volontari per la Ricerca Clinica"
+    },
+    {
+      "id": "Q138521080",
+      "label": "FluCamp"
+    },
+    {
+      "id": "Q53953540",
+      "label": "GEDmatch"
+    },
+    {
+      "id": "Q138521482",
+      "label": "Genes for Good"
+    },
+    {
+      "id": "Q138546215",
+      "label": "GenomeConnect"
+    },
+    {
+      "id": "Q138521422",
+      "label": "GIMM Biobank"
+    },
+    {
+      "id": "Q138521454",
+      "label": "GoodNature Program"
+    },
+    {
+      "id": "Q138518518",
+      "label": "Google Health Studies"
+    },
+    {
+      "id": "Q138521490",
+      "label": "Harvard Personal Genome Project"
+    },
+    {
+      "id": "Q138545917",
+      "label": "HealthStreet"
+    },
+    {
+      "id": "Q138521770",
+      "label": "MyPHD"
+    },
+    {
+      "id": "Q59696822",
+      "label": "Open Humans"
+    },
+    {
+      "id": "Q138545776",
+      "label": "Open Humans Foundation"
+    },
+    {
+      "id": "Q58650507",
+      "label": "Open Humans: A platform for participant-centered research and personal data exploration"
+    },
+    {
+      "id": "Q138520869",
+      "label": "OrganDonor.gov"
+    },
+    {
+      "id": "Q138589652",
+      "label": "Ospedale San Camillo IRCCS"
+    },
+    {
+      "id": "Q138520864",
+      "label": "PURA Biobank"
+    },
+    {
+      "id": "Q138520376",
+      "label": "ResearchMatch"
+    },
+    {
+      "id": "Q138589661",
+      "label": "Rete Cittadini per la Ricerca"
+    },
+    {
+      "id": "Q138518848",
+      "label": "SPARK for Autism"
+    },
+    {
+      "id": "Q138545843",
+      "label": "The WikiTree Company"
+    },
+    {
+      "id": "Q138520595",
+      "label": "Verogen"
+    },
+    {
+      "id": "Q138520977",
+      "label": "wearable device data"
+    },
+    {
+      "id": "Q1074931",
+      "label": "WikiTree"
+    }
+  ],
+  "lastUpdated": "2026-03-23T01:30:38.727Z"
+}

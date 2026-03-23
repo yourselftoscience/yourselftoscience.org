@@ -6,6 +6,7 @@
 
 **Persistent ID:** https://yourselftoscience.org/resource/e5bbe9fa-66ad-4ea5-ab36-9330205262be
 **Canonical URL:** https://yourselftoscience.org/resource/gedmatch
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q53953540)
 
 ## Details
 

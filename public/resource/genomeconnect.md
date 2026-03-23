@@ -6,6 +6,7 @@
 
 **Persistent ID:** https://yourselftoscience.org/resource/ffd02d96-c153-448b-ad19-353badefcf3b
 **Canonical URL:** https://yourselftoscience.org/resource/genomeconnect
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q138546215)
 
 ## Details
 

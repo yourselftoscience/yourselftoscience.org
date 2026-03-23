@@ -51,6 +51,10 @@ An overview of the resources available on Yourself to Science, providing insight
 - **Liechtenstein:** 2
 - **Norway:** 2
 
+## Wikidata Impact
+
+Yourself to Science is actively enriching the global knowledge graph. Our dataset is used as a verified reference URL (P854) on **29 distinct Wikidata items**.
+
 ## Data Type Distribution
 
 - **Genome:** 17

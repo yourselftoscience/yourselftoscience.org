@@ -33,6 +33,7 @@ Transcripts, audio recordings, or logs of interactions with artificial intellige
 - **ID:** f694db09-66c3-4d72-bc32-b7e1ce8eabb6
 - **Semantic URL:** https://yourselftoscience.org/data-types/conversational-ai-data
 - **Wikidata:** [Q138521412](https://www.wikidata.org/wiki/Q138521412)
+- **Wikidata Citation:** This semantic data type actively leverages Yourself to Science as a [verifiable reference URL (P854)](https://www.wikidata.org/wiki/Q138521412)
 
 ## Cover letters
 
@@ -176,4 +177,5 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 - **ID:** 33ebae2f-6eb7-4560-afbf-3ae7930db6a5
 - **Semantic URL:** https://yourselftoscience.org/data-types/wearable-data
 - **Wikidata:** [Q138520977](https://www.wikidata.org/wiki/Q138520977)
+- **Wikidata Citation:** This semantic data type actively leverages Yourself to Science as a [verifiable reference URL (P854)](https://www.wikidata.org/wiki/Q138520977)
 

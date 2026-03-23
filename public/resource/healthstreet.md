@@ -6,6 +6,7 @@
 
 **Persistent ID:** https://yourselftoscience.org/resource/059571fa-f8ab-4eea-a8fd-f6980b3b062f
 **Canonical URL:** https://yourselftoscience.org/resource/healthstreet
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q138545917)
 
 ## Details
 

@@ -145,6 +145,20 @@ function generateStatsMarkdown() {
     }
   }
   mdContent += `\n`;
+  
+  const wikidataStatsPath = path.join(__dirname, '../src/data/wikidataStats.json');
+  let wikidataStats = { referencedItemsCount: 0 };
+  if (fs.existsSync(wikidataStatsPath)) {
+    try {
+      wikidataStats = JSON.parse(fs.readFileSync(wikidataStatsPath, 'utf8'));
+    } catch (e) {
+      console.error('Error reading wikidataStats:', e);
+    }
+  }
+
+  mdContent += `## Wikidata Impact\n\n`;
+  mdContent += `Yourself to Science is actively enriching the global knowledge graph. Our dataset is used as a verified reference URL (P854) on **${wikidataStats.referencedItemsCount || 0} distinct Wikidata items**.\n\n`;
+
   mdContent += `## Data Type Distribution\n\n`;
   for (const [type, count] of dataTypesDistribution) {
     mdContent += `- **${type}:** ${count}\n`;
@@ -210,9 +224,13 @@ function generateResourceMarkdown(resource) {
   }
 
   mdContent += `**Persistent ID:** https://yourselftoscience.org/resource/${resource.id}\n`;
-  mdContent += `**Canonical URL:** https://yourselftoscience.org/resource/${resource.slug}\n\n`;
+  mdContent += `**Canonical URL:** https://yourselftoscience.org/resource/${resource.slug}\n`;
 
-  mdContent += `## Details\n\n`;
+  if (resource.isCitedOnWikidata) {
+    mdContent += `**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/${resource.resourceWikidataId})\n`;
+  }
+
+  mdContent += `\n## Details\n\n`;
   mdContent += `- **Data Types:** ${(resource.dataTypes || []).join(', ')}\n`;
   mdContent += `- **Compensation:** ${resource.compensationType || 'donation'}\n`;
   mdContent += `- **Entity Category:** ${resource.entityCategory || 'Other'}\n`;
@@ -404,6 +422,15 @@ function generateDataTypesMarkdown() {
   let mdContent = `# Data Dictionary\n\n`;
   mdContent += `> Ontology definitions for the biological, digital, and clinical data types tracked in the Yourself to Science catalogue.\n\n`;
 
+  const wikidataStatsPath = path.join(__dirname, '../src/data/wikidataStats.json');
+  let citedQIDs = new Set();
+  if (fs.existsSync(wikidataStatsPath)) {
+    try {
+      const stats = JSON.parse(fs.readFileSync(wikidataStatsPath, 'utf8'));
+      citedQIDs = new Set(stats.items ? stats.items.map(i => i.id) : []);
+    } catch (e) {}
+  }
+
   const sortedTypes = [...dataTypesOntology].sort((a, b) => a.title.localeCompare(b.title));
 
   for (const item of sortedTypes) {
@@ -413,6 +440,9 @@ function generateDataTypesMarkdown() {
     mdContent += `- **Semantic URL:** https://yourselftoscience.org/data-types/${item.slug}\n`;
     if (item.wikidataId) {
       mdContent += `- **Wikidata:** [${item.wikidataId}](https://www.wikidata.org/wiki/${item.wikidataId})\n`;
+      if (citedQIDs.has(item.wikidataId)) {
+        mdContent += `- **Wikidata Citation:** This semantic data type actively leverages Yourself to Science as a [verifiable reference URL (P854)](https://www.wikidata.org/wiki/${item.wikidataId})\n`;
+      }
     }
     mdContent += `\n`;
   }

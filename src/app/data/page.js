@@ -2,6 +2,7 @@
 'use client';
 
 import { resources } from '@/data/resources';
+import wikidataStats from '@/data/wikidataStats.json';
 
 import { FaDownload, FaCode, FaCopy, FaCheck, FaChartBar } from 'react-icons/fa';
 import Link from 'next/link';
@@ -253,7 +254,7 @@ export default function DataPage() {
                             QIDs. Organizations, countries, and key entities reference their Wikidata identifiers, making the dataset interoperable with the global knowledge graph.
                         </p>
                         <p className="text-sm text-gray-600">
-                            This alignment is maintained manually and is used to enrich existing Wikidata items and identify missing ones.
+                            This alignment is maintained manually and is used to enrich existing Wikidata items and identify missing ones. Our dataset is also an active reference source, currently cited on <strong>{wikidataStats.referencedItemsCount || 0} unique Wikidata items</strong>.
                         </p>
                     </div>
                 </motion.div>
@@ -285,6 +286,8 @@ export default function DataPage() {
                         <li><strong>resourceWikidataId:</strong> The main Wikidata QID aligned with the project.</li>
                         <li><strong>entityCategory:</strong> The general type of the organization (e.g., &quot;Non-Profit&quot;, &quot;Government&quot;).</li>
                         <li><strong>entitySubType:</strong> A more specific classification of the organization (e.g., &quot;Research Foundation&quot;, &quot;Regulatory Agency&quot;).</li>
+                        <li><strong>isCitedOnWikidata:</strong> Boolean flag indicating if the resource currently uses the catalogue as a verifiable reference URL (P854).</li>
+                        <li><strong>wikidataReferenceUrl:</strong> The specific Wikidata URL connecting the resource to the catalogue citation (if applicable).</li>
                     </ul>
                 </div>
             </section>
