@@ -227,7 +227,7 @@ export default function MissionPage() {
               </div>
               <h2 className="text-3xl font-bold text-apple-primary-text mb-4">An Open Dataset for Everyone</h2>
               <p className="text-lg text-apple-secondary-text mb-6 leading-relaxed">
-                We believe science data should be free. Unlike closed platforms, our entire catalogue is available as an <strong>Open Dataset published under the CC0 1.0 Universal license</strong> (Public Domain).
+                We believe science data should be a shared foundation for discovery. To support seamless collaboration across all communities and sectors, our entire catalogue is an <strong>Open Dataset dedicated to the Public Domain (CC0 1.0 Universal)</strong>. Additionally, our website content is available under <strong>CC BY-SA 4.0</strong>, and our platform code is open-source under <strong>AGPL-3.0</strong>.
               </p>
               <ul className="space-y-5 mb-8">
                 <li className="flex items-start gap-3 text-apple-secondary-text">
@@ -339,10 +339,10 @@ export default function MissionPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { icon: FaGlobe, title: 'Radically Open', desc: 'Dataset (CC0 1.0), content (CC BY-SA), and code (AGPL-3) are openly licensed.' },
+              { icon: FaGlobe, title: 'Radically Open', desc: 'Dataset (Public Domain), content (CC BY-SA 4.0), and code (AGPL-3.0) are openly licensed.' },
               { icon: FaUsers, title: 'Community-Driven', desc: 'A collaborative ecosystem welcoming contributions from a global base.' },
               { icon: FaUniversalAccess, title: 'Accessible', desc: 'Built for everyone. Maintained with a perfect Lighthouse Accessibility score.' },
-              { icon: FaRobot, title: 'AI-Ready', desc: 'Open data (CC0), open-source code, and an llms.txt file make the catalogue fully accessible to AI systems and LLMs.' }
+              { icon: FaRobot, title: 'AI-Ready', desc: 'Public domain data, open-source code, and an llms.txt file make the catalogue fully accessible to AI systems and LLMs.' }
             ].map((item, idx) => (
               <motion.div
                 key={idx}
