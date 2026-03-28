@@ -20,9 +20,11 @@ export const metadata = {
 };
 
 export default function ResourcesListPage() {
-  const sortedResources = [...resources].sort((a, b) =>
-    a.title.toLowerCase().localeCompare(b.title.toLowerCase())
-  );
+  const sortedResources = [...resources].sort((a, b) => {
+    const titleA = a.wikidataLabel || a.title;
+    const titleB = b.wikidataLabel || b.title;
+    return titleA.toLowerCase().localeCompare(titleB.toLowerCase());
+  });
 
   return (
     <main className="py-12 sm:py-16">
@@ -70,8 +72,13 @@ export default function ResourcesListPage() {
                 >
                   <div className="flex-grow">
                     <p className="font-semibold text-blue-600 group-hover:underline">
-                      {resource.title}
+                      {resource.wikidataLabel || resource.title}
                     </p>
+                    {resource.wikidataLabel && resource.wikidataLabel !== resource.title && (
+                      <p className="text-xs text-gray-500 mt-0.5">
+                        {resource.title}
+                      </p>
+                    )}
                     <p className="text-sm text-gray-500 mt-1">
                       {resource.dataTypes?.join(', ')}
                     </p>

@@ -28,8 +28,9 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  const title = `${resource.title} - Yourself to Science`;
-  const description = resource.description || `Learn more about contributing to ${resource.title}.`;
+  const displayTitle = resource.wikidataLabel || resource.title;
+  const title = `${displayTitle} - Yourself to Science`;
+  const description = resource.wikidataDescription || resource.description || `Learn more about ${displayTitle}.`;
   const canonicalUrl = `https://yourselftoscience.org/resource/${resource.slug}`;
   const persistentIdUrl = `https://yourselftoscience.org/resource/${resource.id}`;
 
@@ -73,6 +74,9 @@ export default function ResourcePage({ params }) {
     return <div>Resource not found</div>;
   }
 
+  const displayTitle = resource.wikidataLabel || resource.title;
+  const displayDescription = resource.wikidataDescription || resource.description;
+
   // If the page was accessed via ID, redirect to the canonical slug URL
   if (params.slug === resource.id && params.slug !== resource.slug) {
     permanentRedirect(`/resource/${resource.slug}`);
@@ -93,8 +97,8 @@ export default function ResourcePage({ params }) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Dataset',
-    'name': resource.title,
-    'description': resource.description,
+    'name': displayTitle,
+    'description': displayDescription,
     'url': canonicalUrl,
     'identifier': persistentIdUrl,
     'includedInDataCatalog': {
@@ -147,14 +151,17 @@ export default function ResourcePage({ params }) {
             <span className="text-gray-400">/</span>
           </li>
           <li className="text-gray-500 font-medium truncate max-w-[200px] sm:max-w-md md:max-w-lg" aria-current="page">
-            {resource.title}
+            {displayTitle}
           </li>
         </ol>
       </nav>
 
       <div className="bg-white shadow-lg rounded-lg overflow-hidden">
         <div className="p-8">
-          <h1 className="text-4xl font-extrabold text-gray-900">{resource.title}</h1>
+          <h1 className="text-4xl font-extrabold text-gray-900">{displayTitle}</h1>
+          {resource.wikidataLabel && resource.wikidataLabel !== resource.title && (
+            <p className="mt-2 text-md text-gray-500 italic">Also known as: {resource.title}</p>
+          )}
           <p className="mt-2 text-lg text-gray-600">by {resource.organizations ? resource.organizations.map((o, i) => (
             <span key={i}>
               {o.wikidataId ? (
@@ -169,8 +176,8 @@ export default function ResourcePage({ params }) {
           )) : ''}</p>
           <p className="mt-1 text-sm text-gray-500 font-mono">ID: {resource.id}</p>
 
-          {resource.description && (
-            <p className="mt-6 text-gray-800 text-lg leading-relaxed">{resource.description}</p>
+          {displayDescription && (
+            <p className="mt-6 text-gray-800 text-lg leading-relaxed">{displayDescription}</p>
           )}
 
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -267,13 +274,13 @@ export default function ResourcePage({ params }) {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-md shadow-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-transform transform hover:scale-105"
             >
-              Contribute Now <FaExternalLinkAlt className="ml-3 h-5 w-5" />
+              Access Resource <FaExternalLinkAlt className="ml-3 h-5 w-5" />
             </a>
           </div>
 
           {resource.instructions && resource.instructions.length > 0 && (
             <div className="mt-12">
-              <h2 className="text-3xl font-bold text-gray-800 mb-6">How to Contribute</h2>
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">Instructions</h2>
               <ol className="relative border-l border-gray-200">
                 {resource.instructions.map((instruction, index) => (
                   <li key={index} className="mb-10 ml-6">
