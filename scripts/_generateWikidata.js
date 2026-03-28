@@ -76,11 +76,14 @@ async function enrichResources() {
 
   const enrichedResources = [];
 
-  // Track unique countries to fetch their IDs if missing
+  // Track unique maps to propagate manual IDs across all resources
   const countryToQidMap = new Map();
+  const categoryToQidMap = new Map();
+  const subTypeToQidMap = new Map();
 
-  // First pass: Collect all existing country QIDs from resources_wikidata.json
+  // First pass: Collect all existing QIDs from resources_wikidata.json
   existingWikidataResources.forEach(r => {
+    // Countries
     if (r.origin && r.originWikidataId) {
       countryToQidMap.set(r.origin, r.originWikidataId);
     }
@@ -88,6 +91,14 @@ async function enrichResources() {
       Object.entries(r.countryMappings).forEach(([country, qid]) => {
         if (qid) countryToQidMap.set(country, qid);
       });
+    }
+
+    // Categories and Subtypes
+    if (r.entityCategory && r.entityCategoryWikidataId) {
+      categoryToQidMap.set(r.entityCategory, r.entityCategoryWikidataId);
+    }
+    if (r.entitySubType && r.entitySubTypeWikidataId) {
+      subTypeToQidMap.set(r.entitySubType, r.entitySubTypeWikidataId);
     }
   });
 
@@ -110,8 +121,8 @@ async function enrichResources() {
       // Prioritize resources.js manual additions/changes over existing JSON
       enrichedResource.wikidataId = resource.wikidataId || existingEntry.wikidataId || null;
       enrichedResource.resourceWikidataId = resource.resourceWikidataId || existingEntry.resourceWikidataId || null;
-      enrichedResource.entityCategoryWikidataId = resource.entityCategoryWikidataId || existingEntry.entityCategoryWikidataId || null;
-      enrichedResource.entitySubTypeWikidataId = resource.entitySubTypeWikidataId || existingEntry.entitySubTypeWikidataId || null;
+      enrichedResource.entityCategoryWikidataId = resource.entityCategoryWikidataId || existingEntry.entityCategoryWikidataId || categoryToQidMap.get(resource.entityCategory) || null;
+      enrichedResource.entitySubTypeWikidataId = resource.entitySubTypeWikidataId || existingEntry.entitySubTypeWikidataId || subTypeToQidMap.get(resource.entitySubType) || null;
       enrichedResource.organizationWikidataId = resource.organizationWikidataId || existingEntry.organizationWikidataId || null;
 
       // Merge organization wikidataIds
@@ -166,8 +177,8 @@ async function enrichResources() {
 
       enrichedResource.wikidataId = resource.wikidataId || null;
       enrichedResource.resourceWikidataId = resource.resourceWikidataId || null;
-      enrichedResource.entityCategoryWikidataId = resource.entityCategoryWikidataId || null;
-      enrichedResource.entitySubTypeWikidataId = resource.entitySubTypeWikidataId || null;
+      enrichedResource.entityCategoryWikidataId = resource.entityCategoryWikidataId || categoryToQidMap.get(resource.entityCategory) || null;
+      enrichedResource.entitySubTypeWikidataId = resource.entitySubTypeWikidataId || subTypeToQidMap.get(resource.entitySubType) || null;
       enrichedResource.originWikidataId = resource.originWikidataId || null;
       enrichedResource.organizationWikidataId = resource.organizationWikidataId || null;
 

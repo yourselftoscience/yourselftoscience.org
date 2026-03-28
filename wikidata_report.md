@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 3/28/2026, 1:49:08 AM
+**Generated on:** 3/28/2026, 2:04:41 AM
 
 ## Project-Organizer Relationships
 
@@ -304,7 +304,7 @@
 - **Research Project**: [Q1298668](https://www.wikidata.org/wiki/Q1298668)
 - **Statutory Authority**: [Q7604698](https://www.wikidata.org/wiki/Q7604698)
 - **University Hospital**: [Q1059324](https://www.wikidata.org/wiki/Q1059324)
-- **University**: ❌
+- **University**: [Q3918](https://www.wikidata.org/wiki/Q3918)
 
 ## Compensation Types
 

@@ -35,8 +35,8 @@
     "countryMappings": {},
     "wikidataId": null,
     "resourceWikidataId": null,
-    "entityCategoryWikidataId": null,
-    "entitySubTypeWikidataId": null,
+    "entityCategoryWikidataId": "Q4830453",
+    "entitySubTypeWikidataId": "Q4830453",
     "organizationWikidataId": null,
     "originWikidataId": "Q145",
     "compensationWikidataId": "Q1124860"
@@ -92,7 +92,7 @@
     },
     "countryMappings": {},
     "wikidataId": null,
-    "entityCategoryWikidataId": null,
+    "entityCategoryWikidataId": "Q163740",
     "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860"
@@ -200,8 +200,8 @@
     },
     "wikidataId": null,
     "resourceWikidataId": null,
-    "entityCategoryWikidataId": null,
-    "entitySubTypeWikidataId": null,
+    "entityCategoryWikidataId": "Q4830453",
+    "entitySubTypeWikidataId": "Q4830453",
     "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860"
@@ -364,8 +364,8 @@
       "United States": "Q30"
     },
     "wikidataId": null,
-    "entityCategoryWikidataId": null,
-    "entitySubTypeWikidataId": null,
+    "entityCategoryWikidataId": "Q3400985",
+    "entitySubTypeWikidataId": "Q3918",
     "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860"
@@ -407,8 +407,8 @@
       "United States": "Q30"
     },
     "wikidataId": null,
-    "entityCategoryWikidataId": null,
-    "entitySubTypeWikidataId": null,
+    "entityCategoryWikidataId": "Q3400985",
+    "entitySubTypeWikidataId": "Q3918",
     "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860"
@@ -1566,8 +1566,8 @@
     },
     "wikidataId": null,
     "resourceWikidataId": null,
-    "entityCategoryWikidataId": null,
-    "entitySubTypeWikidataId": null,
+    "entityCategoryWikidataId": "Q7188",
+    "entitySubTypeWikidataId": "Q1639780",
     "organizationWikidataId": null,
     "originWikidataId": "Q145",
     "compensationWikidataId": "Q1124860"
@@ -1946,8 +1946,8 @@
     "countryMappings": {},
     "wikidataId": null,
     "resourceWikidataId": null,
-    "entityCategoryWikidataId": null,
-    "entitySubTypeWikidataId": null,
+    "entityCategoryWikidataId": "Q3400985",
+    "entitySubTypeWikidataId": "Q42240",
     "organizationWikidataId": null,
     "originWikidataId": "Q183",
     "compensationWikidataId": "Q1124860"
@@ -2117,8 +2117,8 @@
       "Germany": "Q183"
     },
     "wikidataId": null,
-    "entityCategoryWikidataId": null,
-    "entitySubTypeWikidataId": null,
+    "entityCategoryWikidataId": "Q7188",
+    "entitySubTypeWikidataId": "Q9142054",
     "organizationWikidataId": null,
     "originWikidataId": "Q183",
     "compensationWikidataId": "Q1124860"
@@ -2161,7 +2161,7 @@
       "Portugal": "Q45"
     },
     "wikidataId": null,
-    "entityCategoryWikidataId": null,
+    "entityCategoryWikidataId": "Q163740",
     "organizationWikidataId": null,
     "compensationWikidataId": "Q1124860"
   },
@@ -2210,8 +2210,8 @@
     },
     "countryMappings": {},
     "resourceWikidataId": null,
-    "entityCategoryWikidataId": null,
-    "entitySubTypeWikidataId": null,
+    "entityCategoryWikidataId": "Q4830453",
+    "entitySubTypeWikidataId": "Q4830453",
     "organizationWikidataId": null,
     "originWikidataId": "Q145",
     "compensationWikidataId": "Q1742093"
@@ -2262,8 +2262,8 @@
     "countryMappings": {},
     "wikidataId": null,
     "resourceWikidataId": null,
-    "entityCategoryWikidataId": null,
-    "entitySubTypeWikidataId": null,
+    "entityCategoryWikidataId": "Q4830453",
+    "entitySubTypeWikidataId": "Q4830453",
     "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860"
@@ -2318,8 +2318,8 @@
     },
     "countryMappings": {},
     "wikidataId": null,
-    "entityCategoryWikidataId": null,
-    "entitySubTypeWikidataId": null,
+    "entityCategoryWikidataId": "Q4830453",
+    "entitySubTypeWikidataId": "Q4830453",
     "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860"
@@ -2367,8 +2367,8 @@
     "countryMappings": {},
     "wikidataId": null,
     "resourceWikidataId": null,
-    "entityCategoryWikidataId": null,
-    "entitySubTypeWikidataId": null,
+    "entityCategoryWikidataId": "Q4830453",
+    "entitySubTypeWikidataId": "Q4830453",
     "organizationWikidataId": null,
     "originWikidataId": "Q29",
     "compensationWikidataId": "Q1124860"
@@ -2416,8 +2416,8 @@
     "countryMappings": {},
     "wikidataId": null,
     "resourceWikidataId": null,
-    "entityCategoryWikidataId": null,
-    "entitySubTypeWikidataId": null,
+    "entityCategoryWikidataId": "Q4830453",
+    "entitySubTypeWikidataId": "Q4830453",
     "organizationWikidataId": null,
     "originWikidataId": "Q801",
     "compensationWikidataId": "Q1124860"
@@ -2465,8 +2465,8 @@
     "countryMappings": {},
     "wikidataId": null,
     "resourceWikidataId": null,
-    "entityCategoryWikidataId": null,
-    "entitySubTypeWikidataId": null,
+    "entityCategoryWikidataId": "Q4830453",
+    "entitySubTypeWikidataId": "Q4830453",
     "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860"
@@ -2514,8 +2514,8 @@
     "countryMappings": {},
     "wikidataId": null,
     "resourceWikidataId": null,
-    "entityCategoryWikidataId": null,
-    "entitySubTypeWikidataId": null,
+    "entityCategoryWikidataId": "Q4830453",
+    "entitySubTypeWikidataId": "Q4830453",
     "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860"
@@ -2577,8 +2577,8 @@
     },
     "wikidataId": null,
     "resourceWikidataId": null,
-    "entityCategoryWikidataId": null,
-    "entitySubTypeWikidataId": null,
+    "entityCategoryWikidataId": "Q4830453",
+    "entitySubTypeWikidataId": "Q4830453",
     "organizationWikidataId": null,
     "originWikidataId": "Q30",
     "compensationWikidataId": [
@@ -2647,8 +2647,8 @@
       "Worldwide": "Q13780930"
     },
     "wikidataId": null,
-    "entityCategoryWikidataId": null,
-    "entitySubTypeWikidataId": null,
+    "entityCategoryWikidataId": "Q4830453",
+    "entitySubTypeWikidataId": "Q4830453",
     "organizationWikidataId": null,
     "originWikidataId": null,
     "compensationWikidataId": "Q1124860"
