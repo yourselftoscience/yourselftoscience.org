@@ -114,6 +114,17 @@ async function enrichResources() {
       enrichedResource.entitySubTypeWikidataId = resource.entitySubTypeWikidataId || existingEntry.entitySubTypeWikidataId || null;
       enrichedResource.organizationWikidataId = resource.organizationWikidataId || existingEntry.organizationWikidataId || null;
 
+      // Merge organization wikidataIds
+      if (enrichedResource.organizations && existingEntry.organizations) {
+        enrichedResource.organizations = enrichedResource.organizations.map(org => {
+          const existingOrg = existingEntry.organizations.find(eo => eo.name === org.name);
+          return {
+            ...org,
+            wikidataId: org.wikidataId || (existingOrg ? existingOrg.wikidataId : null)
+          };
+        });
+      }
+
       // We will re-evaluate originWikidataId based on the global map if missing
       enrichedResource.originWikidataId = resource.originWikidataId || existingEntry.originWikidataId || null;
 

@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 3/23/2026, 2:25:41 AM
+**Generated on:** 3/28/2026, 1:49:08 AM
 
 ## Project-Organizer Relationships
 
@@ -28,8 +28,8 @@
   - United States National Library of Medicine (NLM): [Q611833](https://www.wikidata.org/wiki/Q611833)
 - **Cochrane Central Register of Controlled Trials**: [Q1105187](https://www.wikidata.org/wiki/Q1105187)
   - Cochrane: [Q1105202](https://www.wikidata.org/wiki/Q1105202)
-- **CRC ed i Volontari per la Ricerca Clinica**: ❌
-  - Centro Ricerche Cliniche di Verona: No Wikidata ID
+- **CRC ed i Volontari per la Ricerca Clinica**: [Q138605295](https://www.wikidata.org/wiki/Q138605295)
+  - Centro Ricerche Cliniche di Verona: [Q138605288](https://www.wikidata.org/wiki/Q138605288)
 - **Curewiki**: ❌
   - Curewiki: No Wikidata ID
 - **Esperity Clinical Trial Discovery**: ❌
@@ -129,7 +129,7 @@
 - **Apple Research**: [Q138517979](https://www.wikidata.org/wiki/Q138517979)
 - **Australian Red Cross Lifeblood microbiome donation**: ❌
 - **Bloodworks Northwest Donate Blood for Research**: ❌
-- **CRC ed i Volontari per la Ricerca Clinica**: ❌
+- **CRC ed i Volontari per la Ricerca Clinica**: [Q138605295](https://www.wikidata.org/wiki/Q138605295)
 - **ClinicalTrials.gov**: [Q5133746](https://www.wikidata.org/wiki/Q5133746)
 - **Cochrane Central Register of Controlled Trials**: [Q1105187](https://www.wikidata.org/wiki/Q1105187)
 - **Curewiki**: ❌
@@ -187,7 +187,7 @@
 - **Australian Red Cross Lifeblood**: [Q4824602](https://www.wikidata.org/wiki/Q4824602)
 - **Bloodworks Northwest**: [Q21015632](https://www.wikidata.org/wiki/Q21015632)
 - **Cambridge Biomedical Research Centre**: [Q33121816](https://www.wikidata.org/wiki/Q33121816)
-- **Centro Ricerche Cliniche di Verona**: ❌
+- **Centro Ricerche Cliniche di Verona**: [Q138605288](https://www.wikidata.org/wiki/Q138605288)
 - **Clinical Genome Resource (ClinGen)**: [Q64403342](https://www.wikidata.org/wiki/Q64403342)
 - **Clinical Trials Information Network (CTIN Poland)**: ❌
 - **Cochrane**: [Q1105202](https://www.wikidata.org/wiki/Q1105202)

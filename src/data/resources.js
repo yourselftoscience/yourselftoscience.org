@@ -1312,13 +1312,14 @@ export const rawResources = [
   },
   {
     "id": "382a3bc3-c809-4a93-b7e6-33104443cb9b",
+    "resourceWikidataId": "Q138605295",
     "slug": "crc-volontari-ricerca-clinica",
     "title": "CRC ed i Volontari per la Ricerca Clinica",
     "wikidataLabel": "CRC ed i Volontari per la Ricerca Clinica",
     "organizations": [
       {
         "name": "Centro Ricerche Cliniche di Verona",
-        "wikidataId": null
+        "wikidataId": "Q138605288"
       }
     ],
     "link": "https://www.crcvolontariricercaclinica.it/Volontari/Partecipazione#Diventa",
