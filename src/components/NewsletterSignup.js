@@ -267,7 +267,7 @@ export default function NewsletterSignup({ compact = false }) {
               label="Email Address"
               type="email"
               name="email"
-              placeholder="Enter your email to subscribe..."
+              placeholder="Enter your email..."
               value={formData.email}
               onChange={handleInputChange}
               onFocus={() => setIsExpanded(true)}
