@@ -67,7 +67,7 @@ export default function Footer() {
     { name: 'Facebook', href: 'https://www.facebook.com/61584505973946/', icon: FaFacebook },
   ];
 
-  const hideNewsletterInFooter = pathname && ['/clinical-trials', '/organ-body-tissue-donation', '/what-can-i-do-with-my-genetic-data'].includes(pathname);
+  const hideNewsletterInFooter = pathname && ['/', '/clinical-trials', '/organ-body-tissue-donation', '/what-can-i-do-with-my-genetic-data'].includes(pathname);
 
   return (
     <>

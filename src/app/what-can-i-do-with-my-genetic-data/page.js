@@ -556,9 +556,11 @@ function GeneticDataWizard() {
                             <span className="text-slate-500 text-base">Meanwhile, browse general platforms below.</span>
                         </p>
                     ) : (
-                        <p className="mt-8 text-slate-500 text-lg font-medium">
-                            We found <strong className="text-blue-600 text-2xl">{sortedFilteredResources.length}</strong> projects matching your profile.
-                        </p>
+                        sortedFilteredResources.length > 0 && (
+                            <p className="mt-8 text-slate-500 text-lg font-medium">
+                                We found <strong className="text-blue-600 text-2xl">{sortedFilteredResources.length}</strong> projects matching your profile.
+                            </p>
+                        )
                     )}
                 </div>
         

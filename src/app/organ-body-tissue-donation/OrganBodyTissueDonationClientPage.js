@@ -257,9 +257,11 @@ export default function OrganBodyTissueWizard() {
                     </div>
 
                     {/* Result Count */}
-                    <p className="mt-8 text-slate-500 text-lg font-medium">
-                        We found <strong className="text-rose-600 text-2xl">{filteredResources.length}</strong> programs matching your criteria.
-                    </p>
+                    {filteredResources.length > 0 && (
+                        <p className="mt-8 text-slate-500 text-lg font-medium">
+                            We found <strong className="text-rose-600 text-2xl">{filteredResources.length}</strong> programs matching your criteria.
+                        </p>
+                    )}
                 </div>
             </section>
 
