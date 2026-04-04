@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaGlobeAmericas, FaInfoCircle, FaFilter, FaChevronDown, FaHandHoldingHeart, FaArrowRight } from 'react-icons/fa';
 import MultiSelectDropdown from '@/components/MultiSelectDropdown';
 import GeneticResourceCard from '@/components/GeneticResourceCard';
+import NewsletterSignup from '@/components/NewsletterSignup';
 
 // --- Filter Options ---
 const DONATION_TYPES = [
@@ -262,8 +263,8 @@ export default function OrganBodyTissueWizard() {
                 </div>
             </section>
 
-            {/* Results */}
-            <section className="max-w-6xl mx-auto px-4 py-16">
+            {/* Results Grid */}
+            <section className="max-w-6xl mx-auto px-4 pb-16">
                 {filteredResources.length > 0 ? (
                     <div>
                         <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 mb-8">
@@ -278,8 +279,8 @@ export default function OrganBodyTissueWizard() {
                             </p>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {filteredResources.map(resource => (
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                            {filteredResources.slice(0, 3).map(resource => (
                                 <motion.div
                                     key={resource.id}
                                     initial={{ opacity: 0, y: 10 }}
@@ -295,6 +296,37 @@ export default function OrganBodyTissueWizard() {
                                 </motion.div>
                             ))}
                         </div>
+
+                        {/* Inline Newsletter Injection */}
+                        <div className="mb-6 mt-2 w-full max-w-3xl mx-auto">
+                            <div className="bg-gradient-to-r from-blue-50/50 via-white to-blue-50/50 border border-blue-100/60 py-6 px-5 md:py-8 md:px-8 shadow-sm rounded-3xl">
+                                <h2 className="text-xl md:text-2xl font-bold text-slate-900 mb-2 md:mb-3 text-center tracking-tight">Stay Updated on New Programs</h2>
+                                <p className="text-sm md:text-base text-slate-600 mb-5 max-w-xl mx-auto text-center leading-relaxed">
+                                    New opportunities are added constantly to our catalogue. Join our newsletter and personalize your preferences below to receive the latest organ, body, and tissue donation programs.
+                                </p>
+                                <NewsletterSignup />
+                            </div>
+                        </div>
+
+                        {filteredResources.length > 3 && (
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {filteredResources.slice(3).map(resource => (
+                                    <motion.div
+                                        key={resource.id}
+                                        initial={{ opacity: 0, y: 10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.3 }}
+                                        className="h-full"
+                                    >
+                                        <GeneticResourceCard
+                                            resource={resource}
+                                            onSectorClick={(sector) => setSelectedSector(sector)}
+                                            selectedCountries={selectedCountries}
+                                        />
+                                    </motion.div>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 ) : (
                     <div className="text-center py-20 bg-white rounded-3xl border border-dashed border-slate-300 shadow-sm max-w-2xl mx-auto">
@@ -312,8 +344,20 @@ export default function OrganBodyTissueWizard() {
                     </div>
                 )}
 
+                {filteredResources.length === 0 && (
+                    <div className="mb-12 mt-4 max-w-3xl mx-auto px-4 w-full">
+                        <div className="bg-gradient-to-r from-blue-50/50 via-white to-blue-50/50 border border-blue-100/60 py-6 px-5 md:py-8 md:px-8 shadow-sm rounded-3xl">
+                            <h2 className="text-xl md:text-2xl font-bold text-slate-900 mb-2 md:mb-3 text-center tracking-tight">Stay Updated on New Programs</h2>
+                            <p className="text-sm md:text-base text-slate-600 mb-5 max-w-xl mx-auto text-center leading-relaxed">
+                                New opportunities are added constantly to our catalogue. Join our newsletter and personalize your preferences below to receive the latest organ, body, and tissue donation programs.
+                            </p>
+                            <NewsletterSignup />
+                        </div>
+                    </div>
+                )}
+
                 {/* Educational Content */}
-                <div className="mt-24 mb-16 max-w-3xl mx-auto">
+                <div className="mt-16 mb-16 max-w-3xl mx-auto">
                     <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 text-left">
                         <div className="flex items-center gap-4 mb-6">
                             <div className="w-12 h-12 bg-rose-50 rounded-xl flex items-center justify-center flex-shrink-0">

@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaGlobeAmericas, FaInfoCircle, FaFilter, FaChevronDown, FaStethoscope, FaArrowRight } from 'react-icons/fa';
 import MultiSelectDropdown from '@/components/MultiSelectDropdown';
 import GeneticResourceCard from '@/components/GeneticResourceCard';
+import NewsletterSignup from '@/components/NewsletterSignup';
 
 // --- Filter Options ---
 const COMPENSATIONS = [
@@ -270,8 +271,8 @@ export default function ClinicalTrialsWizard() {
                 </div>
             </section>
 
-            {/* Results */}
-            <section className="max-w-6xl mx-auto px-4 py-16">
+            {/* Results Grid */}
+            <section className="max-w-6xl mx-auto px-4 pb-16">
                 {filteredResources.length > 0 ? (
                     <>
                         {/* Registries */}
@@ -315,6 +316,17 @@ export default function ClinicalTrialsWizard() {
                                 </div>
                             </div>
                         )}
+
+                        {/* Inline Newsletter Injection (between Registries and Direct Ops) */}
+                        <div className="mb-12 mt-2 w-full max-w-3xl mx-auto">
+                            <div className="bg-gradient-to-r from-blue-50/50 via-white to-blue-50/50 border border-blue-100/60 py-6 px-5 md:py-8 md:px-8 shadow-sm rounded-3xl">
+                                <h2 className="text-xl md:text-2xl font-bold text-slate-900 mb-2 md:mb-3 text-center tracking-tight">Stay Updated on New Trials</h2>
+                                <p className="text-sm md:text-base text-slate-600 mb-5 max-w-xl mx-auto text-center leading-relaxed">
+                                    New opportunities are added constantly to our catalogue. Join our newsletter and personalize your preferences below to receive the latest clinical trials.
+                                </p>
+                                <NewsletterSignup />
+                            </div>
+                        </div>
 
                         {/* Direct Opportunities */}
                         {directOps.length > 0 && (
@@ -361,8 +373,20 @@ export default function ClinicalTrialsWizard() {
                     </div>
                 )}
 
+                {filteredResources.length === 0 && (
+                    <div className="mb-12 mt-4 w-full max-w-3xl mx-auto">
+                        <div className="bg-gradient-to-r from-blue-50/50 via-white to-blue-50/50 border border-blue-100/60 py-6 px-5 md:py-8 md:px-8 shadow-sm rounded-3xl">
+                            <h2 className="text-xl md:text-2xl font-bold text-slate-900 mb-2 md:mb-3 text-center tracking-tight">Stay Updated on New Trials</h2>
+                            <p className="text-sm md:text-base text-slate-600 mb-5 max-w-xl mx-auto text-center leading-relaxed">
+                                New opportunities are added constantly to our catalogue. Join our newsletter and personalize your preferences below to receive the latest clinical trials.
+                            </p>
+                            <NewsletterSignup />
+                        </div>
+                    </div>
+                )}
+
                 {/* Educational Content */}
-                <div className="mt-24 mb-16 max-w-3xl mx-auto">
+                <div className="mt-16 mb-16 max-w-3xl mx-auto">
                     <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 text-left">
                         <div className="flex items-center gap-4 mb-6">
                             <div className="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center flex-shrink-0">

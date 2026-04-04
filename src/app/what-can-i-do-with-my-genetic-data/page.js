@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaDna, FaGlobeAmericas, FaInfoCircle, FaCheck, FaChevronDown, FaFilter, FaArrowRight } from 'react-icons/fa';
 import GeneticResourceCard from '@/components/GeneticResourceCard';
 import MultiSelectDropdown from '@/components/MultiSelectDropdown';
+import NewsletterSignup from '@/components/NewsletterSignup';
 import Head from 'next/head';
 import Link from 'next/link';
 
@@ -560,60 +561,125 @@ function GeneticDataWizard() {
                         </p>
                     )}
                 </div>
+        
             </section>
 
-            <section className="max-w-6xl mx-auto px-4 py-16">
+            {/* Results Grid / List */}
+            <section className="max-w-6xl mx-auto px-4 py-8">
                 {sortedFilteredResources.length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-                        {sortedFilteredResources.map(resource => (
-                            <motion.div
-                                key={resource.id}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.3 }}
-                            >
-                                <GeneticResourceCard
-                                    resource={resource}
-                                    selectedServices={selectedServices}
-                                    onSectorClick={(sector) => {
-                                        if (selectedSector === sector) {
-                                            setSelectedSector('Any Sector');
-                                        } else {
-                                            setSelectedSector(sector);
-                                            setIsFiltersExpanded(true);
-                                        }
-                                    }}
-                                    selectedCompensation={selectedCompensation}
-                                    onCompensationClick={(comp) => {
-                                        if (selectedCompensation === comp) {
-                                            setSelectedCompensation('Any Compensation');
-                                        } else {
-                                            setSelectedCompensation(comp);
-                                            setIsFiltersExpanded(true);
-                                        }
-                                    }}
-                                />
-                            </motion.div>
-                        ))}
-                    </div>
+                    <>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-8">
+                            {sortedFilteredResources.slice(0, 2).map((resource) => (
+                                <motion.div
+                                    key={resource.id}
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <GeneticResourceCard
+                                        resource={resource}
+                                        selectedServices={selectedServices}
+                                        onSectorClick={(sector) => {
+                                            if (selectedSector === sector) {
+                                                setSelectedSector('Any Sector');
+                                            } else {
+                                                setSelectedSector(sector);
+                                                setIsFiltersExpanded(true);
+                                            }
+                                        }}
+                                        selectedCompensation={selectedCompensation}
+                                        onCompensationClick={(comp) => {
+                                            if (selectedCompensation === comp) {
+                                                setSelectedCompensation('Any Compensation');
+                                            } else {
+                                                setSelectedCompensation(comp);
+                                                setIsFiltersExpanded(true);
+                                            }
+                                        }}
+                                        selectedCountries={selectedCountries}
+                                    />
+                                </motion.div>
+                            ))}
+                        </div>
+
+                        {/* Inline Newsletter Injection */}
+                        <div className="mb-6 mt-2 w-full max-w-3xl mx-auto">
+                            <div className="bg-gradient-to-r from-blue-50/50 via-white to-blue-50/50 border border-blue-100/60 py-6 px-5 md:py-8 md:px-8 shadow-sm rounded-3xl">
+                                <h2 className="text-xl md:text-2xl font-bold text-slate-900 mb-2 md:mb-3 text-center tracking-tight">Stay Updated on New Projects</h2>
+                                <p className="text-sm md:text-base text-slate-600 mb-5 max-w-xl mx-auto text-center leading-relaxed">
+                                    New opportunities are added constantly to our catalogue. Join our newsletter and personalize your preferences below to receive the latest research projects.
+                                </p>
+                                <NewsletterSignup />
+                            </div>
+                        </div>
+
+                        {sortedFilteredResources.length > 2 && (
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                                {sortedFilteredResources.slice(2).map((resource) => (
+                                    <motion.div
+                                        key={resource.id}
+                                        initial={{ opacity: 0, scale: 0.9 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        transition={{ duration: 0.3 }}
+                                    >
+                                        <GeneticResourceCard
+                                            resource={resource}
+                                            selectedServices={selectedServices}
+                                            onSectorClick={(sector) => {
+                                                if (selectedSector === sector) {
+                                                    setSelectedSector('Any Sector');
+                                                } else {
+                                                    setSelectedSector(sector);
+                                                    setIsFiltersExpanded(true);
+                                                }
+                                            }}
+                                            selectedCompensation={selectedCompensation}
+                                            onCompensationClick={(comp) => {
+                                                if (selectedCompensation === comp) {
+                                                    setSelectedCompensation('Any Compensation');
+                                                } else {
+                                                    setSelectedCompensation(comp);
+                                                    setIsFiltersExpanded(true);
+                                                }
+                                            }}
+                                            selectedCountries={selectedCountries}
+                                        />
+                                    </motion.div>
+                                ))}
+                            </div>
+                        )}
+                    </>
                 ) : (
-                    <div className="text-center py-20 bg-white rounded-3xl border border-dashed border-slate-300 shadow-sm max-w-2xl mx-auto">
-                        <FaGlobeAmericas className="mx-auto h-16 w-16 text-slate-300 mb-6" />
-                        <h3 className="text-xl font-bold text-slate-900 mb-2">No projects found for {selectedCountries.join(', ')}</h3>
-                        <p className="text-slate-500 mb-8 max-w-md mx-auto">
-                            Most global projects are listed under &quot;Any Country&quot;. Try checking there for opportunities open to everyone.
-                        </p>
-                        <button
-                            onClick={() => setSelectedCountries(['Any Country'])}
-                            className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/20"
-                        >
-                            View Worldwide Projects
-                        </button>
-                    </div>
+                    <>
+                        <div className="text-center py-20 bg-white rounded-3xl border border-dashed border-slate-300 shadow-sm max-w-2xl mx-auto mb-12">
+                            <FaGlobeAmericas className="mx-auto h-16 w-16 text-slate-300 mb-6" />
+                            <h3 className="text-xl font-bold text-slate-900 mb-2">No projects found for {selectedServices.join(', ')}</h3>
+                            <p className="text-slate-500 mb-8 max-w-md mx-auto">
+                                Try selecting a different provider to see personalized opportunities.
+                            </p>
+                            <button
+                                onClick={() => setSelectedServices([])}
+                                className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/20"
+                            >
+                                Clear Provider Selection
+                            </button>
+                        </div>
+                        
+                        {/* Zero State Newsletter Signup */}
+                        <div className="mb-12 mt-4 w-full max-w-3xl mx-auto">
+                            <div className="bg-gradient-to-r from-blue-50/50 via-white to-blue-50/50 border border-blue-100/60 py-6 px-5 md:py-8 md:px-8 shadow-sm rounded-3xl">
+                                <h2 className="text-xl md:text-2xl font-bold text-slate-900 mb-2 md:mb-3 text-center tracking-tight">Stay Updated on New Projects</h2>
+                                <p className="text-sm md:text-base text-slate-600 mb-5 max-w-xl mx-auto text-center leading-relaxed">
+                                    New opportunities are added constantly to our catalogue. Join our newsletter and personalize your preferences below to receive the latest research projects.
+                                </p>
+                                <NewsletterSignup />
+                            </div>
+                        </div>
+                    </>
                 )}
 
                 {/* Informational Content */}
-                <div className="mt-24 mb-16 max-w-3xl mx-auto">
+                <div className="mt-16 mb-16 max-w-3xl mx-auto">
                     <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 text-left">
                         <div className="flex items-center gap-4 mb-6">
                             <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">

@@ -2,7 +2,6 @@
 import React from 'react';
 import { Suspense } from 'react';
 import OrganBodyTissueDonationClientPage from './OrganBodyTissueDonationClientPage';
-import NewsletterSignup from '../../components/NewsletterSignup';
 
 export default function OrganBodyTissueDonationPageClient() {
   return (

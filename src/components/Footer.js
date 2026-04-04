@@ -4,6 +4,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import PropTypes from 'prop-types';
 import { FaGithub, FaCreativeCommons, FaCreativeCommonsBy, FaCreativeCommonsSa, FaCreativeCommonsZero, FaReddit, FaLinkedin, FaFacebook } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
@@ -52,6 +53,7 @@ SocialLink.propTypes = {
 
 export default function Footer() {
   const [isCitationModalOpen, setCitationModalOpen] = useState(false); // NOSONAR - Both state value and setter are used
+  const pathname = usePathname();
 
   const startYear = 2024;
   const currentYear = new Date().getFullYear();
@@ -65,9 +67,11 @@ export default function Footer() {
     { name: 'Facebook', href: 'https://www.facebook.com/61584505973946/', icon: FaFacebook },
   ];
 
+  const hideNewsletterInFooter = pathname && ['/clinical-trials', '/organ-body-tissue-donation', '/what-can-i-do-with-my-genetic-data'].includes(pathname);
+
   return (
     <>
-      <NewsletterSignup />
+      {!hideNewsletterInFooter && <NewsletterSignup />}
       <footer className="bg-apple-surface border-t border-apple-divider text-sm">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 

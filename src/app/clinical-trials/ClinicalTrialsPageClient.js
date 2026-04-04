@@ -2,7 +2,6 @@
 import React from 'react';
 import { Suspense } from 'react';
 import ClinicalTrialsClientPage from './ClinicalTrialsClientPage';
-import NewsletterSignup from '../../components/NewsletterSignup';
 
 export default function ClinicalTrialsPageClient() {
   return (
