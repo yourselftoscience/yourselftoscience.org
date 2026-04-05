@@ -3,6 +3,7 @@
 import { useScroll } from 'framer-motion';
 import Header from './Header';
 import Footer from './Footer';
+import TopBannerForm from './TopBannerForm';
 import React from 'react';
 
 export default function ClientLayout({
@@ -14,6 +15,7 @@ export default function ClientLayout({
 
   return (
     <div className="flex flex-col min-h-screen">
+      <TopBannerForm />
       <Header scrollY={scrollY} />
       <main className="flex-1 flex flex-col">
         {children}
