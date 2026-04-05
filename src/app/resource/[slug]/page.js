@@ -6,6 +6,7 @@ import { permanentDoi } from '@/data/config';
 import { FaCheckCircle, FaExternalLinkAlt, FaHeart, FaDollarSign, FaQuestionCircle, FaUniversity, FaBuilding, FaFlask, FaLandmark, FaInfoCircle, FaLaptop, FaMobileAlt, FaCog, FaShareAlt, FaMapMarkerAlt, FaGlobe, FaTag, FaClipboardList, FaUserCheck, FaUserFriends, FaCoins, FaListOl, FaUserShield, FaArrowRight, FaBox, FaBook, FaDatabase, FaCodeBranch } from 'react-icons/fa';
 import CopyButton from '@/components/CopyButton';
 import wikidataStats from '@/data/wikidataStats.json';
+import WikidataIcon from '@/components/WikidataIcon';
 
 export async function generateStaticParams() {
   const slugs = resources.map((resource) => ({
@@ -343,7 +344,7 @@ export default function ResourcePage({ params }) {
                   </a>
                   {resource.resourceWikidataId && (
                     <a href={`https://www.wikidata.org/wiki/${resource.resourceWikidataId}`} target="_blank" rel="noopener noreferrer" className="flex items-center text-blue-600 hover:text-blue-800 hover:underline text-sm font-medium">
-                      <span className="mr-2 font-bold font-serif px-1 bg-gray-200 text-gray-600 rounded text-xs">W</span>
+                      <WikidataIcon className="mr-2" size="1.5em" />
                       Wikidata Entity ({resource.resourceWikidataId})
                     </a>
                   )}

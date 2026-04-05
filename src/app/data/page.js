@@ -3,6 +3,7 @@
 
 import { resources } from '@/data/resources';
 import wikidataStats from '@/data/wikidataStats.json';
+import WikidataIcon from '@/components/WikidataIcon';
 
 import { FaDownload, FaCode, FaCopy, FaCheck, FaChartBar } from 'react-icons/fa';
 import Link from 'next/link';
@@ -240,7 +241,10 @@ export default function DataPage() {
                     className="mt-12"
                 >
                     <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-6 text-center">
-                        <h2 className="text-2xl font-semibold mb-3 text-apple-primary-text">Wikidata Integration</h2>
+                        <h2 className="text-2xl font-semibold mb-3 text-apple-primary-text flex items-center justify-center gap-2">
+                            <WikidataIcon size="1.2em" />
+                            Wikidata Integration
+                        </h2>
                         <p className="text-apple-secondary-text mb-4 max-w-2xl mx-auto">
                             Each resource in our catalogue is mapped to{' '}
                             <a

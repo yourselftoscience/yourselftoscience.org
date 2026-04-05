@@ -10,15 +10,9 @@ import { FaGlobe, FaDatabase, FaMoneyBillWave, FaChartBar, FaChevronDown, FaBuil
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import NewsletterSignup from '@/components/NewsletterSignup';
+import WikidataIcon from '@/components/WikidataIcon';
 
-const WikidataIcon = ({ size = "1.5em" }) => (
-    <svg style={{ width: size, height: size }} viewBox="0 0 1050 590" fill="currentColor">
-        <path fill="#000000" d="M120 540h150v-90C250 200 120 180 120 180v360zm180 0h150V330c-20-80-150-150-150-150v360zm180 0h150V240C610 80 480 50 480 50v490zM660 540h150V330c-20-80-150-150-150-150v360zm180 0h150v-90c-20-250-150-270-150-270v360z" />
-        <path fill="#990000" d="M30 540h60v-90C70 200 30 180 30 180v360z"/>
-        <path fill="#339966" d="M30 180h60v-90C70 30 30 30 30 30v150z"/>
-        <path fill="#006699" d="M960 540h60v-90c-20-250-60-270-60-270v360z"/>
-    </svg>
-);
+
 
 const StatCard = ({ title, value, icon, children }) => (
     <motion.div
