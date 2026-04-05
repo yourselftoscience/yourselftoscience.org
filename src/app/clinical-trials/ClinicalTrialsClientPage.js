@@ -320,13 +320,17 @@ export default function ClinicalTrialsWizard() {
                         )}
 
                         {/* Inline Newsletter Injection (between Registries and Direct Ops) */}
-                        <div className="mb-12 mt-2 w-full max-w-3xl mx-auto">
-                            <div className="bg-gradient-to-r from-blue-50/50 via-white to-blue-50/50 border border-blue-100/60 py-6 px-5 md:py-8 md:px-8 shadow-sm rounded-3xl">
-                                <h2 className="text-xl md:text-2xl font-bold text-slate-900 mb-2 md:mb-3 text-center tracking-tight">Stay Updated on New Trials</h2>
-                                <p className="text-sm md:text-base text-slate-600 mb-5 max-w-xl mx-auto text-center leading-relaxed">
-                                    New opportunities are added constantly to our catalogue. Join our newsletter and personalize your preferences below to receive the latest clinical trials.
-                                </p>
-                                <NewsletterSignup />
+                        <div className="mb-12 mt-2 w-full max-w-3xl mx-auto px-4">
+                            <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 py-8 px-5 md:py-10 md:px-8 shadow-[0_8px_30px_rgb(37,99,235,0.2)] rounded-3xl relative overflow-hidden border border-blue-500/30">
+                                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full translate-x-1/3 -translate-y-1/3 blur-2xl pointer-events-none" />
+                                <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-900/30 rounded-full -translate-x-1/3 translate-y-1/3 blur-2xl pointer-events-none" />
+                                <div className="relative z-10">
+                                    <h2 className="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3 text-center tracking-tight">Stay Updated on New Trials</h2>
+                                    <p className="text-sm md:text-base text-blue-100 mb-6 max-w-xl mx-auto text-center leading-relaxed font-medium">
+                                        New opportunities are added constantly to our catalogue. Join our newsletter to receive the latest clinical research trials directly to your inbox.
+                                    </p>
+                                    <NewsletterSignup />
+                                </div>
                             </div>
                         </div>
 
@@ -376,13 +380,17 @@ export default function ClinicalTrialsWizard() {
                 )}
 
                 {filteredResources.length === 0 && (
-                    <div className="mb-12 mt-4 w-full max-w-3xl mx-auto">
-                        <div className="bg-gradient-to-r from-blue-50/50 via-white to-blue-50/50 border border-blue-100/60 py-6 px-5 md:py-8 md:px-8 shadow-sm rounded-3xl">
-                            <h2 className="text-xl md:text-2xl font-bold text-slate-900 mb-2 md:mb-3 text-center tracking-tight">Stay Updated on New Trials</h2>
-                            <p className="text-sm md:text-base text-slate-600 mb-5 max-w-xl mx-auto text-center leading-relaxed">
-                                New opportunities are added constantly to our catalogue. Join our newsletter and personalize your preferences below to receive the latest clinical trials.
-                            </p>
-                            <NewsletterSignup />
+                    <div className="mb-12 mt-4 w-full max-w-3xl mx-auto px-4">
+                        <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 py-8 px-5 md:py-10 md:px-8 shadow-[0_8px_30px_rgb(37,99,235,0.2)] rounded-3xl relative overflow-hidden border border-blue-500/30">
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full translate-x-1/3 -translate-y-1/3 blur-2xl pointer-events-none" />
+                            <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-900/30 rounded-full -translate-x-1/3 translate-y-1/3 blur-2xl pointer-events-none" />
+                            <div className="relative z-10">
+                                <h2 className="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3 text-center tracking-tight">Stay Updated on New Trials</h2>
+                                <p className="text-sm md:text-base text-blue-100 mb-6 max-w-xl mx-auto text-center leading-relaxed font-medium">
+                                    New opportunities are added constantly to our catalogue. Join our newsletter to receive the latest clinical research trials directly to your inbox.
+                                </p>
+                                <NewsletterSignup />
+                            </div>
                         </div>
                     </div>
                 )}
