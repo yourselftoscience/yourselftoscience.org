@@ -172,8 +172,8 @@ export default function ClinicalTrialsWizard() {
                     <div className="absolute top-[10%] right-[10%] w-[40%] h-[40%] bg-blue-200 rounded-full blur-3xl" />
                 </div>
 
-                <div className="max-w-5xl mx-auto px-4 py-20 text-center relative z-10">
-                    <h1 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-700 to-teal-600 drop-shadow-sm mb-6 md:mb-8 tracking-tight leading-tight pb-2">
+                <div className="max-w-5xl mx-auto px-4 py-10 md:py-20 text-center relative z-10">
+                    <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-700 to-emerald-600 drop-shadow-sm mb-4 md:mb-8 tracking-tight leading-tight pb-2">
                         Find Clinical Trials
                     </h1>
 
