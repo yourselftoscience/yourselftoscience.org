@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FiUser, FiGlobe, FiPlusCircle } from 'react-icons/fi';
 import { FaTransgender } from 'react-icons/fa';
 import { BsCalendarEvent } from 'react-icons/bs';
+// @ts-ignore
 import { getData } from 'country-list';
 import Select from 'react-select';
 import Link from 'next/link';
