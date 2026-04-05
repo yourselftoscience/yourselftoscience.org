@@ -114,7 +114,7 @@ export default function TopBannerForm() {
                     <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between gap-4 text-sm md:text-base">
                         
                         {/* Message */}
-                        <div className={`flex-1 text-center md:text-left font-medium text-blue-50 transition-all ${isExpanded ? 'md:mb-auto md:mt-2' : ''}`}>
+                        <div className={`flex-1 text-left font-medium text-blue-50 pr-8 md:pr-0 transition-all ${isExpanded ? 'md:mb-auto md:mt-2' : ''}`}>
                             Support open science. Subscribe to our newsletter for the latest research opportunities.
                         </div>
 
