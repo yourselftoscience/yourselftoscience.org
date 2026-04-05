@@ -28,7 +28,7 @@ export default function TopBannerForm() {
     const formRef = useRef<HTMLDivElement>(null);
 
     const countryOptions = useMemo(() => {
-        return getData().map((c) => ({
+        return getData().map((c: any) => ({
             value: c.name,
             label: c.name,
         }));
@@ -78,7 +78,7 @@ export default function TopBannerForm() {
                     email, 
                     preferences: {
                         firstName,
-                        country: country.map((c) => c.value),
+                        country: country.map((c: any) => c.value),
                         gender,
                         yearOfBirth,
                         researchTopics,
