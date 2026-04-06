@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { motion, animate, useInView } from 'framer-motion';
 import { resources } from '@/data/resources';
 import wikidataStats from '@/data/wikidataStats.json';
-import { FaHeart, FaGlobe, FaHandshake, FaChartLine, FaGithub, FaBolt, FaUsers, FaSearch, FaShieldAlt, FaCheckCircle, FaStethoscope, FaUniversity, FaRocket, FaUniversalAccess, FaRobot, FaArrowRight, FaMapMarkerAlt, FaDatabase, FaMoneyBillWave, FaProjectDiagram } from 'react-icons/fa';
+import { FaHeart, FaGlobe, FaHandshake, FaChartLine, FaGithub, FaBolt, FaUsers, FaSearch, FaShieldAlt, FaCheckCircle, FaStethoscope, FaUniversity, FaRocket, FaUniversalAccess, FaRobot, FaArrowRight, FaMapMarkerAlt, FaDatabase, FaMoneyBillWave, FaProjectDiagram, FaTable, FaSeedling } from 'react-icons/fa';
 
 export default function MissionPage() {
   const totalResources = resources.length;
@@ -257,6 +257,12 @@ export default function MissionPage() {
                   <FaDatabase /> Access the Data
                 </Link>
                 <Link
+                  href="/explore"
+                  className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-apple-primary-text bg-white border border-apple-divider rounded-xl hover:bg-gray-50 transition-colors"
+                >
+                  <FaTable /> Explore Interactively
+                </Link>
+                <Link
                   href="/stats"
                   className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-apple-primary-text bg-white border border-apple-divider rounded-xl hover:bg-gray-50 transition-colors"
                 >
@@ -304,12 +310,14 @@ export default function MissionPage() {
           <p className="text-lg text-apple-secondary-text">An open catalogue benefits everyone. We bring together the information that helps people find the right programs and helps programs find the right people.</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
-            { icon: FaUsers, title: 'Individuals & Communities', desc: 'Browse opportunities by location, data type, and interest\u2014from volunteer participation to paid compensation.', color: 'from-blue-500 to-cyan-500', bg: 'bg-blue-50', border: 'border-blue-100', text: 'text-blue-700' },
+            { icon: FaUsers, title: 'Citizens & Communities', desc: 'Browse opportunities by location, data type, and interest\u2014from volunteer participation to paid compensation. The simplest way to find your place in science.', color: 'from-blue-500 to-cyan-500', bg: 'bg-blue-50', border: 'border-blue-100', text: 'text-blue-700' },
             { icon: FaStethoscope, title: 'Researchers & Clinicians', desc: 'Gain visibility for your study. A structured, open catalogue makes it easier for potential participants to discover your program.', color: 'from-indigo-500 to-purple-500', bg: 'bg-indigo-50', border: 'border-indigo-100', text: 'text-indigo-700' },
             { icon: FaRocket, title: 'Platforms & Innovators', desc: 'Increase discoverability by being listed alongside other programs in a standardized, open, and machine-readable catalogue.', color: 'from-orange-500 to-pink-500', bg: 'bg-orange-50', border: 'border-orange-100', text: 'text-orange-700' },
-            { icon: FaUniversity, title: 'Academic & Public Institutions', desc: 'Gain visibility for your programs in a comprehensive catalogue accessible across geographic boundaries.', color: 'from-green-500 to-emerald-500', bg: 'bg-green-50', border: 'border-green-100', text: 'text-green-700' }
+            { icon: FaUniversity, title: 'Academic & Public Institutions', desc: 'Gain visibility for your programs in a comprehensive catalogue accessible across geographic boundaries.', color: 'from-green-500 to-emerald-500', bg: 'bg-green-50', border: 'border-green-100', text: 'text-green-700' },
+            { icon: FaSeedling, title: 'Investors & Funders', desc: 'The only structured, open index of the citizen science participation market. Filter, compare, and export data to inform investment and funding decisions.', color: 'from-emerald-500 to-teal-500', bg: 'bg-emerald-50', border: 'border-emerald-100', text: 'text-emerald-700', link: '/explore' },
+            { icon: FaChartLine, title: 'Policy Makers & Analysts', desc: 'Analyze the landscape across jurisdictions, organization types, and compensation models. Our open data supports evidence-based science policy.', color: 'from-violet-500 to-fuchsia-500', bg: 'bg-violet-50', border: 'border-violet-100', text: 'text-violet-700', link: '/explore' }
           ].map((item, idx) => (
             <motion.div
               key={idx}
@@ -324,7 +332,12 @@ export default function MissionPage() {
                 <item.icon className={`text-2xl ${item.text}`} />
               </div>
               <h3 className="text-xl font-bold text-apple-primary-text mb-3">{item.title}</h3>
-              <p className="text-apple-secondary-text leading-relaxed">{item.desc}</p>
+              <p className="text-apple-secondary-text leading-relaxed mb-3">{item.desc}</p>
+              {item.link && (
+                <Link href={item.link} className="inline-flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">
+                  Explore the data <FaArrowRight className="text-xs" />
+                </Link>
+              )}
             </motion.div>
           ))}
         </div>
@@ -383,7 +396,7 @@ export default function MissionPage() {
 
           <div className="space-y-12">
             {[
-              { phase: 'Phase 1', title: 'Trusted Central Hub', desc: 'Becoming the go-to reference for citizens, researchers, academia, and public institutions.', icon: FaProjectDiagram },
+              { phase: 'Phase 1', title: 'Trusted Central Hub', desc: 'Becoming the go-to reference for citizens, researchers, academia, public institutions, and the broader institutional landscape.', icon: FaProjectDiagram },
               { phase: 'Phase 2', title: 'Personalized Alerts', desc: 'Rollout of tailored newsletter updates based on country, data-type preference, and compensation models.', icon: FaBolt },
               { phase: 'Phase 3', title: 'Broadening Citizen Science', desc: 'Expanding beyond personal data to environmental data collection, image classification, and crowd-sourced field research.', icon: FaSearch },
               { phase: 'Phase 4', title: 'Multi-Language Integration', desc: 'Translating the catalogue natively so science is universally accessible regardless of spoken language.', icon: FaGlobe }

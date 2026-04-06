@@ -3,6 +3,7 @@ import { join } from 'path';
 
 const jsonPath = join(process.cwd(), 'public/resources_wikidata.json');
 const statsPath = join(process.cwd(), 'src/data/wikidataStats.json');
+const rorPath = join(process.cwd(), 'src/data/rorData.json');
 const outputPath = join(process.cwd(), 'public/resources.json');
 
 try {
@@ -13,13 +14,39 @@ try {
     const stats = JSON.parse(readFileSync(statsPath, 'utf8'));
     citedQIDs = new Set(stats.items ? stats.items.map(i => i.id) : []);
   } catch(e) {}
+
+  let rorData = {};
+  try {
+    rorData = JSON.parse(readFileSync(rorPath, 'utf8'));
+  } catch(e) {}
   
-  const enrichedResources = wikidataResources.map(resource => ({
-    ...resource,
-    permalink: `https://yourselftoscience.org/resource/${resource.id}`,
-    isCitedOnWikidata: resource.resourceWikidataId ? citedQIDs.has(resource.resourceWikidataId) : false,
-    wikidataReferenceUrl: (resource.resourceWikidataId && citedQIDs.has(resource.resourceWikidataId)) ? `https://www.wikidata.org/wiki/${resource.resourceWikidataId}` : null
-  }));
+  const enrichedResources = wikidataResources.map(resource => {
+    // Merge ROR data into organizations
+    const enrichedOrgs = (resource.organizations || []).map(org => {
+      const ror = rorData[org.name];
+      if (ror && ror.rorId && ror.name) {
+        return {
+          ...org,
+          rorId: ror.rorId,
+          rorName: ror.name,
+          rorTypes: ror.types || [],
+          rorCountry: ror.country || null,
+          rorCity: ror.city || null,
+          rorEstablished: ror.established || null,
+          rorAutoMatched: ror.autoMatched || false,
+        };
+      }
+      return org;
+    });
+
+    return {
+      ...resource,
+      organizations: enrichedOrgs,
+      permalink: `https://yourselftoscience.org/resource/${resource.id}`,
+      isCitedOnWikidata: resource.resourceWikidataId ? citedQIDs.has(resource.resourceWikidataId) : false,
+      wikidataReferenceUrl: (resource.resourceWikidataId && citedQIDs.has(resource.resourceWikidataId)) ? `https://www.wikidata.org/wiki/${resource.resourceWikidataId}` : null
+    };
+  });
 
   const jsonContent = JSON.stringify(enrichedResources, null, 2);
   writeFileSync(outputPath, jsonContent, 'utf8');

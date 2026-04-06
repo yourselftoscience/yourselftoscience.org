@@ -25,6 +25,12 @@ try {
     citedQIDs = new Set(stats.items ? stats.items.map(i => i.id) : []);
   } catch(e) {}
 
+  const rorPath = join(process.cwd(), 'src/data/rorData.json');
+  let rorData = {};
+  try {
+    rorData = JSON.parse(readFileSync(rorPath, 'utf8'));
+  } catch(e) {}
+
   let ttlContent = `@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <http://schema.org/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
@@ -68,6 +74,12 @@ yts:compensationWikidataId a rdfs:Property ;
         ttlContent += `  schema:creator [ a ${orgType}; rdfs:label "${escapeRDFString(org.name)}"`;
         if (org.wikidataId) {
           ttlContent += ` ; schema:sameAs wd:${org.wikidataId}`;
+        }
+
+        // Add ROR ID as schema:sameAs
+        const ror = rorData[org.name];
+        if (ror && ror.rorId && ror.name) {
+          ttlContent += ` ; schema:sameAs <${ror.rorId}>`;
         }
 
         if (resource.entityCategoryWikidataId) {

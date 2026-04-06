@@ -1,0 +1,624 @@
+{
+  "Living DNA": {
+    "rorId": null,
+    "searched": true,
+    "query": "Living DNA",
+    "note": "Auto-match was incorrect, removed"
+  },
+  "Clinical Genome Resource (ClinGen)": {
+    "rorId": null,
+    "searched": true,
+    "query": "Clinical Genome Resource (ClinGen)"
+  },
+  "Open Humans Foundation": {
+    "rorId": null,
+    "searched": true,
+    "query": "Open Humans Foundation"
+  },
+  "FamilyTreeDNA": {
+    "rorId": null,
+    "searched": true,
+    "query": "FamilyTreeDNA"
+  },
+  "Stanford University": {
+    "rorId": "https://ror.org/00f54p054",
+    "name": "Stanford University",
+    "types": [
+      "education",
+      "funder"
+    ],
+    "country": "United States",
+    "city": "Stanford",
+    "countryCode": "US",
+    "established": 1891,
+    "wikipediaUrl": "http://en.wikipedia.org/wiki/Stanford_University",
+    "fundref": "100005492",
+    "isni": "0000 0004 1936 8956",
+    "wikidataId": "Q41506",
+    "autoMatched": true
+  },
+  "Google": {
+    "rorId": "https://ror.org/04d06q394",
+    "name": "Google (Canada)",
+    "types": [
+      "company"
+    ],
+    "country": "Canada",
+    "city": "Waterloo",
+    "countryCode": "CA",
+    "established": 1998,
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Google",
+    "wikidataId": "Q30338099",
+    "autoMatched": true
+  },
+  "Apple": {
+    "rorId": "https://ror.org/059hsda18",
+    "name": "Apple",
+    "types": [
+      "company"
+    ],
+    "country": "United States",
+    "city": "Cupertino",
+    "countryCode": "US",
+    "established": 1976,
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Apple_Inc.",
+    "isni": "0000 0004 0635 9049",
+    "wikidataId": "Q312",
+    "autoMatched": true
+  },
+  "Harvard Medical School": {
+    "rorId": null,
+    "searched": true,
+    "query": "Harvard Medical School"
+  },
+  "University of Michigan": {
+    "rorId": "https://ror.org/00jmfr291",
+    "name": "University of Michigan",
+    "types": [
+      "education",
+      "funder"
+    ],
+    "country": "United States",
+    "city": "Ann Arbor",
+    "countryCode": "US",
+    "established": 1817,
+    "wikipediaUrl": "http://en.wikipedia.org/wiki/University_of_Michigan",
+    "fundref": "100007270",
+    "isni": "0000 0000 8683 7370",
+    "wikidataId": "Q230492",
+    "autoMatched": true
+  },
+  "National Institutes of Health (NIH)": {
+    "rorId": "https://ror.org/01cwqze88",
+    "name": "National Institutes of Health",
+    "types": [
+      "funder",
+      "government"
+    ],
+    "country": "United States",
+    "city": "Bethesda",
+    "countryCode": "US",
+    "established": 1887,
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/National_Institutes_of_Health",
+    "wikidataId": "Q390551",
+    "autoMatched": false,
+    "manuallyVerified": true
+  },
+  "Fitbit": {
+    "rorId": "https://ror.org/00z8s7v19",
+    "name": "Fitbit (United States)",
+    "types": [
+      "company"
+    ],
+    "country": "United States",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "established": 2007,
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Fitbit",
+    "isni": "0000 0004 6018 3224",
+    "autoMatched": true
+  },
+  "Simons Foundation": {
+    "rorId": "https://ror.org/01cmst727",
+    "name": "Simons Foundation",
+    "types": [
+      "funder",
+      "nonprofit"
+    ],
+    "country": "United States",
+    "city": "New York",
+    "countryCode": "US",
+    "established": 1994,
+    "wikipediaUrl": null,
+    "fundref": "100000893",
+    "isni": "0000 0001 1940 4804",
+    "wikidataId": "Q28148561",
+    "autoMatched": true
+  },
+  "Faculty of Medicine at the University of British Columbia": {
+    "rorId": "https://ror.org/03rmrcq20",
+    "name": "University of British Columbia",
+    "types": [
+      "education",
+      "funder"
+    ],
+    "country": "Canada",
+    "city": "Vancouver",
+    "countryCode": "CA",
+    "established": 1908,
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/University_of_British_Columbia",
+    "fundref": "501100005247",
+    "isni": "0000 0001 2288 9830",
+    "wikidataId": "Q391028",
+    "autoMatched": true
+  },
+  "Department of Anatomy, University of Cambridge": {
+    "rorId": null,
+    "searched": true,
+    "query": "Department of Anatomy, University of Cambridge"
+  },
+  "Cambridge Biomedical Research Centre": {
+    "rorId": "https://ror.org/05m8dr349",
+    "name": "NIHR Cambridge Biomedical Research Centre",
+    "types": [
+      "facility",
+      "funder"
+    ],
+    "country": "United Kingdom",
+    "city": "Cambridge",
+    "countryCode": "GB",
+    "established": null,
+    "wikipediaUrl": null,
+    "fundref": "501100018956",
+    "isni": "0000 0004 8340 8617",
+    "wikidataId": "Q33121816",
+    "autoMatched": true
+  },
+  "Ministero della Salute": {
+    "rorId": "https://ror.org/00789fa95",
+    "name": "Ministero della Salute",
+    "types": [
+      "funder",
+      "government"
+    ],
+    "country": "Italy",
+    "city": "Rome",
+    "countryCode": "IT",
+    "established": 2008,
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ministry_of_Health_(Italy)",
+    "fundref": "501100003196",
+    "isni": "0000 0004 1756 9674",
+    "wikidataId": "Q745634",
+    "autoMatched": true
+  },
+  "Service-Public.fr": {
+    "rorId": null,
+    "searched": true,
+    "query": "Service-Public.fr"
+  },
+  "Human Fertilisation and Embryology Authority": {
+    "rorId": "https://ror.org/023y2na82",
+    "name": "Human Fertilisation and Embryology Authority",
+    "types": [
+      "government"
+    ],
+    "country": "United Kingdom",
+    "city": "London",
+    "countryCode": "GB",
+    "established": 1990,
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Human_Fertilisation_and_Embryology_Authority",
+    "isni": "0000 0004 0379 6382",
+    "wikidataId": "Q1636533",
+    "autoMatched": true
+  },
+  "United States National Library of Medicine (NLM)": {
+    "rorId": "https://ror.org/0060t0j89",
+    "name": "Biblioteca Nacional de Medicina",
+    "types": [
+      "archive",
+      "funder"
+    ],
+    "country": "United States",
+    "city": "Bethesda",
+    "countryCode": "US",
+    "established": 1836,
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/United_States_National_Library_of_Medicine",
+    "fundref": "100000092",
+    "isni": "0000 0004 0507 7840",
+    "wikidataId": "Q611833",
+    "autoMatched": true
+  },
+  "World Health Organization (WHO)": {
+    "rorId": "https://ror.org/01f80g185",
+    "name": "Organisation Mondiale de la Santé",
+    "types": [
+      "funder",
+      "government"
+    ],
+    "country": "Switzerland",
+    "city": "Geneva",
+    "countryCode": "CH",
+    "established": 1948,
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/World_Health_Organization",
+    "fundref": "100004423",
+    "isni": "0000 0001 2163 3745",
+    "wikidataId": "Q7817",
+    "autoMatched": true
+  },
+  "European Medicines Agency (EMA)": {
+    "rorId": "https://ror.org/01z0wsw92",
+    "name": "European Medicines Agency",
+    "types": [
+      "funder",
+      "government"
+    ],
+    "country": "The Netherlands",
+    "city": "Amsterdam",
+    "countryCode": "NL",
+    "established": 1995,
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/European_Medicines_Agency",
+    "fundref": "501100013120",
+    "wikidataId": "Q130146",
+    "autoMatched": true
+  },
+  "Clinical Trials Information Network (CTIN Poland)": {
+    "rorId": null,
+    "searched": true,
+    "query": "Clinical Trials Information Network (CTIN Poland)"
+  },
+  "Curewiki": {
+    "rorId": null,
+    "searched": true,
+    "query": "Curewiki"
+  },
+  "Esperity": {
+    "rorId": null,
+    "searched": true,
+    "query": "Esperity"
+  },
+  "Vanderbilt University Medical Center": {
+    "rorId": "https://ror.org/05dq2gs74",
+    "name": "Vanderbilt University Medical Center",
+    "types": [
+      "funder",
+      "healthcare"
+    ],
+    "country": "United States",
+    "city": "Nashville",
+    "countryCode": "US",
+    "established": 1874,
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Vanderbilt_University_Medical_Center",
+    "fundref": "100013017",
+    "isni": "0000 0004 1936 9916",
+    "wikidataId": "Q7914455",
+    "autoMatched": true
+  },
+  "hVIVO": {
+    "rorId": "https://ror.org/00a4k5f23",
+    "name": "hVIVO (United Kingdom)",
+    "types": [
+      "company"
+    ],
+    "country": "United Kingdom",
+    "city": "London",
+    "countryCode": "GB",
+    "established": 1998,
+    "wikipediaUrl": null,
+    "isni": "0000 0004 6015 3199",
+    "wikidataId": "Q30268998",
+    "autoMatched": true
+  },
+  "University of Florida Health": {
+    "rorId": "https://ror.org/0419bgt07",
+    "name": "University of Florida Health Science Center",
+    "types": [
+      "education"
+    ],
+    "country": "United States",
+    "city": "Jacksonville",
+    "countryCode": "US",
+    "established": 1956,
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/University_of_Florida_Health_Science_Center",
+    "isni": "0000 0004 0625 1409",
+    "wikidataId": "Q6105983",
+    "autoMatched": true
+  },
+  "Nestlé Health Science U.S.": {
+    "rorId": "https://ror.org/03y8jvk69",
+    "name": "Nestlé Health Science",
+    "types": [
+      "company",
+      "funder"
+    ],
+    "country": "United States",
+    "city": "Bridgewater",
+    "countryCode": "US",
+    "established": 2011,
+    "wikipediaUrl": null,
+    "fundref": "100010886",
+    "isni": "0000 0004 6430 7044",
+    "wikidataId": "Q45132270",
+    "autoMatched": true
+  },
+  "Australian Red Cross Lifeblood": {
+    "rorId": "https://ror.org/00evjd729",
+    "name": "Australian Red Cross Lifeblood",
+    "types": [
+      "nonprofit"
+    ],
+    "country": "Australia",
+    "city": "Sydney",
+    "countryCode": "AU",
+    "established": 1901,
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Australian_Red_Cross_Lifeblood",
+    "isni": "0000 0000 8831 6915",
+    "wikidataId": "Q4824602",
+    "autoMatched": true
+  },
+  "Wesley Research Institute": {
+    "rorId": "https://ror.org/00pvy2x95",
+    "name": "Wesley Research Institute",
+    "types": [
+      "funder",
+      "nonprofit"
+    ],
+    "country": "Australia",
+    "city": "Brisbane",
+    "countryCode": "AU",
+    "established": 1994,
+    "wikipediaUrl": null,
+    "fundref": "100008614",
+    "autoMatched": true
+  },
+  "Department of Human Biology, University of Wrocław": {
+    "rorId": "https://ror.org/00yae6e25",
+    "name": "University of Wrocław",
+    "types": [
+      "education",
+      "funder"
+    ],
+    "country": "Poland",
+    "city": "Wroclaw",
+    "countryCode": "PL",
+    "established": 1702,
+    "wikipediaUrl": "http://en.wikipedia.org/wiki/University_of_Wroc%C5%82aw",
+    "fundref": "501100008306",
+    "isni": "0000 0001 1010 5103",
+    "wikidataId": "Q315658",
+    "autoMatched": true
+  },
+  "UCSF Library Archives": {
+    "rorId": null,
+    "searched": true,
+    "query": "UCSF Library Archives",
+    "note": "Auto-match was incorrect, removed"
+  },
+  "Penn Medicine": {
+    "rorId": "https://ror.org/04h81rw26",
+    "name": "University of Pennsylvania Health System",
+    "types": [
+      "funder",
+      "healthcare"
+    ],
+    "country": "United States",
+    "city": "Philadelphia",
+    "countryCode": "US",
+    "established": 1993,
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/University_of_Pennsylvania_Health_System",
+    "fundref": "100016783",
+    "isni": "0000 0004 0454 0768",
+    "wikidataId": "Q7896080",
+    "autoMatched": true
+  },
+  "NHS Health Research Authority": {
+    "rorId": null,
+    "searched": true,
+    "query": "NHS Health Research Authority"
+  },
+  "Cochrane": {
+    "rorId": "https://ror.org/048ztsn21",
+    "name": "Cochrane",
+    "types": [
+      "other"
+    ],
+    "country": "Denmark",
+    "city": "Copenhagen",
+    "countryCode": "DK",
+    "established": null,
+    "wikipediaUrl": null,
+    "isni": "0000 0004 0646 7082",
+    "autoMatched": true
+  },
+  "Federal Agency for Medicines and Health Products (FAMHP)": {
+    "rorId": null,
+    "searched": true,
+    "query": "Federal Agency for Medicines and Health Products (FAMHP)"
+  },
+  "Federal Institute for Drugs and Medical Devices (BfArM)": {
+    "rorId": "https://ror.org/05ex5vz81",
+    "name": "Bundesinstitut für Arzneimittel und Medizinprodukte",
+    "types": [
+      "funder",
+      "government"
+    ],
+    "country": "Germany",
+    "city": "Bonn",
+    "countryCode": "DE",
+    "established": null,
+    "wikipediaUrl": "http://en.wikipedia.org/wiki/Federal_Institute_for_Drugs_and_Medical_Devices",
+    "fundref": "100017596",
+    "isni": "0000 0000 9599 0422",
+    "wikidataId": "Q1006215",
+    "autoMatched": true
+  },
+  "Health Canada": {
+    "rorId": "https://ror.org/05p8nb362",
+    "name": "Health Canada",
+    "types": [
+      "funder",
+      "government"
+    ],
+    "country": "Canada",
+    "city": "Ottawa",
+    "countryCode": "CA",
+    "established": 1996,
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Health_Canada",
+    "fundref": "501100000008",
+    "isni": "0000 0001 2110 2143",
+    "wikidataId": "Q1057591",
+    "autoMatched": true
+  },
+  "American Association of Tissue Banks (AATB)": {
+    "rorId": null,
+    "searched": true,
+    "query": "American Association of Tissue Banks (AATB)"
+  },
+  "U.S. Department of Health & Human Services": {
+    "rorId": null,
+    "searched": true,
+    "query": "U.S. Department of Health & Human Services"
+  },
+  "Bloodworks Northwest": {
+    "rorId": "https://ror.org/00ek9j693",
+    "name": "Bloodworks Northwest",
+    "types": [
+      "nonprofit"
+    ],
+    "country": "United States",
+    "city": "Seattle",
+    "countryCode": "US",
+    "established": 1944,
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Bloodworks_Northwest",
+    "isni": "0000 0004 6016 0057",
+    "wikidataId": "Q21015632",
+    "autoMatched": true
+  },
+  "Max Planck Institute for Software Systems": {
+    "rorId": "https://ror.org/02pe2kf23",
+    "name": "Max Planck Institute for Software Systems",
+    "types": [
+      "facility"
+    ],
+    "country": "Germany",
+    "city": "Saarbrücken",
+    "countryCode": "DE",
+    "established": 2000,
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Max_Planck_Institute_for_Software_Systems",
+    "isni": "0000 0004 0492 020X",
+    "wikidataId": "Q881238",
+    "autoMatched": true
+  },
+  "Centro Ricerche Cliniche di Verona": {
+    "rorId": null,
+    "searched": true,
+    "query": "Centro Ricerche Cliniche di Verona"
+  },
+  "San Camillo IRCCS": {
+    "rorId": "https://ror.org/03njebb69",
+    "name": "IRCCS San Camillo Hospital",
+    "types": [
+      "healthcare"
+    ],
+    "country": "Italy",
+    "city": "Venice",
+    "countryCode": "IT",
+    "established": 1928,
+    "wikipediaUrl": null,
+    "isni": "0000 0004 1805 3485",
+    "wikidataId": "Q50039648",
+    "autoMatched": true
+  },
+  "Eurac Research": {
+    "rorId": "https://ror.org/01xt1w755",
+    "name": "Academia Europeica de Bulsan",
+    "types": [
+      "nonprofit"
+    ],
+    "country": "Italy",
+    "city": "Bolzano",
+    "countryCode": "IT",
+    "established": 1992,
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Eurac_Research",
+    "isni": "0000 0001 1089 6435",
+    "wikidataId": "Q1245390",
+    "autoMatched": true
+  },
+  "Helmholtz Munich": {
+    "rorId": null,
+    "searched": true,
+    "query": "Helmholtz Munich"
+  },
+  "Gulbenkian Institute for Molecular Medicine (GIMM)": {
+    "rorId": "https://ror.org/0346k0491",
+    "name": "Gulbenkian Institute for Molecular Medicine",
+    "types": [
+      "education",
+      "nonprofit"
+    ],
+    "country": "Portugal",
+    "city": "Lisbon",
+    "countryCode": "PT",
+    "established": null,
+    "wikipediaUrl": null,
+    "autoMatched": true
+  },
+  "Genomes.io": {
+    "rorId": null,
+    "searched": true,
+    "query": "Genomes.io"
+  },
+  "23andMe Holding Co.": {
+    "rorId": null,
+    "searched": true,
+    "query": "23andMe Holding Co."
+  },
+  "Verogen Inc.": {
+    "rorId": null,
+    "searched": true,
+    "query": "Verogen Inc.",
+    "note": "Auto-match was incorrect, removed"
+  },
+  "GENELINK, S.L. (tellmeGen)": {
+    "rorId": null,
+    "searched": true,
+    "query": "GENELINK, S.L. (tellmeGen)"
+  },
+  "MyHeritage Ltd": {
+    "rorId": null,
+    "searched": true,
+    "query": "MyHeritage Ltd"
+  },
+  "Ancestry.com Inc.": {
+    "rorId": null,
+    "searched": true,
+    "query": "Ancestry.com Inc.",
+    "note": "Auto-match was incorrect, removed"
+  },
+  "Sequencing.com": {
+    "rorId": null,
+    "searched": true,
+    "query": "Sequencing.com"
+  },
+  "Medical University of South Carolina": {
+    "rorId": "https://ror.org/012jban78",
+    "name": "Medical University of South Carolina",
+    "types": [
+      "education",
+      "funder"
+    ],
+    "country": "United States",
+    "city": "Charleston",
+    "countryCode": "US",
+    "established": 1824,
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Medical_University_of_South_Carolina",
+    "fundref": "100006942",
+    "isni": "0000 0001 2189 3475",
+    "wikidataId": "Q6806451",
+    "autoMatched": true
+  },
+  "The WikiTree Company": {
+    "rorId": null,
+    "searched": true,
+    "query": "The WikiTree Company"
+  }
+}

@@ -5,6 +5,7 @@ const jsonPath = join(process.cwd(), 'public/resources_wikidata.json');
 const outputPath = join(process.cwd(), 'public/resources.csv');
 
 const statsPath = join(process.cwd(), 'src/data/wikidataStats.json');
+const rorPath = join(process.cwd(), 'src/data/rorData.json');
 
 try {
   const wikidataResources = JSON.parse(readFileSync(jsonPath, 'utf8'));
@@ -15,11 +16,17 @@ try {
     citedQIDs = new Set(stats.items ? stats.items.map(i => i.id) : []);
   } catch(e) {}
 
+  let rorData = {};
+  try {
+    rorData = JSON.parse(readFileSync(rorPath, 'utf8'));
+  } catch(e) {}
+
   const headers = [
     'id', 'permalink', 'title', 'organization', 'link', 'dataTypes', 'compensationType', 'compensationWikidataId',
     'entityCategory', 'entitySubType', 'countries', 'countryCodes', 'origin', 'originCode',
     'description', 'instructions', 'citations', 'citationWikidataIds', 'wikidataId', 'resourceWikidataId', 'dataTypeWikidataIds',
-    'isCitedOnWikidata', 'wikidataReferenceUrl'
+    'isCitedOnWikidata', 'wikidataReferenceUrl',
+    'rorId', 'rorTypes'
   ];
 
   const formatCitations = (citations) => {
@@ -37,6 +44,12 @@ try {
 
     const isCited = resource.resourceWikidataId ? citedQIDs.has(resource.resourceWikidataId) : false;
     const refUrl = isCited ? `https://www.wikidata.org/wiki/${resource.resourceWikidataId}` : '';
+
+    // Get ROR data for the first org
+    const firstOrgName = resource.organizations?.[0]?.name;
+    const ror = firstOrgName ? rorData[firstOrgName] : null;
+    const rorId = (ror && ror.rorId && ror.name) ? ror.rorId : '';
+    const rorTypes = (ror && ror.types) ? ror.types.join('; ') : '';
 
     const row = [
       `"${resource.id || ''}"`,
@@ -61,7 +74,9 @@ try {
       `"${resource.resourceWikidataId || ''}"`,
       `"${resource.dataTypeMappings ? Object.values(resource.dataTypeMappings).join('; ') : ''}"`,
       `"${isCited}"`,
-      `"${refUrl}"`
+      `"${refUrl}"`,
+      `"${rorId}"`,
+      `"${rorTypes}"`
     ];
     csvContent += row.join(',') + '\n';
   });

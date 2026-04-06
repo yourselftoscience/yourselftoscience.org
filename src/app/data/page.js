@@ -5,7 +5,7 @@ import { resources } from '@/data/resources';
 import wikidataStats from '@/data/wikidataStats.json';
 import WikidataIcon from '@/components/WikidataIcon';
 
-import { FaDownload, FaCode, FaCopy, FaCheck, FaChartBar } from 'react-icons/fa';
+import { FaDownload, FaCode, FaCopy, FaCheck, FaChartBar, FaTable } from 'react-icons/fa';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import React, { useState } from 'react';
@@ -70,8 +70,12 @@ export default function DataPage() {
                 <p className="text-lg text-apple-secondary-text max-w-3xl mx-auto">
                     Our complete dataset is open and available for anyone.
                 </p>
-                <div className="mt-6 text-center">
-                    <Link href="/stats" className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-apple-accent rounded-lg hover:bg-opacity-90 focus:ring-4 focus:outline-none focus:ring-blue-300 transition-colors">
+                <div className="mt-6 flex flex-wrap justify-center gap-3">
+                    <Link href="/explore" className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-apple-accent rounded-lg hover:bg-opacity-90 focus:ring-4 focus:outline-none focus:ring-blue-300 transition-colors">
+                        <FaTable />
+                        <span>Explore Interactively</span>
+                    </Link>
+                    <Link href="/stats" className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-apple-primary-text bg-white border border-apple-divider rounded-lg hover:bg-gray-50 transition-colors">
                         <FaChartBar />
                         <span>View Visual Statistics</span>
                     </Link>
@@ -292,6 +296,8 @@ export default function DataPage() {
                         <li><strong>entitySubType:</strong> A more specific classification of the organization (e.g., &quot;Research Foundation&quot;, &quot;Regulatory Agency&quot;).</li>
                         <li><strong>isCitedOnWikidata:</strong> Boolean flag indicating if the resource currently uses the catalogue as a verifiable reference URL (P854).</li>
                         <li><strong>wikidataReferenceUrl:</strong> The specific Wikidata URL connecting the resource to the catalogue citation (if applicable).</li>
+                        <li><strong>rorId:</strong> The <a href="https://ror.org" target="_blank" rel="noopener noreferrer" className="text-apple-accent hover:underline">Research Organization Registry</a> (ROR) identifier for the primary organization, when available.</li>
+                        <li><strong>rorTypes:</strong> Organization types from ROR (e.g., &quot;education&quot;, &quot;government&quot;, &quot;healthcare&quot;, &quot;company&quot;, &quot;nonprofit&quot;).</li>
                     </ul>
                 </div>
             </section>
