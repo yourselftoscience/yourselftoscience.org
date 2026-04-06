@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this repository or dataset, please cite it as below."
+type: dataset
+title: "Yourself To Science"
+authors:
+  - family-names: "Marcolongo"
+    given-names: "Mario"
+doi: "10.5281/zenodo.15109359"
+url: "https://github.com/yourselftoscience/yourselftoscience.org"
+repository-code: "https://github.com/yourselftoscience/yourselftoscience.org"
+keywords:
+  - citizen science
+  - genomics
+  - open science
+  - dataset
