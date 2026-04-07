@@ -2,8 +2,7 @@
   "Living DNA": {
     "rorId": null,
     "searched": true,
-    "query": "Living DNA",
-    "note": "Auto-match was incorrect, removed"
+    "query": "Living DNA"
   },
   "Clinical Genome Resource (ClinGen)": {
     "rorId": null,
@@ -38,17 +37,19 @@
     "autoMatched": true
   },
   "Google": {
-    "rorId": "https://ror.org/04d06q394",
-    "name": "Google (Canada)",
+    "rorId": "https://ror.org/00971b260",
+    "name": "Google DeepMind",
     "types": [
-      "company"
+      "company",
+      "funder"
     ],
-    "country": "Canada",
-    "city": "Waterloo",
-    "countryCode": "CA",
-    "established": 1998,
-    "wikipediaUrl": "https://en.wikipedia.org/wiki/Google",
-    "wikidataId": "Q30338099",
+    "country": "United Kingdom",
+    "city": "London",
+    "countryCode": "GB",
+    "established": 2010,
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/DeepMind",
+    "fundref": "100017149",
+    "isni": "0000 0004 5999 1726",
     "autoMatched": true
   },
   "Apple": {
@@ -99,10 +100,11 @@
     "city": "Bethesda",
     "countryCode": "US",
     "established": 1887,
-    "wikipediaUrl": "https://en.wikipedia.org/wiki/National_Institutes_of_Health",
+    "wikipediaUrl": "http://en.wikipedia.org/wiki/National_Institutes_of_Health",
+    "fundref": "100000002",
+    "isni": "0000 0001 2297 5165",
     "wikidataId": "Q390551",
-    "autoMatched": false,
-    "manuallyVerified": true
+    "autoMatched": true
   },
   "Fitbit": {
     "rorId": "https://ror.org/00z8s7v19",
@@ -136,26 +138,26 @@
     "autoMatched": true
   },
   "Faculty of Medicine at the University of British Columbia": {
-    "rorId": "https://ror.org/03rmrcq20",
-    "name": "University of British Columbia",
+    "rorId": null,
+    "searched": true,
+    "query": "Faculty of Medicine at the University of British Columbia"
+  },
+  "Department of Anatomy, University of Cambridge": {
+    "rorId": "https://ror.org/013meh722",
+    "name": "Prifysgol Caergrawnt",
     "types": [
       "education",
       "funder"
     ],
-    "country": "Canada",
-    "city": "Vancouver",
-    "countryCode": "CA",
-    "established": 1908,
-    "wikipediaUrl": "https://en.wikipedia.org/wiki/University_of_British_Columbia",
-    "fundref": "501100005247",
-    "isni": "0000 0001 2288 9830",
-    "wikidataId": "Q391028",
+    "country": "United Kingdom",
+    "city": "Cambridge",
+    "countryCode": "GB",
+    "established": 1209,
+    "wikipediaUrl": "http://en.wikipedia.org/wiki/University_of_Cambridge",
+    "fundref": "501100000735",
+    "isni": "0000 0001 2188 5934",
+    "wikidataId": "Q35794",
     "autoMatched": true
-  },
-  "Department of Anatomy, University of Cambridge": {
-    "rorId": null,
-    "searched": true,
-    "query": "Department of Anatomy, University of Cambridge"
   },
   "Cambridge Biomedical Research Centre": {
     "rorId": "https://ror.org/05m8dr349",
@@ -309,18 +311,20 @@
     "autoMatched": true
   },
   "University of Florida Health": {
-    "rorId": "https://ror.org/0419bgt07",
-    "name": "University of Florida Health Science Center",
+    "rorId": "https://ror.org/04tk2gy88",
+    "name": "University of Florida Health",
     "types": [
-      "education"
+      "education",
+      "funder"
     ],
     "country": "United States",
-    "city": "Jacksonville",
+    "city": "Gainesville",
     "countryCode": "US",
-    "established": 1956,
-    "wikipediaUrl": "https://en.wikipedia.org/wiki/University_of_Florida_Health_Science_Center",
-    "isni": "0000 0004 0625 1409",
-    "wikidataId": "Q6105983",
+    "established": 1958,
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/University_of_Florida_Health",
+    "fundref": "100008275",
+    "isni": "0000 0004 4911 114X",
+    "wikidataId": "Q7487946",
     "autoMatched": true
   },
   "Nestlé Health Science U.S.": {
@@ -371,27 +375,14 @@
     "autoMatched": true
   },
   "Department of Human Biology, University of Wrocław": {
-    "rorId": "https://ror.org/00yae6e25",
-    "name": "University of Wrocław",
-    "types": [
-      "education",
-      "funder"
-    ],
-    "country": "Poland",
-    "city": "Wroclaw",
-    "countryCode": "PL",
-    "established": 1702,
-    "wikipediaUrl": "http://en.wikipedia.org/wiki/University_of_Wroc%C5%82aw",
-    "fundref": "501100008306",
-    "isni": "0000 0001 1010 5103",
-    "wikidataId": "Q315658",
-    "autoMatched": true
+    "rorId": null,
+    "searched": true,
+    "query": "Department of Human Biology, University of Wrocław"
   },
   "UCSF Library Archives": {
     "rorId": null,
     "searched": true,
-    "query": "UCSF Library Archives",
-    "note": "Auto-match was incorrect, removed"
+    "query": "UCSF Library Archives"
   },
   "Penn Medicine": {
     "rorId": "https://ror.org/04h81rw26",
@@ -419,16 +410,16 @@
     "rorId": "https://ror.org/00dbkrq51",
     "name": "Cochrane",
     "types": [
-      "other"
+      "nonprofit"
     ],
-    "country": "Denmark",
-    "city": "Copenhagen",
-    "countryCode": "DK",
+    "country": "United Kingdom",
+    "city": "Oxford",
+    "countryCode": "GB",
     "established": 1993,
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Cochrane_(organisation)",
-    "wikidataId": "Q426449",
-    "autoMatched": false,
-    "manuallyVerified": true
+    "isni": "0000 0001 0687 4524",
+    "wikidataId": "Q1105202",
+    "autoMatched": true
   },
   "Federal Agency for Medicines and Health Products (FAMHP)": {
     "rorId": null,
@@ -515,19 +506,9 @@
     "query": "Centro Ricerche Cliniche di Verona"
   },
   "San Camillo IRCCS": {
-    "rorId": "https://ror.org/03njebb69",
-    "name": "IRCCS San Camillo Hospital",
-    "types": [
-      "healthcare"
-    ],
-    "country": "Italy",
-    "city": "Venice",
-    "countryCode": "IT",
-    "established": 1928,
-    "wikipediaUrl": null,
-    "isni": "0000 0004 1805 3485",
-    "wikidataId": "Q50039648",
-    "autoMatched": true
+    "rorId": null,
+    "searched": true,
+    "query": "San Camillo IRCCS"
   },
   "Eurac Research": {
     "rorId": "https://ror.org/01xt1w755",
@@ -576,8 +557,7 @@
   "Verogen Inc.": {
     "rorId": null,
     "searched": true,
-    "query": "Verogen Inc.",
-    "note": "Auto-match was incorrect, removed"
+    "query": "Verogen Inc."
   },
   "GENELINK, S.L. (tellmeGen)": {
     "rorId": null,
@@ -592,8 +572,7 @@
   "Ancestry.com Inc.": {
     "rorId": null,
     "searched": true,
-    "query": "Ancestry.com Inc.",
-    "note": "Auto-match was incorrect, removed"
+    "query": "Ancestry.com Inc."
   },
   "Sequencing.com": {
     "rorId": null,

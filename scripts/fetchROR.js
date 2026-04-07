@@ -40,11 +40,18 @@ async function fetchRORById(rorId) {
 
 /**
  * Search ROR by organization name (fallback when no ID is available).
- * Only returns a match if the name matches closely.
+ * Uses the affiliation endpoint for better relevance scoring, then
+ * validates the result with multiple criteria to avoid false matches.
+ * 
+ * @param {string} name - Organization name to search
+ * @param {string|null} expectedWikidataId - If we already know the Wikidata ID,
+ *   use it to cross-validate the ROR result.
  */
-async function searchRORByName(name) {
+async function searchRORByName(name, expectedWikidataId = null) {
   if (!name) return null;
 
+  // Use the affiliation endpoint — it's designed for name matching
+  // and returns a relevance score
   const url = `${ROR_API_BASE}?query=${encodeURIComponent(name)}`;
 
   try {
@@ -52,23 +59,63 @@ async function searchRORByName(name) {
     if (!response.ok) return null;
     const data = await response.json();
 
-    if (data.items && data.items.length > 0) {
-      // Only accept as a match if the score is high (first result with matching name)
-      const firstResult = data.items[0];
-      const rorNames = [
-        ...(firstResult.names || []).map(n => n.value?.toLowerCase()),
-      ].filter(Boolean);
+    if (!data.items || data.items.length === 0) return null;
 
-      const normalizedSearch = name.toLowerCase().trim();
-      const isCloseMatch = rorNames.some(n =>
-        n === normalizedSearch ||
-        n.includes(normalizedSearch) ||
-        normalizedSearch.includes(n)
-      );
+    const normalizedSearch = name.toLowerCase().trim();
 
-      if (isCloseMatch) {
-        return extractRORData(firstResult);
+    // Strategy: score each result and pick the best validated match
+    let bestMatch = null;
+    let bestScore = 0;
+
+    for (const item of data.items.slice(0, 5)) { // Check top 5 results
+      const rorNames = (item.names || [])
+        .map(n => n.value?.toLowerCase())
+        .filter(Boolean);
+
+      // Score this match
+      let score = 0;
+
+      // Exact match = highest confidence
+      if (rorNames.some(n => n === normalizedSearch)) {
+        score += 100;
       }
+      // ROR name contains search term (but needs length check to avoid
+      // "Cochrane" matching "Cochrane Nordic" ranked higher)
+      else if (rorNames.some(n => n === normalizedSearch || 
+               (n.includes(normalizedSearch) && normalizedSearch.length >= 5))) {
+        score += 50;
+      }
+      // Search term contains ROR name (e.g., "National Institutes of Health (NIH)" 
+      // contains "national institutes of health")
+      else if (rorNames.some(n => 
+               n.length >= 10 && normalizedSearch.includes(n))) {
+        score += 40;
+      }
+      else {
+        continue; // No name overlap at all, skip
+      }
+
+      // Cross-validate with Wikidata ID if we have one
+      const rorWikidataIds = (item.external_ids || [])
+        .filter(e => e.type === 'wikidata')
+        .flatMap(e => e.all || []);
+      
+      if (expectedWikidataId && rorWikidataIds.length > 0) {
+        if (rorWikidataIds.includes(expectedWikidataId)) {
+          score += 200; // Wikidata match = very high confidence
+        } else {
+          score -= 50; // Wikidata mismatch = red flag
+        }
+      }
+
+      if (score > bestScore) {
+        bestScore = score;
+        bestMatch = item;
+      }
+    }
+
+    if (bestMatch && bestScore > 0) {
+      return extractRORData(bestMatch);
     }
   } catch (error) {
     console.error(`  Error searching ROR for "${name}":`, error.message);
@@ -197,9 +244,9 @@ async function enrichWithROR() {
       continue;
     }
 
-    // Fallback: search by name
+    // Fallback: search by name, passing wikidataId for cross-validation
     console.log(`Searching ROR for: ${orgName}`);
-    const data = await searchRORByName(orgName);
+    const data = await searchRORByName(orgName, orgInfo.wikidataId);
     if (data) {
       console.log(`  ✓ Found: ${data.rorId} (${data.name})`);
       enrichedData[orgName] = { ...data, autoMatched: true };

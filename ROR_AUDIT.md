@@ -11,7 +11,7 @@
 | Australian Red Cross Lifeblood | Australian Red Cross Lifeblood | Australia | [00evjd729](https://ror.org/00evjd729) | [Q4824602](https://www.wikidata.org/wiki/Q4824602) | [Q4824602](https://www.wikidata.org/wiki/Q4824602) | ⚠️ auto |
 | Bloodworks Northwest | Bloodworks Northwest | United States | [00ek9j693](https://ror.org/00ek9j693) | [Q21015632](https://www.wikidata.org/wiki/Q21015632) | [Q21015632](https://www.wikidata.org/wiki/Q21015632) | ⚠️ auto |
 | Cambridge Biomedical Research Centre | NIHR Cambridge Biomedical Research Centre | United Kingdom | [05m8dr349](https://ror.org/05m8dr349) | [Q33121816](https://www.wikidata.org/wiki/Q33121816) | [Q33121816](https://www.wikidata.org/wiki/Q33121816) | ⚠️ auto |
-| Cochrane | Cochrane | Denmark | [00dbkrq51](https://ror.org/00dbkrq51) | [Q1105202](https://www.wikidata.org/wiki/Q1105202) | [Q426449](https://www.wikidata.org/wiki/Q426449) | ✅ verified |
+| Cochrane | Cochrane | United Kingdom | [00dbkrq51](https://ror.org/00dbkrq51) | [Q1105202](https://www.wikidata.org/wiki/Q1105202) | [Q1105202](https://www.wikidata.org/wiki/Q1105202) | ✅ verified |
 | Department of Human Biology, University of Wrocław | University of Wrocław | Poland | [00yae6e25](https://ror.org/00yae6e25) | — | [Q315658](https://www.wikidata.org/wiki/Q315658) | ⚠️ auto |
 | Eurac Research | Academia Europeica de Bulsan | Italy | [01xt1w755](https://ror.org/01xt1w755) | [Q1245390](https://www.wikidata.org/wiki/Q1245390) | [Q1245390](https://www.wikidata.org/wiki/Q1245390) | ⚠️ auto |
 | European Medicines Agency (EMA) | European Medicines Agency | The Netherlands | [01z0wsw92](https://ror.org/01z0wsw92) | [Q130146](https://www.wikidata.org/wiki/Q130146) | [Q130146](https://www.wikidata.org/wiki/Q130146) | ⚠️ auto |
