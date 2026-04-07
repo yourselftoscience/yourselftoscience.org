@@ -39,6 +39,41 @@ async function fetchRORById(rorId) {
 }
 
 /**
+ * Look up ROR by Wikidata ID. This is the most reliable method because
+ * it's a direct external-ID match — no name guessing.
+ * Uses: GET /v2/organizations?query.advanced=external_ids.all:{QID}
+ */
+async function searchRORByWikidataId(wikidataId) {
+  if (!wikidataId) return null;
+
+  const url = `${ROR_API_BASE}?query.advanced=external_ids.all:${wikidataId}`;
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) return null;
+    const data = await response.json();
+
+    if (data.number_of_results === 1 && data.items?.[0]) {
+      return extractRORData(data.items[0]);
+    }
+    // If multiple results, check which one has this exact Wikidata ID
+    if (data.items && data.items.length > 0) {
+      for (const item of data.items) {
+        const wdIds = (item.external_ids || [])
+          .filter(e => e.type === 'wikidata')
+          .flatMap(e => e.all || []);
+        if (wdIds.includes(wikidataId)) {
+          return extractRORData(item);
+        }
+      }
+    }
+  } catch (error) {
+    console.error(`  Error looking up ROR by Wikidata ${wikidataId}:`, error.message);
+  }
+  return null;
+}
+
+/**
  * Search ROR by organization name (fallback when no ID is available).
  * Uses the affiliation endpoint for better relevance scoring, then
  * validates the result with multiple criteria to avoid false matches.
@@ -228,24 +263,38 @@ async function enrichWithROR() {
       continue;
     }
 
-    // If org has a manual ROR ID, fetch by ID
+    // Strategy 1: Manual ROR ID from resources.js (highest priority)
     if (orgInfo.rorId) {
       console.log(`Fetching ROR by ID for: ${orgName} (${orgInfo.rorId})`);
       const data = await fetchRORById(orgInfo.rorId);
       if (data) {
-        enrichedData[orgName] = data;
+        enrichedData[orgName] = { ...data, manuallyVerified: true };
         fetched++;
       } else {
         enrichedData[orgName] = { rorId: null, searched: true, query: orgName };
         notFound++;
       }
-      // Rate limiting: 200ms between requests
       await new Promise(resolve => setTimeout(resolve, 200));
       continue;
     }
 
-    // Fallback: search by name, passing wikidataId for cross-validation
-    console.log(`Searching ROR for: ${orgName}`);
+    // Strategy 2: Look up by Wikidata ID (definitive, no name guessing)
+    if (orgInfo.wikidataId) {
+      console.log(`Looking up ROR by Wikidata ID for: ${orgName} (${orgInfo.wikidataId})`);
+      const data = await searchRORByWikidataId(orgInfo.wikidataId);
+      if (data) {
+        console.log(`  ✓ Found via Wikidata: ${data.rorId} (${data.name})`);
+        enrichedData[orgName] = { ...data, matchedVia: 'wikidata' };
+        fetched++;
+        await new Promise(resolve => setTimeout(resolve, 200));
+        continue;
+      }
+      console.log(`  — No ROR match for Wikidata ${orgInfo.wikidataId}, trying name search...`);
+      await new Promise(resolve => setTimeout(resolve, 200));
+    }
+
+    // Strategy 3: Name-based search (last resort, with Wikidata cross-validation)
+    console.log(`Searching ROR by name for: ${orgName}`);
     const data = await searchRORByName(orgName, orgInfo.wikidataId);
     if (data) {
       console.log(`  ✓ Found: ${data.rorId} (${data.name})`);

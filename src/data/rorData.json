@@ -34,23 +34,23 @@
     "fundref": "100005492",
     "isni": "0000 0004 1936 8956",
     "wikidataId": "Q41506",
-    "autoMatched": true
+    "matchedVia": "wikidata"
   },
   "Google": {
-    "rorId": "https://ror.org/00971b260",
-    "name": "Google DeepMind",
+    "rorId": "https://ror.org/00njsd438",
+    "name": "Google (United States)",
     "types": [
       "company",
       "funder"
     ],
-    "country": "United Kingdom",
-    "city": "London",
-    "countryCode": "GB",
-    "established": 2010,
-    "wikipediaUrl": "https://en.wikipedia.org/wiki/DeepMind",
-    "fundref": "100017149",
-    "isni": "0000 0004 5999 1726",
-    "autoMatched": true
+    "country": "United States",
+    "city": "Mountain View",
+    "countryCode": "US",
+    "established": 1998,
+    "wikipediaUrl": "http://en.wikipedia.org/wiki/Google",
+    "fundref": "100006785",
+    "wikidataId": "Q95",
+    "matchedVia": "wikidata"
   },
   "Apple": {
     "rorId": "https://ror.org/059hsda18",
@@ -65,7 +65,7 @@
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Apple_Inc.",
     "isni": "0000 0004 0635 9049",
     "wikidataId": "Q312",
-    "autoMatched": true
+    "matchedVia": "wikidata"
   },
   "Harvard Medical School": {
     "rorId": null,
@@ -87,7 +87,7 @@
     "fundref": "100007270",
     "isni": "0000 0000 8683 7370",
     "wikidataId": "Q230492",
-    "autoMatched": true
+    "matchedVia": "wikidata"
   },
   "National Institutes of Health (NIH)": {
     "rorId": "https://ror.org/01cwqze88",
@@ -104,7 +104,7 @@
     "fundref": "100000002",
     "isni": "0000 0001 2297 5165",
     "wikidataId": "Q390551",
-    "autoMatched": true
+    "matchedVia": "wikidata"
   },
   "Fitbit": {
     "rorId": "https://ror.org/00z8s7v19",
@@ -135,7 +135,7 @@
     "fundref": "100000893",
     "isni": "0000 0001 1940 4804",
     "wikidataId": "Q28148561",
-    "autoMatched": true
+    "matchedVia": "wikidata"
   },
   "Faculty of Medicine at the University of British Columbia": {
     "rorId": null,
@@ -174,7 +174,7 @@
     "fundref": "501100018956",
     "isni": "0000 0004 8340 8617",
     "wikidataId": "Q33121816",
-    "autoMatched": true
+    "matchedVia": "wikidata"
   },
   "Ministero della Salute": {
     "rorId": "https://ror.org/00789fa95",
@@ -191,7 +191,7 @@
     "fundref": "501100003196",
     "isni": "0000 0004 1756 9674",
     "wikidataId": "Q745634",
-    "autoMatched": true
+    "matchedVia": "wikidata"
   },
   "Service-Public.fr": {
     "rorId": null,
@@ -211,7 +211,7 @@
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Human_Fertilisation_and_Embryology_Authority",
     "isni": "0000 0004 0379 6382",
     "wikidataId": "Q1636533",
-    "autoMatched": true
+    "matchedVia": "wikidata"
   },
   "United States National Library of Medicine (NLM)": {
     "rorId": "https://ror.org/0060t0j89",
@@ -228,7 +228,7 @@
     "fundref": "100000092",
     "isni": "0000 0004 0507 7840",
     "wikidataId": "Q611833",
-    "autoMatched": true
+    "matchedVia": "wikidata"
   },
   "World Health Organization (WHO)": {
     "rorId": "https://ror.org/01f80g185",
@@ -245,7 +245,7 @@
     "fundref": "100004423",
     "isni": "0000 0001 2163 3745",
     "wikidataId": "Q7817",
-    "autoMatched": true
+    "matchedVia": "wikidata"
   },
   "European Medicines Agency (EMA)": {
     "rorId": "https://ror.org/01z0wsw92",
@@ -261,7 +261,7 @@
     "wikipediaUrl": "https://en.wikipedia.org/wiki/European_Medicines_Agency",
     "fundref": "501100013120",
     "wikidataId": "Q130146",
-    "autoMatched": true
+    "matchedVia": "wikidata"
   },
   "Clinical Trials Information Network (CTIN Poland)": {
     "rorId": null,
@@ -293,7 +293,7 @@
     "fundref": "100013017",
     "isni": "0000 0004 1936 9916",
     "wikidataId": "Q7914455",
-    "autoMatched": true
+    "matchedVia": "wikidata"
   },
   "hVIVO": {
     "rorId": "https://ror.org/00a4k5f23",
@@ -308,7 +308,7 @@
     "wikipediaUrl": null,
     "isni": "0000 0004 6015 3199",
     "wikidataId": "Q30268998",
-    "autoMatched": true
+    "matchedVia": "wikidata"
   },
   "University of Florida Health": {
     "rorId": "https://ror.org/04tk2gy88",
@@ -325,7 +325,7 @@
     "fundref": "100008275",
     "isni": "0000 0004 4911 114X",
     "wikidataId": "Q7487946",
-    "autoMatched": true
+    "matchedVia": "wikidata"
   },
   "Nestlé Health Science U.S.": {
     "rorId": "https://ror.org/03y8jvk69",
@@ -342,7 +342,7 @@
     "fundref": "100010886",
     "isni": "0000 0004 6430 7044",
     "wikidataId": "Q45132270",
-    "autoMatched": true
+    "matchedVia": "wikidata"
   },
   "Australian Red Cross Lifeblood": {
     "rorId": "https://ror.org/00evjd729",
@@ -357,7 +357,7 @@
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Australian_Red_Cross_Lifeblood",
     "isni": "0000 0000 8831 6915",
     "wikidataId": "Q4824602",
-    "autoMatched": true
+    "matchedVia": "wikidata"
   },
   "Wesley Research Institute": {
     "rorId": "https://ror.org/00pvy2x95",
@@ -399,7 +399,7 @@
     "fundref": "100016783",
     "isni": "0000 0004 0454 0768",
     "wikidataId": "Q7896080",
-    "autoMatched": true
+    "matchedVia": "wikidata"
   },
   "NHS Health Research Authority": {
     "rorId": null,
@@ -419,7 +419,7 @@
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Cochrane_(organisation)",
     "isni": "0000 0001 0687 4524",
     "wikidataId": "Q1105202",
-    "autoMatched": true
+    "matchedVia": "wikidata"
   },
   "Federal Agency for Medicines and Health Products (FAMHP)": {
     "rorId": null,
@@ -441,7 +441,7 @@
     "fundref": "100017596",
     "isni": "0000 0000 9599 0422",
     "wikidataId": "Q1006215",
-    "autoMatched": true
+    "matchedVia": "wikidata"
   },
   "Health Canada": {
     "rorId": "https://ror.org/05p8nb362",
@@ -458,7 +458,7 @@
     "fundref": "501100000008",
     "isni": "0000 0001 2110 2143",
     "wikidataId": "Q1057591",
-    "autoMatched": true
+    "matchedVia": "wikidata"
   },
   "American Association of Tissue Banks (AATB)": {
     "rorId": null,
@@ -466,9 +466,20 @@
     "query": "American Association of Tissue Banks (AATB)"
   },
   "U.S. Department of Health & Human Services": {
-    "rorId": null,
-    "searched": true,
-    "query": "U.S. Department of Health & Human Services"
+    "rorId": "https://ror.org/033jnv181",
+    "name": "United States Department of Health and Human Services",
+    "types": [
+      "funder",
+      "government"
+    ],
+    "country": "United States",
+    "city": "Washington",
+    "countryCode": "US",
+    "established": 1979,
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/United_States_Department_of_Health_and_Human_Services",
+    "fundref": "100000016",
+    "wikidataId": "Q942326",
+    "matchedVia": "wikidata"
   },
   "Bloodworks Northwest": {
     "rorId": "https://ror.org/00ek9j693",
@@ -483,7 +494,7 @@
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Bloodworks_Northwest",
     "isni": "0000 0004 6016 0057",
     "wikidataId": "Q21015632",
-    "autoMatched": true
+    "matchedVia": "wikidata"
   },
   "Max Planck Institute for Software Systems": {
     "rorId": "https://ror.org/02pe2kf23",
@@ -498,7 +509,7 @@
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Max_Planck_Institute_for_Software_Systems",
     "isni": "0000 0004 0492 020X",
     "wikidataId": "Q881238",
-    "autoMatched": true
+    "matchedVia": "wikidata"
   },
   "Centro Ricerche Cliniche di Verona": {
     "rorId": null,
@@ -523,12 +534,24 @@
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Eurac_Research",
     "isni": "0000 0001 1089 6435",
     "wikidataId": "Q1245390",
-    "autoMatched": true
+    "matchedVia": "wikidata"
   },
   "Helmholtz Munich": {
-    "rorId": null,
-    "searched": true,
-    "query": "Helmholtz Munich"
+    "rorId": "https://ror.org/00cfam450",
+    "name": "Helmholtz Zentrum München",
+    "types": [
+      "facility",
+      "funder"
+    ],
+    "country": "Germany",
+    "city": "Munich",
+    "countryCode": "DE",
+    "established": 1964,
+    "wikipediaUrl": "http://en.wikipedia.org/wiki/Helmholtz_Zentrum_M%C3%BCnchen",
+    "fundref": "501100013295",
+    "isni": "0000 0004 0483 2525",
+    "wikidataId": "Q878592",
+    "matchedVia": "wikidata"
   },
   "Gulbenkian Institute for Molecular Medicine (GIMM)": {
     "rorId": "https://ror.org/0346k0491",
@@ -550,9 +573,19 @@
     "query": "Genomes.io"
   },
   "23andMe Holding Co.": {
-    "rorId": null,
-    "searched": true,
-    "query": "23andMe Holding Co."
+    "rorId": "https://ror.org/00q62jx03",
+    "name": "23andMe (United States)",
+    "types": [
+      "company"
+    ],
+    "country": "United States",
+    "city": "Sunnyvale",
+    "countryCode": "US",
+    "established": 2006,
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/23andMe",
+    "isni": "0000 0004 0626 0858",
+    "wikidataId": "Q216272",
+    "matchedVia": "wikidata"
   },
   "Verogen Inc.": {
     "rorId": null,
@@ -594,7 +627,7 @@
     "fundref": "100006942",
     "isni": "0000 0001 2189 3475",
     "wikidataId": "Q6806451",
-    "autoMatched": true
+    "matchedVia": "wikidata"
   },
   "The WikiTree Company": {
     "rorId": null,
