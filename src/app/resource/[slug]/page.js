@@ -144,8 +144,8 @@ export default function ResourcePage({ params }) {
             <span className="text-gray-400">/</span>
           </li>
           <li>
-            <Link href="/resources" className="text-blue-600 hover:underline">
-              Resource
+            <Link href="/explore" className="text-blue-600 hover:underline">
+              Catalogue
             </Link>
           </li>
           <li>
@@ -157,13 +157,23 @@ export default function ResourcePage({ params }) {
         </ol>
       </nav>
 
+      {/* Researcher Trust Banner */}
+      <div className="mb-6 bg-indigo-50 border border-indigo-100 rounded-lg p-4 flex items-start gap-3">
+        <FaInfoCircle className="text-indigo-600 mt-0.5 shrink-0" />
+        <div className="text-sm text-indigo-900 leading-snug">
+          <strong>Open Science Record:</strong> This resource is mapped as structured metadata within the Yourself to Science knowledge base, providing transparent information to support reproducible research and scientific discovery.
+        </div>
+      </div>
+
       <div className="bg-white shadow-lg rounded-lg overflow-hidden">
         <div className="p-8">
-          <h1 className="text-4xl font-extrabold text-gray-900">{displayTitle}</h1>
-          {resource.wikidataLabel && resource.wikidataLabel !== resource.title && (
-            <p className="mt-2 text-md text-gray-500 italic">Also known as: {resource.title}</p>
-          )}
-          <p className="mt-2 text-lg text-gray-600">by {resource.organizations ? resource.organizations.map((o, i) => (
+          <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
+            <div>
+              <h1 className="text-4xl font-extrabold text-gray-900">{displayTitle}</h1>
+              {resource.wikidataLabel && resource.wikidataLabel !== resource.title && (
+                <p className="mt-2 text-md text-gray-500 italic">Also known as: {resource.title}</p>
+              )}
+              <p className="mt-2 text-lg text-gray-600">by {resource.organizations ? resource.organizations.map((o, i) => (
             <span key={i}>
               {o.wikidataId ? (
                 <a href={`https://www.wikidata.org/wiki/${o.wikidataId}`} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 hover:underline">
@@ -175,7 +185,12 @@ export default function ResourcePage({ params }) {
               {i < resource.organizations.length - 1 ? '; ' : ''}
             </span>
           )) : ''}</p>
-          <p className="mt-1 text-sm text-gray-500 font-mono">ID: {resource.id}</p>
+              <p className="mt-1 text-sm text-gray-500 font-mono">ID: {resource.id}</p>
+            </div>
+            <div className="shrink-0 mt-2 md:mt-0">
+              <img src={`/api/badge/${resource.slug}`} alt="Yourself to Science Verified Badge" className="h-6 filter drop-shadow-sm" />
+            </div>
+          </div>
 
           {displayDescription && (
             <p className="mt-6 text-gray-800 text-lg leading-relaxed">{displayDescription}</p>
@@ -360,8 +375,39 @@ export default function ResourcePage({ params }) {
                 </div>
               </div>
             </div>
+
+            <div className="mt-8 bg-white border border-gray-200 p-6 rounded-md">
+              <h4 className="text-lg font-semibold text-gray-800 mb-2">Showcase your commitment to Open Science</h4>
+              <p className="text-sm text-gray-600 mb-4">By embedding this verified reference badge on your website, you publicly confirm your project&apos;s transparency metrics and establish your verifiable link to the global knowledge graph monitored by researchers, policy makers, and ecosystem investors.</p>
+              <div className="bg-gray-50 border border-gray-200 p-4 rounded-md flex flex-col md:flex-row items-center justify-between gap-4">
+                <img src={`/api/badge/${resource.slug}`} alt="Dataset Status Badge" className="h-5" />
+                <div className="text-xs font-mono text-gray-500 break-all w-full text-center md:text-left selection:bg-blue-100">
+                  {`[![Verified Source](https://yourselftoscience.org/api/badge/${resource.slug})](https://yourselftoscience.org/resource/${resource.slug})`}
+                </div>
+                <CopyButton text={`[![Verified Source](https://yourselftoscience.org/api/badge/${resource.slug})](https://yourselftoscience.org/resource/${resource.slug})`} />
+              </div>
+              <div className="mt-4 text-sm text-blue-600">
+                <a href={`mailto:science@yourselftoscience.org?subject=Open%20Science%20Verification%3A%20${encodeURIComponent(resource.title)}`} className="hover:underline font-medium inline-flex items-center">
+                  Contact us to verify your open science metrics <FaArrowRight className="ml-2 w-3 h-3" />
+                </a>
+              </div>
+            </div>
+
           </div>
         </div>
+      </div>
+
+      {/* Explore More CTA */}
+      <div className="mt-12 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-xl p-8 text-white shadow-lg flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
+        <div>
+          <h3 className="text-xl font-bold mb-2">Explore the Full Knowledge Graph</h3>
+          <p className="text-blue-100 text-sm max-w-lg leading-relaxed">
+            Yourself to Science maps the entire landscape of human contribution. Discover hundreds of other research opportunities, datasets, and platforms in our interactive Data Explorer.
+          </p>
+        </div>
+        <Link href="/explore" className="shrink-0 bg-white text-blue-700 hover:bg-blue-50 font-semibold py-3 px-6 rounded-lg transition-colors shadow-sm">
+          Open Data Explorer
+        </Link>
       </div>
     </main>
   );

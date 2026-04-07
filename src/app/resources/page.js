@@ -30,32 +30,37 @@ export default function ResourcesListPage() {
     <main className="py-12 sm:py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
 
-        <div className="bg-blue-50 border border-blue-200 p-6 rounded-lg mb-12 text-center shadow-sm">
-          <FiInfo className="h-8 w-8 text-blue-500 mx-auto mb-3" aria-hidden="true" />
-          <div className="text-lg font-semibold text-blue-800">A Note for Our Visitors</div>
-          <p className="mt-1 text-sm text-blue-700">
-            You&apos;ve landed on a simplified catalogue designed for machine readability. For the best experience with filters and search, we recommend our main homepage.
-          </p>
-          <div className="mt-4">
+        <div className="bg-slate-50 border border-slate-200 p-6 rounded-lg mb-12 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div>
+            <div className="flex items-center gap-2 mb-2">
+              <FiInfo className="h-5 w-5 text-slate-500" aria-hidden="true" />
+              <h2 className="text-lg font-semibold text-slate-800">Academic & Technical Index</h2>
+            </div>
+            <p className="text-sm text-slate-600 max-w-3xl">
+              This is the complete structured index of all mapped entities within the Yourself to Science knowledge graph. 
+              It is optimized for search engines, machine readability, and academic auditing. For interactive filtering and search, please use the Data Explorer.
+            </p>
+          </div>
+          <div className="shrink-0">
             <Link
-              href="/"
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              href="/explore"
+              className="inline-flex items-center px-5 py-2.5 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 transition-colors"
             >
-              Take Me to the Homepage
+              Open Data Explorer
               <FiArrowRight className="ml-2 -mr-1 h-4 w-4" />
             </Link>
           </div>
         </div>
 
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
-            All Resources
+          <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl mb-4">
+            A-Z Directory
           </h1>
-          <p className="mt-4 mb-4 text-xl text-gray-500">
+          <p className="text-xl text-slate-600">
             A complete catalogue of all services for contributing to science.
           </p>
-          <div className="text-center text-sm text-gray-500">
-            Looking for raw data? <Link href="/data" className="text-blue-600 hover:underline">Access the Open Datasets</Link>
+          <div className="text-center text-sm text-slate-500 mt-4">
+            Looking for programmatic data feeds? <Link href="/data" className="text-blue-600 hover:underline font-medium">Access Institutional Integrations (API/LLM/RDF)</Link>
           </div>
           <div className="text-center text-sm text-gray-500 mt-2">
             These resources are mapped to the global knowledge graph, with this dataset currently serving as a reference on <strong>{wikidataStats.referencedItemsCount || 0} Wikidata items</strong>.

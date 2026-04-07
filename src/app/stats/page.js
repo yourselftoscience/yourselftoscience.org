@@ -237,7 +237,7 @@ const StatsPage = () => {
                 <div className="mt-6 text-center">
                     <Link href="/data" className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-apple-accent rounded-lg hover:bg-opacity-90 focus:ring-4 focus:outline-none focus:ring-blue-300 transition-colors">
                         <FaDatabase />
-                        <span>View Dataset & API Info</span>
+                        <span>View Data & Integrations</span>
                     </Link>
                 </div>
             </motion.div>

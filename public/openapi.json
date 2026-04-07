@@ -58,7 +58,8 @@
             "type": "string"
           },
           "link": {
-            "type": "string"
+            "type": "string",
+            "format": "uri"
           },
           "dataTypes": {
             "type": "array",
@@ -72,8 +73,20 @@
               "type": "string"
             }
           },
+          "locations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
           "origin": {
             "type": "string"
+          },
+          "originCode": {
+            "type": [
+              "string",
+              "null"
+            ]
           },
           "compensationType": {
             "type": "string"
@@ -83,6 +96,18 @@
           },
           "entitySubType": {
             "type": "string"
+          },
+          "resourceWikidataId": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "entitySubTypeWikidataId": {
+            "type": [
+              "string",
+              "null"
+            ]
           },
           "yearLaunched": {
             "type": [
@@ -108,6 +133,18 @@
               "null"
             ]
           },
+          "compatibleSources": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "excludedCountries": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
           "organizations": {
             "type": "array",
             "items": {
@@ -130,6 +167,40 @@
                 }
               }
             }
+          },
+          "citations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "link": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              }
+            }
+          },
+          "permalink": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "rorTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "wikidataReferenceUrl": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri"
           }
         }
       }

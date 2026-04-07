@@ -9,7 +9,7 @@ import {
   FaSort, FaSortUp, FaSortDown,
   FaDownload, FaSearch, FaTimes, FaColumns,
   FaExternalLinkAlt, FaChevronDown, FaTable, FaDatabase,
-  FaFilter, FaArrowRight
+  FaFilter, FaArrowRight, FaChartBar
 } from 'react-icons/fa';
 
 // --- Column Definitions ---
@@ -341,7 +341,7 @@ export default function ExplorePage() {
               href="/data"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition-colors"
             >
-              <FaDatabase className="w-3 h-3" /> API & Downloads
+              <FaDatabase className="w-3 h-3" /> APIs & Integrations
             </Link>
           </div>
         </div>
@@ -599,28 +599,27 @@ export default function ExplorePage() {
         </div>
       </div>
 
-      {/* Institutional CTA */}
-      <div className="mt-8 bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-6 md:p-8 text-white">
+      {/* Technical Data Hub CTA */}
+      <div className="mt-8 bg-slate-900 rounded-2xl p-6 md:p-8 text-white border border-slate-800">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
-            <h2 className="text-lg font-bold mb-1">For Investors, Policy Makers & Institutions</h2>
-            <p className="text-sm text-slate-300 max-w-2xl">
-              This dataset is the only structured, open, machine-readable index of the global citizen science participation landscape.
-              Available under CC0 1.0 — no restrictions on use.
+            <h2 className="text-xl font-bold mb-2">Technical Hub & Project Analytics</h2>
+            <p className="text-base text-slate-300 max-w-2xl leading-relaxed">
+              Seeking data on research participation and resource distribution? Access our analytics for project statistics and standardized endpoints used by researchers and policy makers.
             </p>
           </div>
-          <div className="flex items-center gap-3 flex-shrink-0">
+          <div className="flex flex-wrap items-center gap-3 flex-shrink-0">
             <Link
-              href="/data"
-              className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold bg-white text-slate-900 rounded-xl hover:bg-slate-100 transition-colors shadow-md"
+              href="/stats"
+              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold bg-white text-slate-900 rounded-xl hover:bg-slate-100 transition-colors"
             >
-              <FaDatabase /> Access Full API
+              <FaChartBar className="w-4 h-4 text-blue-600" /> View Project Analytics
             </Link>
             <Link
-              href="/mission"
-              className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-white/10 border border-white/20 rounded-xl hover:bg-white/20 transition-colors"
+              href="/data"
+              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-white bg-slate-800 border border-slate-700 rounded-xl hover:bg-slate-700 transition-colors"
             >
-              Our Mission <FaArrowRight className="w-3 h-3" />
+              <FaDatabase className="w-3 h-3" /> Data Infrastructure
             </Link>
           </div>
         </div>

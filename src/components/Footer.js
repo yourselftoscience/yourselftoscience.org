@@ -111,7 +111,7 @@ export default function Footer() {
               <ul className="mt-4 space-y-3">
                 <FooterButton onClick={() => setCitationModalOpen(true)}>Cite this Project</FooterButton>
                 <FooterLink href="/explore">Explore Data</FooterLink>
-                <FooterLink href="/data">Dataset</FooterLink>
+                <FooterLink href="/data">Open Science Dataset</FooterLink>
                 <li>
                   <a href="/yourselftoscience.pdf" target="_blank" rel="noopener noreferrer" className="text-apple-secondary-text hover:text-apple-accent transition-colors duration-200">
                     PDF Version

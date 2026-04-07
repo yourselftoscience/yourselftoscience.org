@@ -54,7 +54,7 @@ const openApiSchema = {
           "slug": { "type": "string" },
           "title": { "type": "string" },
           "description": { "type": "string" },
-          "link": { "type": "string" },
+          "link": { "type": "string", "format": "uri" },
           "dataTypes": {
             "type": "array",
             "items": { "type": "string" }
@@ -63,14 +63,29 @@ const openApiSchema = {
             "type": "array",
             "items": { "type": "string" }
           },
+          "locations": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
           "origin": { "type": "string" },
+          "originCode": { "type": ["string", "null"] },
           "compensationType": { "type": "string" },
           "entityCategory": { "type": "string" },
           "entitySubType": { "type": "string" },
+          "resourceWikidataId": { "type": ["string", "null"] },
+          "entitySubTypeWikidataId": { "type": ["string", "null"] },
           "yearLaunched": { "type": ["string", "null"] },
           "isActivelyRecruiting": { "type": ["boolean", "null"] },
           "hasApi": { "type": ["boolean", "null"] },
           "isOpenData": { "type": ["boolean", "null"] },
+          "compatibleSources": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "excludedCountries": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
           "organizations": {
             "type": "array",
             "items": {
@@ -81,7 +96,23 @@ const openApiSchema = {
                 "rorId": { "type": ["string", "null"] }
               }
             }
-          }
+          },
+          "citations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": { "type": "string" },
+                "link": { "type": "string", "format": "uri" }
+              }
+            }
+          },
+          "permalink": { "type": ["string", "null"] },
+          "rorTypes": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "wikidataReferenceUrl": { "type": ["string", "null"], "format": "uri" }
         }
       }
     }

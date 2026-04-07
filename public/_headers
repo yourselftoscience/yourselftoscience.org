@@ -1,0 +1,96 @@
+# -- CORES ASSETS (JSON, CSV, TTL, TXT) --
+/resources.json
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Access-Control-Allow-Headers: *
+  Cache-Control: public, max-age=3600
+  X-Content-Type-Options: nosniff
+/resources.csv
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Access-Control-Allow-Headers: *
+  Cache-Control: public, max-age=86400
+  X-Content-Type-Options: nosniff
+/resources.ttl
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Access-Control-Allow-Headers: *
+  Cache-Control: public, max-age=3600
+  X-Content-Type-Options: nosniff
+/void.ttl
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Access-Control-Allow-Headers: *
+  Cache-Control: public, max-age=86400
+  X-Content-Type-Options: nosniff
+/resources.txt
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Access-Control-Allow-Headers: *
+  Cache-Control: public, max-age=3600
+  X-Content-Type-Options: nosniff
+
+# -- ECOSYSTEM DATA --
+/resources_wikidata.json
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Access-Control-Allow-Headers: *
+  Cache-Control: public, max-age=86400
+/id-to-slug.json
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Access-Control-Allow-Headers: *
+  Cache-Control: public, max-age=86400
+/ontology.json
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Access-Control-Allow-Headers: *
+  Cache-Control: public, max-age=86400
+
+# -- AI & AGENTIC INGESTION (LLM Context) --
+/openapi.json
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Access-Control-Allow-Headers: *
+  Cache-Control: public, max-age=3600
+/llms.txt
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Access-Control-Allow-Headers: *
+  Cache-Control: public, max-age=3600
+/llms-full.txt
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Access-Control-Allow-Headers: *
+  Cache-Control: public, max-age=3600
+/llms-ctx.txt
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Access-Control-Allow-Headers: *
+  Cache-Control: public, max-age=3600
+/llms-ctx-full.txt
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Access-Control-Allow-Headers: *
+  Cache-Control: public, max-age=3600
+/datapackage.json
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Access-Control-Allow-Headers: *
+  Cache-Control: public, max-age=86400
+
+# -- DISCOVERY & HANDSHAKES --
+/sitemap.xml
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Access-Control-Allow-Headers: *
+  Cache-Control: public, max-age=86400
+/site.webmanifest
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Cache-Control: public, max-age=86400
+/.well-known/*
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Access-Control-Allow-Headers: *
+  Cache-Control: public, max-age=3600
