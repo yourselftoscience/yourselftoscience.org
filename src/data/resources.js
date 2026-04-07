@@ -940,7 +940,7 @@ export const rawResources = [
     "organizations": [
       {
         "name": "Department of Human Biology, University of Wrocław",
-        "wikidataId": null
+        "wikidataId": "Q138820677"
       }
     ],
     "link": "https://biologia.uwr.edu.pl/2023/10/12/znaczenie-wybranych-czynnikow-biologicznych-i-srodowiskowych-w-procesie-rozkladu-ludzkich-wlosow-nabor-na-badania/",

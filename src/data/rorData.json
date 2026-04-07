@@ -416,7 +416,7 @@
     "query": "NHS Health Research Authority"
   },
   "Cochrane": {
-    "rorId": "https://ror.org/048ztsn21",
+    "rorId": "https://ror.org/00dbkrq51",
     "name": "Cochrane",
     "types": [
       "other"
@@ -424,10 +424,11 @@
     "country": "Denmark",
     "city": "Copenhagen",
     "countryCode": "DK",
-    "established": null,
-    "wikipediaUrl": null,
-    "isni": "0000 0004 0646 7082",
-    "autoMatched": true
+    "established": 1993,
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Cochrane_(organisation)",
+    "wikidataId": "Q426449",
+    "autoMatched": false,
+    "manuallyVerified": true
   },
   "Federal Agency for Medicines and Health Products (FAMHP)": {
     "rorId": null,
