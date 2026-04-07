@@ -7,7 +7,7 @@ This file contains the full context of the Yourself to Science catalogue, includ
 
 # Yourself to Science: Contribute to Science
 
-> A comprehensive open-source catalogue for contributing your biological and digital self to scientific research. Browse opportunities to share your data, genome, biological samples, and more.
+> A comprehensive open-source catalogue for contributing your biological and digital self to scientific research.
 
 This project is open source. The content is licensed under CC BY-SA 4.0 and the code is licensed under AGPL-3.0. This page provides a filterable catalogue of all resources. You can also download the full dataset as CSV or JSON.
 

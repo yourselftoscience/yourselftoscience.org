@@ -1,0 +1,935 @@
+# Yourself to Science - Full Dataset
+Generated on: 2026-04-07
+
+This list contains 56 active platforms and initiatives.
+
+### Living DNA Global Research Project
+- **Operating Organization(s):** Living DNA
+- **Category:** Commercial (Commercial)
+- **Data Types Accepted:** Genome, Health data
+- **Website:** https://support.livingdna.com/hc/en-us/articles/360012326740-How-do-I-participate-in-research
+
+**Description:** A research project by Living DNA to map the world's genetic history and investigate the role genetics plays in health and lifestyle. Participants can opt-in to use their genetic data for scientific research.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### GenomeConnect
+- **Operating Organization(s):** Clinical Genome Resource (ClinGen)
+- **Category:** Non-Profit (Research Project)
+- **Data Types Accepted:** Genome, Health data
+- **Website:** https://www.genomeconnect.org/
+
+**Description:** A patient registry engaging individuals as partners in data sharing by collecting genetic testing results and health information. Note: Data from participants in the European Union (EU), European Economic Area (EEA), and United Kingdom (UK) cannot currently be processed due to GDPR. They accept electronic (pdf, doc, jpg) or physical clinical reports but they do not process raw data files.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### Open Humans
+- **Operating Organization(s):** Open Humans Foundation
+- **Category:** Non-Profit (Research Foundation)
+- **Data Types Accepted:** Genome, Health data, Wearable data, Search history, Location history
+- **Website:** https://www.openhumans.org/add-data/
+
+**Description:** A platform for participant-centered research and personal data exploration.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### FamilyTreeDNA Group Projects
+- **Operating Organization(s):** FamilyTreeDNA
+- **Category:** Commercial (Commercial)
+- **Countries:** Worldwide
+- **Data Types Accepted:** Genome
+- **Website:** https://www.familytreedna.com/group-project
+
+**Description:** Join thousands of collaborative genealogy projects based on surname, geography, or haplogroup to support citizen science and migration pattern discovery.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### MyPHD
+- **Operating Organization(s):** Stanford University
+- **Category:** Academic (Academic)
+- **Data Types Accepted:** Health data, Wearable data
+- **Website:** https://myphd.stanford.edu/studies/
+
+**Description:** A platform for collecting health data from wearables to detect early signs of infectious diseases.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### Google Health Studies
+- **Operating Organization(s):** Google
+- **Category:** Commercial (Commercial)
+- **Data Types Accepted:** Health data
+- **Website:** https://health.google/consumers/health-studies/
+
+**Description:** A platform that lets you contribute to health research using the Google Health Studies app.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### Apple Research
+- **Operating Organization(s):** Apple
+- **Category:** Commercial (Commercial)
+- **Countries:** United States
+- **Data Types Accepted:** Health data
+- **Website:** https://support.apple.com/en-us/108425
+
+**Description:** Participate in health studies using your iPhone and Apple Watch.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### Harvard Personal Genome Project
+- **Operating Organization(s):** Harvard Medical School
+- **Category:** Academic (University)
+- **Countries:** United States
+- **Data Types Accepted:** Genome, Health data
+- **Website:** https://pgp.med.harvard.edu/participate
+
+**Description:** An open science project by Harvard Medical School where participants publicly share their genetic, health, and trait data to drive biological research.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### Genes for Good
+- **Operating Organization(s):** University of Michigan
+- **Category:** Academic (University)
+- **Countries:** United States
+- **Data Types Accepted:** Genome, Health data
+- **Website:** https://genesforgood.sph.umich.edu/participate
+
+**Description:** A research study run through a Facebook App that connects health, behavior, and genetics. Participants complete surveys and may become eligible to provide a saliva sample for DNA analysis.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### All of Us
+- **Operating Organization(s):** National Institutes of Health (NIH)
+- **Category:** Government (Research Agency)
+- **Countries:** United States
+- **Data Types Accepted:** Genome, Health data
+- **Website:** https://allofus.nih.gov/
+
+**Description:** A research program from the NIH to gather health data from one million or more people living in the US.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### Fitbit Health Research and Product Development
+- **Operating Organization(s):** Fitbit
+- **Category:** Commercial (Commercial)
+- **Data Types Accepted:** Wearable data
+
+**Description:** Share your Fitbit data to help improve health research and product development.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### SPARK for Autism
+- **Operating Organization(s):** Simons Foundation
+- **Category:** Non-Profit (Research Foundation)
+- **Countries:** United States
+- **Data Types Accepted:** Genome, Health data
+- **Website:** https://sparkforautism.org/why/
+
+**Description:** A landmark autism research project connecting autistic individuals and their families to research.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### UBC Body Donation Program
+- **Operating Organization(s):** Faculty of Medicine at the University of British Columbia
+- **Category:** Academic (Academic)
+- **Countries:** Canada
+- **Data Types Accepted:** Body
+- **Website:** https://cps.med.ubc.ca/the-donation-process/
+
+**Description:** The UBC Body Donation Program accepts donations for anatomical study and medical research.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### University of Cambridge body and tissue donation
+- **Operating Organization(s):** Department of Anatomy, University of Cambridge, Cambridge Biomedical Research Centre
+- **Category:** Academic (Academic)
+- **Countries:** United Kingdom
+- **Data Types Accepted:** Body, Tissue
+- **Website:** https://www.cuh.nhs.uk/our-research/get-involved/donate-body-to-medical-science/
+
+**Description:** Information on donating your body to medical science at the University of Cambridge.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### body and tissue donation in Italy
+- **Operating Organization(s):** Ministero della Salute
+- **Category:** Government (Public Health Service)
+- **Countries:** Italy
+- **Data Types Accepted:** Body, Tissue
+- **Website:** https://www.salute.gov.it/portale/disposizionepostmortem/dettaglioContenutiDisposizionepostmortem.jsp?lingua=italiano&id=6004&area=postMortem&menu=vuoto
+
+**Description:** Official guidelines for donating body and tissues for study, training, and scientific research in Italy.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### body donation in France
+- **Operating Organization(s):** Service-Public.fr
+- **Category:** Government (Public Health Service)
+- **Countries:** France
+- **Data Types Accepted:** Body
+- **Website:** https://www.service-public.fr/particuliers/vosdroits/F180
+
+**Description:** Official information on body donation for science and medical research in France.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### gamete and embryo donation in the United Kingdom
+- **Operating Organization(s):** Human Fertilisation and Embryology Authority
+- **Category:** Government (Statutory Authority)
+- **Countries:** United Kingdom
+- **Data Types Accepted:** Eggs, Embryos, Sperm
+- **Website:** https://www.hfea.gov.uk/donation/donors/donating-to-research/
+
+**Description:** Information on donating eggs, sperm, and embryos for research in the UK.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### ClinicalTrials.gov
+- **Operating Organization(s):** United States National Library of Medicine (NLM)
+- **Category:** Government (Research Agency)
+- **Data Types Accepted:** Clinical trials
+- **Website:** https://clinicaltrials.gov/
+
+**Description:** A comprehensive registry and results database of publicly and privately supported clinical studies conducted around the world. Managed by the U.S. National Library of Medicine.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### International Clinical Trials Registry Platform
+- **Operating Organization(s):** World Health Organization (WHO)
+- **Category:** Intergovernmental (Intergovernmental Organization)
+- **Data Types Accepted:** Clinical trials
+- **Website:** https://trialsearch.who.int/
+
+**Description:** A central database managed by the WHO to search for clinical trials from registries around the world.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### EU Clinical Trials Register
+- **Operating Organization(s):** European Medicines Agency (EMA)
+- **Category:** Government (Regulatory Agency)
+- **Countries:** European Union, Iceland, Liechtenstein, Norway
+- **Data Types Accepted:** Clinical trials
+- **Website:** https://euclinicaltrials.eu/search-for-clinical-trials/
+
+**Description:** The European Union's official database for clinical trials conducted in the EU and EEA.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### European Clinical Trials Information Network
+- **Operating Organization(s):** Clinical Trials Information Network (CTIN Poland)
+- **Category:** Commercial (Commercial)
+- **Countries:** European Union
+- **Data Types Accepted:** Clinical trials
+- **Website:** https://clinicaltrials.eu/
+
+**Description:** A clinical trials information network providing access to studies in Poland and Europe.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### Curewiki
+- **Operating Organization(s):** Curewiki
+- **Category:** Commercial (Commercial)
+- **Countries:** European Union, Iceland, Liechtenstein, Norway
+- **Data Types Accepted:** Clinical trials
+- **Website:** https://www.curewiki.health/
+
+**Description:** A platform connecting patients with clinical trials for various conditions.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### Esperity Clinical Trial Discovery
+- **Operating Organization(s):** Esperity
+- **Category:** Commercial (Commercial)
+- **Data Types Accepted:** Clinical trials
+- **Website:** https://clinicaltrial.be/
+
+**Description:** A patient-centric platform for finding and participating in clinical trials.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### ResearchMatch
+- **Operating Organization(s):** Vanderbilt University Medical Center
+- **Category:** Government (Research Agency)
+- **Countries:** United States
+- **Data Types Accepted:** Clinical trials
+- **Website:** https://www.researchmatch.org/
+
+**Description:** A nonprofit program funded by the National Institutes of Health (NIH) that connects people interested in research studies with researchers from top medical centers across the U.S.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### FluCamp
+- **Operating Organization(s):** hVIVO
+- **Category:** Commercial (Commercial)
+- **Countries:** United Kingdom
+- **Data Types Accepted:** Clinical trials
+- **Website:** https://flucamp.com/
+
+**Description:** Conducts clinical trials for flu and common cold viruses in London and Manchester, compensating volunteers for their time.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### HealthStreet
+- **Operating Organization(s):** University of Florida Health
+- **Category:** Academic (Academic)
+- **Countries:** United States
+- **Data Types Accepted:** Clinical trials
+- **Website:** https://healthstreet.program.ufl.edu/uf-researchers/participate-in-research/
+
+**Description:** Connects community members in Florida with health research opportunities at the University of Florida.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### GoodNature Program
+- **Operating Organization(s):** Nestlé Health Science U.S.
+- **Category:** Commercial (Commercial)
+- **Countries:** United States
+- **Data Types Accepted:** Stool
+- **Website:** https://goodnatureprogram.com/apply/
+
+**Description:** A stool donation program supporting research into microbiome-based therapeutics.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### Australian Red Cross Lifeblood microbiome donation
+- **Operating Organization(s):** Australian Red Cross Lifeblood
+- **Category:** Non-Profit (Non-Profit Organization)
+- **Countries:** Australia
+- **Data Types Accepted:** Stool
+- **Website:** https://www.lifeblood.com.au/microbiome
+
+**Description:** Australian Red Cross Lifeblood's microbiome research program.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### Wesley Research Institute stool donation
+- **Operating Organization(s):** Wesley Research Institute
+- **Category:** Non-Profit (Non-Profit Organization)
+- **Countries:** Australia
+- **Data Types Accepted:** Stool
+- **Website:** https://www.wesleyresearch.org.au/biobank-project/stool-donation/
+
+**Description:** Stool donation program at Wesley Research Institute.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### Wesley Research Institute placenta donation
+- **Operating Organization(s):** Wesley Research Institute
+- **Category:** Non-Profit (Non-Profit Organization)
+- **Countries:** Australia
+- **Data Types Accepted:** Placenta
+- **Website:** https://www.wesleyresearch.org.au/biobank-project/placenta-donation/
+
+**Description:** Placenta donation program at Wesley Research Institute.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### University of Wrocław human hair decomposition project
+- **Operating Organization(s):** Department of Human Biology, University of Wrocław
+- **Category:** Academic (Academic)
+- **Countries:** Poland
+- **Data Types Accepted:** Hair
+- **Website:** https://biologia.uwr.edu.pl/2023/10/12/znaczenie-wybranych-czynnikow-biologicznych-i-srodowiskowych-w-procesie-rozkladu-ludzkich-wlosow-nabor-na-badania/
+
+**Description:** Research on human hair decomposition at the University of Wrocław.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### UCSF Archives and Special Collections social media archive
+- **Operating Organization(s):** UCSF Library Archives
+- **Category:** Academic (Academic)
+- **Data Types Accepted:** Social media data
+- **Website:** https://www.library.ucsf.edu/archives/donate/materials/donating-your-social-media/
+
+**Description:** Donate your social media archives to the UCSF Library for research.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### Penn Medicine Donate Your Data
+- **Operating Organization(s):** Penn Medicine
+- **Category:** Academic (Academic)
+- **Data Types Accepted:** Health data, Wearable data, Social media data, Search history
+- **Website:** https://cdh.nmsdev.com/donate-your-data
+
+**Description:** Share your digital data to help Penn Medicine researchers understand health.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### NHS Health Research Authority Research Summaries
+- **Operating Organization(s):** NHS Health Research Authority
+- **Category:** Government (Regulatory Agency)
+- **Countries:** United Kingdom
+- **Data Types Accepted:** Health data
+- **Website:** https://www.hra.nhs.uk/planning-and-improving-research/application-summaries/research-summaries/
+
+**Description:** Plain-language summaries of research studies approved by the NHS Health Research Authority.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### Cochrane Central Register of Controlled Trials
+- **Operating Organization(s):** Cochrane
+- **Category:** Non-Profit (Non-Governmental Organization)
+- **Data Types Accepted:** Clinical trials
+- **Website:** https://www.cochranelibrary.com/central
+
+**Description:** A highly concentrated source of reports of randomized and quasi-randomized controlled trials from various databases and other sources. Access requires a subscription to the Cochrane Library.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### FAMHP clinical trials database
+- **Operating Organization(s):** Federal Agency for Medicines and Health Products (FAMHP)
+- **Category:** Government (Regulatory Agency)
+- **Countries:** Belgium
+- **Data Types Accepted:** Clinical trials
+- **Website:** https://clinicaltrialsdatabase.be/
+
+**Description:** A database of clinical trials approved by the Belgian Federal Agency for Medicines and Health Products (FAMHP). NOTE: This database is no longer available due to changes in the legal framework.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### German Clinical Trials Register
+- **Operating Organization(s):** Federal Institute for Drugs and Medical Devices (BfArM)
+- **Category:** Academic (Academic)
+- **Countries:** Germany
+- **Data Types Accepted:** Clinical trials
+- **Website:** https://drks.de/
+
+**Description:** The primary register for clinical trials conducted in Germany, providing public access to study information.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### Health Canada's Clinical Trials Database
+- **Operating Organization(s):** Health Canada
+- **Category:** Government (Regulatory Agency)
+- **Countries:** Canada
+- **Data Types Accepted:** Clinical trials
+- **Website:** https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/health-canada-clinical-trials-database.html
+
+**Description:** A listing of specific information relating to phase I, II, and III clinical trials in patients authorized by Health Canada.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### AATB Accredited Bank Search
+- **Operating Organization(s):** American Association of Tissue Banks (AATB)
+- **Category:** Non-Profit (Professional Association)
+- **Countries:** United States
+- **Data Types Accepted:** Tissue, Body, Organ, Placenta, Eggs, Sperm, Embryos
+- **Website:** https://www.aatb.org/accredited-bank-search
+
+**Description:** A search tool to find AATB-accredited tissue banks in the United States, covering various types of tissue, organ, and birth tissue donation.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### OrganDonor.gov
+- **Operating Organization(s):** U.S. Department of Health & Human Services
+- **Category:** Government (Public Health Service)
+- **Countries:** United States
+- **Data Types Accepted:** Organ, Tissue
+- **Website:** https://www.organdonor.gov/sign-up
+
+**Description:** The official U.S. government website for organ, eye, and tissue donation. Provides information and links to state registries to sign up as a donor.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### Bloodworks Northwest Donate Blood for Research
+- **Operating Organization(s):** Bloodworks Northwest
+- **Category:** Non-Profit (Non-Profit Organization)
+- **Countries:** United States
+- **Data Types Accepted:** Blood, Plasma, Stem cells
+- **Website:** https://bloodworksnw.org/donate/research
+
+**Description:** Bloodworks Northwest’s research program accepts blood donations to support a variety of studies, from developing new treatments to understanding blood-related diseases. This service is available in the Pacific Northwest.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### Max Planck Institute for Software Systems conversational AI data donation
+- **Operating Organization(s):** Max Planck Institute for Software Systems
+- **Category:** Academic (Research Center)
+- **Data Types Accepted:** Conversational AI data
+- **Website:** https://social-media-data-donator.mpi-sws.org/
+
+**Description:** Donate your chat history from assistants like ChatGPT, Gemini, and Claude to help researchers understand human-AI interaction patterns.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### CRC ed i Volontari per la Ricerca Clinica
+- **Operating Organization(s):** Centro Ricerche Cliniche di Verona
+- **Category:** Academic (University Hospital)
+- **Countries:** Italy
+- **Data Types Accepted:** Clinical trials
+- **Website:** https://www.crcvolontariricercaclinica.it/Volontari/Partecipazione#Diventa
+
+**Description:** A center in Verona, Italy, conducting clinical trials for healthy volunteers and patients. Volunteers can register to participate in various studies.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### Rete Cittadini per la Ricerca
+- **Operating Organization(s):** San Camillo IRCCS
+- **Category:** Non-Profit (Hospital)
+- **Countries:** Italy
+- **Data Types Accepted:** Clinical trials
+- **Website:** https://hsancamillo.it/rete-cittadini-per-la-ricerca/
+
+**Description:** A network for citizens to participate in scientific research at San Camillo IRCCS, contributing to medical progress and new therapies.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### Eurac Research cover letter donation
+- **Operating Organization(s):** Eurac Research
+- **Category:** Academic (Research Center)
+- **Data Types Accepted:** Cover letters
+- **Website:** https://www.eurac.edu/en/blogs/connecting-the-dots/data-donations-why-should-i-donate-my-cover-letter-to-research
+
+**Description:** A data donation campaign focused on collecting cover letters for doctoral research to understand the impact of writing styles in a multilingual professional context.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### PURA Biobank
+- **Operating Organization(s):** Helmholtz Munich
+- **Category:** Government (Research Agency)
+- **Countries:** Germany
+- **Data Types Accepted:** Blood, Tissue
+- **Website:** https://www.helmholtz-munich.de/en/pura-biobank/donate-bio-sample
+
+**Description:** Collects biological samples from patients with PURA syndrome, other neurological disorders, and healthy controls to support research.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### GIMM Biobank
+- **Operating Organization(s):** Gulbenkian Institute for Molecular Medicine (GIMM)
+- **Category:** Non-Profit (Research Institute)
+- **Countries:** Portugal
+- **Data Types Accepted:** Blood
+- **Website:** https://care.gimm.pt/biobank-for-donors/
+
+**Description:** A biobank collecting biological samples (primarily blood) from diverse populations to support biomedical research and precision medicine.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### Genomes.io
+- **Operating Organization(s):** Genomes.io
+- **Category:** Commercial (Commercial)
+- **Data Types Accepted:** Genome
+- **Website:** https://genomes.io/
+
+**Description:** A DNA data bank and personal DNA data platform that allows users to control and monetize their genomic data using blockchain technology.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### 23andMe Research Participation
+- **Operating Organization(s):** 23andMe Holding Co.
+- **Category:** Commercial (Commercial)
+- **Data Types Accepted:** Genome, Health data, Microbiome
+- **Website:** https://customercare.23andme.com/hc/en-us/articles/212195708-Research-Participation-and-Consent
+
+**Description:** Contribute to scientific research aimed at making and supporting meaningful scientific discoveries using your genetic and self-reported data.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### GEDmatch
+- **Operating Organization(s):** Verogen Inc.
+- **Category:** Commercial (Commercial)
+- **Data Types Accepted:** Genome
+- **Website:** https://www.gedmatch.com/privacy-security/
+
+**Description:** A public genealogy database that allows users to opt-in to share their data for research purposes. Note: VCF files from unsupported companies must be converted to the 23andMe format before upload.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### tellmeGen Research
+- **Operating Organization(s):** GENELINK, S.L. (tellmeGen)
+- **Category:** Commercial (Commercial)
+- **Data Types Accepted:** Genome, Health data
+- **Website:** https://www.tellmegen.com/en/tellmegen-research
+
+**Description:** Contribute to research by sharing your genetic data and answering surveys about your health, traits, and wellness.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### MyHeritage DNA Research Project
+- **Operating Organization(s):** MyHeritage Ltd
+- **Category:** Commercial (Commercial)
+- **Data Types Accepted:** Genome, Health data
+- **Website:** https://www.myheritage.com/dna-informed-consent-agreement
+
+**Description:** Participate in research to help understand human genetics, genealogy, and anthropology by sharing your DNA results and survey responses.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### Ancestry Human Diversity Project
+- **Operating Organization(s):** Ancestry.com Inc.
+- **Category:** Commercial (Commercial)
+- **Data Types Accepted:** Genome, Health data
+- **Website:** https://www.ancestry.com/c/collaborations
+
+**Description:** Participate in research to help understand human history, health, and genetics by sharing your DNA data and survey responses.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### hEDS & Dysautonomia Study (Sequencing.com)
+- **Operating Organization(s):** Sequencing.com, Medical University of South Carolina
+- **Category:** Commercial (Commercial)
+- **Data Types Accepted:** Genome
+- **Website:** https://get.sequencing.com/research-study/hypermobile-eds-dysautonomia/
+
+**Description:** Participate in a genetic study for hypermobile Ehlers-Danlos Syndrome (hEDS) and Dysautonomia in collaboration with the Norris Lab at the Medical University of South Carolina.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### Altruist Database (Sequencing.com)
+- **Operating Organization(s):** Sequencing.com
+- **Category:** Commercial (Commercial)
+- **Countries:** Worldwide
+- **Data Types Accepted:** Genome
+- **Website:** https://sequencing.com/knowledge-center/altruist-endeavor/altruist-database
+
+**Description:** A free database of anonymous genotypic, phenotypic and interpretation data that allows public searching and analysis. Researchers can request to contact individuals holding specific traits for additional paid studies and opportunities.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+
+### WikiTree
+- **Operating Organization(s):** The WikiTree Company
+- **Category:** Commercial (Commercial)
+- **Countries:** Worldwide
+- **Data Types Accepted:** Genome
+- **Website:** https://www.wikitree.com/wiki/Special:DNATests
+
+**Description:** A collaborative genealogy platform that allows users to add their DNA test information (like GEDmatch ID or usernames, rather than raw data files) to their profiles to help confirm relationships and find genetic cousins.
+
+**Metrics:**
+- Year Launched: Unknown
+- Is Actively Recruiting: undefined
+- Has Open API for Researchers: undefined
+- Practices Open Data: undefined
+
+---
+

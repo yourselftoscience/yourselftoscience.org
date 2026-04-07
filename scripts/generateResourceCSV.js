@@ -26,7 +26,8 @@ try {
     'entityCategory', 'entitySubType', 'countries', 'countryCodes', 'origin', 'originCode',
     'description', 'instructions', 'citations', 'citationWikidataIds', 'wikidataId', 'resourceWikidataId', 'dataTypeWikidataIds',
     'isCitedOnWikidata', 'wikidataReferenceUrl',
-    'rorId', 'rorTypes'
+    'rorId', 'rorTypes',
+    'yearLaunched', 'isActivelyRecruiting', 'hasApi', 'isOpenData'
   ];
 
   const formatCitations = (citations) => {
@@ -76,7 +77,11 @@ try {
       `"${isCited}"`,
       `"${refUrl}"`,
       `"${rorId}"`,
-      `"${rorTypes}"`
+      `"${rorTypes}"`,
+      `"${resource.yearLaunched || ''}"`,
+      `"${resource.isActivelyRecruiting !== null ? resource.isActivelyRecruiting : ''}"`,
+      `"${resource.hasApi !== null ? resource.hasApi : ''}"`,
+      `"${resource.isOpenData !== null ? resource.isOpenData : ''}"`
     ];
     csvContent += row.join(',') + '\n';
   });

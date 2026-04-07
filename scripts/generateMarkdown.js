@@ -188,7 +188,7 @@ function generateHomepageMarkdown() {
   console.log('Generating index.html.md...');
 
   let mdContent = `# Yourself to Science: Contribute to Science\n\n`;
-  mdContent += `> A comprehensive open-source catalogue for contributing your biological and digital self to scientific research. Browse opportunities to share your data, genome, biological samples, and more.\n\n`;
+  mdContent += `> A comprehensive open-source catalogue for contributing your biological and digital self to scientific research.\n\n`;
   mdContent += `This project is open source. The content is licensed under CC BY-SA 4.0 and the code is licensed under AGPL-3.0. This page provides a filterable catalogue of all resources. You can also download the full dataset as CSV or JSON.\n\n`;
   mdContent += `## All Resources\n\n`;
 
@@ -472,7 +472,7 @@ function generateLlmsTxt() {
   console.log('Generating llms.txt...');
 
   let content = `# Yourself to Science Catalog\n\n`;
-  content += `> Yourself to Science™ is an open-source project providing a comprehensive list of services that allow individuals to contribute to scientific research with their data, genome, body, and more.\n\n`;
+  content += `> Yourself to Science™ is an open-source project providing a comprehensive list of services that allow individuals to contribute to scientific research with their biological and digital selves.\n\n`;
   content += `This project is radically open. Our **entire dataset** is dedicated to the public domain under the [CC0 1.0 Universal license](https://yourselftoscience.org/data). The mission content is licensed under CC BY-SA 4.0 and the code is licensed under AGPL-3.0.\n\n`;
 
   content += `## Core Documentation\n\n`;

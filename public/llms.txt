@@ -1,6 +1,6 @@
 # Yourself to Science Catalog
 
-> Yourself to Science™ is an open-source project providing a comprehensive list of services that allow individuals to contribute to scientific research with their data, genome, body, and more.
+> Yourself to Science™ is an open-source project providing a comprehensive list of services that allow individuals to contribute to scientific research with their biological and digital selves.
 
 This project is radically open. Our **entire dataset** is dedicated to the public domain under the [CC0 1.0 Universal license](https://yourselftoscience.org/data). The mission content is licensed under CC BY-SA 4.0 and the code is licensed under AGPL-3.0.
 

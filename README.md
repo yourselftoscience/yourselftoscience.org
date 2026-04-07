@@ -1,6 +1,6 @@
 # Yourself to Science
 
-**Yourself to Science™ is an open-source project providing a comprehensive list of services that allow individuals to contribute to scientific research with their data, genome, body, and more.**
+**Yourself to Science™ is an open-source project providing a comprehensive list of services that allow individuals to contribute to scientific research with their biological and digital selves.**
 
 Welcome to the official repository! Whether you're a developer looking to fix a bug or a community member with a suggestion for a new service, your contribution is welcome. Please see our [**Contribution Guidelines**](CONTRIBUTING.md) to get started.
 

@@ -1,0 +1,138 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Yourself to Science - Dataset API",
+    "description": "Yourself to Science™ is an open-source project providing a comprehensive list of services that allow individuals to contribute to scientific research with their biological and digital selves.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://yourselftoscience.org"
+    },
+    "license": {
+      "name": "CC0 1.0 Universal",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://yourselftoscience.org"
+    }
+  ],
+  "paths": {
+    "/resources.json": {
+      "get": {
+        "summary": "Get full resources dataset",
+        "operationId": "getResources",
+        "responses": {
+          "200": {
+            "description": "Successful retrieval of all scientific and health resources",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Resource"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Resource": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "link": {
+            "type": "string"
+          },
+          "dataTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "countries": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "origin": {
+            "type": "string"
+          },
+          "compensationType": {
+            "type": "string"
+          },
+          "entityCategory": {
+            "type": "string"
+          },
+          "entitySubType": {
+            "type": "string"
+          },
+          "yearLaunched": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "isActivelyRecruiting": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "hasApi": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "isOpenData": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "organizations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "wikidataId": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "rorId": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

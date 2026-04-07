@@ -24,7 +24,7 @@ export default function DataPage() {
         "@context": "https://schema.org/",
         "@type": "Dataset",
         "name": "Yourself to Science Open Dataset",
-        "description": "A curated, open-access catalog of services, platforms, and programs that allow individuals to securely contribute to scientific research with their health data, genome, body, and more.",
+        "description": "A curated, open-access catalog of services, platforms, and programs that allow individuals to securely contribute to scientific research with their biological and digital selves.",
         "url": "https://yourselftoscience.org/data",
         "sameAs": "https://yourselftoscience.org/resources.ttl#dataset",
         "identifier": ["https://yourselftoscience.org/resources.ttl#dataset"],
