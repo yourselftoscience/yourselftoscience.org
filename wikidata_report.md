@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 3/28/2026, 2:04:41 AM
+**Generated on:** 4/7/2026, 3:29:11 AM
 
 ## Project-Organizer Relationships
 
@@ -98,7 +98,7 @@
 - **ResearchMatch**: [Q138520376](https://www.wikidata.org/wiki/Q138520376)
   - Vanderbilt University Medical Center: [Q7914455](https://www.wikidata.org/wiki/Q7914455)
 - **Rete Cittadini per la Ricerca**: [Q138589661](https://www.wikidata.org/wiki/Q138589661)
-  - San Camillo IRCCS: [Q138589652](https://www.wikidata.org/wiki/Q138589652)
+  - San Camillo IRCCS: [Q50039648](https://www.wikidata.org/wiki/Q50039648)
 - **SPARK for Autism**: [Q138518848](https://www.wikidata.org/wiki/Q138518848)
   - Simons Foundation: [Q28148561](https://www.wikidata.org/wiki/Q28148561)
 - **tellmeGen Research**: ❌
@@ -111,7 +111,7 @@
   - Department of Anatomy, University of Cambridge: No Wikidata ID
   - Cambridge Biomedical Research Centre: [Q33121816](https://www.wikidata.org/wiki/Q33121816)
 - **University of Wrocław human hair decomposition project**: ❌
-  - Department of Human Biology, University of Wrocław: No Wikidata ID
+  - Department of Human Biology, University of Wrocław: [Q138820677](https://www.wikidata.org/wiki/Q138820677)
 - **Wesley Research Institute placenta donation**: ❌
   - Wesley Research Institute: [Q30289631](https://www.wikidata.org/wiki/Q30289631)
 - **Wesley Research Institute stool donation**: ❌
@@ -193,7 +193,7 @@
 - **Cochrane**: [Q1105202](https://www.wikidata.org/wiki/Q1105202)
 - **Curewiki**: ❌
 - **Department of Anatomy, University of Cambridge**: ❌
-- **Department of Human Biology, University of Wrocław**: ❌
+- **Department of Human Biology, University of Wrocław**: [Q138820677](https://www.wikidata.org/wiki/Q138820677)
 - **Esperity**: ❌
 - **Eurac Research**: [Q1245390](https://www.wikidata.org/wiki/Q1245390)
 - **European Medicines Agency (EMA)**: [Q130146](https://www.wikidata.org/wiki/Q130146)
@@ -220,7 +220,7 @@
 - **Nestlé Health Science U.S.**: [Q45132270](https://www.wikidata.org/wiki/Q45132270)
 - **Open Humans Foundation**: [Q138545776](https://www.wikidata.org/wiki/Q138545776)
 - **Penn Medicine**: [Q7896080](https://www.wikidata.org/wiki/Q7896080)
-- **San Camillo IRCCS**: [Q138589652](https://www.wikidata.org/wiki/Q138589652)
+- **San Camillo IRCCS**: [Q50039648](https://www.wikidata.org/wiki/Q50039648)
 - **Sequencing.com**: ❌
 - **Service-Public.fr**: [Q3480047](https://www.wikidata.org/wiki/Q3480047)
 - **Simons Foundation**: [Q28148561](https://www.wikidata.org/wiki/Q28148561)

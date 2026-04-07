@@ -118,7 +118,7 @@
     "established": 2007,
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Fitbit",
     "isni": "0000 0004 6018 3224",
-    "autoMatched": true
+    "manuallyVerified": true
   },
   "Simons Foundation": {
     "rorId": "https://ror.org/01cmst727",
@@ -143,21 +143,9 @@
     "query": "Faculty of Medicine at the University of British Columbia"
   },
   "Department of Anatomy, University of Cambridge": {
-    "rorId": "https://ror.org/013meh722",
-    "name": "Prifysgol Caergrawnt",
-    "types": [
-      "education",
-      "funder"
-    ],
-    "country": "United Kingdom",
-    "city": "Cambridge",
-    "countryCode": "GB",
-    "established": 1209,
-    "wikipediaUrl": "http://en.wikipedia.org/wiki/University_of_Cambridge",
-    "fundref": "501100000735",
-    "isni": "0000 0001 2188 5934",
-    "wikidataId": "Q35794",
-    "autoMatched": true
+    "rorId": null,
+    "searched": true,
+    "query": "Department of Anatomy, University of Cambridge"
   },
   "Cambridge Biomedical Research Centre": {
     "rorId": "https://ror.org/05m8dr349",
@@ -372,7 +360,7 @@
     "established": 1994,
     "wikipediaUrl": null,
     "fundref": "100008614",
-    "autoMatched": true
+    "manuallyVerified": true
   },
   "Department of Human Biology, University of Wrocław": {
     "rorId": null,
@@ -517,9 +505,19 @@
     "query": "Centro Ricerche Cliniche di Verona"
   },
   "San Camillo IRCCS": {
-    "rorId": null,
-    "searched": true,
-    "query": "San Camillo IRCCS"
+    "rorId": "https://ror.org/03njebb69",
+    "name": "IRCCS San Camillo Hospital",
+    "types": [
+      "healthcare"
+    ],
+    "country": "Italy",
+    "city": "Venice",
+    "countryCode": "IT",
+    "established": 1928,
+    "wikipediaUrl": null,
+    "isni": "0000 0004 1805 3485",
+    "wikidataId": "Q50039648",
+    "matchedVia": "wikidata"
   },
   "Eurac Research": {
     "rorId": "https://ror.org/01xt1w755",
@@ -565,7 +563,7 @@
     "countryCode": "PT",
     "established": null,
     "wikipediaUrl": null,
-    "autoMatched": true
+    "manuallyVerified": true
   },
   "Genomes.io": {
     "rorId": null,

@@ -469,7 +469,8 @@
     "organizations": [
       {
         "name": "Fitbit",
-        "wikidataId": "Q5455414"
+        "wikidataId": "Q5455414",
+        "rorId": "00z8s7v19"
       }
     ],
     "instructions": [
@@ -598,7 +599,8 @@
     "organizations": [
       {
         "name": "Department of Anatomy, University of Cambridge",
-        "wikidataId": null
+        "wikidataId": null,
+        "rorId": "IGNORE"
       },
       {
         "name": "Cambridge Biomedical Research Centre",
@@ -1310,7 +1312,8 @@
     "organizations": [
       {
         "name": "Wesley Research Institute",
-        "wikidataId": "Q30289631"
+        "wikidataId": "Q30289631",
+        "rorId": "00pvy2x95"
       }
     ],
     "link": "https://www.wesleyresearch.org.au/biobank-project/stool-donation/",
@@ -1352,7 +1355,8 @@
     "organizations": [
       {
         "name": "Wesley Research Institute",
-        "wikidataId": "Q30289631"
+        "wikidataId": "Q30289631",
+        "rorId": "00pvy2x95"
       }
     ],
     "link": "https://www.wesleyresearch.org.au/biobank-project/placenta-donation/",
@@ -1394,7 +1398,7 @@
     "organizations": [
       {
         "name": "Department of Human Biology, University of Wrocław",
-        "wikidataId": null
+        "wikidataId": "Q138820677"
       }
     ],
     "link": "https://biologia.uwr.edu.pl/2023/10/12/znaczenie-wybranych-czynnikow-biologicznych-i-srodowiskowych-w-procesie-rozkladu-ludzkich-wlosow-nabor-na-badania/",
@@ -2006,7 +2010,7 @@
     "organizations": [
       {
         "name": "San Camillo IRCCS",
-        "wikidataId": "Q138589652"
+        "wikidataId": "Q50039648"
       }
     ],
     "link": "https://hsancamillo.it/rete-cittadini-per-la-ricerca/",
@@ -2131,7 +2135,8 @@
     "organizations": [
       {
         "name": "Gulbenkian Institute for Molecular Medicine (GIMM)",
-        "wikidataId": "Q131428172"
+        "wikidataId": "Q131428172",
+        "rorId": "0346k0491"
       }
     ],
     "link": "https://care.gimm.pt/biobank-for-donors/",

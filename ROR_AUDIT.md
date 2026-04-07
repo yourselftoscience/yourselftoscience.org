@@ -2,7 +2,7 @@
 
 > Generated: 2026-04-07
 
-## 🔗 Matched via Wikidata ID (28) — Definitive
+## 🔗 Matched via Wikidata ID (29) — Definitive
 
 These were matched by querying ROR with the Wikidata ID from `resources.js`. **No name guessing involved.**
 
@@ -28,6 +28,7 @@ These were matched by querying ROR with the Wikidata ID from `resources.js`. **N
 | National Institutes of Health (NIH) | National Institutes of Health | United States | [01cwqze88](https://ror.org/01cwqze88) | [Q390551](https://www.wikidata.org/wiki/Q390551) | [Q390551](https://www.wikidata.org/wiki/Q390551) |
 | Nestlé Health Science U.S. | Nestlé Health Science | United States | [03y8jvk69](https://ror.org/03y8jvk69) | [Q45132270](https://www.wikidata.org/wiki/Q45132270) | [Q45132270](https://www.wikidata.org/wiki/Q45132270) |
 | Penn Medicine | University of Pennsylvania Health System | United States | [04h81rw26](https://ror.org/04h81rw26) | [Q7896080](https://www.wikidata.org/wiki/Q7896080) | [Q7896080](https://www.wikidata.org/wiki/Q7896080) |
+| San Camillo IRCCS | IRCCS San Camillo Hospital | Italy | [03njebb69](https://ror.org/03njebb69) | [Q50039648](https://www.wikidata.org/wiki/Q50039648) | [Q50039648](https://www.wikidata.org/wiki/Q50039648) |
 | Simons Foundation | Simons Foundation | United States | [01cmst727](https://ror.org/01cmst727) | [Q28148561](https://www.wikidata.org/wiki/Q28148561) | [Q28148561](https://www.wikidata.org/wiki/Q28148561) |
 | Stanford University | Stanford University | United States | [00f54p054](https://ror.org/00f54p054) | [Q41506](https://www.wikidata.org/wiki/Q41506) | [Q41506](https://www.wikidata.org/wiki/Q41506) |
 | U.S. Department of Health & Human Services | United States Department of Health and Human Services | United States | [033jnv181](https://ror.org/033jnv181) | [Q942326](https://www.wikidata.org/wiki/Q942326) | [Q942326](https://www.wikidata.org/wiki/Q942326) |
@@ -37,13 +38,17 @@ These were matched by querying ROR with the Wikidata ID from `resources.js`. **N
 | Vanderbilt University Medical Center | Vanderbilt University Medical Center | United States | [05dq2gs74](https://ror.org/05dq2gs74) | [Q7914455](https://www.wikidata.org/wiki/Q7914455) | [Q7914455](https://www.wikidata.org/wiki/Q7914455) |
 | World Health Organization (WHO) | Organisation Mondiale de la Santé | Switzerland | [01f80g185](https://ror.org/01f80g185) | [Q7817](https://www.wikidata.org/wiki/Q7817) | [Q7817](https://www.wikidata.org/wiki/Q7817) |
 
-## ⚠️ Matched via Name Search (4) — Review These
+## ⚠️ Matched via Name Search (0) — Review These
 
 These fell back to name-based matching. **Verify these are correct.** If wrong, add the correct `rorId` to `resources.js`.
 
 | Organization | ROR Match | Country | ROR ID | Wikidata (ours) | Wikidata (ROR) |
 |---|---|---|---|---|---|
-| Department of Anatomy, University of Cambridge | Prifysgol Caergrawnt | United Kingdom | [013meh722](https://ror.org/013meh722) | — | [Q35794](https://www.wikidata.org/wiki/Q35794) |
+
+## ✅ Manually Verified (3)
+
+| Organization | ROR Match | Country | ROR ID | Wikidata (ours) | Wikidata (ROR) |
+|---|---|---|---|---|---|
 | Fitbit | Fitbit (United States) | United States | [00z8s7v19](https://ror.org/00z8s7v19) | [Q5455414](https://www.wikidata.org/wiki/Q5455414) | — |
 | Gulbenkian Institute for Molecular Medicine (GIMM) | Gulbenkian Institute for Molecular Medicine | Portugal | [0346k0491](https://ror.org/0346k0491) | [Q131428172](https://www.wikidata.org/wiki/Q131428172) | — |
 | Wesley Research Institute | Wesley Research Institute | Australia | [00pvy2x95](https://ror.org/00pvy2x95) | [Q30289631](https://www.wikidata.org/wiki/Q30289631) | — |
@@ -58,7 +63,8 @@ These fell back to name-based matching. **Verify these are correct.** If wrong, 
 | Clinical Genome Resource (ClinGen) | [Q64403342](https://www.wikidata.org/wiki/Q64403342) | No ROR entry exists |
 | Clinical Trials Information Network (CTIN Poland) | — | No ROR entry exists |
 | Curewiki | — | No ROR entry exists |
-| Department of Human Biology, University of Wrocław | — | No ROR entry exists |
+| Department of Anatomy, University of Cambridge | — | No ROR entry exists |
+| Department of Human Biology, University of Wrocław | [Q138820677](https://www.wikidata.org/wiki/Q138820677) | No ROR entry exists |
 | Esperity | — | No ROR entry exists |
 | Faculty of Medicine at the University of British Columbia | [Q7863800](https://www.wikidata.org/wiki/Q7863800) | No ROR entry exists |
 | FamilyTreeDNA | [Q4038610](https://www.wikidata.org/wiki/Q4038610) | No ROR entry exists |
@@ -70,7 +76,6 @@ These fell back to name-based matching. **Verify these are correct.** If wrong, 
 | MyHeritage Ltd | [Q589757](https://www.wikidata.org/wiki/Q589757) | No ROR entry exists |
 | NHS Health Research Authority | [Q16937226](https://www.wikidata.org/wiki/Q16937226) | No ROR entry exists |
 | Open Humans Foundation | [Q138545776](https://www.wikidata.org/wiki/Q138545776) | No ROR entry exists |
-| San Camillo IRCCS | [Q138589652](https://www.wikidata.org/wiki/Q138589652) | No ROR entry exists |
 | Sequencing.com | — | No ROR entry exists |
 | Service-Public.fr | [Q3480047](https://www.wikidata.org/wiki/Q3480047) | No ROR entry exists |
 | The WikiTree Company | [Q138545843](https://www.wikidata.org/wiki/Q138545843) | No ROR entry exists |

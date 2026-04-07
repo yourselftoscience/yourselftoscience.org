@@ -317,7 +317,8 @@ export const rawResources = [
     "organizations": [
       {
         "name": "Fitbit",
-        "wikidataId": "Q5455414"
+        "wikidataId": "Q5455414",
+        "rorId": "00z8s7v19"
       }
     ],
 
@@ -405,7 +406,8 @@ export const rawResources = [
     "organizations": [
       {
         "name": "Department of Anatomy, University of Cambridge",
-        "wikidataId": null
+        "wikidataId": null,
+        "rorId": "IGNORE"
       },
       {
         "name": "Cambridge Biomedical Research Centre",
@@ -884,7 +886,8 @@ export const rawResources = [
     "organizations": [
       {
         "name": "Wesley Research Institute",
-        "wikidataId": "Q30289631"
+        "wikidataId": "Q30289631",
+        "rorId": "00pvy2x95"
       }
     ],
     "link": "https://www.wesleyresearch.org.au/biobank-project/stool-donation/",
@@ -912,7 +915,8 @@ export const rawResources = [
     "organizations": [
       {
         "name": "Wesley Research Institute",
-        "wikidataId": "Q30289631"
+        "wikidataId": "Q30289631",
+        "rorId": "00pvy2x95"
       }
     ],
     "link": "https://www.wesleyresearch.org.au/biobank-project/placenta-donation/",
@@ -1348,7 +1352,7 @@ export const rawResources = [
     "organizations": [
       {
         "name": "San Camillo IRCCS",
-        "wikidataId": "Q138589652"
+        "wikidataId": "Q50039648"
       }
     ],
     "link": "https://hsancamillo.it/rete-cittadini-per-la-ricerca/",
@@ -1432,7 +1436,8 @@ export const rawResources = [
     "organizations": [
       {
         "name": "Gulbenkian Institute for Molecular Medicine (GIMM)",
-        "wikidataId": "Q131428172"
+        "wikidataId": "Q131428172",
+        "rorId": "0346k0491"
       }
     ],
     "link": "https://care.gimm.pt/biobank-for-donors/",

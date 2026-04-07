@@ -226,7 +226,17 @@
     "organizations": [
       {
         "name": "Stanford University",
-        "wikidataId": "Q41506"
+        "wikidataId": "Q41506",
+        "rorId": "https://ror.org/00f54p054",
+        "rorName": "Stanford University",
+        "rorTypes": [
+          "education",
+          "funder"
+        ],
+        "rorCountry": "United States",
+        "rorCity": "Stanford",
+        "rorEstablished": 1891,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://myphd.stanford.edu/studies/",
@@ -270,7 +280,17 @@
     "organizations": [
       {
         "name": "Google",
-        "wikidataId": "Q95"
+        "wikidataId": "Q95",
+        "rorId": "https://ror.org/00njsd438",
+        "rorName": "Google (United States)",
+        "rorTypes": [
+          "company",
+          "funder"
+        ],
+        "rorCountry": "United States",
+        "rorCity": "Mountain View",
+        "rorEstablished": 1998,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://health.google/consumers/health-studies/",
@@ -307,7 +327,16 @@
     "organizations": [
       {
         "name": "Apple",
-        "wikidataId": "Q312"
+        "wikidataId": "Q312",
+        "rorId": "https://ror.org/059hsda18",
+        "rorName": "Apple",
+        "rorTypes": [
+          "company"
+        ],
+        "rorCountry": "United States",
+        "rorCity": "Cupertino",
+        "rorEstablished": 1976,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://support.apple.com/en-us/108425",
@@ -402,7 +431,17 @@
     "organizations": [
       {
         "name": "University of Michigan",
-        "wikidataId": "Q230492"
+        "wikidataId": "Q230492",
+        "rorId": "https://ror.org/00jmfr291",
+        "rorName": "University of Michigan",
+        "rorTypes": [
+          "education",
+          "funder"
+        ],
+        "rorCountry": "United States",
+        "rorCity": "Ann Arbor",
+        "rorEstablished": 1817,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://genesforgood.sph.umich.edu/participate",
@@ -448,7 +487,17 @@
     "organizations": [
       {
         "name": "National Institutes of Health (NIH)",
-        "wikidataId": "Q390551"
+        "wikidataId": "Q390551",
+        "rorId": "https://ror.org/01cwqze88",
+        "rorName": "National Institutes of Health",
+        "rorTypes": [
+          "funder",
+          "government"
+        ],
+        "rorCountry": "United States",
+        "rorCity": "Bethesda",
+        "rorEstablished": 1887,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://allofus.nih.gov/",
@@ -499,7 +548,16 @@
     "organizations": [
       {
         "name": "Fitbit",
-        "wikidataId": "Q5455414"
+        "wikidataId": "Q5455414",
+        "rorId": "https://ror.org/00z8s7v19",
+        "rorName": "Fitbit (United States)",
+        "rorTypes": [
+          "company"
+        ],
+        "rorCountry": "United States",
+        "rorCity": "San Francisco",
+        "rorEstablished": 2007,
+        "rorAutoMatched": false
       }
     ],
     "instructions": [
@@ -543,7 +601,17 @@
     "organizations": [
       {
         "name": "Simons Foundation",
-        "wikidataId": "Q28148561"
+        "wikidataId": "Q28148561",
+        "rorId": "https://ror.org/01cmst727",
+        "rorName": "Simons Foundation",
+        "rorTypes": [
+          "funder",
+          "nonprofit"
+        ],
+        "rorCountry": "United States",
+        "rorCity": "New York",
+        "rorEstablished": 1994,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://sparkforautism.org/why/",
@@ -637,11 +705,22 @@
     "organizations": [
       {
         "name": "Department of Anatomy, University of Cambridge",
-        "wikidataId": null
+        "wikidataId": null,
+        "rorId": "IGNORE"
       },
       {
         "name": "Cambridge Biomedical Research Centre",
-        "wikidataId": "Q33121816"
+        "wikidataId": "Q33121816",
+        "rorId": "https://ror.org/05m8dr349",
+        "rorName": "NIHR Cambridge Biomedical Research Centre",
+        "rorTypes": [
+          "facility",
+          "funder"
+        ],
+        "rorCountry": "United Kingdom",
+        "rorCity": "Cambridge",
+        "rorEstablished": null,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://www.cuh.nhs.uk/our-research/get-involved/donate-body-to-medical-science/",
@@ -688,7 +767,17 @@
     "organizations": [
       {
         "name": "Ministero della Salute",
-        "wikidataId": "Q745634"
+        "wikidataId": "Q745634",
+        "rorId": "https://ror.org/00789fa95",
+        "rorName": "Ministero della Salute",
+        "rorTypes": [
+          "funder",
+          "government"
+        ],
+        "rorCountry": "Italy",
+        "rorCity": "Rome",
+        "rorEstablished": 2008,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://www.salute.gov.it/portale/disposizionepostmortem/dettaglioContenutiDisposizionepostmortem.jsp?lingua=italiano&id=6004&area=postMortem&menu=vuoto",
@@ -780,7 +869,16 @@
     "organizations": [
       {
         "name": "Human Fertilisation and Embryology Authority",
-        "wikidataId": "Q1636533"
+        "wikidataId": "Q1636533",
+        "rorId": "https://ror.org/023y2na82",
+        "rorName": "Human Fertilisation and Embryology Authority",
+        "rorTypes": [
+          "government"
+        ],
+        "rorCountry": "United Kingdom",
+        "rorCity": "London",
+        "rorEstablished": 1990,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://www.hfea.gov.uk/donation/donors/donating-to-research/",
@@ -829,7 +927,17 @@
     "organizations": [
       {
         "name": "United States National Library of Medicine (NLM)",
-        "wikidataId": "Q611833"
+        "wikidataId": "Q611833",
+        "rorId": "https://ror.org/0060t0j89",
+        "rorName": "Biblioteca Nacional de Medicina",
+        "rorTypes": [
+          "archive",
+          "funder"
+        ],
+        "rorCountry": "United States",
+        "rorCity": "Bethesda",
+        "rorEstablished": 1836,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://clinicaltrials.gov/",
@@ -873,7 +981,17 @@
     "organizations": [
       {
         "name": "World Health Organization (WHO)",
-        "wikidataId": "Q7817"
+        "wikidataId": "Q7817",
+        "rorId": "https://ror.org/01f80g185",
+        "rorName": "Organisation Mondiale de la Santé",
+        "rorTypes": [
+          "funder",
+          "government"
+        ],
+        "rorCountry": "Switzerland",
+        "rorCity": "Geneva",
+        "rorEstablished": 1948,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://trialsearch.who.int/",
@@ -913,7 +1031,17 @@
     "organizations": [
       {
         "name": "European Medicines Agency (EMA)",
-        "wikidataId": "Q130146"
+        "wikidataId": "Q130146",
+        "rorId": "https://ror.org/01z0wsw92",
+        "rorName": "European Medicines Agency",
+        "rorTypes": [
+          "funder",
+          "government"
+        ],
+        "rorCountry": "The Netherlands",
+        "rorCity": "Amsterdam",
+        "rorEstablished": 1995,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://euclinicaltrials.eu/search-for-clinical-trials/",
@@ -1159,7 +1287,17 @@
     "organizations": [
       {
         "name": "Vanderbilt University Medical Center",
-        "wikidataId": "Q7914455"
+        "wikidataId": "Q7914455",
+        "rorId": "https://ror.org/05dq2gs74",
+        "rorName": "Vanderbilt University Medical Center",
+        "rorTypes": [
+          "funder",
+          "healthcare"
+        ],
+        "rorCountry": "United States",
+        "rorCity": "Nashville",
+        "rorEstablished": 1874,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://www.researchmatch.org/",
@@ -1206,7 +1344,16 @@
     "organizations": [
       {
         "name": "hVIVO",
-        "wikidataId": "Q30268998"
+        "wikidataId": "Q30268998",
+        "rorId": "https://ror.org/00a4k5f23",
+        "rorName": "hVIVO (United Kingdom)",
+        "rorTypes": [
+          "company"
+        ],
+        "rorCountry": "United Kingdom",
+        "rorCity": "London",
+        "rorEstablished": 1998,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://flucamp.com/",
@@ -1257,7 +1404,17 @@
     "organizations": [
       {
         "name": "University of Florida Health",
-        "wikidataId": "Q7487946"
+        "wikidataId": "Q7487946",
+        "rorId": "https://ror.org/04tk2gy88",
+        "rorName": "University of Florida Health",
+        "rorTypes": [
+          "education",
+          "funder"
+        ],
+        "rorCountry": "United States",
+        "rorCity": "Gainesville",
+        "rorEstablished": 1958,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://healthstreet.program.ufl.edu/uf-researchers/participate-in-research/",
@@ -1305,7 +1462,17 @@
     "organizations": [
       {
         "name": "Nestlé Health Science U.S.",
-        "wikidataId": "Q45132270"
+        "wikidataId": "Q45132270",
+        "rorId": "https://ror.org/03y8jvk69",
+        "rorName": "Nestlé Health Science",
+        "rorTypes": [
+          "company",
+          "funder"
+        ],
+        "rorCountry": "United States",
+        "rorCity": "Bridgewater",
+        "rorEstablished": 2011,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://goodnatureprogram.com/apply/",
@@ -1349,7 +1516,16 @@
     "organizations": [
       {
         "name": "Australian Red Cross Lifeblood",
-        "wikidataId": "Q4824602"
+        "wikidataId": "Q4824602",
+        "rorId": "https://ror.org/00evjd729",
+        "rorName": "Australian Red Cross Lifeblood",
+        "rorTypes": [
+          "nonprofit"
+        ],
+        "rorCountry": "Australia",
+        "rorCity": "Sydney",
+        "rorEstablished": 1901,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://www.lifeblood.com.au/microbiome",
@@ -1394,7 +1570,17 @@
     "organizations": [
       {
         "name": "Wesley Research Institute",
-        "wikidataId": "Q30289631"
+        "wikidataId": "Q30289631",
+        "rorId": "https://ror.org/00pvy2x95",
+        "rorName": "Wesley Research Institute",
+        "rorTypes": [
+          "funder",
+          "nonprofit"
+        ],
+        "rorCountry": "Australia",
+        "rorCity": "Brisbane",
+        "rorEstablished": 1994,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://www.wesleyresearch.org.au/biobank-project/stool-donation/",
@@ -1439,7 +1625,17 @@
     "organizations": [
       {
         "name": "Wesley Research Institute",
-        "wikidataId": "Q30289631"
+        "wikidataId": "Q30289631",
+        "rorId": "https://ror.org/00pvy2x95",
+        "rorName": "Wesley Research Institute",
+        "rorTypes": [
+          "funder",
+          "nonprofit"
+        ],
+        "rorCountry": "Australia",
+        "rorCity": "Brisbane",
+        "rorEstablished": 1994,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://www.wesleyresearch.org.au/biobank-project/placenta-donation/",
@@ -1484,7 +1680,7 @@
     "organizations": [
       {
         "name": "Department of Human Biology, University of Wrocław",
-        "wikidataId": null
+        "wikidataId": "Q138820677"
       }
     ],
     "link": "https://biologia.uwr.edu.pl/2023/10/12/znaczenie-wybranych-czynnikow-biologicznych-i-srodowiskowych-w-procesie-rozkladu-ludzkich-wlosow-nabor-na-badania/",
@@ -1582,7 +1778,17 @@
     "organizations": [
       {
         "name": "Penn Medicine",
-        "wikidataId": "Q7896080"
+        "wikidataId": "Q7896080",
+        "rorId": "https://ror.org/04h81rw26",
+        "rorName": "University of Pennsylvania Health System",
+        "rorTypes": [
+          "funder",
+          "healthcare"
+        ],
+        "rorCountry": "United States",
+        "rorCity": "Philadelphia",
+        "rorEstablished": 1993,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://cdh.nmsdev.com/donate-your-data",
@@ -1685,7 +1891,16 @@
     "organizations": [
       {
         "name": "Cochrane",
-        "wikidataId": "Q1105202"
+        "wikidataId": "Q1105202",
+        "rorId": "https://ror.org/00dbkrq51",
+        "rorName": "Cochrane",
+        "rorTypes": [
+          "nonprofit"
+        ],
+        "rorCountry": "United Kingdom",
+        "rorCity": "Oxford",
+        "rorEstablished": 1993,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://www.cochranelibrary.com/central",
@@ -1786,7 +2001,17 @@
     "organizations": [
       {
         "name": "Federal Institute for Drugs and Medical Devices (BfArM)",
-        "wikidataId": "Q1006215"
+        "wikidataId": "Q1006215",
+        "rorId": "https://ror.org/05ex5vz81",
+        "rorName": "Bundesinstitut für Arzneimittel und Medizinprodukte",
+        "rorTypes": [
+          "funder",
+          "government"
+        ],
+        "rorCountry": "Germany",
+        "rorCity": "Bonn",
+        "rorEstablished": null,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://drks.de/",
@@ -1834,7 +2059,17 @@
     "organizations": [
       {
         "name": "Health Canada",
-        "wikidataId": "Q1057591"
+        "wikidataId": "Q1057591",
+        "rorId": "https://ror.org/05p8nb362",
+        "rorName": "Health Canada",
+        "rorTypes": [
+          "funder",
+          "government"
+        ],
+        "rorCountry": "Canada",
+        "rorCity": "Ottawa",
+        "rorEstablished": 1996,
+        "rorAutoMatched": false
       }
     ],
     "dataTypes": [
@@ -1942,7 +2177,17 @@
     "organizations": [
       {
         "name": "U.S. Department of Health & Human Services",
-        "wikidataId": "Q942326"
+        "wikidataId": "Q942326",
+        "rorId": "https://ror.org/033jnv181",
+        "rorName": "United States Department of Health and Human Services",
+        "rorTypes": [
+          "funder",
+          "government"
+        ],
+        "rorCountry": "United States",
+        "rorCity": "Washington",
+        "rorEstablished": 1979,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://www.organdonor.gov/sign-up",
@@ -1989,7 +2234,16 @@
     "organizations": [
       {
         "name": "Bloodworks Northwest",
-        "wikidataId": "Q21015632"
+        "wikidataId": "Q21015632",
+        "rorId": "https://ror.org/00ek9j693",
+        "rorName": "Bloodworks Northwest",
+        "rorTypes": [
+          "nonprofit"
+        ],
+        "rorCountry": "United States",
+        "rorCity": "Seattle",
+        "rorEstablished": 1944,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://bloodworksnw.org/donate/research",
@@ -2046,7 +2300,16 @@
     "organizations": [
       {
         "name": "Max Planck Institute for Software Systems",
-        "wikidataId": "Q881238"
+        "wikidataId": "Q881238",
+        "rorId": "https://ror.org/02pe2kf23",
+        "rorName": "Max Planck Institute for Software Systems",
+        "rorTypes": [
+          "facility"
+        ],
+        "rorCountry": "Germany",
+        "rorCity": "Saarbrücken",
+        "rorEstablished": 2000,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://social-media-data-donator.mpi-sws.org/",
@@ -2135,7 +2398,16 @@
     "organizations": [
       {
         "name": "San Camillo IRCCS",
-        "wikidataId": "Q138589652"
+        "wikidataId": "Q50039648",
+        "rorId": "https://ror.org/03njebb69",
+        "rorName": "IRCCS San Camillo Hospital",
+        "rorTypes": [
+          "healthcare"
+        ],
+        "rorCountry": "Italy",
+        "rorCity": "Venice",
+        "rorEstablished": 1928,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://hsancamillo.it/rete-cittadini-per-la-ricerca/",
@@ -2183,7 +2455,16 @@
     "organizations": [
       {
         "name": "Eurac Research",
-        "wikidataId": "Q1245390"
+        "wikidataId": "Q1245390",
+        "rorId": "https://ror.org/01xt1w755",
+        "rorName": "Academia Europeica de Bulsan",
+        "rorTypes": [
+          "nonprofit"
+        ],
+        "rorCountry": "Italy",
+        "rorCity": "Bolzano",
+        "rorEstablished": 1992,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://www.eurac.edu/en/blogs/connecting-the-dots/data-donations-why-should-i-donate-my-cover-letter-to-research",
@@ -2222,7 +2503,17 @@
     "organizations": [
       {
         "name": "Helmholtz Munich",
-        "wikidataId": "Q878592"
+        "wikidataId": "Q878592",
+        "rorId": "https://ror.org/00cfam450",
+        "rorName": "Helmholtz Zentrum München",
+        "rorTypes": [
+          "facility",
+          "funder"
+        ],
+        "rorCountry": "Germany",
+        "rorCity": "Munich",
+        "rorEstablished": 1964,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://www.helmholtz-munich.de/en/pura-biobank/donate-bio-sample",
@@ -2269,7 +2560,17 @@
     "organizations": [
       {
         "name": "Gulbenkian Institute for Molecular Medicine (GIMM)",
-        "wikidataId": "Q131428172"
+        "wikidataId": "Q131428172",
+        "rorId": "https://ror.org/0346k0491",
+        "rorName": "Gulbenkian Institute for Molecular Medicine",
+        "rorTypes": [
+          "education",
+          "nonprofit"
+        ],
+        "rorCountry": "Portugal",
+        "rorCity": "Lisbon",
+        "rorEstablished": null,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://care.gimm.pt/biobank-for-donors/",
@@ -2369,7 +2670,16 @@
     "organizations": [
       {
         "name": "23andMe Holding Co.",
-        "wikidataId": "Q216272"
+        "wikidataId": "Q216272",
+        "rorId": "https://ror.org/00q62jx03",
+        "rorName": "23andMe (United States)",
+        "rorTypes": [
+          "company"
+        ],
+        "rorCountry": "United States",
+        "rorCity": "Sunnyvale",
+        "rorEstablished": 2006,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://customercare.23andme.com/hc/en-us/articles/212195708-Research-Participation-and-Consent",
@@ -2641,7 +2951,17 @@
       },
       {
         "name": "Medical University of South Carolina",
-        "wikidataId": "Q6806451"
+        "wikidataId": "Q6806451",
+        "rorId": "https://ror.org/012jban78",
+        "rorName": "Medical University of South Carolina",
+        "rorTypes": [
+          "education",
+          "funder"
+        ],
+        "rorCountry": "United States",
+        "rorCity": "Charleston",
+        "rorEstablished": 1824,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://get.sequencing.com/research-study/hypermobile-eds-dysautonomia/",
