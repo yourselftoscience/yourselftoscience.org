@@ -144,7 +144,6 @@ export default function Header({ scrollY }: HeaderProps) {
     setIsMobileMenuOpen(prev => !prev);
   };
 
-  const mobileMenuIconPath = isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16";
   const useInlineLayout = !isMobile || isSticky;
 
 
@@ -161,7 +160,7 @@ export default function Header({ scrollY }: HeaderProps) {
 
   return (
     <motion.header
-      className={`w-full sticky top-0 z-50 flex items-center justify-between border-b bg-white px-4 md:px-6 lg:px-8`}
+      className={`w-full sticky top-0 ${isMobileMenuOpen ? 'z-[110]' : 'z-50'} flex items-center justify-between border-b bg-white px-4 md:px-6 lg:px-8`}
       style={{
         paddingTop: headerPaddingY,
         paddingBottom: headerPaddingY,
@@ -227,7 +226,7 @@ export default function Header({ scrollY }: HeaderProps) {
           aria-label="Toggle menu"
         >
           <svg className="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={mobileMenuIconPath} />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </div>
@@ -250,6 +249,17 @@ export default function Header({ scrollY }: HeaderProps) {
               className="fixed top-0 right-0 bottom-0 w-full max-w-xs bg-white shadow-lg"
               onClick={(e) => e.stopPropagation()}
             >
+              <div className="absolute top-5 right-5">
+                <button
+                  onClick={toggleMobileMenu}
+                  className="p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+                  aria-label="Close menu"
+                >
+                  <svg className="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
               <div className="p-5 pt-20">
                 <nav className="flex flex-col space-y-2">
                   <Link href="/stats" className="px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100 rounded-md transition-colors" onClick={toggleMobileMenu}>
