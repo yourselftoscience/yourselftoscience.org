@@ -943,7 +943,8 @@ export const rawResources = [
     "wikidataLabel": "University of Wrocław human hair decomposition project",
     "organizations": [
       {
-        "name": "Department of Biology, Evolution and Conservation of Invertebrates, University of Wrocław"
+        "name": "Department of Biology, Evolution and Conservation of Invertebrates, University of Wrocław",
+        "wikidataId": "Q139147772"
       },
       {
         "name": "Department of Human Biology, University of Wrocław",

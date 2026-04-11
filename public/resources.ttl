@@ -468,7 +468,7 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:sameAs <https://yourselftoscience.org/resource/wroclaw-hair-decomposition> ;
   rdfs:label "University of Wrocław human hair decomposition project" ;
   schema:description "Research on human hair decomposition at the University of Wrocław." ;
-  schema:creator [ a schema:Organization; rdfs:label "Department of Biology, Evolution and Conservation of Invertebrates, University of Wrocław" ; schema:sameAs <https://ror.org/00yae6e25> ; schema:additionalType wd:Q3400985 ; schema:additionalType wd:Q3400985 ; schema:location [ a schema:Place; rdfs:label "Poland" ; schema:addressCountry "PL" ; schema:sameAs wd:Q36 ] ] ;
+  schema:creator [ a schema:Organization; rdfs:label "Department of Biology, Evolution and Conservation of Invertebrates, University of Wrocław" ; schema:sameAs wd:Q139147772 ; schema:additionalType wd:Q3400985 ; schema:additionalType wd:Q3400985 ; schema:location [ a schema:Place; rdfs:label "Poland" ; schema:addressCountry "PL" ; schema:sameAs wd:Q36 ] ] ;
   schema:creator [ a schema:Organization; rdfs:label "Department of Human Biology, University of Wrocław" ; schema:sameAs wd:Q138820677 ; schema:additionalType wd:Q3400985 ; schema:additionalType wd:Q3400985 ] ;
   schema:url <https://biologia.uwr.edu.pl/2023/10/12/znaczenie-wybranych-czynnikow-biologicznych-i-srodowiskowych-w-procesie-rozkladu-ludzkich-wlosow-nabor-na-badania/> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Poland" ; schema:sameAs wd:Q36 ] ;

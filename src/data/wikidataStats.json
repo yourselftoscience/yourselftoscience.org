@@ -1,5 +1,5 @@
 {
-  "referencedItemsCount": 31,
+  "referencedItemsCount": 32,
   "items": [
     {
       "id": "Q25004683",
@@ -106,6 +106,10 @@
       "label": "The WikiTree Company"
     },
     {
+      "id": "Q139147772",
+      "label": "University of Wrocław Department of Biology, Evolution and Conservation of Invertebrates"
+    },
+    {
       "id": "Q138820677",
       "label": "University of Wrocław Department of Human Biology"
     },
@@ -126,5 +130,5 @@
       "label": "WikiTree"
     }
   ],
-  "lastUpdated": "2026-04-11T05:57:43.697Z"
+  "lastUpdated": "2026-04-11T06:21:41.036Z"
 }

@@ -1680,17 +1680,7 @@
     "organizations": [
       {
         "name": "Department of Biology, Evolution and Conservation of Invertebrates, University of Wrocław",
-        "wikidataId": null,
-        "rorId": "https://ror.org/00yae6e25",
-        "rorName": "University of Wrocław",
-        "rorTypes": [
-          "education",
-          "funder"
-        ],
-        "rorCountry": "Poland",
-        "rorCity": "Wroclaw",
-        "rorEstablished": 1702,
-        "rorAutoMatched": true
+        "wikidataId": "Q139147772"
       },
       {
         "name": "Department of Human Biology, University of Wrocław",

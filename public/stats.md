@@ -53,7 +53,7 @@ An overview of the resources available on Yourself to Science, providing insight
 
 ## Wikidata Impact
 
-Yourself to Science is actively enriching the global knowledge graph. Our dataset is used as a verified reference URL (P854) on **31 distinct Wikidata items**.
+Yourself to Science is actively enriching the global knowledge graph. Our dataset is used as a verified reference URL (P854) on **32 distinct Wikidata items**.
 
 ## Data Type Distribution
 
