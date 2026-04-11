@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 4/7/2026, 3:29:11 AM
+**Generated on:** 4/11/2026, 7:57:44 AM
 
 ## Project-Organizer Relationships
 
@@ -111,6 +111,7 @@
   - Department of Anatomy, University of Cambridge: No Wikidata ID
   - Cambridge Biomedical Research Centre: [Q33121816](https://www.wikidata.org/wiki/Q33121816)
 - **University of Wrocław human hair decomposition project**: ❌
+  - Department of Biology, Evolution and Conservation of Invertebrates, University of Wrocław: No Wikidata ID
   - Department of Human Biology, University of Wrocław: [Q138820677](https://www.wikidata.org/wiki/Q138820677)
 - **Wesley Research Institute placenta donation**: ❌
   - Wesley Research Institute: [Q30289631](https://www.wikidata.org/wiki/Q30289631)
@@ -193,6 +194,7 @@
 - **Cochrane**: [Q1105202](https://www.wikidata.org/wiki/Q1105202)
 - **Curewiki**: ❌
 - **Department of Anatomy, University of Cambridge**: ❌
+- **Department of Biology, Evolution and Conservation of Invertebrates, University of Wrocław**: ❌
 - **Department of Human Biology, University of Wrocław**: [Q138820677](https://www.wikidata.org/wiki/Q138820677)
 - **Esperity**: ❌
 - **Eurac Research**: [Q1245390](https://www.wikidata.org/wiki/Q1245390)

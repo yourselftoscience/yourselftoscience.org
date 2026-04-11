@@ -2,7 +2,7 @@
 
 > A comprehensive open-source catalogue for contributing your biological and digital self to scientific research. Browse opportunities to share your data, genome, biological samples, and more.
 
-This project is open source. The content is licensed under CC BY-SA 4.0 and the code is licensed under AGPL-3.0. This page provides a filterable catalogue of all resources. You can also download the full dataset as CSV or JSON.
+This project is open source. The website content is licensed under [CC BY-SA 4.0](https://yourselftoscience.org/license/content), the underlying source code is licensed under the [AGPL-3.0 License](https://yourselftoscience.org/license/code), and the dataset is dedicated to the public domain under the [CC0 1.0 Universal license](https://yourselftoscience.org/data). This page provides a filterable catalogue of all resources. You can also download the full dataset as CSV or JSON.
 
 ## All Resources
 

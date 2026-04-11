@@ -2,7 +2,7 @@
 
 > Research on human hair decomposition at the University of Wrocław.
 
-**Organizations:** Department of Human Biology, University of Wrocław
+**Organizations:** Department of Biology, Evolution and Conservation of Invertebrates, University of Wrocław; Department of Human Biology, University of Wrocław
 
 **Persistent ID:** https://yourselftoscience.org/resource/b4a5c0ef-ea7d-4a5a-967a-3b5c32c170f7
 **Canonical URL:** https://yourselftoscience.org/resource/wroclaw-hair-decomposition

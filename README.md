@@ -40,4 +40,4 @@ Representing a company, non-profit, university, or public institution? Please [c
 
 ## LICENSE
 
-The content of this project itself is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0), and the underlying source code used to format and display that content is licensed under the GNU Affero General Public License (AGPL-3.0).
+This project is radically open and follows a multi-license structure: Our dataset is dedicated to the public domain under the [Creative Commons CC0 1.0 Universal license](https://yourselftoscience.org/data), the website content is licensed under [CC BY-SA 4.0](https://yourselftoscience.org/license/content), and the underlying source code is licensed under [AGPL-3.0](https://yourselftoscience.org/license/code).

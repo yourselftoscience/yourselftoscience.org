@@ -11,7 +11,7 @@ Our mission is to provide a transparent, accessible, and comprehensive catalogue
 
 ### Core Principles
 
-- **Radically Open:** Dataset (CC0 1.0), content (CC BY-SA), and code (AGPL-3) are openly licensed.
+- **Open Source:** This project is open source. The content is licensed under [CC BY-SA 4.0](https://yourselftoscience.org/license/content), the source code is licensed under [AGPL-3.0](https://yourselftoscience.org/license/code), and the dataset is dedicated to [CC0 1.0](https://yourselftoscience.org/data).
 - **Community-Driven:** A collaborative ecosystem welcoming contributions from a global base.
 - **Accessible:** Built for everyone. Maintained with a high focus on accessibility and readability.
 - **AI-Ready:** Open data (CC0), open-source code, and an [llms.txt](https://yourselftoscience.org/llms.txt) file make the catalogue fully accessible to AI systems and LLMs.

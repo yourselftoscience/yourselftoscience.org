@@ -1,5 +1,5 @@
 {
-  "referencedItemsCount": 29,
+  "referencedItemsCount": 31,
   "items": [
     {
       "id": "Q25004683",
@@ -82,8 +82,8 @@
       "label": "OrganDonor.gov"
     },
     {
-      "id": "Q138589652",
-      "label": "Ospedale San Camillo IRCCS"
+      "id": "Q50039648",
+      "label": "Ospedale San Camillo"
     },
     {
       "id": "Q138520864",
@@ -106,6 +106,14 @@
       "label": "The WikiTree Company"
     },
     {
+      "id": "Q138820677",
+      "label": "University of Wrocław Department of Human Biology"
+    },
+    {
+      "id": "Q138820717",
+      "label": "University of Wrocław human hair decomposition project"
+    },
+    {
       "id": "Q138520595",
       "label": "Verogen"
     },
@@ -118,5 +126,5 @@
       "label": "WikiTree"
     }
   ],
-  "lastUpdated": "2026-03-28T01:04:40.666Z"
+  "lastUpdated": "2026-04-11T05:57:43.697Z"
 }

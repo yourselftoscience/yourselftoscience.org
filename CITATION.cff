@@ -1,7 +1,8 @@
 cff-version: 1.2.0
-message: "If you use this repository or dataset, please cite it as below."
+message: "If you use this repository or dataset, please cite it as below. License: CC0-1.0 (dataset), CC-BY-SA-4.0 (content), AGPL-3.0-or-later (code)."
 type: dataset
 title: "Yourself To Science"
+license: CC0-1.0
 authors:
   - family-names: "Marcolongo"
     given-names: "Mario"

@@ -1,5 +1,5 @@
 # Yourself to Science - Full Dataset
-Generated on: 2026-04-07
+Generated on: 2026-04-11
 
 This list contains 56 active platforms and initiatives.
 
@@ -504,7 +504,7 @@ This list contains 56 active platforms and initiatives.
 ---
 
 ### University of Wrocław human hair decomposition project
-- **Operating Organization(s):** Department of Human Biology, University of Wrocław
+- **Operating Organization(s):** Department of Biology, Evolution and Conservation of Invertebrates, University of Wrocław, Department of Human Biology, University of Wrocław
 - **Category:** Academic (Academic)
 - **Countries:** Poland
 - **Data Types Accepted:** Hair

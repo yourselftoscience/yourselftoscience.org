@@ -188,8 +188,8 @@ function generateHomepageMarkdown() {
   console.log('Generating index.html.md...');
 
   let mdContent = `# Yourself to Science: Contribute to Science\n\n`;
-  mdContent += `> A comprehensive open-source catalogue for contributing your biological and digital self to scientific research.\n\n`;
-  mdContent += `This project is open source. The content is licensed under CC BY-SA 4.0 and the code is licensed under AGPL-3.0. This page provides a filterable catalogue of all resources. You can also download the full dataset as CSV or JSON.\n\n`;
+  mdContent += `> A comprehensive open-source catalogue for contributing your biological and digital self to scientific research. Browse opportunities to share your data, genome, biological samples, and more.\n\n`;
+  mdContent += `This project is open source. The website content is licensed under [CC BY-SA 4.0](https://yourselftoscience.org/license/content), the underlying source code is licensed under the [AGPL-3.0 License](https://yourselftoscience.org/license/code), and the dataset is dedicated to the public domain under the [CC0 1.0 Universal license](https://yourselftoscience.org/data). This page provides a filterable catalogue of all resources. You can also download the full dataset as CSV or JSON.\n\n`;
   mdContent += `## All Resources\n\n`;
 
   for (const [index, resource] of resources.entries()) {
@@ -330,6 +330,7 @@ function generateDataPageMarkdown() {
   console.log('Generating data.md...');
   let mdContent = `# Dataset & Access\n\n`;
   mdContent += `> Our complete dataset is open and available for anyone. We believe science data should be free. Unlike closed platforms, our entire catalogue is available as an Open Dataset published under the CC0 1.0 Universal license (Public Domain).\n\n`;
+  mdContent += `**License**: [CC0 1.0](https://yourselftoscience.org/data) (dataset), [CC BY-SA 4.0](https://yourselftoscience.org/license/content) (content), [AGPL-3.0](https://yourselftoscience.org/license/code) (code)\n\n`;
   mdContent += `## Live Data Access\n\n`;
   mdContent += `Use these persistent URLs for automated access to always get the latest version of the dataset.\n\n`;
   mdContent += `- **CSV Endpoint:** <https://yourselftoscience.org/resources.csv>\n`;
@@ -337,7 +338,7 @@ function generateDataPageMarkdown() {
   mdContent += `- **RDF/TTL Endpoint:** <https://yourselftoscience.org/resources.ttl>\n`;
   mdContent += `- **VOID Endpoint:** <https://yourselftoscience.org/void.ttl>\n\n`;
   mdContent += `## Licensing\n\n`;
-  mdContent += `Our dataset is dedicated to the public domain under the Creative Commons CC0 1.0 Universal Public Domain Dedication (CC0 1.0).\n\n`;
+  mdContent += `**Licensing**: This project is open source. The website content is licensed under [CC BY-SA 4.0](https://yourselftoscience.org/license/content), the underlying source code is licensed under the [AGPL-3.0 License](https://yourselftoscience.org/license/code), and the dataset is dedicated to the public domain under the [CC0 1.0 Universal license](https://yourselftoscience.org/data).\n\n`;
 
   const outputPath = path.join(PUBLIC_DIR, 'data.md');
   fs.writeFileSync(outputPath, mdContent);
@@ -377,7 +378,7 @@ function generateGetInvolvedMarkdown() {
   mdContent += `- **Contact:** Email hello@yourselftoscience.org\n\n`;
 
   mdContent += `### Core Principles\n\n`;
-  mdContent += `- **Radically Open:** Dataset (CC0 1.0), content (CC BY-SA), and code (AGPL-3) are openly licensed.\n`;
+  mdContent += `- **Open Source:** This project is open source. The content is licensed under [CC BY-SA 4.0](https://yourselftoscience.org/license/content), the source code is licensed under [AGPL-3.0](https://yourselftoscience.org/license/code), and the dataset is dedicated to [CC0 1.0](https://yourselftoscience.org/data).\n`;
   mdContent += `- **Community-Driven:** A collaborative ecosystem welcoming contributions from a global base.\n`;
   mdContent += `- **Accessible:** Built for everyone. Maintained with a high focus on accessibility and readability.\n`;
   mdContent += `- **AI-Ready:** Open data (CC0), open-source code, and an [llms.txt](https://yourselftoscience.org/llms.txt) file make the catalogue fully accessible to AI systems and LLMs.\n\n`;
@@ -472,8 +473,8 @@ function generateLlmsTxt() {
   console.log('Generating llms.txt...');
 
   let content = `# Yourself to Science Catalog\n\n`;
-  content += `> Yourself to Science™ is an open-source project providing a comprehensive list of services that allow individuals to contribute to scientific research with their biological and digital selves.\n\n`;
-  content += `This project is radically open. Our **entire dataset** is dedicated to the public domain under the [CC0 1.0 Universal license](https://yourselftoscience.org/data). The mission content is licensed under CC BY-SA 4.0 and the code is licensed under AGPL-3.0.\n\n`;
+  content += `> Yourself to Science™ is an open-source project providing a comprehensive list of services that allow individuals to contribute to scientific research with their biological and digital selves. Browse opportunities to share your data, genome, biological samples, and more.\n\n`;
+  content += `**License**: [CC0 1.0](https://yourselftoscience.org/data) (dataset), [CC BY-SA 4.0](https://yourselftoscience.org/license/content) (content), [AGPL-3.0](https://yourselftoscience.org/license/code) (code).\n\n`;
 
   content += `## Core Documentation\n\n`;
   content += `- [Full Catalogue (Markdown)](https://yourselftoscience.org/index.html.md): The main catalogue of all scientific contribution opportunities.\n`;

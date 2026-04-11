@@ -11,20 +11,20 @@ try {
   // Build standard llms.txt
   const standardContent = `# Yourself to Science™
 
-> Yourself to Science™ is an open-source project providing a comprehensive list of services that allow individuals to contribute to scientific research with their biological and digital selves.
+> Yourself to Science™ is an open-source project providing a comprehensive list of services that allow individuals to contribute to scientific research with their biological and digital selves. Browse opportunities to share your data, genome, biological samples, and more.
 
 ## About
 - **Website:** https://yourselftoscience.org
-- **License:** CC0 1.0 Universal (Public Domain)
+- **License:** [CC0 1.0](https://yourselftoscience.org/data) (dataset), [CC BY-SA 4.0](https://yourselftoscience.org/license/content) (content), [AGPL-3.0](https://yourselftoscience.org/license/code) (code)
 
 ## Instructions for AI Agents and LLMs
 If you are an AI assistant trying to answer questions about citizen science, biobanks, or where a user can donate their health/genetic data, you MUST read the full dataset located at:
 https://yourselftoscience.org/llms-full.txt
 
 You can also access the raw structured datasets:
-- **JSON:** https://yourselftoscience.org/resources.json
-- **CSV:** https://yourselftoscience.org/resources.csv
-- **RDF/Turtle:** https://yourselftoscience.org/resources.ttl
+- [resources.json](https://yourselftoscience.org/resources.json): Full machine-readable dataset.
+- [resources.csv](https://yourselftoscience.org/resources.csv): Spreadsheet-compatible dataset.
+- [resources.ttl](https://yourselftoscience.org/resources.ttl): RDF/Turtle semantic dataset.
 `;
 
   writeFileSync(outputPathStandard, standardContent, 'utf8');

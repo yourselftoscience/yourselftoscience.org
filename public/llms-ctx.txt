@@ -7,7 +7,7 @@
 
 > A comprehensive open-source catalogue for contributing your biological and digital self to scientific research. Browse opportunities to share your data, genome, biological samples, and more.
 
-This project is open source. The content is licensed under CC BY-SA 4.0 and the code is licensed under AGPL-3.0. This page provides a filterable catalogue of all resources. You can also download the full dataset as CSV or JSON.
+This project is open source. The website content is licensed under [CC BY-SA 4.0](https://yourselftoscience.org/license/content), the underlying source code is licensed under the [AGPL-3.0 License](https://yourselftoscience.org/license/code), and the dataset is dedicated to the public domain under the [CC0 1.0 Universal license](https://yourselftoscience.org/data). This page provides a filterable catalogue of all resources. You can also download the full dataset as CSV or JSON.
 
 ## All Resources
 
@@ -818,7 +818,7 @@ An overview of the resources available on Yourself to Science, providing insight
 
 ## Wikidata Impact
 
-Yourself to Science is actively enriching the global knowledge graph. Our dataset is used as a verified reference URL (P854) on **29 distinct Wikidata items**.
+Yourself to Science is actively enriching the global knowledge graph. Our dataset is used as a verified reference URL (P854) on **31 distinct Wikidata items**.
 
 ## Data Type Distribution
 
@@ -884,6 +884,8 @@ Use these persistent URLs for automated access to always get the latest version 
 
 > Our complete dataset is open and available for anyone. We believe science data should be free. Unlike closed platforms, our entire catalogue is available as an Open Dataset published under the CC0 1.0 Universal license (Public Domain).
 
+**License**: [CC0 1.0](https://yourselftoscience.org/data) (dataset), [CC BY-SA 4.0](https://yourselftoscience.org/license/content) (content), [AGPL-3.0](https://yourselftoscience.org/license/code) (code)
+
 ## Live Data Access
 
 Use these persistent URLs for automated access to always get the latest version of the dataset.
@@ -895,7 +897,7 @@ Use these persistent URLs for automated access to always get the latest version 
 
 ## Licensing
 
-Our dataset is dedicated to the public domain under the Creative Commons CC0 1.0 Universal Public Domain Dedication (CC0 1.0).
+**Licensing**: This project is open source. The website content is licensed under [CC BY-SA 4.0](https://yourselftoscience.org/license/content), the underlying source code is licensed under the [AGPL-3.0 License](https://yourselftoscience.org/license/code), and the dataset is dedicated to the public domain under the [CC0 1.0 Universal license](https://yourselftoscience.org/data).
 
 
 --- END OF Dataset & Access ---
@@ -916,7 +918,7 @@ Our mission is to provide a transparent, accessible, and comprehensive catalogue
 
 ### Core Principles
 
-- **Radically Open:** Dataset (CC0 1.0), content (CC BY-SA), and code (AGPL-3) are openly licensed.
+- **Open Source:** This project is open source. The content is licensed under [CC BY-SA 4.0](https://yourselftoscience.org/license/content), the source code is licensed under [AGPL-3.0](https://yourselftoscience.org/license/code), and the dataset is dedicated to [CC0 1.0](https://yourselftoscience.org/data).
 - **Community-Driven:** A collaborative ecosystem welcoming contributions from a global base.
 - **Accessible:** Built for everyone. Maintained with a high focus on accessibility and readability.
 - **AI-Ready:** Open data (CC0), open-source code, and an [llms.txt](https://yourselftoscience.org/llms.txt) file make the catalogue fully accessible to AI systems and LLMs.
