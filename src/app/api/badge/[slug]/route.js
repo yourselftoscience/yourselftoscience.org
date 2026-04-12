@@ -1,10 +1,14 @@
+import { readFileSync } from 'fs';
+import { join } from 'path';
 import ObjectData from '@/../public/resources_wikidata.json';
 
-export const runtime = 'edge';
+// We remove 'edge' runtime to allow Node.js 'fs' access during the 'next build' 
+// static generation phase for the 'output: export' configuration.
+export const runtime = 'nodejs';
 
 // Optionally statically generate standard badges
 export async function generateStaticParams() {
-  return ObjectData.map((resource) => ({ slug: resource.slug }));
+  return ObjectData.map((resource) => ({ slug: resource.id }));
 }
 
 export async function GET(request, { params }) {
@@ -13,6 +17,17 @@ export async function GET(request, { params }) {
 
   if (!resource) {
     return new Response('Not Found', { status: 404 });
+  }
+
+  // Read official logo content from public directory
+  let logoSvgContent = '';
+  try {
+    const logoPath = join(process.cwd(), 'public/logo-tm.svg');
+    logoSvgContent = readFileSync(logoPath, 'utf8');
+    // Clean up the SVG for nesting: remove XML declaration and doctype
+    logoSvgContent = logoSvgContent.replace(/<\?xml.*\?>/g, '').replace(/<!DOCTYPE.*?>/g, '');
+  } catch (error) {
+    console.error('Failed to read logo-tm.svg:', error);
   }
 
   // Calculate prestige completeness
@@ -25,12 +40,15 @@ export async function GET(request, { params }) {
   const rightText = isComplete ? "Complete Data Source" : "Verified Data Source";
   
   // Approximate width calculation (standard fonts)
-  const leftWidth = 120;
+  const logoWidth = 24;
+  const leftTextWidth = 185; // Increased to fit "Yourself to Science™" comfortably
+  const leftWidth = logoWidth + leftTextWidth;
   const rightWidth = isComplete ? 135 : 130;
   const totalWidth = leftWidth + rightWidth;
 
   // Official Theme Colors
-  const colorLeft = "#1A1C1E"; // m3-on-surface (black title color)
+  const colorLeft = "#ffffff"; // Header match (white)
+  const textColor = "#202124"; // google-text
   // Gold badge vs standard blue badge
   const colorRight = isComplete ? "#FDBB2D" : "#1156B0"; // stroke-yellow-dark / google-blue
 
@@ -40,6 +58,10 @@ export async function GET(request, { params }) {
       <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
       <stop offset="1" stop-opacity=".1"/>
     </linearGradient>
+    <linearGradient id="g" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffd92d"/>
+      <stop offset="100%" stop-color="#B35F00"/>
+    </linearGradient>
     <clipPath id="r">
       <rect width="${totalWidth}" height="20" rx="3" fill="#fff"/>
     </clipPath>
@@ -48,11 +70,20 @@ export async function GET(request, { params }) {
       <rect x="${leftWidth}" width="${rightWidth}" height="20" fill="${colorRight}"/>
       <rect width="${totalWidth}" height="20" fill="url(#s)"/>
     </g>
-    <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110">
-      <text aria-hidden="true" x="${leftWidth * 5}" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="${(leftWidth - 20) * 10}">${leftText}</text>
-      <text x="${leftWidth * 5}" y="140" transform="scale(.1)" fill="#fff" textLength="${(leftWidth - 20) * 10}">${leftText}</text>
-      <text aria-hidden="true" x="${(leftWidth + rightWidth / 2) * 10}" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="${(rightWidth - 20) * 10}">${rightText}</text>
-      <text x="${(leftWidth + rightWidth / 2) * 10}" y="140" transform="scale(.1)" fill="#fff" textLength="${(rightWidth - 20) * 10}">${rightText}</text>
+    <g font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110">
+      <!-- Official 'Yourself to Science' Logo Integrated via File Read -->
+      <g transform="translate(4, 2) scale(0.069)">
+        ${logoSvgContent}
+      </g>
+      
+      <g transform="scale(.1)">
+        <text x="${(logoWidth + (leftTextWidth / 2)) * 10}" y="140" fill="${textColor}" text-anchor="middle">
+          <tspan font-weight="500">Your</tspan><tspan fill="url(#g)" stroke="#ffd92d" stroke-width="3" font-weight="bold">self</tspan><tspan font-weight="500"> to Science</tspan>
+          <tspan font-size="70" baseline-shift="super">™</tspan>
+        </text>
+      </g>
+      
+      <text x="${(leftWidth + rightWidth / 2) * 10}" y="140" transform="scale(.1)" fill="#fff" text-anchor="middle" textLength="${(rightWidth - 20) * 10}">${rightText}</text>
     </g>
   </svg>`;
 

@@ -20,8 +20,15 @@ try {
     rorData = JSON.parse(readFileSync(rorPath, 'utf8'));
   } catch(e) {}
   
+  const { dataTypeToMacroCategory } = await import('../src/data/resources.js');
+  
   const enrichedResources = wikidataResources.map(resource => {
-    // Merge ROR data into organizations
+    // 1. Compute Macro Categories (consistent with src/data/resources.js)
+    const macroCategories = Array.from(new Set(
+      (resource.dataTypes || []).map(type => dataTypeToMacroCategory[type]).filter(Boolean)
+    )).sort();
+
+    // 2. Merge ROR data into organizations
     const enrichedOrgs = (resource.organizations || []).map(org => {
       const ror = rorData[org.name];
       if (ror && ror.rorId && ror.name) {
@@ -42,6 +49,7 @@ try {
     return {
       ...resource,
       organizations: enrichedOrgs,
+      macroCategories,
       permalink: `https://yourselftoscience.org/resource/${resource.id}`,
       isCitedOnWikidata: resource.resourceWikidataId ? citedQIDs.has(resource.resourceWikidataId) : false,
       wikidataReferenceUrl: (resource.resourceWikidataId && citedQIDs.has(resource.resourceWikidataId)) ? `https://www.wikidata.org/wiki/${resource.resourceWikidataId}` : null

@@ -1816,7 +1816,7 @@ export const rawResources = [
 ];
 
 
-const dataTypeToMacroCategory = {
+export const dataTypeToMacroCategory = {
   // Organ, Body & Tissue Donation
   'Body': 'Organ, Body & Tissue Donation',
   'Organ': 'Organ, Body & Tissue Donation',
@@ -1845,7 +1845,6 @@ const dataTypeToMacroCategory = {
   'Cover letters': 'Health & Digital Data',
 
   'Conversational AI data': 'Health & Digital Data',
-
 
   // Clinical Trials
   'Clinical trials': 'Clinical Trials',

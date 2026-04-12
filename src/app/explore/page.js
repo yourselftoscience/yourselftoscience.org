@@ -492,7 +492,7 @@ export default function ExplorePage() {
                         {col.key === 'title' ? (
                           <div>
                             <Link
-                              href={`/resource/${resource.slug}`}
+                              href={`/resource/${resource.id}`}
                               className="font-medium text-slate-900 hover:text-blue-600 transition-colors group-hover:text-blue-600"
                             >
                               {resource.title}

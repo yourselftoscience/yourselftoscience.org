@@ -93,7 +93,16 @@ const openApiSchema = {
               "properties": {
                 "name": { "type": "string" },
                 "wikidataId": { "type": ["string", "null"] },
-                "rorId": { "type": ["string", "null"] }
+                "rorId": { "type": ["string", "null"] },
+                "rorName": { "type": ["string", "null"] },
+                "rorTypes": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "rorCountry": { "type": ["string", "null"] },
+                "rorCity": { "type": ["string", "null"] },
+                "rorEstablished": { "type": ["string", "null"] },
+                "rorAutoMatched": { "type": "boolean" }
               }
             }
           },
@@ -103,15 +112,33 @@ const openApiSchema = {
               "type": "object",
               "properties": {
                 "title": { "type": "string" },
-                "link": { "type": "string", "format": "uri" }
+                "link": { "type": "string", "format": "uri" },
+                "wikidataId": { "type": ["string", "null"] }
               }
             }
           },
-          "permalink": { "type": ["string", "null"] },
-          "rorTypes": {
+          "instructions": {
             "type": "array",
             "items": { "type": "string" }
           },
+          "macroCategories": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "dataTypeMappings": {
+            "type": "object",
+            "additionalProperties": { "type": ["string", "null"] }
+          },
+          "countryMappings": {
+            "type": "object",
+            "additionalProperties": { "type": ["string", "null"] }
+          },
+          "compensationWikidataId": {
+            "type": ["string", "array", "null"],
+            "items": { "type": "string" }
+          },
+          "permalink": { "type": ["string", "null"] },
+          "isCitedOnWikidata": { "type": "boolean" },
           "wikidataReferenceUrl": { "type": ["string", "null"], "format": "uri" }
         }
       }

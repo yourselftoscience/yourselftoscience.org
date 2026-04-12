@@ -405,11 +405,11 @@ export default function ResourcePage({ params }) {
               <h4 className="text-lg font-semibold text-gray-800 mb-2">Showcase your commitment to Open Science</h4>
               <p className="text-sm text-gray-600 mb-4">By embedding this verified reference badge on your website, you publicly confirm your project&apos;s transparency metrics and establish your verifiable link to the global knowledge graph monitored by researchers, policy makers, and ecosystem investors.</p>
               <div className="bg-gray-50 border border-gray-200 p-4 rounded-md flex flex-col md:flex-row items-center justify-between gap-4">
-                <img src={`/api/badge/${resource.slug}`} alt="Dataset Status Badge" className="h-5" />
+                <img src={`/api/badge/${resource.id}`} alt="Dataset Status Badge" className="h-5" />
                 <div className="text-xs font-mono text-gray-500 break-all w-full text-center md:text-left selection:bg-blue-100">
-                  {`[![Verified Source](https://yourselftoscience.org/api/badge/${resource.slug})](https://yourselftoscience.org/resource/${resource.slug})`}
+                  {`[![Verified Source](https://yourselftoscience.org/api/badge/${resource.id})](https://yourselftoscience.org/resource/${resource.id})`}
                 </div>
-                <CopyButton text={`[![Verified Source](https://yourselftoscience.org/api/badge/${resource.slug})](https://yourselftoscience.org/resource/${resource.slug})`} />
+                <CopyButton text={`[![Verified Source](https://yourselftoscience.org/api/badge/${resource.id})](https://yourselftoscience.org/resource/${resource.id})`} />
               </div>
               <div className="mt-4 text-sm text-blue-600">
                 <a href={`mailto:science@yourselftoscience.org?subject=Open%20Science%20Verification%3A%20${encodeURIComponent(resource.title)}`} className="hover:underline font-medium inline-flex items-center">
