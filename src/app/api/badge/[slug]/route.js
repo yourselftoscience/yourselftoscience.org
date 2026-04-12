@@ -37,13 +37,13 @@ export async function GET(request, { params }) {
                      resource.isOpenData != null;
 
   const leftText = "Yourself to Science";
-  const rightText = isComplete ? "Complete Data Source" : "Verified Data Source";
+  const rightText = isComplete ? "Complete Research Program" : "Indexed Research Program";
   
   // Approximate width calculation (standard fonts)
   const logoWidth = 24;
   const leftTextWidth = 185; // Increased to fit "Yourself to Science™" comfortably
   const leftWidth = logoWidth + leftTextWidth;
-  const rightWidth = isComplete ? 135 : 130;
+  const rightWidth = isComplete ? 170 : 165;
   const totalWidth = leftWidth + rightWidth;
 
   // Official Theme Colors
