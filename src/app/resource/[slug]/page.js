@@ -111,7 +111,10 @@ export default function ResourcePage({ params }) {
     'creator': resource.organizations ? resource.organizations.map(org => ({
       '@type': 'Organization',
       'name': org.name,
-      ...(org.wikidataId && { 'sameAs': `https://www.wikidata.org/wiki/${org.wikidataId}` })
+      'sameAs': [
+        ...(org.wikidataId ? [`https://www.wikidata.org/wiki/${org.wikidataId}`] : []),
+        ...(org.rorId ? [org.rorId] : [])
+      ]
     })) : undefined,
     'isAccessibleForFree': true,
     ...(resource.resourceWikidataId && { 'sameAs': `https://www.wikidata.org/wiki/${resource.resourceWikidataId}` })
@@ -175,10 +178,17 @@ export default function ResourcePage({ params }) {
               )}
               <p className="mt-2 text-lg text-gray-600">by {resource.organizations ? resource.organizations.map((o, i) => (
             <span key={i}>
-              {o.wikidataId ? (
-                <a href={`https://www.wikidata.org/wiki/${o.wikidataId}`} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 hover:underline">
-                  {o.name}
-                </a>
+              {o.wikidataId || o.rorId ? (
+                <span className="inline-flex items-center gap-2">
+                  <a href={o.rorId || `https://www.wikidata.org/wiki/${o.wikidataId}`} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 hover:underline">
+                    {o.name}
+                  </a>
+                  {o.rorId && (
+                    <a href={o.rorId} target="_blank" rel="noopener noreferrer" title="View on Research Organization Registry (ROR)" className="text-[10px] text-blue-500 hover:text-blue-700 bg-blue-50 px-1.5 py-0.5 rounded border border-blue-100 uppercase font-bold tracking-tighter">
+                      ROR
+                    </a>
+                  )}
+                </span>
               ) : (
                 o.name
               )}
@@ -245,17 +255,32 @@ export default function ResourcePage({ params }) {
             </div>
             <div>
               <h2 className="text-2xl font-bold text-gray-800 mb-4">Entity Type</h2>
-              <span className="inline-flex items-center bg-purple-100 text-purple-800 text-md font-medium px-4 py-2 rounded-full">
-                <FaInfoCircle className="mr-2" /> {resource.entityCategory} / {resource.entitySubType}
-              </span>
+              <div className="flex flex-wrap gap-2">
+                <span className="inline-flex items-center bg-purple-100 text-purple-800 text-md font-medium px-4 py-2 rounded-full">
+                  <FaInfoCircle className="mr-2" /> {resource.entityCategory} / {resource.entitySubType}
+                </span>
+                {resource.organizations?.some(o => o.rorTypes) && (
+                  <span className="inline-flex items-center bg-indigo-50 text-indigo-700 text-md font-medium px-4 py-2 rounded-full border border-indigo-100">
+                    <FaUniversity className="mr-2" /> {Array.from(new Set(resource.organizations.flatMap(o => o.rorTypes || []))).map(t => t.charAt(0).toUpperCase() + t.slice(1)).join(', ')}
+                  </span>
+                )}
+              </div>
             </div>
 
             {resource.origin && (
               <div>
                 <h2 className="text-2xl font-bold text-gray-800 mb-4">Based In</h2>
-                <span className="inline-flex items-center bg-teal-100 text-teal-800 text-md font-medium px-4 py-2 rounded-full">
-                  <FaBuilding className="mr-2" /> {resource.origin} {resource.originCode ? `(${resource.originCode})` : ''}
-                </span>
+                <div className="flex flex-col gap-2">
+                  <span className="inline-flex items-center bg-teal-100 text-teal-800 text-md font-medium px-4 py-2 rounded-full">
+                    <FaBuilding className="mr-2" /> {resource.origin} {resource.originCode ? `(${resource.originCode})` : ''}
+                  </span>
+                  {resource.organizations?.some(o => o.rorCity) && (
+                    <span className="text-sm text-gray-500 ml-4 flex items-center">
+                      <FaMapMarkerAlt className="mr-1.5 text-gray-400" /> 
+                      {Array.from(new Set(resource.organizations.map(o => `${o.rorCity}, ${o.rorCountry}`))).join('; ')} (via ROR)
+                    </span>
+                  )}
+                </div>
               </div>
             )}
 

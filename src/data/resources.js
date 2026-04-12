@@ -1854,6 +1854,7 @@ const dataTypeToMacroCategory = {
 
 import enrichedResources from '../../public/resources_wikidata.json' with { type: 'json' };
 import wikidataStats from './wikidataStats.json' with { type: 'json' };
+import rorData from './rorData.json' with { type: 'json' };
 
 const citedQIDs = new Set(wikidataStats.items ? wikidataStats.items.map(item => item.id) : []);
 
@@ -1865,8 +1866,24 @@ export const enrichedResourcesWithMacro = enrichedResources.map(r => {
 
   const isCitedOnWikidata = r.resourceWikidataId ? citedQIDs.has(r.resourceWikidataId) : false;
 
+  const organizations = (r.organizations || []).map(org => {
+    const rorEntry = rorData[org.name];
+    if (rorEntry && rorEntry.rorId) {
+      return {
+        ...org,
+        rorId: rorEntry.rorId,
+        rorName: rorEntry.name,
+        rorTypes: rorEntry.types,
+        rorCountry: rorEntry.country,
+        rorCity: rorEntry.city,
+      };
+    }
+    return org;
+  });
+
   return {
     ...r,
+    organizations,
     macroCategories,
     isCitedOnWikidata,
   };

@@ -15,10 +15,11 @@ import {
 // --- Column Definitions ---
 const ALL_COLUMNS = [
   { key: 'title', label: 'Resource', sticky: true, minWidth: '240px' },
-  { key: 'organizations', label: 'Organization', minWidth: '200px' },
+  { key: 'organizations', label: 'Organization', minWidth: '220px' },
+  { key: 'rorId', label: 'ROR ID', minWidth: '130px' },
   { key: 'origin', label: 'HQ Location', minWidth: '140px' },
   { key: 'entityCategory', label: 'Sector', minWidth: '120px' },
-  { key: 'entitySubType', label: 'Entity Type', minWidth: '140px' },
+  { key: 'entitySubType', label: 'Entity Type', minWidth: '160px' },
   { key: 'dataTypes', label: 'Data Types', minWidth: '180px' },
   { key: 'compensationType', label: 'Compensation', minWidth: '130px' },
   { key: 'countries', label: 'Available In', minWidth: '160px' },
@@ -44,6 +45,8 @@ function getNestedValue(resource, key) {
       return (resource.compatibleSources || []).join(', ');
     case 'citations':
       return (resource.citations || []).length;
+    case 'rorId':
+      return (resource.organizations || []).map(o => o.rorId).filter(Boolean).join(', ');
     default:
       return resource[key] || '';
   }
@@ -507,9 +510,33 @@ export default function ExplorePage() {
                             )}
                           </div>
                         ) : col.key === 'organizations' ? (
-                          <span className="text-slate-600 text-xs">
-                            {(resource.organizations || []).map(o => o.name).join(', ') || '—'}
-                          </span>
+                          <div className="flex flex-col gap-1">
+                            {(resource.organizations || []).map((o, idx) => (
+                              <div key={idx} className="flex items-center gap-1.5 whitespace-nowrap overflow-hidden">
+                                <span className="text-slate-600 text-xs truncate">{o.name}</span>
+                                {o.rorId && (
+                                  <a 
+                                    href={o.rorId} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    title="View on ROR"
+                                    className="text-[9px] text-blue-500 hover:text-blue-700 bg-blue-50 px-1 py-0 rounded border border-blue-100 uppercase font-bold"
+                                  >
+                                    ROR
+                                  </a>
+                                )}
+                              </div>
+                            ))}
+                            {(!resource.organizations || resource.organizations.length === 0) && '—'}
+                          </div>
+                        ) : col.key === 'rorId' ? (
+                          <div className="flex flex-col gap-1">
+                             {(resource.organizations || []).map((o, idx) => o.rorId ? (
+                               <a key={idx} href={o.rorId} target="_blank" rel="noopener noreferrer" className="text-[10px] font-mono text-blue-600 hover:underline">
+                                 {o.rorId.split('/').pop()}
+                               </a>
+                             ) : null)}
+                          </div>
                         ) : col.key === 'origin' ? (
                           <span className="inline-flex items-center gap-1.5 text-xs text-slate-600">
                             {resource.originCode && (
@@ -538,7 +565,18 @@ export default function ExplorePage() {
                             {resource.entityCategory || '—'}
                           </span>
                         ) : col.key === 'entitySubType' ? (
-                          <span className="text-xs text-slate-500">{resource.entitySubType || '—'}</span>
+                          <div className="flex flex-col gap-1">
+                            <span className="text-xs text-slate-500">{resource.entitySubType || '—'}</span>
+                            {resource.organizations?.some(o => o.rorTypes) && (
+                              <div className="flex flex-wrap gap-1">
+                                {Array.from(new Set(resource.organizations.flatMap(o => o.rorTypes || []))).map(t => (
+                                  <span key={t} className="text-[9px] bg-indigo-50 text-indigo-600 border border-indigo-100 px-1 py-0 rounded font-medium">
+                                    {t.charAt(0).toUpperCase() + t.slice(1)}
+                                  </span>
+                                ))}
+                              </div>
+                            )}
+                          </div>
                         ) : col.key === 'dataTypes' ? (
                           <div className="flex flex-wrap gap-1">
                             {(resource.dataTypes || []).map(d => (
