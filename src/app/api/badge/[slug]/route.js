@@ -1,10 +1,7 @@
-import { readFileSync } from 'fs';
-import { join } from 'path';
 import ObjectData from '@/../public/resources_wikidata.json';
+import { logoSvgContent } from '@/data/badgeLogo';
 
-// We remove 'edge' runtime to allow Node.js 'fs' access during the 'next build' 
-// static generation phase for the 'output: export' configuration.
-export const runtime = 'nodejs';
+export const runtime = 'edge';
 
 // Optionally statically generate standard badges
 export async function generateStaticParams() {
@@ -19,16 +16,6 @@ export async function GET(request, { params }) {
     return new Response('Not Found', { status: 404 });
   }
 
-  // Read official logo content from public directory
-  let logoSvgContent = '';
-  try {
-    const logoPath = join(process.cwd(), 'public/logo-tm.svg');
-    logoSvgContent = readFileSync(logoPath, 'utf8');
-    // Clean up the SVG for nesting: remove XML declaration and doctype
-    logoSvgContent = logoSvgContent.replace(/<\?xml.*\?>/g, '').replace(/<!DOCTYPE.*?>/g, '');
-  } catch (error) {
-    console.error('Failed to read logo-tm.svg:', error);
-  }
 
   // Calculate prestige completeness
   const isComplete = resource.yearLaunched != null && 
@@ -40,8 +27,8 @@ export async function GET(request, { params }) {
   const rightText = isComplete ? "Complete Research Program" : "Indexed Research Program";
   
   // Approximate width calculation (standard fonts)
-  const logoWidth = 24;
-  const leftTextWidth = 185; // Increased to fit "Yourself to Science™" comfortably
+  const logoWidth = 26;
+  const leftTextWidth = 142; // Significantly reduced to pull text closer to logo
   const leftWidth = logoWidth + leftTextWidth;
   const rightWidth = isComplete ? 170 : 165;
   const totalWidth = leftWidth + rightWidth;
@@ -71,13 +58,13 @@ export async function GET(request, { params }) {
       <rect width="${totalWidth}" height="20" fill="url(#s)"/>
     </g>
     <g font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110">
-      <!-- Official 'Yourself to Science' Logo Integrated via File Read -->
-      <g transform="translate(4, 2) scale(0.069)">
+      <!-- Official 'Yourself to Science' Logo Integrated via Auto-Sync -->
+      <g transform="translate(4, 2) scale(0.08)">
         ${logoSvgContent}
       </g>
       
       <g transform="scale(.1)">
-        <text x="${(logoWidth + (leftTextWidth / 2)) * 10}" y="140" fill="${textColor}" text-anchor="middle">
+        <text x="${(logoWidth + 5) * 10}" y="140" fill="${textColor}" text-anchor="start">
           <tspan font-weight="500">Your</tspan><tspan fill="url(#g)" stroke="#ffd92d" stroke-width="3" font-weight="bold">self</tspan><tspan font-weight="500"> to Science</tspan>
           <tspan font-size="70" baseline-shift="super">™</tspan>
         </text>
