@@ -43,8 +43,9 @@ export async function GET(request, { params }) {
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
     xmlns:cc="http://creativecommons.org/ns#" 
     xmlns:dc="http://purl.org/dc/elements/1.1/"
-    width="${totalWidth}" height="20" role="img" aria-label="${leftText}: ${rightText}">
-    <title>${leftText}: ${rightText}</title>
+    width="${totalWidth}" height="20" role="img" aria-label="${leftText}: ${rightText} for ${resource.title}">
+    <title>Yourself to Science - ${rightText}</title>
+    <desc>The research program '${resource.title}' has been successfully indexed in the Yourself to Science open dataset.</desc>
     <linearGradient id="s" x2="0" y2="100%">
       <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
       <stop offset="1" stop-opacity=".1"/>
