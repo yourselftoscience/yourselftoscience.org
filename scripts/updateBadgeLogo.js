@@ -16,10 +16,16 @@ async function updateBadgeLogo() {
     logoSvgContent = svgMatch[1]
       .replace(/<\?xml.*\?>/g, '')
       .replace(/<!DOCTYPE.*?>/g, '')
-      .replace(/<metadata[\s\S]*?<\/metadata>/gi, '') // Strip metadata blocks causing namespace errors
+      .replace(/<metadata[\s\S]*?<\/metadata>/gi, '')
+      .replace(/<defs[\s\S]*?<\/defs>/gi, '')
+      .replace(/<mask[\s\S]*?<\/mask>/gi, '')
+      .replace(/\s(id|mask|filter|viewBox)="[^"]*"/gi, ' ') // Strip problematic attributes
+      .replace(/\sstyle="[^"]*"/gi, (match) => match.includes('fill') ? match : ' ') // Keep styles only if they define fill
+      .replace(/>\s+</g, '><') // Minify whitespace
       .trim();
 
     const outputContent = `// Auto-generated build-time asset. Do not edit manually.
+// Sanitized to remove masks, filters, and metadata for Cloudflare Edge stability.
 export const logoSvgContent = \`${logoSvgContent}\`;
 `;
 
