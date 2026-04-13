@@ -468,7 +468,7 @@ export default function ResourcePage({ params }) {
 
             <div className="mt-8 bg-white border border-gray-200 p-6 rounded-md">
               <h4 className="text-lg font-semibold text-gray-800 mb-2">Showcase your commitment to Open Science</h4>
-              <p className="text-sm text-gray-600 mb-4">Embed this badge on your project's website to showcase your commitment to open science and provide an official link to your public dataset record.</p>
+              <p className="text-sm text-gray-600 mb-4">Embed this badge on your project&apos;s website to showcase your commitment to open science and provide an official link to your public dataset record.</p>
               <div className="bg-gray-50 border border-gray-200 p-4 rounded-md flex flex-col md:flex-row items-center justify-between gap-4">
                 <img src={`/api/badge/${resource.id}`} alt="Dataset Status Badge" className="h-5" />
                 <div className="text-xs font-mono text-gray-500 break-all w-full text-center md:text-left selection:bg-blue-100">
