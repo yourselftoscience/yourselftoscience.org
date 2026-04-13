@@ -468,7 +468,7 @@ export default function ResourcePage({ params }) {
 
             <div className="mt-8 bg-white border border-gray-200 p-6 rounded-md">
               <h4 className="text-lg font-semibold text-gray-800 mb-2">Showcase your commitment to Open Science</h4>
-              <p className="text-sm text-gray-600 mb-4">By embedding this verified reference badge on your website, you publicly confirm your project&apos;s transparency metrics and establish your verifiable link to the global knowledge graph monitored by researchers, policy makers, and ecosystem investors.</p>
+              <p className="text-sm text-gray-600 mb-4">Embed this badge on your project's website to showcase your commitment to open science and provide an official link to your public dataset record.</p>
               <div className="bg-gray-50 border border-gray-200 p-4 rounded-md flex flex-col md:flex-row items-center justify-between gap-4">
                 <img src={`/api/badge/${resource.id}`} alt="Dataset Status Badge" className="h-5" />
                 <div className="text-xs font-mono text-gray-500 break-all w-full text-center md:text-left selection:bg-blue-100">
@@ -476,9 +476,9 @@ export default function ResourcePage({ params }) {
                 </div>
                 <CopyButton text={`[![Indexed by Yourself to Science](https://yourselftoscience.org/api/badge/${resource.id})](https://yourselftoscience.org/resource/${resource.id})`} />
               </div>
-              <div className="mt-4 text-sm text-blue-600">
-                <a href={`mailto:science@yourselftoscience.org?subject=Open%20Science%20Verification%3A%20${encodeURIComponent(resource.title)}`} className="hover:underline font-medium inline-flex items-center">
-                  Contact us to verify your open science metrics <FaArrowRight className="ml-2 w-3 h-3" />
+              <div className="mt-4 text-sm text-gray-500">
+                <a href={`mailto:science@yourselftoscience.org?subject=Claim%20Record%3A%20${encodeURIComponent(resource.title)}`} className="text-blue-600 hover:text-blue-800 hover:underline font-medium inline-flex items-center">
+                  Are you affiliated with this project? Claim or update this record <FaArrowRight className="ml-2 w-3 h-3" />
                 </a>
               </div>
             </div>
