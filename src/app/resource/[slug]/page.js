@@ -197,8 +197,16 @@ export default function ResourcePage({ params }) {
           )) : ''}</p>
               <p className="mt-1 text-sm text-gray-500 font-mono">ID: {resource.id}</p>
             </div>
-            <div className="shrink-0 mt-2 md:mt-0">
+            <div className="shrink-0 mt-2 md:mt-0 flex flex-col items-end gap-3">
               <img src={`/api/badge/${resource.slug}`} alt="Yourself to Science Verified Badge" className="h-6 filter drop-shadow-sm" />
+              <a 
+                href={resource.link} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hidden md:inline-flex items-center justify-center px-4 py-2 border border-blue-200 text-sm font-medium rounded-md text-blue-700 bg-blue-50 hover:bg-blue-100 transition-colors shadow-sm"
+              >
+                Access Resource <FaExternalLinkAlt className="ml-2 h-3 w-3" />
+              </a>
             </div>
           </div>
 
@@ -208,7 +216,7 @@ export default function ResourcePage({ params }) {
 
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Data Types</h2>
+              <h2 className="text-sm font-semibold uppercase tracking-wide text-gray-500 mb-4">Data Types</h2>
               <div className="flex flex-wrap gap-3">
                 {(resource.dataTypes || []).map((type) => {
                   return (
@@ -225,7 +233,7 @@ export default function ResourcePage({ params }) {
               </div>
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Availability</h2>
+              <h2 className="text-sm font-semibold uppercase tracking-wide text-gray-500 mb-4">Availability</h2>
               <div className="flex flex-col gap-3">
                 <div className="flex flex-wrap gap-3">
                   {(resource.countries || []).length === 0 || (resource.countries && resource.countries[0] === "Worldwide") ? (
@@ -248,13 +256,13 @@ export default function ResourcePage({ params }) {
               </div>
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Compensation</h2>
+              <h2 className="text-sm font-semibold uppercase tracking-wide text-gray-500 mb-4">Compensation</h2>
               <span className="inline-flex items-center bg-yellow-100 text-yellow-800 text-md font-medium px-4 py-2 rounded-full">
                 {getCompensationIcon(resource.compensationType)} {resource.compensationType.charAt(0).toUpperCase() + resource.compensationType.slice(1)}
               </span>
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Entity Type</h2>
+              <h2 className="text-sm font-semibold uppercase tracking-wide text-gray-500 mb-4">Entity Type</h2>
               <div className="flex flex-wrap gap-2">
                 <span className="inline-flex items-center bg-purple-100 text-purple-800 text-md font-medium px-4 py-2 rounded-full">
                   <FaInfoCircle className="mr-2" /> {resource.entityCategory} / {resource.entitySubType}
@@ -269,7 +277,7 @@ export default function ResourcePage({ params }) {
 
             {resource.origin && (
               <div>
-                <h2 className="text-2xl font-bold text-gray-800 mb-4">Based In</h2>
+                <h2 className="text-sm font-semibold uppercase tracking-wide text-gray-500 mb-4">Based In</h2>
                 <div className="flex flex-col gap-2">
                   <span className="inline-flex items-center bg-teal-100 text-teal-800 text-md font-medium px-4 py-2 rounded-full">
                     <FaBuilding className="mr-2" /> {resource.origin} {resource.originCode ? `(${resource.originCode})` : ''}
@@ -286,7 +294,7 @@ export default function ResourcePage({ params }) {
 
             {resource.resourceType && (
               <div>
-                <h2 className="text-2xl font-bold text-gray-800 mb-4">Resource Type</h2>
+                <h2 className="text-sm font-semibold uppercase tracking-wide text-gray-500 mb-4">Resource Type</h2>
                 <span className="inline-flex items-center bg-orange-100 text-orange-800 text-md font-medium px-4 py-2 rounded-full">
                   <FaDatabase className="mr-2" /> {resource.resourceType.charAt(0).toUpperCase() + resource.resourceType.slice(1)}
                 </span>
@@ -295,7 +303,7 @@ export default function ResourcePage({ params }) {
 
             {resource.compatibleSources && resource.compatibleSources.length > 0 && (
               <div>
-                <h2 className="text-2xl font-bold text-gray-800 mb-4">Compatible Sources</h2>
+                <h2 className="text-sm font-semibold uppercase tracking-wide text-gray-500 mb-4">Compatible Sources</h2>
                 <div className="flex flex-wrap gap-3">
                   {resource.compatibleSources.map((source) => (
                     <span key={source} className="inline-flex items-center bg-indigo-100 text-indigo-800 text-md font-medium px-4 py-2 rounded-full">
@@ -364,7 +372,7 @@ export default function ResourcePage({ params }) {
               <FaDatabase className="mr-2 text-blue-600" /> Open Data & Metadata
             </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div>
                 <p className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3">Persistent Identifier</p>
                 <div className="bg-white border border-gray-200 p-3 rounded-md text-gray-800 font-mono text-sm break-all shadow-sm flex items-center justify-between">
@@ -397,6 +405,43 @@ export default function ResourcePage({ params }) {
                       <span>This exact resource leverages Yourself to Science as a <a href="https://www.wikidata.org/wiki/Property:P854" className="underline hover:text-green-900" target="_blank" rel="noopener noreferrer">verifiable reference URL</a> on Wikidata.</span>
                     </div>
                   )}
+                </div>
+              </div>
+
+              <div>
+                <p className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3">Platform Discovery</p>
+                <div className="bg-white border border-gray-200 p-4 rounded-md shadow-sm">
+                  <p className="text-xs text-gray-500 mb-3 leading-relaxed">
+                    This resource is actively featured in the following public directories on Yourself to Science:
+                  </p>
+                  <ul className="space-y-2">
+                    <li>
+                      <a href={`/?resource=${resource.slug}`} className="flex items-center text-sm font-medium text-blue-600 hover:underline">
+                        <FaArrowRight className="mr-1.5 text-gray-400 w-3 h-3" /> Main Homepage Catalogue
+                      </a>
+                    </li>
+                    {resource.dataTypes?.some(t => t.toLowerCase().includes('clinical trial')) && (
+                      <li>
+                        <a href={`/clinical-trials#${resource.slug}`} className="flex items-center text-sm font-medium text-blue-600 hover:underline">
+                          <FaArrowRight className="mr-1.5 text-gray-400 w-3 h-3" /> Clinical Trials Directory
+                        </a>
+                      </li>
+                    )}
+                    {resource.dataTypes?.some(t => t.toLowerCase().includes('genome')) && (
+                      <li>
+                        <a href={`/genetic-data#${resource.slug}`} className="flex items-center text-sm font-medium text-blue-600 hover:underline">
+                          <FaArrowRight className="mr-1.5 text-gray-400 w-3 h-3" /> Genetic Data Directory
+                        </a>
+                      </li>
+                    )}
+                    {resource.dataTypes?.some(t => ['tissue', 'blood', 'organ', 'body', 'stool', 'hair', 'placenta', 'plasma', 'embryos', 'eggs'].some(keyword => t.toLowerCase().includes(keyword))) && (
+                      <li>
+                        <a href={`/organ-body-tissue-donation#${resource.slug}`} className="flex items-center text-sm font-medium text-blue-600 hover:underline">
+                          <FaArrowRight className="mr-1.5 text-gray-400 w-3 h-3" /> Biological Donation Directory
+                        </a>
+                      </li>
+                    )}
+                  </ul>
                 </div>
               </div>
             </div>

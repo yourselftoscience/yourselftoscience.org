@@ -3,6 +3,7 @@
 
 import { resources } from '@/data/resources';
 import wikidataStats from '@/data/wikidataStats.json';
+import lastUpdatedMeta from '@/data/lastUpdated.json';
 import WikidataIcon from '@/components/WikidataIcon';
 
 import { FaDownload, FaCode, FaCopy, FaCheck, FaChartBar, FaTable, FaDatabase, FaRobot, FaNetworkWired, FaBook } from 'react-icons/fa';
@@ -49,6 +50,7 @@ export default function DataPage() {
         },
         "license": "https://creativecommons.org/publicdomain/zero/1.0/",
         "isAccessibleForFree": true,
+        "dateModified": lastUpdatedMeta.dateModified,
         "distribution": [
             {
                 "@type": "DataDownload",

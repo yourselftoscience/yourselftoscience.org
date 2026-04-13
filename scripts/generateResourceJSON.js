@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
+import { execSync } from 'child_process';
 
 const jsonPath = join(process.cwd(), 'public/resources_wikidata.json');
 const statsPath = join(process.cwd(), 'src/data/wikidataStats.json');
@@ -59,6 +60,20 @@ try {
   const jsonContent = JSON.stringify(enrichedResources, null, 2);
   writeFileSync(outputPath, jsonContent, 'utf8');
   console.log(`Successfully generated JSON file at ${outputPath}`);
+
+  let lastUpdatedDate = new Date().toISOString().split('T')[0];
+  try {
+    const gitDate = execSync('git log -1 --format="%cI" src/data/resources.js').toString().trim();
+    if (gitDate) {
+      lastUpdatedDate = gitDate.split('T')[0];
+    }
+  } catch (e) {
+    console.warn('Could not read git history for date modified. Using today.');
+  }
+
+  const metaPath = join(process.cwd(), 'src/data/lastUpdated.json');
+  writeFileSync(metaPath, JSON.stringify({ dateModified: lastUpdatedDate }, null, 2), 'utf8');
+  console.log(`Successfully generated metadata at ${metaPath}`);
 } catch (error) {
   console.error('Error generating JSON file:', error);
   process.exit(1);

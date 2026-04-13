@@ -53,6 +53,7 @@ export async function GET(request, { params }) {
       <stop offset="0%" stop-color="#ffd92d"/>
       <stop offset="100%" stop-color="#B35F00"/>
     </linearGradient>
+    <a xmlns="http://www.w3.org/2000/svg" href="https://yourselftoscience.org/resource/${slug}" target="_blank" rel="noopener noreferrer">
     <clipPath id="r">
       <rect width="${totalWidth}" height="20" rx="3" fill="#fff"/>
     </clipPath>
@@ -76,6 +77,7 @@ export async function GET(request, { params }) {
       
       <text x="${(leftWidth + rightWidth / 2) * 10}" y="140" transform="scale(.1)" fill="#fff" text-anchor="middle" textLength="${(rightWidth - 20) * 10}">${rightText}</text>
     </g>
+    </a>
   </svg>`;
 
   return new Response(svg, {

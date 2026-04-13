@@ -21,7 +21,7 @@ function getLastModified(filePath) {
   } catch (error) {
     // Fallback for files not in git or other errors
   }
-  return new Date().toISOString().split('T')[0];
+  return null; // Return null instead of spamming today's date if Git shallow cloning fails
 }
 
 // Generate the sitemap XML
@@ -70,7 +70,17 @@ async function generateSitemap() {
       { url: `${SITE_URL}/yourselftoscience.pdf`, priority: '0.4', changefreq: 'monthly', file: 'public/yourselftoscience.pdf' }
     ];
 
-    const dataDrivenLastMod = getLastModified('src/data/resources.js');
+    // Sync with the rigorous metadata timestamp we implemented for Google Dataset Search
+    let dataDrivenLastMod = new Date().toISOString().split('T')[0];
+    try {
+      const meta = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/data/lastUpdated.json'), 'utf8'));
+      if (meta && meta.dateModified) {
+        dataDrivenLastMod = meta.dateModified;
+      }
+    } catch(e) {
+      // Fallback
+      dataDrivenLastMod = getLastModified('src/data/resources.js') || dataDrivenLastMod;
+    }
 
     const markdownPages = [
       { url: `${SITE_URL}/index.html.md`, priority: '0.4', changefreq: 'weekly' },
@@ -84,10 +94,10 @@ async function generateSitemap() {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
 
     staticPages.forEach(page => {
-      let lastmod = getLastModified(page.file);
+      let lastmod = getLastModified(page.file) || dataDrivenLastMod; // Fallback to data timestamp if git fails
       if (page.isDataDriven) {
         // Use the more recent date between the page's own file and the data file
-        lastmod = dataDrivenLastMod > lastmod ? dataDrivenLastMod : lastmod;
+        lastmod = (dataDrivenLastMod > lastmod) ? dataDrivenLastMod : lastmod;
       }
       sitemap += `
   <url>
@@ -130,7 +140,7 @@ async function generateSitemap() {
   </url>`;
     });
 
-    const resourceTemplateLastMod = getLastModified('src/app/resource/[slug]/page.js');
+    const resourceTemplateLastMod = getLastModified('src/app/resource/[slug]/page.js') || dataDrivenLastMod;
     const lastModForResources = dataDrivenLastMod > resourceTemplateLastMod ? dataDrivenLastMod : resourceTemplateLastMod;
 
     resourcesData.forEach(resource => {

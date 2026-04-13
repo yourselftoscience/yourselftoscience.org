@@ -13,15 +13,25 @@ async function updateBadgeLogo() {
     const svgMatch = logoSvgContent.match(/<svg[^>]*>([\s\S]*)<\/svg>/i);
     if (!svgMatch) throw new Error('Could not find SVG content');
     
-    logoSvgContent = svgMatch[1]
+    // Replace the highly problematic Face <g> block with a stable <circle> implementation
+    // This prevents Cloudflare Edge & Chrome bugs with inline masks/filters turning the face black
+    let sanitizedContent = svgMatch[1].replace(
+      /<g\s+id="Face"[\s\S]*?<\/g>/i,
+      `<g id="Face">
+      <circle cx="113.09" cy="185" r="25" fill="#ffd92d" />
+      <circle cx="113.09" cy="185" r="23.5" fill="none" stroke="#b35f00" stroke-opacity="0.15" stroke-width="3" />
+    </g>`
+    );
+    
+    logoSvgContent = sanitizedContent
       .replace(/<\?xml.*\?>/g, '')
       .replace(/<!DOCTYPE.*?>/g, '')
       .replace(/<metadata[\s\S]*?<\/metadata>/gi, '')
       .replace(/<defs[\s\S]*?<\/defs>/gi, '')
       .replace(/<mask[\s\S]*?<\/mask>/gi, '')
-      .replace(/\s(id|mask|filter|viewBox)="[^"]*"/gi, ' ') // Strip problematic attributes
-      .replace(/\sstyle="[^"]*"/gi, (match) => match.includes('fill') ? match : ' ') // Keep styles only if they define fill
-      .replace(/>\s+</g, '><') // Minify whitespace
+      .replace(/\s(mask|filter|viewBox)="[^"]*"/gi, ' ') // Kept id to allow #Face replacement, stripped buggy ones
+      .replace(/\sstyle="[^"]*"/gi, (match) => match.includes('fill') ? match : ' ')
+      .replace(/>\s+</g, '><')
       .trim();
 
     const outputContent = `// Auto-generated build-time asset. Do not edit manually.
