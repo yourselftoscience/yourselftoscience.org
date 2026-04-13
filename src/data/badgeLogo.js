@@ -1,36 +1,5 @@
 // Auto-generated build-time asset. Do not edit manually.
-export const logoSvgContent = `<defs
-     id="defs15">
-    <filter
-       id="filter0_b_9_11"
-       x="84.089996"
-       y="156"
-       width="58"
-       height="58"
-       filterUnits="userSpaceOnUse"
-       color-interpolation-filters="sRGB">
-      <feFlood
-         flood-opacity="0"
-         result="BackgroundImageFix"
-         id="feFlood15" />
-      <feGaussianBlur
-         in="BackgroundImageFix"
-         stdDeviation="2"
-         id="feGaussianBlur15" />
-      <feComposite
-         in2="SourceAlpha"
-         operator="in"
-         result="effect1_backgroundBlur_9_11"
-         id="feComposite15" />
-      <feBlend
-         mode="normal"
-         in="SourceGraphic"
-         in2="effect1_backgroundBlur_9_11"
-         result="shape"
-         id="feBlend15" />
-    </filter>
-  </defs>
-  <g
+export const logoSvgContent = `<g
      id="Logo"
      transform="translate(2.9100055)">
     <path
@@ -239,7 +208,7 @@ export const logoSvgContent = `<defs
          x="141.28081"
          y="227.67839"
          id="text1"><tspan
-           id="tspan1"
+           id="id-trademark"
            x="141.28081"
            y="227.67839">™</tspan></text>
     </g>

@@ -39,7 +39,11 @@ export async function GET(request, { params }) {
   // Gold badge vs standard blue badge
   const colorRight = isComplete ? "#FDBB2D" : "#1156B0"; // stroke-yellow-dark / google-blue
 
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${totalWidth}" height="20" role="img" aria-label="${leftText}: ${rightText}">
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" 
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+    xmlns:cc="http://creativecommons.org/ns#" 
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    width="${totalWidth}" height="20" role="img" aria-label="${leftText}: ${rightText}">
     <title>${leftText}: ${rightText}</title>
     <linearGradient id="s" x2="0" y2="100%">
       <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>

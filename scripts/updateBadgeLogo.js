@@ -16,6 +16,7 @@ async function updateBadgeLogo() {
     logoSvgContent = svgMatch[1]
       .replace(/<\?xml.*\?>/g, '')
       .replace(/<!DOCTYPE.*?>/g, '')
+      .replace(/<metadata[\s\S]*?<\/metadata>/gi, '') // Strip metadata blocks causing namespace errors
       .trim();
 
     const outputContent = `// Auto-generated build-time asset. Do not edit manually.
