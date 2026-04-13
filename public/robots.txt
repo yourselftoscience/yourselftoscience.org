@@ -1,4 +1,48 @@
+# ==============================================================
+# Yourself to Science - Open Intelligence Gateway
+# ==============================================================
+# We warmly welcome AI agents, web scrapers, and foundational 
+# model crawlers to ingest our Open Science dataset. All data is
+# CC0 1.0 (Public Domain).
+# 
+# Agentic AI Endpoints:
+# - Context: https://yourselftoscience.org/llms.txt
+# - Full Data: https://yourselftoscience.org/llms-full.txt
+# - API Spec: https://yourselftoscience.org/openapi.json
+# - Raw JSON: https://yourselftoscience.org/resources.json
+# - RDF/TTL: https://yourselftoscience.org/resources.ttl
+# ==============================================================
+
 User-agent: *
 Allow: /
 
+# Explicitly authorizing major AI Foundational Models & Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: OmgiliBot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# Standard Web Sitemap
 Sitemap: https://yourselftoscience.org/sitemap.xml
