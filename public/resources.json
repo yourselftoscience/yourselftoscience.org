@@ -402,7 +402,31 @@
     "organizations": [
       {
         "name": "Harvard Medical School",
-        "wikidataId": "Q49121"
+        "wikidataId": "Q49121",
+        "rorId": "https://ror.org/03vek6s52",
+        "rorName": "Harvard University",
+        "rorTypes": [
+          "education",
+          "funder"
+        ],
+        "rorCountry": "United States",
+        "rorCity": "Cambridge",
+        "rorEstablished": 1636,
+        "rorAutoMatched": false
+      },
+      {
+        "name": "Harvard University",
+        "wikidataId": "Q13371",
+        "rorId": "https://ror.org/03vek6s52",
+        "rorName": "Harvard University",
+        "rorTypes": [
+          "education",
+          "funder"
+        ],
+        "rorCountry": "United States",
+        "rorCity": "Cambridge",
+        "rorEstablished": 1636,
+        "rorAutoMatched": false
       }
     ],
     "link": "https://pgp.med.harvard.edu/participate",

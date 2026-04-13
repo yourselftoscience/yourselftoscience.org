@@ -2,7 +2,7 @@
 
 > An open science project by Harvard Medical School where participants publicly share their genetic, health, and trait data to drive biological research.
 
-**Organizations:** Harvard Medical School
+**Organizations:** Harvard Medical School; Harvard University
 
 **Persistent ID:** https://yourselftoscience.org/resource/e9b2a7d1-5c1a-4d2c-8bf5-f9aee315ebd0
 **Canonical URL:** https://yourselftoscience.org/resource/harvard-pgp

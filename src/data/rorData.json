@@ -68,9 +68,38 @@
     "matchedVia": "wikidata"
   },
   "Harvard Medical School": {
-    "rorId": null,
-    "searched": true,
-    "query": "Harvard Medical School"
+    "rorId": "https://ror.org/03vek6s52",
+    "name": "Harvard University",
+    "types": [
+      "education",
+      "funder"
+    ],
+    "country": "United States",
+    "city": "Cambridge",
+    "countryCode": "US",
+    "established": 1636,
+    "wikipediaUrl": "http://en.wikipedia.org/wiki/Harvard_University",
+    "fundref": "100007229",
+    "isni": "0000 0004 1936 754X",
+    "wikidataId": "Q13371",
+    "manuallyVerified": true
+  },
+  "Harvard University": {
+    "rorId": "https://ror.org/03vek6s52",
+    "name": "Harvard University",
+    "types": [
+      "education",
+      "funder"
+    ],
+    "country": "United States",
+    "city": "Cambridge",
+    "countryCode": "US",
+    "established": 1636,
+    "wikipediaUrl": "http://en.wikipedia.org/wiki/Harvard_University",
+    "fundref": "100007229",
+    "isni": "0000 0004 1936 754X",
+    "wikidataId": "Q13371",
+    "manuallyVerified": true
   },
   "University of Michigan": {
     "rorId": "https://ror.org/00jmfr291",

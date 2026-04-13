@@ -3,10 +3,11 @@ import resources from '@/../public/resources_wikidata.json';
 import { redirect, permanentRedirect } from 'next/navigation';
 import Link from 'next/link';
 import { permanentDoi } from '@/data/config';
-import { FaCheckCircle, FaExternalLinkAlt, FaHeart, FaDollarSign, FaQuestionCircle, FaUniversity, FaBuilding, FaFlask, FaLandmark, FaInfoCircle, FaLaptop, FaMobileAlt, FaCog, FaShareAlt, FaMapMarkerAlt, FaGlobe, FaTag, FaClipboardList, FaUserCheck, FaUserFriends, FaCoins, FaListOl, FaUserShield, FaArrowRight, FaBox, FaBook, FaDatabase, FaCodeBranch, FaHandshake } from 'react-icons/fa';
+import { FaCheckCircle, FaExternalLinkAlt, FaHeart, FaDollarSign, FaQuestionCircle, FaUniversity, FaBuilding, FaFlask, FaLandmark, FaInfoCircle, FaLaptop, FaMobileAlt, FaCog, FaShareAlt, FaMapMarkerAlt, FaGlobe, FaTag, FaClipboardList, FaUserCheck, FaUserFriends, FaCoins, FaListOl, FaUserShield, FaArrowRight, FaBox, FaBook, FaDatabase, FaCodeBranch, FaHandshake, FaLink } from 'react-icons/fa';
 import CopyButton from '@/components/CopyButton';
 import wikidataStats from '@/data/wikidataStats.json';
 import WikidataIcon from '@/components/WikidataIcon';
+import RorIcon from '@/components/RorIcon';
 
 export async function generateStaticParams() {
   const slugs = resources.map((resource) => ({
@@ -391,82 +392,131 @@ export default function ResourcePage({ params }) {
             </div>
           )}
 
-          {/* Metadata & Open Data */}
-          <div className="mt-12 pt-10 border-t border-gray-200 bg-gray-50 -mx-8 p-8 md:px-10">
-            <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
-              <FaDatabase className="mr-2 text-blue-600" /> Open Data & Metadata
-            </h3>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Platform Visibility & Indexing */}
+          <div className="mt-12 bg-white border border-blue-100 shadow-sm rounded-xl overflow-hidden">
+            <div className="bg-blue-50/50 px-8 py-5 border-b border-blue-100 flex items-center">
+              <FaGlobe className="mr-3 text-blue-600 w-5 h-5" /> 
+              <h3 className="text-xl font-bold text-gray-900">Platform Visibility & Indexing</h3>
+            </div>
+            
+            <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Platform Directories */}
               <div>
-                <p className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3">Persistent Identifier</p>
-                <div className="bg-white border border-gray-200 p-3 rounded-md text-gray-800 font-mono text-sm break-all shadow-sm flex items-center justify-between">
+                <h4 className="font-semibold text-gray-800 mb-3 flex items-center">
+                  <FaBox className="mr-2 text-gray-500" /> Directory Listings
+                </h4>
+                <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                  This initiative is actively featured in the following public directories for citizens, patients, and researchers:
+                </p>
+                <ul className="space-y-3">
+                  <li>
+                    <a href={`/?resource=${resource.slug}`} className="flex items-center text-sm font-medium text-blue-700 hover:text-blue-900 bg-blue-50/50 border border-blue-100 px-4 py-2.5 rounded-lg transition-colors">
+                      <FaArrowRight className="mr-2 text-blue-400 w-4 h-4" /> Main Homepage Catalogue
+                    </a>
+                  </li>
+                  {resource.dataTypes?.some(t => t.toLowerCase().includes('clinical trial')) && (
+                    <li>
+                      <a href={`/clinical-trials#${resource.slug}`} className="flex items-center text-sm font-medium text-blue-700 hover:text-blue-900 bg-blue-50/50 border border-blue-100 px-4 py-2.5 rounded-lg transition-colors">
+                        <FaArrowRight className="mr-2 text-blue-400 w-4 h-4" /> Clinical Trials Directory
+                      </a>
+                    </li>
+                  )}
+                  {resource.dataTypes?.some(t => t.toLowerCase().includes('genome')) && (
+                    <li>
+                      <a href={`/genetic-data#${resource.slug}`} className="flex items-center text-sm font-medium text-blue-700 hover:text-blue-900 bg-blue-50/50 border border-blue-100 px-4 py-2.5 rounded-lg transition-colors">
+                        <FaArrowRight className="mr-2 text-blue-400 w-4 h-4" /> Genetic Data Directory
+                      </a>
+                    </li>
+                  )}
+                  {resource.dataTypes?.some(t => ['tissue', 'blood', 'organ', 'body', 'stool', 'hair', 'placenta', 'plasma', 'embryos', 'eggs'].some(keyword => t.toLowerCase().includes(keyword))) && (
+                    <li>
+                      <a href={`/organ-body-tissue-donation#${resource.slug}`} className="flex items-center text-sm font-medium text-blue-700 hover:text-blue-900 bg-blue-50/50 border border-blue-100 px-4 py-2.5 rounded-lg transition-colors">
+                        <FaArrowRight className="mr-2 text-blue-400 w-4 h-4" /> Biological Donation Directory
+                      </a>
+                    </li>
+                  )}
+                </ul>
+              </div>
+
+              {/* Knowledge Graph Integration */}
+              {(resource.resourceWikidataId || resource.organizations?.some(o => o.wikidataId || (o.rorId && o.rorId !== 'IGNORE'))) && (
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-3 flex items-center">
+                    <FaLink className="mr-2 text-blue-600" size="1.1em" /> Knowledge Graph Integration
+                  </h4>
+                  <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                    We have successfully mapped this initiative to the open science knowledge graph (the central databases powering Wikipedia, AI platforms, and institutional registries).
+                  </p>
+                  <ul className="space-y-4">
+                    {resource.organizations?.map((o, i) => {
+                      const rorUrl = o.rorId && o.rorId !== 'IGNORE' ? (o.rorId.startsWith('http') ? o.rorId : `https://ror.org/${o.rorId}`) : null;
+                      return (o.wikidataId || rorUrl) && (
+                        <li key={`org-${i}`} className="bg-gray-50 border border-gray-200 px-4 py-3 rounded-lg flex flex-col gap-2">
+                          <span className="text-[10px] text-gray-500 font-bold uppercase tracking-wide block">Organization Record: {o.name}</span>
+                          <div className="flex flex-wrap gap-2">
+                            {o.wikidataId && (
+                              <a href={`https://www.wikidata.org/wiki/${o.wikidataId}`} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:text-blue-900 hover:underline font-medium text-xs flex items-center bg-white border border-blue-100 px-2 py-1 rounded shadow-sm">
+                                <WikidataIcon className="mr-1.5" size="1.1em" /> Wikidata Element
+                              </a>
+                            )}
+                            {rorUrl && (
+                              <a href={rorUrl} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:text-blue-900 hover:underline font-medium text-xs flex items-center bg-white border border-blue-100 px-2 py-1 rounded shadow-sm">
+                                <RorIcon className="mr-1.5" size="1.1em" /> ROR Registry
+                              </a>
+                            )}
+                          </div>
+                        </li>
+                      );
+                    })}
+                    {resource.resourceWikidataId && (
+                      <li className="bg-gray-50 border border-gray-200 px-4 py-3 rounded-lg flex flex-col gap-2">
+                        <span className="text-[10px] text-gray-500 font-bold uppercase tracking-wide block">Research Initiative Record: {resource.title}</span>
+                        <div>
+                          <a href={`https://www.wikidata.org/wiki/${resource.resourceWikidataId}`} target="_blank" rel="noopener noreferrer" className="inline-flex text-blue-700 hover:text-blue-900 hover:underline font-medium text-xs items-center bg-white border border-blue-100 px-2 py-1 rounded shadow-sm">
+                            <WikidataIcon className="mr-1.5" size="1.1em" /> Wikidata Project ID
+                          </a>
+                        </div>
+                      </li>
+                    )}
+                  </ul>
+                  {isCitedOnWikidata && (
+                    <div className="mt-4 pt-4 border-t border-gray-100 flex items-start text-sm font-medium text-green-700">
+                      <FaCheckCircle className="mr-2 mt-0.5 flex-shrink-0 text-green-500" />
+                      <span>This resource officially leverages Yourself to Science as a verified data sourcing reference on Wikidata.</span>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Technical Metadata Footer */}
+          <div className="mt-12 pt-8 border-t border-gray-200 bg-gray-50 -mx-8 -mb-8 p-8 md:px-10 rounded-b-lg">
+            <h3 className="text-lg font-semibold text-gray-800 mb-6 flex items-center">
+              <FaDatabase className="mr-2 text-gray-500" /> Technical Data Assets
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <p className="text-[11px] font-bold text-gray-500 uppercase tracking-wide mb-2">Persistent Identifier</p>
+                <div className="bg-white border border-gray-300 p-2.5 rounded-md text-gray-700 font-mono text-sm break-all shadow-sm flex items-center justify-between">
                   <span>https://yourselftoscience.org/resource/{resource.id}</span>
                   <CopyButton text={`https://yourselftoscience.org/resource/${resource.id}`} />
                 </div>
-                <p className="mt-2 text-xs text-gray-500 leading-relaxed">
-                  Use this permanent ID for stable linking in research papers and dataset integrations.
+                <p className="mt-2 text-xs text-gray-400">
+                  Stable node URL for programmatic extraction.
                 </p>
               </div>
 
               <div>
-                <p className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3">Linked Open Data</p>
+                <p className="text-[11px] font-bold text-gray-500 uppercase tracking-wide mb-2">Raw JSON Datasets</p>
                 <div className="space-y-3">
-                  <a href="/data" className="flex items-center text-blue-600 hover:text-blue-800 hover:underline text-sm font-medium">
-                    <FaCodeBranch className="mr-2" /> View Full Catalogue Dataset
+                  <a href={`/resources.json`} target="_blank" rel="noopener noreferrer" className="flex items-center text-blue-600 hover:underline text-sm font-medium">
+                    <FaCodeBranch className="mr-2 text-blue-400" /> Download resources.json schema
                   </a>
-                  {resource.resourceWikidataId && (
-                    <a href={`https://www.wikidata.org/wiki/${resource.resourceWikidataId}`} target="_blank" rel="noopener noreferrer" className="flex items-center text-blue-600 hover:text-blue-800 hover:underline text-sm font-medium">
-                      <WikidataIcon className="mr-2" size="1.5em" />
-                      Wikidata Entity ({resource.resourceWikidataId})
-                    </a>
-                  )}
-                  <a href={`/resources.json`} target="_blank" rel="noopener noreferrer" className="flex items-center text-blue-600 hover:text-blue-800 hover:underline text-sm font-medium">
-                    <FaDatabase className="mr-2" /> Download resources.json
+                  <a href={`/data`} className="flex items-center text-blue-600 hover:underline text-sm font-medium">
+                    <FaDatabase className="mr-2 text-blue-400" /> Access Institutional Integrations (API)
                   </a>
-                  {isCitedOnWikidata && (
-                    <div className="flex items-start text-sm font-medium text-green-700 mt-4 py-2 px-3 bg-green-50 border border-green-200 rounded-md">
-                      <FaCheckCircle className="mr-2 mt-0.5 flex-shrink-0" />
-                      <span>This exact resource leverages Yourself to Science as a <a href="https://www.wikidata.org/wiki/Property:P854" className="underline hover:text-green-900" target="_blank" rel="noopener noreferrer">verifiable reference URL</a> on Wikidata.</span>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              <div>
-                <p className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3">Platform Discovery</p>
-                <div className="bg-white border border-gray-200 p-4 rounded-md shadow-sm">
-                  <p className="text-xs text-gray-500 mb-3 leading-relaxed">
-                    This resource is actively featured in the following public directories on Yourself to Science:
-                  </p>
-                  <ul className="space-y-2">
-                    <li>
-                      <a href={`/?resource=${resource.slug}`} className="flex items-center text-sm font-medium text-blue-600 hover:underline">
-                        <FaArrowRight className="mr-1.5 text-gray-400 w-3 h-3" /> Main Homepage Catalogue
-                      </a>
-                    </li>
-                    {resource.dataTypes?.some(t => t.toLowerCase().includes('clinical trial')) && (
-                      <li>
-                        <a href={`/clinical-trials#${resource.slug}`} className="flex items-center text-sm font-medium text-blue-600 hover:underline">
-                          <FaArrowRight className="mr-1.5 text-gray-400 w-3 h-3" /> Clinical Trials Directory
-                        </a>
-                      </li>
-                    )}
-                    {resource.dataTypes?.some(t => t.toLowerCase().includes('genome')) && (
-                      <li>
-                        <a href={`/genetic-data#${resource.slug}`} className="flex items-center text-sm font-medium text-blue-600 hover:underline">
-                          <FaArrowRight className="mr-1.5 text-gray-400 w-3 h-3" /> Genetic Data Directory
-                        </a>
-                      </li>
-                    )}
-                    {resource.dataTypes?.some(t => ['tissue', 'blood', 'organ', 'body', 'stool', 'hair', 'placenta', 'plasma', 'embryos', 'eggs'].some(keyword => t.toLowerCase().includes(keyword))) && (
-                      <li>
-                        <a href={`/organ-body-tissue-donation#${resource.slug}`} className="flex items-center text-sm font-medium text-blue-600 hover:underline">
-                          <FaArrowRight className="mr-1.5 text-gray-400 w-3 h-3" /> Biological Donation Directory
-                        </a>
-                      </li>
-                    )}
-                  </ul>
                 </div>
               </div>
             </div>

@@ -1,5 +1,5 @@
 # Yourself to Science - Full Dataset
-Generated on: 2026-04-11
+Generated on: 2026-04-13
 
 This list contains 56 active platforms and initiatives.
 
@@ -118,7 +118,7 @@ This list contains 56 active platforms and initiatives.
 ---
 
 ### Harvard Personal Genome Project
-- **Operating Organization(s):** Harvard Medical School
+- **Operating Organization(s):** Harvard Medical School, Harvard University
 - **Category:** Academic (University)
 - **Countries:** United States
 - **Data Types Accepted:** Genome, Health data

@@ -227,6 +227,11 @@ export const rawResources = [
       {
         "name": "Harvard Medical School",
         "wikidataId": "Q49121"
+      },
+      {
+        "name": "Harvard University",
+        "wikidataId": "Q13371",
+        "rorId": "03vek6s52"
       }
     ],
     "link": "https://pgp.med.harvard.edu/participate",
@@ -1511,7 +1516,8 @@ export const rawResources = [
     "organizations": [
       {
         "name": "23andMe Holding Co.",
-        "wikidataId": "Q216272"
+        "wikidataId": "Q216272",
+        "rorId": "00q62jx03"
       }
     ],
     "link": "https://customercare.23andme.com/hc/en-us/articles/212195708-Research-Participation-and-Consent",

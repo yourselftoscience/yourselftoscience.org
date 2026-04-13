@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 4/11/2026, 8:21:43 AM
+**Generated on:** 4/14/2026, 1:27:17 AM
 
 ## Project-Organizer Relationships
 
@@ -68,6 +68,7 @@
   - Google: [Q95](https://www.wikidata.org/wiki/Q95)
 - **Harvard Personal Genome Project**: [Q138521490](https://www.wikidata.org/wiki/Q138521490)
   - Harvard Medical School: [Q49121](https://www.wikidata.org/wiki/Q49121)
+  - Harvard University: [Q13371](https://www.wikidata.org/wiki/Q13371)
 - **Health Canada's Clinical Trials Database**: ❌
   - Health Canada: [Q1057591](https://www.wikidata.org/wiki/Q1057591)
 - **HealthStreet**: [Q138545917](https://www.wikidata.org/wiki/Q138545917)
@@ -209,6 +210,7 @@
 - **Google**: [Q95](https://www.wikidata.org/wiki/Q95)
 - **Gulbenkian Institute for Molecular Medicine (GIMM)**: [Q131428172](https://www.wikidata.org/wiki/Q131428172)
 - **Harvard Medical School**: [Q49121](https://www.wikidata.org/wiki/Q49121)
+- **Harvard University**: [Q13371](https://www.wikidata.org/wiki/Q13371)
 - **Health Canada**: [Q1057591](https://www.wikidata.org/wiki/Q1057591)
 - **Helmholtz Munich**: [Q878592](https://www.wikidata.org/wiki/Q878592)
 - **Human Fertilisation and Embryology Authority**: [Q1636533](https://www.wikidata.org/wiki/Q1636533)
