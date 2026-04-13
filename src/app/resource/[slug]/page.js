@@ -169,7 +169,7 @@ export default function ResourcePage({ params }) {
             <span className="text-gray-400">/</span>
           </li>
           <li>
-            <Link href="/explore" className="text-blue-600 hover:underline">
+            <Link href="/resources" className="text-blue-600 hover:underline">
               Catalogue
             </Link>
           </li>
@@ -200,20 +200,25 @@ export default function ResourcePage({ params }) {
               )}
               <p className="mt-2 text-lg text-gray-600">by {resource.organizations ? resource.organizations.map((o, i) => (
             <span key={i}>
-              {o.wikidataId || o.rorId ? (
-                <span className="inline-flex items-center gap-2">
-                  <a href={o.rorId || `https://www.wikidata.org/wiki/${o.wikidataId}`} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 hover:underline">
-                    {o.name}
-                  </a>
-                  {o.rorId && (
-                    <a href={o.rorId} target="_blank" rel="noopener noreferrer" title="View on Research Organization Registry (ROR)" className="text-[10px] text-blue-500 hover:text-blue-700 bg-blue-50 px-1.5 py-0.5 rounded border border-blue-100 uppercase font-bold tracking-tighter">
-                      ROR
+              {(() => {
+                const rorUrl = o.rorId && o.rorId !== 'IGNORE' ? (o.rorId.startsWith('http') ? o.rorId : `https://ror.org/${o.rorId}`) : null;
+                const orgUrl = rorUrl || (o.wikidataId ? `https://www.wikidata.org/wiki/${o.wikidataId}` : null);
+                
+                return orgUrl ? (
+                  <span className="inline-flex items-center gap-2">
+                    <a href={orgUrl} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 hover:underline">
+                      {o.name}
                     </a>
-                  )}
-                </span>
-              ) : (
-                o.name
-              )}
+                    {rorUrl && (
+                      <a href={rorUrl} target="_blank" rel="noopener noreferrer" title="View on Research Organization Registry (ROR)" className="text-[10px] text-blue-500 hover:text-blue-700 bg-blue-50 px-1.5 py-0.5 rounded border border-blue-100 uppercase font-bold tracking-tighter">
+                        ROR
+                      </a>
+                    )}
+                  </span>
+                ) : (
+                  o.name
+                );
+              })()}
               {i < resource.organizations.length - 1 ? '; ' : ''}
             </span>
           )) : ''}</p>
@@ -387,7 +392,7 @@ export default function ResourcePage({ params }) {
           )}
 
           {/* Metadata & Open Data */}
-          <div className="mt-12 pt-8 border-t border-gray-200 bg-gray-50 -mx-8 -mb-8 p-8 rounded-b-lg">
+          <div className="mt-12 pt-10 border-t border-gray-200 bg-gray-50 -mx-8 p-8 md:px-10">
             <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
               <FaDatabase className="mr-2 text-blue-600" /> Open Data & Metadata
             </h3>
@@ -465,24 +470,28 @@ export default function ResourcePage({ params }) {
                 </div>
               </div>
             </div>
+          </div>
 
-            <div className="mt-8 bg-white border border-gray-200 p-6 rounded-md">
-              <h4 className="text-lg font-semibold text-gray-800 mb-2">Showcase your commitment to Open Science</h4>
-              <p className="text-sm text-gray-600 mb-4">Embed this badge on your project&apos;s website to showcase your commitment to open science and provide an official link to your public dataset record.</p>
-              <div className="bg-gray-50 border border-gray-200 p-4 rounded-md flex flex-col md:flex-row items-center justify-between gap-4">
-                <img src={`/api/badge/${resource.id}`} alt="Dataset Status Badge" className="h-5" />
-                <div className="text-xs font-mono text-gray-500 break-all w-full text-center md:text-left selection:bg-blue-100">
+          {/* Institutional Badge Embed */}
+          <div className="bg-white border-t border-gray-200 -mx-8 -mb-8 p-8 md:px-10 rounded-b-lg">
+            <div className="bg-indigo-50 border border-indigo-100 p-8 rounded-xl shadow-sm">
+              <h4 className="text-lg font-bold text-indigo-950 mb-2">Showcase your commitment to Open Science</h4>
+              <p className="text-sm text-indigo-800 mb-6 opacity-90">Embed this badge on your project&apos;s website to showcase your commitment to open science and provide an official link to your public dataset record.</p>
+              
+              <div className="bg-white border border-indigo-100 p-5 rounded-lg flex flex-col md:flex-row items-center justify-between gap-5 shadow-sm">
+                <img src={`/api/badge/${resource.id}`} alt="Dataset Status Badge" className="h-6" />
+                <div className="text-xs font-mono text-gray-500 break-all w-full text-center md:text-left selection:bg-indigo-100 px-2">
                   {`[![Indexed by Yourself to Science](https://yourselftoscience.org/api/badge/${resource.id})](https://yourselftoscience.org/resource/${resource.id})`}
                 </div>
                 <CopyButton text={`[![Indexed by Yourself to Science](https://yourselftoscience.org/api/badge/${resource.id})](https://yourselftoscience.org/resource/${resource.id})`} />
               </div>
-              <div className="mt-4 text-sm text-gray-500">
-                <a href={`mailto:science@yourselftoscience.org?subject=Claim%20Record%3A%20${encodeURIComponent(resource.title)}`} className="text-blue-600 hover:text-blue-800 hover:underline font-medium inline-flex items-center">
+              
+              <div className="mt-6 text-sm">
+                <a href={`mailto:science@yourselftoscience.org?subject=Claim%20Record%3A%20${encodeURIComponent(resource.title)}`} className="text-indigo-700 hover:text-indigo-900 hover:underline font-semibold inline-flex items-center">
                   Are you affiliated with this project? Claim or update this record <FaArrowRight className="ml-2 w-3 h-3" />
                 </a>
               </div>
             </div>
-
           </div>
         </div>
       </div>
