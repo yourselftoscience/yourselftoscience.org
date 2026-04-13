@@ -3,7 +3,7 @@ import resources from '@/../public/resources_wikidata.json';
 import { redirect, permanentRedirect } from 'next/navigation';
 import Link from 'next/link';
 import { permanentDoi } from '@/data/config';
-import { FaCheckCircle, FaExternalLinkAlt, FaHeart, FaDollarSign, FaQuestionCircle, FaUniversity, FaBuilding, FaFlask, FaLandmark, FaInfoCircle, FaLaptop, FaMobileAlt, FaCog, FaShareAlt, FaMapMarkerAlt, FaGlobe, FaTag, FaClipboardList, FaUserCheck, FaUserFriends, FaCoins, FaListOl, FaUserShield, FaArrowRight, FaBox, FaBook, FaDatabase, FaCodeBranch } from 'react-icons/fa';
+import { FaCheckCircle, FaExternalLinkAlt, FaHeart, FaDollarSign, FaQuestionCircle, FaUniversity, FaBuilding, FaFlask, FaLandmark, FaInfoCircle, FaLaptop, FaMobileAlt, FaCog, FaShareAlt, FaMapMarkerAlt, FaGlobe, FaTag, FaClipboardList, FaUserCheck, FaUserFriends, FaCoins, FaListOl, FaUserShield, FaArrowRight, FaBox, FaBook, FaDatabase, FaCodeBranch, FaHandshake } from 'react-icons/fa';
 import CopyButton from '@/components/CopyButton';
 import wikidataStats from '@/data/wikidataStats.json';
 import WikidataIcon from '@/components/WikidataIcon';
@@ -122,11 +122,33 @@ export default function ResourcePage({ params }) {
 
   const isCitedOnWikidata = resource.resourceWikidataId && wikidataStats.items?.some(i => i.id === resource.resourceWikidataId);
 
-  const getCompensationIcon = (type) => {
-    if (type === 'donation') return <span className="text-red-500 mr-2">❤️</span>;
-    if (type === 'payment') return <span className="text-green-500 mr-2">💵</span>;
-    if (type === 'mixed') return <span className="mr-2">❤️+💵</span>;
-    return null;
+  const renderCompensationPill = (type) => {
+    switch(type) {
+      case 'donation':
+        return (
+          <span className="inline-flex items-center bg-red-50 text-red-700 border border-red-100 text-md font-medium px-4 py-2 rounded-full">
+            <FaHeart className="mr-2 text-red-500" /> Unpaid Donation
+          </span>
+        );
+      case 'payment':
+        return (
+          <span className="inline-flex items-center bg-green-50 text-green-700 border border-green-100 text-md font-medium px-4 py-2 rounded-full">
+            <FaDollarSign className="mr-2 text-green-600" /> Financial Compensation
+          </span>
+        );
+      case 'mixed':
+        return (
+          <span className="inline-flex items-center bg-indigo-50 text-indigo-700 border border-indigo-100 text-md font-medium px-4 py-2 rounded-full">
+            <FaHandshake className="mr-2 text-indigo-500" /> Mixed (Donation & Payment)
+          </span>
+        );
+      default:
+        return (
+          <span className="inline-flex items-center bg-gray-100 text-gray-800 border border-gray-200 text-md font-medium px-4 py-2 rounded-full">
+            {type ? type.charAt(0).toUpperCase() + type.slice(1) : 'Unknown'}
+          </span>
+        );
+    }
   };
 
   return (
@@ -257,9 +279,7 @@ export default function ResourcePage({ params }) {
             </div>
             <div>
               <h2 className="text-sm font-semibold uppercase tracking-wide text-gray-500 mb-4">Compensation</h2>
-              <span className="inline-flex items-center bg-yellow-100 text-yellow-800 text-md font-medium px-4 py-2 rounded-full">
-                {getCompensationIcon(resource.compensationType)} {resource.compensationType.charAt(0).toUpperCase() + resource.compensationType.slice(1)}
-              </span>
+              {renderCompensationPill(resource.compensationType)}
             </div>
             <div>
               <h2 className="text-sm font-semibold uppercase tracking-wide text-gray-500 mb-4">Entity Type</h2>
