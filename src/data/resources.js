@@ -1361,7 +1361,8 @@ export const rawResources = [
     "organizations": [
       {
         "name": "San Camillo IRCCS",
-        "wikidataId": "Q50039648"
+        "wikidataId": "Q50039648",
+        "rorId": "03njebb69"
       }
     ],
     "link": "https://hsancamillo.it/rete-cittadini-per-la-ricerca/",
