@@ -4,6 +4,7 @@
 import { resources } from '@/data/resources';
 import wikidataStats from '@/data/wikidataStats.json';
 import lastUpdatedMeta from '@/data/lastUpdated.json';
+import { permanentDoi } from '@/data/config';
 import WikidataIcon from '@/components/WikidataIcon';
 
 import { FaDownload, FaCode, FaCopy, FaCheck, FaChartBar, FaTable, FaDatabase, FaRobot, FaNetworkWired, FaBook } from 'react-icons/fa';
@@ -42,7 +43,22 @@ export default function DataPage() {
         "description": "A curated, open-access catalog of services, platforms, and programs that allow individuals to securely contribute to scientific research with their biological and digital selves.",
         "url": "https://yourselftoscience.org/data",
         "sameAs": "https://yourselftoscience.org/resources.ttl#dataset",
-        "identifier": ["https://yourselftoscience.org/resources.ttl#dataset"],
+        "identifier": [
+            "https://yourselftoscience.org/resources.ttl#dataset",
+            `https://doi.org/${permanentDoi}`
+        ],
+        "keywords": [
+            "open dataset",
+            "CC0 dataset",
+            "public domain data",
+            "science data",
+            "clinical trials data",
+            "citizen science dataset",
+            "JSON API",
+            "CSV download",
+            "linked data",
+            "research opportunities"
+        ],
         "creator": {
             "@type": "Organization",
             "name": "Yourself to Science",

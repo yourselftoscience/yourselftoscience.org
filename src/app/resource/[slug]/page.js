@@ -102,7 +102,7 @@ export default function ResourcePage({ params }) {
     'name': displayTitle,
     'description': displayDescription,
     'url': canonicalUrl,
-    'identifier': persistentIdUrl,
+    'identifier': [persistentIdUrl],
     'includedInDataCatalog': {
       '@type': 'DataCatalog',
       'name': 'Yourself to Science',
@@ -114,11 +114,13 @@ export default function ResourcePage({ params }) {
       'name': org.name,
       'sameAs': [
         ...(org.wikidataId ? [`https://www.wikidata.org/wiki/${org.wikidataId}`] : []),
-        ...(org.rorId ? [org.rorId] : [])
+        ...(org.rorId && org.rorId !== 'IGNORE' ? [org.rorId.startsWith('http') ? org.rorId : `https://ror.org/${org.rorId}`] : [])
       ]
     })) : undefined,
     'isAccessibleForFree': true,
-    ...(resource.resourceWikidataId && { 'sameAs': `https://www.wikidata.org/wiki/${resource.resourceWikidataId}` })
+    ...(resource.resourceWikidataId && { 'sameAs': `https://www.wikidata.org/wiki/${resource.resourceWikidataId}` }),
+    ...(resource.dataTypes && resource.dataTypes.length > 0 && { 'keywords': resource.dataTypes }),
+    ...(resource.citations && resource.citations.length > 0 && { 'citation': resource.citations.map(c => c.link || c.title) })
   };
 
   const isCitedOnWikidata = resource.resourceWikidataId && wikidataStats.items?.some(i => i.id === resource.resourceWikidataId);
