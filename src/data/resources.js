@@ -1805,6 +1805,8 @@ export const rawResources = [
       "Enter your GEDmatch kit ID, FamilyTree DNA kit number, or associated username",
       "Ensure your WikiTree privacy settings are set to 'Private with Public Biography and Family Tree'"
     ],
+    "origin": "United States",
+    "originCode": "US",
     "citations": [
       {
         "title": "Add a DNA test to your profile | WikiTree Help",

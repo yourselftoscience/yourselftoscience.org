@@ -14,7 +14,7 @@ An overview of the resources available on Yourself to Science, providing insight
 
 ## Resources Based In
 
-- **United States:** 25
+- **United States:** 26
 - **European Union:** 16
   - **Breakdown:**
     - **Italy:** 4

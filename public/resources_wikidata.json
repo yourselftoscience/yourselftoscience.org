@@ -2641,6 +2641,8 @@
       "Enter your GEDmatch kit ID, FamilyTree DNA kit number, or associated username",
       "Ensure your WikiTree privacy settings are set to 'Private with Public Biography and Family Tree'"
     ],
+    "origin": "United States",
+    "originCode": "US",
     "citations": [
       {
         "title": "Add a DNA test to your profile | WikiTree Help",
@@ -2666,7 +2668,7 @@
     "entityCategoryWikidataId": "Q4830453",
     "entitySubTypeWikidataId": "Q4830453",
     "organizationWikidataId": null,
-    "originWikidataId": null,
+    "originWikidataId": "Q30",
     "compensationWikidataId": "Q1124860"
   }
 ]

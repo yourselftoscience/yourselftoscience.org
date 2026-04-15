@@ -781,7 +781,7 @@ An overview of the resources available on Yourself to Science, providing insight
 
 ## Resources Based In
 
-- **United States:** 25
+- **United States:** 26
 - **European Union:** 16
   - **Breakdown:**
     - **Italy:** 4
@@ -3169,6 +3169,7 @@ Continuous biometric data (e.g., heart rate, sleep patterns, activity levels) co
 - **Compensation:** donation
 - **Entity Category:** Commercial
 - **Entity Sub-Type:** Commercial
+- **Based In:** United States
 - **Availability:** Worldwide
 - **Compatible Sources:** AncestryDNA, MyHeritage, LivingDNA, 23andMe, FamilyTreeDNA, GEDmatch
 

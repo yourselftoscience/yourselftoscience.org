@@ -828,7 +828,7 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:description "A collaborative genealogy platform that allows users to add their DNA test information (like GEDmatch ID or usernames, rather than raw data files) to their profiles to help confirm relationships and find genetic cousins." ;
   schema:sameAs wd:Q1074931 ;
   schema:isReferencedBy wd:Q1074931 ;
-  schema:creator [ a schema:Organization; rdfs:label "The WikiTree Company" ; schema:sameAs wd:Q138545843 ; schema:additionalType wd:Q4830453 ; schema:additionalType wd:Q4830453 ] ;
+  schema:creator [ a schema:Organization; rdfs:label "The WikiTree Company" ; schema:sameAs wd:Q138545843 ; schema:additionalType wd:Q4830453 ; schema:additionalType wd:Q4830453 ; schema:location [ a schema:Place; rdfs:label "United States" ; schema:addressCountry "US" ; schema:sameAs wd:Q30 ] ] ;
   schema:url <https://www.wikitree.com/wiki/Special:DNATests> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Worldwide" ; schema:sameAs wd:Q13780930 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Genome" ; schema:sameAs wd:Q7020 ] ;

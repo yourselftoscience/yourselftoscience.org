@@ -14,6 +14,7 @@
 - **Compensation:** donation
 - **Entity Category:** Commercial
 - **Entity Sub-Type:** Commercial
+- **Based In:** United States
 - **Availability:** Worldwide
 - **Compatible Sources:** AncestryDNA, MyHeritage, LivingDNA, 23andMe, FamilyTreeDNA, GEDmatch
 
