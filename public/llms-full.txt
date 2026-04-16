@@ -1,5 +1,5 @@
 # Yourself to Science - Full Dataset
-Generated on: 2026-04-13
+Generated on: 2026-04-16
 
 This list contains 56 active platforms and initiatives.
 
@@ -11,11 +11,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A research project by Living DNA to map the world's genetic history and investigate the role genetics plays in health and lifestyle. Participants can opt-in to use their genetic data for scientific research.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -27,11 +23,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A patient registry engaging individuals as partners in data sharing by collecting genetic testing results and health information. Note: Data from participants in the European Union (EU), European Economic Area (EEA), and United Kingdom (UK) cannot currently be processed due to GDPR. They accept electronic (pdf, doc, jpg) or physical clinical reports but they do not process raw data files.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -43,11 +35,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A platform for participant-centered research and personal data exploration.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -60,11 +48,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** Join thousands of collaborative genealogy projects based on surname, geography, or haplogroup to support citizen science and migration pattern discovery.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -76,11 +60,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A platform for collecting health data from wearables to detect early signs of infectious diseases.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -92,11 +72,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A platform that lets you contribute to health research using the Google Health Studies app.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -109,11 +85,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** Participate in health studies using your iPhone and Apple Watch.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -126,11 +98,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** An open science project by Harvard Medical School where participants publicly share their genetic, health, and trait data to drive biological research.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -143,11 +111,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A research study run through a Facebook App that connects health, behavior, and genetics. Participants complete surveys and may become eligible to provide a saliva sample for DNA analysis.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -160,11 +124,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A research program from the NIH to gather health data from one million or more people living in the US.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -175,11 +135,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** Share your Fitbit data to help improve health research and product development.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -192,11 +148,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A landmark autism research project connecting autistic individuals and their families to research.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -209,11 +161,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** The UBC Body Donation Program accepts donations for anatomical study and medical research.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -226,11 +174,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** Information on donating your body to medical science at the University of Cambridge.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -243,11 +187,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** Official guidelines for donating body and tissues for study, training, and scientific research in Italy.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -260,11 +200,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** Official information on body donation for science and medical research in France.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -277,11 +213,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** Information on donating eggs, sperm, and embryos for research in the UK.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -293,11 +225,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A comprehensive registry and results database of publicly and privately supported clinical studies conducted around the world. Managed by the U.S. National Library of Medicine.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -309,11 +237,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A central database managed by the WHO to search for clinical trials from registries around the world.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -326,11 +250,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** The European Union's official database for clinical trials conducted in the EU and EEA.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -343,11 +263,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A clinical trials information network providing access to studies in Poland and Europe.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -360,11 +276,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A platform connecting patients with clinical trials for various conditions.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -376,11 +288,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A patient-centric platform for finding and participating in clinical trials.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -393,11 +301,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A nonprofit program funded by the National Institutes of Health (NIH) that connects people interested in research studies with researchers from top medical centers across the U.S.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -410,11 +314,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** Conducts clinical trials for flu and common cold viruses in London and Manchester, compensating volunteers for their time.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -427,11 +327,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** Connects community members in Florida with health research opportunities at the University of Florida.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -444,11 +340,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A stool donation program supporting research into microbiome-based therapeutics.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -461,11 +353,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** Australian Red Cross Lifeblood's microbiome research program.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -478,11 +366,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** Stool donation program at Wesley Research Institute.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -495,11 +379,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** Placenta donation program at Wesley Research Institute.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -512,11 +392,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** Research on human hair decomposition at the University of Wrocław.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -528,11 +404,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** Donate your social media archives to the UCSF Library for research.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -544,11 +416,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** Share your digital data to help Penn Medicine researchers understand health.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -561,11 +429,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** Plain-language summaries of research studies approved by the NHS Health Research Authority.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -577,11 +441,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A highly concentrated source of reports of randomized and quasi-randomized controlled trials from various databases and other sources. Access requires a subscription to the Cochrane Library.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -594,11 +454,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A database of clinical trials approved by the Belgian Federal Agency for Medicines and Health Products (FAMHP). NOTE: This database is no longer available due to changes in the legal framework.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -611,11 +467,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** The primary register for clinical trials conducted in Germany, providing public access to study information.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -628,11 +480,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A listing of specific information relating to phase I, II, and III clinical trials in patients authorized by Health Canada.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -645,11 +493,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A search tool to find AATB-accredited tissue banks in the United States, covering various types of tissue, organ, and birth tissue donation.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -662,11 +506,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** The official U.S. government website for organ, eye, and tissue donation. Provides information and links to state registries to sign up as a donor.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -679,11 +519,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** Bloodworks Northwest’s research program accepts blood donations to support a variety of studies, from developing new treatments to understanding blood-related diseases. This service is available in the Pacific Northwest.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -695,11 +531,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** Donate your chat history from assistants like ChatGPT, Gemini, and Claude to help researchers understand human-AI interaction patterns.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -712,11 +544,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A center in Verona, Italy, conducting clinical trials for healthy volunteers and patients. Volunteers can register to participate in various studies.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -729,11 +557,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A network for citizens to participate in scientific research at San Camillo IRCCS, contributing to medical progress and new therapies.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -745,11 +569,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A data donation campaign focused on collecting cover letters for doctoral research to understand the impact of writing styles in a multilingual professional context.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -762,11 +582,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** Collects biological samples from patients with PURA syndrome, other neurological disorders, and healthy controls to support research.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -779,11 +595,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A biobank collecting biological samples (primarily blood) from diverse populations to support biomedical research and precision medicine.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -795,11 +607,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A DNA data bank and personal DNA data platform that allows users to control and monetize their genomic data using blockchain technology.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -811,11 +619,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** Contribute to scientific research aimed at making and supporting meaningful scientific discoveries using your genetic and self-reported data.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -827,11 +631,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A public genealogy database that allows users to opt-in to share their data for research purposes. Note: VCF files from unsupported companies must be converted to the 23andMe format before upload.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -843,11 +643,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** Contribute to research by sharing your genetic data and answering surveys about your health, traits, and wellness.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -859,11 +655,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** Participate in research to help understand human genetics, genealogy, and anthropology by sharing your DNA results and survey responses.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -875,11 +667,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** Participate in research to help understand human history, health, and genetics by sharing your DNA data and survey responses.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -891,11 +679,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** Participate in a genetic study for hypermobile Ehlers-Danlos Syndrome (hEDS) and Dysautonomia in collaboration with the Norris Lab at the Medical University of South Carolina.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -908,11 +692,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A free database of anonymous genotypic, phenotypic and interpretation data that allows public searching and analysis. Researchers can request to contact individuals holding specific traits for additional paid studies and opportunities.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 
@@ -925,11 +705,7 @@ This list contains 56 active platforms and initiatives.
 
 **Description:** A collaborative genealogy platform that allows users to add their DNA test information (like GEDmatch ID or usernames, rather than raw data files) to their profiles to help confirm relationships and find genetic cousins.
 
-**Metrics:**
-- Year Launched: Unknown
-- Is Actively Recruiting: undefined
-- Has Open API for Researchers: undefined
-- Practices Open Data: undefined
+**Status:** Active
 
 ---
 

@@ -44,12 +44,25 @@ You can also access the raw structured datasets:
     if (res.link) fullContent += `- **Website:** ${res.link}\n`;
     if (res.description) fullContent += `\n**Description:** ${res.description}\n`;
     
-    // Prestige Metrics
-    fullContent += `\n**Metrics:**\n`;
-    fullContent += `- Year Launched: ${res.yearLaunched ? res.yearLaunched : 'Unknown'}\n`;
-    fullContent += `- Is Actively Recruiting: ${res.isActivelyRecruiting !== null ? res.isActivelyRecruiting : 'Unknown'}\n`;
-    fullContent += `- Has Open API for Researchers: ${res.hasApi !== null ? res.hasApi : 'Unknown'}\n`;
-    fullContent += `- Practices Open Data: ${res.isOpenData !== null ? res.isOpenData : 'Unknown'}\n`;
+    // All listed projects are considered active (listed = active).
+    // Enrollment status is only shown when explicitly verified.
+    const yearLaunched = res.yearLaunched != null ? res.yearLaunched : null;
+    const enrolling = typeof res.isActivelyRecruiting === 'boolean' ? (res.isActivelyRecruiting ? 'Yes' : 'Paused') : null;
+    const hasApi = typeof res.hasApi === 'boolean' ? (res.hasApi ? 'Yes' : 'No') : null;
+    const isOpenData = typeof res.isOpenData === 'boolean' ? (res.isOpenData ? 'Yes' : 'No') : null;
+
+    fullContent += `\n**Status:** Active\n`;
+
+    const metrics = [
+      yearLaunched && `- Year Launched: ${yearLaunched}`,
+      enrolling && `- Enrolling: ${enrolling}`,
+      hasApi && `- Has Open API for Researchers: ${hasApi}`,
+      isOpenData && `- Practices Open Data: ${isOpenData}`,
+    ].filter(Boolean);
+
+    if (metrics.length > 0) {
+      fullContent += metrics.join('\n') + '\n';
+    }
 
     fullContent += `\n---\n\n`;
   });
