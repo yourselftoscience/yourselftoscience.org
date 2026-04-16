@@ -118,8 +118,18 @@ export default function ResourcePage({ params }) {
       ]
     })) : undefined,
     'isAccessibleForFree': true,
-    ...(resource.resourceWikidataId && { 'sameAs': `https://www.wikidata.org/wiki/${resource.resourceWikidataId}` }),
+    'sameAs': [
+      resource.link,
+      ...(resource.resourceWikidataId ? [`https://www.wikidata.org/wiki/${resource.resourceWikidataId}`] : [])
+    ],
+    ...(resource.wikidataLabel && resource.wikidataLabel !== resource.title && { 'alternateName': [resource.title] }),
     ...(resource.dataTypes && resource.dataTypes.length > 0 && { 'keywords': resource.dataTypes }),
+    ...(resource.countries && resource.countries.length > 0 && resource.countries[0] !== 'Worldwide' && {
+      'spatialCoverage': resource.countries.map(c => ({
+        '@type': 'Place',
+        'name': c
+      }))
+    }),
     ...(resource.citations && resource.citations.length > 0 && { 'citation': resource.citations.map(c => c.link || c.title) })
   };
 
@@ -154,11 +164,25 @@ export default function ResourcePage({ params }) {
     }
   };
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://yourselftoscience.org' },
+      { '@type': 'ListItem', 'position': 2, 'name': 'Catalogue', 'item': 'https://yourselftoscience.org/resources' },
+      { '@type': 'ListItem', 'position': 3, 'name': displayTitle }
+    ]
+  };
+
   return (
     <main className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       {/* Breadcrumb Navigation */}
       <nav aria-label="breadcrumb" className="mb-8 text-sm">
@@ -539,7 +563,7 @@ export default function ResourcePage({ params }) {
               </div>
               
               <div className="mt-6 text-sm">
-                <a href={`mailto:science@yourselftoscience.org?subject=Claim%20Record%3A%20${encodeURIComponent(resource.title)}`} className="text-indigo-700 hover:text-indigo-900 hover:underline font-semibold inline-flex items-center">
+                <a href={`mailto:hello@yourselftoscience.org?subject=Claim%20Record%3A%20${encodeURIComponent(resource.title)}`} className="text-indigo-700 hover:text-indigo-900 hover:underline font-semibold inline-flex items-center">
                   Are you affiliated with this project? Claim or update this record <FaArrowRight className="ml-2 w-3 h-3" />
                 </a>
               </div>

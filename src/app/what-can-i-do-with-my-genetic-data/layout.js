@@ -6,6 +6,9 @@ const siteName = "Yourself to Science";
 export const metadata = {
     title,
     description,
+    alternates: {
+        canonical: url,
+    },
     openGraph: {
         title,
         description,

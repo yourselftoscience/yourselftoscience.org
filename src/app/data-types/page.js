@@ -6,6 +6,9 @@ import CopyButton from '@/components/CopyButton';
 export const metadata = {
     title: 'Data Dictionary | Yourself to Science',
     description: 'Ontology definitions for the various biological, digital, and clinical data types tracked in the Yourself to Science catalogue.',
+    alternates: {
+        canonical: 'https://yourselftoscience.org/data-types',
+    },
 };
 
 export default function DataTypesPage() {

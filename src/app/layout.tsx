@@ -115,24 +115,45 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Yourself to Science",
-    "url": "https://yourselftoscience.org",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://yourselftoscience.org/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Yourself to Science",
+      "url": "https://yourselftoscience.org",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://yourselftoscience.org/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "sameAs": [
+        "https://github.com/yourselftoscience/yourselftoscience.org/",
+        "https://www.reddit.com/r/YourselfToScience/",
+        "https://x.com/YouToScience",
+        "https://www.linkedin.com/company/yourselftoscience/",
+        "https://www.facebook.com/61584505973946/"
+      ]
     },
-    "sameAs": [
-      "https://github.com/yourselftoscience/yourselftoscience.org/",
-      "https://www.reddit.com/r/YourselfToScience/",
-      "https://x.com/YouToScience",
-      "https://www.linkedin.com/company/yourselftoscience/",
-      "https://www.facebook.com/61584505973946/"
-    ]
-  };
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Yourself to Science",
+      "url": "https://yourselftoscience.org",
+      "logo": "https://yourselftoscience.org/logo-tm.svg",
+      "sameAs": [
+        "https://github.com/yourselftoscience/yourselftoscience.org/",
+        "https://www.reddit.com/r/YourselfToScience/",
+        "https://x.com/YouToScience",
+        "https://www.linkedin.com/company/yourselftoscience/",
+        "https://www.facebook.com/61584505973946/"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "public engagement",
+        "email": "hello@yourselftoscience.org"
+      }
+    }
+  ];
 
   return (
     // Keep suppressHydrationWarning on html for good measure

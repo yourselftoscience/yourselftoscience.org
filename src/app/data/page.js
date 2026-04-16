@@ -3,8 +3,6 @@
 
 import { resources } from '@/data/resources';
 import wikidataStats from '@/data/wikidataStats.json';
-import lastUpdatedMeta from '@/data/lastUpdated.json';
-import { permanentDoi } from '@/data/config';
 import WikidataIcon from '@/components/WikidataIcon';
 
 import { FaDownload, FaCode, FaCopy, FaCheck, FaChartBar, FaTable, FaDatabase, FaRobot, FaNetworkWired, FaBook } from 'react-icons/fa';
@@ -36,62 +34,8 @@ export default function DataPage() {
         setTimeout(() => setCopiedUrl(null), 2500);
     };
 
-    const jsonLd = {
-        "@context": "https://schema.org/",
-        "@type": "Dataset",
-        "name": "Yourself to Science Open Dataset",
-        "description": "A curated, open-access catalog of services, platforms, and programs that allow individuals to securely contribute to scientific research with their biological and digital selves.",
-        "url": "https://yourselftoscience.org/data",
-        "sameAs": "https://yourselftoscience.org/resources.ttl#dataset",
-        "identifier": [
-            "https://yourselftoscience.org/resources.ttl#dataset",
-            `https://doi.org/${permanentDoi}`
-        ],
-        "keywords": [
-            "open dataset",
-            "CC0 dataset",
-            "public domain data",
-            "science data",
-            "clinical trials data",
-            "citizen science dataset",
-            "JSON API",
-            "CSV download",
-            "linked data",
-            "research opportunities"
-        ],
-        "creator": {
-            "@type": "Organization",
-            "name": "Yourself to Science",
-            "url": "https://yourselftoscience.org"
-        },
-        "license": "https://creativecommons.org/publicdomain/zero/1.0/",
-        "isAccessibleForFree": true,
-        "dateModified": lastUpdatedMeta.dateModified,
-        "distribution": [
-            {
-                "@type": "DataDownload",
-                "encodingFormat": "text/csv",
-                "contentUrl": "https://yourselftoscience.org/resources.csv"
-            },
-            {
-                "@type": "DataDownload",
-                "encodingFormat": "application/json",
-                "contentUrl": "https://yourselftoscience.org/resources.json"
-            },
-            {
-                "@type": "DataDownload",
-                "encodingFormat": "text/turtle",
-                "contentUrl": "https://yourselftoscience.org/resources.ttl"
-            }
-        ]
-    };
-
     return (
         <main className="flex-grow w-full max-w-screen-xl mx-auto px-4 py-12 md:py-16">
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
