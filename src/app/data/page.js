@@ -3,6 +3,8 @@
 
 import { resources } from '@/data/resources';
 import wikidataStats from '@/data/wikidataStats.json';
+import lastUpdatedMeta from '@/data/lastUpdated.json';
+import { permanentDoi } from '@/data/config';
 import WikidataIcon from '@/components/WikidataIcon';
 
 import { FaDownload, FaCode, FaCopy, FaCheck, FaChartBar, FaTable, FaDatabase, FaRobot, FaNetworkWired, FaBook } from 'react-icons/fa';
@@ -34,8 +36,71 @@ export default function DataPage() {
         setTimeout(() => setCopiedUrl(null), 2500);
     };
 
+    const jsonLd = {
+        "@context": "https://schema.org/",
+        "@type": "Dataset",
+        "name": "Yourself to Science Open Dataset",
+        "description": "A curated, open-access catalog of services, platforms, and programs that allow individuals to securely contribute to scientific research with their biological and digital selves.",
+        "url": "https://yourselftoscience.org/data",
+        "sameAs": "https://yourselftoscience.org/resources.ttl#dataset",
+        "identifier": [
+            "https://yourselftoscience.org/resources.ttl#dataset",
+            `https://doi.org/${permanentDoi}`
+        ],
+        "keywords": [
+            "open dataset",
+            "CC0 dataset",
+            "public domain data",
+            "science data",
+            "clinical trials data",
+            "citizen science dataset",
+            "JSON API",
+            "CSV download",
+            "linked data",
+            "research opportunities"
+        ],
+        "alternateName": [
+            "Yourself to Science Catalogue",
+            "Yourself to Science Database"
+        ],
+        "creator": {
+            "@type": "Organization",
+            "name": "Yourself to Science",
+            "url": "https://yourselftoscience.org",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "public engagement",
+                "email": "hello@yourselftoscience.org"
+            }
+        },
+        "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "isAccessibleForFree": true,
+        "dateModified": lastUpdatedMeta.dateModified,
+        "distribution": [
+            {
+                "@type": "DataDownload",
+                "encodingFormat": "text/csv",
+                "contentUrl": "https://yourselftoscience.org/resources.csv"
+            },
+            {
+                "@type": "DataDownload",
+                "encodingFormat": "application/json",
+                "contentUrl": "https://yourselftoscience.org/resources.json"
+            },
+            {
+                "@type": "DataDownload",
+                "encodingFormat": "text/turtle",
+                "contentUrl": "https://yourselftoscience.org/resources.ttl"
+            }
+        ]
+    };
+
     return (
         <main className="flex-grow w-full max-w-screen-xl mx-auto px-4 py-12 md:py-16">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -86,7 +151,7 @@ export default function DataPage() {
                 </motion.div>
             </div>
 
-            <section id="data" className="scroll-mt-32 space-y-24">
+            <section id="data" className="scroll-mt-40 space-y-24">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold text-apple-primary-text mb-4">Data Infrastructure</h2>
                     <p className="text-apple-secondary-text max-w-3xl mx-auto leading-relaxed">
@@ -98,7 +163,7 @@ export default function DataPage() {
 
 
                 {/* Tier 1: Enterprise */}
-                <motion.div id="enterprise" className="scroll-mt-24" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                <motion.div id="enterprise" className="scroll-mt-40" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                     <div className="flex items-center gap-3 mb-6">
                         <FaDatabase className="text-blue-600 text-2xl" />
                         <h3 className="text-xl font-bold text-gray-900 border-b border-gray-200 pb-2 flex-grow">Relational & Structured Data</h3>
@@ -124,7 +189,7 @@ export default function DataPage() {
                 </motion.div>
 
                 {/* Tier 2: AI & LLM Data Feeds */}
-                <motion.div id="ai-feeds" className="scroll-mt-24" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                <motion.div id="ai-feeds" className="scroll-mt-40" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                     <div className="flex items-center gap-3 mb-6">
                         <FaRobot className="text-purple-600 text-2xl" />
                         <h3 className="text-xl font-bold text-gray-900 border-b border-gray-200 pb-2 flex-grow">Machine-Readable Context (AI & LLM Modeling)</h3>
@@ -163,7 +228,7 @@ export default function DataPage() {
                 </motion.div>
 
                 {/* Tier 3: Quantitative & Tabular Analysts */}
-                <motion.div id="quantitative" className="scroll-mt-24" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                <motion.div id="quantitative" className="scroll-mt-40" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                     <div className="flex items-center gap-3 mb-6">
                         <FaTable className="text-green-600 text-2xl" />
                         <h3 className="text-xl font-bold text-gray-900 border-b border-gray-200 pb-2 flex-grow">Tabular Datasets & JSON Endpoints</h3>
@@ -200,7 +265,7 @@ export default function DataPage() {
                 </motion.div>
 
                 {/* Tier 4: Semantic Web & Knowledge Graphs */}
-                <motion.div id="semantic" className="scroll-mt-24" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                <motion.div id="semantic" className="scroll-mt-40" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                     <div className="flex items-center gap-3 mb-6">
                         <FaNetworkWired className="text-orange-600 text-2xl" />
                         <h3 className="text-xl font-bold text-gray-900 border-b border-gray-200 pb-2 flex-grow">Linked Data & Semantic Mapping</h3>
