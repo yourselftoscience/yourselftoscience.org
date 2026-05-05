@@ -1,5 +1,5 @@
 # Yourself to Science - Full Dataset
-Generated on: 2026-04-16
+Generated on: 2026-05-05
 
 This list contains 56 active platforms and initiatives.
 
@@ -590,7 +590,7 @@ This list contains 56 active platforms and initiatives.
 - **Operating Organization(s):** Gulbenkian Institute for Molecular Medicine (GIMM)
 - **Category:** Non-Profit (Research Institute)
 - **Countries:** Portugal
-- **Data Types Accepted:** Blood
+- **Data Types Accepted:** Blood, Saliva, Urine, Tissue
 - **Website:** https://care.gimm.pt/biobank-for-donors/
 
 **Description:** A biobank collecting biological samples (primarily blood) from diverse populations to support biomedical research and precision medicine.

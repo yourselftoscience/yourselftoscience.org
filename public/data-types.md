@@ -122,6 +122,14 @@ The clear, yellowish fluid part of the blood that carries cells and proteins thr
 - **Semantic URL:** https://yourselftoscience.org/data-types/plasma
 - **Wikidata:** [Q79749](https://www.wikidata.org/wiki/Q79749)
 
+## Saliva
+
+Biological samples consisting of saliva, typically used for DNA extraction, hormone testing, and biomarker analysis.
+
+- **ID:** 4a12fa20-c8ad-48b1-9f0a-e95623c35686
+- **Semantic URL:** https://yourselftoscience.org/data-types/saliva
+- **Wikidata:** [Q155925](https://www.wikidata.org/wiki/Q155925)
+
 ## Search history
 
 Logs of queries submitted to search engines, utilized in behavioral research, sociological studies, and algorithmic training.
@@ -169,6 +177,14 @@ Samples of biological tissue (e.g., skin, muscle, tumor biopsies) used for cellu
 - **ID:** 0d94f2bb-4c8d-429f-8a03-7cbce5bb9cff
 - **Semantic URL:** https://yourselftoscience.org/data-types/tissue
 - **Wikidata:** [Q40397](https://www.wikidata.org/wiki/Q40397)
+
+## Urine
+
+Biological samples consisting of urine, used for metabolic studies, toxicology, and detecting various health conditions.
+
+- **ID:** ccad41ea-2262-4fd8-8136-4cf77a2e6b51
+- **Semantic URL:** https://yourselftoscience.org/data-types/urine
+- **Wikidata:** [Q40924](https://www.wikidata.org/wiki/Q40924)
 
 ## Wearable data
 

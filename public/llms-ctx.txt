@@ -541,7 +541,7 @@ This project is open source. The website content is licensed under [CC BY-SA 4.0
 
 *Description:* A biobank collecting biological samples (primarily blood) from diverse populations to support biomedical research and precision medicine.
 
-*Data Types:* Blood
+*Data Types:* Blood, Saliva, Urine, Tissue
 
 *Countries:* Portugal
 
@@ -818,15 +818,15 @@ An overview of the resources available on Yourself to Science, providing insight
 
 ## Wikidata Impact
 
-Yourself to Science is actively enriching the global knowledge graph. Our dataset is used as a verified reference URL (P854) on **32 distinct Wikidata items**.
+Yourself to Science is actively enriching the global knowledge graph. Our dataset is used as a verified reference URL (P854) on **34 distinct Wikidata items**.
 
 ## Data Type Distribution
 
 - **Genome:** 17
 - **Health data:** 16
 - **Clinical trials:** 15
+- **Tissue:** 6
 - **Body:** 5
-- **Tissue:** 5
 - **Wearable data:** 4
 - **Stool:** 3
 - **Blood:** 3
@@ -843,6 +843,8 @@ Yourself to Science is actively enriching the global knowledge graph. Our datase
 - **Stem cells:** 1
 - **Conversational AI data:** 1
 - **Cover letters:** 1
+- **Saliva:** 1
+- **Urine:** 1
 - **Microbiome:** 1
 
 ## Entity Type Distribution
@@ -1077,6 +1079,12 @@ This page catalogues resources related to donating organs, bodies, or tissues fo
 ### [PURA Biobank](https://yourselftoscience.org/resource/pura-biobank)
 
 *Description:* Collects biological samples from patients with PURA syndrome, other neurological disorders, and healthy controls to support research.
+
+---
+
+### [GIMM Biobank](https://yourselftoscience.org/resource/gimm-biobank)
+
+*Description:* A biobank collecting biological samples (primarily blood) from diverse populations to support biomedical research and precision medicine.
 
 ---
 
@@ -1324,6 +1332,14 @@ The clear, yellowish fluid part of the blood that carries cells and proteins thr
 - **Semantic URL:** https://yourselftoscience.org/data-types/plasma
 - **Wikidata:** [Q79749](https://www.wikidata.org/wiki/Q79749)
 
+## Saliva
+
+Biological samples consisting of saliva, typically used for DNA extraction, hormone testing, and biomarker analysis.
+
+- **ID:** 4a12fa20-c8ad-48b1-9f0a-e95623c35686
+- **Semantic URL:** https://yourselftoscience.org/data-types/saliva
+- **Wikidata:** [Q155925](https://www.wikidata.org/wiki/Q155925)
+
 ## Search history
 
 Logs of queries submitted to search engines, utilized in behavioral research, sociological studies, and algorithmic training.
@@ -1371,6 +1387,14 @@ Samples of biological tissue (e.g., skin, muscle, tumor biopsies) used for cellu
 - **ID:** 0d94f2bb-4c8d-429f-8a03-7cbce5bb9cff
 - **Semantic URL:** https://yourselftoscience.org/data-types/tissue
 - **Wikidata:** [Q40397](https://www.wikidata.org/wiki/Q40397)
+
+## Urine
+
+Biological samples consisting of urine, used for metabolic studies, toxicology, and detecting various health conditions.
+
+- **ID:** ccad41ea-2262-4fd8-8136-4cf77a2e6b51
+- **Semantic URL:** https://yourselftoscience.org/data-types/urine
+- **Wikidata:** [Q40924](https://www.wikidata.org/wiki/Q40924)
 
 ## Wearable data
 

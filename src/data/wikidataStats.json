@@ -1,5 +1,5 @@
 {
-  "referencedItemsCount": 32,
+  "referencedItemsCount": 34,
   "items": [
     {
       "id": "Q25004683",
@@ -54,12 +54,20 @@
       "label": "Google Health Studies"
     },
     {
+      "id": "Q131428172",
+      "label": "Gulbenkian Institute for Molecular Medicine"
+    },
+    {
       "id": "Q138521490",
       "label": "Harvard Personal Genome Project"
     },
     {
       "id": "Q138545917",
       "label": "HealthStreet"
+    },
+    {
+      "id": "Q878592",
+      "label": "Helmholtz Zentrum München"
     },
     {
       "id": "Q138521770",
@@ -130,5 +138,5 @@
       "label": "WikiTree"
     }
   ],
-  "lastUpdated": "2026-04-14T00:23:07.515Z"
+  "lastUpdated": "2026-05-05T02:30:23.156Z"
 }

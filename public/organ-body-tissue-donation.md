@@ -46,3 +46,9 @@ This page catalogues resources related to donating organs, bodies, or tissues fo
 
 ---
 
+### [GIMM Biobank](https://yourselftoscience.org/resource/gimm-biobank)
+
+*Description:* A biobank collecting biological samples (primarily blood) from diverse populations to support biomedical research and precision medicine.
+
+---
+

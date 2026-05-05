@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 4/14/2026, 1:27:17 AM
+**Generated on:** 5/5/2026, 4:29:10 AM
 
 ## Project-Organizer Relationships
 
@@ -258,12 +258,14 @@
 - **Organ**: [Q712378](https://www.wikidata.org/wiki/Q712378)
 - **Placenta**: [Q1212935](https://www.wikidata.org/wiki/Q1212935)
 - **Plasma**: [Q79749](https://www.wikidata.org/wiki/Q79749)
+- **Saliva**: [Q155925](https://www.wikidata.org/wiki/Q155925)
 - **Search history**: [Q60461381](https://www.wikidata.org/wiki/Q60461381)
 - **Social media data**: [Q131520545](https://www.wikidata.org/wiki/Q131520545)
 - **Sperm**: [Q17145](https://www.wikidata.org/wiki/Q17145)
 - **Stem cells**: [Q48196](https://www.wikidata.org/wiki/Q48196)
 - **Stool**: [Q496](https://www.wikidata.org/wiki/Q496)
 - **Tissue**: [Q40397](https://www.wikidata.org/wiki/Q40397)
+- **Urine**: [Q40924](https://www.wikidata.org/wiki/Q40924)
 - **Wearable data**: [Q138520977](https://www.wikidata.org/wiki/Q138520977)
 
 ## Countries

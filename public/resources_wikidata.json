@@ -2151,7 +2151,10 @@
     ],
     "link": "https://care.gimm.pt/biobank-for-donors/",
     "dataTypes": [
-      "Blood"
+      "Blood",
+      "Saliva",
+      "Urine",
+      "Tissue"
     ],
     "compensationType": "donation",
     "entityCategory": "Non-Profit",
@@ -2170,7 +2173,10 @@
     "citations": [],
     "displayTitle": "GIMM Biobank",
     "dataTypeMappings": {
-      "Blood": "Q7873"
+      "Blood": "Q7873",
+      "Saliva": "Q154",
+      "Urine": "Q40924",
+      "Tissue": "Q40397"
     },
     "countryMappings": {
       "Portugal": "Q45"

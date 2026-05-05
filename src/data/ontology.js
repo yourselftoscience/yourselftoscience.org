@@ -106,6 +106,13 @@ export const dataTypesOntology = [
         "wikidataId": "Q79749"
     },
     {
+        "id": "4a12fa20-c8ad-48b1-9f0a-e95623c35686",
+        "title": "Saliva",
+        "slug": "saliva",
+        "description": "Biological samples consisting of saliva, typically used for DNA extraction, hormone testing, and biomarker analysis.",
+        "wikidataId": "Q155925"
+    },
+    {
         "id": "44410a74-d4dc-4dcd-adc9-9b7c845b4b1a",
         "title": "Search history",
         "slug": "search-history",
@@ -146,6 +153,13 @@ export const dataTypesOntology = [
         "slug": "tissue",
         "description": "Samples of biological tissue (e.g., skin, muscle, tumor biopsies) used for cellular research, pathology, and genetic profiling.",
         "wikidataId": "Q40397"
+    },
+    {
+        "id": "ccad41ea-2262-4fd8-8136-4cf77a2e6b51",
+        "title": "Urine",
+        "slug": "urine",
+        "description": "Biological samples consisting of urine, used for metabolic studies, toxicology, and detecting various health conditions.",
+        "wikidataId": "Q40924"
     },
     {
         "id": "33ebae2f-6eb7-4560-afbf-3ae7930db6a5",

@@ -1452,7 +1452,10 @@ export const rawResources = [
     ],
     "link": "https://care.gimm.pt/biobank-for-donors/",
     "dataTypes": [
-      "Blood"
+      "Blood",
+      "Saliva",
+      "Urine",
+      "Tissue"
     ],
     "compensationType": "donation",
     "entityCategory": "Non-Profit",

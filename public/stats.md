@@ -53,15 +53,15 @@ An overview of the resources available on Yourself to Science, providing insight
 
 ## Wikidata Impact
 
-Yourself to Science is actively enriching the global knowledge graph. Our dataset is used as a verified reference URL (P854) on **32 distinct Wikidata items**.
+Yourself to Science is actively enriching the global knowledge graph. Our dataset is used as a verified reference URL (P854) on **34 distinct Wikidata items**.
 
 ## Data Type Distribution
 
 - **Genome:** 17
 - **Health data:** 16
 - **Clinical trials:** 15
+- **Tissue:** 6
 - **Body:** 5
-- **Tissue:** 5
 - **Wearable data:** 4
 - **Stool:** 3
 - **Blood:** 3
@@ -78,6 +78,8 @@ Yourself to Science is actively enriching the global knowledge graph. Our datase
 - **Stem cells:** 1
 - **Conversational AI data:** 1
 - **Cover letters:** 1
+- **Saliva:** 1
+- **Urine:** 1
 - **Microbiome:** 1
 
 ## Entity Type Distribution

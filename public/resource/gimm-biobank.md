@@ -10,7 +10,7 @@
 
 ## Details
 
-- **Data Types:** Blood
+- **Data Types:** Blood, Saliva, Urine, Tissue
 - **Compensation:** donation
 - **Entity Category:** Non-Profit
 - **Entity Sub-Type:** Research Institute

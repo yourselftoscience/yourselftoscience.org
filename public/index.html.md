@@ -536,7 +536,7 @@ This project is open source. The website content is licensed under [CC BY-SA 4.0
 
 *Description:* A biobank collecting biological samples (primarily blood) from diverse populations to support biomedical research and precision medicine.
 
-*Data Types:* Blood
+*Data Types:* Blood, Saliva, Urine, Tissue
 
 *Countries:* Portugal
 
