@@ -816,7 +816,7 @@ function HomePageContent({ scrollY }) {
                     transition={{ type: 'spring', stiffness: 400, damping: 40 }}
                     className="hidden lg:block absolute inset-x-0 top-full mt-4 z-50 px-1"
                   >
-                    <div className="mx-auto w-full max-w-5xl relative overflow-hidden rounded-[28px] border border-slate-200/80 bg-white/95 backdrop-blur-2xl shadow-[0_25px_65px_rgba(15,23,42,0.18)] px-4 lg:px-8 pt-5 pb-6">
+                    <div className="mx-auto w-full max-w-5xl relative overflow-y-auto max-h-[calc(100vh-180px)] rounded-[28px] border border-slate-200/80 bg-white/95 backdrop-blur-2xl shadow-[0_25px_65px_rgba(15,23,42,0.18)] px-4 lg:px-8 pt-5 pb-6">
                       <div className="pointer-events-none absolute inset-0">
                         <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/50 to-transparent" />
                         <div className="absolute -top-10 left-10 w-32 h-32 bg-white/70 blur-3xl rounded-full" />
