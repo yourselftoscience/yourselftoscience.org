@@ -9,7 +9,8 @@ import {
   FaSort, FaSortUp, FaSortDown,
   FaDownload, FaSearch, FaTimes, FaColumns,
   FaExternalLinkAlt, FaChevronDown, FaTable, FaDatabase,
-  FaFilter, FaArrowRight, FaChartBar
+  FaFilter, FaArrowRight, FaChartBar,
+  FaKeyboard, FaCompress, FaExpand, FaCopy
 } from 'react-icons/fa';
 
 // --- Column Definitions ---
@@ -203,12 +204,41 @@ function exportCSV(resources, visibleColumns) {
   URL.revokeObjectURL(url);
 }
 
+function copyAsTSV(resources, visibleColumns) {
+  const cols = ALL_COLUMNS.filter(c => visibleColumns.has(c.key));
+  const header = cols.map(c => c.label).join('\t');
+  const rows = resources.map(r =>
+    cols.map(c => {
+      const val = getNestedValue(r, c.key);
+      return String(val).replace(/\t/g, ' ').replace(/\n/g, ' ');
+    }).join('\t')
+  );
+  const tsv = [header, ...rows].join('\n');
+  navigator.clipboard.writeText(tsv);
+  alert('Copied to clipboard as TSV! You can now paste directly into Excel or Google Sheets.');
+}
+
+function copyAsJSON(resources, visibleColumns) {
+  const cols = ALL_COLUMNS.filter(c => visibleColumns.has(c.key));
+  const data = resources.map(r => {
+    const obj = {};
+    cols.forEach(c => {
+      obj[c.key] = getNestedValue(r, c.key);
+    });
+    return obj;
+  });
+  navigator.clipboard.writeText(JSON.stringify(data, null, 2));
+  alert('Copied to clipboard as JSON!');
+}
+
 // --- Main Page ---
 export default function ExplorePage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortKey, setSortKey] = useState('title');
   const [sortDir, setSortDir] = useState('asc');
   const [visibleCols, setVisibleCols] = useState(new Set(DEFAULT_VISIBLE));
+  const [isCompact, setIsCompact] = useState(false);
+  const searchInputRef = useRef(null);
 
   // Filter states
   const [sectorFilter, setSectorFilter] = useState(new Set());
@@ -321,6 +351,30 @@ export default function ExplorePage() {
     setSearchTerm('');
   }, []);
 
+  // Keyboard Shortcuts
+  React.useEffect(() => {
+    const handleKeyDown = (e) => {
+      // cmd/ctrl + K to focus search
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        searchInputRef.current?.focus();
+      }
+      // cmd/ctrl + E to export CSV
+      if ((e.metaKey || e.ctrlKey) && e.key === 'e') {
+        e.preventDefault();
+        exportCSV(processed, visibleCols);
+      }
+      // Esc to clear filters
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        clearAllFilters();
+        searchInputRef.current?.blur();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [processed, visibleCols, clearAllFilters]);
+
   const displayedColumns = ALL_COLUMNS.filter(c => visibleCols.has(c.key));
 
   const jsonLd = {
@@ -377,23 +431,31 @@ export default function ExplorePage() {
       <div className="bg-white border border-slate-200 rounded-2xl p-3 mb-4 shadow-sm">
         <div className="flex flex-col lg:flex-row lg:items-center gap-3">
           {/* Search */}
-          <div className="relative flex-1 min-w-0">
-            <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-3.5 h-3.5" />
+          <div className="relative flex-1 min-w-0 flex items-center">
+            <FaSearch className="absolute left-3 text-slate-400 w-3.5 h-3.5" />
             <input
+              ref={searchInputRef}
               type="text"
-              placeholder="Search across all fields..."
+              placeholder="Search across all fields... (Cmd+K)"
               value={searchTerm}
               onChange={e => setSearchTerm(e.target.value)}
-              className="w-full pl-9 pr-8 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400 bg-slate-50 placeholder-slate-400"
+              className="w-full pl-9 pr-14 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400 bg-slate-50 placeholder-slate-400"
             />
-            {searchTerm && (
-              <button
-                onClick={() => setSearchTerm('')}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
-              >
-                <FaTimes className="w-3 h-3" />
-              </button>
-            )}
+            <div className="absolute right-2.5 flex items-center gap-1">
+              {!searchTerm && (
+                <span className="hidden sm:inline-block px-1.5 py-0.5 rounded border border-slate-200 bg-white text-[10px] text-slate-400 font-mono font-medium tracking-wide shadow-sm">
+                  ⌘K
+                </span>
+              )}
+              {searchTerm && (
+                <button
+                  onClick={() => setSearchTerm('')}
+                  className="text-slate-400 hover:text-slate-600 p-1"
+                >
+                  <FaTimes className="w-3 h-3" />
+                </button>
+              )}
+            </div>
           </div>
 
           {/* Filters */}
@@ -429,18 +491,38 @@ export default function ExplorePage() {
 
             <div className="w-px h-6 bg-slate-200 hidden lg:block" />
 
+            <button
+              onClick={() => setIsCompact(!isCompact)}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition-colors"
+              title="Toggle View Density"
+            >
+              {isCompact ? <FaExpand className="w-3 h-3" /> : <FaCompress className="w-3 h-3" />}
+              {isCompact ? 'Cozy' : 'Compact'}
+            </button>
+
             <ColumnToggle
               columns={ALL_COLUMNS}
               visible={visibleCols}
               onToggle={handleColumnToggle}
             />
 
-            <button
-              onClick={() => exportCSV(processed, visibleCols)}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors shadow-sm"
-            >
-              <FaDownload className="w-3 h-3" /> Export CSV
-            </button>
+            <div className="relative group">
+              <button
+                onClick={() => exportCSV(processed, visibleCols)}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors shadow-sm"
+              >
+                <FaDownload className="w-3 h-3" /> Export CSV
+              </button>
+              {/* Dropdown for Power Exports */}
+              <div className="absolute right-0 top-full mt-1 w-32 bg-white border border-slate-200 rounded-lg shadow-xl py-1 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all z-50">
+                <button onClick={() => copyAsTSV(processed, visibleCols)} className="w-full text-left px-3 py-1.5 text-xs text-slate-700 hover:bg-slate-50 flex items-center gap-2">
+                  <FaCopy className="text-slate-400" /> Copy TSV
+                </button>
+                <button onClick={() => copyAsJSON(processed, visibleCols)} className="w-full text-left px-3 py-1.5 text-xs text-slate-700 hover:bg-slate-50 flex items-center gap-2">
+                  <FaCopy className="text-slate-400" /> Copy JSON
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -475,8 +557,8 @@ export default function ExplorePage() {
                 {displayedColumns.map(col => (
                   <th
                     key={col.key}
-                    className={`px-4 py-3 font-semibold text-xs text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 select-none transition-colors whitespace-nowrap ${
-                      col.key === 'title' ? 'sticky left-0 z-20 bg-slate-50/80 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]' : ''
+                    className={`px-4 py-2 font-semibold text-xs text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 select-none transition-colors whitespace-nowrap border-r border-slate-200/50 last:border-r-0 ${
+                      col.key === 'title' ? 'sticky left-0 z-20 bg-slate-50/90 backdrop-blur shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]' : ''
                     }`}
                     style={{ minWidth: col.minWidth }}
                     onClick={() => handleSort(col.key)}
@@ -515,9 +597,10 @@ export default function ExplorePage() {
                     {displayedColumns.map(col => (
                       <td 
                         key={col.key} 
-                        className={`px-4 py-3 align-top ${
-                          col.key === 'title' ? 'sticky left-0 z-10 bg-white group-hover:bg-blue-50/30 transition-colors shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]' : ''
-                        }`}
+                        className={`px-4 align-top border-r border-slate-100 last:border-r-0
+                          ${isCompact ? 'py-1.5 text-[12px]' : 'py-3 text-sm'}
+                          ${col.key === 'title' ? 'sticky left-0 z-10 bg-white group-hover:bg-slate-50 transition-colors shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]' : ''}
+                        `}
                       >
                         {col.key === 'title' ? (
                           <div>

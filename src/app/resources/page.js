@@ -1,4 +1,5 @@
 import { activeResources as resources } from '@/data/resources';
+import { dataTypesOntology } from '@/data/ontology';
 import Link from 'next/link';
 import { FiInfo, FiArrowRight } from 'react-icons/fi';
 import wikidataStats from '@/data/wikidataStats.json';
@@ -111,30 +112,45 @@ export default function ResourcesListPage() {
                   </div>
                   <ul className="divide-y divide-slate-100">
                     {groupedResources[letter].map(resource => (
-                      <li key={resource.id}>
-                        <Link
-                          href={`/resource/${resource.slug}`}
-                          className="flex items-center justify-between px-6 py-4 hover:bg-blue-50/30 transition-colors group"
-                        >
+                      <li key={resource.id} className="relative group">
+                        <div className="flex items-center justify-between px-6 py-4 hover:bg-blue-50/30 transition-colors">
                           <div className="flex-grow">
                             <p className="font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">
-                              {resource.wikidataLabel || resource.title}
+                              <Link href={`/resource/${resource.slug}`} className="focus:outline-none">
+                                <span className="absolute inset-0" aria-hidden="true" />
+                                {resource.wikidataLabel || resource.title}
+                              </Link>
                             </p>
                             {resource.wikidataLabel && resource.wikidataLabel !== resource.title && (
                               <p className="text-xs text-slate-500 mt-0.5">
                                 {resource.title}
                               </p>
                             )}
-                            <div className="flex flex-wrap gap-1 mt-2">
-                              {resource.dataTypes?.map(type => (
-                                <span key={type} className="text-[10px] font-medium bg-indigo-50 text-indigo-700 border border-indigo-100 px-1.5 py-0.5 rounded">
-                                  {type}
-                                </span>
-                              ))}
+                            <div className="flex flex-wrap gap-1 mt-2 relative z-10">
+                              {resource.dataTypes?.map(type => {
+                                const ontologyMatch = dataTypesOntology.find(
+                                  dt => dt.title.toLowerCase() === type.toLowerCase() || (type.startsWith('Wearable data') && dt.title === 'Wearable data')
+                                );
+                                
+                                const tagClasses = "text-[10px] font-medium bg-indigo-50 text-indigo-700 border border-indigo-100 px-1.5 py-0.5 rounded transition-colors hover:bg-indigo-100";
+                                
+                                if (ontologyMatch) {
+                                  return (
+                                    <Link key={type} href={`/data-types/${ontologyMatch.slug}`} className={tagClasses}>
+                                      {type}
+                                    </Link>
+                                  );
+                                }
+                                return (
+                                  <span key={type} className={tagClasses}>
+                                    {type}
+                                  </span>
+                                );
+                              })}
                             </div>
                           </div>
-                          <FiArrowRight className="h-4 w-4 text-slate-300 flex-shrink-0 ml-4 transition-transform transform group-hover:translate-x-1 group-hover:text-blue-500" />
-                        </Link>
+                          <FiArrowRight className="h-4 w-4 text-slate-300 flex-shrink-0 ml-4 transition-transform transform group-hover:translate-x-1 group-hover:text-blue-500 relative z-10" />
+                        </div>
                       </li>
                     ))}
                   </ul>
