@@ -55,15 +55,41 @@ export default function DataTypeNodePage({ params }) {
 
     // Generate the JSON-LD payload for the Semantic Web
     // This explicitly tells Wikidata that this page defines a Class/Term
-    const jsonLd = {
-        "@context": "https://schema.org/",
-        "@type": "DefinedTerm",
-        "@id": `https://yourselftoscience.org/data-types/${dataType.slug}`,
-        "name": dataType.title,
-        "description": dataType.description,
-        "identifier": dataType.id,
-        "inDefinedTermSet": "https://yourselftoscience.org/data-types"
-    };
+    const jsonLd = [
+        {
+            "@context": "https://schema.org/",
+            "@type": "DefinedTerm",
+            "@id": `https://yourselftoscience.org/data-types/${dataType.slug}`,
+            "name": dataType.title,
+            "description": dataType.description,
+            "identifier": dataType.id,
+            "inDefinedTermSet": "https://yourselftoscience.org/data-types"
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://yourselftoscience.org/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Data Dictionary",
+                    "item": "https://yourselftoscience.org/data-types"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": dataType.title,
+                    "item": `https://yourselftoscience.org/data-types/${dataType.slug}`
+                }
+            ]
+        }
+    ];
 
     return (
         <main className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">

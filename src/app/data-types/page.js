@@ -15,8 +15,31 @@ export default function DataTypesPage() {
     // Sort ontology alphabetically by title
     const sortedTypes = [...dataTypesOntology].sort((a, b) => a.title.localeCompare(b.title));
 
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://yourselftoscience.org/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Data Dictionary",
+                "item": "https://yourselftoscience.org/data-types"
+            }
+        ]
+    };
+
     return (
         <main className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <div className="mb-10 text-center">
                 <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl flex items-center justify-center">
                     <FaBook className="mr-4 text-blue-600" /> Data Dictionary

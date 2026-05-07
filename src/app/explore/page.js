@@ -323,8 +323,31 @@ export default function ExplorePage() {
 
   const displayedColumns = ALL_COLUMNS.filter(c => visibleCols.has(c.key));
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://yourselftoscience.org/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Data Explorer",
+        "item": "https://yourselftoscience.org/explore"
+      }
+    ]
+  };
+
   return (
     <main className="flex-grow w-full max-w-[1600px] mx-auto px-4 py-8 md:py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Header */}
       <div className="mb-8">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-2">
@@ -452,7 +475,9 @@ export default function ExplorePage() {
                 {displayedColumns.map(col => (
                   <th
                     key={col.key}
-                    className="px-4 py-3 font-semibold text-xs text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 select-none transition-colors whitespace-nowrap"
+                    className={`px-4 py-3 font-semibold text-xs text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 select-none transition-colors whitespace-nowrap ${
+                      col.key === 'title' ? 'sticky left-0 z-20 bg-slate-50/80 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]' : ''
+                    }`}
                     style={{ minWidth: col.minWidth }}
                     onClick={() => handleSort(col.key)}
                   >
@@ -488,7 +513,12 @@ export default function ExplorePage() {
                     className="hover:bg-blue-50/30 transition-colors group"
                   >
                     {displayedColumns.map(col => (
-                      <td key={col.key} className="px-4 py-3 align-top">
+                      <td 
+                        key={col.key} 
+                        className={`px-4 py-3 align-top ${
+                          col.key === 'title' ? 'sticky left-0 z-10 bg-white group-hover:bg-blue-50/30 transition-colors shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]' : ''
+                        }`}
+                      >
                         {col.key === 'title' ? (
                           <div>
                             <Link
