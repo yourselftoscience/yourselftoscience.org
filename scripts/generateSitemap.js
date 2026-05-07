@@ -34,6 +34,7 @@ async function generateSitemap() {
     
     fs.writeFileSync(tempScriptPath, `
       import { resources } from '../src/data/resources.js';
+      import { dataTypesOntology } from '../src/data/ontology.js';
       const clinicalTrialResources = resources.filter(resource => resource.dataTypes.includes('Clinical trials'));
       const bodyDonationResources = resources.filter(resource => resource.dataTypes.includes('Organ') || resource.dataTypes.includes('Body') || resource.dataTypes.includes('Tissue'));
       
@@ -41,9 +42,8 @@ async function generateSitemap() {
       const bodyDonationCountries = Array.from(new Set(bodyDonationResources.flatMap(r => r.countries || []))).sort();
 
       console.log(JSON.stringify({
-        resources: resources.map(r => ({
-          slug: r.slug
-        })),
+        resources: resources.map(r => ({ slug: r.slug })),
+        dataTypes: dataTypesOntology.map(dt => ({ slug: dt.slug })),
         clinicalTrialCountries: clinicalTrialCountries,
         bodyDonationCountries: bodyDonationCountries
       }));
@@ -51,13 +51,16 @@ async function generateSitemap() {
     
     // Execute the temporary script to get resource data
     const output = execFileSync('node', ['--experimental-modules', tempScriptPath]).toString();
-    const { resources: resourcesData, clinicalTrialCountries, bodyDonationCountries } = JSON.parse(output);
+    const { resources: resourcesData, dataTypes: dataTypesData, clinicalTrialCountries, bodyDonationCountries } = JSON.parse(output);
     
     // Delete the temporary script
     fs.unlinkSync(tempScriptPath);
     
     const staticPages = [
       { url: `${SITE_URL}/`, priority: '1.0', changefreq: 'weekly', file: 'src/app/page.js', isDataDriven: true },
+      { url: `${SITE_URL}/resources`, priority: '0.9', changefreq: 'weekly', file: 'src/app/resources/page.js', isDataDriven: true },
+      { url: `${SITE_URL}/explore`, priority: '0.9', changefreq: 'weekly', file: 'src/app/explore/page.js', isDataDriven: true },
+      { url: `${SITE_URL}/data-types`, priority: '0.9', changefreq: 'weekly', file: 'src/app/data-types/page.js', isDataDriven: true },
       { url: `${SITE_URL}/data`, priority: '0.9', changefreq: 'weekly', file: 'src/app/data/page.js', isDataDriven: true },
       { url: `${SITE_URL}/clinical-trials`, priority: '0.9', changefreq: 'weekly', file: 'src/app/clinical-trials/page.js', isDataDriven: true },
       { url: `${SITE_URL}/organ-body-tissue-donation`, priority: '0.9', changefreq: 'weekly', file: 'src/app/organ-body-tissue-donation/page.js', isDataDriven: true },
@@ -153,13 +156,26 @@ async function generateSitemap() {
   </url>`;
     });
 
+    const dataTypeTemplateLastMod = getLastModified('src/app/data-types/[slug]/page.js') || dataDrivenLastMod;
+    const lastModForDataTypes = dataDrivenLastMod > dataTypeTemplateLastMod ? dataDrivenLastMod : dataTypeTemplateLastMod;
+
+    dataTypesData.forEach(dt => {
+      sitemap += `
+  <url>
+    <loc>${SITE_URL}/data-types/${dt.slug}</loc>
+    <lastmod>${lastModForDataTypes}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`;
+    });
+
     sitemap += `
 </urlset>`;
     
     const sitemapPath = path.join(__dirname, '../public/sitemap.xml');
     fs.writeFileSync(sitemapPath, sitemap);
     
-    console.log(`Sitemap with ${staticPages.length + markdownPages.length + clinicalTrialCountries.length + bodyDonationCountries.length + resourcesData.length} total URLs written to ${sitemapPath}`);
+    console.log(`Sitemap with ${staticPages.length + markdownPages.length + clinicalTrialCountries.length + bodyDonationCountries.length + resourcesData.length + dataTypesData.length} total URLs written to ${sitemapPath}`);
     return true;
   } catch (error) {
     console.error('Error generating sitemap:', error);
@@ -174,6 +190,14 @@ async function generateSitemap() {
   </url>
   <url>
     <loc>${SITE_URL}/resources</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/explore</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/data-types</loc>
     <priority>0.9</priority>
   </url>
   <url>

@@ -31,8 +31,9 @@ export async function generateMetadata({ params }) {
   }
 
   const displayTitle = resource.wikidataLabel || resource.title;
-  const title = `${displayTitle} - Yourself to Science`;
-  const description = resource.wikidataDescription || resource.description || `Learn more about ${displayTitle}.`;
+  const title = `${displayTitle} | Directory & Data`;
+  const baseDescription = resource.wikidataDescription || resource.description || `Learn more about ${displayTitle}.`;
+  const description = `Discover participation details, open datasets, and comprehensive metadata for ${displayTitle}. ${baseDescription}`;
   const canonicalUrl = `https://yourselftoscience.org/resource/${resource.slug}`;
   const persistentIdUrl = `https://yourselftoscience.org/resource/${resource.id}`;
 
