@@ -118,6 +118,7 @@ export default function ResourcePage({ params }) {
       ]
     })) : undefined,
     'isAccessibleForFree': true,
+    'license': 'https://creativecommons.org/publicdomain/zero/1.0/',
     'sameAs': [
       resource.link,
       ...(resource.resourceWikidataId ? [`https://www.wikidata.org/wiki/${resource.resourceWikidataId}`] : [])
