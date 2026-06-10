@@ -143,6 +143,25 @@ function matches(r: Resource, f: {
   return true;
 }
 
+// Score a matched resource to rank best results first
+function getScore(r: Resource, q?: string): number {
+  if (!q) return 0;
+  const lcQ = lc(q);
+  const title = lc(r.title);
+  let score = 0;
+  if (title === lcQ) score += 100;
+  if (title.includes(lcQ)) score += 50;
+  
+  const tokens = lcQ.split(/\s+/).filter(Boolean);
+  for (const t of tokens) {
+    if (title.includes(t)) score += 10;
+    if (lc(r.description).includes(t)) score += 2;
+    if ((r.dataTypes ?? []).join(" ").toLowerCase().includes(t)) score += 5;
+    if (lc(r.entityCategory).includes(t)) score += 5;
+  }
+  return score;
+}
+
 // Trim each hit so a full search result stays well under the 25k-token cap.
 function brief(r: Resource) {
   return {
@@ -176,10 +195,9 @@ export class YourselfToScienceMCP extends McpAgent {
       {
         title: "Search research-participation opportunities",
         description:
-          "Search the Yourself to Science catalogue of clinical trials, registries, " +
-          "biobanks, and data/sample donation programs. Filter by data type (e.g. " +
-          "Genome, Health data, Stool, Body), country, compensation (donation, payment, " +
-          "mixed), and organization category. Returns brief records; use get_resource for full detail.",
+          "Search the live-updated Yourself to Science catalogue. USE THIS TOOL FIRST to discover research-participation opportunities. " +
+          "You can use free-text queries, or apply structured faceted filters (dataType, country, compensationType, category). " +
+          "Returns brief records; use get_resource for full detail.",
         inputSchema: {
           query: z.string().optional().describe("Free-text search across title, description, org, country, data type"),
           dataType: z.string().optional().describe('e.g. "Genome", "Wearable data", "Tissue"'),
@@ -194,7 +212,10 @@ export class YourselfToScienceMCP extends McpAgent {
       },
       async (args) => {
         const all = await loadResources();
-        const hits = all.filter((r) => matches(r, args));
+        let hits = all.filter((r) => matches(r, args));
+        if (args.query) {
+          hits = hits.sort((a, b) => getScore(b, args.query) - getScore(a, args.query));
+        }
         const offset = args.offset ?? 0;
         const limit = args.limit ?? 20;
         const paginated = hits.slice(offset, offset + limit);
@@ -224,7 +245,7 @@ export class YourselfToScienceMCP extends McpAgent {
         const all = await loadResources();
         const counts: Record<string, number> = {};
         for (const r of all) for (const d of r.dataTypes ?? []) counts[d] = (counts[d] ?? 0) + 1;
-        return text(Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([name, count]) => ({ name, count })));
+        return text({ results: Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([name, count]) => ({ name, count })) });
       }
     );
 
@@ -235,7 +256,7 @@ export class YourselfToScienceMCP extends McpAgent {
         const all = await loadResources();
         const counts: Record<string, number> = {};
         for (const r of all) for (const c of r.countries ?? []) counts[c] = (counts[c] ?? 0) + 1;
-        return text(Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([name, count]) => ({ name, count })));
+        return text({ results: Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([name, count]) => ({ name, count })) });
       }
     );
 
@@ -246,7 +267,7 @@ export class YourselfToScienceMCP extends McpAgent {
         const all = await loadResources();
         const counts: Record<string, number> = {};
         for (const r of all) { const c = r.entityCategory; if (c) counts[c] = (counts[c] ?? 0) + 1; }
-        return text(Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([name, count]) => ({ name, count })));
+        return text({ results: Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([name, count]) => ({ name, count })) });
       }
     );
 
@@ -257,7 +278,7 @@ export class YourselfToScienceMCP extends McpAgent {
         const all = await loadResources();
         const counts: Record<string, number> = {};
         for (const r of all) { const c = r.compensationType; if (c) counts[c] = (counts[c] ?? 0) + 1; }
-        return text(Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([name, count]) => ({ name, count })));
+        return text({ results: Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([name, count]) => ({ name, count })) });
       }
     );
 
@@ -268,7 +289,7 @@ export class YourselfToScienceMCP extends McpAgent {
         const all = await loadResources();
         const counts: Record<string, number> = {};
         for (const r of all) for (const o of r.organizations ?? []) { const n = o.name; if (n) counts[n] = (counts[n] ?? 0) + 1; }
-        return text(Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([name, count]) => ({ name, count })));
+        return text({ results: Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([name, count]) => ({ name, count })) });
       }
     );
 
@@ -308,7 +329,10 @@ export class YourselfToScienceMCP extends McpAgent {
       },
       async ({ query, offset }) => {
         const all = await loadResources();
-        const hits = all.filter((r) => matches(r, { query }));
+        let hits = all.filter((r) => matches(r, { query }));
+        if (query) {
+          hits = hits.sort((a, b) => getScore(b, query) - getScore(a, query));
+        }
         const currentOffset = offset ?? 0;
         const paginated = hits.slice(currentOffset, currentOffset + 20);
         return text({ results: paginated.map((r) => ({ id: r.id, title: r.title, url: r.permalink ?? r.link })) });
@@ -352,7 +376,7 @@ export class YourselfToScienceMCP extends McpAgent {
 // ----------------------------------------------------------------------------
 // Worker entrypoint — route /mcp to the MCP server (Streamable HTTP).
 // ----------------------------------------------------------------------------
-export default {
+const worker = {
   fetch(request: Request, env: unknown, ctx: ExecutionContext): Response | Promise<Response> {
     const { pathname } = new URL(request.url);
     if (pathname === "/mcp") {
@@ -365,3 +389,5 @@ export default {
     );
   },
 };
+
+export default worker;
