@@ -112,6 +112,7 @@ export default function Footer() {
                 <FooterButton onClick={() => setCitationModalOpen(true)}>Cite this Project</FooterButton>
                 <FooterLink href="/explore">Explore Data</FooterLink>
                 <FooterLink href="/data">Open Science Dataset</FooterLink>
+                <FooterLink href="/ai">For AI & Developers</FooterLink>
                 <li>
                   <a href="/yourselftoscience.pdf" target="_blank" rel="noopener noreferrer" className="text-apple-secondary-text hover:text-apple-accent transition-colors duration-200">
                     PDF Version
