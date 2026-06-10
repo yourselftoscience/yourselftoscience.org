@@ -144,7 +144,8 @@ function brief(r: Resource) {
     organizations: r.organizations?.map((o) => o.name),
     dataTypes: r.dataTypes,
     compensationType: r.compensationType,
-    countries: r.countries,
+    macroCategories: r.macroCategories,
+    availableIn: availableIn(r),
     entityCategory: r.entityCategory,
     url: r.permalink ?? r.link,
   };
@@ -176,7 +177,8 @@ export class YourselfToScienceMCP extends McpAgent {
           dataType: z.string().optional().describe('e.g. "Genome", "Wearable data", "Tissue"'),
           country: z.string().optional().describe('e.g. "Italy", "United States", "Worldwide"'),
           compensationType: z.string().optional().describe('"donation" | "payment" | "mixed"'),
-          category: z.string().optional().describe('e.g. "Government", "Non-Profit", "Commercial"'),
+          category: z.string().optional().describe('Organization type, e.g. "Government", "Non-Profit", "Commercial", "Academic"'),
+          macroCategory: z.string().optional().describe('Top-level grouping, e.g. "Health & Digital Data", "Biological Samples", "Clinical Trials", "Organ, Body & Tissue Donation"'),
           limit: z.number().int().min(1).max(50).default(20),
         },
         annotations: RO,
@@ -279,7 +281,7 @@ export class YourselfToScienceMCP extends McpAgent {
           `${r.title}\n\n${r.description ?? ""}\n\n` +
           `Organizations: ${(r.organizations ?? []).map((o) => o.name).join(", ")}\n` +
           `Data types: ${(r.dataTypes ?? []).join(", ")}\n` +
-          `Available in: ${(r.countries ?? []).join(", ")}\n` +
+          `Available in: ${availableIn(r).join(", ")}\n` +
           `Compensation: ${r.compensationType ?? "n/a"}\n` +
           `Category: ${r.entityCategory ?? "n/a"}`;
         return text({
@@ -287,7 +289,10 @@ export class YourselfToScienceMCP extends McpAgent {
           title: r.title,
           text: body,
           url: r.permalink ?? r.link,
-          metadata: { wikidataId: r.resourceWikidataId, rorId: r.organizations?.[0]?.rorId },
+          metadata: {
+            wikidataId: r.resourceWikidataId,
+            rorId: r.organizations?.[0]?.rorId,   // ROR is nested per-organization
+          },
         });
       }
     );
