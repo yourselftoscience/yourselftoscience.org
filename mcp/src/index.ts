@@ -117,10 +117,16 @@ function matches(r: Resource, f: {
 }): boolean {
   if (f.query) {
     const tokens = f.query.toLowerCase().split(/\s+/).filter(Boolean);
+    const syns: string[] = [];
+    if (r.compensationType === "payment") syns.push("paid", "money", "cash", "compensation");
+    if (r.compensationType === "donation") syns.push("donate", "volunteer", "free");
+    if (r.compensationType === "mixed") syns.push("paid", "donate", "compensation");
+    
     const hay = [
       r.title, r.description, ...(r.dataTypes ?? []),
       ...(r.organizations?.map((o) => o.name) ?? []), ...availableIn(r), ...(r.macroCategories ?? []),
-    ].map(lc).join(" ");
+      r.compensationType, r.entityCategory, r.entitySubType, ...syns
+    ].filter(Boolean).map(String).map(lc).join(" ");
     for (const t of tokens) {
       if (!hay.includes(t)) return false;
     }
@@ -229,6 +235,39 @@ export class YourselfToScienceMCP extends McpAgent {
         const all = await loadResources();
         const counts: Record<string, number> = {};
         for (const r of all) for (const c of r.countries ?? []) counts[c] = (counts[c] ?? 0) + 1;
+        return text(Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([name, count]) => ({ name, count })));
+      }
+    );
+
+    this.server.registerTool(
+      "list_categories",
+      { title: "List organization categories", description: "All distinct organization categories (e.g. Non-Profit, Commercial) with counts.", inputSchema: {}, annotations: RO },
+      async () => {
+        const all = await loadResources();
+        const counts: Record<string, number> = {};
+        for (const r of all) { const c = r.entityCategory; if (c) counts[c] = (counts[c] ?? 0) + 1; }
+        return text(Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([name, count]) => ({ name, count })));
+      }
+    );
+
+    this.server.registerTool(
+      "list_compensation_types",
+      { title: "List compensation types", description: "All distinct compensation types (donation, payment, mixed) with counts.", inputSchema: {}, annotations: RO },
+      async () => {
+        const all = await loadResources();
+        const counts: Record<string, number> = {};
+        for (const r of all) { const c = r.compensationType; if (c) counts[c] = (counts[c] ?? 0) + 1; }
+        return text(Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([name, count]) => ({ name, count })));
+      }
+    );
+
+    this.server.registerTool(
+      "list_organizations",
+      { title: "List organizations", description: "All distinct organizations running the programs, with counts.", inputSchema: {}, annotations: RO },
+      async () => {
+        const all = await loadResources();
+        const counts: Record<string, number> = {};
+        for (const r of all) for (const o of r.organizations ?? []) { const n = o.name; if (n) counts[n] = (counts[n] ?? 0) + 1; }
         return text(Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([name, count]) => ({ name, count })));
       }
     );
