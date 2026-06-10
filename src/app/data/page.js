@@ -228,7 +228,7 @@ export default function DataPage() {
                                 <p className="text-sm font-bold text-apple-secondary-text tracking-wide">MCP SERVER</p>
                                 <span className="px-2 py-0.5 rounded text-xs font-semibold bg-purple-100 text-purple-800">MCP</span>
                             </div>
-                            <p className="text-sm text-gray-500 mb-3">Live data connection for AI agents (Cursor, Claude, etc) to query our catalogue directly.</p>
+                            <p className="text-sm text-gray-500 mb-3">Live data connection for AI agents (ChatGPT, Cursor, Claude, etc) to query our catalogue directly.</p>
                             <div className="flex items-center justify-between bg-white p-3 rounded-lg border border-apple-divider">
                                 <code className="text-apple-primary-text text-xs break-all font-mono">https://mcp.yourselftoscience.org/mcp</code>
                                 <button onClick={() => handleCopy('https://mcp.yourselftoscience.org/mcp')} className="p-2 text-apple-secondary-text hover:text-apple-accent transition-colors duration-200">
