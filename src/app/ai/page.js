@@ -72,7 +72,7 @@ export default function AIPage() {
             <div className="bg-gray-50 border border-apple-divider p-6 rounded-2xl">
               <h3 className="text-xl font-bold mb-2 flex items-center gap-2"><FaCode className="text-gray-500" /> Developer IDEs</h3>
               <p className="text-apple-secondary-text mb-4">
-                Instantly connect the catalogue directly into your coding environment to augment your research and development workflows. Built for developers, bio-informatics researchers, and open-source contributors building the next generation of health platforms.
+                Instantly connect the catalogue directly into your coding environment to augment your research and development workflows. Built for developers, researchers, and open-source contributors building the next generation of health platforms.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2"><FaCheckCircle className="text-green-500" /> <strong>Cursor</strong></li>
