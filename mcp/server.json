@@ -1,0 +1,9 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "org.yourselftoscience/catalogue",
+  "title": "Yourself to Science",
+  "description": "Search an open CC0 catalogue of clinical trials, biobanks, registries, and data/sample donation programs where people contribute to research.",
+  "repository": { "url": "https://github.com/yourselftoscience/yourselftoscience.org", "source": "github" },
+  "version": "1.0.0",
+  "remotes": [{ "type": "streamable-http", "url": "https://mcp.yourselftoscience.org/mcp" }]
+}
