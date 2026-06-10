@@ -214,10 +214,28 @@ export default function DataPage() {
                         <FaRobot className="text-purple-600 text-2xl" />
                         <h3 className="text-xl font-bold text-gray-900 border-b border-gray-200 pb-2 flex-grow">Machine-Readable Context (AI & LLM Modeling)</h3>
                     </div>
-                    <p className="text-gray-600 mb-6">
-                        Raw text and metadata formatted specifically for automated processing and large-scale language modeling. Supports structured search and information retrieval.
-                    </p>
-                    <div className="grid md:grid-cols-2 gap-4">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
+                        <p className="text-gray-600 max-w-2xl">
+                            Raw text, metadata, and live tool connections formatted specifically for automated processing, autonomous agents, and large-scale language modeling.
+                        </p>
+                        <Link href="/ai" className="shrink-0 px-4 py-2 bg-purple-50 text-purple-700 rounded-lg text-sm font-semibold border border-purple-200 hover:bg-purple-100 transition-colors">
+                            Learn about our AI integrations &rarr;
+                        </Link>
+                    </div>
+                    <div className="grid md:grid-cols-3 gap-4">
+                        <div className="bg-apple-card border border-apple-divider rounded-xl p-4">
+                            <div className="flex items-center justify-between mb-2">
+                                <p className="text-sm font-bold text-apple-secondary-text tracking-wide">MCP SERVER</p>
+                                <span className="px-2 py-0.5 rounded text-xs font-semibold bg-purple-100 text-purple-800">MCP</span>
+                            </div>
+                            <p className="text-sm text-gray-500 mb-3">Live data connection for AI agents (Cursor, Claude, etc) to query our catalogue directly.</p>
+                            <div className="flex items-center justify-between bg-white p-3 rounded-lg border border-apple-divider">
+                                <code className="text-apple-primary-text text-xs break-all font-mono">https://mcp.yourselftoscience.org/mcp</code>
+                                <button onClick={() => handleCopy('https://mcp.yourselftoscience.org/mcp')} className="p-2 text-apple-secondary-text hover:text-apple-accent transition-colors duration-200">
+                                    {copiedUrl === 'https://mcp.yourselftoscience.org/mcp' ? <FaCheck className="text-green-500" /> : <FaCopy />}
+                                </button>
+                            </div>
+                        </div>
                         <div className="bg-apple-card border border-apple-divider rounded-xl p-4">
                             <div className="flex items-center justify-between mb-2">
                                 <p className="text-sm font-bold text-apple-secondary-text tracking-wide">LLM NATIVE CONTEXT</p>

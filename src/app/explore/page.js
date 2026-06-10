@@ -10,7 +10,7 @@ import {
   FaDownload, FaSearch, FaTimes, FaColumns,
   FaExternalLinkAlt, FaChevronDown, FaTable, FaDatabase,
   FaFilter, FaArrowRight, FaChartBar,
-  FaKeyboard, FaCompress, FaExpand, FaCopy
+  FaKeyboard, FaCompress, FaExpand, FaCopy, FaRobot
 } from 'react-icons/fa';
 
 // --- Column Definitions ---
@@ -416,7 +416,13 @@ export default function ExplorePage() {
               Interactive database view for technical users, including researchers, investors, and policy makers. Filter, sort, and export the complete catalogue.
             </p>
           </div>
-          <div className="flex items-center gap-2 flex-shrink-0">
+          <div className="flex flex-wrap items-center gap-2 flex-shrink-0">
+            <Link
+              href="/ai"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border border-purple-200 bg-purple-50 text-purple-700 hover:bg-purple-100 transition-colors"
+            >
+              <FaRobot className="w-3 h-3" /> Agent Search (MCP)
+            </Link>
             <Link
               href="/data"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition-colors"
@@ -756,10 +762,16 @@ export default function ExplorePage() {
           <div>
             <h2 className="text-xl font-bold mb-2">Technical Hub & Project Analytics</h2>
             <p className="text-base text-slate-300 max-w-2xl leading-relaxed">
-              Seeking data on research participation and resource distribution? Access our analytics for project statistics and standardized endpoints used by researchers and policy makers.
+              Seeking data on research participation and resource distribution? Access our analytics for project statistics, standardized endpoints, and AI integrations.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3 flex-shrink-0">
+            <Link
+              href="/ai"
+              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-purple-200 bg-purple-900/50 border border-purple-700/50 rounded-xl hover:bg-purple-800/50 transition-colors"
+            >
+              <FaRobot className="w-4 h-4 text-purple-400" /> AI Integrations
+            </Link>
             <Link
               href="/stats"
               className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold bg-white text-slate-900 rounded-xl hover:bg-slate-100 transition-colors"

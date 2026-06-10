@@ -356,7 +356,7 @@ export default function MissionPage() {
               { icon: FaGlobe, title: 'Radically Open', desc: 'Dataset (Public Domain), content (CC BY-SA 4.0), and code (AGPL-3.0) are openly licensed.' },
               { icon: FaUsers, title: 'Community-Driven', desc: 'A collaborative ecosystem welcoming contributions from a global base.' },
               { icon: FaUniversalAccess, title: 'Accessible', desc: 'Built for everyone. Maintained with a perfect Lighthouse Accessibility score.' },
-              { icon: FaRobot, title: 'AI-Ready', desc: 'Public domain data, open-source code, and an llms.txt file make the catalogue fully accessible to AI systems and LLMs.' }
+              { icon: FaRobot, title: 'AI-Ready', desc: <>Fully accessible to AI systems, featuring a <Link href="/ai" className="text-apple-accent hover:underline">live MCP Server</Link> and standard llms.txt integration.</> }
             ].map((item, idx) => (
               <motion.div
                 key={idx}
