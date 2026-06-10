@@ -201,7 +201,7 @@ export class YourselfToScienceMCP extends McpAgent {
         inputSchema: {
           query: z.string().optional().describe("Free-text search across title, description, org, country, data type"),
           dataType: z.string().optional().describe('e.g. "Genome", "Wearable data", "Tissue"'),
-          country: z.string().optional().describe('e.g. "Italy", "United States", "Worldwide"'),
+          country: z.string().optional().describe('Filter by country where user participation is available (e.g. "Italy", "Worldwide"). Returns both exact matches and Worldwide projects.'),
           compensationType: z.string().optional().describe('"donation" | "payment" | "mixed"'),
           category: z.string().optional().describe('Organization type, e.g. "Government", "Non-Profit", "Commercial", "Academic"'),
           macroCategory: z.string().optional().describe('Top-level grouping, e.g. "Health & Digital Data", "Biological Samples", "Clinical Trials", "Organ, Body & Tissue Donation"'),
@@ -267,6 +267,17 @@ export class YourselfToScienceMCP extends McpAgent {
         const all = await loadResources();
         const counts: Record<string, number> = {};
         for (const r of all) { const c = r.entityCategory; if (c) counts[c] = (counts[c] ?? 0) + 1; }
+        return text({ results: Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([name, count]) => ({ name, count })) });
+      }
+    );
+
+    this.server.registerTool(
+      "list_macro_categories",
+      { title: "List macro categories", description: "All distinct macro categories (e.g. Clinical Trials, Biological Samples) with counts.", inputSchema: {}, annotations: RO },
+      async () => {
+        const all = await loadResources();
+        const counts: Record<string, number> = {};
+        for (const r of all) for (const m of r.macroCategories ?? []) counts[m] = (counts[m] ?? 0) + 1;
         return text({ results: Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([name, count]) => ({ name, count })) });
       }
     );
