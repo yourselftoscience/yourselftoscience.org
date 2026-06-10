@@ -116,12 +116,14 @@ function matches(r: Resource, f: {
   compensationType?: string; category?: string; macroCategory?: string;
 }): boolean {
   if (f.query) {
-    const q = lc(f.query);
+    const tokens = f.query.toLowerCase().split(/\s+/).filter(Boolean);
     const hay = [
       r.title, r.description, ...(r.dataTypes ?? []),
       ...(r.organizations?.map((o) => o.name) ?? []), ...availableIn(r), ...(r.macroCategories ?? []),
     ].map(lc).join(" ");
-    if (!hay.includes(q)) return false;
+    for (const t of tokens) {
+      if (!hay.includes(t)) return false;
+    }
   }
   if (f.dataType && !(r.dataTypes ?? []).some((d) => lc(d).includes(lc(f.dataType)))) return false;
   if (f.country) {
@@ -180,13 +182,17 @@ export class YourselfToScienceMCP extends McpAgent {
           category: z.string().optional().describe('Organization type, e.g. "Government", "Non-Profit", "Commercial", "Academic"'),
           macroCategory: z.string().optional().describe('Top-level grouping, e.g. "Health & Digital Data", "Biological Samples", "Clinical Trials", "Organ, Body & Tissue Donation"'),
           limit: z.number().int().min(1).max(50).default(20),
+          offset: z.number().int().min(0).default(0),
         },
         annotations: RO,
       },
       async (args) => {
         const all = await loadResources();
-        const hits = all.filter((r) => matches(r, args)).slice(0, args.limit ?? 20);
-        return text({ count: hits.length, results: hits.map(brief) });
+        const hits = all.filter((r) => matches(r, args));
+        const offset = args.offset ?? 0;
+        const limit = args.limit ?? 20;
+        const paginated = hits.slice(offset, offset + limit);
+        return text({ totalCount: hits.length, count: paginated.length, offset, results: paginated.map(brief) });
       }
     );
 
@@ -255,13 +261,18 @@ export class YourselfToScienceMCP extends McpAgent {
       {
         title: "Search (deep-research compatible)",
         description: "Search the catalogue. Returns a list of {id, title, url} for retrieval via fetch.",
-        inputSchema: { query: z.string() },
+        inputSchema: { 
+          query: z.string(),
+          offset: z.number().int().min(0).default(0)
+        },
         annotations: RO,
       },
-      async ({ query }) => {
+      async ({ query, offset }) => {
         const all = await loadResources();
-        const hits = all.filter((r) => matches(r, { query })).slice(0, 20);
-        return text({ results: hits.map((r) => ({ id: r.id, title: r.title, url: r.permalink ?? r.link })) });
+        const hits = all.filter((r) => matches(r, { query }));
+        const currentOffset = offset ?? 0;
+        const paginated = hits.slice(currentOffset, currentOffset + 20);
+        return text({ results: paginated.map((r) => ({ id: r.id, title: r.title, url: r.permalink ?? r.link })) });
       }
     );
 
