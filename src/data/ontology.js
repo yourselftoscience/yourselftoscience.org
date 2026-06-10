@@ -110,7 +110,7 @@ export const dataTypesOntology = [
         "title": "Saliva",
         "slug": "saliva",
         "description": "Biological samples consisting of saliva, typically used for DNA extraction, hormone testing, and biomarker analysis.",
-        "wikidataId": "Q154"
+        "wikidataId": "Q155925"
     },
     {
         "id": "44410a74-d4dc-4dcd-adc9-9b7c845b4b1a",

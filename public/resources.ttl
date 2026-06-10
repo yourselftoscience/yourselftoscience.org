@@ -707,7 +707,7 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:url <https://care.gimm.pt/biobank-for-donors/> ;
   schema:spatialCoverage [ a schema:Place; rdfs:label "Portugal" ; schema:sameAs wd:Q45 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Blood" ; schema:sameAs wd:Q7873 ] ;
-  schema:keywords [ a schema:DefinedTerm; rdfs:label "Saliva" ; schema:sameAs wd:Q154 ] ;
+  schema:keywords [ a schema:DefinedTerm; rdfs:label "Saliva" ; schema:sameAs wd:Q155925 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Urine" ; schema:sameAs wd:Q40924 ] ;
   schema:keywords [ a schema:DefinedTerm; rdfs:label "Tissue" ; schema:sameAs wd:Q40397 ] ;
   yts:compensationType "donation" ;
