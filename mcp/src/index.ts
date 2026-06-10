@@ -96,7 +96,7 @@ let cache: { at: number; data: Resource[] } | null = null;
 
 async function loadResources(): Promise<Resource[]> {
   if (cache && Date.now() - cache.at < TTL_MS) return cache.data;
-  const res = await fetch(DATA_URL, { cf: { cacheTtl: 1800, cacheEverything: true } });
+  const res = await fetch(DATA_URL, { cf: { cacheTtl: 1800, cacheEverything: true } } as any);
   if (!res.ok) throw new Error(`Failed to load dataset: ${res.status}`);
   const data = (await res.json()) as Resource[];
   cache = { at: Date.now(), data };

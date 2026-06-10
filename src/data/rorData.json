@@ -424,9 +424,17 @@
     "matchedVia": "wikidata"
   },
   "NHS Health Research Authority": {
-    "rorId": null,
-    "searched": true,
-    "query": "NHS Health Research Authority"
+    "rorId": "https://ror.org/0251wwg77",
+    "name": "Health Research Authority",
+    "types": [
+      "government"
+    ],
+    "country": "United Kingdom",
+    "city": "London",
+    "countryCode": "GB",
+    "established": null,
+    "wikipediaUrl": null,
+    "autoMatched": true
   },
   "Cochrane": {
     "rorId": "https://ror.org/00dbkrq51",

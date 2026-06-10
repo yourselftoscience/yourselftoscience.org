@@ -23,7 +23,7 @@
         schema:sameAs <https://fairsharing.org/organisations/5676>
     ] ;
     dcterms:created "2025-01-31"^^xsd:date ;
-    dcterms:modified "2026-04-15"^^xsd:date ;
+    dcterms:modified "2026-05-05"^^xsd:date ;
     schema:version "2.0" ;
     dcterms:identifier <https://doi.org/10.5281/zenodo.15109359> ;
     schema:identifier "10.5281/zenodo.15110328" ;

@@ -6,6 +6,7 @@
 
 **Persistent ID:** https://yourselftoscience.org/resource/b8dda31e-6ee1-4669-a8ed-3e31bb938b64
 **Canonical URL:** https://yourselftoscience.org/resource/german-clinical-trials-register
+**Wikidata Citation:** This resource is actively cited on Wikidata. [View Reference (P854)](https://www.wikidata.org/wiki/Q96199255)
 
 ## Details
 

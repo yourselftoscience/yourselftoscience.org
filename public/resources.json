@@ -1970,7 +1970,16 @@
     "organizations": [
       {
         "name": "NHS Health Research Authority",
-        "wikidataId": "Q16937226"
+        "wikidataId": "Q16937226",
+        "rorId": "https://ror.org/0251wwg77",
+        "rorName": "Health Research Authority",
+        "rorTypes": [
+          "government"
+        ],
+        "rorCountry": "United Kingdom",
+        "rorCity": "London",
+        "rorEstablished": null,
+        "rorAutoMatched": true
       }
     ],
     "link": "https://www.hra.nhs.uk/planning-and-improving-research/application-summaries/research-summaries/",
@@ -2187,8 +2196,8 @@
       "Clinical Trials"
     ],
     "permalink": "https://yourselftoscience.org/resource/b8dda31e-6ee1-4669-a8ed-3e31bb938b64",
-    "isCitedOnWikidata": false,
-    "wikidataReferenceUrl": null
+    "isCitedOnWikidata": true,
+    "wikidataReferenceUrl": "https://www.wikidata.org/wiki/Q96199255"
   },
   {
     "id": "d44227ed-6c83-4eef-b1c5-ee1f8c2d917c",
