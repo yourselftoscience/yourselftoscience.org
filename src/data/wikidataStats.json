@@ -1,5 +1,5 @@
 {
-  "referencedItemsCount": 34,
+  "referencedItemsCount": 37,
   "items": [
     {
       "id": "Q25004683",
@@ -26,6 +26,10 @@
       "label": "CRC ed i Volontari per la Ricerca Clinica"
     },
     {
+      "id": "Q1006215",
+      "label": "Federal Institute for Drugs and Medical Devices"
+    },
+    {
       "id": "Q138521080",
       "label": "FluCamp"
     },
@@ -40,6 +44,10 @@
     {
       "id": "Q138546215",
       "label": "GenomeConnect"
+    },
+    {
+      "id": "Q96199255",
+      "label": "German Clinical Trials Register"
     },
     {
       "id": "Q138521422",
@@ -68,6 +76,10 @@
     {
       "id": "Q878592",
       "label": "Helmholtz Zentrum München"
+    },
+    {
+      "id": "Q30268998",
+      "label": "hVIVO (United Kingdom)"
     },
     {
       "id": "Q138521770",
@@ -138,5 +150,5 @@
       "label": "WikiTree"
     }
   ],
-  "lastUpdated": "2026-05-05T02:30:23.156Z"
+  "lastUpdated": "2026-06-10T19:17:16.508Z"
 }

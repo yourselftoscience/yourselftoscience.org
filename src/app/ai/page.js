@@ -41,7 +41,7 @@ export default function AIPage() {
             Built for <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-600">Agents & AI.</span>
           </motion.h1>
           <motion.p variants={fadeUp} className="text-lg md:text-xl text-apple-secondary-text mb-8 max-w-2xl mx-auto md:mx-0 leading-relaxed">
-            Yourself to Science isn't just a static website—it's a machine-readable ecosystem. We expose our entire open-source catalogue directly to AI models, IDEs, and autonomous agents using global standards like MCP.
+            Yourself to Science isn&apos;t just a static website—it&apos;s a machine-readable ecosystem. We expose our entire open-source catalogue directly to AI models, IDEs, and autonomous agents using global standards like MCP.
           </motion.p>
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
             <a href="https://mcp.yourselftoscience.org/mcp" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-semibold text-white bg-purple-600 hover:bg-purple-700 rounded-xl transition-all shadow-md hover:shadow-lg">
@@ -95,7 +95,7 @@ export default function AIPage() {
           </div>
 
           <div className="bg-slate-900 text-gray-300 p-6 rounded-2xl font-mono text-sm overflow-x-auto">
-            <p className="text-gray-400 mb-2">// How to add to your Claude Desktop config (claude_desktop_config.json)</p>
+            <p className="text-gray-400 mb-2">{"// How to add to your Claude Desktop config (claude_desktop_config.json)"}</p>
             <code>
               {`{
   "mcpServers": {

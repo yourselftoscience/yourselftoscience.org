@@ -2174,7 +2174,7 @@
     "displayTitle": "GIMM Biobank",
     "dataTypeMappings": {
       "Blood": "Q7873",
-      "Saliva": "Q154",
+      "Saliva": "Q155925",
       "Urine": "Q40924",
       "Tissue": "Q40397"
     },
