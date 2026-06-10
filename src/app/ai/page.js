@@ -72,7 +72,7 @@ export default function AIPage() {
             <div className="bg-gray-50 border border-apple-divider p-6 rounded-2xl">
               <h3 className="text-xl font-bold mb-2 flex items-center gap-2"><FaCode className="text-gray-500" /> Developer IDEs</h3>
               <p className="text-apple-secondary-text mb-4">
-                Instantly connect the catalogue directly into your coding environment to augment your research and development workflows. Perfect for tech founders, biotech researchers, and bio-informatics developers.
+                Instantly connect the catalogue directly into your coding environment to augment your research and development workflows. Built for developers, bio-informatics researchers, and open-source contributors building the next generation of health platforms.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2"><FaCheckCircle className="text-green-500" /> <strong>Cursor</strong></li>
@@ -82,9 +82,9 @@ export default function AIPage() {
             </div>
             
             <div className="bg-gray-50 border border-apple-divider p-6 rounded-2xl">
-              <h3 className="text-xl font-bold mb-2 flex items-center gap-2"><FaRobot className="text-gray-500" /> Chat Assistants & Analysts</h3>
+              <h3 className="text-xl font-bold mb-2 flex items-center gap-2"><FaRobot className="text-gray-500" /> Chat Assistants & Agents</h3>
               <p className="text-apple-secondary-text mb-4">
-                Use our MCP with consumer and enterprise chatbots to query the database conversationally. Ideal for VCs, financial analysts, and researchers tracking the scientific participation landscape.
+                Use our MCP with consumer chatbots to query the database conversationally. Perfect for citizens finding ways to participate, researchers discovering comparable studies, and anyone exploring the scientific landscape.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2"><FaCheckCircle className="text-green-500" /> <strong>Claude Desktop</strong></li>
