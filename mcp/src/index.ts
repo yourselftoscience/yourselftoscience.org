@@ -306,7 +306,7 @@ export default {
     }
     return new Response(
       "Yourself to Science — MCP server. Connect an MCP client to /mcp",
-      { status: 200, headers: { "content-type": "text/plain" } }
+      { status: 200, headers: { "content-type": "text/plain; charset=utf-8" } }
     );
   },
 };
