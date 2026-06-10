@@ -116,19 +116,22 @@ function matches(r: Resource, f: {
   compensationType?: string; category?: string; macroCategory?: string;
 }): boolean {
   if (f.query) {
-    const tokens = f.query.toLowerCase().split(/\s+/).filter(Boolean);
-    const syns: string[] = [];
-    if (r.compensationType === "payment") syns.push("paid", "money", "cash", "compensation");
-    if (r.compensationType === "donation") syns.push("donate", "volunteer", "free");
-    if (r.compensationType === "mixed") syns.push("paid", "donate", "compensation");
-    
-    const hay = [
-      r.title, r.description, ...(r.dataTypes ?? []),
-      ...(r.organizations?.map((o) => o.name) ?? []), ...availableIn(r), ...(r.macroCategories ?? []),
-      r.compensationType, r.entityCategory, r.entitySubType, ...syns
-    ].filter(Boolean).map(String).map(lc).join(" ");
-    for (const t of tokens) {
-      if (!hay.includes(t)) return false;
+    const STOP = new Set(["a","an","the","for","of","to","in","on","and","or","i","me","my","can",
+      "do","find","want","need","where","study","studies","research","program","programs",
+      "project","projects","opportunity","opportunities","participate","join","looking","near"]);
+    const tokens = f.query.toLowerCase().split(/\s+/).filter(Boolean).filter((t) => !STOP.has(t));
+    if (tokens.length) {
+      const syns: string[] = [];
+      if (r.compensationType === "payment") syns.push("paid", "money", "cash", "compensation");
+      if (r.compensationType === "donation") syns.push("donate", "volunteer", "free");
+      if (r.compensationType === "mixed") syns.push("paid", "donate", "compensation");
+      
+      const hay = [
+        r.title, r.description, ...(r.dataTypes ?? []),
+        ...(r.organizations?.map((o) => o.name) ?? []), ...availableIn(r), ...(r.macroCategories ?? []),
+        r.compensationType, r.entityCategory, r.entitySubType, ...syns
+      ].filter(Boolean).map(String).map(lc).join(" ");
+      if (!tokens.some((t) => hay.includes(t))) return false;
     }
   }
   if (f.dataType && !(r.dataTypes ?? []).some((d) => lc(d).includes(lc(f.dataType)))) return false;
@@ -158,6 +161,10 @@ function getScore(r: Resource, q?: string): number {
     if (lc(r.description).includes(t)) score += 2;
     if ((r.dataTypes ?? []).join(" ").toLowerCase().includes(t)) score += 5;
     if (lc(r.entityCategory).includes(t)) score += 5;
+    if (["paid","money","cash","compensation"].includes(t) &&
+        (r.compensationType === "payment" || r.compensationType === "mixed")) score += 6;
+    if (["donate","donation","volunteer","free"].includes(t) &&
+        (r.compensationType === "donation" || r.compensationType === "mixed")) score += 6;
   }
   return score;
 }
@@ -215,6 +222,17 @@ export class YourselfToScienceMCP extends McpAgent {
         let hits = all.filter((r) => matches(r, args));
         if (args.query) {
           hits = hits.sort((a, b) => getScore(b, args.query) - getScore(a, args.query));
+        }
+        if (args.country) {
+          hits = hits.sort((a, b) => {
+            const aAvail = availableIn(a).map(lc);
+            const bAvail = availableIn(b).map(lc);
+            const aExact = aAvail.some((c) => c.includes(lc(args.country!)));
+            const bExact = bAvail.some((c) => c.includes(lc(args.country!)));
+            if (aExact && !bExact) return -1;
+            if (!aExact && bExact) return 1;
+            return 0;
+          });
         }
         const offset = args.offset ?? 0;
         const limit = args.limit ?? 20;
