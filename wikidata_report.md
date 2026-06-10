@@ -1,6 +1,6 @@
 # Wikidata Integration Report
 
-**Generated on:** 6/10/2026, 9:17:59 PM
+**Generated on:** 6/10/2026, 9:18:34 PM
 
 ## Project-Organizer Relationships
 
@@ -258,7 +258,7 @@
 - **Organ**: [Q712378](https://www.wikidata.org/wiki/Q712378)
 - **Placenta**: [Q1212935](https://www.wikidata.org/wiki/Q1212935)
 - **Plasma**: [Q79749](https://www.wikidata.org/wiki/Q79749)
-- **Saliva**: [Q154](https://www.wikidata.org/wiki/Q154)
+- **Saliva**: [Q155925](https://www.wikidata.org/wiki/Q155925)
 - **Search history**: [Q60461381](https://www.wikidata.org/wiki/Q60461381)
 - **Social media data**: [Q131520545](https://www.wikidata.org/wiki/Q131520545)
 - **Sperm**: [Q17145](https://www.wikidata.org/wiki/Q17145)

@@ -388,7 +388,7 @@ export class YourselfToScienceMCP extends McpAgent {
 // Worker entrypoint — route /mcp to the MCP server (Streamable HTTP).
 // ----------------------------------------------------------------------------
 const worker = {
-  fetch(request: Request, env: unknown, ctx: ExecutionContext): Response | Promise<Response> {
+  fetch(request: Request, env: unknown, ctx: any): Response | Promise<Response> {
     const { pathname } = new URL(request.url);
     if (pathname === "/mcp") {
       // McpAgent.serve() returns a fetch handler that speaks Streamable HTTP.
