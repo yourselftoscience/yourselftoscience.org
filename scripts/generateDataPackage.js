@@ -8,6 +8,14 @@ const dataPackage = {
   "title": "Yourself to Science - Open Citizen Science Resources",
   "description": "Yourself to Science™ is an open-source project providing a comprehensive list of services that allow individuals to contribute to scientific research with their biological and digital selves.",
   "homepage": "https://yourselftoscience.org",
+  "id": "https://doi.org/10.5281/zenodo.15109359",
+  "identifiers": [
+    {
+      "type": "doi",
+      "value": "10.25504/FAIRsharing.d3d487",
+      "title": "FAIRsharing registry record"
+    }
+  ],
   "licenses": [
     {
       "id": "CC0-1.0",

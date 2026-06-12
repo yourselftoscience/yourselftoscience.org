@@ -38,6 +38,12 @@ This project is community-supported. If you'd like to support our work, you can 
 
 Representing a company, non-profit, university, or public institution? Please [contact us](mailto:hello@yourselftoscience.org) for partnership opportunities.
 
+## Citation & Registries
+
+If you use this project or dataset in your research, please cite us via our [Zenodo Record](https://doi.org/10.5281/zenodo.15109359).
+
+Yourself to Science is also indexed as a database registry in FAIRsharing. You can view our record at [10.25504/FAIRsharing.d3d487](https://doi.org/10.25504/FAIRsharing.d3d487).
+
 ## LICENSE
 
 This project is radically open and follows a multi-license structure: Our dataset is dedicated to the public domain under the [Creative Commons CC0 1.0 Universal license](https://yourselftoscience.org/data), the website content is licensed under [CC BY-SA 4.0](https://yourselftoscience.org/license/content), and the underlying source code is licensed under [AGPL-3.0](https://yourselftoscience.org/license/code).

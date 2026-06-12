@@ -43,10 +43,14 @@ export default function DataPage() {
             "name": "Yourself to Science Open Dataset",
             "description": "A curated, open-access catalog of services, platforms, and programs that allow individuals to securely contribute to scientific research with their biological and digital selves.",
             "url": "https://yourselftoscience.org/data",
-            "sameAs": "https://yourselftoscience.org/resources.ttl#dataset",
+            "sameAs": [
+                "https://yourselftoscience.org/resources.ttl#dataset",
+                "https://doi.org/10.25504/FAIRsharing.d3d487"
+            ],
             "identifier": [
                 "https://yourselftoscience.org/resources.ttl#dataset",
-                `https://doi.org/${permanentDoi}`
+                `https://doi.org/${permanentDoi}`,
+                "https://doi.org/10.25504/FAIRsharing.d3d487"
             ],
             "keywords": [
                 "open dataset",
@@ -341,8 +345,8 @@ export default function DataPage() {
                     </div>
                 </motion.div>
 
-                {/* Licensing and Wikidata Info combined */}
-                <div className="grid md:grid-cols-2 gap-6 mt-16 pt-16 border-t border-gray-200">
+                {/* Licensing, Wikidata, and FAIRsharing Info combined */}
+                <div className="grid md:grid-cols-3 gap-6 mt-16 pt-16 border-t border-gray-200">
                     <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
                         <h2 className="text-xl font-semibold mb-3 text-google-text">Data Licensing (CC0 1.0)</h2>
                         <p className="text-sm text-google-text-secondary mb-4">
@@ -360,6 +364,19 @@ export default function DataPage() {
                         <p className="text-xs font-bold text-gray-700">
                             Currently serving as the verification source for {wikidataStats.referencedItemsCount || 0} upstream Wikidata entities.
                         </p>
+                    </div>
+                    <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-6">
+                        <h2 className="text-xl font-semibold mb-3 text-emerald-900 flex items-center gap-2">
+                            <FaBook className="text-emerald-600" />
+                            Registered in FAIRsharing
+                        </h2>
+                        <p className="text-sm text-emerald-800 mb-4">
+                            Our dataset is indexed in FAIRsharing, ensuring our open metadata adheres to FAIR principles for academic use.
+                        </p>
+                        <a href="https://doi.org/10.25504/FAIRsharing.d3d487" target="_blank" rel="noopener noreferrer" className="inline-block mt-2">
+                            {/* We use an img tag for the official badge */}
+                            <img src="https://img.shields.io/badge/Indexed%20in-FAIRsharing-3b82f6" alt="Indexed in FAIRsharing" className="h-6" />
+                        </a>
                     </div>
                 </div>
             </section>

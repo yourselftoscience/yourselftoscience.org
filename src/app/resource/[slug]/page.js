@@ -108,7 +108,11 @@ export default function ResourcePage({ params }) {
       '@type': 'DataCatalog',
       'name': 'Yourself to Science',
       'url': 'https://yourselftoscience.org',
-      'identifier': `https://doi.org/${permanentDoi}`
+      'sameAs': 'https://doi.org/10.25504/FAIRsharing.d3d487',
+      'identifier': [
+        `https://doi.org/${permanentDoi}`,
+        'https://doi.org/10.25504/FAIRsharing.d3d487'
+      ]
     },
     'creator': resource.organizations ? resource.organizations.map(org => ({
       '@type': 'Organization',

@@ -6,6 +6,7 @@ license: CC0-1.0
 authors:
   - family-names: "Marcolongo"
     given-names: "Mario"
+    orcid: "https://orcid.org/0000-0003-2846-7115"
 doi: "10.5281/zenodo.15109359"
 url: "https://github.com/yourselftoscience/yourselftoscience.org"
 repository-code: "https://github.com/yourselftoscience/yourselftoscience.org"
@@ -14,3 +15,7 @@ keywords:
   - genomics
   - open science
   - dataset
+identifiers:
+  - type: doi
+    value: "10.25504/FAIRsharing.d3d487"
+    description: "FAIRsharing registry record"

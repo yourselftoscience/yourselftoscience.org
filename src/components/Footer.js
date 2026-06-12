@@ -118,6 +118,11 @@ export default function Footer() {
                     PDF Version
                   </a>
                 </li>
+                <li>
+                  <a href="https://doi.org/10.25504/FAIRsharing.d3d487" target="_blank" rel="noopener noreferrer" className="inline-block hover:opacity-80 transition-opacity duration-200">
+                    <img src="https://img.shields.io/badge/Indexed%20in-FAIRsharing-3b82f6" alt="Indexed in FAIRsharing" className="h-5" />
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

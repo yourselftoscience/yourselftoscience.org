@@ -39,6 +39,7 @@ try {
     schema:version "2.0" ;
     dcterms:identifier <https://doi.org/10.5281/zenodo.15109359> ;
     schema:identifier "10.5281/zenodo.15110328" ;
+    schema:sameAs <https://doi.org/10.25504/FAIRsharing.d3d487> ;
     void:dataDump <https://yourselftoscience.org/resources.ttl> ;
     void:dataDump <https://yourselftoscience.org/resources.json> ;
     void:dataDump <https://yourselftoscience.org/resources.csv> ;

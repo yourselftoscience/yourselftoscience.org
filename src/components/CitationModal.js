@@ -3,7 +3,7 @@
 import React, { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { FaTimes, FaRegCopy } from 'react-icons/fa';
-import { latestDoi } from '@/data/config';
+import { permanentDoi } from '@/data/config';
 
 // Function to generate citation in different formats
 const getCitations = (doi) => {
@@ -14,11 +14,14 @@ const getCitations = (doi) => {
   const accessDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
   return {
-    apa: `Marcolongo, M. (${year}). *${title}*. Yourself to Science™. ${url}. ${doiUrl}`,
-    mla: `Marcolongo, Mario. "${title}." *Yourself to Science™*, ${year}, ${url}, ${doiUrl}.`,
-    chicago: `Marcolongo, Mario. ${year}. "${title}." Yourself to Science™. Accessed ${accessDate}. ${url}. ${doiUrl}.`,
-    bibtex: `@misc{Marcolongo_${year}_YourselfToScience,\n  author = {Marcolongo, Mario},\n  title = {${title}},\n  year = {${year}},\n  publisher = {Yourself to Science™},\n  journal = {yourselftoscience.org},\n  howpublished = {\\url{${url}}},\n  doi = {${doi}}\n}`,
-    ris: `TY  - GEN\nAU  - Marcolongo, Mario\nPY  - ${year}\nTI  - ${title}\nUR  - ${url}\nPB  - Yourself to Science™\nDO  - ${doi}\nER  -`
+    zenodo: {
+      apa: `Marcolongo, M. (${year}). *${title}*. Yourself to Science™. ${url}. ${doiUrl}`,
+      mla: `Marcolongo, Mario. "${title}." *Yourself to Science™*, ${year}, ${url}, ${doiUrl}.`,
+      chicago: `Marcolongo, Mario. ${year}. "${title}." Yourself to Science™. Accessed ${accessDate}. ${url}. ${doiUrl}.`,
+      bibtex: `@misc{Marcolongo_${year}_YourselfToScience,\n  author = {Marcolongo, Mario},\n  title = {${title}},\n  year = {${year}},\n  publisher = {Yourself to Science™},\n  journal = {yourselftoscience.org},\n  howpublished = {\\url{${url}}},\n  doi = {${doi}}\n}`,
+      ris: `TY  - GEN\nAU  - Marcolongo, Mario\nPY  - ${year}\nTI  - ${title}\nUR  - ${url}\nPB  - Yourself to Science™\nDO  - ${doi}\nER  -`
+    },
+    fairsharing: `FAIRsharing.org: You2Science;Yourself to Science, DOI: 10.25504/FAIRsharing.d3d487, Last Accessed: ${accessDate}`
   };
 };
 
@@ -52,7 +55,7 @@ function CitationFormat({ label, text }) {
 }
 
 export default function CitationModal({ isOpen, onClose }) {
-  const citations = getCitations(latestDoi);
+  const citations = getCitations(permanentDoi);
 
   return (
     <Transition appear show={isOpen} as={Fragment}>
@@ -96,13 +99,21 @@ export default function CitationModal({ isOpen, onClose }) {
                 </Dialog.Title>
                 <div className="mt-4">
                   <p className="text-sm text-gray-500 mb-4">
-                    Copy the citation in your preferred format or download the RIS file for your reference manager.
+                    Copy the primary Zenodo concept citation in your preferred format.
                   </p>
-                  <CitationFormat label="APA" text={citations.apa} />
-                  <CitationFormat label="MLA" text={citations.mla} />
-                  <CitationFormat label="Chicago" text={citations.chicago} />
-                  <CitationFormat label="BibTeX" text={citations.bibtex} />
-                  <CitationFormat label="RIS (for Zotero/EndNote)" text={citations.ris} />
+                  <CitationFormat label="APA" text={citations.zenodo.apa} />
+                  <CitationFormat label="MLA" text={citations.zenodo.mla} />
+                  <CitationFormat label="Chicago" text={citations.zenodo.chicago} />
+                  <CitationFormat label="BibTeX" text={citations.zenodo.bibtex} />
+                  <CitationFormat label="RIS (for Zotero/EndNote)" text={citations.zenodo.ris} />
+                  
+                  <div className="mt-8 mb-4 border-t border-gray-200 pt-6">
+                    <h4 className="text-md font-semibold text-gray-900 mb-2">Registry Citation</h4>
+                    <p className="text-sm text-gray-500 mb-4">
+                      Our dataset is indexed in FAIRsharing. If required, cite the registry record using the following format:
+                    </p>
+                    <CitationFormat label="FAIRsharing" text={citations.fairsharing} />
+                  </div>
                 </div>
               </Dialog.Panel>
             </Transition.Child>
