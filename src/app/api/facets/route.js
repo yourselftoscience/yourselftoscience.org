@@ -1,4 +1,4 @@
-import { json, loadResources, options } from '@/lib/agentApi';
+import { json, loadResources, options, serviceUnavailable } from '@/lib/agentApi';
 
 export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
@@ -9,8 +9,8 @@ function countBy(resources, selector) {
   const counts = new Map();
   for (const resource of resources) {
     const raw = selector(resource);
-    const values = Array.isArray(raw) ? raw : raw == null ? [] : [raw];
-    for (const value of values) {
+    const selectedValues = Array.isArray(raw) ? raw : raw == null ? [] : [raw];
+    for (const value of selectedValues) {
       const label = String(value).trim();
       if (label) counts.set(label, (counts.get(label) || 0) + 1);
     }
@@ -25,15 +25,18 @@ export async function GET() {
     const resources = await loadResources();
     return json({
       data: {
-        countries: countBy(resources, r => r.countries),
-        dataTypes: countBy(resources, r => r.dataTypes),
-        compensationTypes: countBy(resources, r => r.compensationType),
-        entityCategories: countBy(resources, r => r.entityCategory),
-        recruitingStatus: countBy(resources, r => r.isActivelyRecruiting == null ? 'unknown' : String(r.isActivelyRecruiting)),
+        countries: countBy(resources, resource => resource.countries),
+        dataTypes: countBy(resources, resource => resource.dataTypes),
+        compensationTypes: countBy(resources, resource => resource.compensationType),
+        entityCategories: countBy(resources, resource => resource.entityCategory),
+        recruitingStatus: countBy(
+          resources,
+          resource => resource.isActivelyRecruiting == null ? 'unknown' : String(resource.isActivelyRecruiting),
+        ),
       },
       meta: { totalResources: resources.length, schemaVersion: '1.0.0' },
     });
   } catch (error) {
-    return json({ error: 'dataset_unavailable', message: error.message }, { status: 503, headers: { 'cache-control': 'no-store' } });
+    return serviceUnavailable(error, 'facet generation failed');
   }
 }
