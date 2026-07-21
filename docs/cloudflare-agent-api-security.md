@@ -2,6 +2,20 @@
 
 The application code validates and bounds all public inputs, but globally consistent request throttling must run before the Pages Function is invoked. Configure the following zone-level Cloudflare WAF rate-limiting rules before promoting the agent API to production.
 
+## Runtime and adapter prerequisites
+
+The repository pins Node.js `22.23.1` in `.node-version`. In Cloudflare Pages, set the `NODE_VERSION` environment variable to the same value because a dashboard environment variable takes precedence over repository version files. Do not continue using Node.js `22.14.0`.
+
+The current Pages deployment uses the archived `@cloudflare/next-on-pages` adapter, which supports Next.js 13 and 14 but cannot consume the patched Next.js 15 security line. The branch therefore applies temporary reachability mitigations:
+
+- the self-hosted Next image optimizer is disabled with `images.unoptimized: true`;
+- external Next rewrites were replaced with fixed-destination, bounded Edge route handlers;
+- middleware redirects are marked `private, no-store` and vary on `x-nextjs-data`;
+- the repository contains no App Router Server Functions (`"use server"`);
+- Cloudflare's managed WAF protections for the disclosed React Server Component denial-of-service vectors should remain enabled.
+
+These controls reduce the reachable risk but do not make the old Next.js package version patched. A full package-level remediation requires migrating this full-stack application from Pages/`next-on-pages` to Cloudflare Workers with `@opennextjs/cloudflare`, then upgrading to a currently supported patched Next.js release (at minimum the patched 15.5.16 line or newer). Treat that migration as a production requirement rather than suppressing the runtime audit finding.
+
 ## Required rate-limiting rule
 
 Create a rate-limiting rule for the `yourselftoscience.org` zone.
@@ -55,6 +69,7 @@ curl --fail-with-body 'https://<preview-host>/api/resources?limit=1'
 curl --fail-with-body 'https://<preview-host>/api/resources?activelyRecruiting=false&limit=1'
 curl --fail-with-body 'https://<preview-host>/api/facets'
 curl --fail-with-body https://<preview-host>/openapi.json
+curl --fail-with-body https://<preview-host>/umami/script.js
 ```
 
 The following malformed requests must return HTTP 400 without an internal exception message:
@@ -65,6 +80,23 @@ curl -i 'https://<preview-host>/api/resources?limit=1.5'
 curl -i 'https://<preview-host>/api/resources?q=a&q=b'
 curl -i 'https://<preview-host>/api/resources/%252Fetc'
 ```
+
+The analytics event proxy must reject unsupported and oversized events:
+
+```bash
+curl -i -X POST 'https://<preview-host>/umami/api/send' \
+  -H 'Content-Type: text/plain' \
+  --data 'not-json'
+
+python - <<'PY' | curl -i -X POST 'https://<preview-host>/umami/api/send' \
+  -H 'Content-Type: application/json' \
+  --data-binary @-
+import json
+print(json.dumps({'payload': 'x' * (70 * 1024)}))
+PY
+```
+
+Require HTTP 415 for the first request and HTTP 413 for the second. Confirm middleware-generated redirects include `Cache-Control: private, no-store`.
 
 Confirm the WAF rule produces a rate-limit response after the configured threshold and that the Pages Function invocation count stops increasing for blocked requests.
 
