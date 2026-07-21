@@ -29,6 +29,7 @@ try {
   const agentCard = readJson('public/.well-known/agent-card.json');
   assert(agentCard.url === 'https://yourselftoscience.org', 'Agent card URL is invalid');
   assert(agentCard.endpoints?.openapi === 'https://yourselftoscience.org/openapi.json', 'Agent card OpenAPI endpoint is invalid');
+  assert(agentCard.endpoints?.mcp === 'https://mcp.yourselftoscience.org/mcp', 'Agent card MCP endpoint is invalid');
   assert(agentCard.endpoints?.resources === 'https://yourselftoscience.org/api/resources', 'Agent card resources endpoint is invalid');
 
   for (const file of ['public/llms.txt', 'public/llms-full.txt']) {
