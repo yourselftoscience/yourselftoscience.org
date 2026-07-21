@@ -1,4 +1,4 @@
-import { json, loadResources, options } from '@/lib/agentApi';
+import { json, loadResources, logInternalError, options } from '@/lib/agentApi';
 
 export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
@@ -12,19 +12,20 @@ export async function GET() {
     return json({
       status: 'ok',
       service: 'yourself-to-science-agent-api',
-      version: '1.0.0',
+      version: '1.1.0',
       datasetReachable: true,
       resourceCount: resources.length,
       responseTimeMs: Date.now() - started,
       timestamp: new Date().toISOString(),
     }, { headers: { 'cache-control': 'no-store' } });
   } catch (error) {
+    logInternalError('health check failed', error);
     return json({
       status: 'degraded',
       service: 'yourself-to-science-agent-api',
-      version: '1.0.0',
+      version: '1.1.0',
       datasetReachable: false,
-      error: error.message,
+      error: 'dataset_unavailable',
       timestamp: new Date().toISOString(),
     }, { status: 503, headers: { 'cache-control': 'no-store' } });
   }
