@@ -1,0 +1,62 @@
+name: Agent API security
+
+on:
+  pull_request:
+    paths:
+      - 'src/lib/agentApi.js'
+      - 'src/app/api/**'
+      - 'scripts/extendAgentOpenApi.js'
+      - 'scripts/validateAgentArtifacts.js'
+      - 'public/.well-known/agent-card.json'
+      - 'public/openapi.json'
+      - 'test/agentApi.test.js'
+      - 'package.json'
+      - '.github/workflows/agent-api-security.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'src/lib/agentApi.js'
+      - 'src/app/api/**'
+      - 'scripts/extendAgentOpenApi.js'
+      - 'scripts/validateAgentArtifacts.js'
+      - 'public/.well-known/agent-card.json'
+      - 'public/openapi.json'
+      - 'test/agentApi.test.js'
+      - 'package.json'
+      - '.github/workflows/agent-api-security.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  security-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+          package-manager-cache: false
+
+      - name: Check JavaScript syntax
+        run: |
+          node --check src/lib/agentApi.js
+          node --check src/app/api/resources/route.js
+          node --check 'src/app/api/resources/[id]/route.js'
+          node --check src/app/api/facets/route.js
+          node --check src/app/api/health/route.js
+          node --check scripts/extendAgentOpenApi.js
+          node --check scripts/validateAgentArtifacts.js
+
+      - name: Run security regression tests
+        run: npm test
+
+      - name: Regenerate and validate agent contracts
+        run: |
+          npm run update-openapi
+          npm run extend-openapi
+          npm run validate-agent-artifacts
