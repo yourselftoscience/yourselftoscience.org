@@ -19,7 +19,8 @@ test('middleware redirects are explicitly non-cacheable', async () => {
   const source = await readSource('../src/middleware.js');
   assert.match(source, /Cache-Control', 'private, no-store'/u);
   assert.match(source, /Vary', 'x-nextjs-data'/u);
-  assert.doesNotMatch(source, /NextResponse\.redirect\(/u, 'redirects must use the no-store helper');
+  assert.equal([...source.matchAll(/NextResponse\.redirect\(/gu)].length, 1);
+  assert.ok([...source.matchAll(/noStoreRedirect\(/gu)].length >= 5);
 });
 
 test('analytics event proxy rejects unsupported content types', async () => {
