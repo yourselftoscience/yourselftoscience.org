@@ -1,0 +1,74 @@
+name: One-shot security remediation
+
+on:
+  push:
+    branches:
+      - feat/agent-ready-cloudflare
+    paths:
+      - '.github/workflows/one-shot-security-remediation.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  remediate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out remediation branch
+        uses: actions/checkout@v6
+        with:
+          ref: feat/agent-ready-cloudflare
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22.23.1'
+          package-manager-cache: false
+
+      - name: Remove duplicate resource key
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('src/data/resources.js')
+          text = path.read_text()
+          duplicate = '    "entitySubType": "Commercial",\n    "entitySubType": "Commercial",\n'
+          occurrences = text.count(duplicate)
+          if occurrences != 1:
+              raise SystemExit(f'Expected exactly one duplicate entitySubType pair, found {occurrences}')
+          path.write_text(text.replace(duplicate, '    "entitySubType": "Commercial",\n', 1))
+          PY
+
+      - name: Apply non-breaking npm audit fixes
+        run: npm audit fix --package-lock-only --ignore-scripts || true
+
+      - name: Validate changes
+        run: |
+          git diff --check
+          npm test
+          npm run update-openapi
+          npm run extend-openapi
+          npm run validate-agent-artifacts
+
+      - name: Record residual production audit
+        run: npm audit --omit=dev --json --package-lock-only > npm-audit-production-after-fix.json || true
+
+      - name: Upload residual audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: npm-audit-production-after-fix
+          path: npm-audit-production-after-fix.json
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Commit remediation
+        run: |
+          if git diff --quiet; then
+            echo 'No remediation changes were produced.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add src/data/resources.js package-lock.json
+          git commit -m 'Apply safe dependency and data integrity fixes'
+          git push origin HEAD:feat/agent-ready-cloudflare
