@@ -12,7 +12,9 @@
     "dev:next": "next dev",
     "dev:watch": "node scripts/watchUpdatePdf.js",
     "dev": "concurrently \"npm run update-badge-logo\" \"npm run dev:next\" \"npm run dev:watch\"",
-    "prebuild": "npm run update-badge-logo && npm run update-wikidata-stats && npm run update-wikidata && npm run update-ror && npm run update-ontology && npm run update-sitemap && npm run update-csv && npm run update-json && npm run update-idmap && npm run update-markdown && npm run update-rdf && npm run update-void && npm run update-llms && npm run update-openapi && npm run extend-openapi && npm run update-datapackage || echo 'Prebuild scripts failed, continuing build'",
+    "prebuild": "npm run update-badge-logo && npm run prebuild:enrichment && npm run prebuild:generate",
+    "prebuild:enrichment": "(npm run update-wikidata-stats || echo 'Optional Wikidata statistics refresh failed; using checked-in data') && (npm run update-wikidata || echo 'Optional Wikidata refresh failed; using checked-in data') && (npm run update-ror || echo 'Optional ROR refresh failed; using checked-in data')",
+    "prebuild:generate": "npm run update-ontology && npm run update-sitemap && npm run update-csv && npm run update-json && npm run update-idmap && npm run update-markdown && npm run update-rdf && npm run update-void && npm run update-llms && npm run update-openapi && npm run extend-openapi && npm run update-datapackage && npm run validate-agent-artifacts",
     "build": "next build",
     "postbuild": "node scripts/updatePdfPage.js || echo 'PDF generation failed, continuing deployment'",
     "deploy": "next-on-pages",
@@ -33,6 +35,7 @@
     "update-llms": "node scripts/generateLLMsTxt.js",
     "update-openapi": "node scripts/generateOpenApi.js",
     "extend-openapi": "node scripts/extendAgentOpenApi.js",
+    "validate-agent-artifacts": "node scripts/validateAgentArtifacts.js",
     "update-datapackage": "node scripts/generateDataPackage.js",
     "update-void": "node scripts/generateVoid.js",
     "update-badge-logo": "node scripts/updateBadgeLogo.js"
