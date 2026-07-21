@@ -6,6 +6,7 @@ import {
   matches,
   parseLookupKey,
   parseSearchParams,
+  serviceUnavailable,
   summarize,
 } from '../src/lib/agentApi.js';
 
@@ -58,4 +59,22 @@ test('summary uses the stable ID permalink shape', () => {
     summarize({ id: 'abc', slug: 'example' }).permalink,
     'https://yourselftoscience.org/resource/abc',
   );
+});
+
+test('service failures never expose internal exception details', async () => {
+  const originalConsoleError = console.error;
+  console.error = () => {};
+  try {
+    const response = serviceUnavailable(new Error('secret binding TOKEN=abc'), 'test failure');
+    assert.equal(response.status, 503);
+    assert.equal(response.headers.get('cache-control'), 'no-store');
+    const body = await response.json();
+    assert.deepEqual(body, {
+      error: 'dataset_unavailable',
+      message: 'The catalogue is temporarily unavailable.',
+    });
+    assert.equal(JSON.stringify(body).includes('TOKEN'), false);
+  } finally {
+    console.error = originalConsoleError;
+  }
 });
