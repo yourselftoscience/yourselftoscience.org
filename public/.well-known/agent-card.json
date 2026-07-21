@@ -2,7 +2,7 @@
   "name": "Yourself to Science Catalogue Agent",
   "description": "Read-only discovery service for finding citizen-science, biobank, health-data, genomic-data, and biological-sample contribution opportunities.",
   "url": "https://yourselftoscience.org",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "provider": {
     "organization": "Yourself to Science",
     "url": "https://yourselftoscience.org"
@@ -12,6 +12,13 @@
     "streaming": false,
     "pushNotifications": false,
     "stateTransitionHistory": false
+  },
+  "constraints": {
+    "readOnly": true,
+    "maximumQueryLength": 256,
+    "maximumPageSize": 100,
+    "strictBooleanParameters": true,
+    "rateLimited": true
   },
   "defaultInputModes": ["application/json", "text/plain"],
   "defaultOutputModes": ["application/json"],
