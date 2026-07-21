@@ -68,6 +68,38 @@ curl -i 'https://<preview-host>/api/resources/%252Fetc'
 
 Confirm the WAF rule produces a rate-limit response after the configured threshold and that the Pages Function invocation count stops increasing for blocked requests.
 
+## MCP deployment checks
+
+The canonical remote MCP endpoint is separate from Cloudflare Pages:
+
+```text
+https://mcp.yourselftoscience.org/mcp
+```
+
+Verify a Streamable HTTP initialization request using the currently published stable protocol version:
+
+```bash
+curl -i -X POST 'https://mcp.yourselftoscience.org/mcp' \
+  -H 'Origin: https://yourselftoscience.org' \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json, text/event-stream' \
+  --data '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-11-25","capabilities":{},"clientInfo":{"name":"deployment-smoke-test","version":"1.0.0"}}}'
+```
+
+Require a valid JSON-RPC or SSE response, verify the negotiated protocol version, and preserve any returned `Mcp-Session-Id` for subsequent requests. Then call `tools/list` through the same session and confirm the advertised tools are read-only and match the public documentation.
+
+The endpoint must validate the HTTP `Origin` header. A hostile web origin must be rejected rather than processed:
+
+```bash
+curl -i -X POST 'https://mcp.yourselftoscience.org/mcp' \
+  -H 'Origin: https://attacker.invalid' \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json, text/event-stream' \
+  --data '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-11-25","capabilities":{},"clientInfo":{"name":"origin-security-test","version":"1.0.0"}}}'
+```
+
+Treat acceptance of an untrusted browser origin as a deployment blocker. Also confirm the MCP service has its own request limits, payload-size limit, bounded tool arguments, generic public errors, and no privileged write tools.
+
 ## Operational monitoring
 
 Alert on sustained increases in:
@@ -75,6 +107,7 @@ Alert on sustained increases in:
 - `/api/*` requests and 429 responses;
 - Pages Function CPU time and invocation count;
 - `/api/health` 503 responses;
-- upstream `resources.json` fetch failures in Cloudflare logs.
+- upstream `resources.json` fetch failures in Cloudflare logs;
+- MCP initialization failures, protocol errors, Origin rejections, and tool-call latency.
 
-Do not expose exception messages, stack traces, bindings, or deployment metadata in public API responses.
+Do not expose exception messages, stack traces, bindings, session identifiers, or deployment metadata in public API responses or logs visible to clients.
