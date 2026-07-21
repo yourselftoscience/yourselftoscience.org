@@ -85,22 +85,11 @@ const nextConfig = {
       },
     ];
   },
-  async rewrites() {
-    return [
-      {
-        source: '/umami/script.js',
-        destination: 'https://cloud.umami.is/script.js',
-      },
-      {
-        source: '/umami/api/send',
-        destination: 'https://cloud.umami.is/api/send',
-      },
-    ];
-  },
-  transpilePackages: ["framer-motion"],
-  // swcMinify has been removed in Next.js 15
+  transpilePackages: ['framer-motion'],
   images: {
-    formats: ['image/avif', 'image/webp'],
+    // next-on-pages is archived and cannot consume the patched Next.js 15 line.
+    // Disable the self-hosted optimizer until the site migrates to OpenNext.
+    unoptimized: true,
   },
   webpack: (config) => {
     // Trusted Types policy for Next bundler
