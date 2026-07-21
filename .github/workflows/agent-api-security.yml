@@ -11,6 +11,7 @@ on:
       - 'public/openapi.json'
       - 'test/agentApi.test.js'
       - 'package.json'
+      - 'package-lock.json'
       - '.github/workflows/agent-api-security.yml'
   push:
     branches: [main]
@@ -23,6 +24,7 @@ on:
       - 'public/openapi.json'
       - 'test/agentApi.test.js'
       - 'package.json'
+      - 'package-lock.json'
       - '.github/workflows/agent-api-security.yml'
 
 permissions:
@@ -39,8 +41,11 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: '22.23.1'
           package-manager-cache: false
+
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=high --package-lock-only
 
       - name: Check JavaScript syntax
         run: |
