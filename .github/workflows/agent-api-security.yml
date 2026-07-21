@@ -7,6 +7,7 @@ on:
       - 'src/app/api/**'
       - 'scripts/extendAgentOpenApi.js'
       - 'scripts/validateAgentArtifacts.js'
+      - 'scripts/enforceRuntimeAudit.js'
       - 'public/.well-known/agent-card.json'
       - 'public/openapi.json'
       - 'test/agentApi.test.js'
@@ -20,6 +21,7 @@ on:
       - 'src/app/api/**'
       - 'scripts/extendAgentOpenApi.js'
       - 'scripts/validateAgentArtifacts.js'
+      - 'scripts/enforceRuntimeAudit.js'
       - 'public/.well-known/agent-card.json'
       - 'public/openapi.json'
       - 'test/agentApi.test.js'
@@ -53,6 +55,7 @@ jobs:
           node --check src/app/api/health/route.js
           node --check scripts/extendAgentOpenApi.js
           node --check scripts/validateAgentArtifacts.js
+          node --check scripts/enforceRuntimeAudit.js
 
       - name: Run security regression tests
         run: npm test
