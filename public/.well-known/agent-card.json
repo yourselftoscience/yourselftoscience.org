@@ -50,7 +50,7 @@
   ],
   "endpoints": {
     "openapi": "https://yourselftoscience.org/openapi.json",
-    "mcp": "https://yourselftoscience.org/mcp",
+    "mcp": "https://mcp.yourselftoscience.org/mcp",
     "resources": "https://yourselftoscience.org/api/resources",
     "facets": "https://yourselftoscience.org/api/facets",
     "health": "https://yourselftoscience.org/api/health",
