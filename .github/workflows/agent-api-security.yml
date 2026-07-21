@@ -3,28 +3,36 @@ name: Agent API security
 on:
   pull_request:
     paths:
+      - 'next.config.mjs'
+      - 'src/middleware.js'
       - 'src/lib/agentApi.js'
       - 'src/app/api/**'
+      - 'src/app/umami/**'
       - 'scripts/extendAgentOpenApi.js'
       - 'scripts/validateAgentArtifacts.js'
       - 'scripts/enforceRuntimeAudit.js'
       - 'public/.well-known/agent-card.json'
       - 'public/openapi.json'
       - 'test/agentApi.test.js'
+      - 'test/platformSecurity.test.js'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/agent-api-security.yml'
   push:
     branches: [main]
     paths:
+      - 'next.config.mjs'
+      - 'src/middleware.js'
       - 'src/lib/agentApi.js'
       - 'src/app/api/**'
+      - 'src/app/umami/**'
       - 'scripts/extendAgentOpenApi.js'
       - 'scripts/validateAgentArtifacts.js'
       - 'scripts/enforceRuntimeAudit.js'
       - 'public/.well-known/agent-card.json'
       - 'public/openapi.json'
       - 'test/agentApi.test.js'
+      - 'test/platformSecurity.test.js'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/agent-api-security.yml'
@@ -48,14 +56,19 @@ jobs:
 
       - name: Check JavaScript syntax
         run: |
+          node --check next.config.mjs
+          node --check src/middleware.js
           node --check src/lib/agentApi.js
           node --check src/app/api/resources/route.js
           node --check 'src/app/api/resources/[id]/route.js'
           node --check src/app/api/facets/route.js
           node --check src/app/api/health/route.js
+          node --check 'src/app/umami/script.js/route.js'
+          node --check src/app/umami/api/send/route.js
           node --check scripts/extendAgentOpenApi.js
           node --check scripts/validateAgentArtifacts.js
           node --check scripts/enforceRuntimeAudit.js
+          node --check test/platformSecurity.test.js
 
       - name: Run security regression tests
         run: npm test
