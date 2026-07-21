@@ -44,8 +44,26 @@ jobs:
           node-version: '22.23.1'
           package-manager-cache: false
 
-      - name: Audit production dependencies
-        run: npm audit --omit=dev --audit-level=high --package-lock-only
+      - name: Generate production dependency audit report
+        run: npm audit --omit=dev --json --package-lock-only > npm-audit-production.json || true
+
+      - name: Upload production dependency audit report
+        uses: actions/upload-artifact@v4
+        with:
+          name: npm-audit-production
+          path: npm-audit-production.json
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Enforce production dependency audit
+        run: |
+          node --input-type=module <<'EOF'
+          import { readFileSync } from 'node:fs';
+          const report = JSON.parse(readFileSync('npm-audit-production.json', 'utf8'));
+          const counts = report.metadata?.vulnerabilities || {};
+          console.log('Production audit counts:', counts);
+          if ((counts.high || 0) > 0 || (counts.critical || 0) > 0) process.exit(1);
+          EOF
 
       - name: Check JavaScript syntax
         run: |
