@@ -67,7 +67,7 @@ const nextConfig = {
           {
             key: 'Permissions-Policy',
             value:
-              'accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), browsing-topics=()',
+              'accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), browsing-topics=(), tools=(self)',
           },
           {
             key: 'Cross-Origin-Opener-Policy',
