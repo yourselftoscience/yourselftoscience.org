@@ -32,6 +32,34 @@ function textResult(text, structuredContent) {
   };
 }
 
+function reportExperimentalApiFailure(apiName, error) {
+  if (process.env.NODE_ENV !== 'production') {
+    console.debug(`${apiName} registration was not accepted by this browser.`, error);
+  }
+}
+
+function registerCurrentWebMcpTools(context, tools, signal) {
+  for (const tool of tools) {
+    try {
+      Promise.resolve(context.registerTool(tool, { signal })).catch((error) => {
+        reportExperimentalApiFailure('WebMCP', error);
+      });
+    } catch (error) {
+      reportExperimentalApiFailure('WebMCP', error);
+    }
+  }
+}
+
+function registerLegacyWebMcpTools(context, tools) {
+  try {
+    Promise.resolve(context.provideContext({ tools })).catch((error) => {
+      reportExperimentalApiFailure('Legacy WebMCP', error);
+    });
+  } catch (error) {
+    reportExperimentalApiFailure('Legacy WebMCP', error);
+  }
+}
+
 function createTools() {
   return [
     {
@@ -109,22 +137,12 @@ export default function WebMCPProvider() {
     const legacyContext = navigator.modelContext;
 
     if (currentContext?.registerTool) {
-      for (const tool of tools) {
-        try {
-          Promise.resolve(currentContext.registerTool(tool, { signal: controller.signal })).catch(() => {});
-        } catch {
-          // Experimental browser API: ignore unsupported implementations.
-        }
-      }
+      registerCurrentWebMcpTools(currentContext, tools, controller.signal);
     }
 
     // Compatibility with the earlier WebMCP API still used by some scanners and browsers.
     if (legacyContext?.provideContext) {
-      try {
-        Promise.resolve(legacyContext.provideContext({ tools })).catch(() => {});
-      } catch {
-        // Experimental browser API: ignore unsupported implementations.
-      }
+      registerLegacyWebMcpTools(legacyContext, tools);
     }
 
     return () => controller.abort();
