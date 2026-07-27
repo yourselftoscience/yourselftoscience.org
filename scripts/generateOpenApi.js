@@ -6,9 +6,9 @@ const outputPath = join(process.cwd(), 'public/openapi.json');
 const openApiSchema = {
   "openapi": "3.1.0",
   "info": {
-    "title": "Yourself to Science - Dataset API",
-    "description": "Yourself to Science™ is an open-source project providing a comprehensive list of services that allow individuals to contribute to scientific research with their biological and digital selves.",
-    "version": "1.0.0",
+    "title": "Yourself to Science - Dataset and Agent API",
+    "description": "Yourself to Science™ is an open-source project providing a comprehensive list of services that allow individuals to contribute to scientific research with their biological and digital selves. All public interfaces are read-only and require no authentication.",
+    "version": "1.1.0",
     "contact": {
       "url": "https://yourselftoscience.org",
       "email": "hello@yourselftoscience.org"
@@ -24,6 +24,118 @@ const openApiSchema = {
     }
   ],
   "paths": {
+    "/api/health": {
+      "get": {
+        "summary": "Check public service health",
+        "description": "Returns the availability and canonical machine-interface URLs for Yourself to Science.",
+        "operationId": "getHealth",
+        "responses": {
+          "200": {
+            "description": "Service is available",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": ["status", "service", "website", "dataset", "mcp"],
+                  "properties": {
+                    "status": { "type": "string", "const": "ok" },
+                    "service": { "type": "string" },
+                    "website": { "type": "string", "format": "uri" },
+                    "dataset": { "type": "string", "format": "uri" },
+                    "mcp": { "type": "string", "format": "uri" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/a2a": {
+      "get": {
+        "summary": "Get A2A endpoint metadata",
+        "description": "Returns the supported A2A protocol version, binding, method, and Agent Card URL.",
+        "operationId": "getA2aMetadata",
+        "responses": {
+          "200": {
+            "description": "A2A endpoint metadata",
+            "content": {
+              "application/json": {
+                "schema": { "type": "object" }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Search or retrieve catalogue resources through A2A",
+        "description": "Accepts an A2A 1.0 JSON-RPC SendMessage request. Text parts perform ranked catalogue search; a data part may provide idOrSlug or structured filters.",
+        "operationId": "sendA2aMessage",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["jsonrpc", "id", "method", "params"],
+                "properties": {
+                  "jsonrpc": { "type": "string", "const": "2.0" },
+                  "id": { "oneOf": [{ "type": "string" }, { "type": "integer" }] },
+                  "method": { "type": "string", "const": "SendMessage" },
+                  "params": {
+                    "type": "object",
+                    "required": ["message"],
+                    "properties": {
+                      "message": {
+                        "type": "object",
+                        "required": ["role", "parts", "messageId"],
+                        "properties": {
+                          "role": { "type": "string", "const": "ROLE_USER" },
+                          "messageId": { "type": "string" },
+                          "parts": {
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "text": { "type": "string" },
+                                "data": { "type": "object", "additionalProperties": true }
+                              },
+                              "anyOf": [
+                                { "required": ["text"] },
+                                { "required": ["data"] }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A2A SendMessage response containing a message and structured catalogue data",
+            "content": {
+              "application/json": {
+                "schema": { "type": "object" }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON-RPC or A2A request",
+            "content": {
+              "application/json": {
+                "schema": { "type": "object" }
+              }
+            }
+          }
+        }
+      }
+    },
     "/resources.json": {
       "get": {
         "summary": "Get full resources dataset (JSON)",
@@ -83,7 +195,7 @@ const openApiSchema = {
     "/ontology.json": {
       "get": {
         "summary": "Get the data types ontology",
-        "description": "Returns definitions for all 22 biological, digital, and clinical data types tracked in the catalogue, including Wikidata QIDs and semantic descriptions.",
+        "description": "Returns definitions for all biological, digital, and clinical data types tracked in the catalogue, including Wikidata QIDs and semantic descriptions.",
         "operationId": "getOntology",
         "responses": {
           "200": {

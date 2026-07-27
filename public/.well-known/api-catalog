@@ -1,0 +1,66 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://yourselftoscience.org/",
+      "service-desc": [
+        {
+          "href": "https://yourselftoscience.org/openapi.json",
+          "type": "application/vnd.oai.openapi+json"
+        },
+        {
+          "href": "https://yourselftoscience.org/.well-known/mcp/server-card.json",
+          "type": "application/json"
+        },
+        {
+          "href": "https://yourselftoscience.org/.well-known/agent-card.json",
+          "type": "application/json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://yourselftoscience.org/ai",
+          "type": "text/html"
+        },
+        {
+          "href": "https://yourselftoscience.org/llms.txt",
+          "type": "text/plain"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://yourselftoscience.org/api/health",
+          "type": "application/json"
+        }
+      ],
+      "describedby": [
+        {
+          "href": "https://yourselftoscience.org/.well-known/agent-skills/index.json",
+          "type": "application/json"
+        },
+        {
+          "href": "https://yourselftoscience.org/datapackage.json",
+          "type": "application/json"
+        },
+        {
+          "href": "https://yourselftoscience.org/void.ttl",
+          "type": "text/turtle"
+        }
+      ]
+    },
+    {
+      "anchor": "https://mcp.yourselftoscience.org/mcp",
+      "service-desc": [
+        {
+          "href": "https://yourselftoscience.org/.well-known/mcp/server-card.json",
+          "type": "application/json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://yourselftoscience.org/ai",
+          "type": "text/html"
+        }
+      ]
+    }
+  ]
+}

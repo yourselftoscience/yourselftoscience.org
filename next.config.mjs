@@ -1,6 +1,16 @@
 /** @type {import('next').NextConfig} */
 const isProd = process.env.NODE_ENV === 'production';
 
+const agentDiscoveryLinks = [
+  '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"',
+  '</openapi.json>; rel="service-desc"; type="application/vnd.oai.openapi+json"',
+  '</ai>; rel="service-doc"; type="text/html"',
+  '</llms.txt>; rel="describedby"; type="text/plain"',
+  '</.well-known/mcp/server-card.json>; rel="service-desc"; type="application/json"',
+  '</.well-known/agent-card.json>; rel="service-desc"; type="application/json"',
+  '</.well-known/agent-skills/index.json>; rel="describedby"; type="application/json"',
+].join(', ');
+
 const nextConfig = {
   poweredByHeader: false,
   async redirects() {
@@ -57,7 +67,7 @@ const nextConfig = {
           {
             key: 'Permissions-Policy',
             value:
-              'accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), browsing-topics=()',
+              'accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), browsing-topics=(), tools=(self)',
           },
           {
             key: 'Cross-Origin-Opener-Policy',
@@ -70,6 +80,18 @@ const nextConfig = {
           {
             key: 'X-Frame-Options',
             value: 'SAMEORIGIN',
+          },
+          {
+            key: 'Content-Signal',
+            value: 'ai-train=yes, search=yes, ai-input=yes',
+          },
+          {
+            key: 'X-Robots-Tag',
+            value: 'all',
+          },
+          {
+            key: 'Link',
+            value: agentDiscoveryLinks,
           },
         ],
       },
@@ -97,7 +119,7 @@ const nextConfig = {
       },
     ];
   },
-  transpilePackages: ["framer-motion"],
+  transpilePackages: ['framer-motion'],
   // swcMinify has been removed in Next.js 15
   images: {
     formats: ['image/avif', 'image/webp'],

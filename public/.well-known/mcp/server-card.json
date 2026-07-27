@@ -1,0 +1,128 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/mcp-server-card/v1.json",
+  "version": "1.0",
+  "protocolVersion": "2025-06-18",
+  "serverInfo": {
+    "name": "yourself-to-science",
+    "title": "Yourself to Science",
+    "version": "1.0.0"
+  },
+  "description": "Public, read-only access to the open CC0 Yourself to Science catalogue of clinical trials, biobanks, registries, and data or sample donation opportunities.",
+  "iconUrl": "https://yourselftoscience.org/logo-tm.svg",
+  "documentationUrl": "https://yourselftoscience.org/ai",
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": "https://mcp.yourselftoscience.org/mcp"
+  },
+  "capabilities": {
+    "tools": {
+      "listChanged": false
+    }
+  },
+  "authentication": {
+    "required": false,
+    "schemes": []
+  },
+  "instructions": "No registration or authentication is required. Use search_resources first for faceted discovery, then get_resource for a complete record. The search and fetch tools provide citation-oriented retrieval.",
+  "resources": [],
+  "tools": [
+    {
+      "name": "search_resources",
+      "title": "Search research-participation opportunities",
+      "description": "Search the live catalogue by free text, data type, country, compensation, organization category, or macro category.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": { "type": "string" },
+          "dataType": { "type": "string" },
+          "country": { "type": "string" },
+          "compensationType": { "type": "string", "enum": ["donation", "payment", "mixed"] },
+          "category": { "type": "string" },
+          "macroCategory": { "type": "string" },
+          "limit": { "type": "integer", "minimum": 1, "maximum": 50 },
+          "offset": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    {
+      "name": "get_resource",
+      "title": "Get full resource detail",
+      "description": "Return the complete record for one catalogue resource by ID or slug.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "idOrSlug": { "type": "string" }
+        },
+        "required": ["idOrSlug"]
+      }
+    },
+    {
+      "name": "list_data_types",
+      "title": "List data types",
+      "description": "List distinct catalogue data types and counts.",
+      "inputSchema": { "type": "object", "properties": {} }
+    },
+    {
+      "name": "list_countries",
+      "title": "List countries",
+      "description": "List represented availability countries and counts.",
+      "inputSchema": { "type": "object", "properties": {} }
+    },
+    {
+      "name": "list_categories",
+      "title": "List organization categories",
+      "description": "List organization categories and counts.",
+      "inputSchema": { "type": "object", "properties": {} }
+    },
+    {
+      "name": "list_macro_categories",
+      "title": "List macro categories",
+      "description": "List top-level catalogue groupings and counts.",
+      "inputSchema": { "type": "object", "properties": {} }
+    },
+    {
+      "name": "list_compensation_types",
+      "title": "List compensation types",
+      "description": "List donation, payment, and mixed compensation counts.",
+      "inputSchema": { "type": "object", "properties": {} }
+    },
+    {
+      "name": "list_organizations",
+      "title": "List organizations",
+      "description": "List organizations represented in the catalogue and counts.",
+      "inputSchema": { "type": "object", "properties": {} }
+    },
+    {
+      "name": "get_stats",
+      "title": "Catalogue statistics",
+      "description": "Return high-level landscape statistics.",
+      "inputSchema": { "type": "object", "properties": {} }
+    },
+    {
+      "name": "search",
+      "title": "Citation-oriented search",
+      "description": "Search the catalogue and return document identifiers, titles, and URLs.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": { "type": "string" },
+          "offset": { "type": "integer", "minimum": 0 }
+        },
+        "required": ["query"]
+      }
+    },
+    {
+      "name": "fetch",
+      "title": "Citation-oriented fetch",
+      "description": "Fetch one catalogue record as text and metadata for citation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" }
+        },
+        "required": ["id"]
+      }
+    }
+  ],
+  "prompts": []
+}

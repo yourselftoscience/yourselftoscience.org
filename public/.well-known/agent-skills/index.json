@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "yourself-to-science-catalogue",
+      "type": "skill-md",
+      "description": "Search and interpret the Yourself to Science open catalogue of clinical trials, biobanks, registries, and biological or digital data donation opportunities.",
+      "url": "/.well-known/agent-skills/yourself-to-science-catalogue/SKILL.md",
+      "digest": "sha256:691844baa700dd09862306b6c9d0c4f4b7bdbe926d383e0c723f2d68f35541b4"
+    }
+  ]
+}
