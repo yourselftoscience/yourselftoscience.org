@@ -75,6 +75,83 @@ function jsonRpcError(id, code, message, data, status = 400) {
   );
 }
 
+async function parseRequestBody(request) {
+  try {
+    return { body: await request.json(), error: null };
+  } catch {
+    return {
+      body: null,
+      error: jsonRpcError(null, -32700, 'Parse error', undefined, 400),
+    };
+  }
+}
+
+function validateRequest(body) {
+  if (body?.jsonrpc !== '2.0') {
+    return jsonRpcError(body?.id, -32600, 'Invalid Request', 'jsonrpc must be "2.0"', 400);
+  }
+
+  if (!['SendMessage', 'message/send'].includes(body.method)) {
+    return jsonRpcError(body.id, -32601, 'Method not found', {
+      supportedMethods: ['SendMessage'],
+    }, 404);
+  }
+
+  const message = body.params?.message;
+  if (!message || !Array.isArray(message.parts) || message.parts.length === 0) {
+    return jsonRpcError(body.id, -32602, 'Invalid params', 'params.message.parts is required', 400);
+  }
+
+  return null;
+}
+
+function createLookupResult(id, input) {
+  const resource = findCatalogueResource(resources, input.idOrSlug);
+
+  if (!resource) {
+    return jsonRpcResult(
+      id,
+      responseMessage(`No catalogue resource was found for "${input.idOrSlug}".`, {
+        error: 'not_found',
+        idOrSlug: input.idOrSlug,
+      }),
+    );
+  }
+
+  const result = compactResource(resource);
+  return jsonRpcResult(
+    id,
+    responseMessage(
+      `${result.title}: ${result.description}\n\nAvailability: ${result.availableIn.join(', ')}\nData types: ${result.dataTypes.join(', ')}\nCompensation: ${result.compensationType}\nCanonical URL: ${result.url}`,
+      { resource: result },
+    ),
+  );
+}
+
+function createSearchResult(id, input) {
+  const results = searchCatalogue(resources, input);
+  const summary = results.length
+    ? `Found ${results.length} matching Yourself to Science catalogue resource${results.length === 1 ? '' : 's'}. Catalogue records describe programmes but do not guarantee eligibility or current enrolment.\n\n${results.map((result, index) => `${index + 1}. ${result.title} — ${result.url}`).join('\n')}`
+    : 'No matching catalogue resources were found. Try a broader query or remove one of the filters.';
+
+  return jsonRpcResult(
+    id,
+    responseMessage(summary, {
+      count: results.length,
+      query: input.query || null,
+      filters: {
+        country: input.country || null,
+        dataType: input.dataType || null,
+        compensationType: input.compensationType || null,
+        category: input.category || null,
+        macroCategory: input.macroCategory || null,
+      },
+      results,
+      datasetLicense: 'CC0-1.0',
+    }),
+  );
+}
+
 export function OPTIONS() {
   return new Response(null, { status: 204, headers: CORS_HEADERS });
 }
@@ -99,74 +176,14 @@ export function GET() {
 }
 
 export async function POST(request) {
-  let body;
-  try {
-    body = await request.json();
-  } catch {
-    return jsonRpcError(null, -32700, 'Parse error', undefined, 400);
-  }
+  const { body, error } = await parseRequestBody(request);
+  if (error) return error;
 
-  if (body?.jsonrpc !== '2.0') {
-    return jsonRpcError(body?.id, -32600, 'Invalid Request', 'jsonrpc must be "2.0"', 400);
-  }
+  const validationError = validateRequest(body);
+  if (validationError) return validationError;
 
-  // SendMessage is the A2A 1.0 JSON-RPC method. The legacy alias remains
-  // accepted for older clients during the protocol transition.
-  if (!['SendMessage', 'message/send'].includes(body.method)) {
-    return jsonRpcError(body.id, -32601, 'Method not found', {
-      supportedMethods: ['SendMessage'],
-    }, 404);
-  }
-
-  const message = body.params?.message;
-  if (!message || !Array.isArray(message.parts) || message.parts.length === 0) {
-    return jsonRpcError(body.id, -32602, 'Invalid params', 'params.message.parts is required', 400);
-  }
-
-  const input = extractInput(message);
-
-  if (input.idOrSlug) {
-    const resource = findCatalogueResource(resources, input.idOrSlug);
-
-    if (!resource) {
-      return jsonRpcResult(
-        body.id,
-        responseMessage(`No catalogue resource was found for "${input.idOrSlug}".`, {
-          error: 'not_found',
-          idOrSlug: input.idOrSlug,
-        }),
-      );
-    }
-
-    const result = compactResource(resource);
-    return jsonRpcResult(
-      body.id,
-      responseMessage(
-        `${result.title}: ${result.description}\n\nAvailability: ${result.availableIn.join(', ')}\nData types: ${result.dataTypes.join(', ')}\nCompensation: ${result.compensationType}\nCanonical URL: ${result.url}`,
-        { resource: result },
-      ),
-    );
-  }
-
-  const results = searchCatalogue(resources, input);
-  const summary = results.length
-    ? `Found ${results.length} matching Yourself to Science catalogue resource${results.length === 1 ? '' : 's'}. Catalogue records describe programmes but do not guarantee eligibility or current enrolment.\n\n${results.map((result, index) => `${index + 1}. ${result.title} — ${result.url}`).join('\n')}`
-    : 'No matching catalogue resources were found. Try a broader query or remove one of the filters.';
-
-  return jsonRpcResult(
-    body.id,
-    responseMessage(summary, {
-      count: results.length,
-      query: input.query || null,
-      filters: {
-        country: input.country || null,
-        dataType: input.dataType || null,
-        compensationType: input.compensationType || null,
-        category: input.category || null,
-        macroCategory: input.macroCategory || null,
-      },
-      results,
-      datasetLicense: 'CC0-1.0',
-    }),
-  );
+  const input = extractInput(body.params.message);
+  return input.idOrSlug
+    ? createLookupResult(body.id, input)
+    : createSearchResult(body.id, input);
 }
