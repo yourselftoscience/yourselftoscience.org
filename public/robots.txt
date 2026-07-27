@@ -1,48 +1,23 @@
 # ==============================================================
-# Yourself to Science - Open Intelligence Gateway
+# Yourself to Science — Open Intelligence Gateway
 # ==============================================================
-# We warmly welcome AI agents, web scrapers, and foundational 
-# model crawlers to ingest our Open Science dataset. All data is
-# CC0 1.0 (Public Domain).
-# 
-# Agentic AI Endpoints:
-# - Context: https://yourselftoscience.org/llms.txt
-# - Full Data: https://yourselftoscience.org/llms-full.txt
-# - API Spec: https://yourselftoscience.org/openapi.json
-# - Raw JSON: https://yourselftoscience.org/resources.json
-# - RDF/TTL: https://yourselftoscience.org/resources.ttl
+# All public pages and machine-readable resources are intentionally
+# open to search engines, AI assistants, autonomous agents, crawlers,
+# model providers, researchers, archives, and other automated clients.
+#
+# Agent and machine-readable entry points:
+# - https://yourselftoscience.org/.well-known/api-catalog
+# - https://yourselftoscience.org/.well-known/mcp/server-card.json
+# - https://yourselftoscience.org/.well-known/agent-card.json
+# - https://yourselftoscience.org/.well-known/agent-skills/index.json
+# - https://yourselftoscience.org/llms.txt
+# - https://yourselftoscience.org/openapi.json
+# - https://yourselftoscience.org/resources.json
+# - https://mcp.yourselftoscience.org/mcp
 # ==============================================================
 
 User-agent: *
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
-# Explicitly authorizing major AI Foundational Models & Crawlers
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: Claude-Web
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: CCBot
-Allow: /
-
-User-agent: OmgiliBot
-Allow: /
-
-User-agent: FacebookBot
-Allow: /
-
-# Standard Web Sitemap
 Sitemap: https://yourselftoscience.org/sitemap.xml
