@@ -34,37 +34,41 @@ export function compactResource(resource) {
   };
 }
 
+function matchesOptionalText(values, requestedValue) {
+  if (!requestedValue) return true;
+  const requested = lower(requestedValue);
+  return values.some((value) => lower(value).includes(requested));
+}
+
+function matchesCountry(resource, requestedCountry) {
+  if (!requestedCountry) return true;
+
+  const country = lower(requestedCountry);
+  const excluded = (resource.excludedCountries ?? []).map(lower);
+  if (excluded.includes(country)) return false;
+
+  const availability = availableIn(resource).map(lower);
+  return availability.includes('worldwide')
+    || availability.some((value) => value.includes(country));
+}
+
+function matchesCompensation(resource, requestedType) {
+  return !requestedType
+    || lower(resource.compensationType) === lower(requestedType);
+}
+
 function matchesFilters(resource, input) {
-  if (input.country) {
-    const country = lower(input.country);
-    const excluded = (resource.excludedCountries ?? []).map(lower);
-    if (excluded.includes(country)) return false;
+  return matchesCountry(resource, input.country)
+    && matchesOptionalText(resource.dataTypes ?? [], input.dataType)
+    && matchesCompensation(resource, input.compensationType)
+    && matchesOptionalText([resource.entityCategory], input.category)
+    && matchesOptionalText(resource.macroCategories ?? [], input.macroCategory);
+}
 
-    const availability = availableIn(resource).map(lower);
-    if (!availability.includes('worldwide') && !availability.some((value) => value.includes(country))) {
-      return false;
-    }
-  }
-
-  if (input.dataType) {
-    const dataType = lower(input.dataType);
-    if (!(resource.dataTypes ?? []).some((value) => lower(value).includes(dataType))) return false;
-  }
-
-  if (input.compensationType && lower(resource.compensationType) !== lower(input.compensationType)) {
-    return false;
-  }
-
-  if (input.category && !lower(resource.entityCategory).includes(lower(input.category))) {
-    return false;
-  }
-
-  if (input.macroCategory) {
-    const macroCategory = lower(input.macroCategory);
-    if (!(resource.macroCategories ?? []).some((value) => lower(value).includes(macroCategory))) return false;
-  }
-
-  return true;
+function scoreToken(title, searchable, token) {
+  if (title === token) return 100;
+  if (title.includes(token)) return 20;
+  return searchable.includes(token) ? 4 : 0;
 }
 
 function scoreResource(resource, query) {
@@ -86,12 +90,10 @@ function scoreResource(resource, query) {
     resource.entitySubType,
   ].filter(Boolean).join(' '));
 
-  return tokens.reduce((score, token) => {
-    if (title === token) return score + 100;
-    if (title.includes(token)) return score + 20;
-    if (searchable.includes(token)) return score + 4;
-    return score;
-  }, 0);
+  return tokens.reduce(
+    (score, token) => score + scoreToken(title, searchable, token),
+    0,
+  );
 }
 
 export function searchCatalogue(resources, input = {}) {
