@@ -1,4 +1,9 @@
 import { enrichedResourcesWithMacro as resources } from '@/data/resources';
+import {
+  compactResource,
+  findCatalogueResource,
+  searchCatalogue,
+} from '@/lib/catalogueAgent';
 
 export const runtime = 'edge';
 
@@ -9,42 +14,6 @@ const CORS_HEADERS = {
   'Cache-Control': 'no-store',
   'Content-Signal': 'ai-train=yes, search=yes, ai-input=yes',
 };
-
-const STOP_WORDS = new Set([
-  'a', 'an', 'and', 'are', 'can', 'do', 'find', 'for', 'i', 'in', 'is', 'me',
-  'my', 'of', 'on', 'opportunities', 'opportunity', 'or', 'please', 'program',
-  'programs', 'project', 'projects', 'research', 'show', 'study', 'the', 'to',
-  'want', 'what', 'where', 'which', 'with',
-]);
-
-const lower = (value) => String(value ?? '').toLowerCase();
-
-function availableIn(resource) {
-  const values = resource.countries ?? resource.locations ?? [];
-  return values.length ? values : ['Worldwide'];
-}
-
-function canonicalUrl(resource) {
-  return resource.permalink || `https://yourselftoscience.org/resource/${resource.slug}`;
-}
-
-function compact(resource) {
-  return {
-    id: resource.id,
-    slug: resource.slug,
-    title: resource.title,
-    description: resource.description,
-    organizations: resource.organizations?.map((organization) => organization.name) ?? [],
-    dataTypes: resource.dataTypes ?? [],
-    compensationType: resource.compensationType ?? 'donation',
-    macroCategories: resource.macroCategories ?? [],
-    availableIn: availableIn(resource),
-    excludedCountries: resource.excludedCountries ?? [],
-    entityCategory: resource.entityCategory,
-    url: canonicalUrl(resource),
-    participationUrl: resource.link,
-  };
-}
 
 function extractInput(message) {
   const parts = Array.isArray(message?.parts) ? message.parts : [];
@@ -73,75 +42,6 @@ function extractInput(message) {
       ? Math.min(Math.max(structured.limit, 1), 50)
       : 10,
   };
-}
-
-function scoreResource(resource, input) {
-  let score = 0;
-  const queryTokens = lower(input.query)
-    .split(/[^a-z0-9+.-]+/)
-    .filter((token) => token && !STOP_WORDS.has(token));
-
-  const title = lower(resource.title);
-  const haystack = lower([
-    resource.title,
-    resource.description,
-    ...(resource.dataTypes ?? []),
-    ...(resource.organizations?.map((organization) => organization.name) ?? []),
-    ...availableIn(resource),
-    ...(resource.macroCategories ?? []),
-    resource.compensationType,
-    resource.entityCategory,
-    resource.entitySubType,
-  ].filter(Boolean).join(' '));
-
-  for (const token of queryTokens) {
-    if (title === token) score += 100;
-    if (title.includes(token)) score += 20;
-    if (haystack.includes(token)) score += 4;
-  }
-
-  if (input.country) {
-    const country = lower(input.country);
-    const excluded = (resource.excludedCountries ?? []).map(lower);
-    if (excluded.includes(country)) return -1;
-    const availability = availableIn(resource).map(lower);
-    if (availability.some((value) => value.includes(country))) score += 30;
-    else if (availability.includes('worldwide')) score += 15;
-    else return -1;
-  }
-
-  if (input.dataType) {
-    const wanted = lower(input.dataType);
-    if ((resource.dataTypes ?? []).some((value) => lower(value).includes(wanted))) score += 25;
-    else return -1;
-  }
-
-  if (input.compensationType) {
-    if (lower(resource.compensationType) === lower(input.compensationType)) score += 25;
-    else return -1;
-  }
-
-  if (input.category) {
-    if (lower(resource.entityCategory).includes(lower(input.category))) score += 20;
-    else return -1;
-  }
-
-  if (input.macroCategory) {
-    const wanted = lower(input.macroCategory);
-    if ((resource.macroCategories ?? []).some((value) => lower(value).includes(wanted))) score += 20;
-    else return -1;
-  }
-
-  return score;
-}
-
-function searchResources(input) {
-  return resources
-    .map((resource) => ({ resource, score: scoreResource(resource, input) }))
-    .filter(({ score }) => score >= 0)
-    .sort((left, right) => right.score - left.score || left.resource.title.localeCompare(right.resource.title))
-    .slice(0, input.limit)
-    .map(({ resource }) => compact(resource));
 }
 
 function responseMessage(text, data) {
@@ -226,9 +126,7 @@ export async function POST(request) {
   const input = extractInput(message);
 
   if (input.idOrSlug) {
-    const resource = resources.find(
-      (item) => item.id === input.idOrSlug || item.slug === input.idOrSlug,
-    );
+    const resource = findCatalogueResource(resources, input.idOrSlug);
 
     if (!resource) {
       return jsonRpcResult(
@@ -240,7 +138,7 @@ export async function POST(request) {
       );
     }
 
-    const result = compact(resource);
+    const result = compactResource(resource);
     return jsonRpcResult(
       body.id,
       responseMessage(
@@ -250,7 +148,7 @@ export async function POST(request) {
     );
   }
 
-  const results = searchResources(input);
+  const results = searchCatalogue(resources, input);
   const summary = results.length
     ? `Found ${results.length} matching Yourself to Science catalogue resource${results.length === 1 ? '' : 's'}. Catalogue records describe programmes but do not guarantee eligibility or current enrolment.\n\n${results.map((result, index) => `${index + 1}. ${result.title} — ${result.url}`).join('\n')}`
     : 'No matching catalogue resources were found. Try a broader query or remove one of the filters.';
