@@ -90,10 +90,6 @@ const nextConfig = {
             value: 'all',
           },
           {
-            key: 'Vary',
-            value: 'Accept',
-          },
-          {
             key: 'Link',
             value: agentDiscoveryLinks,
           },
