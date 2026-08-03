@@ -140,20 +140,57 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          grep -RIlE --include='*.js' --include='*.jsx' --include='*.ts' --include='*.tsx' \
-            'export const runtime[[:space:]]*=[[:space:]]*["'"']edge["'"']' src \
-            > /tmp/edge-runtime-files.txt || true
 
-          while IFS= read -r file; do
-            [ -n "$file" ] || continue
-            sed -i -E '/export const runtime[[:space:]]*=[[:space:]]*["'"']edge["'"'];?/d' "$file"
-          done < /tmp/edge-runtime-files.txt
+          node <<'NODE'
+          import fs from 'node:fs';
+          import path from 'node:path';
 
-          if grep -RInE --include='*.js' --include='*.jsx' --include='*.ts' --include='*.tsx' \
-            'export const runtime[[:space:]]*=[[:space:]]*["'"']edge["'"']' src; then
-            echo 'Unsupported Edge Runtime declarations remain.' >&2
-            exit 1
-          fi
+          const changed = [];
+          const extensions = new Set(['.js', '.jsx', '.ts', '.tsx']);
+          const declaration = /^\s*export const runtime\s*=\s*['"]edge['"];?\s*\r?\n?/gm;
+
+          function visit(directory) {
+            for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+              const fullPath = path.join(directory, entry.name);
+              if (entry.isDirectory()) {
+                visit(fullPath);
+                continue;
+              }
+              if (!extensions.has(path.extname(entry.name))) continue;
+
+              const before = fs.readFileSync(fullPath, 'utf8');
+              const after = before.replace(declaration, '');
+              if (after !== before) {
+                fs.writeFileSync(fullPath, after);
+                changed.push(fullPath);
+              }
+            }
+          }
+
+          visit('src');
+          fs.writeFileSync('/tmp/edge-runtime-files.txt', `${changed.join('\n')}${changed.length ? '\n' : ''}`);
+
+          let remaining = false;
+          function verify(directory) {
+            for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+              const fullPath = path.join(directory, entry.name);
+              if (entry.isDirectory()) {
+                verify(fullPath);
+                continue;
+              }
+              if (!extensions.has(path.extname(entry.name))) continue;
+              const content = fs.readFileSync(fullPath, 'utf8');
+              if (/export const runtime\s*=\s*['"]edge['"]/.test(content)) {
+                console.error(`Unsupported Edge Runtime declaration remains in ${fullPath}`);
+                remaining = true;
+              }
+            }
+          }
+
+          verify('src');
+          if (remaining) process.exit(1);
+          console.log(`Removed Edge Runtime declarations from ${changed.length} files.`);
+          NODE
 
       - name: Run tests and validate generated agent contracts
         run: |
