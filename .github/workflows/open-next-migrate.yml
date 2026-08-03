@@ -1,9 +1,9 @@
 name: One-shot OpenNext migration
 
 on:
-  push:
-    branches:
-      - feat/agent-ready-cloudflare
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main]
     paths:
       - .github/workflows/open-next-migrate.yml
 
@@ -12,8 +12,13 @@ permissions:
   issues: write
   pull-requests: write
 
+concurrency:
+  group: open-next-migration-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   migrate:
+    if: github.event.pull_request.number == 35
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
@@ -21,7 +26,7 @@ jobs:
       - name: Check out branch
         uses: actions/checkout@v4
         with:
-          ref: feat/agent-ready-cloudflare
+          ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
 
       - name: Report migration start
@@ -204,7 +209,7 @@ jobs:
 
           git diff --cached --check
           git commit -m "Migrate deployment to OpenNext Workers"
-          git push origin HEAD:feat/agent-ready-cloudflare
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
 
       - name: Report migration success
         env:
@@ -215,4 +220,4 @@ jobs:
         if: failure()
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh pr comment 35 --body "OpenNext migration validation failed. Failed step: \`${{ github.job }}\`. Run details: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}. No unvalidated migration changes were pushed."
+        run: gh pr comment 35 --body "OpenNext migration validation failed. Run details: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}. No unvalidated migration changes were pushed."
