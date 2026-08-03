@@ -9,10 +9,11 @@ on:
 
 permissions:
   contents: write
+  issues: write
+  pull-requests: write
 
 jobs:
   migrate:
-    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
@@ -22,6 +23,11 @@ jobs:
         with:
           ref: feat/agent-ready-cloudflare
           fetch-depth: 0
+
+      - name: Report migration start
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh pr comment 35 --body "OpenNext migration validation started for commit \`${GITHUB_SHA::7}\`. The branch will only be updated if tests, build, bundle validation, and the runtime audit pass."
 
       - name: Use Node.js 22.23.1
         uses: actions/setup-node@v4
@@ -199,3 +205,14 @@ jobs:
           git diff --cached --check
           git commit -m "Migrate deployment to OpenNext Workers"
           git push origin HEAD:feat/agent-ready-cloudflare
+
+      - name: Report migration success
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh pr comment 35 --body "OpenNext migration validation passed and the validated migration commit was pushed. GitHub security checks will now run against the migrated branch."
+
+      - name: Report migration failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh pr comment 35 --body "OpenNext migration validation failed. Failed step: \`${{ github.job }}\`. Run details: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}. No unvalidated migration changes were pushed."
