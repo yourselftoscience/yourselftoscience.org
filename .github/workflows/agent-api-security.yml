@@ -39,13 +39,13 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: '22.23.1'
-          cache: npm
+          package-manager-cache: false
 
       - name: Install locked dependencies
         run: npm ci
@@ -129,3 +129,20 @@ jobs:
 
       - name: Enforce runtime dependency audit
         run: node scripts/enforceRuntimeAudit.js npm-audit-runtime.json npm-audit-full.json
+
+      - name: Enforce build dependency audit
+        run: |
+          node <<'NODE'
+          import fs from 'node:fs';
+
+          const audit = JSON.parse(fs.readFileSync('npm-audit-full.json', 'utf8'));
+          const counts = audit.metadata?.vulnerabilities || {};
+          const high = Number(counts.high || 0);
+          const critical = Number(counts.critical || 0);
+
+          if (high > 0 || critical > 0) {
+            throw new Error(`Build dependency audit contains ${high} high and ${critical} critical findings.`);
+          }
+
+          console.log('Build dependency audit has no high or critical findings.');
+          NODE
