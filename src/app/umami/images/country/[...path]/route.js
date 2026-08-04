@@ -1,5 +1,3 @@
-export const runtime = 'edge';
-
 export async function GET(request, { params }) {
   const imagePath = (params && Array.isArray(params.path)) ? params.path.join('/') : '';
 

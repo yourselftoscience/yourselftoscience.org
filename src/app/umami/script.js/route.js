@@ -1,6 +1,4 @@
 const UPSTREAM_SCRIPT_URL = 'https://cloud.umami.is/script.js';
-
-export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 export async function GET(request) {

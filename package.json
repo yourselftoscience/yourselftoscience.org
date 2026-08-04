@@ -17,7 +17,7 @@
     "prebuild:generate": "npm run update-ontology && npm run update-sitemap && npm run update-csv && npm run update-json && npm run update-idmap && npm run update-markdown && npm run update-rdf && npm run update-void && npm run update-llms && npm run update-openapi && npm run extend-openapi && npm run update-datapackage && npm run validate-agent-artifacts",
     "build": "next build",
     "postbuild": "node scripts/updatePdfPage.js || echo 'PDF generation failed, continuing deployment'",
-    "deploy": "next-on-pages",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "start": "next start",
     "test": "node --test",
     "lint": "next lint",
@@ -38,48 +38,46 @@
     "validate-agent-artifacts": "node scripts/validateAgentArtifacts.js",
     "update-datapackage": "node scripts/generateDataPackage.js",
     "update-void": "node scripts/generateVoid.js",
-    "update-badge-logo": "node scripts/updateBadgeLogo.js"
+    "update-badge-logo": "node scripts/updateBadgeLogo.js",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
-  "browserslist": ["defaults"],
+  "browserslist": [
+    "defaults"
+  ],
   "dependencies": {
     "@headlessui/react": "^2.2.2",
     "@vercel/analytics": "^1.5.0",
     "country-list": "^2.4.1",
     "framer-motion": "^11.11.1",
-    "next": "^14.2.35",
+    "next": "15.5.22",
     "prop-types": "^15.8.1",
-    "react": "^18.2.0",
+    "react": "19.2.8",
     "react-country-flag": "^3.1.0",
-    "react-dom": "^18.2.0",
+    "react-dom": "19.2.8",
     "react-icons": "^5.5.0",
     "react-select": "^5.8.1",
     "resend": "^4.6.0"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "1.13.0",
     "@eslint/config-array": "^0.18.0",
     "@eslint/object-schema": "^2.1.4",
     "@jridgewell/sourcemap-codec": "^1.5.0",
+    "@opennextjs/cloudflare": "1.20.2",
     "@rollup/plugin-inject": "^5.0.5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "@vercel/fun": "^1.1.1",
-    "@vercel/node": "^3.2.23",
-    "@vercel/redwood": "^2.1.8",
-    "@vercel/routing-utils": "^4.0.0",
-    "@vercel/static-build": "^1.2.1",
+    "@types/node": "^22.20.1",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
     "autoprefixer": "^10.4.21",
     "chokidar": "^3.5.3",
     "concurrently": "^9.1.2",
     "debug": "^4.3.7",
-    "editorconfig-tools": "^0.1.1",
     "esbuild": "^0.25.0",
     "eslint": "^8.57.0",
-    "eslint-config-next": "^14.2.5",
+    "eslint-config-next": "15.5.22",
     "glob": "^11.1.0",
     "globstar": "^1.0.0",
-    "hint": "^7.1.13",
     "lodash": "^4.17.21",
     "node-fetch": "^2.6.7",
     "npm-run-all": "^4.1.5",
@@ -91,14 +89,17 @@
     "tar": "^7.4.3",
     "typescript": "^5",
     "uuid": "^11.0.0",
-    "vercel": "^37.11.0",
-    "wrangler": "^3.28.2"
+    "wrangler": "4.114.0"
   },
   "overrides": {
     "glob": "^11.1.0",
     "js-yaml": "^4.1.0",
     "cookie": "^0.7.0",
     "@babel/runtime": "^7.26.0",
-    "undici": "^6.19.2"
+    "undici": "^6.19.2",
+    "next": {
+      "postcss": "8.5.23",
+      "sharp": "0.35.3"
+    }
   }
 }

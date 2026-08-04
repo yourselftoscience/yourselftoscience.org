@@ -1,6 +1,4 @@
 import { json, loadResources, options, serviceUnavailable } from '@/lib/agentApi';
-
-export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 export function OPTIONS() { return options(); }

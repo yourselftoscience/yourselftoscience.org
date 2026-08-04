@@ -1,7 +1,5 @@
 const UPSTREAM_EVENT_URL = 'https://cloud.umami.is/api/send';
 const MAX_EVENT_BYTES = 64 * 1024;
-
-export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 async function readLimitedBody(request) {

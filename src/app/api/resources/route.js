@@ -9,8 +9,6 @@ import {
   serviceUnavailable,
   summarize,
 } from '@/lib/agentApi';
-
-export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 export function OPTIONS() { return options(); }
