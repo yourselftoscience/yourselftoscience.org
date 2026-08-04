@@ -1,0 +1,87 @@
+name: Build dependency remediation
+
+on:
+  pull_request:
+    types:
+      - ready_for_review
+
+permissions:
+  contents: write
+
+jobs:
+  remediate:
+    if: github.event.pull_request.number == 35
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Use Node.js 22.23.1
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.23.1
+          cache: npm
+
+      - name: Pin patched build dependencies
+        run: |
+          node <<'NODE'
+          import fs from 'node:fs';
+
+          const path = 'package.json';
+          const pkg = JSON.parse(fs.readFileSync(path, 'utf8'));
+
+          pkg.devDependencies.postcss = '8.5.23';
+          pkg.devDependencies.tar = '7.5.21';
+          pkg.overrides ||= {};
+          pkg.overrides['brace-expansion@<1.1.18'] = '1.1.18';
+          pkg.overrides['brace-expansion@>=2.0.0 <2.1.4'] = '2.1.4';
+          pkg.overrides['brace-expansion@>=4.0.0 <5.0.9'] = '5.0.9';
+          pkg.overrides['ip-address@<=10.3.0'] = '10.3.1';
+
+          fs.writeFileSync(path, `${JSON.stringify(pkg, null, 2)}\n`);
+          NODE
+
+          npm install
+
+      - name: Require a clean full dependency audit
+        run: npm audit
+
+      - name: Run tests and generated-contract validation
+        run: |
+          npm test
+          npm run update-openapi
+          npm run extend-openapi
+          npm run validate-agent-artifacts
+
+      - name: Build and validate OpenNext Worker
+        env:
+          NEXTJS_ENV: production
+          NEXT_TELEMETRY_DISABLED: '1'
+        run: |
+          npx opennextjs-cloudflare build
+          npx wrangler deploy --dry-run --outdir .wrangler-dry-run 2>&1 | tee wrangler-dry-run.log
+
+          node <<'NODE'
+          import fs from 'node:fs';
+          const log = fs.readFileSync('wrangler-dry-run.log', 'utf8');
+          const match = log.match(/gzip:\s*([0-9.]+)\s*(KiB|MiB)/i);
+          if (!match) throw new Error('Could not determine compressed Worker size.');
+          const value = Number(match[1]);
+          const kib = match[2].toLowerCase() === 'mib' ? value * 1024 : value;
+          if (kib > 3072) throw new Error(`Compressed Worker exceeds 3 MiB: ${kib.toFixed(2)} KiB`);
+          console.log(`Compressed Worker size: ${kib.toFixed(2)} KiB`);
+          NODE
+
+      - name: Commit validated dependency remediation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json
+          git diff --cached --check
+          git commit -m "Remediate build dependency vulnerabilities"
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
