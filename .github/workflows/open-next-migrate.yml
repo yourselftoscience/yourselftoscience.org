@@ -72,6 +72,12 @@ jobs:
           pkg.scripts.deploy = 'opennextjs-cloudflare build && opennextjs-cloudflare deploy';
           pkg.scripts.upload = 'opennextjs-cloudflare build && opennextjs-cloudflare upload';
           pkg.scripts['cf-typegen'] = 'wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts';
+          pkg.overrides ||= {};
+          pkg.overrides.next = {
+            ...(typeof pkg.overrides.next === 'object' ? pkg.overrides.next : {}),
+            postcss: '8.5.23',
+            sharp: '0.35.3',
+          };
           fs.writeFileSync(packagePath, `${JSON.stringify(pkg, null, 2)}\n`);
 
           const nextConfigPath = 'next.config.mjs';
@@ -96,7 +102,20 @@ jobs:
             headers += `${headers.endsWith('\n') ? '' : '\n'}\n# -- OPENNEXT IMMUTABLE BUILD ASSETS --\n/_next/static/*\n  Cache-Control: public,max-age=31536000,immutable\n`;
             fs.writeFileSync(headersPath, headers);
           }
+
+          const statsPath = 'src/app/stats/page.js';
+          const statsBefore = fs.readFileSync(statsPath, 'utf8');
+          const statsAfter = statsBefore.replace(
+            /(\n\s*dataTypesDistribution,\s*\r?\n)\s*dataTypesDistribution,\s*\r?\n/,
+            '$1'
+          );
+          if (statsAfter === statsBefore) {
+            throw new Error('Expected adjacent duplicate dataTypesDistribution key was not found.');
+          }
+          fs.writeFileSync(statsPath, statsAfter);
           NODE
+
+          npm install
 
           cat > wrangler.jsonc <<'EOF'
           {
@@ -225,7 +244,8 @@ jobs:
             open-next.config.ts \
             .gitignore \
             .dev.vars.example \
-            public/_headers
+            public/_headers \
+            src/app/stats/page.js
 
           while IFS= read -r file; do
             [ -n "$file" ] && git add "$file"
