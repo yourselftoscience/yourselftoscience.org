@@ -1683,7 +1683,6 @@ export const rawResources = [
     "compensationType": "donation",
     "entityCategory": "Commercial",
     "entitySubType": "Commercial",
-    "entitySubType": "Commercial",
     "description": "Participate in research to help understand human history, health, and genetics by sharing your DNA data and survey responses.",
     "eligibility": "Customers",
     "citations": []

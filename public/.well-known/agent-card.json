@@ -1,0 +1,61 @@
+{
+  "name": "Yourself to Science Catalogue Agent",
+  "description": "Read-only discovery service for finding citizen-science, biobank, health-data, genomic-data, and biological-sample contribution opportunities.",
+  "url": "https://yourselftoscience.org",
+  "version": "1.1.0",
+  "provider": {
+    "organization": "Yourself to Science",
+    "url": "https://yourselftoscience.org"
+  },
+  "documentationUrl": "https://yourselftoscience.org/ai",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "constraints": {
+    "readOnly": true,
+    "maximumQueryLength": 256,
+    "maximumPageSize": 100,
+    "strictBooleanParameters": true
+  },
+  "defaultInputModes": ["application/json", "text/plain"],
+  "defaultOutputModes": ["application/json"],
+  "authentication": {
+    "schemes": ["none"]
+  },
+  "skills": [
+    {
+      "id": "search-science-contribution-opportunities",
+      "name": "Search contribution opportunities",
+      "description": "Search and filter the public catalogue by text, country, data type, compensation, category, recruitment status, API availability, and open-data status.",
+      "tags": ["citizen science", "biobank", "genomics", "health data", "open science"],
+      "examples": [
+        "Find actively recruiting genome donation projects available in Italy",
+        "List open-data citizen-science resources with an API"
+      ]
+    },
+    {
+      "id": "get-catalogue-resource",
+      "name": "Get catalogue resource",
+      "description": "Retrieve a complete catalogue record by stable ID or slug.",
+      "tags": ["resource", "metadata", "provenance"]
+    },
+    {
+      "id": "inspect-catalogue-facets",
+      "name": "Inspect catalogue facets",
+      "description": "Retrieve available countries, data types, compensation types, categories, and recruitment-status counts.",
+      "tags": ["facets", "filters", "statistics"]
+    }
+  ],
+  "endpoints": {
+    "openapi": "https://yourselftoscience.org/openapi.json",
+    "mcp": "https://mcp.yourselftoscience.org/mcp",
+    "resources": "https://yourselftoscience.org/api/resources",
+    "facets": "https://yourselftoscience.org/api/facets",
+    "health": "https://yourselftoscience.org/api/health",
+    "llms": "https://yourselftoscience.org/llms.txt",
+    "llmsFull": "https://yourselftoscience.org/llms-full.txt"
+  },
+  "license": "CC0-1.0"
+}

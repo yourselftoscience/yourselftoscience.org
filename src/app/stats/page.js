@@ -151,7 +151,6 @@ const StatsPage = () => {
             topCountries,
             topOrigins,
             dataTypesDistribution,
-            dataTypesDistribution,
             compensationDistribution,
             entityTypeDistribution,
         };

@@ -37,3 +37,6 @@ next-env.d.ts
 *.swp
 
 mcp/key.pem
+/.open-next/
+.dev.vars
+cloudflare-env.d.ts

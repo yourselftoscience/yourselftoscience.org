@@ -10,11 +10,18 @@ const UUID_REGEX = /^[A-Za-z0-9]{8}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}
 // Build an in-process id -> slug map at edge init time (no network calls)
 const ID_TO_SLUG = (() => {
   const map = new Map();
-  for (const r of resources) {
-    if (r.id && r.slug) map.set(r.id, r.slug);
+  for (const resource of resources) {
+    if (resource.id && resource.slug) map.set(resource.id, resource.slug);
   }
   return map;
 })();
+
+function noStoreRedirect(url, status = 308) {
+  const response = NextResponse.redirect(url, status);
+  response.headers.set('Cache-Control', 'private, no-store');
+  response.headers.set('Vary', 'x-nextjs-data');
+  return response;
+}
 
 export async function middleware(request) {
   const host = request.headers.get('host');
@@ -34,15 +41,15 @@ export async function middleware(request) {
       if (UUID_REGEX.test(idCandidate)) {
         const slug = ID_TO_SLUG.get(idCandidate);
         if (slug) {
-          return NextResponse.redirect(new URL(`/resource/${slug}`, 'https://yourselftoscience.org'), 308);
+          return noStoreRedirect(new URL(`/resource/${slug}`, 'https://yourselftoscience.org'));
         }
       }
       // If it's not a UUID or not found, fall through to main domain root
-      return NextResponse.redirect(new URL('/', 'https://yourselftoscience.org'), 308);
+      return noStoreRedirect(new URL('/', 'https://yourselftoscience.org'));
     }
 
     // Redirect all other paths on id.* to the main domain root to avoid mirroring
-    return NextResponse.redirect(new URL('/', 'https://yourselftoscience.org'), 308);
+    return noStoreRedirect(new URL('/', 'https://yourselftoscience.org'));
   }
 
   // 2) On the main domain, redirect /resource/<uuid> to /resource/<slug>
@@ -53,7 +60,7 @@ export async function middleware(request) {
       const slug = ID_TO_SLUG.get(idOrSlug);
       if (slug) {
         // Preserve the current host in case of custom domains/aliases
-        return NextResponse.redirect(new URL(`/resource/${slug}`, `https://${host}`), 308);
+        return noStoreRedirect(new URL(`/resource/${slug}`, `https://${host}`));
       }
     }
   }

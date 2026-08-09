@@ -1,0 +1,5 @@
+NEXTJS_ENV="development"
+RESEND_API_KEY="replace-with-local-secret"
+MAILCHIMP_API_KEY="replace-with-local-secret"
+MAILCHIMP_AUDIENCE_ID="replace-with-local-secret"
+MAILCHIMP_SERVER_PREFIX="replace-with-local-secret"
