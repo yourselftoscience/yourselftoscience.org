@@ -1,14 +1,13 @@
 import ObjectData from '@/../public/resources_wikidata.json';
 import { logoSvgContent } from '@/data/badgeLogo';
 
-export const runtime = 'edge';
-
 // Optionally statically generate standard badges
 export async function generateStaticParams() {
   return ObjectData.map((resource) => ({ slug: resource.id }));
 }
 
 export async function GET(request, { params }) {
+  params = await params;
   const { slug } = params;
   const resource = ObjectData.find(r => r.slug === slug || r.id === slug);
 

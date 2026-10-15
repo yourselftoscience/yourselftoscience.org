@@ -1,6 +1,5 @@
-export const runtime = 'edge';
-
 export async function GET(request, { params }) {
+  params = await params;
   const url = new URL(request.url);
   const suffix = '/' + ((params && Array.isArray(params.path)) ? params.path.join('/') : '');
   const upstreamUrl = `https://eu.umami.is/share${suffix}${url.search}`;

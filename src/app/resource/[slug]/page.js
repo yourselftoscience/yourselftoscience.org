@@ -22,6 +22,7 @@ export async function generateStaticParams() {
 export const dynamicParams = false;
 
 export async function generateMetadata({ params }) {
+  params = await params;
   const resource = resources.find(p => p.slug === params.slug || p.id === params.slug);
 
   if (!resource) {
@@ -65,7 +66,8 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function ResourcePage({ params }) {
+export default async function ResourcePage({ params }) {
+  params = await params;
   const resource = resources.find(p => p.slug === params.slug || p.id === params.slug);
 
   if (!resource) {
