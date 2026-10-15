@@ -36,13 +36,17 @@ branch `main`). The existing `yourselftoscience-web` Worker uses a different
 branch with additional agent API work. Do not overwrite that branch or move
 live domains as a side effect of merging this change.
 
-1. Deploy this revision to an isolated Worker preview with `npm run upload`.
+1. Deploy this revision to an isolated Worker preview, using an explicit
+   `--name` override with the OpenNext CLI. The configuration defaults to the
+   new `yourselftoscience-catalogue` Worker; it never overwrites the existing
+   `yourselftoscience-web` service. A verified preview is available at
+   https://yourselftoscience-security-20261015.cor-ling.workers.dev .
 2. Compare HTML/RSC navigation, catalogue exports, UUID redirects, badges,
    analytics, and contact/subscription behavior against Pages. Confirm the
    runtime variables required by Resend and Mailchimp are available without
    displaying secret values. Test providers in a controlled environment.
-3. Configure the replacement Worker build to use this revision and the
-   OpenNext deploy command, preserving any required agent API changes.
+3. Configure the new catalogue Worker build to use this revision and the
+   OpenNext deploy command. Leave the separate agent API Worker unchanged.
 4. Move the existing public domains only after the preview passes. Check
    `yourselftoscience.org` and `.com` explicitly. If enabling the identifier
    host (currently not resolving), verify its canonical redirects too.
@@ -60,3 +64,10 @@ Tailwind 3 and ESLint tooling. These are not Next.js runtime dependencies.
 Do not run builds on untrusted source with production credentials. Updating
 Tailwind's major version is a separate compatibility change, not an audit
 suppression or a substitute for patching the deployed framework.
+
+The isolated preview has no provider credentials. Production Pages holds four
+required secrets: `RESEND_API_KEY`, `MAILCHIMP_API_KEY`,
+`MAILCHIMP_AUDIENCE_ID`, and `MAILCHIMP_SERVER_PREFIX`. They are encrypted and
+cannot be recovered from the dashboard. An authorized operator must supply them
+to the replacement Worker before cutover; do not print them, commit them, or
+route contact/newsletter traffic to a Worker lacking them.

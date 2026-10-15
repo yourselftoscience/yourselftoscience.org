@@ -20,6 +20,7 @@ integration('Worker serves catalogue HTML, downloads, and security headers', asy
   assert.match(await page.text(), /Yourself to Science/);
   const data = await request('/resources.json');
   assert.equal(data.status, 200);
+  assert.equal(data.headers.get('access-control-allow-origin'), '*');
   assert.equal((await data.json()).length, resources.length);
   const detail = await request(`/resource/${resource.slug}`);
   assert.equal(detail.status, 200);
@@ -36,7 +37,7 @@ integration('UUID redirect survives spoofed middleware and RSC headers without p
   for (const headers of [{}, { 'x-middleware-subrequest': 'src/middleware:src/middleware:src/middleware:src/middleware:src/middleware' }, { rsc: '1', 'next-router-prefetch': '1', 'x-nextjs-data': '1' }]) {
     const response = await request(path, { headers });
     assert.equal(response.status, 308);
-    assert.equal(new URL(response.headers.get('location')).pathname, `/resource/${resource.slug}`);
+    assert.equal(new URL(response.headers.get('location'), base).pathname, `/resource/${resource.slug}`);
   }
   const ordinary = await request(`/resource/${resource.slug}`);
   assert.equal(ordinary.status, 200);
@@ -60,8 +61,11 @@ integration('dynamic badges and API validation keep their response contracts', a
 });
 
 // fetch may replace Host; raw HTTP exercises the actual middleware host branch.
-integration('identifier host redirects application pages and public exports', async () => {
-  if (new URL(base).protocol !== 'http:') return;
+integration('identifier host redirects application pages and public exports', async (t) => {
+  if (new URL(base).protocol !== 'http:') {
+    t.skip('Host override is tested against the local Worker, not shared Cloudflare TLS ingress');
+    return;
+  }
   for (const path of ['/data', '/resources.json', '/robots.txt']) {
     const response = await new Promise((resolve, reject) => {
       const req = http.get(new URL(path, base), { headers: { host: 'id.yourselftoscience.org' } }, res => {
