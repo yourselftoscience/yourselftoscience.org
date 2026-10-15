@@ -1,5 +1,6 @@
 import { writeFileSync } from 'fs';
 import { join } from 'path';
+import { catalogueId, catalogueUrl, registryUrl, softwareArchiveUrl } from '../src/data/catalogueMetadata.js';
 
 const outputPath = join(process.cwd(), 'public/datapackage.json');
 
@@ -7,14 +8,11 @@ const dataPackage = {
   "name": "yourself-to-science",
   "title": "Yourself to Science - Open Citizen Science Resources",
   "description": "Yourself to Science™ is an open-source project providing a comprehensive list of services that allow individuals to contribute to scientific research with their biological and digital selves.",
-  "homepage": "https://yourselftoscience.org",
-  "id": "https://doi.org/10.5281/zenodo.15109359",
-  "identifiers": [
-    {
-      "type": "doi",
-      "value": "10.25504/FAIRsharing.d3d487",
-      "title": "FAIRsharing registry record"
-    }
+  "homepage": catalogueUrl,
+  "id": catalogueId,
+  "sources": [
+    { "title": "Yourself to Science software archive", "path": softwareArchiveUrl },
+    { "title": "FAIRsharing registry record", "path": registryUrl }
   ],
   "licenses": [
     {

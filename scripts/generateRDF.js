@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { join } from 'path';
+import { catalogueId, catalogueUrl, registryUrl, softwareArchiveUrl } from '../src/data/catalogueMetadata.js';
 
 const outputPath = join(process.cwd(), 'public/resources.ttl');
 const jsonPath = join(process.cwd(), 'public/resources_wikidata.json');
@@ -36,6 +37,14 @@ try {
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix yts: <https://yourselftoscience.org/ontology#> .
 
+<${catalogueId}> a schema:Dataset ;
+  schema:name "Yourself to Science Open Dataset" ;
+  schema:url <${catalogueUrl}> ;
+  schema:identifier <${catalogueId}> ;
+  schema:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+  schema:subjectOf <${registryUrl}> ;
+  schema:citation <${softwareArchiveUrl}> .
+
 yts:compensationWikidataId a rdfs:Property ;
   rdfs:label "compensation Wikidata ID" ;
   rdfs:comment "The Wikidata QID corresponding to the compensation type." ;
@@ -47,6 +56,7 @@ yts:compensationWikidataId a rdfs:Property ;
   wikidataResources.forEach(resource => {
     const resourceUri = `<${BASE_URI}${resource.id}>`;
     ttlContent += `${resourceUri} a schema:Dataset ;\n`;
+    ttlContent += `  schema:isPartOf <${catalogueId}> ;\n`;
     ttlContent += `  schema:identifier "${resource.id}" ;\n`;
     ttlContent += `  schema:mainEntityOfPage <${BASE_URI}${resource.id}> ;\n`;
     

@@ -3,6 +3,14 @@
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix yts: <https://yourselftoscience.org/ontology#> .
 
+<https://yourselftoscience.org/resources.ttl#dataset> a schema:Dataset ;
+  schema:name "Yourself to Science Open Dataset" ;
+  schema:url <https://yourselftoscience.org/data> ;
+  schema:identifier <https://yourselftoscience.org/resources.ttl#dataset> ;
+  schema:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+  schema:subjectOf <https://doi.org/10.25504/FAIRsharing.d3d487> ;
+  schema:citation <https://doi.org/10.5281/zenodo.15109359> .
+
 yts:compensationWikidataId a rdfs:Property ;
   rdfs:label "compensation Wikidata ID" ;
   rdfs:comment "The Wikidata QID corresponding to the compensation type." ;
@@ -10,6 +18,7 @@ yts:compensationWikidataId a rdfs:Property ;
   schema:rangeIncludes schema:URL .
 
 <https://yourselftoscience.org/resource/c20e8f39-d20a-4006-a660-689d1f65b352> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "c20e8f39-d20a-4006-a660-689d1f65b352" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/c20e8f39-d20a-4006-a660-689d1f65b352> ;
   schema:sameAs <https://yourselftoscience.org/resource/living-dna-research> ;
@@ -23,6 +32,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/ffd02d96-c153-448b-ad19-353badefcf3b> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "ffd02d96-c153-448b-ad19-353badefcf3b" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/ffd02d96-c153-448b-ad19-353badefcf3b> ;
   schema:sameAs <https://yourselftoscience.org/resource/genomeconnect> ;
@@ -40,6 +50,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/667f25be-9ff2-4e7a-9119-78f2eb61a801> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "667f25be-9ff2-4e7a-9119-78f2eb61a801" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/667f25be-9ff2-4e7a-9119-78f2eb61a801> ;
   schema:sameAs <https://yourselftoscience.org/resource/open-humans> ;
@@ -60,6 +71,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/6b75822f-2f88-4660-9304-122709d3161f> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "6b75822f-2f88-4660-9304-122709d3161f" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/6b75822f-2f88-4660-9304-122709d3161f> ;
   schema:sameAs <https://yourselftoscience.org/resource/familytreedna-group-projects> ;
@@ -75,6 +87,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/66700d6e-cbc9-40ab-8bf9-eb466844ad52> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "66700d6e-cbc9-40ab-8bf9-eb466844ad52" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/66700d6e-cbc9-40ab-8bf9-eb466844ad52> ;
   schema:sameAs <https://yourselftoscience.org/resource/myphd> ;
@@ -91,6 +104,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/095034ef-732e-45c6-ad16-54c29c7ba408> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "095034ef-732e-45c6-ad16-54c29c7ba408" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/095034ef-732e-45c6-ad16-54c29c7ba408> ;
   schema:sameAs <https://yourselftoscience.org/resource/google-health-studies> ;
@@ -105,6 +119,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/2c7f3ca9-4d4b-41e2-93e2-b0f06bc11cb3> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "2c7f3ca9-4d4b-41e2-93e2-b0f06bc11cb3" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/2c7f3ca9-4d4b-41e2-93e2-b0f06bc11cb3> ;
   schema:sameAs <https://yourselftoscience.org/resource/apple-research> ;
@@ -120,6 +135,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/e9b2a7d1-5c1a-4d2c-8bf5-f9aee315ebd0> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "e9b2a7d1-5c1a-4d2c-8bf5-f9aee315ebd0" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/e9b2a7d1-5c1a-4d2c-8bf5-f9aee315ebd0> ;
   schema:sameAs <https://yourselftoscience.org/resource/harvard-pgp> ;
@@ -137,6 +153,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/e2ba7d15-5c1a-4d2c-8bf5-f9aee315ebd0> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "e2ba7d15-5c1a-4d2c-8bf5-f9aee315ebd0" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/e2ba7d15-5c1a-4d2c-8bf5-f9aee315ebd0> ;
   schema:sameAs <https://yourselftoscience.org/resource/genes-for-good> ;
@@ -153,6 +170,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/3b7e801f-1e45-4c2f-8631-edac7b61743a> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "3b7e801f-1e45-4c2f-8631-edac7b61743a" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/3b7e801f-1e45-4c2f-8631-edac7b61743a> ;
   schema:sameAs <https://yourselftoscience.org/resource/all-of-us> ;
@@ -169,6 +187,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/a86ef2b7-fe73-43dd-9f36-356b6b9c861d> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "a86ef2b7-fe73-43dd-9f36-356b6b9c861d" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/a86ef2b7-fe73-43dd-9f36-356b6b9c861d> ;
   schema:sameAs <https://yourselftoscience.org/resource/fitbit-research> ;
@@ -180,6 +199,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/ff09caec-9a1a-464c-bc8c-009b745ed64a> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "ff09caec-9a1a-464c-bc8c-009b745ed64a" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/ff09caec-9a1a-464c-bc8c-009b745ed64a> ;
   schema:sameAs <https://yourselftoscience.org/resource/spark-for-autism> ;
@@ -196,6 +216,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/fa3b7b34-7149-4eae-b7da-1ce31650897f> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "fa3b7b34-7149-4eae-b7da-1ce31650897f" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/fa3b7b34-7149-4eae-b7da-1ce31650897f> ;
   schema:sameAs <https://yourselftoscience.org/resource/ubc-body-donation> ;
@@ -209,6 +230,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/04687f4b-6a45-4d0b-9c92-5487b22f0101> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "04687f4b-6a45-4d0b-9c92-5487b22f0101" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/04687f4b-6a45-4d0b-9c92-5487b22f0101> ;
   schema:sameAs <https://yourselftoscience.org/resource/cambridge-body-tissue-donation> ;
@@ -224,6 +246,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/a358a59c-91fd-4cc3-b971-366b05c1450e> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "a358a59c-91fd-4cc3-b971-366b05c1450e" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/a358a59c-91fd-4cc3-b971-366b05c1450e> ;
   schema:sameAs <https://yourselftoscience.org/resource/italy-body-tissue-donation> ;
@@ -238,6 +261,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/6f6f3a6c-8c92-4f47-a75f-8d2e99e8cec0> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "6f6f3a6c-8c92-4f47-a75f-8d2e99e8cec0" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/6f6f3a6c-8c92-4f47-a75f-8d2e99e8cec0> ;
   schema:sameAs <https://yourselftoscience.org/resource/france-body-donation> ;
@@ -251,6 +275,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/b3dc517e-3359-4720-99f3-7fa1928012b2> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "b3dc517e-3359-4720-99f3-7fa1928012b2" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/b3dc517e-3359-4720-99f3-7fa1928012b2> ;
   schema:sameAs <https://yourselftoscience.org/resource/uk-gamete-donation> ;
@@ -266,6 +291,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/d481c16f-c10c-415b-91d0-24dbf4c1ffbb> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "d481c16f-c10c-415b-91d0-24dbf4c1ffbb" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/d481c16f-c10c-415b-91d0-24dbf4c1ffbb> ;
   schema:sameAs <https://yourselftoscience.org/resource/clinicaltrials-gov> ;
@@ -279,6 +305,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/1d837bcd-3582-4a8e-b7f2-6daeb6ee4639> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "1d837bcd-3582-4a8e-b7f2-6daeb6ee4639" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/1d837bcd-3582-4a8e-b7f2-6daeb6ee4639> ;
   schema:sameAs <https://yourselftoscience.org/resource/who-ictrp> ;
@@ -292,6 +319,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/aaf2c81c-7ac8-4d47-9b5b-ea6567b1fb6d> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "aaf2c81c-7ac8-4d47-9b5b-ea6567b1fb6d" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/aaf2c81c-7ac8-4d47-9b5b-ea6567b1fb6d> ;
   schema:sameAs <https://yourselftoscience.org/resource/eu-clinical-trials-register> ;
@@ -309,6 +337,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/4a9f519b-a804-4210-adac-3dfcb88b2ac4> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "4a9f519b-a804-4210-adac-3dfcb88b2ac4" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/4a9f519b-a804-4210-adac-3dfcb88b2ac4> ;
   schema:sameAs <https://yourselftoscience.org/resource/ectin-poland> ;
@@ -324,6 +353,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/024ad742-b735-40dc-a5e8-2b6dbfb6bebc> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "024ad742-b735-40dc-a5e8-2b6dbfb6bebc" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/024ad742-b735-40dc-a5e8-2b6dbfb6bebc> ;
   schema:sameAs <https://yourselftoscience.org/resource/curewiki> ;
@@ -341,6 +371,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/e4e6750d-cb2f-4aff-84f3-55a53deacb79> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "e4e6750d-cb2f-4aff-84f3-55a53deacb79" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/e4e6750d-cb2f-4aff-84f3-55a53deacb79> ;
   schema:sameAs <https://yourselftoscience.org/resource/esperity-clinical-trials> ;
@@ -363,6 +394,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/aef3da52-dda0-4b1c-93cd-dce266178e9e> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "aef3da52-dda0-4b1c-93cd-dce266178e9e" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/aef3da52-dda0-4b1c-93cd-dce266178e9e> ;
   schema:sameAs <https://yourselftoscience.org/resource/researchmatch> ;
@@ -378,6 +410,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/8d828bb1-8f1c-40c6-a0b4-61de7da7c116> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "8d828bb1-8f1c-40c6-a0b4-61de7da7c116" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/8d828bb1-8f1c-40c6-a0b4-61de7da7c116> ;
   schema:sameAs <https://yourselftoscience.org/resource/flucamp> ;
@@ -395,6 +428,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093 .
 
 <https://yourselftoscience.org/resource/059571fa-f8ab-4eea-a8fd-f6980b3b062f> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "059571fa-f8ab-4eea-a8fd-f6980b3b062f" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/059571fa-f8ab-4eea-a8fd-f6980b3b062f> ;
   schema:sameAs <https://yourselftoscience.org/resource/healthstreet> ;
@@ -410,6 +444,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/7d4ce480-7262-4ca8-9674-cbd3cd9cbecf> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "7d4ce480-7262-4ca8-9674-cbd3cd9cbecf" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/7d4ce480-7262-4ca8-9674-cbd3cd9cbecf> ;
   schema:sameAs <https://yourselftoscience.org/resource/goodnature-program> ;
@@ -425,6 +460,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093 .
 
 <https://yourselftoscience.org/resource/7de4a0e5-680d-44a4-896e-623a58982aa6> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "7de4a0e5-680d-44a4-896e-623a58982aa6" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/7de4a0e5-680d-44a4-896e-623a58982aa6> ;
   schema:sameAs <https://yourselftoscience.org/resource/lifeblood-microbiome> ;
@@ -438,6 +474,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/c9530d1f-97a4-496a-99b8-7e81461c1545> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "c9530d1f-97a4-496a-99b8-7e81461c1545" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/c9530d1f-97a4-496a-99b8-7e81461c1545> ;
   schema:sameAs <https://yourselftoscience.org/resource/wesley-stool-donation> ;
@@ -451,6 +488,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/b1fd6fb3-c668-44d4-9f7e-00b2fd28878d> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "b1fd6fb3-c668-44d4-9f7e-00b2fd28878d" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/b1fd6fb3-c668-44d4-9f7e-00b2fd28878d> ;
   schema:sameAs <https://yourselftoscience.org/resource/wesley-placenta-donation> ;
@@ -464,6 +502,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/b4a5c0ef-ea7d-4a5a-967a-3b5c32c170f7> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "b4a5c0ef-ea7d-4a5a-967a-3b5c32c170f7" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/b4a5c0ef-ea7d-4a5a-967a-3b5c32c170f7> ;
   schema:sameAs <https://yourselftoscience.org/resource/wroclaw-hair-decomposition> ;
@@ -480,6 +519,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/baedc14c-bcb0-4232-b91e-7a2b6707945f> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "baedc14c-bcb0-4232-b91e-7a2b6707945f" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/baedc14c-bcb0-4232-b91e-7a2b6707945f> ;
   schema:sameAs <https://yourselftoscience.org/resource/ucsf-social-media-archive> ;
@@ -492,6 +532,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/c0b87e00-d562-4262-8781-85611e98614d> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "c0b87e00-d562-4262-8781-85611e98614d" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/c0b87e00-d562-4262-8781-85611e98614d> ;
   schema:sameAs <https://yourselftoscience.org/resource/penn-medicine-donate-your-data> ;
@@ -510,6 +551,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093 .
 
 <https://yourselftoscience.org/resource/d77081db-67ad-45b3-a62a-bd12126ba780> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "d77081db-67ad-45b3-a62a-bd12126ba780" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/d77081db-67ad-45b3-a62a-bd12126ba780> ;
   schema:sameAs <https://yourselftoscience.org/resource/hra-research-summaries> ;
@@ -523,6 +565,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/40e7f7cf-d7d5-409c-a8a2-c7d01dd26522> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "40e7f7cf-d7d5-409c-a8a2-c7d01dd26522" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/40e7f7cf-d7d5-409c-a8a2-c7d01dd26522> ;
   schema:sameAs <https://yourselftoscience.org/resource/cochrane-central-register-of-controlled-trials> ;
@@ -535,6 +578,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/5b27c16f-6f83-46e8-b340-7ce503118070> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "5b27c16f-6f83-46e8-b340-7ce503118070" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/5b27c16f-6f83-46e8-b340-7ce503118070> ;
   schema:sameAs <https://yourselftoscience.org/resource/belgian-clinical-trials-database> ;
@@ -549,6 +593,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/b8dda31e-6ee1-4669-a8ed-3e31bb938b64> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "b8dda31e-6ee1-4669-a8ed-3e31bb938b64" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/b8dda31e-6ee1-4669-a8ed-3e31bb938b64> ;
   schema:sameAs <https://yourselftoscience.org/resource/german-clinical-trials-register> ;
@@ -564,6 +609,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/d44227ed-6c83-4eef-b1c5-ee1f8c2d917c> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "d44227ed-6c83-4eef-b1c5-ee1f8c2d917c" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/d44227ed-6c83-4eef-b1c5-ee1f8c2d917c> ;
   schema:sameAs <https://yourselftoscience.org/resource/health-canada-clinical-trials-database> ;
@@ -577,6 +623,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/8b211478-1d5d-4244-9da2-e052c0ebd184> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "8b211478-1d5d-4244-9da2-e052c0ebd184" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/8b211478-1d5d-4244-9da2-e052c0ebd184> ;
   schema:sameAs <https://yourselftoscience.org/resource/aatb-accredited-bank-search> ;
@@ -596,6 +643,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/0a861cff-a2b0-4ab8-834d-e58b4139770d> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "0a861cff-a2b0-4ab8-834d-e58b4139770d" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/0a861cff-a2b0-4ab8-834d-e58b4139770d> ;
   schema:sameAs <https://yourselftoscience.org/resource/organdonor-gov> ;
@@ -612,6 +660,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/8c9531fe-4287-4933-b6f5-0e05e516937b> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "8c9531fe-4287-4933-b6f5-0e05e516937b" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/8c9531fe-4287-4933-b6f5-0e05e516937b> ;
   schema:sameAs <https://yourselftoscience.org/resource/bloodworks-research> ;
@@ -628,6 +677,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/f6d0fc07-302a-4e3d-869a-4eba7798920b> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "f6d0fc07-302a-4e3d-869a-4eba7798920b" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/f6d0fc07-302a-4e3d-869a-4eba7798920b> ;
   schema:sameAs <https://yourselftoscience.org/resource/conversational-ai-data-donation> ;
@@ -640,6 +690,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/382a3bc3-c809-4a93-b7e6-33104443cb9b> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "382a3bc3-c809-4a93-b7e6-33104443cb9b" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/382a3bc3-c809-4a93-b7e6-33104443cb9b> ;
   schema:sameAs <https://yourselftoscience.org/resource/crc-volontari-ricerca-clinica> ;
@@ -655,6 +706,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/65969d60-e52a-40fd-86b5-3f3fabfad774> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "65969d60-e52a-40fd-86b5-3f3fabfad774" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/65969d60-e52a-40fd-86b5-3f3fabfad774> ;
   schema:sameAs <https://yourselftoscience.org/resource/rete-cittadini-per-la-ricerca> ;
@@ -668,6 +720,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/32b73fac-c6f5-4551-af88-0deba969fd30> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "32b73fac-c6f5-4551-af88-0deba969fd30" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/32b73fac-c6f5-4551-af88-0deba969fd30> ;
   schema:sameAs <https://yourselftoscience.org/resource/eurac-cover-letter-donation> ;
@@ -680,6 +733,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/68a587c3-eb94-4ede-b35b-5ac1a84f24df> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "68a587c3-eb94-4ede-b35b-5ac1a84f24df" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/68a587c3-eb94-4ede-b35b-5ac1a84f24df> ;
   schema:sameAs <https://yourselftoscience.org/resource/pura-biobank> ;
@@ -696,6 +750,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/df15fcd0-c0c0-4726-85e7-dbad12687bde> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "df15fcd0-c0c0-4726-85e7-dbad12687bde" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/df15fcd0-c0c0-4726-85e7-dbad12687bde> ;
   schema:sameAs <https://yourselftoscience.org/resource/gimm-biobank> ;
@@ -714,6 +769,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/b39d93dc-97d1-44c1-a689-041e567e0e8b> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "b39d93dc-97d1-44c1-a689-041e567e0e8b" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/b39d93dc-97d1-44c1-a689-041e567e0e8b> ;
   schema:sameAs <https://yourselftoscience.org/resource/genomes-io> ;
@@ -729,6 +785,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093 .
 
 <https://yourselftoscience.org/resource/f98be3f7-293f-47fa-b95e-f01703dd99c8> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "f98be3f7-293f-47fa-b95e-f01703dd99c8" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/f98be3f7-293f-47fa-b95e-f01703dd99c8> ;
   schema:sameAs <https://yourselftoscience.org/resource/23andme> ;
@@ -743,6 +800,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/e5bbe9fa-66ad-4ea5-ab36-9330205262be> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "e5bbe9fa-66ad-4ea5-ab36-9330205262be" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/e5bbe9fa-66ad-4ea5-ab36-9330205262be> ;
   schema:sameAs <https://yourselftoscience.org/resource/gedmatch> ;
@@ -758,6 +816,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/50ed915d-ab6f-478a-9dc5-cf4774cfa14d> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "50ed915d-ab6f-478a-9dc5-cf4774cfa14d" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/50ed915d-ab6f-478a-9dc5-cf4774cfa14d> ;
   schema:sameAs <https://yourselftoscience.org/resource/tellmegen> ;
@@ -771,6 +830,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/bfdda894-db90-4bf8-89fd-9428a6466583> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "bfdda894-db90-4bf8-89fd-9428a6466583" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/bfdda894-db90-4bf8-89fd-9428a6466583> ;
   schema:sameAs <https://yourselftoscience.org/resource/myheritage> ;
@@ -784,6 +844,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/a84efc57-eb85-4ce3-bd56-6103cee8a809> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "a84efc57-eb85-4ce3-bd56-6103cee8a809" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/a84efc57-eb85-4ce3-bd56-6103cee8a809> ;
   schema:sameAs <https://yourselftoscience.org/resource/ancestry> ;
@@ -797,6 +858,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/fa467f40-436c-4882-9948-aaff485d037a> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "fa467f40-436c-4882-9948-aaff485d037a" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/fa467f40-436c-4882-9948-aaff485d037a> ;
   schema:sameAs <https://yourselftoscience.org/resource/sequencing> ;
@@ -810,6 +872,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/5297c0c6-2633-4109-b7d6-2016045227af> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "5297c0c6-2633-4109-b7d6-2016045227af" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/5297c0c6-2633-4109-b7d6-2016045227af> ;
   schema:sameAs <https://yourselftoscience.org/resource/altruist-database> ;
@@ -825,6 +888,7 @@ yts:compensationWikidataId a rdfs:Property ;
   yts:compensationWikidataId wd:Q1742093, wd:Q1124860 .
 
 <https://yourselftoscience.org/resource/5a99f8d8-f020-4d3a-9a61-ca8f7547ad1d> a schema:Dataset ;
+  schema:isPartOf <https://yourselftoscience.org/resources.ttl#dataset> ;
   schema:identifier "5a99f8d8-f020-4d3a-9a61-ca8f7547ad1d" ;
   schema:mainEntityOfPage <https://yourselftoscience.org/resource/5a99f8d8-f020-4d3a-9a61-ca8f7547ad1d> ;
   schema:sameAs <https://yourselftoscience.org/resource/wikitree> ;

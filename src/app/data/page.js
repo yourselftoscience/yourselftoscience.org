@@ -3,8 +3,7 @@
 
 import { resources } from '@/data/resources';
 import wikidataStats from '@/data/wikidataStats.json';
-import lastUpdatedMeta from '@/data/lastUpdated.json';
-import { permanentDoi } from '@/data/config';
+import { softwareArchiveUrl } from '@/data/catalogueMetadata';
 import WikidataIcon from '@/components/WikidataIcon';
 
 import { FaDownload, FaCode, FaCopy, FaCheck, FaChartBar, FaTable, FaDatabase, FaRobot, FaNetworkWired, FaBook } from 'react-icons/fa';
@@ -37,68 +36,6 @@ export default function DataPage() {
     };
 
     const jsonLd = [
-        {
-            "@context": "https://schema.org/",
-            "@type": "Dataset",
-            "name": "Yourself to Science Open Dataset",
-            "description": "A curated, open-access catalog of services, platforms, and programs that allow individuals to securely contribute to scientific research with their biological and digital selves.",
-            "url": "https://yourselftoscience.org/data",
-            "sameAs": [
-                "https://yourselftoscience.org/resources.ttl#dataset",
-                "https://doi.org/10.25504/FAIRsharing.d3d487"
-            ],
-            "identifier": [
-                "https://yourselftoscience.org/resources.ttl#dataset",
-                `https://doi.org/${permanentDoi}`,
-                "https://doi.org/10.25504/FAIRsharing.d3d487"
-            ],
-            "keywords": [
-                "open dataset",
-                "CC0 dataset",
-                "public domain data",
-                "science data",
-                "clinical trials data",
-                "citizen science dataset",
-                "JSON API",
-                "CSV download",
-                "linked data",
-                "research opportunities"
-            ],
-            "alternateName": [
-                "Yourself to Science Catalogue",
-                "Yourself to Science Database"
-            ],
-            "creator": {
-                "@type": "Organization",
-                "name": "Yourself to Science",
-                "url": "https://yourselftoscience.org",
-                "contactPoint": {
-                    "@type": "ContactPoint",
-                    "contactType": "public engagement",
-                    "email": "hello@yourselftoscience.org"
-                }
-            },
-            "license": "https://creativecommons.org/publicdomain/zero/1.0/",
-            "isAccessibleForFree": true,
-            "dateModified": lastUpdatedMeta.dateModified,
-            "distribution": [
-                {
-                    "@type": "DataDownload",
-                    "encodingFormat": "text/csv",
-                    "contentUrl": "https://yourselftoscience.org/resources.csv"
-                },
-                {
-                    "@type": "DataDownload",
-                    "encodingFormat": "application/json",
-                    "contentUrl": "https://yourselftoscience.org/resources.json"
-                },
-                {
-                    "@type": "DataDownload",
-                    "encodingFormat": "text/turtle",
-                    "contentUrl": "https://yourselftoscience.org/resources.ttl"
-                }
-            ]
-        },
         {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
@@ -283,7 +220,7 @@ export default function DataPage() {
                             <div className="flex items-center justify-between mb-2">
                                 <p className="text-sm font-bold text-apple-secondary-text tracking-wide">STATIC JSON ENDPOINT</p>
                             </div>
-                            <p className="text-sm text-gray-500 mb-3">Standard JSON array of all active profiles.</p>
+                            <p className="text-sm text-gray-500 mb-3">JSON array of all catalogue records, including inactive entries.</p>
                             <div className="flex items-center justify-between bg-white p-3 rounded-lg border border-apple-divider">
                                 <code className="text-apple-primary-text text-xs break-all font-mono">https://yourselftoscience.org/resources.json</code>
                                 <button onClick={() => handleCopy('https://yourselftoscience.org/resources.json')} className="p-2 text-apple-secondary-text hover:text-apple-accent transition-colors duration-200">
@@ -359,10 +296,10 @@ export default function DataPage() {
                             Wikidata Integration
                         </h2>
                         <p className="text-sm text-apple-secondary-text mb-4">
-                            Each resource is mapped to stable Wikidata QIDs. This alignment is maintained to ensure our dataset remains interoperable with global knowledge graphs and research databases.
+                            Available Wikidata identifiers link catalogue records to the corresponding projects and organizations. Coverage varies by resource.
                         </p>
                         <p className="text-xs font-bold text-gray-700">
-                            Currently serving as the verification source for {wikidataStats.referencedItemsCount || 0} upstream Wikidata entities.
+                            The recorded Wikidata query lists {wikidataStats.referencedItemsCount || 0} items citing this catalogue.
                         </p>
                     </div>
                     <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-6">
@@ -371,7 +308,7 @@ export default function DataPage() {
                             Registered in FAIRsharing
                         </h2>
                         <p className="text-sm text-emerald-800 mb-4">
-                            Our dataset is indexed in FAIRsharing, ensuring our open metadata adheres to FAIR principles for academic use.
+                            FAIRsharing describes this resource in a registry record. Its DOI identifies that record; it is separate from the live catalogue and the software archive.
                         </p>
                         <a href="https://doi.org/10.25504/FAIRsharing.d3d487" target="_blank" rel="noopener noreferrer" className="inline-block mt-2">
                             {/* We use an img tag for the official badge */}
@@ -379,6 +316,12 @@ export default function DataPage() {
                         </a>
                     </div>
                 </div>
+            </section>
+
+            <section className="mt-12">
+                <h2 className="text-2xl font-bold text-apple-primary-text mb-3">Citing and checking the data</h2>
+                <p className="text-apple-secondary-text">The downloads describe research-participation resources, not participants. Catalogue update dates describe the export; they do not establish when every programme was last verified. Check the linked programme sources for current requirements.</p>
+                <p className="mt-3 text-apple-secondary-text">For software citation, use the <a href={softwareArchiveUrl} className="text-apple-accent underline">versioned software archive</a>. Cite a specific archived version when reproducibility requires it.</p>
             </section>
 
             <section className="mt-16">
@@ -407,7 +350,7 @@ export default function DataPage() {
                         <li><strong>resourceWikidataId:</strong> The main Wikidata QID aligned with the project.</li>
                         <li><strong>entityCategory:</strong> The general type of the organization (e.g., &quot;Non-Profit&quot;, &quot;Government&quot;).</li>
                         <li><strong>entitySubType:</strong> A more specific classification of the organization (e.g., &quot;Research Foundation&quot;, &quot;Regulatory Agency&quot;).</li>
-                        <li><strong>isCitedOnWikidata:</strong> Boolean flag indicating if the resource currently uses the catalogue as a verifiable reference URL (P854).</li>
+                        <li><strong>isCitedOnWikidata:</strong> Whether the recorded Wikidata query found the catalogue cited for this resource.</li>
                         <li><strong>wikidataReferenceUrl:</strong> The specific Wikidata URL connecting the resource to the catalogue citation (if applicable).</li>
                         <li><strong>rorId:</strong> The <a href="https://ror.org" target="_blank" rel="noopener noreferrer" className="text-apple-accent hover:underline">Research Organization Registry</a> (ROR) identifier for the primary organization, when available.</li>
                         <li><strong>rorTypes:</strong> Organization types from ROR (e.g., &quot;education&quot;, &quot;government&quot;, &quot;healthcare&quot;, &quot;company&quot;, &quot;nonprofit&quot;).</li>

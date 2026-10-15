@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
+import { catalogueId, catalogueUrl, registryUrl, softwareArchiveUrl } from '../src/data/catalogueMetadata.js';
 
 const outputPath = join(process.cwd(), 'public/void.ttl');
 const resourcesPath = join(process.cwd(), 'public/resources_wikidata.json');
@@ -18,7 +19,7 @@ try {
 @prefix schema: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://yourselftoscience.org/resources.ttl#dataset> a void:Dataset, schema:Dataset ;
+<${catalogueId}> a void:Dataset, schema:Dataset ;
     dcterms:title "Yourself to Science Dataset" ;
     dcterms:description "Yourself to Science™ is an open-source project providing a comprehensive list of services that allow individuals to contribute to scientific research with their biological and digital selves."@en ;
     dcterms:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
@@ -36,10 +37,10 @@ try {
     ] ;
     dcterms:created "2025-01-31"^^xsd:date ;
     dcterms:modified "${dateModified}"^^xsd:date ;
-    schema:version "2.0" ;
-    dcterms:identifier <https://doi.org/10.5281/zenodo.15109359> ;
-    schema:identifier "10.5281/zenodo.15110328" ;
-    schema:sameAs <https://doi.org/10.25504/FAIRsharing.d3d487> ;
+    dcterms:identifier <${catalogueId}> ;
+    schema:url <${catalogueUrl}> ;
+    schema:subjectOf <${registryUrl}> ;
+    dcterms:references <${softwareArchiveUrl}> ;
     void:dataDump <https://yourselftoscience.org/resources.ttl> ;
     void:dataDump <https://yourselftoscience.org/resources.json> ;
     void:dataDump <https://yourselftoscience.org/resources.csv> ;
@@ -57,7 +58,6 @@ try {
         schema:contentUrl <https://yourselftoscience.org/resources.csv>
     ] ;
     void:entities ${entityCount} ;
-    void:sparqlEndpoint <https://query.wikidata.org/> ;
     void:uriSpace <https://yourselftoscience.org/resource/> ;
     void:linkPredicate schema:sameAs ;
     void:target <http://www.wikidata.org/entity/Q2013> ;
