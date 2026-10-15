@@ -17,7 +17,7 @@
     "postbuild": "node scripts/updatePdfPage.js || echo 'PDF generation failed, continuing deployment'",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "start": "next start",
-    "test": "node --test",
+    "test": "node --test scripts/*.test.js",
     "lint": "next lint",
     "watch-pdf": "node scripts/watchUpdatePdf.js",
     "update-ontology": "node scripts/updateOntology.js",
