@@ -26,5 +26,10 @@
       "pattern": "yourselftoscience.com/*",
       "zone_name": "yourselftoscience.com"
     }
-  ]
+  ],
+  "env": {
+    "localtest": {
+      "routes": []
+    }
+  }
 }

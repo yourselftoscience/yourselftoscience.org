@@ -30,7 +30,7 @@ jobs:
       - name: Exercise the workerd bundle
         shell: bash
         run: |
-          ./node_modules/.bin/opennextjs-cloudflare preview --port 8787 > /tmp/y2s-worker.log 2>&1 &
+          ./node_modules/.bin/opennextjs-cloudflare preview --env localtest --port 8787 > /tmp/y2s-worker.log 2>&1 &
           worker_pid=$!
           trap 'kill "$worker_pid" || true' EXIT
           for attempt in {1..60}; do
