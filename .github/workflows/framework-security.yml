@@ -20,17 +20,17 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - run: npm ci
+      - run: npm ci --ignore-scripts
       - run: npm audit --omit=dev
       - run: npm test
       - run: python3 -m unittest discover -s scripts -p 'test_verify_zenodo_release.py'
       # Checked-in exports keep security builds independent of enrichment services.
-      - run: npx next build
-      - run: npx opennextjs-cloudflare build --skipNextBuild
+      - run: ./node_modules/.bin/next build
+      - run: ./node_modules/.bin/opennextjs-cloudflare build --skipNextBuild
       - name: Exercise the workerd bundle
         shell: bash
         run: |
-          npx opennextjs-cloudflare preview --port 8787 > /tmp/y2s-worker.log 2>&1 &
+          ./node_modules/.bin/opennextjs-cloudflare preview --port 8787 > /tmp/y2s-worker.log 2>&1 &
           worker_pid=$!
           trap 'kill "$worker_pid" || true' EXIT
           for attempt in {1..60}; do
