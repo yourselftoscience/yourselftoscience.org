@@ -37,3 +37,7 @@ next-env.d.ts
 *.swp
 
 mcp/key.pem
+
+# Cloudflare OpenNext output
+.open-next/
+.wrangler/

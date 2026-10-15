@@ -1,5 +1,4 @@
 // src/app/umami/script.js
-export const runtime = 'edge';
 
 export async function GET(request) {
   const upstreamUrl = 'https://cloud.umami.is/script.js';
