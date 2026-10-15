@@ -16,5 +16,20 @@
   },
   "observability": {
     "enabled": true
+  },
+  "routes": [
+    {
+      "pattern": "yourselftoscience.org/*",
+      "zone_name": "yourselftoscience.org"
+    },
+    {
+      "pattern": "yourselftoscience.com/*",
+      "zone_name": "yourselftoscience.com"
+    }
+  ],
+  "env": {
+    "localtest": {
+      "routes": []
+    }
   }
 }

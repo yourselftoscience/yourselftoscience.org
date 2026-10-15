@@ -71,3 +71,21 @@ required secrets: `RESEND_API_KEY`, `MAILCHIMP_API_KEY`,
 cannot be recovered from the dashboard. An authorized operator must supply them
 to the replacement Worker before cutover; do not print them, commit them, or
 route contact/newsletter traffic to a Worker lacking them.
+
+## Production routing (15 October 2026)
+
+The verified Worker was renamed to `yourselftoscience-catalogue`, preserving
+all four encrypted mail-provider secrets. Both apex domains now route all
+paths to it. The route patterns and zones are recorded in `wrangler.jsonc`
+so future deployments preserve routing. The separate `yourselftoscience-web`
+agent API Worker remains unchanged.
+
+Pages is retained as the rollback origin. Removing the two Worker routes
+restores the existing Pages deployment; its old runtime must not be treated
+as patched. Do not revoke the old mail keys while rollback is still needed.
+The Pages-owned `pages.dev` URLs remain legacy exposures until retired or
+protected; the live-domain migration does not patch those historic deployments.
+
+The root test command scopes discovery to root scripts. The separately locked
+MCP service has its own install, protocol test and CI job, and is not imported
+by the website test runner.
