@@ -1,0 +1,43 @@
+name: Verify MCP service
+on:
+  pull_request:
+    paths: ['mcp/**', '.github/workflows/mcp-security.yml']
+  push:
+    branches: [main]
+    paths: ['mcp/**', '.github/workflows/mcp-security.yml']
+permissions:
+  contents: read
+jobs:
+  mcp:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: mcp
+    env:
+      WRANGLER_SEND_METRICS: 'false'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: mcp/package-lock.json
+      - run: npm ci --ignore-scripts
+      - run: npm audit
+      - run: npm run typecheck
+      - run: ./node_modules/.bin/wrangler deploy --dry-run --outdir /tmp/y2s-mcp-bundle
+      - name: Exercise MCP tools and session lifecycle
+        shell: bash
+        run: |
+          ./node_modules/.bin/wrangler dev --local --port 8790 > /tmp/y2s-mcp.log 2>&1 &
+          worker_pid=$!
+          trap 'kill "$worker_pid" || true' EXIT
+          for attempt in {1..60}; do
+            if curl --fail --silent http://localhost:8790/ > /dev/null; then break; fi
+            sleep 1
+          done
+          MCP_TEST_URL=http://localhost:8790/mcp npm test
+      - run: git diff --check
