@@ -1,0 +1,14 @@
+{
+  "title": "Yourself to Science",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "other-open",
+  "creators": [
+    {
+      "name": "Marcolongo, Mario",
+      "orcid": "0000-0003-2846-7115"
+    }
+  ],
+  "description": "<p>Yourself to Science is website software and a directory of services through which individuals can contribute biological or digital data, samples, time or other resources to research.</p><p>This archive contains separately licensed components: software code under AGPL-3.0-or-later (LICENSE-CODE); authored content under CC-BY-SA-4.0 (LICENSE-CONTENT); and the directory dataset under CC0-1.0 (LICENSE-DATASET). These licences apply to their respective components and are not alternative choices for the entire archive. Third-party notices remain applicable. The record-level Other (Open) label summarizes this mixed open-licence arrangement; it does not relicense the source or place the software and authored content in the public domain.</p>",
+  "keywords": ["citizen science", "research participation", "open science", "research directory"]
+}
