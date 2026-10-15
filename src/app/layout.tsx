@@ -5,8 +5,6 @@ import "./globals.css";
 import ClientLayout from '../components/ClientLayout';
 
 
-// This file is the single source of truth for the latest DOI.
-import { latestDoi } from '@/data/config';
 
 // Define fonts at module scope with const
 const geistSans = localFont({
@@ -25,9 +23,6 @@ const geistMono = localFont({
   fallback: ['Consolas', 'monospace'],
 });
 
-// Get current date in YYYY/MM/DD format for citation
-const currentDate = new Date().toISOString().split('T')[0].replaceAll('-', '/');
-const currentYear = new Date().getFullYear();
 
 // This export is necessary to prevent a build error.
 // See: https://github.com/vercel/next.js/issues/53354
@@ -78,15 +73,6 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
   },
   manifest: "/site.webmanifest",
-  other: {
-    'citation_title': "Yourself to Science: A comprehensive open-source catalogue for contributing your biological and digital self to scientific research",
-    'citation_author': "Mario Marcolongo",
-    'citation_publication_date': '2025/01/31',
-    'citation_pdf_url': "https://yourselftoscience.org/yourselftoscience.pdf",
-    'citation_fulltext_html_url': "https://yourselftoscience.org",
-    'citation_doi': latestDoi,
-    'citation_fulltext_world_readable': ' '
-  },
   openGraph: {
     title: "Yourself to Science",
     siteName: "Yourself to Science",
@@ -166,7 +152,6 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://cloudflareinsights.com" />
         <link rel="preconnect" href="https://static.cloudflareinsights.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://static.cloudflareinsights.com" />
-        <meta name="citation_online_date" content={currentDate} />
         {/* Help AI agents and search engines discover the llms.txt file */}
         <link rel="llms" href="/llms.txt" />
         {/* Add other necessary head elements like charset, viewport */}

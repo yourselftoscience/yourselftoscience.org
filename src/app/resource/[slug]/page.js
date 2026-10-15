@@ -2,7 +2,7 @@
 import resources from '@/../public/resources_wikidata.json';
 import { redirect, permanentRedirect } from 'next/navigation';
 import Link from 'next/link';
-import { permanentDoi } from '@/data/config';
+import { catalogueId, catalogueUrl, dataCatalogId } from '@/data/catalogueMetadata';
 import { FaCheckCircle, FaExternalLinkAlt, FaHeart, FaDollarSign, FaQuestionCircle, FaUniversity, FaBuilding, FaFlask, FaLandmark, FaInfoCircle, FaLaptop, FaMobileAlt, FaCog, FaShareAlt, FaMapMarkerAlt, FaGlobe, FaTag, FaClipboardList, FaUserCheck, FaUserFriends, FaCoins, FaListOl, FaUserShield, FaArrowRight, FaBox, FaBook, FaDatabase, FaCodeBranch, FaHandshake, FaLink } from 'react-icons/fa';
 import CopyButton from '@/components/CopyButton';
 import wikidataStats from '@/data/wikidataStats.json';
@@ -56,16 +56,11 @@ export async function generateMetadata({ params }) {
       description,
     },
     other: {
-      'citation_title': title,
-      'citation_publisher': 'Yourself to Science',
-      'citation_publication_date': new Date().getFullYear().toString(),
-      'citation_language': 'en',
-      'citation_inbook_title': 'Yourself to Science Catalogue',
       'DC.title': title,
       'DC.identifier': persistentIdUrl,
       'DC.description': description,
       'DC.publisher': 'Yourself to Science',
-      'DC.relation.ispartof': `doi:${permanentDoi}`
+      'DC.relation.ispartof': catalogueId
     }
   };
 }
@@ -103,16 +98,14 @@ export default function ResourcePage({ params }) {
     'name': displayTitle,
     'description': displayDescription,
     'url': canonicalUrl,
+    '@id': persistentIdUrl,
     'identifier': [persistentIdUrl],
+    'isPartOf': { '@id': catalogueId },
     'includedInDataCatalog': {
       '@type': 'DataCatalog',
       'name': 'Yourself to Science',
-      'url': 'https://yourselftoscience.org',
-      'sameAs': 'https://doi.org/10.25504/FAIRsharing.d3d487',
-      'identifier': [
-        `https://doi.org/${permanentDoi}`,
-        'https://doi.org/10.25504/FAIRsharing.d3d487'
-      ]
+      '@id': dataCatalogId,
+      'url': catalogueUrl
     },
     'creator': resource.organizations ? resource.organizations.map(org => ({
       '@type': 'Organization',

@@ -6,14 +6,7 @@ import wikidataStats from '@/data/wikidataStats.json';
 
 export const metadata = {
   title: 'Academic & Technical Index - Yourself to Science',
-  description: 'The complete A-Z technical directory of all scientific resources mapped in the Yourself to Science knowledge graph.',
-  other: {
-    'citation_title': 'Complete Resource Catalogue - Yourself to Science',
-    'citation_author': 'Mario Marcolongo',
-    'citation_publication_date': new Date().toISOString().split('T')[0].replace(/-/g, '/'),
-    'citation_pdf_url': 'https://yourselftoscience.org/yourselftoscience.pdf',
-    'citation_fulltext_world_readable': ' '
-  }
+  description: 'The complete A-Z technical directory of all scientific resources mapped in the Yourself to Science knowledge graph.'
 };
 
 export default function ResourcesListPage() {

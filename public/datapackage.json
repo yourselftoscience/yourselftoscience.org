@@ -2,7 +2,18 @@
   "name": "yourself-to-science",
   "title": "Yourself to Science - Open Citizen Science Resources",
   "description": "Yourself to Science™ is an open-source project providing a comprehensive list of services that allow individuals to contribute to scientific research with their biological and digital selves.",
-  "homepage": "https://yourselftoscience.org",
+  "homepage": "https://yourselftoscience.org/data",
+  "id": "https://yourselftoscience.org/resources.ttl#dataset",
+  "sources": [
+    {
+      "title": "Yourself to Science software archive",
+      "path": "https://doi.org/10.5281/zenodo.15109359"
+    },
+    {
+      "title": "FAIRsharing registry record",
+      "path": "https://doi.org/10.25504/FAIRsharing.d3d487"
+    }
+  ],
   "licenses": [
     {
       "id": "CC0-1.0",
