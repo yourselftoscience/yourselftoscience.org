@@ -101,6 +101,7 @@ export default function Footer() {
               <h3 className="font-semibold text-apple-primary-text">Get Involved</h3>
               <ul className="mt-4 space-y-3">
                 <FooterLink href="/get-involved">Contribute</FooterLink>
+                <FooterLink href="/about/mario-marcolongo">Founder and maintainer: Mario Marcolongo</FooterLink>
                 <FooterLink href="/get-involved#contact-us">Contact Us</FooterLink>
               </ul>
             </div>

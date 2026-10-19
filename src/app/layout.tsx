@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import ClientLayout from '../components/ClientLayout';
+import { maintainer } from '../data/maintainer';
 
 
 
@@ -105,6 +106,9 @@ export default function RootLayout({
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": "https://yourselftoscience.org/#website",
+      "creator": maintainer,
+      "maintainer": maintainer,
       "name": "Yourself to Science",
       "url": "https://yourselftoscience.org",
       "potentialAction": {
@@ -123,6 +127,8 @@ export default function RootLayout({
     {
       "@context": "https://schema.org",
       "@type": "Organization",
+      "@id": "https://yourselftoscience.org/#organization",
+      "founder": maintainer,
       "name": "Yourself to Science",
       "url": "https://yourselftoscience.org",
       "logo": "https://yourselftoscience.org/logo-tm.svg",
