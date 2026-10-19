@@ -43,9 +43,8 @@ async function generatePdf() {
 // Watch for changes to key files, including the PDF generation script itself
 const watcher = chokidar.watch([
   'src/data/resources.js',
-  'src/app/**/*.js',
-  'src/app/**/*.tsx',
-  'src/components/**/*.js',
+  'src/app',
+  'src/components',
   'scripts/updatePdfPage.js' // <-- Add this line
 ], {
   persistent: true,

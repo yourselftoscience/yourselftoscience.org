@@ -187,7 +187,7 @@ export default function Header({ scrollY }: HeaderProps) {
             }`}
           style={{ fontSize: titleSize, margin: 0 }}
         >
-          <h1 className="m-0 p-0 text-inherit font-inherit inline">
+          <span className="m-0 p-0 text-inherit font-inherit inline">
             <span className={useInlineLayout ? '' : 'inline-block'}>Your</span>
             {!isSticky ? (
               <AnimatedWordDynamic key={currentWord} word={currentWord} />
@@ -203,7 +203,7 @@ export default function Header({ scrollY }: HeaderProps) {
             {(isSticky || (hasMounted && currentWord === 'self')) && (
               <sup className="font-medium text-google-text" style={{ fontSize: '0.4em', position: 'relative', top: '-0.7em', marginLeft: '0.1em' }}>™</sup>
             )}
-          </h1>
+          </span>
         </motion.div>
       </Link>
 

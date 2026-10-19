@@ -1,7 +1,5 @@
 // File: src/app/api/resource/[uuid]/route.js
 
-export const runtime = 'edge';
-
 // A simple in-memory cache for the resource map
 let resourceMap = null;
 
@@ -36,6 +34,7 @@ async function getResourceMap() {
 }
 
 export async function GET(request, { params }) {
+  params = await params;
   // Ensure the request is coming to the id.yourselftoscience.org host
   const host = request.headers.get('host');
   if (host !== 'id.yourselftoscience.org') {

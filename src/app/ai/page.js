@@ -109,8 +109,8 @@ export default function AIPage() {
             Yourself to Science exposes its public catalogue through open data, linked data, Markdown negotiation, MCP, A2A, OpenAPI, WebMCP, Agent Skills, and standards-based discovery. No account, API key, OAuth token, or registration is required for read-only access.
           </motion.p>
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
-            <a href="https://mcp.yourselftoscience.org/mcp" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-semibold text-white bg-purple-600 hover:bg-purple-700 rounded-xl transition-all shadow-md hover:shadow-lg">
-              <FaNetworkWired /> Connect MCP Server
+            <a href="#mcp-connection" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-semibold text-white bg-purple-600 hover:bg-purple-700 rounded-xl transition-all shadow-md hover:shadow-lg">
+              <FaNetworkWired /> Configure MCP Connection
             </a>
             <Link href="/.well-known/api-catalog" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-medium text-apple-primary-text bg-white border border-apple-divider hover:bg-gray-50 rounded-xl transition-all shadow-sm">
               <FaSearch /> Discover Interfaces
@@ -188,17 +188,10 @@ export default function AIPage() {
               </ul>
             </div>
 
-            <div className="bg-slate-950 text-slate-200 rounded-2xl p-6 overflow-x-auto">
-              <p className="text-slate-400 text-sm mb-4">Primary discovery endpoints</p>
-              <div className="space-y-3 font-mono text-sm min-w-max">
-                {discoveryEndpoints.map(([label, endpoint]) => (
-                  <div key={endpoint}>
-                    <span className="text-purple-300">{label}</span>
-                    <br />
-                    <a href={endpoint} className="text-slate-200 hover:text-white hover:underline">https://yourselftoscience.org{endpoint}</a>
-                  </div>
-                ))}
-              </div>
+            <div id="mcp-connection" className="scroll-mt-24 bg-slate-950 text-slate-200 rounded-2xl p-6 overflow-x-auto">
+              <p className="text-slate-400 text-sm mb-3">Remote MCP server endpoint</p>
+              <code className="font-mono text-sm break-all">https://mcp.yourselftoscience.org/mcp</code>
+              <p className="text-slate-400 text-sm mt-4">Add this URL as a remote Streamable HTTP MCP server in a compatible client. No registration, API key, or OAuth token is required.</p>
             </div>
           </div>
         </motion.div>

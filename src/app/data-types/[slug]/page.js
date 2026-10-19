@@ -18,11 +18,12 @@ export async function generateStaticParams() {
 
 // 2. Generate Metadata (Title/Description)
 export async function generateMetadata({ params }) {
+    params = await params;
     const dataType = getDataTypeBySlugOrId(params.slug);
     if (!dataType) return {};
 
     return {
-        title: `${dataType.title} | Data Dictionary | Yourself to Science`,
+        title: `${dataType.title} | Data Dictionary`,
         description: dataType.description,
         alternates: {
             canonical: `https://yourselftoscience.org/data-types/${dataType.slug}`,
@@ -30,7 +31,8 @@ export async function generateMetadata({ params }) {
     };
 }
 
-export default function DataTypeNodePage({ params }) {
+export default async function DataTypeNodePage({ params }) {
+    params = await params;
     const { slug } = params;
     const dataType = getDataTypeBySlugOrId(slug);
 

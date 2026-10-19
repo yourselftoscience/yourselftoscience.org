@@ -4,13 +4,13 @@ import ClinicalTrialsSkeleton from './ClinicalTrialsSkeleton.js';
 
 // Static metadata remains here in the Server Component.
 export const metadata = {
-  title: 'Find Clinical Trials to Participate In | Yourself to Science',
+  title: 'Find Clinical Trials to Participate In',
   description: 'A curated catalogue of international registries and platforms to find and participate in clinical trials. Search for studies by disease, location, or as a healthy volunteer.',
   alternates: {
     canonical: 'https://yourselftoscience.org/clinical-trials',
   },
   openGraph: {
-    title: 'Find Clinical Trials to Participate In | Yourself to Science',
+    title: 'Find Clinical Trials to Participate In',
     description: 'A curated catalogue of international registries and platforms to find and participate in clinical trials.',
     url: 'https://yourselftoscience.org/clinical-trials',
     type: 'website',

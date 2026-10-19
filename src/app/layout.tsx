@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import ClientLayout from '../components/ClientLayout';
+import { maintainer } from '../data/maintainer';
 
-// This file is the single source of truth for the latest DOI.
-import { latestDoi } from '@/data/config';
+
 
 // Define fonts at module scope with const
 const geistSans = localFont({
@@ -24,8 +24,6 @@ const geistMono = localFont({
   fallback: ['Consolas', 'monospace'],
 });
 
-// Get current date in YYYY/MM/DD format for citation
-const currentDate = new Date().toISOString().split('T')[0].replaceAll('-', '/');
 
 // This export is necessary to prevent a build error.
 // See: https://github.com/vercel/next.js/issues/53354
@@ -76,15 +74,6 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
   },
   manifest: "/site.webmanifest",
-  other: {
-    'citation_title': "Yourself to Science: A comprehensive open-source catalogue for contributing your biological and digital self to scientific research",
-    'citation_author': "Mario Marcolongo",
-    'citation_publication_date': '2025/01/31',
-    'citation_pdf_url': "https://yourselftoscience.org/yourselftoscience.pdf",
-    'citation_fulltext_html_url': "https://yourselftoscience.org",
-    'citation_doi': latestDoi,
-    'citation_fulltext_world_readable': ' '
-  },
   openGraph: {
     title: "Yourself to Science",
     siteName: "Yourself to Science",
@@ -117,6 +106,9 @@ export default function RootLayout({
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": "https://yourselftoscience.org/#website",
+      "creator": maintainer,
+      "maintainer": maintainer,
       "name": "Yourself to Science",
       "url": "https://yourselftoscience.org",
       "potentialAction": {
@@ -135,6 +127,8 @@ export default function RootLayout({
     {
       "@context": "https://schema.org",
       "@type": "Organization",
+      "@id": "https://yourselftoscience.org/#organization",
+      "founder": maintainer,
       "name": "Yourself to Science",
       "url": "https://yourselftoscience.org",
       "logo": "https://yourselftoscience.org/logo-tm.svg",
@@ -154,16 +148,17 @@ export default function RootLayout({
   ];
 
   return (
+    // Keep suppressHydrationWarning on html for good measure
     <html lang="en" suppressHydrationWarning={true}>
       <head>
+        {/* Prefer explicit canonical and application name to help search engines pick the proper site title */}
+        {/* Canonical link is now handled by metadata.alternates */}
         <meta name="application-name" content="Yourself to Science" />
         <link rel="preconnect" href="https://cloudflareinsights.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://cloudflareinsights.com" />
         <link rel="preconnect" href="https://static.cloudflareinsights.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://static.cloudflareinsights.com" />
-        <meta name="citation_online_date" content={currentDate} />
-
-        {/* Machine and agent discovery. Browsers still receive the ordinary HTML UI. */}
+        {/* Machine-readable discovery links for agent clients. */}
         <link rel="alternate" type="text/markdown" href="/index.html.md" title="Markdown representation" />
         <link rel="llms" type="text/plain" href="/llms.txt" />
         <link rel="api-catalog" type="application/linkset+json" href="/.well-known/api-catalog" />
@@ -171,7 +166,7 @@ export default function RootLayout({
         <link rel="service-desc" type="application/json" href="/.well-known/mcp/server-card.json" />
         <link rel="service-desc" type="application/json" href="/.well-known/agent-card.json" />
         <link rel="describedby" type="application/json" href="/.well-known/agent-skills/index.json" />
-
+        {/* Add other necessary head elements like charset, viewport */}
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script
@@ -186,6 +181,7 @@ export default function RootLayout({
           data-host-url="/umami"
         />
       </head>
+      {/* Add suppressHydrationWarning to body as well */}
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} suppressHydrationWarning={true}>
         <ClientLayout>{children}</ClientLayout>
       </body>

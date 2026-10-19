@@ -1,145 +1,51 @@
-name: Create Release and Update DOI
+name: Verify release archive DOI
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - 'src/data/config.js'
-      - 'scripts/updatePdfPage.js'
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing published GitHub release tag to verify
+        required: true
+        type: string
+  pull_request:
+    paths:
+      - .github/workflows/release-with-doi.yml
+      - scripts/verify_zenodo_release.py
+      - scripts/test_verify_zenodo_release.py
+      - .zenodo.json
+      - CITATION.cff
 
 permissions:
-  contents: write  # Required for creating releases
+  contents: read
 
 jobs:
-  check-if-skip:
+  test-verifier:
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[skip ci]')"
     steps:
-      - run: echo "Proceeding with workflow"
-    outputs:
-      should_continue: "true"
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - run: python3 -m unittest discover -s scripts -p test_verify_zenodo_release.py
 
-  check-and-release:
-    needs: check-if-skip
-    if: needs.check-if-skip.outputs.should_continue == 'true'
+  verify-archive:
+    if: github.event_name != 'pull_request'
+    needs: test-verifier
     runs-on: ubuntu-latest
-    permissions:
-      contents: write  # Required for creating releases
-    outputs:
-      new_doi: ${{ steps.get_doi.outputs.doi }}
-      release_created: ${{ steps.release_status.outputs.release_created }}
+    timeout-minutes: 10
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          fetch-depth: 0
-          
-      - name: Get date for release
-        id: date
-        run: echo "date=$(date +'%Y.%m.%d')" >> $GITHUB_OUTPUT
-          
-      - name: Create GitHub Release
-        id: create_release
-        uses: softprops/action-gh-release@v1
-        with:
-          name: Yourself To Science - ${{ steps.date.outputs.date }}
-          tag_name: v${{ steps.date.outputs.date }}
-          draft: false
-          prerelease: false
-          files: |
-            public/yourselftoscience.pdf
-            public/sitemap.xml
-          body: |
-            This release includes:
-            - Updated resources list
-            - Enhanced citation information
-            - Latest content as of ${{ steps.date.outputs.date }}
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+      - name: Require a published GitHub release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Set release created flag
-        run: echo "release_created=true" >> $GITHUB_OUTPUT
-        id: release_status
-          
-      - name: Wait for Zenodo to process
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag }}
         run: |
-          echo "Waiting for Zenodo to process the new release..."
-          sleep 60
-          
-      - name: Wait for and check Zenodo DOI
-        id: get_doi
-        run: |
-          echo "Waiting for and checking Zenodo DOI..."
-          
-          # Try up to 8 times with 20-second intervals (max 160 seconds total)
-          for attempt in {1..8}; do
-            echo "Attempt $attempt of 8..."
-            
-            # Try community API endpoint
-            ZENODO_RECORD=$(curl -sL "https://zenodo.org/api/communities/github/records?q=github.repository:yourselftoscience/yourselftoscience.org&sort=mostrecent&size=1")
-            HITS_COUNT=$(echo $ZENODO_RECORD | jq -r '.hits.total')
-            
-            if [[ "$HITS_COUNT" != "0" && ! -z "$HITS_COUNT" ]]; then
-              echo "Found record in Zenodo GitHub community!"
-              VERSION_DOI=$(echo $ZENODO_RECORD | jq -r '.hits.hits[0].doi // ""')
-              if [[ -n "$VERSION_DOI" ]]; then
-                echo "doi=$VERSION_DOI" >> $GITHUB_OUTPUT
-                echo "Retrieved DOI: $VERSION_DOI"
-                exit 0
-              fi
-            fi
-            
-            # Try direct DOI query - updated to use the concept DOI
-            ZENODO_RECORD=$(curl -sL "https://zenodo.org/api/records/15109359")
-            VERSION_DOI=$(echo $ZENODO_RECORD | jq -r '.doi // ""')
-            
-            if [[ -n "$VERSION_DOI" ]]; then
-              echo "Found record via direct DOI query!"
-              echo "doi=$VERSION_DOI" >> $GITHUB_OUTPUT
-              echo "Retrieved DOI: $VERSION_DOI"
-              exit 0
-            fi
-            
-            echo "No record found yet. Waiting 20 seconds before next attempt..."
-            sleep 20
-          done
-          
-          # Always ensure we have a DOI (use correct concept DOI as fallback)
-          VERSION_DOI="10.5281/zenodo.15109359"
-          echo "doi=$VERSION_DOI" >> $GITHUB_OUTPUT
-          echo "Using concept DOI: $VERSION_DOI"
-
-      - name: Write DOI to file
-        if: steps.get_doi.outputs.doi
-        run: |
-          echo "Writing DOI ${{ steps.get_doi.outputs.doi }} to public/latest_doi.txt"
-          mkdir -p public
-          echo "${{ steps.get_doi.outputs.doi }}" > public/latest_doi.txt
-
-      - name: Update DOI in config.js
-        if: steps.get_doi.outputs.doi
-        run: |
-          DOI_VALUE="${{ steps.get_doi.outputs.doi }}"
-          CONFIG_FILE="src/data/config.js"
-          # Use sed to replace the hardcoded DOI in the config file
-          sed -i "s/export const latestDoi = '[0-9\.]*\/zenodo\.[0-9]*';/export const latestDoi = '$DOI_VALUE';/" "$CONFIG_FILE"
-          echo "Updated DOI in $CONFIG_FILE"
-
-      - name: Configure Git
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-
-      - name: Commit and push updated files
-        if: steps.get_doi.outputs.doi
-        run: |
-          git add public/latest_doi.txt src/data/config.js
-          # Check if there are changes to commit
-          if git diff --staged --quiet; then
-            echo "No changes to DOI files to commit."
-          else
-            git commit -m "Update latest DOI [skip ci]"
-            git push
-            echo "Committed and pushed updated DOI files."
-          fi
+          gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --json isDraft --jq '.isDraft' | grep -qx false
+      - name: Verify exact Zenodo version and repository
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag }}
+        run: python3 scripts/verify_zenodo_release.py "$RELEASE_TAG" --attempts 12 --interval 30

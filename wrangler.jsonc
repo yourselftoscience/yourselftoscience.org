@@ -1,0 +1,35 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "yourselftoscience-catalogue",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-08-04",
+  "compatibility_flags": [
+    "nodejs_compat",
+    "global_fetch_strictly_public"
+  ],
+  "workers_dev": true,
+  "preview_urls": true,
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "observability": {
+    "enabled": true
+  },
+  "routes": [
+    {
+      "pattern": "yourselftoscience.org/*",
+      "zone_name": "yourselftoscience.org"
+    },
+    {
+      "pattern": "yourselftoscience.com/*",
+      "zone_name": "yourselftoscience.com"
+    }
+  ],
+  "env": {
+    "localtest": {
+      "routes": []
+    }
+  }
+}

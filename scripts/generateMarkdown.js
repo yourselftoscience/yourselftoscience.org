@@ -394,6 +394,8 @@ function generateMissionMarkdown() {
   let mdContent = `# Our Mission & Roadmap\n\n`;
   mdContent += `> Building the simplest way to contribute to science through a unified, public catalogue of clinical trials, registries, databases, and programs.\n\n`;
 
+  mdContent += `Founded and maintained by [Mario Marcolongo](https://yourselftoscience.org/about/mario-marcolongo), with contributions through the public repository.\n\n`;
+
   mdContent += `## The Challenge\n\n`;
   mdContent += `Many programs already exist—but without shared infrastructure, it's hard for people to navigate the full landscape. We believe everyone benefits when information is unified and accessible.\n\n`;
   mdContent += `- **Scattered Landscape:** Registries, donation portals, and services all exist independently, making it hard to see the full picture.\n`;

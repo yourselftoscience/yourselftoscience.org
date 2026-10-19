@@ -1,5 +1,3 @@
-export const runtime = 'edge';
-
 const headers = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, HEAD, OPTIONS',

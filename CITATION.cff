@@ -1,8 +1,15 @@
 cff-version: 1.2.0
 message: "If you use this repository or dataset, please cite it as below. License: CC0-1.0 (dataset), CC-BY-SA-4.0 (content), AGPL-3.0-or-later (code)."
-type: dataset
+type: software
 title: "Yourself To Science"
-license: CC0-1.0
+license-url: "https://yourselftoscience.org/license"
+abstract: >-
+  Website software and a directory of services through which individuals can
+  contribute biological or digital data, samples, time or other resources to
+  research. The archive contains separately licensed components: code under
+  AGPL-3.0-or-later, authored content under CC-BY-SA-4.0 and the directory dataset
+  under CC0-1.0. These licences apply to their respective components, not as
+  alternative choices for the entire archive. See the included licence files.
 authors:
   - family-names: "Marcolongo"
     given-names: "Mario"

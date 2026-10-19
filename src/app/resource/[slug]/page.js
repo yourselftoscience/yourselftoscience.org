@@ -2,12 +2,13 @@
 import resources from '@/../public/resources_wikidata.json';
 import { redirect, permanentRedirect } from 'next/navigation';
 import Link from 'next/link';
-import { permanentDoi } from '@/data/config';
+import { catalogueId, catalogueUrl, dataCatalogId } from '@/data/catalogueMetadata';
 import { FaCheckCircle, FaExternalLinkAlt, FaHeart, FaDollarSign, FaQuestionCircle, FaUniversity, FaBuilding, FaFlask, FaLandmark, FaInfoCircle, FaLaptop, FaMobileAlt, FaCog, FaShareAlt, FaMapMarkerAlt, FaGlobe, FaTag, FaClipboardList, FaUserCheck, FaUserFriends, FaCoins, FaListOl, FaUserShield, FaArrowRight, FaBox, FaBook, FaDatabase, FaCodeBranch, FaHandshake, FaLink } from 'react-icons/fa';
 import CopyButton from '@/components/CopyButton';
 import wikidataStats from '@/data/wikidataStats.json';
 import WikidataIcon from '@/components/WikidataIcon';
 import RorIcon from '@/components/RorIcon';
+import { resourceSeoTitle } from '@/utils/resourceSeoTitle';
 
 export async function generateStaticParams() {
   const slugs = resources.map((resource) => ({
@@ -22,6 +23,7 @@ export async function generateStaticParams() {
 export const dynamicParams = false;
 
 export async function generateMetadata({ params }) {
+  params = await params;
   const resource = resources.find(p => p.slug === params.slug || p.id === params.slug);
 
   if (!resource) {
@@ -31,7 +33,7 @@ export async function generateMetadata({ params }) {
   }
 
   const displayTitle = resource.wikidataLabel || resource.title;
-  const title = `${displayTitle} | Directory & Data`;
+  const title = resourceSeoTitle(resource);
   const baseDescription = resource.wikidataDescription || resource.description || `Learn more about ${displayTitle}.`;
   const description = `Discover participation details, open datasets, and comprehensive metadata for ${displayTitle}. ${baseDescription}`;
   const canonicalUrl = `https://yourselftoscience.org/resource/${resource.slug}`;
@@ -56,21 +58,17 @@ export async function generateMetadata({ params }) {
       description,
     },
     other: {
-      'citation_title': title,
-      'citation_publisher': 'Yourself to Science',
-      'citation_publication_date': new Date().getFullYear().toString(),
-      'citation_language': 'en',
-      'citation_inbook_title': 'Yourself to Science Catalogue',
       'DC.title': title,
       'DC.identifier': persistentIdUrl,
       'DC.description': description,
       'DC.publisher': 'Yourself to Science',
-      'DC.relation.ispartof': `doi:${permanentDoi}`
+      'DC.relation.ispartof': catalogueId
     }
   };
 }
 
-export default function ResourcePage({ params }) {
+export default async function ResourcePage({ params }) {
+  params = await params;
   const resource = resources.find(p => p.slug === params.slug || p.id === params.slug);
 
   if (!resource) {
@@ -103,16 +101,14 @@ export default function ResourcePage({ params }) {
     'name': displayTitle,
     'description': displayDescription,
     'url': canonicalUrl,
+    '@id': persistentIdUrl,
     'identifier': [persistentIdUrl],
+    'isPartOf': { '@id': catalogueId },
     'includedInDataCatalog': {
       '@type': 'DataCatalog',
       'name': 'Yourself to Science',
-      'url': 'https://yourselftoscience.org',
-      'sameAs': 'https://doi.org/10.25504/FAIRsharing.d3d487',
-      'identifier': [
-        `https://doi.org/${permanentDoi}`,
-        'https://doi.org/10.25504/FAIRsharing.d3d487'
-      ]
+      '@id': dataCatalogId,
+      'url': catalogueUrl
     },
     'creator': resource.organizations ? resource.organizations.map(org => ({
       '@type': 'Organization',
@@ -455,7 +451,7 @@ export default function ResourcePage({ params }) {
                   )}
                   {resource.dataTypes?.some(t => t.toLowerCase().includes('genome')) && (
                     <li>
-                      <a href={`/genetic-data#${resource.slug}`} className="flex items-center text-sm font-medium text-blue-700 hover:text-blue-900 bg-blue-50/50 border border-blue-100 px-4 py-2.5 rounded-lg transition-colors">
+                      <a href={`/what-can-i-do-with-my-genetic-data#${resource.slug}`} className="flex items-center text-sm font-medium text-blue-700 hover:text-blue-900 bg-blue-50/50 border border-blue-100 px-4 py-2.5 rounded-lg transition-colors">
                         <FaArrowRight className="mr-2 text-blue-400 w-4 h-4" /> Genetic Data Directory
                       </a>
                     </li>

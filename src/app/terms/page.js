@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 export const metadata = {
-    title: 'Terms of Use & Disclaimer | Yourself to Science',
+    title: 'Terms of Use & Disclaimer',
     description:
         'Legal terms, conditions, and disclaimers for using yourselftoscience.org and participating in research programs.',
 };

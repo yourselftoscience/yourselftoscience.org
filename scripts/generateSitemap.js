@@ -67,6 +67,7 @@ async function generateSitemap() {
       { url: `${SITE_URL}/what-can-i-do-with-my-genetic-data`, priority: '0.8', changefreq: 'monthly', file: 'src/app/what-can-i-do-with-my-genetic-data/page.js' },
       { url: `${SITE_URL}/stats`, priority: '0.8', changefreq: 'weekly', file: 'src/app/stats/page.js', isDataDriven: true },
       { url: `${SITE_URL}/get-involved`, priority: '0.8', changefreq: 'monthly', file: 'src/app/get-involved/page.js' },
+      { url: `${SITE_URL}/about/mario-marcolongo`, priority: '0.6', changefreq: 'monthly', file: 'src/app/about/mario-marcolongo/page.js' },
       { url: `${SITE_URL}/mission`, priority: '0.7', changefreq: 'monthly', file: 'src/app/mission/page.js' },
       { url: `${SITE_URL}/privacy-policy`, priority: '0.3', changefreq: 'yearly', file: 'src/app/privacy-policy/page.js' },
       { url: `${SITE_URL}/terms`, priority: '0.3', changefreq: 'yearly', file: 'src/app/terms/page.js' },

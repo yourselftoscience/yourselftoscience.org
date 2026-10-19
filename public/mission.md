@@ -2,6 +2,8 @@
 
 > Building the simplest way to contribute to science through a unified, public catalogue of clinical trials, registries, databases, and programs.
 
+Founded and maintained by [Mario Marcolongo](https://yourselftoscience.org/about/mario-marcolongo), with contributions through the public repository.
+
 ## The Challenge
 
 Many programs already exist—but without shared infrastructure, it's hard for people to navigate the full landscape. We believe everyone benefits when information is unified and accessible.

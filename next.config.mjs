@@ -13,8 +13,19 @@ const agentDiscoveryLinks = [
 
 const nextConfig = {
   poweredByHeader: false,
+  output: 'standalone',
   async redirects() {
     return [
+      {
+        source: '/genetic-data',
+        destination: '/what-can-i-do-with-my-genetic-data',
+        permanent: true,
+      },
+      {
+        source: '/about',
+        destination: '/mission',
+        permanent: true,
+      },
       {
         source: '/contribute',
         destination: '/get-involved',

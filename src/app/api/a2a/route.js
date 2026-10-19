@@ -5,8 +5,6 @@ import {
   searchCatalogue,
 } from '@/lib/catalogueAgent';
 
-export const runtime = 'edge';
-
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, HEAD, POST, OPTIONS',

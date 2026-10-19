@@ -24,9 +24,10 @@
     ] ;
     dcterms:created "2025-01-31"^^xsd:date ;
     dcterms:modified "2026-05-05"^^xsd:date ;
-    schema:version "2.0" ;
-    dcterms:identifier <https://doi.org/10.5281/zenodo.15109359> ;
-    schema:identifier "10.5281/zenodo.15110328" ;
+    dcterms:identifier <https://yourselftoscience.org/resources.ttl#dataset> ;
+    schema:url <https://yourselftoscience.org/data> ;
+    schema:subjectOf <https://doi.org/10.25504/FAIRsharing.d3d487> ;
+    dcterms:references <https://doi.org/10.5281/zenodo.15109359> ;
     void:dataDump <https://yourselftoscience.org/resources.ttl> ;
     void:dataDump <https://yourselftoscience.org/resources.json> ;
     void:dataDump <https://yourselftoscience.org/resources.csv> ;
@@ -44,7 +45,6 @@
         schema:contentUrl <https://yourselftoscience.org/resources.csv>
     ] ;
     void:entities 56 ;
-    void:sparqlEndpoint <https://query.wikidata.org/> ;
     void:uriSpace <https://yourselftoscience.org/resource/> ;
     void:linkPredicate schema:sameAs ;
     void:target <http://www.wikidata.org/entity/Q2013> ;

@@ -13,6 +13,7 @@ import MultiSelectDropdown from '@/components/MultiSelectDropdown';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import Head from 'next/head';
 import Link from 'next/link';
+import PageLoading from '@/components/PageLoading';
 
 // Service Options
 const SERVICES = [
@@ -748,7 +749,7 @@ function GeneticDataWizard() {
 // Wrap the main functional component in Suspense to safely use Next.js useSearchParams
 export default function GeneticDataPage() {
     return (
-        <Suspense fallback={<div className="min-h-screen bg-slate-50 flex items-center justify-center text-slate-500 font-medium">Loading research opportunities...</div>}>
+        <Suspense fallback={<PageLoading title="Find Research for Your DNA" description="Explore research programmes that accept genetic data, including paid and donation opportunities." />}>
             <GeneticDataWizard />
         </Suspense>
     );
