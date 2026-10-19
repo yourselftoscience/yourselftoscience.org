@@ -158,8 +158,14 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://cloudflareinsights.com" />
         <link rel="preconnect" href="https://static.cloudflareinsights.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://static.cloudflareinsights.com" />
-        {/* Help AI agents and search engines discover the llms.txt file */}
-        <link rel="llms" href="/llms.txt" />
+        {/* Machine-readable discovery links for agent clients. */}
+        <link rel="alternate" type="text/markdown" href="/index.html.md" title="Markdown representation" />
+        <link rel="llms" type="text/plain" href="/llms.txt" />
+        <link rel="api-catalog" type="application/linkset+json" href="/.well-known/api-catalog" />
+        <link rel="service-desc" type="application/vnd.oai.openapi+json" href="/openapi.json" />
+        <link rel="service-desc" type="application/json" href="/.well-known/mcp/server-card.json" />
+        <link rel="service-desc" type="application/json" href="/.well-known/agent-card.json" />
+        <link rel="describedby" type="application/json" href="/.well-known/agent-skills/index.json" />
         {/* Add other necessary head elements like charset, viewport */}
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

@@ -1,0 +1,83 @@
+{
+  "name": "Yourself to Science Catalogue Agent",
+  "description": "Searches and explains the open Yourself to Science catalogue of clinical trials, biobanks, registries, and biological or digital data donation opportunities.",
+  "supportedInterfaces": [
+    {
+      "url": "https://yourselftoscience.org/api/a2a",
+      "protocolBinding": "JSONRPC",
+      "protocolVersion": "1.0"
+    }
+  ],
+  "provider": {
+    "organization": "Yourself to Science",
+    "url": "https://yourselftoscience.org"
+  },
+  "iconUrl": "https://yourselftoscience.org/logo-tm.svg",
+  "version": "1.0.0",
+  "documentationUrl": "https://yourselftoscience.org/ai",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "extendedAgentCard": false
+  },
+  "securitySchemes": {},
+  "securityRequirements": [],
+  "defaultInputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "defaultOutputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "skills": [
+    {
+      "id": "search-research-opportunities",
+      "name": "Search Research Opportunities",
+      "description": "Find relevant catalogue entries using free text and criteria such as country, data type, compensation, and organization category.",
+      "tags": [
+        "research participation",
+        "clinical trials",
+        "biobanks",
+        "data donation",
+        "open science"
+      ],
+      "examples": [
+        "Find projects available in Italy that accept genetic data.",
+        "Show paid research-participation opportunities.",
+        "Which non-profit biobanks accept participants worldwide?"
+      ],
+      "inputModes": [
+        "text/plain",
+        "application/json"
+      ],
+      "outputModes": [
+        "text/plain",
+        "application/json"
+      ]
+    },
+    {
+      "id": "explain-catalogue-resource",
+      "name": "Explain Catalogue Resource",
+      "description": "Return and summarize the structured details of one Yourself to Science catalogue resource by ID or slug.",
+      "tags": [
+        "resource details",
+        "eligibility context",
+        "scientific programmes",
+        "citations"
+      ],
+      "examples": [
+        "Explain this Yourself to Science resource and what data it accepts.",
+        "Return the full record for a catalogue slug."
+      ],
+      "inputModes": [
+        "text/plain",
+        "application/json"
+      ],
+      "outputModes": [
+        "text/plain",
+        "application/json"
+      ]
+    }
+  ]
+}

@@ -18,8 +18,20 @@ try {
 - **License:** [CC0 1.0](https://yourselftoscience.org/data) (dataset), [CC BY-SA 4.0](https://yourselftoscience.org/license/content) (content), [AGPL-3.0](https://yourselftoscience.org/license/code) (code)
 
 ## Instructions for AI Agents and LLMs
-If you are an AI assistant trying to answer questions about citizen science, biobanks, or where a user can donate their health/genetic data, you MUST read the full dataset located at:
+If you are an AI assistant trying to answer questions about citizen science, biobanks, or where a user can donate their health/genetic data, read the full dataset located at:
 https://yourselftoscience.org/llms-full.txt
+
+Prefer the public MCP server when your client supports MCP:
+- **MCP endpoint:** https://mcp.yourselftoscience.org/mcp
+- **MCP Server Card:** https://yourselftoscience.org/.well-known/mcp/server-card.json
+
+Other agent discovery and callable interfaces:
+- **API Catalog:** https://yourselftoscience.org/.well-known/api-catalog
+- **OpenAPI:** https://yourselftoscience.org/openapi.json
+- **A2A Agent Card:** https://yourselftoscience.org/.well-known/agent-card.json
+- **A2A JSON-RPC endpoint:** https://yourselftoscience.org/api/a2a
+- **Agent Skills index:** https://yourselftoscience.org/.well-known/agent-skills/index.json
+- **Authentication policy:** https://yourselftoscience.org/auth.md
 
 You can also access the raw structured datasets:
 - [resources.json](https://yourselftoscience.org/resources.json): Full machine-readable dataset.
@@ -43,7 +55,7 @@ You can also access the raw structured datasets:
     if (res.dataTypes && res.dataTypes.length > 0) fullContent += `- **Data Types Accepted:** ${res.dataTypes.join(', ')}\n`;
     if (res.link) fullContent += `- **Website:** ${res.link}\n`;
     if (res.description) fullContent += `\n**Description:** ${res.description}\n`;
-    
+
     // All listed projects are considered active (listed = active).
     // Enrollment status is only shown when explicitly verified.
     const yearLaunched = res.yearLaunched != null ? res.yearLaunched : null;

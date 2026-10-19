@@ -60,6 +60,38 @@ integration('dynamic badges and API validation keep their response contracts', a
   assert.equal(contact.status, 200);
 });
 
+integration('agent discovery endpoints serve health, A2A and Markdown negotiation', async () => {
+  const health = await request('/api/health');
+  assert.equal(health.status, 200);
+  assert.equal((await health.json()).status, 'ok');
+
+  const card = await request('/.well-known/agent-card.json');
+  assert.equal(card.status, 200);
+  assert.equal((await card.json()).supportedInterfaces[0].url, 'https://yourselftoscience.org/api/a2a');
+
+  const a2a = await request('/api/a2a', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({
+      jsonrpc: '2.0',
+      id: 'smoke-1',
+      method: 'SendMessage',
+      params: { message: { parts: [{ text: 'diabetes' }] } },
+    }),
+  });
+  assert.equal(a2a.status, 200);
+  const a2aBody = await a2a.json();
+  assert.equal(a2aBody.id, 'smoke-1');
+  assert.equal(a2aBody.result.message.role, 'ROLE_AGENT');
+  assert.match(a2aBody.result.message.parts[0].text, /Found .* catalogue resource/i);
+
+  const markdown = await request('/', { headers: { accept: 'text/markdown' } });
+  assert.equal(markdown.status, 200);
+  assert.match(markdown.headers.get('content-type'), /text\/markdown/);
+  assert.equal(markdown.headers.get('content-location'), '/index.html.md');
+  assert.match(await markdown.text(), /^# Yourself to Science/m);
+});
+
 // fetch may replace Host; raw HTTP exercises the actual middleware host branch.
 integration('identifier host redirects application pages and public exports', async (t) => {
   if (new URL(base).protocol !== 'http:') {
