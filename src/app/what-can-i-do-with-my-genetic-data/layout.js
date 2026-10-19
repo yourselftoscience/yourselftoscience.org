@@ -1,4 +1,4 @@
-const title = "Put Your DNA to Work | Find Paid & Scientific Research Opportunities";
+const title = "Research with Your DNA Data";
 const description = "Discover what you can do with your DNA data. Match your raw data from 23andMe, AncestryDNA, or any provider with academic, non-profit, or commercial research studies, including paid opportunities.";
 const url = "https://yourselftoscience.org/what-can-i-do-with-my-genetic-data";
 const siteName = "Yourself to Science";

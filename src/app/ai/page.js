@@ -44,8 +44,8 @@ export default function AIPage() {
             Yourself to Science isn&apos;t just a static website—it&apos;s a machine-readable ecosystem. We expose our entire open-source catalogue directly to AI models, IDEs, and autonomous agents using global standards like MCP.
           </motion.p>
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
-            <a href="https://mcp.yourselftoscience.org/mcp" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-semibold text-white bg-purple-600 hover:bg-purple-700 rounded-xl transition-all shadow-md hover:shadow-lg">
-              <FaNetworkWired /> Connect MCP Server
+            <a href="#mcp-connection" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-semibold text-white bg-purple-600 hover:bg-purple-700 rounded-xl transition-all shadow-md hover:shadow-lg">
+              <FaNetworkWired /> Configure MCP Connection
             </a>
             <Link href="/llms.txt" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-medium text-apple-primary-text bg-white border border-apple-divider hover:bg-gray-50 rounded-xl transition-all shadow-sm">
               <FaFileAlt /> View llms.txt
@@ -94,7 +94,7 @@ export default function AIPage() {
             </div>
           </div>
 
-          <div className="bg-slate-900 text-gray-300 p-6 rounded-2xl font-mono text-sm overflow-x-auto">
+          <div id="mcp-connection" className="scroll-mt-24 bg-slate-900 text-gray-300 p-6 rounded-2xl font-mono text-sm overflow-x-auto">
             <p className="text-gray-400 mb-2">{"// How to add to your Claude Desktop config (claude_desktop_config.json)"}</p>
             <code>
               {`{

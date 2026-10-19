@@ -7,7 +7,7 @@ export const metadata = {
     canonical: 'https://yourselftoscience.org/explore',
   },
   openGraph: {
-    title: 'Data Explorer | Yourself to Science',
+    title: 'Data Explorer',
     description: 'Interactive database view for technical users, including researchers, investors, and policy makers. Filter, sort, and export the complete citizen science catalogue.',
     url: 'https://yourselftoscience.org/explore',
     type: 'website',

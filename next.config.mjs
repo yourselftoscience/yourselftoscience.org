@@ -7,6 +7,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/genetic-data',
+        destination: '/what-can-i-do-with-my-genetic-data',
+        permanent: true,
+      },
+      {
         source: '/about',
         destination: '/mission',
         permanent: true,

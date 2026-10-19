@@ -5,7 +5,7 @@ import { FiInfo, FiArrowRight } from 'react-icons/fi';
 import wikidataStats from '@/data/wikidataStats.json';
 
 export const metadata = {
-  title: 'Academic & Technical Index - Yourself to Science',
+  title: 'Academic & Technical Index',
   description: 'The complete A-Z technical directory of all scientific resources mapped in the Yourself to Science knowledge graph.'
 };
 

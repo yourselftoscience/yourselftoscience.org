@@ -23,7 +23,7 @@ export async function generateMetadata({ params }) {
     if (!dataType) return {};
 
     return {
-        title: `${dataType.title} | Data Dictionary | Yourself to Science`,
+        title: `${dataType.title} | Data Dictionary`,
         description: dataType.description,
         alternates: {
             canonical: `https://yourselftoscience.org/data-types/${dataType.slug}`,

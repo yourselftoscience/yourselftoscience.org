@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Privacy Policy | Yourself to Science',
+  title: 'Privacy Policy',
   description:
     'This Privacy Policy describes how yourselftoscience.org collects, uses, and shares your personal information when you use our website.',
 };

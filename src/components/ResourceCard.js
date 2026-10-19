@@ -443,7 +443,7 @@ export default function ResourceCard({
                     onClick={(e) => { e.stopPropagation(); onFilterChange('countries', country, !isActive); }}
                   >
                     {code && (
-                      <CountryFlag countryCode={code} svg aria-hidden="true" style={{ width: '1em', height: '0.8em', marginRight: '4px' }} />
+                      <CountryFlag countryCode={code} svg alt="" aria-hidden="true" style={{ width: '1em', height: '0.8em', marginRight: '4px' }} />
                     )}
                     {country}
                   </TagButton>
