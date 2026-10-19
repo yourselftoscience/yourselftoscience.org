@@ -111,6 +111,12 @@ export default function MissionPage() {
         </motion.div>
       </section>
 
+      <p className="mb-16 text-center text-apple-secondary-text">
+        Founded and maintained by{' '}
+        <Link href="/about/mario-marcolongo" className="text-apple-accent underline underline-offset-4">Mario Marcolongo</Link>,
+        with contributions through the public repository.
+      </p>
+
       {/* 2. The Status Quo (The Problem) */}
       <section className="mb-24">
         <motion.div

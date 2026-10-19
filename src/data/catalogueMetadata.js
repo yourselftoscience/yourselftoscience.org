@@ -1,5 +1,6 @@
 // Canonical identities: live CC0 data, source software and registry record are distinct.
 import { permanentDoi } from './config.js';
+import { maintainer } from './maintainer.js';
 
 export const catalogueId = 'https://yourselftoscience.org/resources.ttl#dataset';
 export const catalogueUrl = 'https://yourselftoscience.org/data';
@@ -19,7 +20,8 @@ export function buildCatalogueMetadata(dateModified) {
     identifier: catalogueId,
     keywords: ['research participation', 'citizen science', 'open dataset', 'research opportunities', 'JSON', 'CSV', 'linked data'],
     alternateName: ['Yourself to Science Catalogue', 'Yourself to Science Database'],
-    creator: { '@type': 'Person', name: 'Mario Marcolongo', '@id': 'https://orcid.org/0000-0003-2846-7115' },
+    creator: maintainer,
+    maintainer,
     publisher: { '@type': 'Organization', name: 'Yourself to Science', url: 'https://yourselftoscience.org' },
     includedInDataCatalog: { '@type': 'DataCatalog', '@id': dataCatalogId, name: 'Yourself to Science', url: catalogueUrl },
     license: 'https://creativecommons.org/publicdomain/zero/1.0/',
