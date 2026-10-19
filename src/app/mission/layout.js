@@ -1,4 +1,4 @@
-const title = "Our Mission | Yourself to Science – Open Source Catalogue for Research Participation";
+const title = "Our Mission";
 const description = "Yourself to Science is building a unified, open-source catalogue of programs where people contribute data, biological samples, and more to research. Explore clinical trials, registries, databases, and donation portals — all in one place, with the resulting dataset available under a CC0 public domain license.";
 const url = "https://yourselftoscience.org/mission";
 const siteName = "Yourself to Science";

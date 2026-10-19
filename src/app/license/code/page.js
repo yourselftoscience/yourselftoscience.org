@@ -3,7 +3,7 @@ import path from 'path';
 import CodeLicenseClientPage from './CodeLicenseClientPage';
 
 export const metadata = {
-    title: 'Code License | Yourself to Science',
+    title: 'Code License',
     description: 'Source code license for Yourself to Science. The underlying source code is licensed under the GNU Affero General Public License (AGPL-3.0).',
     robots: {
         index: false,

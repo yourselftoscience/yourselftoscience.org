@@ -1,7 +1,7 @@
 import lastUpdatedMeta from '@/data/lastUpdated.json';
 import { buildCatalogueMetadata } from '@/data/catalogueMetadata';
 
-const title = "Open Science Data & API Hub | Programmatic Research Infrastructure";
+const title = "Open Dataset & API";
 const description = "Programmatic access to the Yourself to Science dataset. Relational data packages, AI/LLM feeds, quantitative JSON endpoints, and semantic RDF mapping. Standardized research infrastructure for open science.";
 const url = "https://yourselftoscience.org/data";
 const siteName = "Yourself to Science";

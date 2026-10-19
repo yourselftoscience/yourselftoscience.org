@@ -5,6 +5,7 @@ import React, { useState, useMemo, useCallback, useRef } from 'react';
 import { activeResources as allResources } from '@/data/resources';
 import Link from 'next/link';
 import CountryFlag from 'react-country-flag';
+import { rorUrl } from '@/utils/rorUrl';
 import {
   FaSort, FaSortUp, FaSortDown,
   FaDownload, FaSearch, FaTimes, FaColumns,
@@ -47,7 +48,7 @@ function getNestedValue(resource, key) {
     case 'citations':
       return (resource.citations || []).length;
     case 'rorId':
-      return (resource.organizations || []).map(o => o.rorId).filter(Boolean).join(', ');
+      return (resource.organizations || []).map(o => rorUrl(o.rorId)).filter(Boolean).join(', ');
     default:
       return resource[key] || '';
   }
@@ -633,9 +634,9 @@ export default function ExplorePage() {
                             {(resource.organizations || []).map((o, idx) => (
                               <div key={idx} className="flex items-center gap-1.5 whitespace-nowrap overflow-hidden">
                                 <span className="text-slate-600 text-xs truncate">{o.name}</span>
-                                {o.rorId && (
+                                {rorUrl(o.rorId) && (
                                   <a 
-                                    href={o.rorId} 
+                                    href={rorUrl(o.rorId)}
                                     target="_blank" 
                                     rel="noopener noreferrer" 
                                     title="View on ROR"
@@ -650,8 +651,8 @@ export default function ExplorePage() {
                           </div>
                         ) : col.key === 'rorId' ? (
                           <div className="flex flex-col gap-1">
-                             {(resource.organizations || []).map((o, idx) => o.rorId ? (
-                               <a key={idx} href={o.rorId} target="_blank" rel="noopener noreferrer" className="text-[10px] font-mono text-blue-600 hover:underline">
+                             {(resource.organizations || []).map((o, idx) => rorUrl(o.rorId) ? (
+                               <a key={idx} href={rorUrl(o.rorId)} target="_blank" rel="noopener noreferrer" className="text-[10px] font-mono text-blue-600 hover:underline">
                                  {o.rorId.split('/').pop()}
                                </a>
                              ) : null)}
@@ -662,6 +663,7 @@ export default function ExplorePage() {
                               <CountryFlag
                                 countryCode={resource.originCode}
                                 svg
+                                alt=""
                                 aria-hidden="true"
                                 style={{ width: '1.1em', height: '0.8em' }}
                               />

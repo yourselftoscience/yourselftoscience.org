@@ -3,7 +3,7 @@ import path from 'path';
 import DatasetLicenseClientPage from './DatasetLicenseClientPage';
 
 export const metadata = {
-  title: 'Dataset License | Yourself to Science',
+  title: 'Dataset License',
   description:
     'Dataset license for Yourself to Science. The dataset is dedicated to the public domain under the Creative Commons CC0 1.0 Universal Public Domain Dedication (CC0 1.0).',
   robots: {

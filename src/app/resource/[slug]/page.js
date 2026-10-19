@@ -8,6 +8,7 @@ import CopyButton from '@/components/CopyButton';
 import wikidataStats from '@/data/wikidataStats.json';
 import WikidataIcon from '@/components/WikidataIcon';
 import RorIcon from '@/components/RorIcon';
+import { resourceSeoTitle } from '@/utils/resourceSeoTitle';
 
 export async function generateStaticParams() {
   const slugs = resources.map((resource) => ({
@@ -32,7 +33,7 @@ export async function generateMetadata({ params }) {
   }
 
   const displayTitle = resource.wikidataLabel || resource.title;
-  const title = `${displayTitle} | Directory & Data`;
+  const title = resourceSeoTitle(resource);
   const baseDescription = resource.wikidataDescription || resource.description || `Learn more about ${displayTitle}.`;
   const description = `Discover participation details, open datasets, and comprehensive metadata for ${displayTitle}. ${baseDescription}`;
   const canonicalUrl = `https://yourselftoscience.org/resource/${resource.slug}`;
@@ -450,7 +451,7 @@ export default async function ResourcePage({ params }) {
                   )}
                   {resource.dataTypes?.some(t => t.toLowerCase().includes('genome')) && (
                     <li>
-                      <a href={`/genetic-data#${resource.slug}`} className="flex items-center text-sm font-medium text-blue-700 hover:text-blue-900 bg-blue-50/50 border border-blue-100 px-4 py-2.5 rounded-lg transition-colors">
+                      <a href={`/what-can-i-do-with-my-genetic-data#${resource.slug}`} className="flex items-center text-sm font-medium text-blue-700 hover:text-blue-900 bg-blue-50/50 border border-blue-100 px-4 py-2.5 rounded-lg transition-colors">
                         <FaArrowRight className="mr-2 text-blue-400 w-4 h-4" /> Genetic Data Directory
                       </a>
                     </li>
