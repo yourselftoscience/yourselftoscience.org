@@ -79,7 +79,7 @@
     "chokidar": "4.0.3",
     "debug": "^4.3.7",
     "glob": "^11.1.0",
-    "node-fetch": "^2.6.7",
+    "node-fetch": "^3.0.0",
     "playwright": "^1.58.2",
     "puppeteer": "25.14.0",
     "rimraf": "^6.0.1",
